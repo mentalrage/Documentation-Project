@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2105
-Total_Reconstructable: 898
+Total_Reconstructable: 899
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 377
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 521
-Total_Unclassified: 1196
+Total_Reconstructable_Unassigned: 522
+Total_Unclassified: 1195
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -760,6 +760,7 @@ Total_Error: 0
 | [UID:0001HT][0x00574b90-0x00575377.CashShopRequestSendQueue](by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md) | unassigned |  |  | no |  | `by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md` |  |
 | [UID:0001HU][0x00574bb0-0x00574c13.QueueAndSendPacket](by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md) | unassigned |  |  | no |  | `by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md` |  |
 | [UID:0001HW][0x00574d40-0x00574e44.SendPositionUpdate](by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md) | unassigned |  |  | no |  | `by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md` |  |
+| [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md) | unassigned |  |  | no |  | `by-memory/0x00575370-0x00575377.GetConnectionStatus.md` |  |
 | [UID:0001IE][0x0057b9e0-0x0057baa3.DequeDestroyOwnedEntries](by-memory/0x0057b9e0-0x0057baa3.DequeDestroyOwnedEntries.md) | unassigned |  |  | no |  | `by-memory/0x0057b9e0-0x0057baa3.DequeDestroyOwnedEntries.md` |  |
 | [UID:0001IQ][0x00582070-0x0058209a.StdioFileConstructor](by-memory/0x00582070-0x0058209a.StdioFileConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00582070-0x0058209a.StdioFileConstructor.md` |  |
 | [UID:0001IR][0x00582070-0x005824f6.StdioFile](by-memory/0x00582070-0x005824f6.StdioFile.md) | unassigned |  |  | no |  | `by-memory/0x00582070-0x005824f6.StdioFile.md` |  |
@@ -1642,7 +1643,6 @@ Total_Error: 0
 | [UID:0001HS][0x005747e0-0x00574ad8.SocketLifecycle](by-memory/0x005747e0-0x00574ad8.SocketLifecycle.md) | unclassified |  |  | no |  | `by-memory/0x005747e0-0x00574ad8.SocketLifecycle.md` |  |
 | [UID:0001HV][0x00574d00-0x00574d3f.SendRawDataRaw](by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md) | unclassified |  |  | no |  | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |  |
 | [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md) | unclassified |  |  | no |  | `by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md` |  |
-| [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md) | unclassified |  |  | no |  | `by-memory/0x00575370-0x00575377.GetConnectionStatus.md` |  |
 | [UID:0001HZ][0x00575380-0x00575abb.PacketBufferHelpers](by-memory/0x00575380-0x00575abb.PacketBufferHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575380-0x00575abb.PacketBufferHelpers.md` |  |
 | [UID:000243][0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers](by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md` |  |
 | [UID:000244][0x00575b90-0x00575caa.PacketTransformStringKeyHelpers](by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md` |  |
