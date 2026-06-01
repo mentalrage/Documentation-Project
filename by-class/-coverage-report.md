@@ -468,7 +468,7 @@
 - [UID:0000CR][SelectionControlPane](by-class/SelectionControlPane.md) : reconstructable : 68% : medium-high : - Confidence: strong for the recovered method and field offset, medium for final original class/file naming.
 - [UID:0000CT][SelectObjectWithKeyboardPane](by-class/SelectObjectWithKeyboardPane.md) : reconstructable : 84% : high : - Confidence: strong for class behavior and IDA boundaries; medium for exact original file split.
 - [UID:0000CU][SelfLookPane](by-class/SelfLookPane.md) : reconstructable : 55% : strong : Self-look panel class covering character data, equipment rendering, child panes, mouse/keyboard input, helper islands, and the `0x0066fe40` hover-slot state.
-- [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) : reconstructable : 84% : medium-high : - Confidence: strong for class purpose; medium for several projected method starts around `0x00570940-0x00570ac0`.
+- [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) : reconstructable : 86% : strong : SelfLookPane2 class purpose, constructor/cleanup, draw/view/input/stat/button ranges, helper islands, packet flow, and current IDA MCP raw-boundary caveats documented.
 - [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md) : reconstructable : 74% : medium-high : - Confidence: medium-high.
 - [UID:0000CX][SelfSaveOKPane](by-class/SelfSaveOKPane.md) : reconstructable : 86% : high : - Confidence: strong for the narrow class island and Wave3 pollution warning; medium for final source placement.
 - [UID:0000CY][SeparatorMenuItem](by-class/SeparatorMenuItem.md) : reconstructable : 86% : strong : - Confidence: strong for class role, vtable ownership, layout relationship, and exact constructor/virtual method pages.

@@ -1,9 +1,9 @@
 *** UID:0000CV | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NL | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:15 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -50,6 +50,8 @@
 - Wave3 reports `SelfLookPane2` grade `97.8` and zero missing refs.
 - IDA confirms the constructor, draw/view/input/stat/button functions listed above.
 - IDA confirms bytes at `0x00570940`, `0x00570a00`, and `0x00570ac0` look function-prologue-shaped, but no IDA function records or xrefs currently exist at those starts.
+- 2026-06-01 IDA MCP recheck confirms the modeled function map through `0x005728a0`, constructor child-pane calls to `SpelledPane` and `LegendPane`, cleanup in `0x00570030`, input-handler calls to the button hit-test helper, view switches, packet builder, and packet sender.
+- The current confidence remains below maximum because `0x00570940`, `0x00570a00`, `0x00570ac0`, and the post-range `0x005729e0` helper island are still raw/unmodeled rather than clean IDA function objects.
 
 ## Cross-References
 
@@ -70,3 +72,5 @@
 - Before: the post-`SelfLookPane2` helper area was listed only as loose `0x00572f30` / `0x00572fd0` notes while the coverage report still treated `0x005729c3-0x00573240` as unknown.
 - Changed to: the helper island is documented as [UID:00023X][0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers](by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md), with the destructor body linked through [UID:000240][0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers](by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md).
 - Evidence: 2026-05-28 IDA MCP disassembly showed raw packet/update helper starts at `0x005729e0`, `0x00572a60`, `0x00572ae0`, and `0x00572b60`, plus IDA functions at `0x00572f30`, `0x00572fd0`, and `0x00573640`.
+- 2026-06-01: Raised from `84/78` to `86/82`, marked reconstructable, and attached to [UID:0000NL][SelfLookPane](by-file/SelfLookPane.md).
+  - C++ remains blank because final helper/field names are not source-quality and the raw helper starts still need later boundary normalization.
