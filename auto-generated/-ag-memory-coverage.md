@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2105
-Total_Reconstructable: 902
+Total_Reconstructable: 903
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 377
+Total_Reconstructed_Assigned: 378
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 525
-Total_Unclassified: 1192
+Total_Unclassified: 1191
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -363,6 +363,7 @@ Total_Error: 0
 | [UID:0001HJ][0x0056fe70-0x0056fe75.CollectionPane2FalseStub](by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md) | assigned | `0000IC` | 70 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md` |  |
 | [UID:0001HK][0x0056fe80-0x005729c3.SelfLookPane2](by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md) | assigned | `0000NL` | 20 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md` |  |
 | [UID:0001HR][0x00573d20-0x005747df.ServerSelectPane](by-memory/0x00573d20-0x005747df.ServerSelectPane.md) | assigned | `0000NO` | 10 | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |  |
+| [UID:0001I3][0x00578b20-0x00578c40.SocketTransformFramePayload](by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md) | assigned | `0000NS` |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -1649,7 +1650,6 @@ Total_Error: 0
 | [UID:0001HZ][0x00575380-0x00575abb.PacketBufferHelpers](by-memory/0x00575380-0x00575abb.PacketBufferHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575380-0x00575abb.PacketBufferHelpers.md` |  |
 | [UID:000243][0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers](by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md` |  |
 | [UID:000244][0x00575b90-0x00575caa.PacketTransformStringKeyHelpers](by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md` |  |
-| [UID:0001I3][0x00578b20-0x00578c40.SocketTransformFramePayload](by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md) | unclassified |  |  | no |  | `by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md` |  |
 | [UID:0001I4][0x00578c40-0x00578df1.SocketBuildEncryptedPacket](by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md) | unclassified |  |  | no |  | `by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md` |  |
 | [UID:0001I5][0x00578e00-0x00578e94.XorTransformBuffer](by-memory/0x00578e00-0x00578e94.XorTransformBuffer.md) | unclassified |  |  | no |  | `by-memory/0x00578e00-0x00578e94.XorTransformBuffer.md` |  |
 | [UID:000245][0x00578f70-0x005797ae.StlTreeStringMapSupport](by-memory/0x00578f70-0x005797ae.StlTreeStringMapSupport.md) | unclassified |  |  | no |  | `by-memory/0x00578f70-0x005797ae.StlTreeStringMapSupport.md` |  |
