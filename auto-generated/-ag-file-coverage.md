@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 135
+Total_Reconstructed_Assigned: 138
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 153
+Total_Error: 150
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -85,6 +85,7 @@ Total_Error: 153
 | [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-file/MonsterImageLib.md` | by-file generated root |
 | [UID:0000LO][MyItemListPane](by-file/MyItemListPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/MyItemListPane.cpp` | `by-file/MyItemListPane.md` | by-file generated root |
 | [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-file/NewHumanImageLib.md` | by-file generated root |
+| [UID:0000LU][NewSpellInventoryPane](by-file/NewSpellInventoryPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/inventory/NewSpellInventoryPane.cpp` | `by-file/NewSpellInventoryPane.md` | by-file generated root |
 | [UID:0000M1][NumberInputDialog](by-file/NumberInputDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/NumberInputDialog.cpp` | `by-file/NumberInputDialog.md` | by-file generated root |
 | [UID:0000M3][ObjectImageControlPane](by-file/ObjectImageControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ObjectImageControlPane.cpp` | `by-file/ObjectImageControlPane.md` | by-file generated root |
 | [UID:0000M4][ObjectList](by-file/ObjectList.md) | assigned |  |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-file/ObjectList.md` | by-file generated root |
@@ -111,6 +112,7 @@ Total_Error: 153
 | [UID:0000ND][ScreenshotCapture](by-file/ScreenshotCapture.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ScreenshotCapture.cpp` | `by-file/ScreenshotCapture.md` | by-file generated root |
 | [UID:0000NF][ScrollBar](by-file/ScrollBar.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-file/ScrollBar.md` | by-file generated root |
 | [UID:0000NG][ScrollCollectionPane](by-file/ScrollCollectionPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/ScrollCollectionPane.cpp` | `by-file/ScrollCollectionPane.md` | by-file generated root |
+| [UID:0000NJ][ScrollSpellInventoryPane](by-file/ScrollSpellInventoryPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/inventory/ScrollSpellInventoryPane.cpp` | `by-file/ScrollSpellInventoryPane.md` | by-file generated root |
 | [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ScrollVolumePane.cpp` | `by-file/ScrollVolumePane.md` | by-file generated root |
 | [UID:0000NH][ScrolledPictureControlPane](by-file/ScrolledPictureControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ScrolledPictureControlPane.cpp` | `by-file/ScrolledPictureControlPane.md` | by-file generated root |
 | [UID:0000NL][SelfLookPane](by-file/SelfLookPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-file/SelfLookPane.md` | by-file generated root |
@@ -119,6 +121,7 @@ Total_Error: 153
 | [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/SimpleListPane.cpp` | `by-file/SimpleListPane.md` | by-file generated root |
 | [UID:0000NS][Socket](by-file/Socket.md) | assigned |  |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-file/Socket.md` | by-file generated root |
 | [UID:0000NV][SoundManager](by-file/SoundManager.md) | assigned |  |  | no | `auto-generated/NexusTK/audio/SoundManager.cpp` | `by-file/SoundManager.md` | by-file generated root |
+| [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-file/SpellInventoryPane.md` | by-file generated root |
 | [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-file/StartupLogoPanes.md` | by-file generated root |
 | [UID:0000O5][StartupWindow](by-file/StartupWindow.md) | assigned |  |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-file/StartupWindow.md` | by-file generated root |
 | [UID:0000O7][StaticObjImageLib](by-file/StaticObjImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/StaticObjImageLib.cpp` | `by-file/StaticObjImageLib.md` | by-file generated root |
@@ -234,7 +237,6 @@ Total_Error: 153
 | [UID:0000LQ][NewHistoryDialogPane](by-file/NewHistoryDialogPane.md) | error |  |  | no |  | `by-file/NewHistoryDialogPane.md` | by-file generated root |
 | [UID:0000LS][NewInventoryPane](by-file/NewInventoryPane.md) | error |  |  | no |  | `by-file/NewInventoryPane.md` | by-file generated root |
 | [UID:0000LT][NewPredefinedFormArticleDialog](by-file/NewPredefinedFormArticleDialog.md) | error |  |  | no |  | `by-file/NewPredefinedFormArticleDialog.md` | by-file generated root |
-| [UID:0000LU][NewSpellInventoryPane](by-file/NewSpellInventoryPane.md) | error |  |  | no |  | `by-file/NewSpellInventoryPane.md` | by-file generated root |
 | [UID:0000LV][NewUserDialogPane](by-file/NewUserDialogPane.md) | error |  |  | no |  | `by-file/NewUserDialogPane.md` | by-file generated root |
 | [UID:0000LW][NewUserDialogPane2](by-file/NewUserDialogPane2.md) | error |  |  | no |  | `by-file/NewUserDialogPane2.md` | by-file generated root |
 | [UID:0000LX][NewUserMiscDialogPane](by-file/NewUserMiscDialogPane.md) | error |  |  | no |  | `by-file/NewUserMiscDialogPane.md` | by-file generated root |
@@ -266,7 +268,6 @@ Total_Error: 153
 | [UID:0000NA][ScreenDimmer](by-file/ScreenDimmer.md) | error |  |  | no |  | `by-file/ScreenDimmer.md` | by-file generated root |
 | [UID:0000NB][ScreenPane](by-file/ScreenPane.md) | error |  |  | no |  | `by-file/ScreenPane.md` | by-file generated root |
 | [UID:0000NC][ScreenPanePaletteState](by-file/ScreenPanePaletteState.md) | error |  |  | no |  | `by-file/ScreenPanePaletteState.md` | by-file generated root |
-| [UID:0000NJ][ScrollSpellInventoryPane](by-file/ScrollSpellInventoryPane.md) | error |  |  | no |  | `by-file/ScrollSpellInventoryPane.md` | by-file generated root |
 | [UID:0000NE][ScrollableControlPane](by-file/ScrollableControlPane.md) | error |  |  | no |  | `by-file/ScrollableControlPane.md` | by-file generated root |
 | [UID:0000NI][ScrolledTextControlPane](by-file/ScrolledTextControlPane.md) | error |  |  | no |  | `by-file/ScrolledTextControlPane.md` | by-file generated root |
 | [UID:0000NM][SelfSaveInputPane](by-file/SelfSaveInputPane.md) | error |  |  | no |  | `by-file/SelfSaveInputPane.md` | by-file generated root |
@@ -278,7 +279,6 @@ Total_Error: 153
 | [UID:0000NX][SoundStatusPane](by-file/SoundStatusPane.md) | error |  |  | no |  | `by-file/SoundStatusPane.md` | by-file generated root |
 | [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) | error |  |  | no |  | `by-file/SpecializedButtonPanes.md` | by-file generated root |
 | [UID:0000O0][SpellInputPanes](by-file/SpellInputPanes.md) | error |  |  | no |  | `by-file/SpellInputPanes.md` | by-file generated root |
-| [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md) | error |  |  | no |  | `by-file/SpellInventoryPane.md` | by-file generated root |
 | [UID:0000O2][SpellMenuDialogs](by-file/SpellMenuDialogs.md) | error |  |  | no |  | `by-file/SpellMenuDialogs.md` | by-file generated root |
 | [UID:0000NZ][SpelledPane](by-file/SpelledPane.md) | error |  |  | no |  | `by-file/SpelledPane.md` | by-file generated root |
 | [UID:0000O3][StaffsDialogPane](by-file/StaffsDialogPane.md) | error |  |  | no |  | `by-file/StaffsDialogPane.md` | by-file generated root |

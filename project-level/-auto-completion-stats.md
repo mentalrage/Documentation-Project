@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 18:26:25
+Generated: 2026-06-01 18:42:01
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3581
-- Scored files: 3414
+- Tracked files: 3585
+- Scored files: 3418
 - Ignored files: 167
 
 ## projected_path_completion
@@ -104,7 +104,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LQ` | blank | `(blank)` | `by-file/NewHistoryDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LS` | blank | `(blank)` | `by-file/NewInventoryPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LT` | blank | `(blank)` | `by-file/NewPredefinedFormArticleDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LU` | blank | `(blank)` | `by-file/NewSpellInventoryPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LV` | blank | `(blank)` | `by-file/NewUserDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LW` | blank | `(blank)` | `by-file/NewUserDialogPane2.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LX` | blank | `(blank)` | `by-file/NewUserMiscDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -136,7 +135,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000NA` | blank | `(blank)` | `by-file/ScreenDimmer.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NB` | blank | `(blank)` | `by-file/ScreenPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NC` | blank | `(blank)` | `by-file/ScreenPanePaletteState.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NJ` | blank | `(blank)` | `by-file/ScrollSpellInventoryPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NE` | blank | `(blank)` | `by-file/ScrollableControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NI` | blank | `(blank)` | `by-file/ScrolledTextControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NM` | blank | `(blank)` | `by-file/SelfSaveInputPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -148,7 +146,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000NX` | blank | `(blank)` | `by-file/SoundStatusPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NY` | blank | `(blank)` | `by-file/SpecializedButtonPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O0` | blank | `(blank)` | `by-file/SpellInputPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000O1` | blank | `(blank)` | `by-file/SpellInventoryPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O2` | blank | `(blank)` | `by-file/SpellMenuDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NZ` | blank | `(blank)` | `by-file/SpelledPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O3` | blank | `(blank)` | `by-file/StaffsDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -171,11 +168,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000P8` | blank | `(blank)` | `by-file/WeatherLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
+
 ## Low_Completion
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
 | `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
@@ -199,6 +196,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
 | `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 | `0001K2` | 50 | 65 | 57.5 | `by-memory/0x00596e10-0x005970df.ThreadManWorkerLoop.md` |
+| `0001K3` | 50 | 65 | 57.5 | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |
+| `0001K7` | 50 | 65 | 57.5 | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |
 
 ## Low_Confidence
 
@@ -209,7 +208,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
 | `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
@@ -228,12 +226,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001JV` | 50 | 65 | 57.5 | `by-memory/0x00595900-0x00596242.TextPad.md` |
 | `000248` | 50 | 65 | 57.5 | `by-memory/0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers.md` |
 | `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
+| `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
+| `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
 | `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
@@ -257,6 +256,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
 | `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 | `0001K2` | 50 | 65 | 57.5 | `by-memory/0x00596e10-0x005970df.ThreadManWorkerLoop.md` |
+| `0001K3` | 50 | 65 | 57.5 | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |
+| `0001K7` | 50 | 65 | 57.5 | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |
 
 ## By Folder
 
@@ -320,9 +321,9 @@ _No scored files._
 | `0000HU` | 70 | 82 | 76.0 | `by-file/BowGaugeObjectPane.md` |
 | `0000HZ` | 72 | 80 | 76.0 | `by-file/CachedHashTable.md` |
 | `0000LS` | 78 | 74 | 76.0 | `by-file/NewInventoryPane.md` |
-| `0000LU` | 78 | 74 | 76.0 | `by-file/NewSpellInventoryPane.md` |
 | `0000LZ` | 78 | 74 | 76.0 | `by-file/NexonclubProxyDialog.md` |
 | `0000P3` | 78 | 74 | 76.0 | `by-file/VectorHelpers.md` |
+| `0000NP` | 80 | 72 | 76.0 | `by-file/Session.md` |
 
 ### by-function
 
@@ -392,7 +393,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
 | `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
@@ -416,6 +416,8 @@ _No scored files._
 | `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
 | `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 | `0001K2` | 50 | 65 | 57.5 | `by-memory/0x00596e10-0x005970df.ThreadManWorkerLoop.md` |
+| `0001K3` | 50 | 65 | 57.5 | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |
+| `0001K7` | 50 | 65 | 57.5 | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |
 
 ### by-meta
 

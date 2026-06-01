@@ -1,17 +1,17 @@
 *** UID:0000LU | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/inventory/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # NewSpellInventoryPane
 
 ## Status
 
-- Confidence: strong for newer spell-inventory behavior; medium for exact split from [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md).
+- Confidence: strong for newer spell-inventory behavior and `ui/inventory/` placement; medium-high for exact split from [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md).
 - Proposed module: `ui/inventory/NewSpellInventoryPane.cpp`
 - Companion module candidate: [UID:0000NJ][ScrollSpellInventoryPane](by-file/ScrollSpellInventoryPane.md) / `ui/inventory/ScrollSpellInventoryPane.cpp`
 - Current recovered source: `source-3/simroot_v2/class_NewSpellInventoryPane.cpp`
-- Evidence basis: `simroot_v2` method anchors plus IDA MCP lookup/caller checks on 2026-05-24.
+- Evidence basis: existing documentation plus IDA MCP lookup/caller/callee, vtable, and raw-boundary checks on 2026-05-24 and 2026-06-01.
 
 ## File Role
 
@@ -42,6 +42,8 @@ The embedded [UID:0000CN][ScrollSpellInventoryPane](by-class/ScrollSpellInventor
 - IDA MCP confirms `0x0057cf70` as a `0xcf`-byte constructor, `0x0057d430` as a `0x494`-byte paint method, and `0x0057d9c0` as a `0x7cf`-byte mouse handler.
 - IDA MCP `callees` for `0x0057cf70` include `0x0055f450` (`ScrollSpellInventoryPane` constructor) and `0x0055f5f0` (scrollbar activation helper).
 - IDA MCP `callers` for `0x0055f450` show only `0x0057d013` inside the new spell inventory constructor.
+- 2026-06-01 IDA MCP caller check shows the `NewSpellInventoryPane` constructor `0x0057cf70` is called from `0x004b84cb` in the pane owner path.
+- 2026-06-01 IDA MCP callee checks show `0x0057d430` uses render/resource helpers plus `0x0057d200` for row/model formatting, `0x0057d9c0` calls internal helpers `0x0057e9d0`, `0x0057e9a0`, `0x0057e8d0`, `0x0057e800`, `0x0057e690`, and cast dispatch `0x0057e2d0`, and `0x0057e2d0` dispatches into spell input/direct-cast helpers at `0x005ae2a0`, `0x005b1280`, `0x005b0780`, `0x005af4f0`, `0x005b1030`, `0x005b0da0`, `0x005adf40`, and `0x005b0ac0`.
 - Generated `class_NewSpellInventoryPane.cpp` is useful for behavior but should not be used alone for final spell-type/input-pane naming.
 
 ## Cross-References
@@ -58,3 +60,7 @@ The embedded [UID:0000CN][ScrollSpellInventoryPane](by-class/ScrollSpellInventor
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `78`, confidence `74`.
 - Summary/evidence: the page documents pane role, companion scrollbar, method-family ranges, and IDA constructor/caller checks, but final spell-type/input-pane naming and exact split from older spell inventory code remain unresolved.
+- 2026-06-01: Added projected path and raised score to `82/82`.
+  - Before: file metadata lacked the projected source folder and confidence stayed below the parent-attachment threshold.
+  - After: `PROPOSED_RECONSTRUCTION_PATH` is `NexusTK/ui/inventory/`; score reflects current IDA constructor caller, child-scrollbar calls, vtable slot ownership, internal helper chain, and cast/input dispatch evidence.
+  - C++ remains blank because spell-type helper names and field names are not final-source quality.

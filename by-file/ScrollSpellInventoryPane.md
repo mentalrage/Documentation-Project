@@ -1,7 +1,7 @@
 *** UID:0000NJ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/inventory/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ScrollSpellInventoryPane
 
@@ -55,3 +55,5 @@ Current metadata reports `vtable_count: 0` even though IDA confirms three `Scrol
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `84` and confidence to `78`.
   - Evidence: document covers role, proposed contents, range map, helper functions, layout/vtable refs, feature-specific boundary rules, and generated-output caveats; confidence is capped by possible nesting under `NewSpellInventoryPane` and current Wave3 vtable metadata debt.
+- 2026-06-01: Added projected path `NexusTK/ui/inventory/`.
+  - Evidence: this page already proposes `ui/inventory/ScrollSpellInventoryPane.cpp` or a fold into [UID:0000LU][NewSpellInventoryPane](by-file/NewSpellInventoryPane.md), and current spell-inventory source placement uses the same folder.

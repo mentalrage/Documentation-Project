@@ -1,17 +1,17 @@
 *** UID:0000O1 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/inventory/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SpellInventoryPane
 
 ## Status
 
-- Confidence: strong for spell inventory UI module ownership, medium for exact legacy/new split.
+- Confidence: strong for spell inventory UI module ownership and `ui/inventory/` placement, medium-high for exact legacy/new file split.
 - Proposed module folder: `ui/inventory/`
 - Candidate files: `ui/inventory/SpellInventoryPane.cpp`, `ui/inventory/NewSpellInventoryPane.cpp`, and `ui/inventory/ScrollSpellInventoryPane.cpp`
 - Current generated sources: `class_SpellInventoryPane.cpp`, `class_SpellInventoryPane2.cpp`, `class_NewSpellInventoryPane.cpp`, and `class_ScrollSpellInventoryPane.cpp`.
-- Evidence basis: Wave3 metadata and targeted IDA MCP boundary checks on 2026-05-23.
+- Evidence basis: existing documentation plus targeted IDA MCP boundary, caller/callee, vtable, and raw-byte checks on 2026-05-23 and 2026-06-01.
 
 ## Hypothesis
 
@@ -45,12 +45,14 @@ The exact split between old/new files is still open, but these classes belong un
 
 ## IDA MCP Evidence
 
-Targeted checks on 2026-05-23 confirmed:
+Targeted checks on 2026-05-23 and 2026-06-01 confirmed:
 
 - `0x0057c2d0-0x0057c39f`, `0x0057c450-0x0057c710`, and `0x0057c790-0x0057c979` for legacy spell inventory construction, draw, and mouse handling.
 - `0x0057cf70-0x0057d03f`, `0x0057d430-0x0057d8c4`, `0x0057d9c0-0x0057e18f`, and `0x0057e2d0-0x0057e56d` for the new spell inventory constructor, paint, mouse, and cast dispatcher.
 - `0x0057eb00-0x0057eda4`, `0x0057ee30-0x0057eff7`, and `0x0057f640-0x0057f695` for the alternate spell inventory render, click, and destructor paths.
 - `0x0055f450-0x0055f4f1`, `0x0055f890-0x0055ff70`, and `0x00560290-0x00560517` for the spell inventory scrollbar.
+- IDA function inventory for `0x0057c2d0-0x0057f742` shows 55 function entries plus non-`0xcc` switch/jump-table spans at `0x0057cc42-0x0057ccd0`, `0x0057e18f-0x0057e1b0`, `0x0057e56d-0x0057e620`, and `0x0057f26c-0x0057f490`; these are part of the spell inventory implementation, not uncovered padding.
+- Vtable dword review at `0x0062d02c-0x0062d174` maps `SpellInventoryPane`, `NewSpellInventoryPane`, and `SpellInventoryPane2` virtual slots directly back into this executable island.
 
 IDA reports no function at Wave3's `SpellInventoryPane2::SpellInventoryPane2` start `0x0057ea60` and no function at `ScrollSpellInventoryPane::ResetScrollState` start `0x005608a0`; both are tracked in [wave3_data_issues](../wave3_data_issues.md).
 
@@ -86,3 +88,7 @@ Keep item inventory source separate from spell inventory source. The controls ar
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `82` and confidence to `78`.
   - Evidence: document covers legacy/new/alternate spell inventory roles, proposed source split, behavior summary, IDA boundary checks, file-split guidance, and cross-references; confidence remains capped by unresolved exact legacy/new split and raw constructor/reset starts.
+- 2026-06-01: Added projected path and raised confidence to `82`.
+  - Before: the page text proposed `ui/inventory/`, but validator metadata had no projected path and confidence stayed below the parent-attachment threshold.
+  - After: `PROPOSED_RECONSTRUCTION_PATH` is `NexusTK/ui/inventory/`; confidence reflects current IDA function inventory, vtable-slot review, caller/callee evidence, and raw switch-table/padding classification.
+  - Evidence: IDA MCP confirms all major spell inventory executable families remain in the same address island with dedicated spell inventory vtables and no item-inventory or generic-control ownership drift.

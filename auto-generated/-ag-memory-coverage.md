@@ -2,13 +2,13 @@
 
 # ag-memory-coverage
 
-Total_Type: 2106
-Total_Reconstructable: 913
+Total_Type: 2110
+Total_Reconstructable: 918
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 389
+Total_Reconstructed_Assigned: 394
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 524
-Total_Unclassified: 1182
+Total_Unclassified: 1181
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -368,8 +368,13 @@ Total_Error: 0
 | [UID:0001I6][0x005794c0-0x005794cb.ClearPacketSenderGlobal](by-memory/0x005794c0-0x005794cb.ClearPacketSenderGlobal.md) | assigned | `0000NS` |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-memory/0x005794c0-0x005794cb.ClearPacketSenderGlobal.md` |  |
 | [UID:0001I8][0x005797b0-0x0057bc58.SoundManager](by-memory/0x005797b0-0x0057bc58.SoundManager.md) | assigned | `0000NV` |  | no | `auto-generated/NexusTK/audio/SoundManager.cpp` | `by-memory/0x005797b0-0x0057bc58.SoundManager.md` |  |
 | [UID:0001IB][0x0057b020-0x0057b48a.SoundManagerRedbookPlayback](by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md) | assigned | `0000NV` |  | no | `auto-generated/NexusTK/audio/SoundManager.cpp` | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |  |
+| [UID:0002RI][0x0057c2d0-0x0057cf6b.SpellInventoryPaneLegacyCoreAndHelpers](by-memory/0x0057c2d0-0x0057cf6b.SpellInventoryPaneLegacyCoreAndHelpers.md) | assigned | `0000O1` |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-memory/0x0057c2d0-0x0057cf6b.SpellInventoryPaneLegacyCoreAndHelpers.md` |  |
+| [UID:0001IH][0x0057c2d0-0x0057f742.SpellInventoryPanes](by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md) | assigned | `0000O1` |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |  |
 | [UID:0001II][0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag](by-memory/0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag.md` |  |
+| [UID:0002RJ][0x0057cf70-0x0057ea57.NewSpellInventoryPaneCoreAndHelpers](by-memory/0x0057cf70-0x0057ea57.NewSpellInventoryPaneCoreAndHelpers.md) | assigned | `0000LU` |  | no | `auto-generated/NexusTK/ui/inventory/NewSpellInventoryPane.cpp` | `by-memory/0x0057cf70-0x0057ea57.NewSpellInventoryPaneCoreAndHelpers.md` |  |
 | [UID:0001IJ][0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag](by-memory/0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag.md` |  |
+| [UID:0002RK][0x0057eaa0-0x0057f58b.SpellInventoryPane2CoreAndHelpers](by-memory/0x0057eaa0-0x0057f58b.SpellInventoryPane2CoreAndHelpers.md) | assigned | `0000O1` |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-memory/0x0057eaa0-0x0057f58b.SpellInventoryPane2CoreAndHelpers.md` |  |
+| [UID:0002RL][0x0057f58b-0x0057f742.SpellInventoryScalarDeletingDestructors](by-memory/0x0057f58b-0x0057f742.SpellInventoryScalarDeletingDestructors.md) | assigned | `0000O1` |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-memory/0x0057f58b-0x0057f742.SpellInventoryScalarDeletingDestructors.md` |  |
 | [UID:0001IL][0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper](by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md) | assigned | `0000KY` |  | no | `auto-generated/NexusTK/ui/dialogs/MacroDialogs.cpp` | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |  |
 | [UID:0001IM][0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper](by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md) | assigned | `0000KY` |  | no | `auto-generated/NexusTK/ui/dialogs/MacroDialogs.cpp` | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |  |
 | [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |  |
@@ -1669,7 +1674,6 @@ Total_Error: 0
 | [UID:0001ID][0x0057b860-0x0057bf6e.SoundPathVector](by-memory/0x0057b860-0x0057bf6e.SoundPathVector.md) | unclassified |  |  | no |  | `by-memory/0x0057b860-0x0057bf6e.SoundPathVector.md` |  |
 | [UID:0001IF][0x0057bf40-0x0057bf6e.SoundPathVectorClear](by-memory/0x0057bf40-0x0057bf6e.SoundPathVectorClear.md) | unclassified |  |  | no |  | `by-memory/0x0057bf40-0x0057bf6e.SoundPathVectorClear.md` |  |
 | [UID:0001IG][0x0057bf70-0x0057c2cf.SoundStatusPane](by-memory/0x0057bf70-0x0057c2cf.SoundStatusPane.md) | unclassified |  |  | no |  | `by-memory/0x0057bf70-0x0057c2cf.SoundStatusPane.md` |  |
-| [UID:0001IH][0x0057c2d0-0x0057f742.SpellInventoryPanes](by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md) | unclassified |  |  | no |  | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |  |
 | [UID:0001IK][0x0057f750-0x005807c5.MacroEditControlPanes](by-memory/0x0057f750-0x005807c5.MacroEditControlPanes.md) | unclassified |  |  | no |  | `by-memory/0x0057f750-0x005807c5.MacroEditControlPanes.md` |  |
 | [UID:0001IN][0x00580640-0x00580686.MacroEditControlPaneVtableThunks](by-memory/0x00580640-0x00580686.MacroEditControlPaneVtableThunks.md) | unclassified |  |  | no |  | `by-memory/0x00580640-0x00580686.MacroEditControlPaneVtableThunks.md` |  |
 | [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md) | unclassified |  |  | no |  | `by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md` |  |
