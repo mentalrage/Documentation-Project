@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 17:17:47
+Generated: 2026-06-01 17:21:35
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -180,7 +180,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001I0` | 50 | 65 | 57.5 | `by-memory/0x00575cb0-0x00575d83.PacketNonceInitialization.md` |
 | `0001I1` | 50 | 65 | 57.5 | `by-memory/0x00575d90-0x005796c7.SocketTransportCore.md` |
 | `0001I2` | 50 | 65 | 57.5 | `by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md` |
 | `0001I3` | 50 | 65 | 57.5 | `by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md` |
@@ -205,6 +204,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001JE` | 50 | 65 | 57.5 | `by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md` |
 | `0001JG` | 50 | 65 | 57.5 | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |
 | `0001JH` | 50 | 65 | 57.5 | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |
+| `0001JL` | 50 | 65 | 57.5 | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |
 
 ## Low_Confidence
 
@@ -215,7 +215,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001I0` | 50 | 65 | 57.5 | `by-memory/0x00575cb0-0x00575d83.PacketNonceInitialization.md` |
 | `0001I1` | 50 | 65 | 57.5 | `by-memory/0x00575d90-0x005796c7.SocketTransportCore.md` |
 | `0001I2` | 50 | 65 | 57.5 | `by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md` |
 | `0001I3` | 50 | 65 | 57.5 | `by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md` |
@@ -235,12 +234,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
 | `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
 | `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
+| `0001JB` | 50 | 65 | 57.5 | `by-memory/0x0058af50-0x0058c350.TerminalPaneAndSetup.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001I0` | 50 | 65 | 57.5 | `by-memory/0x00575cb0-0x00575d83.PacketNonceInitialization.md` |
 | `0001I1` | 50 | 65 | 57.5 | `by-memory/0x00575d90-0x005796c7.SocketTransportCore.md` |
 | `0001I2` | 50 | 65 | 57.5 | `by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md` |
 | `0001I3` | 50 | 65 | 57.5 | `by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md` |
@@ -265,6 +264,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001JE` | 50 | 65 | 57.5 | `by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md` |
 | `0001JG` | 50 | 65 | 57.5 | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |
 | `0001JH` | 50 | 65 | 57.5 | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |
+| `0001JL` | 50 | 65 | 57.5 | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |
 
 ## By Folder
 
@@ -400,7 +400,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001I0` | 50 | 65 | 57.5 | `by-memory/0x00575cb0-0x00575d83.PacketNonceInitialization.md` |
 | `0001I1` | 50 | 65 | 57.5 | `by-memory/0x00575d90-0x005796c7.SocketTransportCore.md` |
 | `0001I2` | 50 | 65 | 57.5 | `by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md` |
 | `0001I3` | 50 | 65 | 57.5 | `by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md` |
@@ -425,6 +424,7 @@ _No scored files._
 | `0001JE` | 50 | 65 | 57.5 | `by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md` |
 | `0001JG` | 50 | 65 | 57.5 | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |
 | `0001JH` | 50 | 65 | 57.5 | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |
+| `0001JL` | 50 | 65 | 57.5 | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |
 
 ### by-meta
 
