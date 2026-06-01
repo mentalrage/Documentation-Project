@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 19:08:28
+Generated: 2026-06-01 19:20:22
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -57,7 +57,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000JE` | blank | `(blank)` | `by-file/FittingRoom.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JH` | blank | `(blank)` | `by-file/FontImageLib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JI` | blank | `(blank)` | `by-file/FontStyle.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JJ` | blank | `(blank)` | `by-file/ForcedInformMessageDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JM` | blank | `(blank)` | `by-file/FrameMgr.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JN` | blank | `(blank)` | `by-file/FriendListDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JP` | blank | `(blank)` | `by-file/GameServerConfig.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -173,7 +172,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
 | `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
 | `0001JB` | 50 | 65 | 57.5 | `by-memory/0x0058af50-0x0058c350.TerminalPaneAndSetup.md` |
 | `0001JC` | 50 | 65 | 57.5 | `by-memory/0x0058b130-0x0058b44b.TerminalPaneStreamParser.md` |
@@ -198,6 +196,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001K8` | 50 | 65 | 57.5 | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |
 | `0001K9` | 50 | 65 | 57.5 | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |
 | `0001KD` | 50 | 65 | 57.5 | `by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md` |
+| `0001KE` | 50 | 65 | 57.5 | `by-memory/0x005995b0-0x00599a34.UniAPIInit.md` |
 
 ## Low_Confidence
 
@@ -208,7 +207,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
 | `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
 | `0001JB` | 50 | 65 | 57.5 | `by-memory/0x0058af50-0x0058c350.TerminalPaneAndSetup.md` |
 | `0001JC` | 50 | 65 | 57.5 | `by-memory/0x0058b130-0x0058b44b.TerminalPaneStreamParser.md` |
@@ -228,12 +226,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
 | `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 | `0001K2` | 50 | 65 | 57.5 | `by-memory/0x00596e10-0x005970df.ThreadManWorkerLoop.md` |
+| `0001K3` | 50 | 65 | 57.5 | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
 | `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
 | `0001JB` | 50 | 65 | 57.5 | `by-memory/0x0058af50-0x0058c350.TerminalPaneAndSetup.md` |
 | `0001JC` | 50 | 65 | 57.5 | `by-memory/0x0058b130-0x0058b44b.TerminalPaneStreamParser.md` |
@@ -258,6 +256,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001K8` | 50 | 65 | 57.5 | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |
 | `0001K9` | 50 | 65 | 57.5 | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |
 | `0001KD` | 50 | 65 | 57.5 | `by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md` |
+| `0001KE` | 50 | 65 | 57.5 | `by-memory/0x005995b0-0x00599a34.UniAPIInit.md` |
 
 ## By Folder
 
@@ -393,7 +392,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
 | `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
 | `0001JB` | 50 | 65 | 57.5 | `by-memory/0x0058af50-0x0058c350.TerminalPaneAndSetup.md` |
 | `0001JC` | 50 | 65 | 57.5 | `by-memory/0x0058b130-0x0058b44b.TerminalPaneStreamParser.md` |
@@ -418,6 +416,7 @@ _No scored files._
 | `0001K8` | 50 | 65 | 57.5 | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |
 | `0001K9` | 50 | 65 | 57.5 | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |
 | `0001KD` | 50 | 65 | 57.5 | `by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md` |
+| `0001KE` | 50 | 65 | 57.5 | `by-memory/0x005995b0-0x00599a34.UniAPIInit.md` |
 
 ### by-meta
 

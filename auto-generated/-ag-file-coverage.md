@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 138
+Total_Reconstructed_Assigned: 139
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 150
+Total_Error: 149
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -51,6 +51,7 @@ Total_Error: 150
 | [UID:0000JB][File](by-file/File.md) | assigned |  |  | no | `auto-generated/NexusTK/util/File.cpp` | `by-file/File.md` | by-file generated root |
 | [UID:0000JF][FolderSelectDialog](by-file/FolderSelectDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/FolderSelectDialog.cpp` | `by-file/FolderSelectDialog.md` | by-file generated root |
 | [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-file/FolderTreePane.md` | by-file generated root |
+| [UID:0000JJ][ForcedInformMessageDialog](by-file/ForcedInformMessageDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/login/ForcedInformMessageDialog.cpp` | `by-file/ForcedInformMessageDialog.md` | by-file generated root |
 | [UID:0000JK][FpsPane](by-file/FpsPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-file/FpsPane.md` | by-file generated root |
 | [UID:0000JL][FrameChrome](by-file/FrameChrome.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/FrameChrome.cpp` | `by-file/FrameChrome.md` | by-file generated root |
 | [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md) | assigned |  |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-file/FunctionObjects.md` | by-file generated root |
@@ -190,7 +191,6 @@ Total_Error: 150
 | [UID:0000JE][FittingRoom](by-file/FittingRoom.md) | error |  |  | no |  | `by-file/FittingRoom.md` | by-file generated root |
 | [UID:0000JH][FontImageLib](by-file/FontImageLib.md) | error |  |  | no |  | `by-file/FontImageLib.md` | by-file generated root |
 | [UID:0000JI][FontStyle](by-file/FontStyle.md) | error |  |  | no |  | `by-file/FontStyle.md` | by-file generated root |
-| [UID:0000JJ][ForcedInformMessageDialog](by-file/ForcedInformMessageDialog.md) | error |  |  | no |  | `by-file/ForcedInformMessageDialog.md` | by-file generated root |
 | [UID:0000JM][FrameMgr](by-file/FrameMgr.md) | error |  |  | no |  | `by-file/FrameMgr.md` | by-file generated root |
 | [UID:0000JN][FriendListDialog](by-file/FriendListDialog.md) | error |  |  | no |  | `by-file/FriendListDialog.md` | by-file generated root |
 | [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md) | error |  |  | no |  | `by-file/GameServerConfig.md` | by-file generated root |

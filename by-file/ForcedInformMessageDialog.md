@@ -1,7 +1,7 @@
 *** UID:0000JJ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ForcedInformMessageDialog
 
@@ -74,3 +74,4 @@ The module is separate from the staff credits dialog despite the `DLGSTAFF` reso
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:80`.
   - Summary/evidence: forced message dialog role, singleton/global ownership, resource family, generated split table, IDA function evidence, teardown/login relationship, compiler-generated helper exclusions, migration notes, and cross-references are documented; confidence is strong with final login path/source placement still medium.
+- 2026-06-01: Set `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/"` to match the documented login/main-menu source placement and allow attached child memory docs to stage under the same parent.
