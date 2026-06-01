@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 17:38:39
+Generated: 2026-06-01 17:42:06
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -175,12 +175,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000P8` | blank | `(blank)` | `by-file/WeatherLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-
 ## Low_Completion
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001I4` | 50 | 65 | 57.5 | `by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md` |
 | `0001I6` | 50 | 65 | 57.5 | `by-memory/0x005794c0-0x005794cb.ClearPacketSenderGlobal.md` |
 | `0001I8` | 50 | 65 | 57.5 | `by-memory/0x005797b0-0x0057bc58.SoundManager.md` |
 | `0001IB` | 50 | 65 | 57.5 | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |
@@ -205,6 +203,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001JO` | 50 | 65 | 57.5 | `by-memory/0x00591300-0x005954b2.TextBoxPane.md` |
 | `0001JQ` | 50 | 65 | 57.5 | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |
 | `0001JT` | 50 | 65 | 57.5 | `by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md` |
+| `0001JU` | 50 | 65 | 57.5 | `by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md` |
 
 ## Low_Confidence
 
@@ -215,7 +214,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001I4` | 50 | 65 | 57.5 | `by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md` |
 | `0001I6` | 50 | 65 | 57.5 | `by-memory/0x005794c0-0x005794cb.ClearPacketSenderGlobal.md` |
 | `0001I8` | 50 | 65 | 57.5 | `by-memory/0x005797b0-0x0057bc58.SoundManager.md` |
 | `0001IB` | 50 | 65 | 57.5 | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |
@@ -235,12 +233,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001JC` | 50 | 65 | 57.5 | `by-memory/0x0058b130-0x0058b44b.TerminalPaneStreamParser.md` |
 | `0001JE` | 50 | 65 | 57.5 | `by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md` |
 | `0001JG` | 50 | 65 | 57.5 | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |
+| `0001JH` | 50 | 65 | 57.5 | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001I4` | 50 | 65 | 57.5 | `by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md` |
 | `0001I6` | 50 | 65 | 57.5 | `by-memory/0x005794c0-0x005794cb.ClearPacketSenderGlobal.md` |
 | `0001I8` | 50 | 65 | 57.5 | `by-memory/0x005797b0-0x0057bc58.SoundManager.md` |
 | `0001IB` | 50 | 65 | 57.5 | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |
@@ -265,6 +263,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001JO` | 50 | 65 | 57.5 | `by-memory/0x00591300-0x005954b2.TextBoxPane.md` |
 | `0001JQ` | 50 | 65 | 57.5 | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |
 | `0001JT` | 50 | 65 | 57.5 | `by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md` |
+| `0001JU` | 50 | 65 | 57.5 | `by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md` |
 
 ## By Folder
 
@@ -400,7 +399,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001I4` | 50 | 65 | 57.5 | `by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md` |
 | `0001I6` | 50 | 65 | 57.5 | `by-memory/0x005794c0-0x005794cb.ClearPacketSenderGlobal.md` |
 | `0001I8` | 50 | 65 | 57.5 | `by-memory/0x005797b0-0x0057bc58.SoundManager.md` |
 | `0001IB` | 50 | 65 | 57.5 | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |
@@ -425,6 +423,7 @@ _No scored files._
 | `0001JO` | 50 | 65 | 57.5 | `by-memory/0x00591300-0x005954b2.TextBoxPane.md` |
 | `0001JQ` | 50 | 65 | 57.5 | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |
 | `0001JT` | 50 | 65 | 57.5 | `by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md` |
+| `0001JU` | 50 | 65 | 57.5 | `by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md` |
 
 ### by-meta
 
