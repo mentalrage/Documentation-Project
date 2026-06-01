@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2105
-Total_Reconstructable: 892
+Total_Reconstructable: 893
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 376
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 516
-Total_Unclassified: 1202
+Total_Reconstructable_Unassigned: 517
+Total_Unclassified: 1201
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -746,6 +746,7 @@ Total_Error: 0
 | [UID:00023X][0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers](by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md) | unassigned |  |  | no |  | `by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md` |  |
 | [UID:0001HL][0x00573240-0x00573247.LineIteratorDestructor](by-memory/0x00573240-0x00573247.LineIteratorDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00573240-0x00573247.LineIteratorDestructor.md` |  |
 | [UID:0001HO][0x00573540-0x00573564.LineIteratorScalarDeletingDestructor](by-memory/0x00573540-0x00573564.LineIteratorScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00573540-0x00573564.LineIteratorScalarDeletingDestructor.md` |  |
+| [UID:000240][0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers](by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md` |  |
 | [UID:0001HP][0x005739a0-0x005739f6.SimpleListPaneConstructor](by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md) | unassigned |  |  | no |  | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |  |
 | [UID:0002LE][0x00573a00-0x00573a98.SimpleListPaneDestroyEntryBuffers](by-memory/0x00573a00-0x00573a98.SimpleListPaneDestroyEntryBuffers.md) | unassigned |  |  | no |  | `by-memory/0x00573a00-0x00573a98.SimpleListPaneDestroyEntryBuffers.md` |  |
 | [UID:000241][0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers](by-memory/0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers.md` |  |
@@ -1633,7 +1634,6 @@ Total_Error: 0
 | [UID:0001HM][0x00573273-0x005732b5.GroupPaneAdjustorThunks](by-memory/0x00573273-0x005732b5.GroupPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x00573273-0x005732b5.GroupPaneAdjustorThunks.md` |  |
 | [UID:0001HN][0x005732b5-0x00573302.LookPaneAdjustorThunks](by-memory/0x005732b5-0x00573302.LookPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x005732b5-0x00573302.LookPaneAdjustorThunks.md` |  |
 | [UID:00023Z][0x00573310-0x0057353d.CollectionAndGroupPaneDestructors](by-memory/0x00573310-0x0057353d.CollectionAndGroupPaneDestructors.md) | unclassified |  |  | no |  | `by-memory/0x00573310-0x0057353d.CollectionAndGroupPaneDestructors.md` |  |
-| [UID:000240][0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers](by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md` |  |
 | [UID:0001HR][0x00573d20-0x005747df.ServerSelectPane](by-memory/0x00573d20-0x005747df.ServerSelectPane.md) | unclassified |  |  | no |  | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |  |
 | [UID:0001HS][0x005747e0-0x00574ad8.SocketLifecycle](by-memory/0x005747e0-0x00574ad8.SocketLifecycle.md) | unclassified |  |  | no |  | `by-memory/0x005747e0-0x00574ad8.SocketLifecycle.md` |  |
 | [UID:000242][0x00574ae0-0x00574b83.SocketEventDispatchHelpers](by-memory/0x00574ae0-0x00574b83.SocketEventDispatchHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00574ae0-0x00574b83.SocketEventDispatchHelpers.md` |  |
