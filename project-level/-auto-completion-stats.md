@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 18:52:55
+Generated: 2026-06-01 18:59:26
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3589
-- Scored files: 3422
+- Tracked files: 3593
+- Scored files: 3426
 - Ignored files: 167
 
 ## projected_path_completion
@@ -173,7 +173,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
 | `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
 | `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
@@ -198,6 +197,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001K3` | 50 | 65 | 57.5 | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |
 | `0001K7` | 50 | 65 | 57.5 | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |
 | `0001K8` | 50 | 65 | 57.5 | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |
+| `0001K9` | 50 | 65 | 57.5 | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |
 
 ## Low_Confidence
 
@@ -208,7 +208,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
 | `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
 | `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
@@ -228,12 +227,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
 | `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
+| `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
 | `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
 | `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
@@ -258,6 +257,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001K3` | 50 | 65 | 57.5 | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |
 | `0001K7` | 50 | 65 | 57.5 | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |
 | `0001K8` | 50 | 65 | 57.5 | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |
+| `0001K9` | 50 | 65 | 57.5 | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |
 
 ## By Folder
 
@@ -393,7 +393,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
 | `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
 | `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
@@ -418,6 +417,7 @@ _No scored files._
 | `0001K3` | 50 | 65 | 57.5 | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |
 | `0001K7` | 50 | 65 | 57.5 | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |
 | `0001K8` | 50 | 65 | 57.5 | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |
+| `0001K9` | 50 | 65 | 57.5 | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |
 
 ### by-meta
 
