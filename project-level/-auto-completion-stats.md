@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 15:48:30
+Generated: 2026-06-01 16:02:47
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -84,7 +84,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000KI` | blank | `(blank)` | `by-file/JsonCpp.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KV` | blank | `(blank)` | `by-file/LObject.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KL` | blank | `(blank)` | `by-file/Layer.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KM` | blank | `(blank)` | `by-file/LegendPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KN` | blank | `(blank)` | `by-file/LibJPEG.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KO` | blank | `(blank)` | `by-file/LightingObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KQ` | blank | `(blank)` | `by-file/LineIterator.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -183,7 +182,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001HB` | 50 | 65 | 57.5 | `by-memory/0x0056c400-0x0056c493.LegendPane.md` |
 | `0001HD` | 50 | 65 | 57.5 | `by-memory/0x0056e940-0x0056fe75.CollectionPane.md` |
 | `0001HE` | 50 | 65 | 57.5 | `by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md` |
 | `0001HF` | 50 | 65 | 57.5 | `by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md` |
@@ -208,6 +206,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001I8` | 50 | 65 | 57.5 | `by-memory/0x005797b0-0x0057bc58.SoundManager.md` |
 | `0001IB` | 50 | 65 | 57.5 | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
+| `0001II` | 50 | 65 | 57.5 | `by-memory/0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag.md` |
 
 ## Low_Confidence
 
@@ -218,7 +217,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001HB` | 50 | 65 | 57.5 | `by-memory/0x0056c400-0x0056c493.LegendPane.md` |
 | `0001HD` | 50 | 65 | 57.5 | `by-memory/0x0056e940-0x0056fe75.CollectionPane.md` |
 | `0001HE` | 50 | 65 | 57.5 | `by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md` |
 | `0001HF` | 50 | 65 | 57.5 | `by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md` |
@@ -238,12 +236,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001I1` | 50 | 65 | 57.5 | `by-memory/0x00575d90-0x005796c7.SocketTransportCore.md` |
 | `0001I2` | 50 | 65 | 57.5 | `by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md` |
 | `0001I3` | 50 | 65 | 57.5 | `by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md` |
+| `0001I4` | 50 | 65 | 57.5 | `by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001HB` | 50 | 65 | 57.5 | `by-memory/0x0056c400-0x0056c493.LegendPane.md` |
 | `0001HD` | 50 | 65 | 57.5 | `by-memory/0x0056e940-0x0056fe75.CollectionPane.md` |
 | `0001HE` | 50 | 65 | 57.5 | `by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md` |
 | `0001HF` | 50 | 65 | 57.5 | `by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md` |
@@ -268,6 +266,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001I8` | 50 | 65 | 57.5 | `by-memory/0x005797b0-0x0057bc58.SoundManager.md` |
 | `0001IB` | 50 | 65 | 57.5 | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
+| `0001II` | 50 | 65 | 57.5 | `by-memory/0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag.md` |
 
 ## By Folder
 
@@ -403,7 +402,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001HB` | 50 | 65 | 57.5 | `by-memory/0x0056c400-0x0056c493.LegendPane.md` |
 | `0001HD` | 50 | 65 | 57.5 | `by-memory/0x0056e940-0x0056fe75.CollectionPane.md` |
 | `0001HE` | 50 | 65 | 57.5 | `by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md` |
 | `0001HF` | 50 | 65 | 57.5 | `by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md` |
@@ -428,6 +426,7 @@ _No scored files._
 | `0001I8` | 50 | 65 | 57.5 | `by-memory/0x005797b0-0x0057bc58.SoundManager.md` |
 | `0001IB` | 50 | 65 | 57.5 | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
+| `0001II` | 50 | 65 | 57.5 | `by-memory/0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag.md` |
 
 ### by-meta
 
