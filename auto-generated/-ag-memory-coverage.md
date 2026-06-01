@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2105
-Total_Reconstructable: 891
+Total_Reconstructable: 892
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 376
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 515
-Total_Unclassified: 1203
+Total_Reconstructable_Unassigned: 516
+Total_Unclassified: 1202
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -743,6 +743,7 @@ Total_Error: 0
 | [UID:0001H5][0x00565360-0x00565488.ScrollVolumePaneNotifyValueChange](by-memory/0x00565360-0x00565488.ScrollVolumePaneNotifyValueChange.md) | unassigned |  |  | no |  | `by-memory/0x00565360-0x00565488.ScrollVolumePaneNotifyValueChange.md` |  |
 | [UID:0002LD][0x00565490-0x005654ec.ScrollVolumePaneResetInteractionStateRaw](by-memory/0x00565490-0x005654ec.ScrollVolumePaneResetInteractionStateRaw.md) | unassigned |  |  | no |  | `by-memory/0x00565490-0x005654ec.ScrollVolumePaneResetInteractionStateRaw.md` |  |
 | [UID:0001HC][0x0056c4c0-0x0056e939.GroupPanes](by-memory/0x0056c4c0-0x0056e939.GroupPanes.md) | unassigned |  |  | no |  | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |  |
+| [UID:00023X][0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers](by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md) | unassigned |  |  | no |  | `by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md` |  |
 | [UID:0001HL][0x00573240-0x00573247.LineIteratorDestructor](by-memory/0x00573240-0x00573247.LineIteratorDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00573240-0x00573247.LineIteratorDestructor.md` |  |
 | [UID:0001HO][0x00573540-0x00573564.LineIteratorScalarDeletingDestructor](by-memory/0x00573540-0x00573564.LineIteratorScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00573540-0x00573564.LineIteratorScalarDeletingDestructor.md` |  |
 | [UID:0001HP][0x005739a0-0x005739f6.SimpleListPaneConstructor](by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md) | unassigned |  |  | no |  | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |  |
@@ -1628,7 +1629,6 @@ Total_Error: 0
 | [UID:0001H6][0x005654ec-0x00565608.ScrollablePaneVirtualDefaults](by-memory/0x005654ec-0x00565608.ScrollablePaneVirtualDefaults.md) | unclassified |  |  | no |  | `by-memory/0x005654ec-0x00565608.ScrollablePaneVirtualDefaults.md` |  |
 | [UID:0001HA][0x0056bb20-0x0056c3f1.SpelledPane](by-memory/0x0056bb20-0x0056c3f1.SpelledPane.md) | unclassified |  |  | no |  | `by-memory/0x0056bb20-0x0056c3f1.SpelledPane.md` |  |
 | [UID:00023W][0x0056c4a0-0x0056c4b5.GroupPaneFalseVirtualStubs](by-memory/0x0056c4a0-0x0056c4b5.GroupPaneFalseVirtualStubs.md) | unclassified |  |  | no |  | `by-memory/0x0056c4a0-0x0056c4b5.GroupPaneFalseVirtualStubs.md` |  |
-| [UID:00023X][0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers](by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md) | unclassified |  |  | no |  | `by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md` |  |
 | [UID:00023Y][0x00573247-0x00573273.CollectionPaneAdjustorThunks](by-memory/0x00573247-0x00573273.CollectionPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x00573247-0x00573273.CollectionPaneAdjustorThunks.md` |  |
 | [UID:0001HM][0x00573273-0x005732b5.GroupPaneAdjustorThunks](by-memory/0x00573273-0x005732b5.GroupPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x00573273-0x005732b5.GroupPaneAdjustorThunks.md` |  |
 | [UID:0001HN][0x005732b5-0x00573302.LookPaneAdjustorThunks](by-memory/0x005732b5-0x00573302.LookPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x005732b5-0x00573302.LookPaneAdjustorThunks.md` |  |
