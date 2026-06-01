@@ -2,12 +2,12 @@
 
 # ag-memory-coverage
 
-Total_Type: 2105
-Total_Reconstructable: 912
+Total_Type: 2106
+Total_Reconstructable: 913
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 387
+Total_Reconstructed_Assigned: 389
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 525
+Total_Reconstructable_Unassigned: 524
 Total_Unclassified: 1182
 Total_Error: 0
 
@@ -373,6 +373,8 @@ Total_Error: 0
 | [UID:0001IL][0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper](by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md) | assigned | `0000KY` |  | no | `auto-generated/NexusTK/ui/dialogs/MacroDialogs.cpp` | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |  |
 | [UID:0001IM][0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper](by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md) | assigned | `0000KY` |  | no | `auto-generated/NexusTK/ui/dialogs/MacroDialogs.cpp` | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |  |
 | [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |  |
+| [UID:0001IR][0x00582070-0x005824f6.StdioFile](by-memory/0x00582070-0x005824f6.StdioFile.md) | assigned | `0000O9` |  | no | `auto-generated/NexusTK/util/StdioFile.cpp` | `by-memory/0x00582070-0x005824f6.StdioFile.md` |  |
+| [UID:0002RH][0x00582380-0x00582405.StdioFileReadLineWideHelper](by-memory/0x00582380-0x00582405.StdioFileReadLineWideHelper.md) | assigned | `0000O9` |  | no | `auto-generated/NexusTK/util/StdioFile.cpp` | `by-memory/0x00582380-0x00582405.StdioFileReadLineWideHelper.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -776,7 +778,6 @@ Total_Error: 0
 | [UID:0001I2][0x00577030-0x0057713d.BuildHandshakeBlock](by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md) | unassigned |  |  | no |  | `by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md` |  |
 | [UID:0001IE][0x0057b9e0-0x0057baa3.DequeDestroyOwnedEntries](by-memory/0x0057b9e0-0x0057baa3.DequeDestroyOwnedEntries.md) | unassigned |  |  | no |  | `by-memory/0x0057b9e0-0x0057baa3.DequeDestroyOwnedEntries.md` |  |
 | [UID:0001IQ][0x00582070-0x0058209a.StdioFileConstructor](by-memory/0x00582070-0x0058209a.StdioFileConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00582070-0x0058209a.StdioFileConstructor.md` |  |
-| [UID:0001IR][0x00582070-0x005824f6.StdioFile](by-memory/0x00582070-0x005824f6.StdioFile.md) | unassigned |  |  | no |  | `by-memory/0x00582070-0x005824f6.StdioFile.md` |  |
 | [UID:0001IS][0x005820a0-0x005820c7.StdioFileDestructor](by-memory/0x005820a0-0x005820c7.StdioFileDestructor.md) | unassigned |  |  | no |  | `by-memory/0x005820a0-0x005820c7.StdioFileDestructor.md` |  |
 | [UID:0001IT][0x005820d0-0x005821c9.StdioFileOpen](by-memory/0x005820d0-0x005821c9.StdioFileOpen.md) | unassigned |  |  | no |  | `by-memory/0x005820d0-0x005821c9.StdioFileOpen.md` |  |
 | [UID:0001IU][0x005821d0-0x005821f7.StdioFileClose](by-memory/0x005821d0-0x005821f7.StdioFileClose.md) | unassigned |  |  | no |  | `by-memory/0x005821d0-0x005821f7.StdioFileClose.md` |  |

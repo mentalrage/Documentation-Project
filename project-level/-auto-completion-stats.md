@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 18:21:54
+Generated: 2026-06-01 18:26:25
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3580
-- Scored files: 3413
+- Tracked files: 3581
+- Scored files: 3414
 - Ignored files: 167
 
 ## projected_path_completion
@@ -171,13 +171,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000P8` | blank | `(blank)` | `by-file/WeatherLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-
 ## Low_Completion
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
-| `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
 | `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
@@ -212,7 +210,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
-| `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
 | `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
@@ -237,7 +234,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
-| `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
 | `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
@@ -397,7 +393,6 @@ _No scored files._
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
-| `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
 | `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
