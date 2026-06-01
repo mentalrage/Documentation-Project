@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 129
+Total_Reconstructed_Assigned: 130
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 159
+Total_Error: 158
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -24,6 +24,7 @@ Total_Error: 159
 | [UID:0000I3][ChangePasswordDialogPane](by-file/ChangePasswordDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-file/ChangePasswordDialogPane.md` | by-file generated root |
 | [UID:0000I7][CheckBoxControlPane](by-file/CheckBoxControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/CheckBoxControlPane.cpp` | `by-file/CheckBoxControlPane.md` | by-file generated root |
 | [UID:0000I8][Clan](by-file/Clan.md) | assigned |  |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-file/Clan.md` | by-file generated root |
+| [UID:0000IC][CollectionPane](by-file/CollectionPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-file/CollectionPane.md` | by-file generated root |
 | [UID:0000IG][ControlPane](by-file/ControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-file/ControlPane.md` | by-file generated root |
 | [UID:0000IH][CopyWindow](by-file/CopyWindow.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/CopyWindow.cpp` | `by-file/CopyWindow.md` | by-file generated root |
 | [UID:0000II][Crasher](by-file/Crasher.md) | assigned |  |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-file/Crasher.md` | by-file generated root |
@@ -165,7 +166,6 @@ Total_Error: 159
 | [UID:0000I9][ClanBank](by-file/ClanBank.md) | error |  |  | no |  | `by-file/ClanBank.md` | by-file generated root |
 | [UID:0000IA][ClanDialogs](by-file/ClanDialogs.md) | error |  |  | no |  | `by-file/ClanDialogs.md` | by-file generated root |
 | [UID:0000IB][CollectionDialogPane](by-file/CollectionDialogPane.md) | error |  |  | no |  | `by-file/CollectionDialogPane.md` | by-file generated root |
-| [UID:0000IC][CollectionPane](by-file/CollectionPane.md) | error |  |  | no |  | `by-file/CollectionPane.md` | by-file generated root |
 | [UID:0000ID][CommandInputPanes](by-file/CommandInputPanes.md) | error |  |  | no |  | `by-file/CommandInputPanes.md` | by-file generated root |
 | [UID:0000IE][Config](by-file/Config.md) | error |  |  | no |  | `by-file/Config.md` | by-file generated root |
 | [UID:0000IF][ConnStatusPane](by-file/ConnStatusPane.md) | error |  |  | no |  | `by-file/ConnStatusPane.md` | by-file generated root |

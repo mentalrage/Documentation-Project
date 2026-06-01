@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 16:02:47
+Generated: 2026-06-01 16:29:20
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -41,7 +41,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000I9` | blank | `(blank)` | `by-file/ClanBank.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IA` | blank | `(blank)` | `by-file/ClanDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IB` | blank | `(blank)` | `by-file/CollectionDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000IC` | blank | `(blank)` | `by-file/CollectionPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000ID` | blank | `(blank)` | `by-file/CommandInputPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IE` | blank | `(blank)` | `by-file/Config.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IF` | blank | `(blank)` | `by-file/ConnStatusPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -182,12 +181,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001HD` | 50 | 65 | 57.5 | `by-memory/0x0056e940-0x0056fe75.CollectionPane.md` |
-| `0001HE` | 50 | 65 | 57.5 | `by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md` |
-| `0001HF` | 50 | 65 | 57.5 | `by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md` |
-| `0001HG` | 50 | 65 | 57.5 | `by-memory/0x0056fd70-0x0056fda0.CollectionPane2RawConstructor.md` |
-| `0001HI` | 50 | 65 | 57.5 | `by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md` |
-| `0001HJ` | 50 | 65 | 57.5 | `by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md` |
 | `0001HK` | 50 | 65 | 57.5 | `by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md` |
 | `00023X` | 50 | 65 | 57.5 | `by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md` |
 | `000240` | 50 | 65 | 57.5 | `by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md` |
@@ -207,6 +200,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001IB` | 50 | 65 | 57.5 | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
 | `0001II` | 50 | 65 | 57.5 | `by-memory/0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag.md` |
+| `0001IJ` | 50 | 65 | 57.5 | `by-memory/0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag.md` |
+| `0001IL` | 50 | 65 | 57.5 | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |
+| `0001IM` | 50 | 65 | 57.5 | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |
+| `0001IO` | 50 | 65 | 57.5 | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |
+| `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
+| `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
 
 ## Low_Confidence
 
@@ -217,37 +216,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001HD` | 50 | 65 | 57.5 | `by-memory/0x0056e940-0x0056fe75.CollectionPane.md` |
-| `0001HE` | 50 | 65 | 57.5 | `by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md` |
-| `0001HF` | 50 | 65 | 57.5 | `by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md` |
-| `0001HG` | 50 | 65 | 57.5 | `by-memory/0x0056fd70-0x0056fda0.CollectionPane2RawConstructor.md` |
-| `0001HI` | 50 | 65 | 57.5 | `by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md` |
-| `0001HJ` | 50 | 65 | 57.5 | `by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md` |
-| `0001HK` | 50 | 65 | 57.5 | `by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md` |
-| `00023X` | 50 | 65 | 57.5 | `by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md` |
-| `000240` | 50 | 65 | 57.5 | `by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md` |
-| `0001HR` | 50 | 65 | 57.5 | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |
-| `000242` | 50 | 65 | 57.5 | `by-memory/0x00574ae0-0x00574b83.SocketEventDispatchHelpers.md` |
-| `0001HT` | 50 | 65 | 57.5 | `by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md` |
-| `0001HU` | 50 | 65 | 57.5 | `by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md` |
-| `0001HW` | 50 | 65 | 57.5 | `by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md` |
-| `0001HY` | 50 | 65 | 57.5 | `by-memory/0x00575370-0x00575377.GetConnectionStatus.md` |
-| `0001I0` | 50 | 65 | 57.5 | `by-memory/0x00575cb0-0x00575d83.PacketNonceInitialization.md` |
-| `0001I1` | 50 | 65 | 57.5 | `by-memory/0x00575d90-0x005796c7.SocketTransportCore.md` |
-| `0001I2` | 50 | 65 | 57.5 | `by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md` |
-| `0001I3` | 50 | 65 | 57.5 | `by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md` |
-| `0001I4` | 50 | 65 | 57.5 | `by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md` |
-
-## Low_Both
-
-| UID | Completion | Confidence | Combined | Path |
-| --- | ---: | ---: | ---: | --- |
-| `0001HD` | 50 | 65 | 57.5 | `by-memory/0x0056e940-0x0056fe75.CollectionPane.md` |
-| `0001HE` | 50 | 65 | 57.5 | `by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md` |
-| `0001HF` | 50 | 65 | 57.5 | `by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md` |
-| `0001HG` | 50 | 65 | 57.5 | `by-memory/0x0056fd70-0x0056fda0.CollectionPane2RawConstructor.md` |
-| `0001HI` | 50 | 65 | 57.5 | `by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md` |
-| `0001HJ` | 50 | 65 | 57.5 | `by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md` |
 | `0001HK` | 50 | 65 | 57.5 | `by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md` |
 | `00023X` | 50 | 65 | 57.5 | `by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md` |
 | `000240` | 50 | 65 | 57.5 | `by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md` |
@@ -267,6 +235,37 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001IB` | 50 | 65 | 57.5 | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
 | `0001II` | 50 | 65 | 57.5 | `by-memory/0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag.md` |
+| `0001IJ` | 50 | 65 | 57.5 | `by-memory/0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag.md` |
+
+## Low_Both
+
+| UID | Completion | Confidence | Combined | Path |
+| --- | ---: | ---: | ---: | --- |
+| `0001HK` | 50 | 65 | 57.5 | `by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md` |
+| `00023X` | 50 | 65 | 57.5 | `by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md` |
+| `000240` | 50 | 65 | 57.5 | `by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md` |
+| `0001HR` | 50 | 65 | 57.5 | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |
+| `000242` | 50 | 65 | 57.5 | `by-memory/0x00574ae0-0x00574b83.SocketEventDispatchHelpers.md` |
+| `0001HT` | 50 | 65 | 57.5 | `by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md` |
+| `0001HU` | 50 | 65 | 57.5 | `by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md` |
+| `0001HW` | 50 | 65 | 57.5 | `by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md` |
+| `0001HY` | 50 | 65 | 57.5 | `by-memory/0x00575370-0x00575377.GetConnectionStatus.md` |
+| `0001I0` | 50 | 65 | 57.5 | `by-memory/0x00575cb0-0x00575d83.PacketNonceInitialization.md` |
+| `0001I1` | 50 | 65 | 57.5 | `by-memory/0x00575d90-0x005796c7.SocketTransportCore.md` |
+| `0001I2` | 50 | 65 | 57.5 | `by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md` |
+| `0001I3` | 50 | 65 | 57.5 | `by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md` |
+| `0001I4` | 50 | 65 | 57.5 | `by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md` |
+| `0001I6` | 50 | 65 | 57.5 | `by-memory/0x005794c0-0x005794cb.ClearPacketSenderGlobal.md` |
+| `0001I8` | 50 | 65 | 57.5 | `by-memory/0x005797b0-0x0057bc58.SoundManager.md` |
+| `0001IB` | 50 | 65 | 57.5 | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |
+| `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
+| `0001II` | 50 | 65 | 57.5 | `by-memory/0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag.md` |
+| `0001IJ` | 50 | 65 | 57.5 | `by-memory/0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag.md` |
+| `0001IL` | 50 | 65 | 57.5 | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |
+| `0001IM` | 50 | 65 | 57.5 | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |
+| `0001IO` | 50 | 65 | 57.5 | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |
+| `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
+| `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
 
 ## By Folder
 
@@ -402,12 +401,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001HD` | 50 | 65 | 57.5 | `by-memory/0x0056e940-0x0056fe75.CollectionPane.md` |
-| `0001HE` | 50 | 65 | 57.5 | `by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md` |
-| `0001HF` | 50 | 65 | 57.5 | `by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md` |
-| `0001HG` | 50 | 65 | 57.5 | `by-memory/0x0056fd70-0x0056fda0.CollectionPane2RawConstructor.md` |
-| `0001HI` | 50 | 65 | 57.5 | `by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md` |
-| `0001HJ` | 50 | 65 | 57.5 | `by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md` |
 | `0001HK` | 50 | 65 | 57.5 | `by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md` |
 | `00023X` | 50 | 65 | 57.5 | `by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md` |
 | `000240` | 50 | 65 | 57.5 | `by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md` |
@@ -427,6 +420,12 @@ _No scored files._
 | `0001IB` | 50 | 65 | 57.5 | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
 | `0001II` | 50 | 65 | 57.5 | `by-memory/0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag.md` |
+| `0001IJ` | 50 | 65 | 57.5 | `by-memory/0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag.md` |
+| `0001IL` | 50 | 65 | 57.5 | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |
+| `0001IM` | 50 | 65 | 57.5 | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |
+| `0001IO` | 50 | 65 | 57.5 | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |
+| `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
+| `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
 
 ### by-meta
 

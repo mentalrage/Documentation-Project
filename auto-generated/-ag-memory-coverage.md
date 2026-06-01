@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2105
-Total_Reconstructable: 883
+Total_Reconstructable: 890
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 368
+Total_Reconstructed_Assigned: 375
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 515
-Total_Unclassified: 1211
+Total_Unclassified: 1204
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -354,6 +354,13 @@ Total_Error: 0
 | [UID:0001H8][0x0056baa0-0x0056bb00.GroupListPaneRawConstructor](by-memory/0x0056baa0-0x0056bb00.GroupListPaneRawConstructor.md) | assigned | `0000JS` | 80 | no | `auto-generated/NexusTK/social/Group.cpp` | `by-memory/0x0056baa0-0x0056bb00.GroupListPaneRawConstructor.md` |  |
 | [UID:0001H9][0x0056bb00-0x0056bb15.GroupListPaneVirtualStubs](by-memory/0x0056bb00-0x0056bb15.GroupListPaneVirtualStubs.md) | assigned | `0000JS` | 90 | no | `auto-generated/NexusTK/social/Group.cpp` | `by-memory/0x0056bb00-0x0056bb15.GroupListPaneVirtualStubs.md` |  |
 | [UID:0001HB][0x0056c400-0x0056c493.LegendPane](by-memory/0x0056c400-0x0056c493.LegendPane.md) | assigned | `0000KM` | 10 | no | `auto-generated/NexusTK/ui/panels/LegendPane.cpp` | `by-memory/0x0056c400-0x0056c493.LegendPane.md` |  |
+| [UID:0001HD][0x0056e940-0x0056fe75.CollectionPane](by-memory/0x0056e940-0x0056fe75.CollectionPane.md) | assigned | `0000IC` | 10 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056e940-0x0056fe75.CollectionPane.md` |  |
+| [UID:0001HE][0x0056f800-0x0056f805.CollectionPaneFalseStub](by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md) | assigned | `0000IC` | 20 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md` |  |
+| [UID:0001HF][0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail](by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md) | assigned | `0000IC` | 30 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md` |  |
+| [UID:0001HG][0x0056fd70-0x0056fda0.CollectionPane2RawConstructor](by-memory/0x0056fd70-0x0056fda0.CollectionPane2RawConstructor.md) | assigned | `0000IC` | 40 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056fd70-0x0056fda0.CollectionPane2RawConstructor.md` |  |
+| [UID:0001HH][0x0056fda0-0x0056fdbf.CollectionPane2Destructor](by-memory/0x0056fda0-0x0056fdbf.CollectionPane2Destructor.md) | assigned | `0000IC` | 50 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056fda0-0x0056fdbf.CollectionPane2Destructor.md` |  |
+| [UID:0001HI][0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk](by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md) | assigned | `0000IC` | 60 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md` |  |
+| [UID:0001HJ][0x0056fe70-0x0056fe75.CollectionPane2FalseStub](by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md) | assigned | `0000IC` | 70 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -1620,13 +1627,6 @@ Total_Error: 0
 | [UID:0001H6][0x005654ec-0x00565608.ScrollablePaneVirtualDefaults](by-memory/0x005654ec-0x00565608.ScrollablePaneVirtualDefaults.md) | unclassified |  |  | no |  | `by-memory/0x005654ec-0x00565608.ScrollablePaneVirtualDefaults.md` |  |
 | [UID:0001HA][0x0056bb20-0x0056c3f1.SpelledPane](by-memory/0x0056bb20-0x0056c3f1.SpelledPane.md) | unclassified |  |  | no |  | `by-memory/0x0056bb20-0x0056c3f1.SpelledPane.md` |  |
 | [UID:00023W][0x0056c4a0-0x0056c4b5.GroupPaneFalseVirtualStubs](by-memory/0x0056c4a0-0x0056c4b5.GroupPaneFalseVirtualStubs.md) | unclassified |  |  | no |  | `by-memory/0x0056c4a0-0x0056c4b5.GroupPaneFalseVirtualStubs.md` |  |
-| [UID:0001HD][0x0056e940-0x0056fe75.CollectionPane](by-memory/0x0056e940-0x0056fe75.CollectionPane.md) | unclassified |  |  | no |  | `by-memory/0x0056e940-0x0056fe75.CollectionPane.md` |  |
-| [UID:0001HE][0x0056f800-0x0056f805.CollectionPaneFalseStub](by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md) | unclassified |  |  | no |  | `by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md` |  |
-| [UID:0001HF][0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail](by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md) | unclassified |  |  | no |  | `by-memory/0x0056fc80-0x0056fd61.CollectionPaneOpenOrRequestDetail.md` |  |
-| [UID:0001HG][0x0056fd70-0x0056fda0.CollectionPane2RawConstructor](by-memory/0x0056fd70-0x0056fda0.CollectionPane2RawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x0056fd70-0x0056fda0.CollectionPane2RawConstructor.md` |  |
-| [UID:0001HH][0x0056fda0-0x0056fdbf.CollectionPane2Destructor](by-memory/0x0056fda0-0x0056fdbf.CollectionPane2Destructor.md) | unclassified |  |  | no |  | `by-memory/0x0056fda0-0x0056fdbf.CollectionPane2Destructor.md` |  |
-| [UID:0001HI][0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk](by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md) | unclassified |  |  | no |  | `by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md` |  |
-| [UID:0001HJ][0x0056fe70-0x0056fe75.CollectionPane2FalseStub](by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md) | unclassified |  |  | no |  | `by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md` |  |
 | [UID:0001HK][0x0056fe80-0x005729c3.SelfLookPane2](by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md) | unclassified |  |  | no |  | `by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md` |  |
 | [UID:00023X][0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers](by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md) | unclassified |  |  | no |  | `by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md` |  |
 | [UID:00023Y][0x00573247-0x00573273.CollectionPaneAdjustorThunks](by-memory/0x00573247-0x00573273.CollectionPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x00573247-0x00573273.CollectionPaneAdjustorThunks.md` |  |

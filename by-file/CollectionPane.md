@@ -1,7 +1,7 @@
 *** UID:0000IC | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # CollectionPane
 
@@ -86,3 +86,7 @@ Do not attach [UID:0000CG][ScrollCollectionPane](by-class/ScrollCollectionPane.m
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:82`.
   - Summary/evidence: main collection pane role, companion dialog split, class/global/data-layout ownership, exact boundary notes, omitted helper functions, migration plan, and resource/data cross-references are documented; confidence remains below maximum because final split versus `CollectionDialogPane.cpp` is still provisional.
+- 2026-06-01 path/scoring update:
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:84`, and `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/"`.
+  - Evidence: existing proposed-source-tree placement, IDA MCP caller evidence from `GeneralPurposePanel` at `0x004b851f`, and the confirmed executable family ending before `SelfLookPane2` at `0x0056fe80`.
+  - C++ reconstruction remains deferred because helper names, base/interface labels, and the `CollectionPane`/`CollectionPane2` source split are not final-source quality.
