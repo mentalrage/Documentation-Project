@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 18:06:21
+Generated: 2026-06-01 18:12:02
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -89,7 +89,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000KT` | blank | `(blank)` | `by-file/ListPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KW` | blank | `(blank)` | `by-file/LodePNG.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KX` | blank | `(blank)` | `by-file/LoginDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KY` | blank | `(blank)` | `by-file/MacroDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KZ` | blank | `(blank)` | `by-file/MailDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000L1` | blank | `(blank)` | `by-file/MainUiGraph.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000L2` | blank | `(blank)` | `by-file/MapNamePane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -179,8 +178,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
-| `0001IL` | 50 | 65 | 57.5 | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |
-| `0001IM` | 50 | 65 | 57.5 | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |
 | `0001IO` | 50 | 65 | 57.5 | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |
 | `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
@@ -203,6 +200,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
+| `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
+| `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 
 ## Low_Confidence
 
@@ -214,8 +213,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
-| `0001IL` | 50 | 65 | 57.5 | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |
-| `0001IM` | 50 | 65 | 57.5 | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |
 | `0001IO` | 50 | 65 | 57.5 | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |
 | `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
@@ -233,14 +230,14 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001JQ` | 50 | 65 | 57.5 | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |
 | `0001JT` | 50 | 65 | 57.5 | `by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md` |
 | `0001JU` | 50 | 65 | 57.5 | `by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md` |
+| `0001JV` | 50 | 65 | 57.5 | `by-memory/0x00595900-0x00596242.TextPad.md` |
+| `000248` | 50 | 65 | 57.5 | `by-memory/0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
-| `0001IL` | 50 | 65 | 57.5 | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |
-| `0001IM` | 50 | 65 | 57.5 | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |
 | `0001IO` | 50 | 65 | 57.5 | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |
 | `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
@@ -263,6 +260,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
+| `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
+| `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 
 ## By Folder
 
@@ -399,8 +398,6 @@ _No scored files._
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001IH` | 50 | 65 | 57.5 | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |
-| `0001IL` | 50 | 65 | 57.5 | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |
-| `0001IM` | 50 | 65 | 57.5 | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |
 | `0001IO` | 50 | 65 | 57.5 | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |
 | `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
 | `0001J1` | 50 | 65 | 57.5 | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |
@@ -423,6 +420,8 @@ _No scored files._
 | `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
+| `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
+| `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 
 ### by-meta
 

@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2105
-Total_Reconstructable: 909
+Total_Reconstructable: 911
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 384
+Total_Reconstructed_Assigned: 386
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 525
-Total_Unclassified: 1185
+Total_Unclassified: 1183
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -370,6 +370,8 @@ Total_Error: 0
 | [UID:0001IB][0x0057b020-0x0057b48a.SoundManagerRedbookPlayback](by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md) | assigned | `0000NV` |  | no | `auto-generated/NexusTK/audio/SoundManager.cpp` | `by-memory/0x0057b020-0x0057b48a.SoundManagerRedbookPlayback.md` |  |
 | [UID:0001II][0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag](by-memory/0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x0057c430-0x0057c43f.SpellInputPaneStateSetFlag.md` |  |
 | [UID:0001IJ][0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag](by-memory/0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag.md` |  |
+| [UID:0001IL][0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper](by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md) | assigned | `0000KY` |  | no | `auto-generated/NexusTK/ui/dialogs/MacroDialogs.cpp` | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |  |
+| [UID:0001IM][0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper](by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md) | assigned | `0000KY` |  | no | `auto-generated/NexusTK/ui/dialogs/MacroDialogs.cpp` | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -1667,8 +1669,6 @@ Total_Error: 0
 | [UID:0001IG][0x0057bf70-0x0057c2cf.SoundStatusPane](by-memory/0x0057bf70-0x0057c2cf.SoundStatusPane.md) | unclassified |  |  | no |  | `by-memory/0x0057bf70-0x0057c2cf.SoundStatusPane.md` |  |
 | [UID:0001IH][0x0057c2d0-0x0057f742.SpellInventoryPanes](by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md) | unclassified |  |  | no |  | `by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md` |  |
 | [UID:0001IK][0x0057f750-0x005807c5.MacroEditControlPanes](by-memory/0x0057f750-0x005807c5.MacroEditControlPanes.md) | unclassified |  |  | no |  | `by-memory/0x0057f750-0x005807c5.MacroEditControlPanes.md` |  |
-| [UID:0001IL][0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper](by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md) | unclassified |  |  | no |  | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |  |
-| [UID:0001IM][0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper](by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md) | unclassified |  |  | no |  | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |  |
 | [UID:0001IN][0x00580640-0x00580686.MacroEditControlPaneVtableThunks](by-memory/0x00580640-0x00580686.MacroEditControlPaneVtableThunks.md) | unclassified |  |  | no |  | `by-memory/0x00580640-0x00580686.MacroEditControlPaneVtableThunks.md` |  |
 | [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) | unclassified |  |  | no |  | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |  |
 | [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md) | unclassified |  |  | no |  | `by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md` |  |
