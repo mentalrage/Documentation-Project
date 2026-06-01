@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2118
-Total_Reconstructable: 928
+Total_Reconstructable: 929
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 404
+Total_Reconstructed_Assigned: 405
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 524
-Total_Unclassified: 1179
+Total_Unclassified: 1178
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -390,6 +390,7 @@ Total_Error: 0
 | [UID:0002RQ][0x00583970-0x00584052.StringBaseReplaceTrimAndLocks](by-memory/0x00583970-0x00584052.StringBaseReplaceTrimAndLocks.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x00583970-0x00584052.StringBaseReplaceTrimAndLocks.md` |  |
 | [UID:0002RS][0x00584160-0x005845af.StringBaseAppendAndFind](by-memory/0x00584160-0x005845af.StringBaseAppendAndFind.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x00584160-0x005845af.StringBaseAppendAndFind.md` |  |
 | [UID:0002RR][0x005845f0-0x00584d7e.StringBaseSearchSpliceAndSubstring](by-memory/0x005845f0-0x00584d7e.StringBaseSearchSpliceAndSubstring.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x005845f0-0x00584d7e.StringBaseSearchSpliceAndSubstring.md` |  |
+| [UID:0001J5][0x00584d80-0x00584e9e.StringIter](by-memory/0x00584d80-0x00584e9e.StringIter.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -1687,7 +1688,6 @@ Total_Error: 0
 | [UID:0001IK][0x0057f750-0x005807c5.MacroEditControlPanes](by-memory/0x0057f750-0x005807c5.MacroEditControlPanes.md) | unclassified |  |  | no |  | `by-memory/0x0057f750-0x005807c5.MacroEditControlPanes.md` |  |
 | [UID:0001IN][0x00580640-0x00580686.MacroEditControlPaneVtableThunks](by-memory/0x00580640-0x00580686.MacroEditControlPaneVtableThunks.md) | unclassified |  |  | no |  | `by-memory/0x00580640-0x00580686.MacroEditControlPaneVtableThunks.md` |  |
 | [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md) | unclassified |  |  | no |  | `by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md` |  |
-| [UID:0001J5][0x00584d80-0x00584e9e.StringIter](by-memory/0x00584d80-0x00584e9e.StringIter.md) | unclassified |  |  | no |  | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |  |
 | [UID:0001J6][0x00584ea0-0x0058af3b.SystemMessagePanes](by-memory/0x00584ea0-0x0058af3b.SystemMessagePanes.md) | unclassified |  |  | no |  | `by-memory/0x00584ea0-0x0058af3b.SystemMessagePanes.md` |  |
 | [UID:0001J7][0x00587bb0-0x005881ed.ForcedInformMessageDialogCore](by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md) | unclassified |  |  | no |  | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |  |
 | [UID:0001J8][0x0058aa90-0x0058aa9b.ForcedInformMessageDialogSingletonClear](by-memory/0x0058aa90-0x0058aa9b.ForcedInformMessageDialogSingletonClear.md) | unclassified |  |  | no |  | `by-memory/0x0058aa90-0x0058aa9b.ForcedInformMessageDialogSingletonClear.md` |  |
