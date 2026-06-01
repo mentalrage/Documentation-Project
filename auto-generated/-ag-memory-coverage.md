@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2105
-Total_Reconstructable: 900
+Total_Reconstructable: 901
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 377
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 523
-Total_Unclassified: 1194
+Total_Reconstructable_Unassigned: 524
+Total_Unclassified: 1193
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -762,6 +762,7 @@ Total_Error: 0
 | [UID:0001HW][0x00574d40-0x00574e44.SendPositionUpdate](by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md) | unassigned |  |  | no |  | `by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md` |  |
 | [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md) | unassigned |  |  | no |  | `by-memory/0x00575370-0x00575377.GetConnectionStatus.md` |  |
 | [UID:0001I0][0x00575cb0-0x00575d83.PacketNonceInitialization](by-memory/0x00575cb0-0x00575d83.PacketNonceInitialization.md) | unassigned |  |  | no |  | `by-memory/0x00575cb0-0x00575d83.PacketNonceInitialization.md` |  |
+| [UID:0001I1][0x00575d90-0x005796c7.SocketTransportCore](by-memory/0x00575d90-0x005796c7.SocketTransportCore.md) | unassigned |  |  | no |  | `by-memory/0x00575d90-0x005796c7.SocketTransportCore.md` |  |
 | [UID:0001IE][0x0057b9e0-0x0057baa3.DequeDestroyOwnedEntries](by-memory/0x0057b9e0-0x0057baa3.DequeDestroyOwnedEntries.md) | unassigned |  |  | no |  | `by-memory/0x0057b9e0-0x0057baa3.DequeDestroyOwnedEntries.md` |  |
 | [UID:0001IQ][0x00582070-0x0058209a.StdioFileConstructor](by-memory/0x00582070-0x0058209a.StdioFileConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00582070-0x0058209a.StdioFileConstructor.md` |  |
 | [UID:0001IR][0x00582070-0x005824f6.StdioFile](by-memory/0x00582070-0x005824f6.StdioFile.md) | unassigned |  |  | no |  | `by-memory/0x00582070-0x005824f6.StdioFile.md` |  |
@@ -1647,7 +1648,6 @@ Total_Error: 0
 | [UID:0001HZ][0x00575380-0x00575abb.PacketBufferHelpers](by-memory/0x00575380-0x00575abb.PacketBufferHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575380-0x00575abb.PacketBufferHelpers.md` |  |
 | [UID:000243][0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers](by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md` |  |
 | [UID:000244][0x00575b90-0x00575caa.PacketTransformStringKeyHelpers](by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md` |  |
-| [UID:0001I1][0x00575d90-0x005796c7.SocketTransportCore](by-memory/0x00575d90-0x005796c7.SocketTransportCore.md) | unclassified |  |  | no |  | `by-memory/0x00575d90-0x005796c7.SocketTransportCore.md` |  |
 | [UID:0001I2][0x00577030-0x0057713d.BuildHandshakeBlock](by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md) | unclassified |  |  | no |  | `by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md` |  |
 | [UID:0001I3][0x00578b20-0x00578c40.SocketTransformFramePayload](by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md) | unclassified |  |  | no |  | `by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md` |  |
 | [UID:0001I4][0x00578c40-0x00578df1.SocketBuildEncryptedPacket](by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md) | unclassified |  |  | no |  | `by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md` |  |
