@@ -1,7 +1,7 @@
 *** UID:0000NV | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/audio/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SoundManager
 
@@ -134,4 +134,8 @@ The project tree should eventually gain an `audio/` folder alongside `archive/`,
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `90` and confidence to `82`.
   - Evidence: document covers audio module hypothesis, source contents, archive and middleware dependencies, Miles/Bink/MIDI split, IDA/import evidence, proposed placement, open questions, and cross-references; confidence is capped by exact folder/source split and global ownership questions.
+- 2026-06-01: Set `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/audio/"`.
+  - Before: the page proposed `audio/SoundManager.cpp` in prose but left the validator path blank.
+  - After: the by-file root stages under `auto-generated/NexusTK/audio/SoundManager.cpp`.
+  - Evidence: this page, [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md), and [UID:0001Q8][client_audio](by-meta/client_audio.md) all place SoundManager in the audio module.
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md)

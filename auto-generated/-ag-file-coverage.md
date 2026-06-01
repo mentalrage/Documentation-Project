@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 131
+Total_Reconstructed_Assigned: 132
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 157
+Total_Error: 156
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -117,6 +117,7 @@ Total_Error: 157
 | [UID:0000NO][ServerSelectPane](by-file/ServerSelectPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-file/ServerSelectPane.md` | by-file generated root |
 | [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/SimpleListPane.cpp` | `by-file/SimpleListPane.md` | by-file generated root |
 | [UID:0000NS][Socket](by-file/Socket.md) | assigned |  |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-file/Socket.md` | by-file generated root |
+| [UID:0000NV][SoundManager](by-file/SoundManager.md) | assigned |  |  | no | `auto-generated/NexusTK/audio/SoundManager.cpp` | `by-file/SoundManager.md` | by-file generated root |
 | [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-file/StartupLogoPanes.md` | by-file generated root |
 | [UID:0000O7][StaticObjImageLib](by-file/StaticObjImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/StaticObjImageLib.cpp` | `by-file/StaticObjImageLib.md` | by-file generated root |
 | [UID:0000O9][StdioFile](by-file/StdioFile.md) | assigned |  |  | no | `auto-generated/NexusTK/util/StdioFile.cpp` | `by-file/StdioFile.md` | by-file generated root |
@@ -271,7 +272,6 @@ Total_Error: 157
 | [UID:0000NR][SnowingLayerPane](by-file/SnowingLayerPane.md) | error |  |  | no |  | `by-file/SnowingLayerPane.md` | by-file generated root |
 | [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md) | error |  |  | no |  | `by-file/SoftwareBlend16.md` | by-file generated root |
 | [UID:0000NU][SortedList](by-file/SortedList.md) | error |  |  | no |  | `by-file/SortedList.md` | by-file generated root |
-| [UID:0000NV][SoundManager](by-file/SoundManager.md) | error |  |  | no |  | `by-file/SoundManager.md` | by-file generated root |
 | [UID:0000NW][SoundObjectPane](by-file/SoundObjectPane.md) | error |  |  | no |  | `by-file/SoundObjectPane.md` | by-file generated root |
 | [UID:0000NX][SoundStatusPane](by-file/SoundStatusPane.md) | error |  |  | no |  | `by-file/SoundStatusPane.md` | by-file generated root |
 | [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) | error |  |  | no |  | `by-file/SpecializedButtonPanes.md` | by-file generated root |
