@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 134
+Total_Reconstructed_Assigned: 135
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 154
+Total_Error: 153
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -120,6 +120,7 @@ Total_Error: 154
 | [UID:0000NS][Socket](by-file/Socket.md) | assigned |  |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-file/Socket.md` | by-file generated root |
 | [UID:0000NV][SoundManager](by-file/SoundManager.md) | assigned |  |  | no | `auto-generated/NexusTK/audio/SoundManager.cpp` | `by-file/SoundManager.md` | by-file generated root |
 | [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-file/StartupLogoPanes.md` | by-file generated root |
+| [UID:0000O5][StartupWindow](by-file/StartupWindow.md) | assigned |  |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-file/StartupWindow.md` | by-file generated root |
 | [UID:0000O7][StaticObjImageLib](by-file/StaticObjImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/StaticObjImageLib.cpp` | `by-file/StaticObjImageLib.md` | by-file generated root |
 | [UID:0000O9][StdioFile](by-file/StdioFile.md) | assigned |  |  | no | `auto-generated/NexusTK/util/StdioFile.cpp` | `by-file/StdioFile.md` | by-file generated root |
 | [UID:0000OA][StringBase](by-file/StringBase.md) | assigned |  |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-file/StringBase.md` | by-file generated root |
@@ -281,7 +282,6 @@ Total_Error: 154
 | [UID:0000O2][SpellMenuDialogs](by-file/SpellMenuDialogs.md) | error |  |  | no |  | `by-file/SpellMenuDialogs.md` | by-file generated root |
 | [UID:0000NZ][SpelledPane](by-file/SpelledPane.md) | error |  |  | no |  | `by-file/SpelledPane.md` | by-file generated root |
 | [UID:0000O3][StaffsDialogPane](by-file/StaffsDialogPane.md) | error |  |  | no |  | `by-file/StaffsDialogPane.md` | by-file generated root |
-| [UID:0000O5][StartupWindow](by-file/StartupWindow.md) | error |  |  | no |  | `by-file/StartupWindow.md` | by-file generated root |
 | [UID:0000O6][StaticObjectPane](by-file/StaticObjectPane.md) | error |  |  | no |  | `by-file/StaticObjectPane.md` | by-file generated root |
 | [UID:0000O8][StaticTextControlPane](by-file/StaticTextControlPane.md) | error |  |  | no |  | `by-file/StaticTextControlPane.md` | by-file generated root |
 | [UID:0000OD][SwallowLayerPane](by-file/SwallowLayerPane.md) | error |  |  | no |  | `by-file/SwallowLayerPane.md` | by-file generated root |
