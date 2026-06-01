@@ -1,0 +1,538 @@
+# Project Documentation Structure
+
+This directory records reverse-engineering findings for the NexusTK client source reconstruction. The docs should connect generated Wave3/Wave2 entities, `source-3\simroot_v2` output, memory ranges, and original-source layout hypotheses so the reconstructed project can converge toward plausible late-1999 through mid-2000s C++ source organization.
+
+Treat this documentation task as effectively ongoing. Even after broad binary coverage is achieved, continue improving precision, evidence quality, cross-references, naming, source placement, and reconstructed C++ where useful.
+
+## Primary Inputs
+
+- `E:\NTK\GhidraBridge\source-3\simroot_v2`: current generated Wave3 v2 simulated source tree. Use it as a lead source for possible classes, files, functions, globals, names, and grouping hints, not as authority. Information in this tree can be highly flawed: wrong ownership, bad ranges, stale names, missing helpers, incorrect source grouping, or generated assumptions. Verify any finding that affects documentation confidence, ownership, or migration against IDA/MCP or manual disassembly.
+- `E:\NTK\GhidraBridge\source-3\core\data\readonly\wave2`: imported Wave2 class/global records and missing-reference notes.
+- `E:\NTK\GhidraBridge\source-2\core\wave2\wave2.py`: older Wave2 tool. It may contain outdated information, but it can still be useful as a fallback reference when Wave3 is unstable or insufficient.
+- `E:\NTK\GhidraBridge\source-3\core\data\cache`: normalized Wave3 cache indexes and metadata.
+- `wave3.py` / `wave3d.py`: local inspection, ownership, memory, source-line, and grading commands. Treat their output as generated research evidence that must be checked before it becomes a high-confidence claim.
+- If `wave3.py` is being patched, unstable, or reserved for another agent, do not call it directly; fall back to `simroot_v2`, cached/generated files, and IDA/MCP evidence, then record any resulting data caveats in `wave3_data_issues.md`.
+- IDA/MCP or other disassembler evidence is the ground truth for addresses, function boundaries, xrefs, ownership, types, and behavior. If those tools are not available in a session, record that the finding is based only on local Wave3/Wave2/simroot evidence and keep confidence conservative.
+
+### IDA MCP Manual Notes
+
+- Current endpoint: `http://127.0.0.1:13337/mcp`.
+- Use direct JSON-RPC `POST` requests from PowerShell with `Invoke-WebRequest -UseBasicParsing` and `-Headers @{Accept='application/json, text/event-stream'}`.
+- Safe flow: `initialize` -> `tools/list` -> `tools/call`.
+- Avoid making changes through IDA MCP. Wave2/Wave3 data is separate and locked from IDA-side edits, so changes made only in IDA can create conflicting tool state. Use IDA MCP primarily for inspection, verification, disassembly, decompilation, xrefs, strings, and structure evidence.
+- Current `tools/call` request shape verified on 2026-05-25 is the named JSON-RPC params object: use `params=@{name='lookup_funcs'; arguments=@{queries=@('0x0053aec0')}}` or `params=@{name='decompile'; arguments=@{addrs=@('0x00538100')}}`.
+- If the positional form `params=@('lookup_funcs', @{queries=@('0x0053aec0')})` returns `Invalid params: arguments union does not contain list`, switch to the named form above.
+- For current `decompile`, `callers`, `callees`, and `xrefs_to` tools, pass the tool argument object with `addrs=@('0x00597610','0x00597630')`. Passing a single `address='0x...'` returns `Invalid params: missing required parameters: ['addrs']`.
+- `lookup_funcs` uses the tool argument object with `queries=@('0x0048a100','0x0048a120')`.
+- MCP has previously returned tool lists including `idb_meta`, `lookup_funcs`, `cursor_addr`, `cursor_func`, `int_convert`, `list_funcs`, `list_globals`, `imports`, `decompile`, `disasm`, `xrefs_to`, `callers`, `callees`, `analyze_funcs`, `strings`, `search`, `struct_info`, and `py_eval`. Recheck `tools/list` in the current session before relying on a specific tool.
+- Compact status check pattern:
+
+```powershell
+$body = @{jsonrpc='2.0'; id=1; method='tools/list'; params=@{}} | ConvertTo-Json -Depth 8
+$r = Invoke-WebRequest -UseBasicParsing -Uri http://127.0.0.1:13337/mcp -Method Post -ContentType 'application/json' -Headers @{Accept='application/json, text/event-stream'} -Body $body
+$r.StatusCode; $r.Content
+```
+
+- PowerShell trap: do not name a helper function parameter `$args` when wrapping MCP calls. `$args` is a special automatic variable and can silently collapse the tool argument object into an empty array, producing misleading `arguments union does not contain list` errors. Use a name such as `$toolArgs` instead.
+
+## Directory Roles
+
+### Canonical Documentation Homes
+
+Use the narrowest durable home for each fact, then connect related pages with UID references:
+
+| Subject | Canonical home |
+| --- | --- |
+| Full function or method body, exact binary evidence, raw code, reconstructed C++ candidate | `by-memory` |
+| Function/method name-centric index, rewrite status, overload disambiguation, high-traffic reference target | `by-function` |
+| Class responsibility, inheritance/layout summary, method inventory, class-owned state | `by-class` |
+| Likely original `.cpp`/`.h` ownership and source-module grouping | `by-file` |
+| Process-wide globals, singleton pointers, concrete vtables/tables, global data ownership | `by-global` |
+| Temporary narrow questions, unresolved small findings, one-off behavior notes | `by-item` |
+| C/C++ declarations, layouts, callback/function-pointer types, vtable type structure | `by-type` |
+| DAT/resource/assets/string-table ownership and formats | `by-resource` |
+| Client-level topic docs that cut across many entities | `by-meta` |
+| Original project/folder layout and migration batches | `by-project-structure` |
+
+### Rebuild Handling Classification
+
+When documenting code or data, distinguish the source semantics that must be recreated from binary artifacts that the compiler/linker should regenerate. Do not assume non-`.text` ranges are disposable compiler output.
+
+Use these rebuild-handling labels in `by-memory`, `by-global`, `by-type`, and `by-file` docs when relevant:
+
+- `source-authored`: handwritten source code or explicit source data that should be recreated in the rebuilt project.
+- `source-declared/generated-binary`: source-level declarations are required, but the exact binary bytes should be produced by the compiler/linker. Examples include vtables from class declarations, string literals, const arrays, static globals, function-pointer tables, and initialized writable globals.
+- `resource-derived`: data should come from DAT/resource/assets or generated resource packaging, not hard-coded as arbitrary binary bytes.
+- `third-party/runtime`: external library, CRT/STL/compiler/runtime code or data that should come from the dependency/toolchain rather than NexusTK source.
+- `compiler/linker-generated`: pure build artifact such as import tables, startup tables, EH/RTTI glue, security-cookie support, adjustor thunks, padding, or alignment. Document for recognition and exclusion, but do not hand-port as source unless a source declaration is required to cause it.
+- `unknown`: not yet classified; keep confidence low until IDA/MCP or byte-level review decides whether it is source-authored, source-declared, resource-derived, third-party/runtime, compiler/linker-generated, padding, or empty.
+
+For the current IDA layout, `.text` is executable code at `0x00401000-0x0060d000`. The later `.idata`, `.rdata`, and `.data` ranges are non-executable but can still contain rebuild-relevant source semantics such as vtables, strings, const tables, globals, singleton pointers, and initialized state. Rebuild documentation should capture the required C++ declarations/initializers/ownership, not require identical original addresses.
+
+### `-ignored.md` Ledgers
+
+Every `by-*` folder, including `by-type/by-*` subtype folders, should contain a `-ignored.md` ledger. Use these files to record confirmed ranges, symbols, files, types, resources, topics, or research leads that should not be repeatedly reviewed for NexusTK-owned reconstruction.
+
+Ignored entries are not dumping grounds. Add an entry only after verification. Each entry should include the exact id/address/name, the reason it can be ignored, the evidence used, and the replacement owner or external dependency when applicable. Common ignore categories include MSVC CRT/STL/Dinkumware support, compiler-generated EH/RTTI/security-cookie helpers, Windows SDK/import glue, third-party library code that should be vendored or linked separately, stale generated aliases, and duplicate/raw ranges superseded by better exact documentation.
+
+Exception: payload-only evidence folders under a `by-*` directory, such as `by-meta/obtained_thirdparty_files/archives`, `runtime_from_local_client`, and `static_embeds`, should not be polluted with per-subdirectory ledgers. Record ignores at the parent documentation level, in `by-meta/-ignored.md`, or in `by-meta/obtained_thirdparty_files/-ignored.md`. This keeps `static_embeds` limited to staged third-party source/header payloads and avoids changing evidence/archive directories with documentation files.
+
+### `-coverage-report.md` Reports
+
+Every `by-*` folder, including `by-type/by-*` subtype folders, should contain a `-coverage-report.md` file. These reports work with the local `-ignored.md` ledger and summarize the current state of documentation coverage for that folder's data type.
+
+Each coverage report should start with:
+
+- a coverage summary, including counts or scope for covered reconstructable items, covered ignored items, and known uncovered inventory;
+- a confidence summary that separates documentation completeness from evidence confidence;
+- a note about ordering: alphabetical for most folders, low-to-high address order for `by-memory`.
+
+The body should contain three sections:
+
+- `Covered Items To Replicate`: documented items that appear to belong to the NexusTK client source or data that must be replicated.
+- `Covered Items To Ignore`: documented or ledgered items that should not be reconstructed. Any row here should also be represented in `-ignored.md` with the reason, evidence, and replacement owner or dependency.
+- `Uncovered Items`: known missing inventory, unreviewed generated entities, untriaged address ranges, or an explicit inventory-baseline placeholder when a full authoritative comparison has not yet been generated.
+
+`by-memory` may use a single address-ordered `Covered Items` section instead of separate replicate/ignore sections. In that form, reconstructable, ignored, and `UNKNOWN` rows are kept together in low-to-high address order so memory gaps appear directly between the ranges that bound them. Keep broad inventory notes under `Uncovered Items`; do not move `UNKNOWN` gap rows there.
+
+Rows should be one line each and use this shape:
+
+```text
+ItemNameOrAddressRange : reconstructable|ignored|unknown|uncovered : estimated documentation completion : estimated accuracy/confidence : brief description
+```
+
+For class folders, use class names as the row key. For `by-memory`, use exact address ranges as the row key and keep rows sorted by the first address. Initial generated reports may use heuristic completion/confidence derived from existing docs, but those values should only be raised after IDA/MCP, manual disassembly, or multiple independent documentation sources support the claim.
+
+`by-memory` coverage display rows should include an entity type/kind after the address range and before the item name when the row is next edited. Use a concise type such as `class`, `method`, `function`, `global`, `global-data`, `vtable`, `jump-table`, `runtime`, `third-party`, `padding`, or `unknown`. Example:
+
+```text
+- [UID:0000VY][0x004063d0-0x0040649b.LibJpegUtilityHelpers](by-memory/0x004063d0-0x0040649b.LibJpegUtilityHelpers.md) 0x004063d0-0x0040649b | third-party | LibJpegUtilityHelpers : ignored : 80% : strong : ...
+```
+
+Do not batch-rewrite existing `by-memory` rows only to add this type field. Add or correct it opportunistically when a file is already being edited for documentation, coverage, or evidence updates.
+
+Special `by-memory` coverage requirement: when the covered/ignored memory inventory is detailed enough to compare adjacent ranges, insert explicit gap rows between documented ranges. Use `UNKNOWN` for unchecked executable/data spans that have not been manually investigated:
+
+```text
+[0x########-0x######## (# bytes) | UNKNOWN] : unknown : 0% : open : Range between adjacent documented by-memory rows; not manually investigated.
+```
+
+Use this form only after confirming the span has no meaningful bytes/data to document:
+
+```text
+[0x########-0x######## | EMPTY (# bytes)] : ignored : 100% : strong : Confirmed empty/padding range.
+```
+
+Do not add broad speculative gap rows without checking the section boundaries and neighboring items. `UNKNOWN` rows should be low-to-high address sorted with normal memory rows and should not replace exact `by-memory` pages for real functions, globals, data tables, or ignored third-party/runtime spans. When an `UNKNOWN` row is investigated, replace it with a documented range row or convert it to an `EMPTY` row only after byte/padding verification.
+
+`by-memory` ranges may overlap when one page documents an aggregate owner, such as a class/module/library span, and other pages document exact functions, helper islands, globals, or subranges inside that aggregate. Display real containment by indenting child rows directly under the parent row instead of flattening every row at the same level. Keep the parent ordered by its start address, then indent children under it in low-to-high address order. Use nesting only for true containment or a clearly documented aggregate/subitem relationship; crossing overlaps that are not containment should stay flat until the ownership boundary is corrected.
+
+Example:
+
+```text
+- [0x00410000-0x00411000 | ParentModule] : reconstructable : 60% : medium : Aggregate owner range.
+    - [0x00410100-0x00410180 | ChildHelper] : reconstructable : 80% : strong : Exact helper inside the parent range.
+    - [0x00410200-0x00410210 | EMPTY (16 bytes)] : ignored : 100% : strong : Confirmed alignment padding inside the parent range.
+- [0x00411000-0x00411100 | NextIndependentRange] : reconstructable : 60% : medium : Separate non-overlapping row.
+```
+
+### `by-memory`
+
+Use this for address-range-centered documentation. Filenames should name real executable or data ranges, not arbitrary buckets. Prefer exact function, method, global-data, class aggregate, vtable, or reviewed library-runtime ranges.
+
+Filename pattern:
+
+```text
+0x004610f0-0x00461789.AboveFrame.md
+0x005063e0-0x005067bf.RefreshSelectedProfileData.md
+```
+
+Temporary uncertain-bound filenames are allowed only when an entity is real but exact start/end bounds are not yet verified. In prose or coverage rows, use `?` for unknown hex nybbles, such as `0x00612???-0x0061????`. Windows filenames cannot safely use `?`, so use `_` in the filename for the same unknown nybbles:
+
+```text
+0x00612___-0x0061____.UnboundedVtableOrStringIsland.md
+```
+
+Treat these as open/weak range claims, not exact coverage. Replace them with exact address-range filenames once IDA/MCP or manual byte review establishes real bounds, then run the validator in file mode on the renamed file.
+
+Each file should include:
+
+- covered address range(s), inclusive start and exclusive or observed end when known;
+- entity kind and current Wave3/Wave2 owner, such as class, method, global, global-data, or runtime/library exclusion;
+- source evidence from `show memory-at`, `inspect memory-range`, `show method`, `show global`, IDA decompilation, xrefs, or trace notes;
+- disposition: reconstructable project code, attached to existing class/file, free helper/global, data-only, library/runtime, excluded, or unresolved;
+- rebuild handling: whether the range is `source-authored`, `source-declared/generated-binary`, `resource-derived`, `third-party/runtime`, `compiler/linker-generated`, or `unknown`;
+- raw code evidence when useful, such as IDA decompilation, relevant disassembly, or generated source/decompiler excerpts that support the analysis;
+- reconstructed C++ code as it should exist in the final output when confidence is high enough. This is lower priority until the owner file, external references, field names, called functions, and data dependencies are understood well enough to avoid baking in bad names or structure;
+- links to related `by-class`, `by-file`, `by-function`, and `by-item` docs.
+
+Do not create `by-memory` pages for arbitrary broad spans such as "0x00400000-0x00500000" unless the binary itself exposes a meaningful section/range and the page is explicitly a section-level map.
+
+For functions and methods, `by-memory` is the canonical full documentation layer. The complete behavior, raw evidence, reconstructed C++ candidate, callers/callees, field/global usage, and confidence should live on the exact memory-range page. Other folders should point back to that page by UID instead of duplicating the method body.
+
+Suggested function/method page shape:
+
+- `Address Range`: exact start/end, inclusive/exclusive convention, and any boundary uncertainty;
+- `Owner`: class, source-file, subsystem, or unresolved owner hypothesis;
+- `Signature`: calling convention, parameters, return value, `this` type, and confidence;
+- `Behavior`: concise description of what the function/method does;
+- `Raw Code Evidence`: IDA decompilation, relevant disassembly, generated/decompiler excerpt, or exact observations that justify the behavior claim;
+- `Reconstructed C++ Candidate`: final-output-style C++ only when confidence is high enough;
+- `Callers/Callees`: important xrefs, virtual dispatch, callback use, and unresolved external references;
+- `Touched State`: fields, globals, resources, files, packets, tables, or memory layouts used;
+- `Confidence And Open Questions`: what is confirmed, what remains speculative, and next verification targets.
+
+### `by-function`
+
+Use this as an optional function/method index, not as the canonical body documentation. A `by-function` page may be useful when a method or function needs durable name-centric tracking, rewrite status, overload/disambiguation notes, or links from many class/file/topic pages. It should point to the canonical `by-memory` range page with a UID reference.
+
+Do not create `by-function` pages for every method by default. Full method/function coverage should come from exact `by-memory` pages; create `by-function` pages only when the name-centric index has a clear tracking or navigation purpose.
+
+Filename pattern:
+
+```text
+ClassName.MethodName.md
+ClassName.MethodName_00401234.md
+FunctionName_00401234.md
+```
+
+Each file should include:
+
+- canonical function or method name and any unresolved naming issue;
+- owner class/file hypothesis;
+- UID reference to the exact `by-memory` documentation page;
+- rewrite/reconstruction status if the function is being actively worked;
+- brief notes that help locate or disambiguate the function.
+
+Do not duplicate full method bodies in `by-function`. Keep raw code evidence and final-output C++ reconstruction in `by-memory`; keep class summaries in `by-class`; keep original source placement in `by-file`.
+
+### `by-class`
+
+Use this for class-centered documentation. Filenames should be current canonical class names:
+
+```text
+AboveFrame.md
+Browser.md
+RegistryConfig.md
+```
+
+Each file should include:
+
+- current class name and aliases/old names if any;
+- likely original source file and header placement;
+- method list or method-family summary with address ranges;
+- class responsibility, inheritance/interface evidence, owned globals/static data, and closely coupled helper types;
+- unresolved naming/layout issues;
+- cross-references to likely file docs and memory-range docs.
+
+Class docs should not become a dump of every method body. Keep method inventories and ownership summaries here, point to exact `by-memory` pages for full method documentation, and use `by-function` only as an optional name-centric index. Put small unresolved findings in `by-item`.
+
+### `by-file`
+
+Use this for likely original source-file reconstruction. A file doc represents one hypothesized original `.cpp`/`.h` pair or a coherent source module, not necessarily one current Wave3 generated file.
+
+Filename pattern:
+
+```text
+Browser.md
+DialogSystem.md
+DATFile.md
+ProfileStorage.md
+```
+
+Each file should include:
+
+- proposed original source path and header path, when known or hypothesized;
+- confidence level and evidence summary;
+- current Wave3 file containers/classes/globals that should belong to the file;
+- classes, helper structs, free functions, global data, includes, and resources likely declared/defined there;
+- reasoning for why entities should be grouped together instead of spread across separate generated files;
+- migration notes for Wave3 actions such as `rename file`, `set file-simpath`, `attach class`, `set global-data-owner`, or global-file creation;
+- cross-references to neighboring file docs.
+
+This directory is the main place to decide whether generated one-class files in `simroot_v2` should be merged into more plausible original source modules.
+
+When adding, removing, or renaming source-file documentation or changing a likely original file path/module placement, keep `E:\NTK\GhidraBridge\source-3\project-documentation\by-project-structure\proposed-source-tree.md` up to date with the same change so the project-level source tree stays consistent with `by-file` research. In proposed source-tree views, nest likely owned classes, globals, large helper structs, callback tables, vtables, and major data tables under their source file entry when practical. This makes ownership visible without forcing those items to appear as standalone files.
+
+### `by-global`
+
+Use this for process-wide symbols and non-class code/data that need more than a small `by-item` note. This includes free/helper function ownership records, Wave3 `global` and `global-data` records, singleton pointers, vtables, callback tables, jump tables, global arrays, and module-scope state. For the full body of a free/helper function, use the exact `by-memory` page; `by-global` should focus on symbol ownership, lifetime, users, and source-module placement.
+
+Filename pattern:
+
+```text
+g_pPaletteLib.md
+FatalError.md
+AlphaBlendLookupTable.md
+```
+
+Each file should include:
+
+- canonical symbol name and aliases/current Wave3 id;
+- exact address or address range when known;
+- symbol kind, type/signature, owner file hypothesis, and current Wave3/Wave2 ownership;
+- lifetime/initialization/shutdown behavior if known;
+- xrefs, callers/users, related classes, and source-module evidence;
+- unresolved naming, type, or owner questions;
+- links to `by-file`, `by-class`, `by-type`, and `by-memory`.
+
+Put exact address-range evidence in `by-memory`. Put class-static declaration details in `by-type/by-static-member` when the declaration is the main issue.
+
+### `by-type`
+
+Use this for C/C++ declaration and layout research that is not primarily class ownership or source-file grouping. This folder covers non-class Wave3 entity kinds and type-like support records.
+
+Subfolders use Wave3-style entity-kind names where possible, plus reverse-engineering support categories for ABI and compiler metadata:
+
+```text
+by-type/by-struct
+by-type/by-union
+by-type/by-enum
+by-type/by-alias
+by-type/by-namespace
+by-type/by-template
+by-type/by-macro
+by-type/by-include
+by-type/by-forward-declare
+by-type/by-packing
+by-type/by-alignment
+by-type/by-bitfield
+by-type/by-base
+by-type/by-field
+by-type/by-static-member
+by-type/by-vtable
+by-type/by-rtti
+by-type/by-function-pointer
+by-type/by-calling-convention
+by-type/by-constant
+```
+
+Use `by-field` only for high-value layout questions or heavily cross-referenced offsets. Wave3 has many derived field rows, so routine field rows should remain in class/struct docs rather than becoming one page per field.
+
+Use `by-vtable` and `by-function-pointer` for type/layout reconstruction. Use `by-global` for the concrete vtable, callback table, jump table, or global data symbol when the address and data ownership are the main subject.
+
+Each type page should include:
+
+- current Wave3 entity kind and id/name;
+- likely owner header/source module;
+- declaration hypothesis and confidence;
+- layout, size, values, offsets, or dependency evidence as applicable;
+- links to owning `by-file`, `by-class`, `by-global`, and exact `by-memory` evidence.
+
+### `by-resource`
+
+Use this for DAT entries, UI resources, image/palette/audio assets, embedded resource formats, string tables, and resource-to-class ownership. These pages are more concrete than broad `by-meta` topic specs, but are not primarily class/file/type ownership docs.
+
+Examples:
+
+```text
+dat-entry-name-table.md
+palette-resources.md
+mail-dialog-ui-resources.md
+map-tile-resources.md
+```
+
+Each page should include:
+
+- resource family, ids, filenames, DAT names, or inferred keys;
+- loader/owner classes and global indexes;
+- binary format notes when localized to that resource family;
+- evidence from code, strings, DAT research, and memory ranges;
+- links to broader `by-meta` specs and relevant `by-file`/`by-class`/`by-global` docs.
+
+### `by-project-structure`
+
+Use this for project/folder-layout reconstruction. These pages should describe likely top-level folders, Visual C++ project grouping, subsystem boundaries, and migration batches.
+
+Examples:
+
+```text
+proposed-source-tree.md
+ui-dialogs.md
+network-and-protocol.md
+asset-and-rendering.md
+```
+
+Each file should include:
+
+- proposed directory tree and source grouping;
+- evidence from generated `.vcproj`, import source filenames, class families, string/resource usage, and memory locality;
+- nested visibility for likely file contents when practical: classes, globals, large helper structs, callback tables, vtables, and major data tables should be listed under the owning file entry rather than as peer source files;
+- unresolved alternatives and why one layout is preferred;
+- phased migration plan for Wave3 file renames, simpaths, and class/global ownership changes.
+
+### `by-item`
+
+Use this for smaller units than a full class or source file: temporary function/method questions, vtables, globals, packets, resources, fields, or naming/layout questions.
+
+Prefer `by-global`, `by-type`, or `by-resource` when the item fits one of those categories and needs a durable page. Keep `by-item` for one-off questions, narrow behavior notes, packets, temporary triage, or small unresolved findings that do not yet justify a stronger category.
+
+Each item should include:
+
+- exact current entity id, address, or symbol;
+- owner class/file hypothesis;
+- concise behavior summary;
+- evidence and unresolved questions;
+- links back to `by-class`, `by-file`, and `by-memory`.
+
+### `by-meta`
+
+Use this for client-level subject documentation that cuts across many classes, source files, and memory ranges. These pages should describe observed product behavior and binary formats at the system/topic level, then link down to the file/class/memory docs that support the claims.
+
+Examples:
+
+```text
+client_dat_specifications.md
+client_network.md
+client_anticheat.md
+client_libraries.md
+client_new_rendering_mode.md
+client_old_rendering_mode.md
+```
+
+Each file should include:
+
+- topic scope and confidence;
+- concise format/protocol/behavior specifications backed by source evidence;
+- involved classes, files, globals, resources, strings, and memory ranges;
+- open questions and exact next research targets;
+- cross-references to `by-file`, `by-class`, `by-item`, and `by-memory`.
+
+Keep broad observations here, but put original-source ownership decisions in `by-file` and exact address evidence in `by-memory`.
+
+When a new uncovered client-level topic appears, update the nearest existing `by-meta` page or create a new `by-meta` document so cross-cutting behavior, formats, and subsystem findings do not remain buried in isolated class/file/memory notes.
+
+### `project-level`
+
+Use this for broad findings that affect the whole reconstruction: naming conventions, compiler/runtime policy, build-system decisions, library exclusions, resource-packaging behavior, subsystem maps, or workflow notes.
+
+### `wave3_noticed_problems.md` and `wave3_data_issues.md`
+
+Use `wave3_noticed_problems.md` to record problems encountered while using `wave3.py`, `wave3d.py`, Wave3 services, generated output, or command behavior. Use `wave3_data_issues.md` for incorrect or suspect reconstruction data. Keep the two categories separate:
+
+- core program issues: command hangs, service/cache failures, crashes, bad routing, stale processes, incorrect command output shape, materialization bugs, or tool behavior that prevents normal work;
+- data issues: incorrect ownership, bad names, missing or wrong memory ranges, stale generated files, bad source-line provenance, invalid global-data types, unresolved class/file grouping, or reconstruction data that needs review.
+
+Each entry should include the date, command or file involved, observed behavior, expected behavior if clear, impact on current research, and a suggested follow-up command or investigation path. Keep workarounds in the entry so later agents can continue without rediscovering the same failure. If a session finds suspect Wave3 class ownership, function-boundary data, generated names, or memory-range ownership while researching docs, record it in `wave3_data_issues.md` even if the finding is also mentioned in the class/file docs.
+
+Mixed issues should be recorded in both places when useful: put the command/generation failure in `wave3_noticed_problems.md`, and put the affected ownership, boundary, or source-layout caveat in `wave3_data_issues.md`.
+
+### `generic/general documentation` ###
+
+All mentioned folders can also contain generic documentation on the subfolder topic they are contained within, however, they should be prefixed with `-` at the start of their filename to differentiate them from the standard files.
+
+### Standard Page Change Sections
+
+Standard documentation pages, meaning singular entity/topic pages whose filenames do not start with `-`, should include a change-tracking section at the bottom when existing documentation is corrected, removed, renamed, or materially reclassified.
+
+This rule is only for normal single-subject pages such as one class, file, memory range, global, function, item, resource, or type page. Do not require `## Changes` sections in control pages, guidance files, ignored ledgers, coverage reports, generated reports, broad rolling index files, global memory coverage files, or other large files that are constantly updated. Also exclude `by-meta`, `by-external-research`, `by-project-structure`, and similar support/planning/research folders unless a specific page is intentionally being treated as a singular reconstruction item.
+
+Use a bottom section named `## Changes` or append to an existing `## Changes` section. Each entry should state:
+
+- what existed before;
+- what it was changed to, or exactly what was removed;
+- a short summary of why the change was made;
+- the evidence supporting the change, such as IDA/MCP output, manual disassembly, exact xrefs, source-line provenance, or linked memory/class/file docs.
+
+Do not add change entries for pure additions to a page. Recording every new section or newly documented item creates unnecessary length; reserve `## Changes` for corrections, removals, and reclassification of existing claims.
+
+### Validator UID Workflow
+
+Every new `.md` file created under a direct `by-*` folder must be registered with the validator immediately after creation so it receives a stable UID header and a `validator.ini` mapping. Use file mode for the single new file:
+
+```powershell
+python E:\NTK\GhidraBridge\source-3\project-documentation\tools\validator.py --mode file --file E:\NTK\GhidraBridge\source-3\project-documentation\by-memory\example.md --apply
+```
+
+Validator-managed by-folder pages should start with the UID metadata block, then one blank line, then the document body:
+
+```text
+*** UID:000001 | DO NOT MODIFY OR REMOVE!!! ***
+*** COMPLETION:0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+
+```
+
+Only edit the numeric values in `COMPLETION` and `CONFIDENCE`. Use `1-100` for evaluated documentation completion and evidence confidence, `0` for unevaluated, and `-1` for pages that should be ignored by completion statistics. Files that do not need grading/confidence, such as control pages, ledgers, guidance, coverage reports, external/meta/project-structure notes, or other non-actionable support docs, should be scored `-1` so they do not pollute work queues. When existing files have a UID but no score lines, the validator adds the missing score lines. Normal binary reconstruction docs default to `0`; `by-external-research`, `by-meta`, and `by-project-structure` default to `-1` because they are not direct binary reconstruction targets. If the UID line is missing or damaged but `validator.ini` already has exactly one path mapping for the file, the validator restores that UID. If a score line is damaged, the validator restores the last known value from `validator.ini`, or the folder default when no valid stored value exists.
+
+When a by-folder `.md` file is removed, run the validator missing-entry cleanup so the deleted file's UID mapping is removed from `validator.ini`. A rename should normally survive this because the validator searches scanned by-folder files by UID and updates the path instead of deleting the mapping. If a UID maps to an old path and that old path still exists, the validator reports `duplicate_path_conflict` instead of overwriting the mapping; this protects against copied files stealing an existing UID.
+
+```powershell
+python E:\NTK\GhidraBridge\source-3\project-documentation\tools\validator.py --mode documented --remove-missing --apply
+```
+
+For command details and dry-run forms, see `tools\validator_README.txt`.
+
+After a set of edits to one file is complete, the validator should normally be run once for that file. Do not run repeated full or documented scans for ordinary single-file edits. Single-file scans update that file's header, UID mapping, score values, generated UID-reference annotations, and any existing rows for that file in `project-level\-auto-completion-stats.md`. They do not rebuild or refill project-wide completion statistics. Each stats section checks against that section's current lowest-position row. If an updated stats row scores lower priority than that current lowest row, the validator removes that row and leaves the list short until a later rescore. If the updated item was already the lowest-position row before the scan, any score increase for that section also removes it. Full scans, documented scans, and `--mode rescore --apply` regenerate `project-level\-auto-completion-stats.md`; run those occasionally, or when enough rows have dropped from generated lists that the report is no longer useful. If an agent encounters broken UID links, stale generated target annotations, missing UID mappings, or multiple renamed/moved files, recommend or run a full/documented validator resync instead of hand-fixing references.
+
+The validator scope is direct `by-*` folders under `project-documentation`; new folders such as `by-function` are automatically included as long as they follow that naming and placement.
+
+Path note: on this machine, `E:\NTK\GhidraBridge\source-3` may resolve through a Windows junction/symlink to `C:\FastStorage\NTK_Sources\source-3`. Validator output may show the resolved `C:\FastStorage` path even when commands are run against `E:\NTK`; treat them as the same project tree when they resolve to the same files.
+
+### UID Cross-References
+
+When adding references from one by-folder `.md` file to another, write the stable target UID instead of a hand-authored Markdown path link. Use this authoring form:
+
+```text
+- [UID:TARGETUID] Additional context text.
+```
+
+`TARGETUID` is the target document's six-character UID from its first line. After editing the source file, run the validator on that file:
+
+```powershell
+python E:\NTK\GhidraBridge\source-3\project-documentation\tools\validator.py --mode file --file E:\NTK\GhidraBridge\source-3\project-documentation\by-memory\example.md --apply
+```
+
+The validator scans UID references after checking the source file's own UID. For references to another document, it creates or updates an immediate generated target annotation using `validator.ini`, for example:
+
+```text
+- [UID:000123][TargetFile](by-class/TargetFile.md) Additional context text.
+```
+
+If the second bracket already exists, the validator updates it when the target filename or path changes. Do not manually maintain generated target annotations except when resolving validator errors. If a referenced UID is missing from `validator.ini`, run the validator on the target file first.
+
+The validator maintains reverse references in `validator.ini` under `[references]`, keyed by target UID. When a source file is scanned, its outgoing UID references are re-read and stale reverse-reference entries for that source are removed. Full and documented scans rebuild `[references]` from the scanned files. When a target file is renamed or moved, scan the target with normal file mode, not `--uid-only`, so the validator can update known source files that still reference the target UID. If a listed source no longer contains that UID reference, the stale reverse-reference entry is removed instead. When a source file itself is renamed, scanning that source updates its source path in reverse-reference lists.
+
+## Evidence Standards
+
+- Use Wave3 inspection commands and `simroot_v2` for discovery, but do not treat generated Wave3 data as authority. Verify ownership, function boundaries, types, and source-layout decisions with IDA/MCP or manual disassembly before raising confidence or driving migration.
+- Treat `import_source_file` as provenance, not proof of final original file ownership. It is evidence to combine with class families, memory locality, xrefs, resource strings, and helper ownership.
+- Record confidence explicitly: `confirmed`, `strong`, `medium`, `weak`, or `open`.
+- Separate facts from hypotheses. Use "Observed" for tool-backed facts and "Hypothesis" for source-layout reconstruction.
+- Keep exact addresses in hex with leading `0x`.
+- Rename generated placeholders such as `dword_xxxxxxxx`, `byte_xxxxxxxx`, `sub_xxxxxxxx`, `FUN_xxxxxxxx`, `DAT_xxxxxxxx`, `Class_xxxxxxxx`, or synthetic Wave3 names when IDA/MCP evidence, xrefs, behavior, strings, layout, or surrounding ownership make the real role clear enough. Rename documentation files too when their canonical subject changes; UID headers and UID references are the durable identity, and the validator will update the recorded path/link annotation. When file/module additions, removals, renames, or source-placement changes affect the proposed project layout, update `by-project-structure\proposed-source-tree.md` in the same pass. After editing or renaming a single file, run `tools\validator.py --mode file --file <edited-or-renamed-file> --apply` unless a broader full/documented scan is explicitly needed. Record old generated names only when they remain useful for searching old tool output, traces, IDA labels, or generated Wave3/simroot references.
+- Cross-reference related docs with UID references whenever a finding spans class, file, and memory views, then run `tools\validator.py --mode file --file <edited-file> --apply` so generated target annotations stay current.
+- For late-1999 through mid-2000s Windows C++ source layout, prefer simple `.h`/`.cpp` modules, Visual C++ 6/7-era naming, subsystem folders, and local helper functions over modern header-only or highly granular one-class-per-file assumptions.
+
+## Current Research Priority
+
+The active research direction is top down. Prefer building a coherent reconstruction map instead of documenting unrelated isolated items:
+
+Before using scores as the main work queue, make `E:\NTK\GhidraBridge\source-3\project-documentation\by-memory\-coverage-report.md` the primary focus until every executable/data range has some kind of documentation and there are no remaining `UNKNOWN` ranges. Broad range classification comes before polishing individual completion/confidence scores.
+
+1. Start at the global/project level: subsystem boundaries, likely original folders, likely original source modules, major runtime/third-party exclusions, and broad executable/data regions.
+2. Move into structures, classes, file-level ownership, globals, and helper groups. Use `simroot_v2` and generated files for leads, then verify with IDA/MCP before raising confidence.
+3. Document the contents of those owners: class members, methods, free functions, helper structs, global data, vtables, jump tables, resources, and other subitems.
+4. Create or update `by-memory` references for exact address ranges that support those owners. Preserve nesting: parent module/class/library ranges should contain child functions, data islands, padding, and excluded spans when the relationship is real.
+5. Prioritize completely undocumented memory ranges enough to classify every span as project code, unknown, ignored, runtime, third-party, data, padding, or empty. Unknown ranges should be explicit until manually investigated.
+6. After broad gaps are accounted for, focus on low-completion or low-confidence items and trace them upward and downward until their real behavior, owner, and source placement are understood.
+7. Work on other `by-*` folders and files as needed when the evidence naturally belongs there. Update or create `by-meta` pages when a finding exposes an uncovered client-level topic or cross-cutting subsystem behavior.
+
+Use `project-level\-auto-completion-stats.md` as a work-queue source when choosing what to improve next. The low-completion, low-confidence, low-both, and per-folder lists identify currently tracked documentation pages that most need review. Ignore entries with `COMPLETION:-1` or `CONFIDENCE:-1`; those are intentionally excluded from grading.
+
+
+## Useful Wave3 Commands
+
+```powershell
+python E:\NTK\GhidraBridge\source-3\wave3.py show project-status --summary
+python E:\NTK\GhidraBridge\source-3\wave3.py list file --detailed
+python E:\NTK\GhidraBridge\source-3\wave3.py inspect file <filename> --entity-limit 25
+python E:\NTK\GhidraBridge\source-3\wave3.py inspect class <class_name> --method-limit 25
+python E:\NTK\GhidraBridge\source-3\wave3.py list memory-range class <class_name>
+python E:\NTK\GhidraBridge\source-3\wave3.py inspect memory-range class <class_name> --include-tree
+python E:\NTK\GhidraBridge\source-3\wave3.py show source-line <file> <line>
+python E:\NTK\GhidraBridge\source-3\wave3.py search symbol <pattern> --limit 50
+python E:\NTK\GhidraBridge\source-3\wave3.py search code <pattern> --limit 50
+```
+
+Use dry-run mutation commands in docs when proposing ownership changes. Do not apply source-file ownership migrations from documentation research alone unless the migration has a reviewed target and the user explicitly asks for changes to Wave3 state.

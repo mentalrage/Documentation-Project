@@ -1,0 +1,67 @@
+*** UID:0000DK | DO NOT MODIFY OR REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+
+# SpelledPane
+
+## Status
+
+- Confidence: strong for constructor and methods; medium for final file ownership.
+- Likely source file: [UID:0000NZ][SpelledPane](by-file/SpelledPane.md)
+- Address range: [UID:0001HA][0x0056bb20-0x0056c3f1.SpelledPane](by-memory/0x0056bb20-0x0056c3f1.SpelledPane.md)
+- Current recovered file: `source-3/simroot_v2/class_SpelledPane.cpp`
+
+## Class Purpose
+
+`SpelledPane` is a shared child text pane used by self-look/status views and at least one system-message pane. It is constructed with a `TextEditPane`-style base, owns a timed/grouped entry list, rebuilds display text, rejects unsupported query paths, and schedules refresh behavior.
+
+## Method Notes
+
+| Method | Address | Role |
+| --- | --- | --- |
+| constructor | `0x0056bb20-0x0056bbdb` | Constructs the child text pane with resolution-dependent layout. |
+| `AddOrUpdateEntry` provisional | `0x0056bca0-0x0056be16` | Adds or updates grouped text/value entries and rebuilds display text. Current generated owner is `SelfSaveOKPane`, but caller evidence points here. |
+| `RemoveEntry` provisional | `0x0056be20-0x0056be9f` | Removes a matching grouped entry and rebuilds display text. |
+| `RebuildDisplayText` provisional | `0x0056bea0-0x0056c0d7` | Formats grouped entries into the embedded text pane, using localized format string id `222` for valued rows. |
+| `ParseAndLoadEntries` provisional | `0x0056c0e0-0x0056c2da` | Parses serialized entries into the same entry vector. |
+| [UID:000078][LineIterator](by-class/LineIterator.md) local helper | `0x004f3020`, `0x00573240`, `0x00573540` | Stack line reader used by `ParseAndLoadEntries`; current active output only has destructor support. |
+| `IsQuerySupported` | `0x0056c2e0-0x0056c2e5` | Always-false virtual gate. |
+| `IsAlternateQuerySupported` | `0x0056c2f0-0x0056c2f5` | Always-false alternate virtual gate. |
+| `UpdateEntriesAndScheduleRefresh` | `0x0056c300-0x0056c3f1` | Updates entry text and schedules refresh. |
+| entry-vector helpers | `0x00572fd0-0x00573232`, `0x00573880-0x005738fc`, `0x00573900-0x00573962` | Internal vector insert/erase helpers for entry records; not source-facing behavior. Covered by [UID:00023X][0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers](by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md) and [UID:000240][0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers](by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md). |
+| scalar deleting destructor | `0x00573820-0x00573873` | Destructor in the mixed destructor island, covered by [UID:000240][0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers](by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md). |
+
+## Evidence Notes
+
+- Wave3 reports `SpelledPane` grade `97.5`.
+- IDA confirms constructor xrefs from `SelfLookPane`, `SelfLookPane2`, and a system-message/new-system-message constructor.
+- IDA caller checks on 2026-05-24 show the entry-list helpers currently emitted under `SelfSaveOKPane` are reached from self-look and system-message SpelledPane paths.
+- `SpelledPane::UpdateEntriesAndScheduleRefresh` uses a subobject adjustment before calling the same rebuild helper, matching a frame-handler/timer facet inside SpelledPane rather than a separate SelfSave pane.
+- [UID:000190][0x004f3020-0x004f3060.LineIteratorReadNextLine](by-memory/0x004f3020-0x004f3060.LineIteratorReadNextLine.md) is referenced in generated `ParseAndLoadEntries` source but not emitted as an active `LineIterator` method. Treat this as a generated-data gap around the local text parser.
+
+## Cross-References
+
+- [UID:0000NZ][SpelledPane](by-file/SpelledPane.md)
+- [UID:0001Y0][LookPaneVtableFamily](by-type/by-vtable/LookPaneVtableFamily.md)
+- [UID:0001HA][0x0056bb20-0x0056c3f1.SpelledPane](by-memory/0x0056bb20-0x0056c3f1.SpelledPane.md)
+- [UID:0000KQ][LineIterator](by-file/LineIterator.md)
+- [UID:0000CX][SelfSaveOKPane](by-class/SelfSaveOKPane.md)
+- [UID:0000CU][SelfLookPane](by-class/SelfLookPane.md)
+- [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md)
+- [UID:00023X][0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers](by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md)
+- [UID:000240][0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers](by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md)
+
+## Changes
+
+- Before: completion/confidence were unevaluated at `0/0`.
+- Changed to: completion `86`, confidence `78`.
+- Evidence: the page documents the shared child-pane role, constructor/method/helper/destructor ranges, generated ownership corrections, caller evidence, line-iterator gap, and helper-island cross-references; confidence remains capped by final file ownership and provisional helper names.
+- Before: the entry-vector helpers were listed as `0x00572fd0-0x00573231` and `0x00573900-0x00573961`, without covering the adjacent vector copy/cleanup helper at `0x00573880`.
+- Changed to: the helper endpoints now follow IDA function ends, and the related insert/copy/erase helpers are cross-referenced through [UID:00023X][0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers](by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md) and [UID:000240][0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers](by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md).
+- Evidence: 2026-05-28 IDA MCP shows `sub_572fd0` ends at `0x00573232`, `sub_573880` is called from that insert helper, and `sub_573900` ends at `0x00573962`.

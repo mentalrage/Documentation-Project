@@ -1,0 +1,61 @@
+*** UID:000022 | DO NOT MODIFY OR REMOVE!!! ***
+*** COMPLETION:60 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+
+# CheckBoxTextControlPane
+
+## Status
+
+- Confidence: medium-high for control behavior and reusable-control ownership; medium for exact constructor boundary.
+- Likely source file: `ui/controls/CheckBoxTextControlPane.cpp`, currently tracked under [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md)
+- Current recovered file: `source-3/simroot_v2/class_CheckBoxTextControlPane.cpp`
+- IDA MCP rechecked: 2026-05-24.
+- Type docs: [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md), [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md)
+
+## Class Purpose
+
+`CheckBoxTextControlPane` is a reusable checkbox plus text label control. It stores the checked flag at offset `+0x108`, stores a 256-wide-character label buffer at `+0x10a`, paints on/off EPF tile state, draws the shadowed label text, and tears down through the base control path.
+
+The checked state is not currently exposed through the method at `0x004214c0`; IDA decompiles that tiny vtable helper as a constant control-type return of `0x16`. The known user of the checked flag is [UID:0000A7][PartySearchEditPane](by-class/PartySearchEditPane.md), which reads and toggles offset `+0x108` directly.
+
+## Method Notes
+
+| Method | Address | Role |
+| --- | --- | --- |
+| `GetControlType` | [UID:0002DZ][0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType](by-memory/0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType.md) | Returns constant control type `0x16`; current Wave3 summary incorrectly describes this as checked-state access. |
+| `CheckBoxTextControlPane` | `0x0059ded0-0x0059df24` | Constructor-shaped bytes: calls the base control constructor with argument `8`, installs three vtable pointers, stores the initial checked flag, and copies the label. IDA does not currently model this as a function. |
+| vtable/base teardown helper | `0x0059df30-0x0059df4e` | IDA-modeled helper that reinstalls `CheckBoxTextControlPane` vtables and tail-calls the base teardown path at `0x00544580`; not in the active Wave3 partition. |
+| `OnPaint` | `0x0059df50-0x0059e0ab` | Draws checkbox tile and label text with shadow effect. |
+| Adjustor thunks | `0x0059efeb-0x0059f000` | Secondary-base this-adjustors that forward to the scalar deleting destructor. |
+| Scalar deleting destructor | `0x0059f050-0x0059f0a4` | Reinstalls class vtables, calls base teardown, and conditionally deletes the object. |
+
+## Evidence Notes
+
+- `source-3/simroot_v2/class_CheckBoxTextControlPane.cpp` has low active emitted-file quality (`62.7`) and active class ownership quality (`40.5`), so use it as generated evidence only.
+- IDA MCP `lookup_funcs` reports no function at `0x0059ded0`, but direct disassembly there shows the constructor-shaped sequence through `retn 0Ch` at `0x0059df24`.
+- IDA MCP decompilation of [UID:0002DZ][0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType](by-memory/0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType.md) returns constant `22`/`0x16`; it is only address-adjacent to fitting-room/string helpers and belongs to this reusable control.
+- IDA MCP recognizes `0x0059df30` (`size 0x1f`), `0x0059df50` (`size 0x15c`), thunks at `0x0059efeb` and `0x0059eff6`, and scalar deleting destructor `0x0059f050` (`size 0x55`).
+- `PartySearchEditPane::PartySearchEditPane` inlines equivalent checkbox/text initialization at `0x0059e22f-0x0059e265` after allocating `0x30c` bytes, which explains why `0x0059ded0` has no direct code xrefs in the current IDB.
+- `PartySearchEditPane::OnAction` reads the checked flag from `+0x108` when applying hunters-list settings and toggles that byte directly for command `2`.
+- 2026-05-26 IDA MCP confirmed primary vtable `0x0062e99c`, secondary vtable `0x0062ea04`, and tertiary vtable `0x0062ea34`. The paint method reads checked byte `+0x108` and label buffer `+0x10a`, and the adjustor thunks are vtable-only compiler glue into scalar deleting destructor `0x0059f050`.
+
+## Cross-References
+
+- [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md)
+- [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md)
+- [UID:0000A7][PartySearchEditPane](by-class/PartySearchEditPane.md)
+- [UID:0002DZ][0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType](by-memory/0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType.md)
+- [UID:0001KJ][0x0059ded0-0x0059f0a4.CheckBoxTextControlPane](by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md)
+- [UID:0001KI][0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane](by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md)
+- [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md)
+- [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md)
+
+## Changes
+
+- 2026-05-30: Existing class doc mentioned `0x004214c0` as an address-only helper. Changed it to the exact by-memory UID page and clarified that the helper is reusable checkbox-control code, not fitting-room or SimpleUString ownership. Evidence: IDA MCP decompilation/data refs for `0x004214c0` and the split of the historical `0x00421310-0x004216cb` aggregate.

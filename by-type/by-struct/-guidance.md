@@ -1,0 +1,9 @@
+*** UID:0001TL | DO NOT MODIFY OR REMOVE!!! ***
+*** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+
+# Struct Guidance
+
+Use this folder for named structs, POD records, packet/resource record layouts, and helper structs that are not full classes.
+
+Record field offsets, sizes, likely owner header, and the source/module that should declare the type.

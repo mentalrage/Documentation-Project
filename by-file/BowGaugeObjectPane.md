@@ -1,0 +1,64 @@
+*** UID:0000HU | DO NOT MODIFY OR REMOVE!!! ***
+*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+
+# BowGaugeObjectPane
+
+## Status
+
+- Confidence: strong for class behavior and anchors; medium for final source-file placement.
+- Proposed module: `ui/panels/BowGaugeObjectPane.cpp`, or a private companion in [UID:0000P1][UserPane](by-file/UserPane.md) if original source grouped local-player HUD children together.
+- Current generated source: `class_BowGaugeObjectPane.cpp`
+- Primary class doc: [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md)
+- Main address doc: [UID:0001DB][0x00538bc0-0x00539bb2.ObjectOverlayPanes](by-memory/0x00538bc0-0x00539bb2.ObjectOverlayPanes.md)
+
+## File Role
+
+`BowGaugeObjectPane` is not part of the attached map-object hierarchy despite its generated name. It constructs through `Pane`, is allocated by `UserPane::UserPane`, stores a global active pointer, draws `BGAUGE.EPF`, and schedules timer-driven repaint/update work.
+
+The current generated source has helper-owner pollution from fitting-room class names in drawing calls. Those helper labels should not move the class into `cashshop/FittingRoom.cpp` without stronger caller evidence.
+
+## Proposed Contents
+
+| Entity | Address evidence | Role |
+| --- | --- | --- |
+| `BowGaugeObjectPane` | `0x00538bc0-0x00538d4b`, destructor at `0x0053cfe0` | Local-player bow gauge pane with EPF frame drawing, pixel compositing, show/timer behavior, and global active pointer. |
+| [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md) | `0x0069ba24` | Active bow-gauge pane pointer written by the constructor, cleared by the destructor, and consumed by `UserPane` cleanup/show/hide paths. |
+| [UID:0001DC][0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers](by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md) | `0x00538c40-0x00538c4b` | Private wrapper that removes pending timers from the timer-handler subobject at `this + 0xa4`; currently generated under `BulletinSession`. |
+| [UID:000169][0x004ba540-0x004ba6ad.CompositePixels16](by-memory/0x004ba540-0x004ba6ad.CompositePixels16.md) dependency | `0x004ba540-0x004ba6ad` | Shared 16-bit GrafPort/surface compositor called by this pane and TextEditPane drawing paths; do not migrate it as BowGauge-owned source. |
+
+## Boundary Notes
+
+- IDA reports the constructor xref from `UserPane::UserPane` at `0x005a2956`, not from fitting-room construction.
+- Generated calls named `FittingRoomListPane::SetTextColor` and `FittingRoomDownloadControlPane::RenderTileFrame` should be treated as polluted helper labels until the underlying helpers are reviewed.
+- IDA MCP caller checks on 2026-05-25 show `0x004ba540` also called from [UID:0000ON][TextEditPane](by-file/TextEditPane.md) draw and invalidation functions. That makes the current `BowGaugeObjectPane::CompositePixels` ownership a generated-owner artifact.
+- IDA MCP caller checks on 2026-05-26 show `0x00538c40` only reached from `UserPane` cleanup/hide paths through [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md); keep it here instead of `BulletinSession`.
+- Keep this class out of [UID:0000HJ][AttachedObjectPane](by-file/AttachedObjectPane.md); it does not use the attached-object base constructor/destructor path.
+
+## IDA MCP Evidence
+
+Targeted checks on 2026-05-23 confirmed:
+
+- `0x004ba540-0x004ba6ad`: [UID:000169][0x004ba540-0x004ba6ad.CompositePixels16](by-memory/0x004ba540-0x004ba6ad.CompositePixels16.md), shared GrafPort/surface pixel helper used by BowGauge and TextEditPane.
+- `0x00538bc0-0x00538c0a`: constructor, direct xref from `UserPane::UserPane`
+- `0x00538c40-0x00538c4b`: [UID:0001DC][0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers](by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md), direct callers from `UserPane` cleanup/hide paths.
+- `0x00538c50-0x00538cfa`: paint
+- `0x00538d10-0x00538d4b`: show/timer callback
+- `0x0053cfe0-0x0053d025`: scalar deleting destructor
+
+## Cross-References
+
+- [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md)
+- [UID:0000P1][UserPane](by-file/UserPane.md)
+- [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md)
+- [UID:0001DC][0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers](by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md)
+- [UID:000169][0x004ba540-0x004ba6ad.CompositePixels16](by-memory/0x004ba540-0x004ba6ad.CompositePixels16.md)
+- [UID:0001DB][0x00538bc0-0x00539bb2.ObjectOverlayPanes](by-memory/0x00538bc0-0x00539bb2.ObjectOverlayPanes.md)
+- [UID:0001DL][0x0053cfa0-0x0053d65b.ObjectPaneCompanionDestructors](by-memory/0x0053cfa0-0x0053d65b.ObjectPaneCompanionDestructors.md)
+
+## Changes
+
+- What existed before: the page documented class behavior, owner pollution, anchors, and UserPane relationship but had unevaluated scores.
+- What it was changed to: scores were set to `70/82`.
+- Summary and evidence: behavior and anchors are strong; final source placement is still medium because it may live as a `UserPane` companion rather than a standalone file.

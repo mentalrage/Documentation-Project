@@ -1,0 +1,24 @@
+# Python/tool cache
+__pycache__/
+*.py[cod]
+
+# Validator runtime state
+tools/*.lock
+tools/*.log
+tools/validator_queue/
+tools/__pycache__/
+
+# Validator/generated backup snapshots
+tools/coverage_backup/
+tools/legacy_backup/
+tools/legacy_test/
+tools/validator_apply_backup/
+tools/validator_autogen_backup/
+tools/validator_original_version/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+

@@ -1,0 +1,54 @@
+*** UID:0000TE | DO NOT MODIFY OR REMOVE!!! ***
+*** COMPLETION:65 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:65 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+
+# OpenStoryViewingPane_4F90C0
+
+## Status
+
+- Confidence: medium overall; strong for behavior and current unreferenced status, weak for why the wrapper was retained.
+- Address range: [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md)
+- Current generated file: no standalone `simroot_v2` recovered source found in this pass.
+- Likely owner source: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
+
+## Function Role
+
+`OpenStoryViewingPane_4F90C0` is a small helper that allocates a 264-byte [UID:000066][HistoryViewingPane](by-class/HistoryViewingPane.md) and passes the story resource selected by `g_useEpfAssets`: `STORY.EPF` in EPF/high-layout mode or `STORY.EPD` in legacy mode.
+
+This duplicates the story branch inside `MainMenuPane::ActivateMenuItem`. Current IDA reports no callers or xrefs to the helper start, and 2026-05-28 raw pointer/immediate searches also found no hidden references. Treat it as a real retained duplicate helper unless later evidence proves a callback path.
+
+## Evidence Notes
+
+- IDA MCP `lookup_funcs 0x004f90c0` reports a real function of size `0x7f`.
+- IDA MCP callees are allocator `0x004f4aa0` and `HistoryViewingPane::HistoryViewingPane` at `0x004ffd80`.
+- IDA MCP reports no direct callers and no xrefs to `0x004f90c0`.
+- The constructor call sites inside this helper appear as `0x004f910c` and `0x004f912b` in `callers 0x004ffd80`.
+- 2026-05-26 IDA recheck still reports zero code refs and zero data refs to the helper start.
+- 2026-05-27 IDA raw-pointer scan across loaded segments found no dword equal to `0x004f90c0`.
+- 2026-05-28 IDA MCP recheck still reports no code/data refs, no little-endian pointer byte match for `c0 90 4f 00`, and no immediate-value search hits for `0x004f90c0`.
+- 2026-05-28 IDA MCP decompile of `0x004f7a10` shows the active story menu case directly allocating `264` bytes and calling `0x004ffd80` with the story resource, matching this wrapper's behavior without calling the wrapper.
+
+## Source Layout Decision
+
+Keep this with `login/MainMenuPane.cpp` as a menu action helper for address-matching reconstruction unless later xrefs prove a separate callback table or dead-code exclusion. Do not place it in `HistoryViewingPane.cpp`; the helper selects the menu resource and allocates the viewer, while `HistoryViewingPane` owns viewer behavior. A behavior-only source rebuild can rely on the direct action-handler construction path.
+
+## Cross-References
+
+- [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md)
+- [UID:0000JW][HistoryViewingPane](by-file/HistoryViewingPane.md)
+- [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
+- [UID:0001RF][main-menu-history-resources](by-resource/main-menu-history-resources.md)
+- [Wave3 data issues](../wave3_data_issues.md)
+
+## Changes
+
+- Before: documented as a retained helper with weak unresolved reachability.
+- After: documented as a retained duplicate launcher whose current lack of refs has been rechecked; the active main-menu story action is documented as directly duplicating the allocation/constructor sequence.
+- Why: IDA MCP found no direct or raw-pointer references to `0x004f90c0`, while `0x004f7a10` story case performs the same `264`-byte allocation and `0x004ffd80` constructor call.
+- Evidence: 2026-05-28 IDA MCP `xrefs_to`, `callers`, `find_bytes`, immediate `search`, and `decompile 0x004f7a10`.
