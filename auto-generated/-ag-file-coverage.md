@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 130
+Total_Reconstructed_Assigned: 131
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 158
+Total_Error: 157
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -114,6 +114,7 @@ Total_Error: 158
 | [UID:0000NH][ScrolledPictureControlPane](by-file/ScrolledPictureControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ScrolledPictureControlPane.cpp` | `by-file/ScrolledPictureControlPane.md` | by-file generated root |
 | [UID:0000NL][SelfLookPane](by-file/SelfLookPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-file/SelfLookPane.md` | by-file generated root |
 | [UID:0000NN][SelfSaveOKPane](by-file/SelfSaveOKPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveOKPane.cpp` | `by-file/SelfSaveOKPane.md` | by-file generated root |
+| [UID:0000NO][ServerSelectPane](by-file/ServerSelectPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-file/ServerSelectPane.md` | by-file generated root |
 | [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/SimpleListPane.cpp` | `by-file/SimpleListPane.md` | by-file generated root |
 | [UID:0000NS][Socket](by-file/Socket.md) | assigned |  |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-file/Socket.md` | by-file generated root |
 | [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-file/StartupLogoPanes.md` | by-file generated root |
@@ -266,7 +267,6 @@ Total_Error: 158
 | [UID:0000NE][ScrollableControlPane](by-file/ScrollableControlPane.md) | error |  |  | no |  | `by-file/ScrollableControlPane.md` | by-file generated root |
 | [UID:0000NI][ScrolledTextControlPane](by-file/ScrolledTextControlPane.md) | error |  |  | no |  | `by-file/ScrolledTextControlPane.md` | by-file generated root |
 | [UID:0000NM][SelfSaveInputPane](by-file/SelfSaveInputPane.md) | error |  |  | no |  | `by-file/SelfSaveInputPane.md` | by-file generated root |
-| [UID:0000NO][ServerSelectPane](by-file/ServerSelectPane.md) | error |  |  | no |  | `by-file/ServerSelectPane.md` | by-file generated root |
 | [UID:0000NP][Session](by-file/Session.md) | error |  |  | no |  | `by-file/Session.md` | by-file generated root |
 | [UID:0000NR][SnowingLayerPane](by-file/SnowingLayerPane.md) | error |  |  | no |  | `by-file/SnowingLayerPane.md` | by-file generated root |
 | [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md) | error |  |  | no |  | `by-file/SoftwareBlend16.md` | by-file generated root |

@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2105
-Total_Reconstructable: 893
+Total_Reconstructable: 894
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 376
+Total_Reconstructed_Assigned: 377
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 517
-Total_Unclassified: 1201
+Total_Unclassified: 1200
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -362,6 +362,7 @@ Total_Error: 0
 | [UID:0001HI][0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk](by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md) | assigned | `0000IC` | 60 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md` |  |
 | [UID:0001HJ][0x0056fe70-0x0056fe75.CollectionPane2FalseStub](by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md) | assigned | `0000IC` | 70 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md` |  |
 | [UID:0001HK][0x0056fe80-0x005729c3.SelfLookPane2](by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md) | assigned | `0000NL` | 20 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md` |  |
+| [UID:0001HR][0x00573d20-0x005747df.ServerSelectPane](by-memory/0x00573d20-0x005747df.ServerSelectPane.md) | assigned | `0000NO` | 10 | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -1634,7 +1635,6 @@ Total_Error: 0
 | [UID:0001HM][0x00573273-0x005732b5.GroupPaneAdjustorThunks](by-memory/0x00573273-0x005732b5.GroupPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x00573273-0x005732b5.GroupPaneAdjustorThunks.md` |  |
 | [UID:0001HN][0x005732b5-0x00573302.LookPaneAdjustorThunks](by-memory/0x005732b5-0x00573302.LookPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x005732b5-0x00573302.LookPaneAdjustorThunks.md` |  |
 | [UID:00023Z][0x00573310-0x0057353d.CollectionAndGroupPaneDestructors](by-memory/0x00573310-0x0057353d.CollectionAndGroupPaneDestructors.md) | unclassified |  |  | no |  | `by-memory/0x00573310-0x0057353d.CollectionAndGroupPaneDestructors.md` |  |
-| [UID:0001HR][0x00573d20-0x005747df.ServerSelectPane](by-memory/0x00573d20-0x005747df.ServerSelectPane.md) | unclassified |  |  | no |  | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |  |
 | [UID:0001HS][0x005747e0-0x00574ad8.SocketLifecycle](by-memory/0x005747e0-0x00574ad8.SocketLifecycle.md) | unclassified |  |  | no |  | `by-memory/0x005747e0-0x00574ad8.SocketLifecycle.md` |  |
 | [UID:000242][0x00574ae0-0x00574b83.SocketEventDispatchHelpers](by-memory/0x00574ae0-0x00574b83.SocketEventDispatchHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00574ae0-0x00574b83.SocketEventDispatchHelpers.md` |  |
 | [UID:0001HT][0x00574b90-0x00575377.CashShopRequestSendQueue](by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md) | unclassified |  |  | no |  | `by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md` |  |

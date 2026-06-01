@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 16:41:03
+Generated: 2026-06-01 16:47:14
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -141,7 +141,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000NE` | blank | `(blank)` | `by-file/ScrollableControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NI` | blank | `(blank)` | `by-file/ScrolledTextControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NM` | blank | `(blank)` | `by-file/SelfSaveInputPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NO` | blank | `(blank)` | `by-file/ServerSelectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NP` | blank | `(blank)` | `by-file/Session.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NR` | blank | `(blank)` | `by-file/SnowingLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NT` | blank | `(blank)` | `by-file/SoftwareBlend16.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -181,7 +180,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001HR` | 50 | 65 | 57.5 | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |
 | `000242` | 50 | 65 | 57.5 | `by-memory/0x00574ae0-0x00574b83.SocketEventDispatchHelpers.md` |
 | `0001HT` | 50 | 65 | 57.5 | `by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md` |
 | `0001HU` | 50 | 65 | 57.5 | `by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md` |
@@ -206,6 +204,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
 | `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
+| `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
 
 ## Low_Confidence
 
@@ -216,7 +215,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001HR` | 50 | 65 | 57.5 | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |
 | `000242` | 50 | 65 | 57.5 | `by-memory/0x00574ae0-0x00574b83.SocketEventDispatchHelpers.md` |
 | `0001HT` | 50 | 65 | 57.5 | `by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md` |
 | `0001HU` | 50 | 65 | 57.5 | `by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md` |
@@ -236,12 +234,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001IL` | 50 | 65 | 57.5 | `by-memory/0x0057f7b0-0x0057f7ce.SpellMacroEditControlPaneTeardownHelper.md` |
 | `0001IM` | 50 | 65 | 57.5 | `by-memory/0x0057fa80-0x0057fa9e.NewMacroEditControlPaneTeardownHelper.md` |
 | `0001IO` | 50 | 65 | 57.5 | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |
+| `0001IR` | 50 | 65 | 57.5 | `by-memory/0x00582070-0x005824f6.StdioFile.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001HR` | 50 | 65 | 57.5 | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |
 | `000242` | 50 | 65 | 57.5 | `by-memory/0x00574ae0-0x00574b83.SocketEventDispatchHelpers.md` |
 | `0001HT` | 50 | 65 | 57.5 | `by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md` |
 | `0001HU` | 50 | 65 | 57.5 | `by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md` |
@@ -266,6 +264,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
 | `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
+| `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
 
 ## By Folder
 
@@ -401,7 +400,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001HR` | 50 | 65 | 57.5 | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |
 | `000242` | 50 | 65 | 57.5 | `by-memory/0x00574ae0-0x00574b83.SocketEventDispatchHelpers.md` |
 | `0001HT` | 50 | 65 | 57.5 | `by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md` |
 | `0001HU` | 50 | 65 | 57.5 | `by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md` |
@@ -426,6 +424,7 @@ _No scored files._
 | `0001J3` | 50 | 65 | 57.5 | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |
 | `0001J5` | 50 | 65 | 57.5 | `by-memory/0x00584d80-0x00584e9e.StringIter.md` |
 | `0001J7` | 50 | 65 | 57.5 | `by-memory/0x00587bb0-0x005881ed.ForcedInformMessageDialogCore.md` |
+| `000246` | 50 | 65 | 57.5 | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |
 
 ### by-meta
 

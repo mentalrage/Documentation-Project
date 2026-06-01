@@ -30,7 +30,8 @@
 | `OnDialogAction` | `0x00574340-0x00574430` | Handles OK/cancel; OK calls the server-selection helper pair and creates a screen-dimmer transition before closing. |
 | `UpdateScrollButtons` | `0x00574440-0x00574496` | Enables/disables scroll/action controls based on list enabled-entry count. |
 | Adjustor thunks | `0x0057475b-0x00574770` | Compiler-generated thunks forwarding to the scalar deleting destructor. |
-| `ScalarDeletingDestructor` | `0x00574780-0x005747de` | Clears [UID:0000S8][g_pServerSelectPane](by-global/g_pServerSelectPane.md), destroys the base dialog pane, and conditionally frees memory. |
+| Singleton clear helper | `0x00574750-0x0057475a` | Clears [UID:0000S8][g_pServerSelectPane](by-global/g_pServerSelectPane.md) without running the full destructor. |
+| `ScalarDeletingDestructor` | `0x00574780-0x005747df` | Clears [UID:0000S8][g_pServerSelectPane](by-global/g_pServerSelectPane.md), destroys the base dialog pane, and conditionally frees memory. |
 
 ## Evidence Notes
 
@@ -40,6 +41,7 @@
 - `OnDialogAction` calls the server-selection helper currently modeled by Wave3 as `ChattingColorListPane::ApplySelectedColor`; this is documented as data owner pollution.
 - 2026-05-24 IDA MCP decompilation confirms `0x00574510` copies the selected server name into the config/current-server buffer and calls `0x005745b0`; `0x005745b0` sends the `0x57` select-server packet and stores selected endpoint/session state.
 - `xrefs_to 0x0069b4ac` ties the active-pane singleton to main-menu cleanup/startup and the `ServerSelectPane` constructor/destructor family.
+- 2026-06-01 live IDA MCP recheck confirms `0x00574750` as a tiny singleton-clear helper and the scalar deleting destructor as `0x00574780-0x005747df`, with `0x005747df-0x005747e0` as one-byte `0xcc` padding before the next socket lifecycle function.
 
 ## Cross-References
 

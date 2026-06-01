@@ -1,7 +1,7 @@
 *** UID:0000NO | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ServerSelectPane
 
@@ -21,14 +21,14 @@ This belongs under `login/` rather than generic dialogs because it is part of th
 
 | Entity | Address evidence | Role |
 | --- | --- | --- |
-| `ServerSelectPane` | `0x00573d20-0x00574496`, thunks `0x0057475b`/`0x00574766`, destructor `0x00574780-0x005747de` | Modal server-selection dialog, layout construction, OK/cancel handling, scroll-button state, and cleanup. |
+| `ServerSelectPane` | `0x00573d20-0x00574496`, singleton clear helper `0x00574750`, thunks `0x0057475b`/`0x00574766`, destructor `0x00574780-0x005747df` | Modal server-selection dialog, layout construction, OK/cancel handling, scroll-button state, singleton cleanup, and teardown. |
 | `ServerSelectMenuItemList` | projected constructor `0x005744a0`, active methods `0x00574660-0x00574747` | List-pane row widget for selecting server rows and drawing `Name : Description` text. |
 | Selection helpers | `0x00574510-0x0057465d` | [UID:0000VG][ServerSelectHelpers_574510_5745b0](by-item/ServerSelectHelpers_574510_5745b0.md) currently mis-owned/unowned in Wave3; applies the chosen server, sends the select-server packet, and stores endpoint/session state. |
 | Global singleton | [UID:0000S8][g_pServerSelectPane](by-global/g_pServerSelectPane.md) / `g_serverSelectPane` | Tracks the active server-select pane for pre-login cleanup. Naming needs final reconciliation. |
 
 ## Evidence Notes
 
-- IDA MCP confirms `ServerSelectPane::ServerSelectPane` at `0x00573d20-0x00574300`, action handler at `0x00574340-0x00574430`, scroll-button updater at `0x00574440-0x00574496`, adjustor thunks at `0x0057475b` and `0x00574766`, and scalar deleting destructor at `0x00574780-0x005747de`.
+- IDA MCP confirms `ServerSelectPane::ServerSelectPane` at `0x00573d20-0x00574300`, action handler at `0x00574340-0x00574430`, scroll-button updater at `0x00574440-0x00574496`, singleton clear helper at `0x00574750`, adjustor thunks at `0x0057475b` and `0x00574766`, and scalar deleting destructor at `0x00574780-0x005747df`.
 - IDA MCP confirms `ServerSelectMenuItemList` active methods at `0x00574660-0x0057466a` and `0x00574670-0x00574747`.
 - IDA MCP does not define a function at Wave3's projected `ServerSelectMenuItemList` constructor `0x005744a0`; the generated `ServerSelectPane` constructor currently builds the list inline.
 - IDA MCP confirms real helper functions at `0x00574510-0x0057454d` and `0x005745b0-0x0057465d`; Wave3 currently owns the first as `ChattingColorListPane::ApplySelectedColor`, which is not consistent with server-select caller and data-flow context.
@@ -57,3 +57,7 @@ This belongs under `login/` rather than generic dialogs because it is part of th
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `84` and confidence to `80`.
   - Evidence: document covers login feature role, proposed contents, IDA method boundaries, helper/data-boundary caveats, singleton alias evidence, ownership notes, and cross-references; confidence remains limited by projected list constructor and helper ownership cleanup.
+- 2026-06-01: Added projected path `NexusTK/login/`.
+  - Before: the page text proposed `login/ServerSelectPane.cpp`, but validator metadata had no projected path.
+  - After: `PROPOSED_RECONSTRUCTION_PATH` is `NexusTK/login/`.
+  - Evidence: source-tree docs already place `ServerSelectPane.cpp` under `login/`, and live IDA MCP reconfirmed the constructor caller, main-menu singleton xrefs, dialog resources, and selected-server helpers as pre-login/login code.
