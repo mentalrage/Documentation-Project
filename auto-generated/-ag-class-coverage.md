@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 166
+Total_Reconstructable: 170
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 78
+Total_Reconstructed_Assigned: 82
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 88
-Total_Unclassified: 419
+Total_Unclassified: 415
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -26,13 +26,16 @@ Total_Error: 0
 | [UID:00003A][Crasher](by-class/Crasher.md) | assigned | `0000II` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-class/Crasher.md` |  |
 | [UID:00003C][CriticalSectionLock](by-class/CriticalSectionLock.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/CriticalSectionLock.md` |  |
 | [UID:00003J][DATFileResolver](by-class/DATFileResolver.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-class/DATFileResolver.md` |  |
+| [UID:00003W][DIError](by-class/DIError.md) | assigned | `0000J5` |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/DIError.md` |  |
 | [UID:00003Z][DLPalette](by-class/DLPalette.md) | assigned | `0000MA` |  | no | `auto-generated/NexusTK/render/Palette.cpp` | `by-class/DLPalette.md` |  |
+| [UID:000045][DSError](by-class/DSError.md) | assigned | `0000J5` |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/DSError.md` |  |
 | [UID:00003N][DeleteFromBlockListenInputPane](by-class/DeleteFromBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/DeleteFromBlockListenInputPane.md` |  |
 | [UID:00003Q][DescPane](by-class/DescPane.md) | assigned | `0000IS` |  | no | `auto-generated/NexusTK/ui/controls/DescPane.cpp` | `by-class/DescPane.md` |  |
 | [UID:000043][DropGoldInputPane](by-class/DropGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/DropGoldInputPane.md` |  |
 | [UID:00004I][EPFTileContext](by-class/EPFTileContext.md) | assigned | `0000J4` |  | no | `auto-generated/NexusTK/render/EPFTileContext.cpp` | `by-class/EPFTileContext.md` |  |
 | [UID:000049][EffectObjectPane](by-class/EffectObjectPane.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/EffectObjectPane.md` |  |
 | [UID:00004B][EmotionInputPane](by-class/EmotionInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/EmotionInputPane.md` |  |
+| [UID:00004K][ErrorMessage](by-class/ErrorMessage.md) | assigned | `0000J5` |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/ErrorMessage.md` |  |
 | [UID:00004N][EventHandler](by-class/EventHandler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/EventHandler.md` |  |
 | [UID:00004P][ExceptionHandler](by-class/ExceptionHandler.md) | assigned | `0000J8` |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-class/ExceptionHandler.md` |  |
 | [UID:000051][FittingRoomDialogItemState](by-class/FittingRoomDialogItemState.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomDialogItemState.md` |  |
@@ -82,6 +85,7 @@ Total_Error: 0
 | [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/ShoutInputPane.md` |  |
 | [UID:0000DC][SnowingLayerPane](by-class/SnowingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SnowingLayerPane.md` |  |
 | [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
+| [UID:0000E7][StringIter](by-class/StringIter.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/StringIter.md` |  |
 | [UID:0000E9][SwallowLayerPane](by-class/SwallowLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SwallowLayerPane.md` |  |
 | [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/TakeOffInputPane.md` |  |
 | [UID:0000EZ][ThrowReallyInputPane](by-class/ThrowReallyInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ThrowReallyInputPane.md` |  |
@@ -261,8 +265,6 @@ Total_Error: 0
 | [UID:00003H][DATFileContainer](by-class/DATFileContainer.md) | unclassified |  |  | no |  | `by-class/DATFileContainer.md` |  |
 | [UID:00003K][DATIndexVector](by-class/DATIndexVector.md) | unclassified |  |  | no |  | `by-class/DATIndexVector.md` |  |
 | [UID:00003L][DDError](by-class/DDError.md) | unclassified |  |  | no |  | `by-class/DDError.md` |  |
-| [UID:00003W][DIError](by-class/DIError.md) | unclassified |  |  | no |  | `by-class/DIError.md` |  |
-| [UID:000045][DSError](by-class/DSError.md) | unclassified |  |  | no |  | `by-class/DSError.md` |  |
 | [UID:00003F][DamageNumberObjectPane](by-class/DamageNumberObjectPane.md) | unclassified |  |  | no |  | `by-class/DamageNumberObjectPane.md` |  |
 | [UID:00003O][DeleteReplyAlert](by-class/DeleteReplyAlert.md) | unclassified |  |  | no |  | `by-class/DeleteReplyAlert.md` |  |
 | [UID:00003R][DialDialog](by-class/DialDialog.md) | unclassified |  |  | no |  | `by-class/DialDialog.md` |  |
@@ -275,7 +277,6 @@ Total_Error: 0
 | [UID:000046][EarthquakeEffecter](by-class/EarthquakeEffecter.md) | unclassified |  |  | no |  | `by-class/EarthquakeEffecter.md` |  |
 | [UID:000047][EatInputPane](by-class/EatInputPane.md) | unclassified |  |  | no |  | `by-class/EatInputPane.md` |  |
 | [UID:000048][EditablePaperPane](by-class/EditablePaperPane.md) | unclassified |  |  | no |  | `by-class/EditablePaperPane.md` |  |
-| [UID:00004K][ErrorMessage](by-class/ErrorMessage.md) | unclassified |  |  | no |  | `by-class/ErrorMessage.md` |  |
 | [UID:00004L][Event](by-class/Event.md) | unclassified |  |  | no |  | `by-class/Event.md` |  |
 | [UID:00004O][EventMan](by-class/EventMan.md) | unclassified |  |  | no |  | `by-class/EventMan.md` |  |
 | [UID:00004R][ExchangeDialog](by-class/ExchangeDialog.md) | unclassified |  |  | no |  | `by-class/ExchangeDialog.md` |  |
@@ -529,7 +530,6 @@ Total_Error: 0
 | [UID:0000E3][StaticTextControlPane](by-class/StaticTextControlPane.md) | unclassified |  |  | no |  | `by-class/StaticTextControlPane.md` |  |
 | [UID:0000E4][StaticTextControlPane2](by-class/StaticTextControlPane2.md) | unclassified |  |  | no |  | `by-class/StaticTextControlPane2.md` |  |
 | [UID:0000E5][StaticTextControlPane2__SimpleHelpTextPartPane](by-class/StaticTextControlPane2__SimpleHelpTextPartPane.md) | unclassified |  |  | no |  | `by-class/StaticTextControlPane2__SimpleHelpTextPartPane.md` |  |
-| [UID:0000E7][StringIter](by-class/StringIter.md) | unclassified |  |  | no |  | `by-class/StringIter.md` |  |
 | [UID:0000EA][SystemMessagePane](by-class/SystemMessagePane.md) | unclassified |  |  | no |  | `by-class/SystemMessagePane.md` |  |
 | [UID:0000EB][TabPane](by-class/TabPane.md) | unclassified |  |  | no |  | `by-class/TabPane.md` |  |
 | [UID:0000ED][TargetObjectWithKeyboardPane](by-class/TargetObjectWithKeyboardPane.md) | unclassified |  |  | no |  | `by-class/TargetObjectWithKeyboardPane.md` |  |

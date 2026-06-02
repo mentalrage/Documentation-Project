@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 12:43:30
+Generated: 2026-06-02 12:53:35
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -69,7 +69,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000KL` | blank | `(blank)` | `by-file/Layer.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KN` | blank | `(blank)` | `by-file/LibJPEG.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KO` | blank | `(blank)` | `by-file/LightingObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KQ` | blank | `(blank)` | `by-file/LineIterator.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KT` | blank | `(blank)` | `by-file/ListPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KW` | blank | `(blank)` | `by-file/LodePNG.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KX` | blank | `(blank)` | `by-file/LoginDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -145,24 +144,19 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00020M` | 62 | 86 | 74.0 | `by-memory/0x004618a0-0x004619b8.AesCbcDecryptRaw.md` |
 | `0001Z7` | 62 | 88 | 75.0 | `by-memory/0x0060d670-0x0066d000.ReadOnlyDataSection.md` |
 | `0001Z8` | 62 | 88 | 75.0 | `by-memory/0x0066d000-0x0069d000.DataSection.md` |
-| `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
-| `00003W` | 64 | 74 | 69.0 | `by-class/DIError.md` |
-| `000045` | 64 | 74 | 69.0 | `by-class/DSError.md` |
 | `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
 | `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
 | `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
 | `000033` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteAlert.md` |
 | `000034` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteMailAlert.md` |
+| `000060` | 64 | 76 | 70.0 | `by-class/HandlerFindFunc.md` |
+| `0002G0` | 64 | 76 | 70.0 | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |
+| `000115` | 64 | 76 | 70.0 | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |
 
 ## Low_Confidence
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000QD` | 74 | 68 | 71.0 | `by-global/g_pBrowserOverlayLayer.md` |
-| `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
-| `0002BC` | 65 | 70 | 67.5 | `by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md` |
-| `0000E7` | 74 | 70 | 72.0 | `by-class/StringIter.md` |
-| `0000KQ` | 76 | 70 | 73.0 | `by-file/LineIterator.md` |
 | `00008R` | 78 | 70 | 74.0 | `by-class/Motion.md` |
 | `0000AE` | 68 | 72 | 70.0 | `by-class/PhoneBookListPane.md` |
 | `0000BX` | 68 | 72 | 70.0 | `by-class/RequestSyncGate.md` |
@@ -178,20 +172,21 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000PP` | 78 | 72 | 75.0 | `by-global/g_activeBrowserPane.md` |
 | `0000IQ` | 79 | 72 | 75.5 | `by-file/Decoder.md` |
 | `0000NP` | 80 | 72 | 76.0 | `by-file/Session.md` |
-| `00003W` | 64 | 74 | 69.0 | `by-class/DIError.md` |
-| `000045` | 64 | 74 | 69.0 | `by-class/DSError.md` |
 | `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
 | `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
 | `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
+| `0002DA` | 65 | 74 | 69.5 | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |
+| `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
+| `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
+| `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
+| `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
+| `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
+| `000074` | 72 | 74 | 73.0 | `by-class/LegendPane.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
-| `0002BC` | 65 | 70 | 67.5 | `by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md` |
-| `00003W` | 64 | 74 | 69.0 | `by-class/DIError.md` |
-| `000045` | 64 | 74 | 69.0 | `by-class/DSError.md` |
 | `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
 | `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
 | `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
@@ -213,6 +208,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
+| `0000AE` | 68 | 72 | 70.0 | `by-class/PhoneBookListPane.md` |
+| `0000BX` | 68 | 72 | 70.0 | `by-class/RequestSyncGate.md` |
+| `0002P9` | 62 | 80 | 71.0 | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |
+| `0002HV` | 62 | 80 | 71.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
 
 ## By Folder
 
@@ -220,9 +219,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
-| `00003W` | 64 | 74 | 69.0 | `by-class/DIError.md` |
-| `000045` | 64 | 74 | 69.0 | `by-class/DSError.md` |
 | `0000D9` | 62 | 78 | 70.0 | `by-class/SimpleUString.md` |
 | `000033` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteAlert.md` |
 | `000034` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteMailAlert.md` |
@@ -245,6 +241,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000BS` | 68 | 76 | 72.0 | `by-class/RecordVector_4E57C0.md` |
 | `0000CR` | 68 | 76 | 72.0 | `by-class/SelectionControlPane.md` |
 | `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
+| `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
+| `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
+| `0000FA` | 72 | 72 | 72.0 | `by-class/TreeItor_near_class_EventHandler___.md` |
 
 ### by-external-research
 
@@ -258,7 +257,6 @@ _No scored files._
 | `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
 | `0000JC` | 65 | 80 | 72.5 | `by-file/FileDownloader.md` |
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
-| `0000KQ` | 76 | 70 | 73.0 | `by-file/LineIterator.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
 | `0000LY` | 76 | 72 | 74.0 | `by-file/NewUserShapeSelectControlPane.md` |
@@ -279,6 +277,7 @@ _No scored files._
 | `0000LX` | 74 | 80 | 77.0 | `by-file/NewUserMiscDialogPane.md` |
 | `0000KD` | 76 | 78 | 77.0 | `by-file/ItemCatalog.md` |
 | `0000MY` | 78 | 76 | 77.0 | `by-file/RainingLayerPane.md` |
+| `0000HN` | 70 | 85 | 77.5 | `by-file/AutoInit.md` |
 
 ### by-function
 
@@ -291,7 +290,6 @@ _No scored files._
 | `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
 | `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
 | `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
-| `0000QD` | 74 | 68 | 71.0 | `by-global/g_pBrowserOverlayLayer.md` |
 | `0000Q6` | 76 | 72 | 74.0 | `by-global/g_pActiveBrowserWindow.md` |
 | `0000QC` | 76 | 74 | 75.0 | `by-global/g_pBrowserFileLoadText.md` |
 | `0000QF` | 76 | 74 | 75.0 | `by-global/g_pBrowserTimeoutText.md` |
@@ -313,6 +311,7 @@ _No scored files._
 | `0000SZ` | 74 | 82 | 78.0 | `by-global/HandleLegacyMainMenuPacket_4F8D00.md` |
 | `0000SH` | 74 | 82 | 78.0 | `by-global/g_pThreadMan.md` |
 | `0000SO` | 74 | 82 | 78.0 | `by-global/g_pVirusChecker.md` |
+| `0000QO` | 78 | 78 | 78.0 | `by-global/g_pCurrentBrowserHost.md` |
 
 ### by-item
 
@@ -348,7 +347,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BC` | 65 | 70 | 67.5 | `by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md` |
 | `0002DA` | 65 | 74 | 69.5 | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |
 | `00013P` | 62 | 78 | 70.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
 | `00013R` | 62 | 78 | 70.0 | `by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md` |
@@ -373,6 +371,7 @@ _No scored files._
 | `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
+| `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
 
 ### by-meta
 

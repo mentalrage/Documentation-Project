@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 183
+Total_Reconstructed_Assigned: 184
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 105
+Total_Error: 104
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -83,6 +83,7 @@ Total_Error: 105
 | [UID:0000KK][LanguageMan](by-file/LanguageMan.md) | assigned |  |  | no | `auto-generated/NexusTK/localization/LanguageMan.cpp` | `by-file/LanguageMan.md` | by-file generated root |
 | [UID:0000KM][LegendPane](by-file/LegendPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/LegendPane.cpp` | `by-file/LegendPane.md` | by-file generated root |
 | [UID:0000KP][LightObjImageLib](by-file/LightObjImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/LightObjImageLib.cpp` | `by-file/LightObjImageLib.md` | by-file generated root |
+| [UID:0000KQ][LineIterator](by-file/LineIterator.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/LineIterator.cpp` | `by-file/LineIterator.md` | by-file generated root |
 | [UID:0000KR][LinkedList](by-file/LinkedList.md) | assigned |  |  | no | `auto-generated/NexusTK/util/LinkedList.cpp` | `by-file/LinkedList.md` | by-file generated root |
 | [UID:0000KS][List](by-file/List.md) | assigned |  |  | no | `auto-generated/NexusTK/util/List.cpp` | `by-file/List.md` | by-file generated root |
 | [UID:0000KU][LivingObjectPane](by-file/LivingObjectPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-file/LivingObjectPane.md` | by-file generated root |
@@ -247,7 +248,6 @@ Total_Error: 105
 | [UID:0000KL][Layer](by-file/Layer.md) | error |  |  | no |  | `by-file/Layer.md` | by-file generated root |
 | [UID:0000KN][LibJPEG](by-file/LibJPEG.md) | error |  |  | no |  | `by-file/LibJPEG.md` | by-file generated root |
 | [UID:0000KO][LightingObjectPane](by-file/LightingObjectPane.md) | error |  |  | no |  | `by-file/LightingObjectPane.md` | by-file generated root |
-| [UID:0000KQ][LineIterator](by-file/LineIterator.md) | error |  |  | no |  | `by-file/LineIterator.md` | by-file generated root |
 | [UID:0000KT][ListPane](by-file/ListPane.md) | error |  |  | no |  | `by-file/ListPane.md` | by-file generated root |
 | [UID:0000KW][LodePNG](by-file/LodePNG.md) | error |  |  | no |  | `by-file/LodePNG.md` | by-file generated root |
 | [UID:0000KX][LoginDialogPane](by-file/LoginDialogPane.md) | error |  |  | no |  | `by-file/LoginDialogPane.md` | by-file generated root |
