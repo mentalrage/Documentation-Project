@@ -5,9 +5,9 @@
 Total_Type: 2140
 Total_Reconstructable: 1179
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 656
+Total_Reconstructed_Assigned: 657
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 523
+Total_Reconstructable_Unassigned: 522
 Total_Unclassified: 950
 Total_Error: 0
 
@@ -301,6 +301,7 @@ Total_Error: 0
 | [UID:00019S][0x004f91c0-0x004f927d.OpenTerminalPane](by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md` |  |
 | [UID:0002Q8][0x004fce80-0x004fd520.UserShapeSelectControlPaneCore](by-memory/0x004fce80-0x004fd520.UserShapeSelectControlPaneCore.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-memory/0x004fce80-0x004fd520.UserShapeSelectControlPaneCore.md` |  |
 | [UID:0002QA][0x004fdd40-0x004fe782.ChangePasswordDialogPaneCore](by-memory/0x004fdd40-0x004fe782.ChangePasswordDialogPaneCore.md) | assigned | `0000I3` |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-memory/0x004fdd40-0x004fe782.ChangePasswordDialogPaneCore.md` |  |
+| [UID:0002QB][0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount](by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md) | assigned | `0000I3` |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |  |
 | [UID:00022W][0x004fe790-0x004ff03f.ChangePasswordDialogPacketHelpers](by-memory/0x004fe790-0x004ff03f.ChangePasswordDialogPacketHelpers.md) | assigned | `0000I3` |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-memory/0x004fe790-0x004ff03f.ChangePasswordDialogPacketHelpers.md` |  |
 | [UID:0002QC][0x004fe9e0-0x004febe2.SendPasswordChangeRequest](by-memory/0x004fe9e0-0x004febe2.SendPasswordChangeRequest.md) | assigned | `0000I3` |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-memory/0x004fe9e0-0x004febe2.SendPasswordChangeRequest.md` |  |
 | [UID:0002QD][0x004febf0-0x004fee11.HandlePasswordChangeReply](by-memory/0x004febf0-0x004fee11.HandlePasswordChangeReply.md) | assigned | `0000I3` |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-memory/0x004febf0-0x004fee11.HandlePasswordChangeReply.md` |  |
@@ -919,7 +920,6 @@ Total_Error: 0
 | [UID:00019U][0x004fb630-0x004fe782.NewUserMiscShapeAndPasswordDialogs](by-memory/0x004fb630-0x004fe782.NewUserMiscShapeAndPasswordDialogs.md) | unassigned |  |  | no |  | `by-memory/0x004fb630-0x004fe782.NewUserMiscShapeAndPasswordDialogs.md` |  |
 | [UID:00019V][0x004fccf0-0x004fce7e.SelectBoxControlPane](by-memory/0x004fccf0-0x004fce7e.SelectBoxControlPane.md) | unassigned |  |  | no |  | `by-memory/0x004fccf0-0x004fce7e.SelectBoxControlPane.md` |  |
 | [UID:0002Q9][0x004fd520-0x004fdd33.NewUserShapeSelectControlPaneCore](by-memory/0x004fd520-0x004fdd33.NewUserShapeSelectControlPaneCore.md) | unassigned |  |  | no |  | `by-memory/0x004fd520-0x004fdd33.NewUserShapeSelectControlPaneCore.md` |  |
-| [UID:0002QB][0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount](by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md) | unassigned |  |  | no |  | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |  |
 | [UID:0001A4][0x00500640-0x00502754.SpecializedButtonPanes](by-memory/0x00500640-0x00502754.SpecializedButtonPanes.md) | unassigned |  |  | no |  | `by-memory/0x00500640-0x00502754.SpecializedButtonPanes.md` |  |
 | [UID:0001A5][0x005008c0-0x0050114d.BlueAlertPaneCore](by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md) | unassigned |  |  | no |  | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |  |
 | [UID:000230][0x00503960-0x005039ed.GameServerNationRequestPacketRawHelper](by-memory/0x00503960-0x005039ed.GameServerNationRequestPacketRawHelper.md) | unassigned |  |  | no |  | `by-memory/0x00503960-0x005039ed.GameServerNationRequestPacketRawHelper.md` |  |

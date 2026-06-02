@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 14:32:45
+Generated: 2026-06-02 14:41:20
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -125,10 +125,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
-| `0001TZ` | 64 | 78 | 71.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
-| `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
-| `0002P7` | 64 | 82 | 73.0 | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |
 | `0002PA` | 64 | 82 | 73.0 | `by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md` |
 | `0001Z5` | 64 | 88 | 76.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
 | `00000E` | 65 | 75 | 70.0 | `by-class/ApplicationHelper_4A6C40.md` |
@@ -150,6 +146,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000218` | 65 | 85 | 75.0 | `by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md` |
 | `00021C` | 65 | 85 | 75.0 | `by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md` |
 | `00021K` | 65 | 85 | 75.0 | `by-memory/0x00485960-0x00485abe.ClanSubtype6PacketHelpers.md` |
+| `00021O` | 65 | 85 | 75.0 | `by-memory/0x00487370-0x004873b5.ClanStatusPaneRefreshChildPanes.md` |
+| `00021P` | 65 | 85 | 75.0 | `by-memory/0x004873c0-0x00487475.ClanStatusPaneShowInfoList.md` |
+| `00021Q` | 65 | 85 | 75.0 | `by-memory/0x00487480-0x00487535.ClanStatusPaneShowJoinList.md` |
+| `00021R` | 65 | 85 | 75.0 | `by-memory/0x00487540-0x004875f5.ClanStatusPaneShowEnlistList.md` |
 
 ## Low_Confidence
 
@@ -189,14 +189,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
-| `0001TZ` | 64 | 78 | 71.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 | `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
-| `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
 | `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
 | `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 | `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
@@ -210,6 +207,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
 | `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
 | `00006S` | 68 | 76 | 72.0 | `by-class/InventoryPane2.md` |
+| `00009H` | 68 | 76 | 72.0 | `by-class/NexonclubProxyDialog.md` |
+| `0000BS` | 68 | 76 | 72.0 | `by-class/RecordVector_4E57C0.md` |
+| `0000CR` | 68 | 76 | 72.0 | `by-class/SelectionControlPane.md` |
 
 ## By Folder
 
@@ -251,7 +251,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
 | `0000JC` | 65 | 80 | 72.5 | `by-file/FileDownloader.md` |
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
@@ -276,6 +275,7 @@ _No scored files._
 | `0000MY` | 78 | 76 | 77.0 | `by-file/RainingLayerPane.md` |
 | `0000HN` | 70 | 85 | 77.5 | `by-file/AutoInit.md` |
 | `00020J` | 68 | 88 | 78.0 | `by-file/AesBlockCipher.md` |
+| `0000OB` | 72 | 84 | 78.0 | `by-file/StringUtil.md` |
 
 ### by-function
 
@@ -347,7 +347,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
@@ -370,6 +369,7 @@ _No scored files._
 | `0002C1` | 68 | 76 | 72.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
 | `0002C3` | 68 | 76 | 72.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 | `0000WH` | 65 | 80 | 72.5 | `by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md` |
+| `0002H3` | 65 | 80 | 72.5 | `by-memory/0x00464e40-0x00464f34.ApplicationRequestExit.md` |
 
 ### by-meta
 
@@ -413,7 +413,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001TZ` | 64 | 78 | 71.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
 | `0001TR` | 68 | 82 | 75.0 | `by-type/by-struct/AttachedObjectRegistryLayout.md` |
 | `0001SK` | 72 | 80 | 76.0 | `by-type/by-enum/BrowserInitFlags.md` |
 | `0001UA` | 70 | 84 | 77.0 | `by-type/by-struct/EffectPixMapInfo.md` |
@@ -425,6 +424,7 @@ _No scored files._
 | `0001YS` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollSpellInventoryPaneVtables.md` |
 | `0001YT` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollVolumePaneVtables.md` |
 | `0001SM` | 72 | 84 | 78.0 | `by-type/by-enum/BrowserOverlayStyle.md` |
+| `0001TZ` | 72 | 84 | 78.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
 | `0001U7` | 72 | 84 | 78.0 | `by-type/by-struct/EffectFrameRecord.md` |
 | `0001W5` | 72 | 84 | 78.0 | `by-type/by-struct/SimpleUStringSso7Layout.md` |
 | `0001SO` | 74 | 82 | 78.0 | `by-type/by-enum/MapServerPacketOpcode.md` |
