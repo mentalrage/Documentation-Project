@@ -1,7 +1,7 @@
 *** UID:0000OZ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # UserListDialogPane
 
@@ -11,7 +11,7 @@
 - Proposed module: `social/UserListDialogPane.cpp`
 - Current recovered sources: `class_UserListDialogPane.cpp`, `class_UserListPane.cpp`, `class_PartySearchEditPane.cpp`, and `recovered/AddUserListSourceMessage_0059DE60.cpp`
 - Main address doc: [UID:0001KI][0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane](by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md)
-- Evidence basis: Wave3 class/method summaries, generated `simroot_v2` sources, and IDA MCP function boundary checks on 2026-05-23.
+- Evidence basis: existing class/file docs plus IDA MCP/raw export function boundary, caller/callee, vtable, and byte-map checks. Generated sources remain useful leads only and are not treated as final source.
 
 ## File Role
 
@@ -36,6 +36,9 @@ This should be treated as a social UI feature source rather than generic dialog 
 - `UserListPane` is directly constructed twice from the dialog constructor, once for high-resolution layout and once for low-resolution layout.
 - `UserListPane::OnDoubleClick` and `UserListDialogPane::HandleUserListPacket` both call `AddUserListSourceMessage_59DE60`, which supports keeping the helper in this feature source.
 - `PartySearchEditPane` is constructed by `UserListDialogPane::OnControlCommand` for command id `20`, which supports grouping it with the user-list source unless later evidence shows it was a separate social dialog file.
+- 2026-06-02 IDA MCP/raw export recheck confirms exact modeled sizes for the major range: constructor `0x1508`, no-op `0x3`, sort helpers `0x60` each, refresh `0x34e`, packet handler `0x2d5`, key handler `0x182`, control handler `0x153`, source-message helper `0x70`, party-search constructor `0x2c3`, party-search action `0x337`, list-pane constructor `0x189`, list-pane destructor `0xa3`, draw callback `0x288`, selection callback `0x3e`, whisper opener `0xac`, double-click handler `0x1c0`, and scalar deleting destructors `0x55`/`0x71`/`0xcb`.
+- 2026-06-02 IDA byte-map review confirms this is not a simple contiguous function-only island: non-padding tail/table chunks exist between `0x0059d198-0x0059d1e0`, `0x0059d5fe-0x0059d620`, `0x0059dbe3-0x0059de60`, `0x0059e9a6-0x0059e9f0`, and the checkbox/destructor interleave. Those chunks are now called out on the memory page and keep the file below final-source scoring.
+- [UID:00026U][0x0062e960-0x0062eccc.UserListReadOnlyData](by-memory/0x0062e960-0x0062eccc.UserListReadOnlyData.md) documents matching `UserListDialogPane`, `CheckBoxTextControlPane`, `PartySearchEditPane`, and `UserListPane` vtable/resource data.
 
 ## Ownership Notes
 
@@ -43,12 +46,15 @@ The address neighborhood is interleaved with [UID:000022][CheckBoxTextControlPan
 
 The current generated `class_UserListDialogPane.cpp` includes many autograder penalties and unresolved helper names (`UserListPane`, `AddUserListSourceMessage_59DE60`, `OnInputEvent`, synthetic layout overlays). Use IDA function starts and Wave3 summaries as the file-layout anchor; do not treat the active generated body as ready source.
 
+The file-level parent is now above the `80%` confidence attachment threshold. The aggregate executable range can attach here for autogen ownership, but final C++ should remain blank until the non-IDA cleanup/table chunks, checkbox interleaves, field names, packet field names, and helper names are resolved to final-source quality.
+
 ## Cross-References
 
 - [UID:0000FN][UserListDialogPane](by-class/UserListDialogPane.md)
 - [UID:0000FO][UserListPane](by-class/UserListPane.md)
 - [UID:0000A7][PartySearchEditPane](by-class/PartySearchEditPane.md)
 - [UID:0001KI][0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane](by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md)
+- [UID:00026U][0x0062e960-0x0062eccc.UserListReadOnlyData](by-memory/0x0062e960-0x0062eccc.UserListReadOnlyData.md)
 - [UID:000022][CheckBoxTextControlPane](by-class/CheckBoxTextControlPane.md)
 - [UID:0000I5][Chatting](by-file/Chatting.md)
 - [UID:0000JN][FriendListDialog](by-file/FriendListDialog.md)
@@ -57,3 +63,7 @@ The current generated `class_UserListDialogPane.cpp` includes many autograder pe
 ## Changes
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `84/78`. Summary/evidence: the page documents the social-list source family, user-list/party-search classes, singleton focus global, IDA evidence, and generated-output ownership caveats; exact split from adjacent controls remains medium-confidence.
+- 2026-06-02 source-placement and scoring update:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and the page remained below the file-parent attachment confidence threshold.
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/"`, `COMPLETION:86`, and `CONFIDENCE:82`.
+  - Summary/evidence: IDA MCP/raw export rechecked exact sizes, constructor/caller relationships, vtable refs, reusable checkbox interleaves, read-only data, and non-padding intra-island chunks; unresolved final field/helper names and non-modeled chunks remain explicit caveats.
