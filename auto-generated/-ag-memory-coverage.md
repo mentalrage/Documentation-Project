@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1193
+Total_Reconstructable: 1195
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 662
+Total_Reconstructed_Assigned: 664
 Total_Reconstructed_Coded: 18
 Total_Reconstructable_Unassigned: 531
-Total_Unclassified: 936
+Total_Unclassified: 934
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -132,7 +132,9 @@ Total_Error: 0
 | [UID:00011C][0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar](by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md) | assigned | `0000AW` | 60 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md` |  |
 | [UID:000223][0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers](by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |  |
 | [UID:000129][0x0049bae0-0x0049bbef.Crasher](by-memory/0x0049bae0-0x0049bbef.Crasher.md) | assigned | `00003A` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-memory/0x0049bae0-0x0049bbef.Crasher.md` |  |
+| [UID:000226][0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers](by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md` |  |
 | [UID:00012A][0x0049bcf0-0x0049bd19.CriticalSectionLock](by-memory/0x0049bcf0-0x0049bd19.CriticalSectionLock.md) | assigned | `00003C` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-memory/0x0049bcf0-0x0049bd19.CriticalSectionLock.md` |  |
+| [UID:000227][0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder](by-memory/0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-memory/0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder.md` |  |
 | [UID:00012B][0x0049bd30-0x0049d6ed.DATManagers](by-memory/0x0049bd30-0x0049d6ed.DATManagers.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-memory/0x0049bd30-0x0049d6ed.DATManagers.md` |  |
 | [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md` |  |
 | [UID:00012F][0x0049c750-0x0049c7f6._DATFileMgrRawDestructor](by-memory/0x0049c750-0x0049c7f6._DATFileMgrRawDestructor.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-memory/0x0049c750-0x0049c7f6._DATFileMgrRawDestructor.md` |  |
@@ -1545,8 +1547,6 @@ Total_Error: 0
 | [UID:000128][0x0049b8f0-0x0049b8f5.RectangleControlPaneTypeId](by-memory/0x0049b8f0-0x0049b8f5.RectangleControlPaneTypeId.md) | unclassified |  |  | no |  | `by-memory/0x0049b8f0-0x0049b8f5.RectangleControlPaneTypeId.md` |  |
 | [UID:000222][0x0049b920-0x0049b925.StaticTextControlPaneTypeId](by-memory/0x0049b920-0x0049b925.StaticTextControlPaneTypeId.md) | unclassified |  |  | no |  | `by-memory/0x0049b920-0x0049b925.StaticTextControlPaneTypeId.md` |  |
 | [UID:000224][0x0049ba30-0x0049bad9.MsvcAlignedArrayAllocationHelpers](by-memory/0x0049ba30-0x0049bad9.MsvcAlignedArrayAllocationHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0049ba30-0x0049bad9.MsvcAlignedArrayAllocationHelpers.md` |  |
-| [UID:000226][0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers](by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md) | unclassified |  |  | no |  | `by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md` |  |
-| [UID:000227][0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder](by-memory/0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder.md) | unclassified |  |  | no |  | `by-memory/0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder.md` |  |
 | [UID:00012D][0x0049c130-0x0049d2cb.DATFile](by-memory/0x0049c130-0x0049d2cb.DATFile.md) | unclassified |  |  | no |  | `by-memory/0x0049c130-0x0049d2cb.DATFile.md` |  |
 | [UID:00012E][0x0049c700-0x0049c71d.HasDATEntry](by-memory/0x0049c700-0x0049c71d.HasDATEntry.md) | unclassified |  |  | no |  | `by-memory/0x0049c700-0x0049c71d.HasDATEntry.md` |  |
 | [UID:00012L][0x0049d740-0x0049d769.DescPaneDestructor](by-memory/0x0049d740-0x0049d769.DescPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0049d740-0x0049d769.DescPaneDestructor.md` |  |
