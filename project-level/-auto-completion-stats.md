@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 07:27:59
+Generated: 2026-06-02 07:32:54
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -125,7 +125,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000NE` | blank | `(blank)` | `by-file/ScrollableControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NI` | blank | `(blank)` | `by-file/ScrolledTextControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NP` | blank | `(blank)` | `by-file/Session.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NT` | blank | `(blank)` | `by-file/SoftwareBlend16.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NU` | blank | `(blank)` | `by-file/SortedList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NW` | blank | `(blank)` | `by-file/SoundObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NX` | blank | `(blank)` | `by-file/SoundStatusPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -151,12 +150,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
-| `000208` | 50 | 85 | 67.5 | `by-memory/0x00460940-0x004609d3.BlitTransparentShadow565MmxBlocks.md` |
-| `000209` | 50 | 85 | 67.5 | `by-memory/0x004609e0-0x00460af9.Rgb565TransparentAlphaBlendMmxBlocks.md` |
-| `00020A` | 50 | 85 | 67.5 | `by-memory/0x00460c90-0x00460d51.Rgb565AlphaMapMmxBlocks.md` |
-| `00020C` | 50 | 85 | 67.5 | `by-memory/0x00460df0-0x00460e79.ByteSpanCopyRows.md` |
-| `00020D` | 50 | 85 | 67.5 | `by-memory/0x00460e80-0x00460f09.ByteSpanAddRows.md` |
-| `00020E` | 50 | 85 | 67.5 | `by-memory/0x00460f10-0x00460f99.ByteSpanSubtractRows.md` |
 | `00020F` | 50 | 85 | 67.5 | `by-memory/0x00460fa0-0x00460ffe.ByteSpanFill8Blocks.md` |
 | `00020G` | 50 | 85 | 67.5 | `by-memory/0x00461000-0x0046104b.ByteSpanCopy8Blocks.md` |
 | `00020H` | 50 | 85 | 67.5 | `by-memory/0x00461050-0x0046109e.ByteSpanAdd8Blocks.md` |
@@ -174,6 +167,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
 | `00021H` | 55 | 65 | 60.0 | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |
 | `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
+| `00021T` | 55 | 65 | 60.0 | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |
+| `00021Y` | 55 | 65 | 60.0 | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |
+| `00021Z` | 55 | 65 | 60.0 | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |
+| `000223` | 55 | 65 | 60.0 | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |
+| `000141` | 55 | 65 | 60.0 | `by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md` |
+| `00022C` | 55 | 65 | 60.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
 
 ## Low_Confidence
 
