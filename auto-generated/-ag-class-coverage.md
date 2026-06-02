@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 148
+Total_Reconstructable: 150
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 64
+Total_Reconstructed_Assigned: 65
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 437
+Total_Reconstructable_Unassigned: 85
+Total_Unclassified: 435
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -44,6 +44,7 @@ Total_Error: 0
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
 | [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPlayerPane.md` |  |
+| [UID:00007Q][MapPane](by-class/MapPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-class/MapPane.md` |  |
 | [UID:00007V][MenuItem](by-class/MenuItem.md) | assigned | `0000MN` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-class/MenuItem.md` |  |
 | [UID:000083][MerchantDialogPane](by-class/MerchantDialogPane.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-class/MerchantDialogPane.md` |  |
 | [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-class/NewHumanImageLib.md` |  |
@@ -133,6 +134,7 @@ Total_Error: 0
 | [UID:00007T][MapTileImageLib](by-class/MapTileImageLib.md) | unassigned |  |  | no |  | `by-class/MapTileImageLib.md` |  |
 | [UID:00007U][MemoryMan](by-class/MemoryMan.md) | unassigned |  |  | no |  | `by-class/MemoryMan.md` |  |
 | [UID:000087][MessageShowPane](by-class/MessageShowPane.md) | unassigned |  |  | no |  | `by-class/MessageShowPane.md` |  |
+| [UID:00008F][MiniMapRenderer](by-class/MiniMapRenderer.md) | unassigned |  |  | no |  | `by-class/MiniMapRenderer.md` |  |
 | [UID:00008H][MiniMapVersionManager](by-class/MiniMapVersionManager.md) | unassigned |  |  | no |  | `by-class/MiniMapVersionManager.md` |  |
 | [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md) | unassigned |  |  | no |  | `by-class/ModelessDialogPane.md` |  |
 | [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md) | unassigned |  |  | no |  | `by-class/MonsterImageLib.md` |  |
@@ -346,7 +348,6 @@ Total_Error: 0
 | [UID:00007N][MailTransferReplyAlert](by-class/MailTransferReplyAlert.md) | unclassified |  |  | no |  | `by-class/MailTransferReplyAlert.md` |  |
 | [UID:00007O][MainMenuPane](by-class/MainMenuPane.md) | unclassified |  |  | no |  | `by-class/MainMenuPane.md` |  |
 | [UID:00007P][MapNamePane](by-class/MapNamePane.md) | unclassified |  |  | no |  | `by-class/MapNamePane.md` |  |
-| [UID:00007Q][MapPane](by-class/MapPane.md) | unclassified |  |  | no |  | `by-class/MapPane.md` |  |
 | [UID:00007R][MapPaneSpatialIndex](by-class/MapPaneSpatialIndex.md) | unclassified |  |  | no |  | `by-class/MapPaneSpatialIndex.md` |  |
 | [UID:00007S][MapRefreshDimmer](by-class/MapRefreshDimmer.md) | unclassified |  |  | no |  | `by-class/MapRefreshDimmer.md` |  |
 | [UID:00007W][MenuPane](by-class/MenuPane.md) | unclassified |  |  | no |  | `by-class/MenuPane.md` |  |
@@ -366,7 +367,6 @@ Total_Error: 0
 | [UID:00008C][MiniMapDialog](by-class/MiniMapDialog.md) | unclassified |  |  | no |  | `by-class/MiniMapDialog.md` |  |
 | [UID:00008D][MiniMapDownloader](by-class/MiniMapDownloader.md) | unclassified |  |  | no |  | `by-class/MiniMapDownloader.md` |  |
 | [UID:00008E][MiniMapImageControlPane](by-class/MiniMapImageControlPane.md) | unclassified |  |  | no |  | `by-class/MiniMapImageControlPane.md` |  |
-| [UID:00008F][MiniMapRenderer](by-class/MiniMapRenderer.md) | unclassified |  |  | no |  | `by-class/MiniMapRenderer.md` |  |
 | [UID:00008G][MiniMapSymbolControlPane](by-class/MiniMapSymbolControlPane.md) | unclassified |  |  | no |  | `by-class/MiniMapSymbolControlPane.md` |  |
 | [UID:00008I][MiscWorkThread](by-class/MiscWorkThread.md) | unclassified |  |  | no |  | `by-class/MiscWorkThread.md` |  |
 | [UID:00008J][MixItemDialog](by-class/MixItemDialog.md) | unclassified |  |  | no |  | `by-class/MixItemDialog.md` |  |

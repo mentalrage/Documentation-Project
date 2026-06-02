@@ -1,7 +1,7 @@
 *** UID:00008F | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Likely source file: [UID:0000LE][MiniMap](by-file/MiniMap.md), probably `map/MiniMapRenderer.cpp` or a combined `map/MiniMap.cpp`.
 - Current recovered file: `source-3/simroot_v2/class_MiniMapRenderer.cpp`
 - Main memory doc: [UID:0000XO][0x00453df0-0x004563b5.MiniMapRendererAndControls](by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md)
+- Autogen status: reconstructable project class; parent/source file remains blank because [UID:0000LE][MiniMap](by-file/MiniMap.md) has multiple plausible source splits and no final projected output path yet.
 
 ## Class Purpose
 
@@ -36,6 +37,7 @@
 ## Boundary Caveats
 
 - The support helpers called by `BuildSymbolViews`, such as vector insertion/growth helpers and `MiniMapFileLoader` helpers around `0x004550d0-0x00455b40` and `0x00457620-0x00457850`, should not automatically become `MiniMapRenderer` methods. They are renderer-local candidates, but some have generic collection/string behavior and need a focused ownership pass.
+- The dedicated file-loader helper island at [UID:0001ZZ][0x00457620-0x00457a5d.MiniMapFileLoaderHelpers](by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md) is now parented here because its constructor/destructor/load/decode functions are called by `MiniMapRenderer::BuildSymbolViews` and operate on `.mnm` documents consumed by this renderer. Keep its C++ blank until `MiniMapFileLoader` field names and the `.mnm` header format are final-source quality.
 - `dword_67A7DC` in the generated renderer output is the minimap version-manager singleton candidate used for expected-version lookup. Keep it with [UID:00008H][MiniMapVersionManager](by-class/MiniMapVersionManager.md), not the renderer.
 - `0x004570b0` is the manager-owned lookup helper used by `PrepareMapFileAndCheckVersion` and `HasCurrentVersion`; see [UID:0000XQ][0x004570b0-0x004570e0.MiniMapVersionLookupByMapId](by-memory/0x004570b0-0x004570e0.MiniMapVersionLookupByMapId.md).
 
@@ -46,6 +48,7 @@
 - [UID:00008H][MiniMapVersionManager](by-class/MiniMapVersionManager.md)
 - [UID:0000XQ][0x004570b0-0x004570e0.MiniMapVersionLookupByMapId](by-memory/0x004570b0-0x004570e0.MiniMapVersionLookupByMapId.md)
 - [UID:0000XO][0x00453df0-0x004563b5.MiniMapRendererAndControls](by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md)
+- [UID:0001ZZ][0x00457620-0x00457a5d.MiniMapFileLoaderHelpers](by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md)
 - [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md)
 
 ## Changes
@@ -54,3 +57,7 @@
   - Before: page documented the embedded renderer role and methods but remained unevaluated by the completion/confidence header.
   - After: score reflects documented renderer purpose, method ranges, `.mnm` path/version workflow, symbol-view rebuild responsibility, version-manager dependency, and helper-ownership caveats.
   - Evidence: linked memory page [UID:0000XO][0x00453df0-0x004563b5.MiniMapRendererAndControls](by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md) records IDA-confirmed starts, construction from [UID:00008C][MiniMapDialog](by-class/MiniMapDialog.md), `.mnm` parsing callees, and manager-owned lookup calls.
+- 2026-06-02: Marked `RECONSTRUCTABLE:TRUE` and raised confidence from `80` to `82`.
+  - Before: the page documented a project-owned embedded renderer class but had blank reconstructable metadata.
+  - After: the page is marked reconstructable while keeping parent/source-file metadata and C++ blank.
+  - Evidence: the class page and linked memory docs identify constructor/destructor/accessor/render/version-check methods, `MiniMapDialog` embedding, `.mnm` loader use, and `MiniMapVersionManager` dependency. Confidence is still capped by exact helper ownership and final `MiniMap.cpp` versus split-file placement.

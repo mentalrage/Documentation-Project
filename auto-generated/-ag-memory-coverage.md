@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1104
+Total_Reconstructable: 1106
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 563
+Total_Reconstructed_Assigned: 567
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 541
-Total_Unclassified: 1022
+Total_Reconstructable_Unassigned: 539
+Total_Unclassified: 1020
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -239,8 +239,12 @@ Total_Error: 0
 | [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md) | assigned | `0000HP` |  | no | `auto-generated/NexusTK/login/BackStoryDialogPane.cpp` | `by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md` |  |
 | [UID:0002HV][0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw](by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md) | assigned | `00005O` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |  |
 | [UID:0002HW][0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw](by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md) | assigned | `00005O` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md` |  |
+| [UID:0002I1][0x00503e80-0x00503e8b.MapPaneHasEffectListEntries](by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md) | assigned | `00007Q` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md` |  |
+| [UID:0002I2][0x00503e90-0x00503ecd.MapPaneFindActiveEffect](by-memory/0x00503e90-0x00503ecd.MapPaneFindActiveEffect.md) | assigned | `00007Q` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00503e90-0x00503ecd.MapPaneFindActiveEffect.md` |  |
 | [UID:0002I3][0x00503ed0-0x00503eef.MapPaneResetEffectListFields](by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md` |  |
+| [UID:0002I4][0x00503ef0-0x0050408d.MapPaneConfigureEffectList](by-memory/0x00503ef0-0x0050408d.MapPaneConfigureEffectList.md) | assigned | `00007Q` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00503ef0-0x0050408d.MapPaneConfigureEffectList.md` |  |
 | [UID:0001AP][0x00503ef0-0x0050637a.MapPaneWeatherCoordinateObjectCore](by-memory/0x00503ef0-0x0050637a.MapPaneWeatherCoordinateObjectCore.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00503ef0-0x0050637a.MapPaneWeatherCoordinateObjectCore.md` |  |
+| [UID:0002I6][0x005040a0-0x00504102.MapPaneClearEffectList](by-memory/0x005040a0-0x00504102.MapPaneClearEffectList.md) | assigned | `00007Q` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x005040a0-0x00504102.MapPaneClearEffectList.md` |  |
 | [UID:0002QF][0x00504530-0x005046c6.MapPaneCleanup](by-memory/0x00504530-0x005046c6.MapPaneCleanup.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00504530-0x005046c6.MapPaneCleanup.md` |  |
 | [UID:0002QH][0x005047f0-0x00504b6b.MapPaneExitToMenuTeardown](by-memory/0x005047f0-0x00504b6b.MapPaneExitToMenuTeardown.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x005047f0-0x00504b6b.MapPaneExitToMenuTeardown.md` |  |
 | [UID:0002QI][0x00504b70-0x00504b8f.MapPaneTagDetachMessage](by-memory/0x00504b70-0x00504b8f.MapPaneTagDetachMessage.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00504b70-0x00504b8f.MapPaneTagDetachMessage.md` |  |
@@ -593,6 +597,7 @@ Total_Error: 0
 | [UID:0002EE][0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers](by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |  |
 | [UID:0000XA][0x00439e00-0x00439ea3.DequeDestroy](by-memory/0x00439e00-0x00439ea3.DequeDestroy.md) | unassigned |  |  | no |  | `by-memory/0x00439e00-0x00439ea3.DequeDestroy.md` |  |
 | [UID:0000XB][0x0043e0b0-0x0043e241.DequeEnsureCapacity](by-memory/0x0043e0b0-0x0043e241.DequeEnsureCapacity.md) | unassigned |  |  | no |  | `by-memory/0x0043e0b0-0x0043e241.DequeEnsureCapacity.md` |  |
+| [UID:0000XO][0x00453df0-0x004563b5.MiniMapRendererAndControls](by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md) | unassigned |  |  | no |  | `by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md` |  |
 | [UID:0000XP][0x004563c0-0x00457547.MiniMapVersionManager](by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md) | unassigned |  |  | no |  | `by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md` |  |
 | [UID:0002JL][0x00456a90-0x0045709e.MiniMapVersionManagerUpdateHashList](by-memory/0x00456a90-0x0045709e.MiniMapVersionManagerUpdateHashList.md) | unassigned |  |  | no |  | `by-memory/0x00456a90-0x0045709e.MiniMapVersionManagerUpdateHashList.md` |  |
 | [UID:0002JM][0x004570a0-0x004570a4.MiniMapVersionManagerGetVersionString](by-memory/0x004570a0-0x004570a4.MiniMapVersionManagerGetVersionString.md) | unassigned |  |  | no |  | `by-memory/0x004570a0-0x004570a4.MiniMapVersionManagerGetVersionString.md` |  |
@@ -600,6 +605,7 @@ Total_Error: 0
 | [UID:0000XR][0x004570e0-0x004570ff.CreateListNodeWithPayload](by-memory/0x004570e0-0x004570ff.CreateListNodeWithPayload.md) | unassigned |  |  | no |  | `by-memory/0x004570e0-0x004570ff.CreateListNodeWithPayload.md` |  |
 | [UID:0000XV][0x00457430-0x00457473.LinkedListStateCleanup](by-memory/0x00457430-0x00457473.LinkedListStateCleanup.md) | unassigned |  |  | no |  | `by-memory/0x00457430-0x00457473.LinkedListStateCleanup.md` |  |
 | [UID:0000XW][0x00457550-0x0045757d.CreateListNode](by-memory/0x00457550-0x0045757d.CreateListNode.md) | unassigned |  |  | no |  | `by-memory/0x00457550-0x0045757d.CreateListNode.md` |  |
+| [UID:0001ZZ][0x00457620-0x00457a5d.MiniMapFileLoaderHelpers](by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |  |
 | [UID:0002NM][0x004623c0-0x00462514.InitAlphaSurfaceView](by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md) | unassigned |  |  | no |  | `by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md` |  |
 | [UID:0000YP][0x00463270-0x004632b1.IntAlphaSurface](by-memory/0x00463270-0x004632b1.IntAlphaSurface.md) | unassigned |  |  | no |  | `by-memory/0x00463270-0x004632b1.IntAlphaSurface.md` |  |
 | [UID:0002JX][0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo](by-memory/0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo.md) | unassigned |  |  | no |  | `by-memory/0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo.md` |  |
@@ -852,10 +858,6 @@ Total_Error: 0
 | [UID:0002HY][0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw](by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md) | unassigned |  |  | no |  | `by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md` |  |
 | [UID:0002HZ][0x00503c70-0x00503d03.GameServerConfigRequestNationEntries](by-memory/0x00503c70-0x00503d03.GameServerConfigRequestNationEntries.md) | unassigned |  |  | no |  | `by-memory/0x00503c70-0x00503d03.GameServerConfigRequestNationEntries.md` |  |
 | [UID:0002I0][0x00503d10-0x00503e77.GameServerConfigParseNationEntries](by-memory/0x00503d10-0x00503e77.GameServerConfigParseNationEntries.md) | unassigned |  |  | no |  | `by-memory/0x00503d10-0x00503e77.GameServerConfigParseNationEntries.md` |  |
-| [UID:0002I1][0x00503e80-0x00503e8b.MapPaneHasEffectListEntries](by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md) | unassigned |  |  | no |  | `by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md` |  |
-| [UID:0002I2][0x00503e90-0x00503ecd.MapPaneFindActiveEffect](by-memory/0x00503e90-0x00503ecd.MapPaneFindActiveEffect.md) | unassigned |  |  | no |  | `by-memory/0x00503e90-0x00503ecd.MapPaneFindActiveEffect.md` |  |
-| [UID:0002I4][0x00503ef0-0x0050408d.MapPaneConfigureEffectList](by-memory/0x00503ef0-0x0050408d.MapPaneConfigureEffectList.md) | unassigned |  |  | no |  | `by-memory/0x00503ef0-0x0050408d.MapPaneConfigureEffectList.md` |  |
-| [UID:0002I6][0x005040a0-0x00504102.MapPaneClearEffectList](by-memory/0x005040a0-0x00504102.MapPaneClearEffectList.md) | unassigned |  |  | no |  | `by-memory/0x005040a0-0x00504102.MapPaneClearEffectList.md` |  |
 | [UID:0002I7][0x00504110-0x00504521.MapPaneInitialize](by-memory/0x00504110-0x00504521.MapPaneInitialize.md) | unassigned |  |  | no |  | `by-memory/0x00504110-0x00504521.MapPaneInitialize.md` |  |
 | [UID:0002QG][0x005046d0-0x005047e8.MapPaneQueuedMotionMessage](by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md) | unassigned |  |  | no |  | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |  |
 | [UID:0001AT][0x00506970-0x0050e320.MapPaneInputPacketRenderCore](by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md) | unassigned |  |  | no |  | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |  |
@@ -1274,12 +1276,10 @@ Total_Error: 0
 | [UID:0000XM][0x004536e0-0x00453732.FontStyleClearRules](by-memory/0x004536e0-0x00453732.FontStyleClearRules.md) | unclassified |  |  | no |  | `by-memory/0x004536e0-0x00453732.FontStyleClearRules.md` |  |
 | [UID:0001ZY][0x00453820-0x00453904.WideStringMapNodeSupport](by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md) | unclassified |  |  | no |  | `by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md` |  |
 | [UID:0000XN][0x00453910-0x00453def.MiniMapDownloader](by-memory/0x00453910-0x00453def.MiniMapDownloader.md) | unclassified |  |  | no |  | `by-memory/0x00453910-0x00453def.MiniMapDownloader.md` |  |
-| [UID:0000XO][0x00453df0-0x004563b5.MiniMapRendererAndControls](by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md) | unclassified |  |  | no |  | `by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md` |  |
 | [UID:0000XS][0x00457100-0x0045730e.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md) | unclassified |  |  | no |  | `by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md` |  |
 | [UID:0000XT][0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md) | unclassified |  |  | no |  | `by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md` |  |
 | [UID:0000XU][0x004573d0-0x00457428.DATIndexVectorDestructor](by-memory/0x004573d0-0x00457428.DATIndexVectorDestructor.md) | unclassified |  |  | no |  | `by-memory/0x004573d0-0x00457428.DATIndexVectorDestructor.md` |  |
 | [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md) | unclassified |  |  | no |  | `by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md` |  |
-| [UID:0001ZZ][0x00457620-0x00457a5d.MiniMapFileLoaderHelpers](by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |  |
 | [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md) | unclassified |  |  | no |  | `by-memory/0x00457a60-0x00458610.EPFTileContext.md` |  |
 | [UID:000200][0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels](by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md) | unclassified |  |  | no |  | `by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md` |  |
 | [UID:000201][0x00458590-0x00458610.EPFTileContextPixelRangeTest](by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md) | unclassified |  |  | no |  | `by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md` |  |

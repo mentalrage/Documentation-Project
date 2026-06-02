@@ -1,8 +1,8 @@
 *** UID:00007Q | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L3 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for class responsibility, medium for final source split.
 - Likely source file: [UID:0000L3][MapPane](by-file/MapPane.md)
+- Autogen parent: [UID:0000L3][MapPane](by-file/MapPane.md). The class is source-owned, but final C++ remains blank until packet fields, companion splits, and generated field names are final-source quality.
 - Current recovered file: `source-3/simroot_v2/class_MapPane.cpp`
 - Current coverage: 124 active methods over many aggregate ranges.
 - Evidence basis: Wave3 metadata and targeted IDA MCP checks on 2026-05-23 through 2026-05-25.
@@ -120,3 +121,7 @@ Current `simroot_v2/class_MapPane.cpp` also contains generated-owner pollution f
 - 2026-05-28: Added [UID:000235][0x00514f70-0x005151a9.MapPathDequeSupport](by-memory/0x00514f70-0x005151a9.MapPathDequeSupport.md) to MapPane cross-references as ignored compiler/STL support for path scanning. Evidence: IDA MCP xrefs to `0x00515110` come from MapPane path/cell scanning functions at `0x0050c790` and `0x0050d010`.
 - 2026-05-28: Corrected the shared surface/presentation review bucket from `0x00557140-0x00559a0f` to `0x00557140-0x00559aef`. Evidence: IDA MCP identified `0x00559a10-0x00559aef` as real DirectDraw helper code belonging to the Surface review bucket, not MapPane ownership.
 - Completion/confidence score update: existed before as `0/0`; changed to `84/78`. Summary: the live game-world pane is broadly and deeply documented across responsibility, method families, globals, packet/render/weather/map-transition dependencies, IDA anchors, ownership pollution, and open questions, but confidence stays medium because packet opcode splits, weather boundary duplication, source split, and several low-grade child methods remain unresolved. Evidence: linked MapPane memory ranges, IDA-confirmed anchor ranges, `g_activeMapPane`, `ObjectList`, packet opcode/type references, generated BackPane helper rechecks, and explicit ownership-pollution exclusions.
+- 2026-06-02 reconstructable parent update:
+  - What existed before: `RECONSTRUCTABLE:` and `AUTOGEN_PARENT_UID:` were blank, and confidence was `78`.
+  - Changed to: `RECONSTRUCTABLE:TRUE`, `AUTOGEN_PARENT_UID:0000L3`, and `CONFIDENCE:80`.
+  - Evidence: [UID:0000L3][MapPane](by-file/MapPane.md) is a validated `NexusTK/map/` source root with 80 confidence, and this class page records the live game-world pane responsibilities, singleton, packet/render/weather/object method families, IDA anchor ranges, and explicit ownership-pollution exclusions. C++ remains blank because final packet structures, field names, and companion file splits are still below the 95+ reconstruction threshold.
