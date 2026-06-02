@@ -193,6 +193,8 @@ Hard rule: do not guess UIDs. Every new `.md` file created under a scanned `by-*
 
 Git is used here as a general backup and sync tool for documentation work. Commit and push periodically so progress is preserved, but do not spend documentation time trying to keep the worktree cosmetically tidy, hand-clean validator output, or optimize diffs for review polish. Treat validator-produced updates as normal generated state. The priority is accurate documentation progress backed up to the remote repository.
 
+`tools/validator.ini` is tool-owned state and must not be manually edited during normal documentation work. Let `tools/validator.py` create and update it. Manual edits are reserved only for extreme recovery cases, such as confirmed corruption or an `.ini` error that breaks the validator itself.
+
 For ordinary single-file work, create the target document first, run the validator on that exact file so it receives its real UID, then add references to that UID from other documents. For batch work where a parent page needs to reference new child pages before their UIDs are known, use the temporary TMP reference workflow instead of guessing. Write the target path in this form:
 
 ```text
