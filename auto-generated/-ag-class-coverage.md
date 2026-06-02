@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 134
+Total_Reconstructable: 135
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 47
+Total_Reconstructed_Assigned: 48
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 451
+Total_Unclassified: 450
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -54,6 +54,7 @@ Total_Error: 0
 | [UID:0000C4][SayToGroupMessageInputPane](by-class/SayToGroupMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToGroupMessageInputPane.md` |  |
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
 | [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-class/SelfSaveInputPane.md` |  |
+| [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/ShoutInputPane.md` |  |
 | [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
 | [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/TakeOffInputPane.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
@@ -492,7 +493,6 @@ Total_Error: 0
 | [UID:0000D2][ServerSelectPane](by-class/ServerSelectPane.md) | unclassified |  |  | no |  | `by-class/ServerSelectPane.md` |  |
 | [UID:0000D3][ServerSpellMenuDialog](by-class/ServerSpellMenuDialog.md) | unclassified |  |  | no |  | `by-class/ServerSpellMenuDialog.md` |  |
 | [UID:0000D4][ServerSpellMenuItemList](by-class/ServerSpellMenuItemList.md) | unclassified |  |  | no |  | `by-class/ServerSpellMenuItemList.md` |  |
-| [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md) | unclassified |  |  | no |  | `by-class/ShoutInputPane.md` |  |
 | [UID:0000D6][SimpleHelpPane](by-class/SimpleHelpPane.md) | unclassified |  |  | no |  | `by-class/SimpleHelpPane.md` |  |
 | [UID:0000D7][SimpleHelpPane2](by-class/SimpleHelpPane2.md) | unclassified |  |  | no |  | `by-class/SimpleHelpPane2.md` |  |
 | [UID:0000DB][SliderControlPane](by-class/SliderControlPane.md) | unclassified |  |  | no |  | `by-class/SliderControlPane.md` |  |

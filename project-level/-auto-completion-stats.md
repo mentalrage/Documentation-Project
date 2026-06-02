@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 05:09:22
+Generated: 2026-06-02 05:21:40
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3609
-- Scored files: 3442
+- Tracked files: 3610
+- Scored files: 3443
 - Ignored files: 167
 
 ## projected_path_completion
@@ -157,7 +157,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001MF` | 50 | 65 | 57.5 | `by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md` |
 | `0001MG` | 50 | 65 | 57.5 | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |
 | `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
 | `0001MI` | 50 | 65 | 57.5 | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |
@@ -182,6 +181,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
 | `0001P9` | 50 | 65 | 57.5 | `by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md` |
 | `0001PE` | 50 | 65 | 57.5 | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |
+| `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
 
 ## Low_Confidence
 
@@ -192,7 +192,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001MF` | 50 | 65 | 57.5 | `by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md` |
 | `0001MG` | 50 | 65 | 57.5 | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |
 | `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
 | `0001MI` | 50 | 65 | 57.5 | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |
@@ -212,12 +211,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00027U` | 50 | 65 | 57.5 | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |
 | `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
 | `0001OR` | 50 | 65 | 57.5 | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |
+| `0001P0` | 50 | 65 | 57.5 | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001MF` | 50 | 65 | 57.5 | `by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md` |
 | `0001MG` | 50 | 65 | 57.5 | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |
 | `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
 | `0001MI` | 50 | 65 | 57.5 | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |
@@ -242,6 +241,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
 | `0001P9` | 50 | 65 | 57.5 | `by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md` |
 | `0001PE` | 50 | 65 | 57.5 | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |
+| `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
 
 ## By Folder
 
@@ -377,7 +377,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001MF` | 50 | 65 | 57.5 | `by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md` |
 | `0001MG` | 50 | 65 | 57.5 | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |
 | `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
 | `0001MI` | 50 | 65 | 57.5 | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |
@@ -402,6 +401,7 @@ _No scored files._
 | `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
 | `0001P9` | 50 | 65 | 57.5 | `by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md` |
 | `0001PE` | 50 | 65 | 57.5 | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |
+| `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
 
 ### by-meta
 

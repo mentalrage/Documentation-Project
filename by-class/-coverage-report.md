@@ -478,7 +478,7 @@
 - [UID:0000D2][ServerSelectPane](by-class/ServerSelectPane.md) : reconstructable : 86% : strong : - Confidence: strong for main class role and IDA-confirmed boundaries.
 - [UID:0000D3][ServerSpellMenuDialog](by-class/ServerSpellMenuDialog.md) : reconstructable : 88% : strong : - Confidence: strong.
 - [UID:0000D4][ServerSpellMenuItemList](by-class/ServerSpellMenuItemList.md) : reconstructable : 86% : strong : - Confidence: strong.
-- [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md) : reconstructable : 74% : medium-high : - Confidence: strong for confirmed behavior; medium for constructor boundary.
+- [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md) : reconstructable : 82% : strong : Shout chat input pane with raw constructor, `L"! "` prompt, creator helper, submit packet behavior, vtable slots, and social source placement documented.
 - [UID:0000D6][SimpleHelpPane](by-class/SimpleHelpPane.md) : reconstructable : 84% : medium-high : - Likely source file: HelpPanes
 - [UID:0000D7][SimpleHelpPane2](by-class/SimpleHelpPane2.md) : reconstructable : 82% : medium-high : - Likely source file: HelpPanes
 - [UID:0000D8][SimpleListPane](by-class/SimpleListPane.md) : reconstructable : 84% : medium-high : - Confidence: medium-high for reusable control ownership; final split from `ListPane` remains a source-layout decision.

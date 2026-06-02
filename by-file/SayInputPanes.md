@@ -1,6 +1,6 @@
 *** UID:0000N9 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SayInputPanes
@@ -31,7 +31,7 @@ The `Say*` and `ShoutInputPane` classes form a social chat input family. The cod
 | `SayToPlanMessageInputPane` | `0x005b22d0-0x005b2562` plus helpers above | `class_SayToPlanMessageInputPane.cpp` | Plan/clan-style message input; generated source uses `Clan => ` prompt and opcode `0x19`. |
 | `SayInputPane` | raw constructor [UID:0002S7][0x005b3490-0x005b34d0.SayInputPaneRawConstructor](by-memory/0x005b3490-0x005b34d0.SayInputPaneRawConstructor.md), confirmed cluster [UID:0001MB][0x005b34d0-0x005b37ea.SayInputPane](by-memory/0x005b34d0-0x005b37ea.SayInputPane.md), destructor `0x005b7b80` | `class_SayInputPane.cpp` | Default say input with history navigation and opcode `0x0e`, subtype `0`. |
 | `SayToUserNameInputPane` | `0x005b3cb0-0x005b4219` | `class_SayToUserNameInputPane.cpp` | Recipient-name prompt; opens legacy or modern direct-message input based on `g_useModernWhisperFlow`. |
-| `ShoutInputPane` | `0x005a5710`, confirmed submit `0x005b4260-0x005b43bc`, projected constructor `0x005b4220` | `class_ShoutInputPane.cpp` | Shout input with opcode `0x0e`, subtype `1`, and shout-prefix prompt. |
+| `ShoutInputPane` | creator `0x005a5710`, raw constructor [UID:0002SA][0x005b4220-0x005b4255.ShoutInputPaneRawConstructor](by-memory/0x005b4220-0x005b4255.ShoutInputPaneRawConstructor.md), confirmed submit [UID:0001MF][0x005b4260-0x005b43bc.ShoutInputPane](by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md) | `class_ShoutInputPane.cpp` | Shout input with `L"! "` prompt, opcode `0x0e`, subtype `1`, and shout packet send. |
 | `UserListPane::OpenSayToUserMessageInputPane` | `0x0059ed60-0x0059ee0c` | `class_UserListPane.cpp` | User-list bridge that opens a direct-message input for the selected user. |
 
 ## Boundary And Data Notes
@@ -42,7 +42,7 @@ The `Say*` and `ShoutInputPane` classes form a social chat input family. The cod
 - IDA MCP confirms target-message pane starts at `0x005b1570`, `0x005b1640`, `0x005b1990`, `0x005b1a60`, `0x005b1c40`, `0x005b1ec0`, `0x005b1f80`, `0x005b22d0`, and `0x005b2390`.
 - IDA MCP confirms default/recipient/shout starts at `0x005b34d0`, `0x005b3570`, `0x005b3670`, `0x005b3cb0`, `0x005b4080`, and `0x005b4260`.
 - IDA reports no function at the recovered `SayInputPane::SayInputPane` projected start `0x005b3490`; 2026-06-02 raw byte/disassembly review confirms [UID:0002S7][0x005b3490-0x005b34d0.SayInputPaneRawConstructor](by-memory/0x005b3490-0x005b34d0.SayInputPaneRawConstructor.md) as a constructor-shaped body and confirms the constructor-like overload at `0x005b34d0`.
-- IDA reports no function at Wave3's `ShoutInputPane::ShoutInputPane` projected start `0x005b4220`; the confirmed submit function begins at `0x005b4260`.
+- IDA reports no function at Wave3's `ShoutInputPane::ShoutInputPane` projected start `0x005b4220`, but 2026-06-02 raw byte/disassembly review confirms [UID:0002SA][0x005b4220-0x005b4255.ShoutInputPaneRawConstructor](by-memory/0x005b4220-0x005b4255.ShoutInputPaneRawConstructor.md) as the constructor-shaped body and confirms the submit function begins at `0x005b4260`.
 - `SayToPlanMessageInputPane` naming is ambiguous: generated source uses `Clan => ` for the prompt and mode dispatch treats it as the chat-mode `4` clan branch. Keep the current Wave3 name but cross-reference it as plan/clan-style input.
 
 ## Migration Notes
@@ -77,6 +77,7 @@ Consider leaving `SayToGroupMessageInputPane` attached to [UID:0000JS][Group](by
 - [UID:0001MB][0x005b34d0-0x005b37ea.SayInputPane](by-memory/0x005b34d0-0x005b37ea.SayInputPane.md)
 - [UID:0002S7][0x005b3490-0x005b34d0.SayInputPaneRawConstructor](by-memory/0x005b3490-0x005b34d0.SayInputPaneRawConstructor.md)
 - [UID:0001MD][0x005b3cb0-0x005b4219.SayToUserNameInputPane](by-memory/0x005b3cb0-0x005b4219.SayToUserNameInputPane.md)
+- [UID:0002SA][0x005b4220-0x005b4255.ShoutInputPaneRawConstructor](by-memory/0x005b4220-0x005b4255.ShoutInputPaneRawConstructor.md)
 - [UID:0001MF][0x005b4260-0x005b43bc.ShoutInputPane](by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md)
 - [UID:0000I5][Chatting](by-file/Chatting.md)
 - [UID:0000JS][Group](by-file/Group.md)
@@ -95,3 +96,7 @@ Consider leaving `SayToGroupMessageInputPane` attached to [UID:0000JS][Group](by
   - Before: the proposed contents only described `0x005b3490` as a projected constructor start.
   - After: linked exact raw constructor child [UID:0002S7][0x005b3490-0x005b34d0.SayInputPaneRawConstructor](by-memory/0x005b3490-0x005b34d0.SayInputPaneRawConstructor.md) and refreshed the `SayInputPane` row to reference both constructor and confirmed method-cluster pages.
   - Evidence: IDA raw bytes and vtable stores confirm the constructor-shaped body despite no IDA function object.
+- 2026-06-02 `ShoutInputPane` constructor split:
+  - Before: the proposed contents only described `0x005b4220` as a projected constructor start.
+  - After: linked exact raw constructor child [UID:0002SA][0x005b4220-0x005b4255.ShoutInputPaneRawConstructor](by-memory/0x005b4220-0x005b4255.ShoutInputPaneRawConstructor.md) and refreshed the `ShoutInputPane` row to reference both constructor and confirmed submit pages.
+  - Evidence: IDA raw bytes, prompt string, vtable stores, creator xrefs, and submit vtable slot confirm the constructor-shaped body despite no IDA function object.

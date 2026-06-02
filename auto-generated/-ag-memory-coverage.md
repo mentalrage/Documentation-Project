@@ -2,13 +2,13 @@
 
 # ag-memory-coverage
 
-Total_Type: 2134
-Total_Reconstructable: 1017
+Total_Type: 2135
+Total_Reconstructable: 1019
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 490
+Total_Reconstructed_Assigned: 492
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 527
-Total_Unclassified: 1106
+Total_Unclassified: 1105
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -463,6 +463,8 @@ Total_Error: 0
 | [UID:0002S8][0x005b37f0-0x005b38d5.ChatPacketRawSender](by-memory/0x005b37f0-0x005b38d5.ChatPacketRawSender.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x005b37f0-0x005b38d5.ChatPacketRawSender.md` |  |
 | [UID:0002S9][0x005b38e0-0x005b3940.ChatInputPaneRawConstructor](by-memory/0x005b38e0-0x005b3940.ChatInputPaneRawConstructor.md) | assigned | `00001Q` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x005b38e0-0x005b3940.ChatInputPaneRawConstructor.md` |  |
 | [UID:0001MC][0x005b3940-0x005b3bba.ChatInputPane](by-memory/0x005b3940-0x005b3bba.ChatInputPane.md) | assigned | `00001Q` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x005b3940-0x005b3bba.ChatInputPane.md` |  |
+| [UID:0002SA][0x005b4220-0x005b4255.ShoutInputPaneRawConstructor](by-memory/0x005b4220-0x005b4255.ShoutInputPaneRawConstructor.md) | assigned | `0000D5` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-memory/0x005b4220-0x005b4255.ShoutInputPaneRawConstructor.md` |  |
+| [UID:0001MF][0x005b4260-0x005b43bc.ShoutInputPane](by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md) | assigned | `0000D5` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md` |  |
 | [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md` |  |
 | [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md` |  |
 | [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |  |
@@ -1831,7 +1833,6 @@ Total_Error: 0
 | [UID:0001LX][0x005b1410-0x005b14e6.SpellSlotInputPaneSubmitSpellSlot](by-memory/0x005b1410-0x005b14e6.SpellSlotInputPaneSubmitSpellSlot.md) | unclassified |  |  | no |  | `by-memory/0x005b1410-0x005b14e6.SpellSlotInputPaneSubmitSpellSlot.md` |  |
 | [UID:0001MD][0x005b3cb0-0x005b4219.SayToUserNameInputPane](by-memory/0x005b3cb0-0x005b4219.SayToUserNameInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b3cb0-0x005b4219.SayToUserNameInputPane.md` |  |
 | [UID:0001ME][0x005b3e80-0x005b4071.LineInputPaneHistoryNavigation](by-memory/0x005b3e80-0x005b4071.LineInputPaneHistoryNavigation.md) | unclassified |  |  | no |  | `by-memory/0x005b3e80-0x005b4071.LineInputPaneHistoryNavigation.md` |  |
-| [UID:0001MF][0x005b4260-0x005b43bc.ShoutInputPane](by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md` |  |
 | [UID:0001MG][0x005b44b0-0x005b538a.DropGiveInputPanes](by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md) | unclassified |  |  | no |  | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |  |
 | [UID:0001MH][0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor](by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |  |
 | [UID:0001MI][0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor](by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |  |

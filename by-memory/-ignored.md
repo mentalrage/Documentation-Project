@@ -3120,3 +3120,9 @@ For each ignored range, include:
   - Evidence: 2026-05-31 IDA MCP function iteration, decompilation, vtable xrefs, and raw thunk disassembly are documented in [UID:0002GI][0x004839c0-0x00483ef7.ChattingUiDestructorGlueFamily](by-memory/0x004839c0-0x00483ef7.ChattingUiDestructorGlueFamily.md).
   - Replacement/procurement: no source replacement; re-created by implementing the owning class destructors and matching vtable/inheritance layout.
   - Owner docs: [UID:000104][0x0047efb0-0x00483ef7.ChattingUI](by-memory/0x0047efb0-0x00483ef7.ChattingUI.md), [UID:0000I5][Chatting](by-file/Chatting.md).
+
+- `0x005b4219-0x005b4220` and `0x005b4255-0x005b4260` - ShoutInputPane neighborhood alignment padding.
+  - Why ignored: confirmed `0xcc` compiler/linker alignment bytes between the `SayToUserNameInputPane` tail, raw `ShoutInputPane` constructor, and confirmed `ShoutInputPane` submit virtual.
+  - Evidence: 2026-06-02 IDA MCP byte audit reports `sub_5B4080` ending at `0x005b4219`, raw constructor bytes at [UID:0002SA][0x005b4220-0x005b4255.ShoutInputPaneRawConstructor](by-memory/0x005b4220-0x005b4255.ShoutInputPaneRawConstructor.md), and `sub_5B4260` beginning after eleven `0xcc` bytes at `0x005b4260`.
+  - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
+  - Owner docs: [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md), [UID:0000N9][SayInputPanes](by-file/SayInputPanes.md).
