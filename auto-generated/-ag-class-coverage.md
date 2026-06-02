@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 125
+Total_Reconstructable: 126
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 38
+Total_Reconstructed_Assigned: 39
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 460
+Total_Unclassified: 459
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -47,6 +47,7 @@ Total_Error: 0
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-class/RectBounds.md` |  |
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
 | [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-class/SelfSaveInputPane.md` |  |
+| [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
@@ -514,7 +515,6 @@ Total_Error: 0
 | [UID:0000DU][SpellStringInputPane](by-class/SpellStringInputPane.md) | unclassified |  |  | no |  | `by-class/SpellStringInputPane.md` |  |
 | [UID:0000DV][SpellThreeArgsInputPane](by-class/SpellThreeArgsInputPane.md) | unclassified |  |  | no |  | `by-class/SpellThreeArgsInputPane.md` |  |
 | [UID:0000DW][SpellTwoArgsInputPane](by-class/SpellTwoArgsInputPane.md) | unclassified |  |  | no |  | `by-class/SpellTwoArgsInputPane.md` |  |
-| [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | unclassified |  |  | no |  | `by-class/SpellWhoInputPane.md` |  |
 | [UID:0000DK][SpelledPane](by-class/SpelledPane.md) | unclassified |  |  | no |  | `by-class/SpelledPane.md` |  |
 | [UID:0000DY][StaffsDialogPane](by-class/StaffsDialogPane.md) | unclassified |  |  | no |  | `by-class/StaffsDialogPane.md` |  |
 | [UID:0000DZ][StartupWindow](by-class/StartupWindow.md) | unclassified |  |  | no |  | `by-class/StartupWindow.md` |  |

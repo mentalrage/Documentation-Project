@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2125
-Total_Reconstructable: 979
+Total_Reconstructable: 986
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 452
+Total_Reconstructed_Assigned: 459
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 527
-Total_Unclassified: 1135
+Total_Unclassified: 1128
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -426,6 +426,13 @@ Total_Error: 0
 | [UID:0002RX][0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode](by-memory/0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-memory/0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode.md` |  |
 | [UID:0001KQ][0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory](by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |  |
 | [UID:0001KS][0x005adcc0-0x005add8a.QuitInputPaneCore](by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md) | assigned | `0000MX` |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |  |
+| [UID:0001KX][0x005ae2a0-0x005ae372.SpellWhoInputPaneConstructor](by-memory/0x005ae2a0-0x005ae372.SpellWhoInputPaneConstructor.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005ae2a0-0x005ae372.SpellWhoInputPaneConstructor.md` |  |
+| [UID:0001KY][0x005ae2a0-0x005aeb1f.SpellWhoInputPane](by-memory/0x005ae2a0-0x005aeb1f.SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005ae2a0-0x005aeb1f.SpellWhoInputPane.md` |  |
+| [UID:0001KZ][0x005ae380-0x005ae403.SpellWhoInputPaneDestructor](by-memory/0x005ae380-0x005ae403.SpellWhoInputPaneDestructor.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005ae380-0x005ae403.SpellWhoInputPaneDestructor.md` |  |
+| [UID:0001L0][0x005ae410-0x005ae68a.SpellWhoInputPaneKeyNavigationInput](by-memory/0x005ae410-0x005ae68a.SpellWhoInputPaneKeyNavigationInput.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005ae410-0x005ae68a.SpellWhoInputPaneKeyNavigationInput.md` |  |
+| [UID:0001L1][0x005ae730-0x005aea53.SpellWhoInputPanePointerSelectionInput](by-memory/0x005ae730-0x005aea53.SpellWhoInputPanePointerSelectionInput.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005ae730-0x005aea53.SpellWhoInputPanePointerSelectionInput.md` |  |
+| [UID:0001L2][0x005aea60-0x005aeaf3.SpellWhoInputPaneObjectListVirtual](by-memory/0x005aea60-0x005aeaf3.SpellWhoInputPaneObjectListVirtual.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005aea60-0x005aeaf3.SpellWhoInputPaneObjectListVirtual.md` |  |
+| [UID:0001L3][0x005aeb00-0x005aeb1f.DeactivateSavedSpellWhoTarget](by-memory/0x005aeb00-0x005aeb1f.DeactivateSavedSpellWhoTarget.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005aeb00-0x005aeb1f.DeactivateSavedSpellWhoTarget.md` |  |
 | [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md` |  |
 | [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md` |  |
 | [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |  |
@@ -1768,13 +1775,6 @@ Total_Error: 0
 | [UID:0001KU][0x005adf40-0x005adfcd.SpellStringInputPaneConstructor](by-memory/0x005adf40-0x005adfcd.SpellStringInputPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005adf40-0x005adfcd.SpellStringInputPaneConstructor.md` |  |
 | [UID:0001KV][0x005adf40-0x005ae1a4.SpellStringInputPane](by-memory/0x005adf40-0x005ae1a4.SpellStringInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005adf40-0x005ae1a4.SpellStringInputPane.md` |  |
 | [UID:0001KW][0x005ae060-0x005ae1a4.SpellStringInputPaneConfirmInput](by-memory/0x005ae060-0x005ae1a4.SpellStringInputPaneConfirmInput.md) | unclassified |  |  | no |  | `by-memory/0x005ae060-0x005ae1a4.SpellStringInputPaneConfirmInput.md` |  |
-| [UID:0001KX][0x005ae2a0-0x005ae372.SpellWhoInputPaneConstructor](by-memory/0x005ae2a0-0x005ae372.SpellWhoInputPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005ae2a0-0x005ae372.SpellWhoInputPaneConstructor.md` |  |
-| [UID:0001KY][0x005ae2a0-0x005aeb1f.SpellWhoInputPane](by-memory/0x005ae2a0-0x005aeb1f.SpellWhoInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005ae2a0-0x005aeb1f.SpellWhoInputPane.md` |  |
-| [UID:0001KZ][0x005ae380-0x005ae403.SpellWhoInputPaneDestructor](by-memory/0x005ae380-0x005ae403.SpellWhoInputPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x005ae380-0x005ae403.SpellWhoInputPaneDestructor.md` |  |
-| [UID:0001L0][0x005ae410-0x005ae68a.SpellWhoInputPaneKeyNavigationInput](by-memory/0x005ae410-0x005ae68a.SpellWhoInputPaneKeyNavigationInput.md) | unclassified |  |  | no |  | `by-memory/0x005ae410-0x005ae68a.SpellWhoInputPaneKeyNavigationInput.md` |  |
-| [UID:0001L1][0x005ae730-0x005aea53.SpellWhoInputPanePointerSelectionInput](by-memory/0x005ae730-0x005aea53.SpellWhoInputPanePointerSelectionInput.md) | unclassified |  |  | no |  | `by-memory/0x005ae730-0x005aea53.SpellWhoInputPanePointerSelectionInput.md` |  |
-| [UID:0001L2][0x005aea60-0x005aeaf3.SpellWhoInputPaneObjectListVirtual](by-memory/0x005aea60-0x005aeaf3.SpellWhoInputPaneObjectListVirtual.md) | unclassified |  |  | no |  | `by-memory/0x005aea60-0x005aeaf3.SpellWhoInputPaneObjectListVirtual.md` |  |
-| [UID:0001L3][0x005aeb00-0x005aeb1f.DeactivateSavedSpellWhoTarget](by-memory/0x005aeb00-0x005aeb1f.DeactivateSavedSpellWhoTarget.md) | unclassified |  |  | no |  | `by-memory/0x005aeb00-0x005aeb1f.DeactivateSavedSpellWhoTarget.md` |  |
 | [UID:0001L4][0x005aec60-0x005af2e7.ItemWhoInputPane](by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md` |  |
 | [UID:0001L5][0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor](by-memory/0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor.md` |  |
 | [UID:0001L6][0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual](by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md) | unclassified |  |  | no |  | `by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md` |  |

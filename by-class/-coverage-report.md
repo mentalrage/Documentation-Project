@@ -506,7 +506,7 @@
 - [UID:0000DU][SpellStringInputPane](by-class/SpellStringInputPane.md) : reconstructable : 84% : medium-high : - Confidence: strong for behavior and IDA boundaries; medium for exact source split.
 - [UID:0000DV][SpellThreeArgsInputPane](by-class/SpellThreeArgsInputPane.md) : reconstructable : 86% : strong : - Confidence: strong for behavior and IDA boundaries.
 - [UID:0000DW][SpellTwoArgsInputPane](by-class/SpellTwoArgsInputPane.md) : reconstructable : 86% : strong : - Confidence: strong for behavior and IDA boundaries.
-- [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) : reconstructable : 86% : high : - Confidence: strong for class behavior and IDA boundaries; medium for exact original file split.
+- [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) : reconstructable : 86% : strong : Spell target-selection input pane attached to `TargetSelectionInputPanes.cpp`, with constructor/destructor, keyboard and pointer selection, object-list refresh, saved-target clear helper, vtable refs, and padding/switch-table boundaries documented.
 - [UID:0000DY][StaffsDialogPane](by-class/StaffsDialogPane.md) : reconstructable : 86% : medium-high : - Confidence: strong for class behavior, medium for live reachability.
 - [UID:0000DZ][StartupWindow](by-class/StartupWindow.md) : reconstructable : 84% : medium-high : - Confidence: strong for high-level behavior; medium for helper function boundaries.
 - [UID:0000E0][StaticCloudFilterEffecter](by-class/StaticCloudFilterEffecter.md) : reconstructable : 72% : medium-high : - Confidence: strong for role, medium for exact constructor boundary because IDA does not currently model `0x0055b090` as a function object.
