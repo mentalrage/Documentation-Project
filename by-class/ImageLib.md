@@ -2,8 +2,8 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000K2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:20 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -56,6 +56,10 @@ IDA vtable evidence shows only three `ImageLib` virtual slots at `0x0061b654`, f
 
 IDA MCP xrefs to `0x0067a744` on 2026-05-24 confirm the global storage is written by this constructor/destructor family while `ResourceLayoutTable` methods consume it. Treat [UID:0001VU][ResourceLayoutStore](by-type/by-struct/ResourceLayoutStore.md) and [UID:0001VS][ResourceLayoutBucket](by-type/by-struct/ResourceLayoutBucket.md) as generated/provisional aliases over the [UID:000079][List](by-class/List.md)-backed [UID:0001VT][ResourceLayoutNameRecord](by-type/by-struct/ResourceLayoutNameRecord.md) model until the exact header split is proved.
 
+## Autogen Status
+
+Attach this class to [UID:0000K2][ImageLib](by-file/ImageLib.md) as reconstructable metadata for `render/ImageLib.cpp`. C++ remains blank because the `ResourceLayoutTable` relationship, unused second constructor argument, and final private field names remain below the final-code gate.
+
 ## Cross-References
 
 - [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md)
@@ -79,3 +83,7 @@ IDA MCP xrefs to `0x0067a744` on 2026-05-24 confirm the global storage is writte
   - What existed before: class used old child bounds, lacked exact constructor/scalar-deleting destructor page references, and `RECONSTRUCTABLE:` was blank.
   - Changed to: `RECONSTRUCTABLE:TRUE`, `COMPLETION:82`, `CONFIDENCE:82`, exact child references for constructor/destructor/scalar-deleting destructor, and corrected aggregate range `0x004cffb0-0x004e6572`.
   - Summary/evidence: IDA MCP confirmed function bounds, constructor/deleting-destructor behavior, vtable xrefs, and singleton writes/clears on 2026-05-31. Scores stay below final level because `ResourceLayoutTable` membership and final source-facing private names remain open.
+- 2026-06-02 parent attachment:
+  - What existed before: class metadata was reconstructable but had no autogen parent.
+  - Changed to: attached to [UID:0000K2][ImageLib](by-file/ImageLib.md), leaving C++ blank.
+  - Summary/evidence: class and file scores are both above the 80 confidence attachment threshold and agree on `render/ImageLib.cpp` ownership while documenting unresolved source-shape caveats.

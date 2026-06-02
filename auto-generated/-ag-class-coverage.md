@@ -5,9 +5,9 @@
 Total_Type: 586
 Total_Reconstructable: 189
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 102
+Total_Reconstructed_Assigned: 103
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 87
+Total_Reconstructable_Unassigned: 86
 Total_Unclassified: 396
 Total_Error: 0
 
@@ -58,6 +58,7 @@ Total_Error: 0
 | [UID:000060][HandlerFindFunc](by-class/HandlerFindFunc.md) | assigned | `0000J7` | 80 | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/HandlerFindFunc.md` |  |
 | [UID:000065][HierList](by-class/HierList.md) | assigned | `0000JV` | 20 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-class/HierList.md` |  |
 | [UID:00006B][IconsPane](by-class/IconsPane.md) | assigned | `0000JZ` |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-class/IconsPane.md` |  |
+| [UID:00006E][ImageLib](by-class/ImageLib.md) | assigned | `0000K2` | 20 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-class/ImageLib.md` |  |
 | [UID:00006Q][InternetError](by-class/InternetError.md) | assigned | `0000J5` | 180 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/InternetError.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPaneState.md` |  |
@@ -164,7 +165,6 @@ Total_Error: 0
 | [UID:00005Y][GroupPane](by-class/GroupPane.md) | unassigned |  |  | no |  | `by-class/GroupPane.md` |  |
 | [UID:00005Z][GroupPane2](by-class/GroupPane2.md) | unassigned |  |  | no |  | `by-class/GroupPane2.md` |  |
 | [UID:00006A][HumanImageLib](by-class/HumanImageLib.md) | unassigned |  |  | no |  | `by-class/HumanImageLib.md` |  |
-| [UID:00006E][ImageLib](by-class/ImageLib.md) | unassigned |  |  | no |  | `by-class/ImageLib.md` |  |
 | [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md) | unassigned |  |  | no |  | `by-class/IntAlphaSurface.md` |  |
 | [UID:00006W][ItemObjImageLib](by-class/ItemObjImageLib.md) | unassigned |  |  | no |  | `by-class/ItemObjImageLib.md` |  |
 | [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md) | unassigned |  |  | no |  | `by-class/KeySpeedMgr.md` |  |

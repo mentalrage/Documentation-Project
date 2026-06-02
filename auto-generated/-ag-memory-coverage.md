@@ -5,9 +5,9 @@
 Total_Type: 2140
 Total_Reconstructable: 1179
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 652
+Total_Reconstructed_Assigned: 656
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 527
+Total_Reconstructable_Unassigned: 523
 Total_Unclassified: 950
 Total_Error: 0
 
@@ -233,6 +233,9 @@ Total_Error: 0
 | [UID:0002IA][0x004ce7e0-0x004ce839.HierListTailInsertWrapper](by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md) | assigned | `0000JV` |  | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |  |
 | [UID:0002IB][0x004ce840-0x004ce854.HierListDefaultInsertWrapper](by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md) | assigned | `000065` | 30 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |  |
 | [UID:00022Q][0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md) | assigned | `0000JZ` |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |  |
+| [UID:0002IN][0x004cffb0-0x004d006f.ImageLibConstructor](by-memory/0x004cffb0-0x004d006f.ImageLibConstructor.md) | assigned | `00006E` | 10 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004cffb0-0x004d006f.ImageLibConstructor.md` |  |
+| [UID:000172][0x004cffb0-0x004e6572.ImageLib](by-memory/0x004cffb0-0x004e6572.ImageLib.md) | assigned | `0000K2` | 30 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |  |
+| [UID:000173][0x004d0070-0x004d011b.ImageLibDestructor](by-memory/0x004d0070-0x004d011b.ImageLibDestructor.md) | assigned | `00006E` | 20 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004d0070-0x004d011b.ImageLibDestructor.md` |  |
 | [UID:0002P4][0x004d0f50-0x004d15c5.LoadImageFrameTable](by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md) | assigned | `0000K1` | 10 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md` |  |
 | [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md) | assigned | `0000K1` | 30 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md` |  |
 | [UID:00017D][0x004db010-0x004db0f7.MonsterImageLibDestructor](by-memory/0x004db010-0x004db0f7.MonsterImageLibDestructor.md) | assigned | `0000LJ` |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-memory/0x004db010-0x004db0f7.MonsterImageLibDestructor.md` |  |
@@ -252,6 +255,7 @@ Total_Error: 0
 | [UID:000183][0x004e5bf0-0x004e5bfb.RidingImageLibSingletonClearHelper](by-memory/0x004e5bf0-0x004e5bfb.RidingImageLibSingletonClearHelper.md) | assigned | `0000N6` |  | no | `auto-generated/NexusTK/render/RidingImageLib.cpp` | `by-memory/0x004e5bf0-0x004e5bfb.RidingImageLibSingletonClearHelper.md` |  |
 | [UID:000184][0x004e5c00-0x004e5c0b.StaticObjImageLibSingletonClearHelper](by-memory/0x004e5c00-0x004e5c0b.StaticObjImageLibSingletonClearHelper.md) | assigned | `0000O7` |  | no | `auto-generated/NexusTK/render/StaticObjImageLib.cpp` | `by-memory/0x004e5c00-0x004e5c0b.StaticObjImageLibSingletonClearHelper.md` |  |
 | [UID:000185][0x004e5dd0-0x004e5e39.DestroyMotionVector](by-memory/0x004e5dd0-0x004e5e39.DestroyMotionVector.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004e5dd0-0x004e5e39.DestroyMotionVector.md` |  |
+| [UID:0002IO][0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor](by-memory/0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor.md) | assigned | `00006E` | 30 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor.md` |  |
 | [UID:000188][0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize.md) | assigned | `00000P` | 10 | no | `auto-generated/NexusTK/util/AUTOBUF.cpp` | `by-memory/0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize.md` |  |
 | [UID:00018R][0x004f0010-0x004f0477.LanguageManLocalization](by-memory/0x004f0010-0x004f0477.LanguageManLocalization.md) | assigned | `0000KK` |  | no | `auto-generated/NexusTK/localization/LanguageMan.cpp` | `by-memory/0x004f0010-0x004f0477.LanguageManLocalization.md` |  |
 | [UID:00018S][0x004f0290-0x004f0310.LanguageManCleanupDestructor](by-memory/0x004f0290-0x004f0310.LanguageManCleanupDestructor.md) | assigned | `0000KK` |  | no | `auto-generated/NexusTK/localization/LanguageMan.cpp` | `by-memory/0x004f0290-0x004f0310.LanguageManCleanupDestructor.md` |  |
@@ -842,9 +846,6 @@ Total_Error: 0
 | [UID:0002IK][0x004cec30-0x004ced0f.HierListFindNodeByData](by-memory/0x004cec30-0x004ced0f.HierListFindNodeByData.md) | unassigned |  |  | no |  | `by-memory/0x004cec30-0x004ced0f.HierListFindNodeByData.md` |  |
 | [UID:0002IL][0x004ced10-0x004ceda4.HierListUpdateHierarchy](by-memory/0x004ced10-0x004ceda4.HierListUpdateHierarchy.md) | unassigned |  |  | no |  | `by-memory/0x004ced10-0x004ceda4.HierListUpdateHierarchy.md` |  |
 | [UID:0002IM][0x004cedb0-0x004cee52.HierListScalarDeletingDestructor](by-memory/0x004cedb0-0x004cee52.HierListScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004cedb0-0x004cee52.HierListScalarDeletingDestructor.md` |  |
-| [UID:0002IN][0x004cffb0-0x004d006f.ImageLibConstructor](by-memory/0x004cffb0-0x004d006f.ImageLibConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004cffb0-0x004d006f.ImageLibConstructor.md` |  |
-| [UID:000172][0x004cffb0-0x004e6572.ImageLib](by-memory/0x004cffb0-0x004e6572.ImageLib.md) | unassigned |  |  | no |  | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |  |
-| [UID:000173][0x004d0070-0x004d011b.ImageLibDestructor](by-memory/0x004d0070-0x004d011b.ImageLibDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004d0070-0x004d011b.ImageLibDestructor.md` |  |
 | [UID:0002KO][0x004d0120-0x004d02e4.ResourceLayoutTableLoadResourceIndex](by-memory/0x004d0120-0x004d02e4.ResourceLayoutTableLoadResourceIndex.md) | unassigned |  |  | no |  | `by-memory/0x004d0120-0x004d02e4.ResourceLayoutTableLoadResourceIndex.md` |  |
 | [UID:000174][0x004d0120-0x004d182e.ResourceLayoutTable](by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md) | unassigned |  |  | no |  | `by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md` |  |
 | [UID:0002KP][0x004d02f0-0x004d039d.ResourceLayoutTableLookupLayoutEntry](by-memory/0x004d02f0-0x004d039d.ResourceLayoutTableLookupLayoutEntry.md) | unassigned |  |  | no |  | `by-memory/0x004d02f0-0x004d039d.ResourceLayoutTableLookupLayoutEntry.md` |  |
@@ -889,7 +890,6 @@ Total_Error: 0
 | [UID:000186][0x004e5f20-0x004e5f64.ProtectedArrayImageInfoAccessors](by-memory/0x004e5f20-0x004e5f64.ProtectedArrayImageInfoAccessors.md) | unassigned |  |  | no |  | `by-memory/0x004e5f20-0x004e5f64.ProtectedArrayImageInfoAccessors.md` |  |
 | [UID:000187][0x004e5fa0-0x004e629f.ProtectedArrayImageInfoDeletingDestructors](by-memory/0x004e5fa0-0x004e629f.ProtectedArrayImageInfoDeletingDestructors.md) | unassigned |  |  | no |  | `by-memory/0x004e5fa0-0x004e629f.ProtectedArrayImageInfoDeletingDestructors.md` |  |
 | [UID:0002HC][0x004e62f0-0x004e6456.EffectObjImageLibScalarDeletingDestructor](by-memory/0x004e62f0-0x004e6456.EffectObjImageLibScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004e62f0-0x004e6456.EffectObjImageLibScalarDeletingDestructor.md` |  |
-| [UID:0002IO][0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor](by-memory/0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor.md` |  |
 | [UID:0002IY][0x004e65e0-0x004e669d.LightObjImageLibScalarDeletingDestructor](by-memory/0x004e65e0-0x004e669d.LightObjImageLibScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004e65e0-0x004e669d.LightObjImageLibScalarDeletingDestructor.md` |  |
 | [UID:0002J2][0x004e66a0-0x004e6748.MapTileImageLibScalarDeletingDestructor](by-memory/0x004e66a0-0x004e6748.MapTileImageLibScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004e66a0-0x004e6748.MapTileImageLibScalarDeletingDestructor.md` |  |
 | [UID:00022R][0x004e6ae0-0x004e70e9.ImageLibVectorSupportHelpers](by-memory/0x004e6ae0-0x004e70e9.ImageLibVectorSupportHelpers.md) | unassigned |  |  | no |  | `by-memory/0x004e6ae0-0x004e70e9.ImageLibVectorSupportHelpers.md` |  |
