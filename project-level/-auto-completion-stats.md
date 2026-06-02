@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 11:13:24
+Generated: 2026-06-02 11:19:05
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -29,7 +29,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000HQ` | blank | `(blank)` | `by-file/BinaryCodec.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HT` | blank | `(blank)` | `by-file/BoardDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HU` | blank | `(blank)` | `by-file/BowGaugeObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000HW` | blank | `(blank)` | `by-file/BulletinReplyAlerts.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I1` | blank | `(blank)` | `by-file/CashShopVersionRequest.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -139,8 +138,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001Z5` | 58 | 88 | 73.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
-| `00021A` | 60 | 85 | 72.5 | `by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md` |
 | `00021I` | 60 | 85 | 72.5 | `by-memory/0x00485780-0x00485867.ClanDepositMoneyPacketHelpers.md` |
 | `00021J` | 60 | 85 | 72.5 | `by-memory/0x00485870-0x00485955.ClanDepositItemPacketHelpers.md` |
 | `00021L` | 60 | 85 | 72.5 | `by-memory/0x00485cc0-0x0048632e.ClanNameActionPacketHelpers.md` |
@@ -164,6 +161,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BH` | 62 | 74 | 68.0 | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |
 | `0002BP` | 62 | 74 | 68.0 | `by-memory/0x00491450-0x0049178d.KwgLauncherParser.md` |
 | `000052` | 62 | 76 | 69.0 | `by-class/FittingRoomDownloadControlPane.md` |
+| `00006Y` | 62 | 76 | 69.0 | `by-class/ItemWhoInputPaneState.md` |
+| `0002DT` | 62 | 76 | 69.0 | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |
 
 ## Low_Confidence
 

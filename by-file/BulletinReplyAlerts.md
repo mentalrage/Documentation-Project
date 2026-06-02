@@ -1,7 +1,7 @@
 *** UID:0000HW | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # BulletinReplyAlerts
 
@@ -29,6 +29,12 @@ Possible compact legacy structure:
 ```text
 ui/dialogs/BulletinDialogs.cpp
 ```
+
+## Reconstruction Handling
+
+- The assigned reconstruction path is `NexusTK/ui/dialogs/BulletinReplyAlerts.cpp`.
+- Treat this file page as the source-owner bucket for confirmed small reply/delete alert wrappers until individual original file names are proven.
+- Do not emit final reconstructed C++ from this file yet. The wrapper grouping is useful for autogen ownership, but several constructors remain projected or raw-disassembly-only and the original source split is still not final-source quality.
 
 ## Proposed Contents
 
@@ -66,3 +72,4 @@ ui/dialogs/BulletinDialogs.cpp
 - What it was changed to: scores were set to `74/82`.
 - Summary and evidence: alert behavior and shared wrapper role are well supported, while separate source-file existence and several projected constructors remain medium-confidence.
 - 2026-05-27: `TransferReplyAlert` constructor ownership previously remained a projected `0x00478f90` start. Updated it to raw constructor range [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md). Evidence: IDA raw disassembly confirms constructor-shaped code and vtable stores; IDA still does not promote the start to a function object.
+- 2026-06-02: Assigned projected reconstruction path `NexusTK/ui/dialogs/` so confirmed child items can attach to a stable file-owner bucket. This is a path/ownership aid only; source-file split remains medium-confidence and no final C++ should be generated from this page yet.
