@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 10:18:34
+Generated: 2026-06-02 10:22:42
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -174,7 +174,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LX` | 68 | 62 | 65.0 | `by-file/NewUserMiscDialogPane.md` |
 | `0000MV` | 76 | 62 | 69.0 | `by-file/ProtocolSend.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
-| `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
 | `0000TA` | 65 | 65 | 65.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 65 | 65 | 65.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
 | `0000TE` | 65 | 65 | 65.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
@@ -193,16 +192,16 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00029K` | 70 | 65 | 67.5 | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |
 | `0002A8` | 75 | 65 | 70.0 | `by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md` |
 | `0002A9` | 75 | 65 | 70.0 | `by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md` |
-| `0000AB` | 62 | 68 | 65.0 | `by-class/PatchPane__PatchFileData.md` |
 | `00003E` | 70 | 68 | 69.0 | `by-class/CursorManager.md` |
 | `00009F` | 72 | 68 | 70.0 | `by-class/NewUserMiscDialogPane.md` |
+| `0000LP` | 72 | 68 | 70.0 | `by-file/NewCreateUserDialogPane.md` |
+| `0000QD` | 74 | 68 | 71.0 | `by-global/g_pBrowserOverlayLayer.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
-| `0000AB` | 62 | 68 | 65.0 | `by-class/PatchPane__PatchFileData.md` |
 | `0000TA` | 65 | 65 | 65.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 65 | 65 | 65.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
 | `0000TE` | 65 | 65 | 65.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
@@ -225,7 +224,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002FP` | 62 | 72 | 67.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 | `0002FQ` | 62 | 72 | 67.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
 | `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
-| `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
+| `0000MG` | 60 | 75 | 67.5 | `by-file/PasswordGuard.md` |
+| `0000YS` | 60 | 75 | 67.5 | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |
 
 ## By Folder
 
@@ -233,10 +233,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000AB` | 62 | 68 | 65.0 | `by-class/PatchPane__PatchFileData.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
-| `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
 | `00002T` | 60 | 76 | 68.0 | `by-class/CloudFilterEffecter.md` |
 | `000022` | 60 | 78 | 69.0 | `by-class/CheckBoxTextControlPane.md` |
 | `000052` | 62 | 76 | 69.0 | `by-class/FittingRoomDownloadControlPane.md` |
@@ -258,6 +256,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000AC` | 70 | 72 | 71.0 | `by-class/PatchPane__PatchFileSlice.md` |
 | `0000FD` | 70 | 72 | 71.0 | `by-class/UInt32Vector.md` |
 | `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
+| `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
+| `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
 
 ### by-external-research
 

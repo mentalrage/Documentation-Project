@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 152
+Total_Reconstructable: 154
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 66
+Total_Reconstructed_Assigned: 67
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 86
-Total_Unclassified: 433
+Total_Reconstructable_Unassigned: 87
+Total_Unclassified: 431
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -54,6 +54,7 @@ Total_Error: 0
 | [UID:0000A6][ParcelPane](by-class/ParcelPane.md) | assigned | `0000MF` | 10 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/ParcelPane.md` |  |
 | [UID:0000A9][PatchPane](by-class/PatchPane.md) | assigned | `0000MH` | 10 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane.md` |  |
 | [UID:0000AA][PatchPane2](by-class/PatchPane2.md) | assigned | `0000MH` | 20 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane2.md` |  |
+| [UID:0000AB][PatchPane__PatchFileData](by-class/PatchPane__PatchFileData.md) | assigned | `0000MH` | 15 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane__PatchFileData.md` |  |
 | [UID:0000AI][PixelEffecter](by-class/PixelEffecter.md) | assigned | `0000IZ` | 20 | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/PixelEffecter.md` |  |
 | [UID:0000AU][ProfileDialog](by-class/ProfileDialog.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-class/ProfileDialog.md` |  |
 | [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md) | assigned | `0000MT` | 10 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-class/ProgressBarControlPane.md` |  |
@@ -123,6 +124,7 @@ Total_Error: 0
 | [UID:00004V][File](by-class/File.md) | unassigned |  |  | no |  | `by-class/File.md` |  |
 | [UID:00005B][FontImageLib](by-class/FontImageLib.md) | unassigned |  |  | no |  | `by-class/FontImageLib.md` |  |
 | [UID:00005I][FramePartPane](by-class/FramePartPane.md) | unassigned |  |  | no |  | `by-class/FramePartPane.md` |  |
+| [UID:00005P][GenderButtonControlPane](by-class/GenderButtonControlPane.md) | unassigned |  |  | no |  | `by-class/GenderButtonControlPane.md` |  |
 | [UID:00005X][GroupListPane](by-class/GroupListPane.md) | unassigned |  |  | no |  | `by-class/GroupListPane.md` |  |
 | [UID:00005Y][GroupPane](by-class/GroupPane.md) | unassigned |  |  | no |  | `by-class/GroupPane.md` |  |
 | [UID:00005Z][GroupPane2](by-class/GroupPane2.md) | unassigned |  |  | no |  | `by-class/GroupPane2.md` |  |
@@ -293,7 +295,6 @@ Total_Error: 0
 | [UID:00005L][FunctionObject0](by-class/FunctionObject0.md) | unclassified |  |  | no |  | `by-class/FunctionObject0.md` |  |
 | [UID:00005M][FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____](by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md) | unclassified |  |  | no |  | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |  |
 | [UID:00005N][FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___](by-class/FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___.md) | unclassified |  |  | no |  | `by-class/FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___.md` |  |
-| [UID:00005P][GenderButtonControlPane](by-class/GenderButtonControlPane.md) | unclassified |  |  | no |  | `by-class/GenderButtonControlPane.md` |  |
 | [UID:00005Q][GeneralPurposePanel](by-class/GeneralPurposePanel.md) | unclassified |  |  | no |  | `by-class/GeneralPurposePanel.md` |  |
 | [UID:00005R][GeneralPurposePanel2](by-class/GeneralPurposePanel2.md) | unclassified |  |  | no |  | `by-class/GeneralPurposePanel2.md` |  |
 | [UID:00005S][GiveAllInputPane](by-class/GiveAllInputPane.md) | unclassified |  |  | no |  | `by-class/GiveAllInputPane.md` |  |
@@ -419,7 +420,6 @@ Total_Error: 0
 | [UID:0000A3][PaneChildRegistry](by-class/PaneChildRegistry.md) | unclassified |  |  | no |  | `by-class/PaneChildRegistry.md` |  |
 | [UID:0000A4][PanelPane](by-class/PanelPane.md) | unclassified |  |  | no |  | `by-class/PanelPane.md` |  |
 | [UID:0000A7][PartySearchEditPane](by-class/PartySearchEditPane.md) | unclassified |  |  | no |  | `by-class/PartySearchEditPane.md` |  |
-| [UID:0000AB][PatchPane__PatchFileData](by-class/PatchPane__PatchFileData.md) | unclassified |  |  | no |  | `by-class/PatchPane__PatchFileData.md` |  |
 | [UID:0000AC][PatchPane__PatchFileSlice](by-class/PatchPane__PatchFileSlice.md) | unclassified |  |  | no |  | `by-class/PatchPane__PatchFileSlice.md` |  |
 | [UID:0000AD][PhoneBookDialog](by-class/PhoneBookDialog.md) | unclassified |  |  | no |  | `by-class/PhoneBookDialog.md` |  |
 | [UID:0000AE][PhoneBookListPane](by-class/PhoneBookListPane.md) | unclassified |  |  | no |  | `by-class/PhoneBookListPane.md` |  |
