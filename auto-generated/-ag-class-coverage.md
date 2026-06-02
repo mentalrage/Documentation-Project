@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 155
+Total_Reconstructable: 156
 Total_Not_Reconstructable: 1
 Total_Reconstructed_Assigned: 68
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 430
+Total_Reconstructable_Unassigned: 88
+Total_Unclassified: 429
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -92,6 +92,7 @@ Total_Error: 0
 | [UID:00001F][CachedHashTable](by-class/CachedHashTable.md) | unassigned |  |  | no |  | `by-class/CachedHashTable.md` |  |
 | [UID:00001K][ChangeMan](by-class/ChangeMan.md) | unassigned |  |  | no |  | `by-class/ChangeMan.md` |  |
 | [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md) | unassigned |  |  | no |  | `by-class/CheckBoxControlPane.md` |  |
+| [UID:000022][CheckBoxTextControlPane](by-class/CheckBoxTextControlPane.md) | unassigned |  |  | no |  | `by-class/CheckBoxTextControlPane.md` |  |
 | [UID:000023][ClanAppearNameInputDialog](by-class/ClanAppearNameInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanAppearNameInputDialog.md` |  |
 | [UID:000027][ClanChangeInputDialog](by-class/ClanChangeInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanChangeInputDialog.md` |  |
 | [UID:000028][ClanChangeNameInputDialog](by-class/ClanChangeNameInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanChangeNameInputDialog.md` |  |
@@ -215,7 +216,6 @@ Total_Error: 0
 | [UID:00001Y][ChattingVarietyPane](by-class/ChattingVarietyPane.md) | unclassified |  |  | no |  | `by-class/ChattingVarietyPane.md` |  |
 | [UID:00001Z][ChattingVarietySelectPane](by-class/ChattingVarietySelectPane.md) | unclassified |  |  | no |  | `by-class/ChattingVarietySelectPane.md` |  |
 | [UID:000020][CheatDetector](by-class/CheatDetector.md) | unclassified |  |  | no |  | `by-class/CheatDetector.md` |  |
-| [UID:000022][CheckBoxTextControlPane](by-class/CheckBoxTextControlPane.md) | unclassified |  |  | no |  | `by-class/CheckBoxTextControlPane.md` |  |
 | [UID:000024][ClanAttrInputDialog](by-class/ClanAttrInputDialog.md) | unclassified |  |  | no |  | `by-class/ClanAttrInputDialog.md` |  |
 | [UID:000025][ClanBankItemListPane](by-class/ClanBankItemListPane.md) | unclassified |  |  | no |  | `by-class/ClanBankItemListPane.md` |  |
 | [UID:000026][ClanBankPane](by-class/ClanBankPane.md) | unclassified |  |  | no |  | `by-class/ClanBankPane.md` |  |

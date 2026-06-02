@@ -14,7 +14,7 @@
 
 ## Covered Items To Replicate
 
-- [UID:0001R5][alert-dialog-resources](by-resource/alert-dialog-resources.md) : reconstructable : 50% : medium : - Scope: resources and strings used by shared alert pane classes.
+- [UID:0001R5][alert-dialog-resources](by-resource/alert-dialog-resources.md) : reconstructable : 72% : strong : Shared alert resources and strings; `BDFRAME.EPF`, the shared `OK` label, employee warning cross-link, owner classes, render/global alias caveats, and reconstruction boundaries documented.
 - [UID:0001R6][application-startup-dat-archives](by-resource/application-startup-dat-archives.md) : reconstructable : 88% : strong : - Confidence: strong for resource names and startup call sites; medium for exact original comments/helper names and music-variant semantics.
 - [UID:0001R7][backpane-background-resources](by-resource/backpane-background-resources.md) : reconstructable : 50% : medium : - Confidence: strong for named palette strings; medium for exact frame resource names passed into `BackPane`.
 - [UID:0001R8][collection-ui-resources](by-resource/collection-ui-resources.md) : reconstructable : 70% : strong : - Resource family: collection list/detail UI EPF/PAL/font resources

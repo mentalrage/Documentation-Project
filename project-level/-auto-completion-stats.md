@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 10:53:23
+Generated: 2026-06-02 11:05:33
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -141,11 +141,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001Z5` | 58 | 88 | 73.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
-| `000022` | 60 | 78 | 69.0 | `by-class/CheckBoxTextControlPane.md` |
-| `0000UO` | 60 | 78 | 69.0 | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |
-| `0000ZK` | 60 | 78 | 69.0 | `by-memory/0x00472070-0x00477790.BoardArticleDialogs.md` |
-| `00013Q` | 60 | 78 | 69.0 | `by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md` |
-| `0001R5` | 60 | 80 | 70.0 | `by-resource/alert-dialog-resources.md` |
 | `0001ZD` | 60 | 85 | 72.5 | `by-memory/0x0045d530-0x0045d740.RankingCategoryVectorStorageHelpers.md` |
 | `0001ZE` | 60 | 85 | 72.5 | `by-memory/0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper.md` |
 | `000202` | 60 | 85 | 72.5 | `by-memory/0x0045d790-0x0045d7c2.RankingRewardEntryVectorInit.md` |
@@ -165,6 +160,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000238` | 60 | 85 | 72.5 | `by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md` |
 | `000243` | 60 | 85 | 72.5 | `by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md` |
 | `000244` | 60 | 85 | 72.5 | `by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md` |
+| `00026H` | 60 | 85 | 72.5 | `by-memory/0x00625008-0x0062ce60.ServerPacketNameTable.md` |
+| `00027N` | 60 | 85 | 72.5 | `by-memory/0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable.md` |
+| `00027Z` | 60 | 85 | 72.5 | `by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md` |
+| `000281` | 60 | 85 | 72.5 | `by-memory/0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary.md` |
+| `0001R9` | 60 | 85 | 72.5 | `by-resource/employee-dialog-resources.md` |
 
 ## Low_Confidence
 
@@ -234,7 +234,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
-| `000022` | 60 | 78 | 69.0 | `by-class/CheckBoxTextControlPane.md` |
 | `000052` | 62 | 76 | 69.0 | `by-class/FittingRoomDownloadControlPane.md` |
 | `00006Y` | 62 | 76 | 69.0 | `by-class/ItemWhoInputPaneState.md` |
 | `00003W` | 64 | 74 | 69.0 | `by-class/DIError.md` |
@@ -257,6 +256,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 | `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
 | `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
+| `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
 
 ### by-external-research
 
@@ -330,7 +330,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000UO` | 60 | 78 | 69.0 | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `0000UJ` | 68 | 82 | 75.0 | `by-item/DrawTextInRect_004BAD70.md` |
@@ -355,6 +354,7 @@ _No scored files._
 | `0000VC` | 70 | 85 | 77.5 | `by-item/ScaleDirectionOffsetToPixels_00505100.md` |
 | `0000VE` | 70 | 85 | 77.5 | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |
 | `0000VF` | 70 | 85 | 77.5 | `by-item/ScreenshotProofPacket_00558240.md` |
+| `0000VG` | 70 | 85 | 77.5 | `by-item/ServerSelectHelpers_574510_5745b0.md` |
 
 ### by-memory
 
@@ -380,11 +380,11 @@ _No scored files._
 | `0002G9` | 62 | 74 | 68.0 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
 | `0002BH` | 62 | 74 | 68.0 | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |
 | `0002BP` | 62 | 74 | 68.0 | `by-memory/0x00491450-0x0049178d.KwgLauncherParser.md` |
-| `0000ZK` | 60 | 78 | 69.0 | `by-memory/0x00472070-0x00477790.BoardArticleDialogs.md` |
-| `00013Q` | 60 | 78 | 69.0 | `by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md` |
 | `0002DT` | 62 | 76 | 69.0 | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |
 | `0002DA` | 65 | 74 | 69.5 | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |
 | `0002D6` | 62 | 78 | 70.0 | `by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md` |
+| `0002E4` | 62 | 78 | 70.0 | `by-memory/0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson.md` |
+| `0002EA` | 62 | 78 | 70.0 | `by-memory/0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw.md` |
 
 ### by-meta
 
@@ -398,7 +398,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001R5` | 60 | 80 | 70.0 | `by-resource/alert-dialog-resources.md` |
 | `0001R9` | 60 | 85 | 72.5 | `by-resource/employee-dialog-resources.md` |
 | `0001RH` | 65 | 82 | 73.5 | `by-resource/meta-dat-metadata-cache.md` |
 | `0001R7` | 65 | 85 | 75.0 | `by-resource/backpane-background-resources.md` |
@@ -408,6 +407,7 @@ _No scored files._
 | `0001RD` | 70 | 85 | 77.5 | `by-resource/iconspane-icon-resources.md` |
 | `0001RE` | 70 | 85 | 77.5 | `by-resource/interface-efx-resources.md` |
 | `0001RM` | 70 | 86 | 78.0 | `by-resource/staff-dialog-resources.md` |
+| `0001R5` | 72 | 84 | 78.0 | `by-resource/alert-dialog-resources.md` |
 | `0001RS` | 72 | 84 | 78.0 | `by-resource/user-status-resources.md` |
 | `0001RA` | 70 | 88 | 79.0 | `by-resource/exchange-dialog-resources.md` |
 | `0001RB` | 70 | 88 | 79.0 | `by-resource/forced-inform-message-resources.md` |

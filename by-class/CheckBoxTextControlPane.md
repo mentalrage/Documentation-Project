@@ -1,7 +1,7 @@
 *** UID:000022 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:60 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Current recovered file: `source-3/simroot_v2/class_CheckBoxTextControlPane.cpp`
 - IDA MCP rechecked: 2026-05-24.
 - Type docs: [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md), [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md)
+- Rebuild handling: source-authored reusable UI-control class. Marked reconstructable, but parent attachment and C++ remain blank because [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) is still a provisional below-threshold grouping and the raw constructor/source declaration is not final-audit quality.
 
 ## Class Purpose
 
@@ -35,6 +36,15 @@ The checked state is not currently exposed through the method at `0x004214c0`; I
 | Adjustor thunks | `0x0059efeb-0x0059f000` | Secondary-base this-adjustors that forward to the scalar deleting destructor. |
 | Scalar deleting destructor | `0x0059f050-0x0059f0a4` | Reinstalls class vtables, calls base teardown, and conditionally deletes the object. |
 
+## Layout And Vtable Evidence
+
+| Evidence | Source |
+| --- | --- |
+| Checked byte at `+0x108` | [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md) and [UID:0001KJ][0x0059ded0-0x0059f0a4.CheckBoxTextControlPane](by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md) record constructor storage, paint use, and direct `PartySearchEditPane` toggling. |
+| Label buffer at `+0x10a` | The constructor-shaped bytes copy a `0x100` wide-character label, and `OnPaint` scans/draws the buffer twice for shadow and foreground text. |
+| Three-view vtable layout | [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md) records primary `0x0062e99c`, secondary `0x0062ea04`, and tertiary `0x0062ea34`; [UID:0002OX][0x0062e998-0x0062ea3c.CheckBoxTextControlPaneVtableData](by-memory/0x0062e998-0x0062ea3c.CheckBoxTextControlPaneVtableData.md) tracks the exact `.rdata` child. |
+| Control type | [UID:0002DZ][0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType](by-memory/0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType.md) returns constant `0x16`; it is not a checked-state getter. |
+
 ## Evidence Notes
 
 - `source-3/simroot_v2/class_CheckBoxTextControlPane.cpp` has low active emitted-file quality (`62.7`) and active class ownership quality (`40.5`), so use it as generated evidence only.
@@ -44,6 +54,16 @@ The checked state is not currently exposed through the method at `0x004214c0`; I
 - `PartySearchEditPane::PartySearchEditPane` inlines equivalent checkbox/text initialization at `0x0059e22f-0x0059e265` after allocating `0x30c` bytes, which explains why `0x0059ded0` has no direct code xrefs in the current IDB.
 - `PartySearchEditPane::OnAction` reads the checked flag from `+0x108` when applying hunters-list settings and toggles that byte directly for command `2`.
 - 2026-05-26 IDA MCP confirmed primary vtable `0x0062e99c`, secondary vtable `0x0062ea04`, and tertiary vtable `0x0062ea34`. The paint method reads checked byte `+0x108` and label buffer `+0x10a`, and the adjustor thunks are vtable-only compiler glue into scalar deleting destructor `0x0059f050`.
+- [UID:0001KJ][0x0059ded0-0x0059f0a4.CheckBoxTextControlPane](by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md) is now the canonical executable-range page for the constructor-shaped body, paint, teardown helper, and scalar deleting destructor.
+- [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) keeps this class in the reusable-control source family, but deliberately leaves its projected path blank until the final direction/gender/checkbox source split is proven.
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 72 | The class purpose, method inventory, fields, vtables, out-of-range type helper, PartySearch use, and generated-data caveats are now documented with stable UID links. |
+| Confidence | 82 | Confidence is strong for behavior, field offsets, vtable identity, and ownership as a reusable control. It is capped because the constructor start is still raw/non-IDA-modeled and the final source-file split is unresolved. |
+| Reconstructable | true | The class represents source-authored control behavior. C++ remains blank until constructor boundaries, inherited layout names, and final source placement are audited together. |
 
 ## Cross-References
 
@@ -55,7 +75,12 @@ The checked state is not currently exposed through the method at `0x004214c0`; I
 - [UID:0001KI][0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane](by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md)
 - [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md)
 - [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md)
+- [UID:0002OX][0x0062e998-0x0062ea3c.CheckBoxTextControlPaneVtableData](by-memory/0x0062e998-0x0062ea3c.CheckBoxTextControlPaneVtableData.md)
 
 ## Changes
 
 - 2026-05-30: Existing class doc mentioned `0x004214c0` as an address-only helper. Changed it to the exact by-memory UID page and clarified that the helper is reusable checkbox-control code, not fitting-room or SimpleUString ownership. Evidence: IDA MCP decompilation/data refs for `0x004214c0` and the split of the historical `0x00421310-0x004216cb` aggregate.
+- 2026-06-02 reconstructable evidence update:
+  - What existed before: the class page was scored `60/78`, reconstructable metadata was blank, and newer memory/type evidence was only partially reflected.
+  - Changed to: scored `72/82`, marked reconstructable, added layout/vtable and score-rationale sections, and linked the exact vtable-data child.
+  - Summary/evidence: [UID:0001KJ][0x0059ded0-0x0059f0a4.CheckBoxTextControlPane](by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md), [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md), [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md), and [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) now provide stronger documented evidence while preserving the unresolved raw-constructor and final source-split caveats.

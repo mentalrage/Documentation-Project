@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1121
+Total_Reconstructable: 1122
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 579
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 542
-Total_Unclassified: 1005
+Total_Reconstructable_Unassigned: 543
+Total_Unclassified: 1004
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -637,6 +637,7 @@ Total_Error: 0
 | [UID:0000ZE][0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor](by-memory/0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor.md` |  |
 | [UID:0000ZG][0x00470300-0x00470329.AutoInit](by-memory/0x00470300-0x00470329.AutoInit.md) | unassigned |  |  | no |  | `by-memory/0x00470300-0x00470329.AutoInit.md` |  |
 | [UID:000216][0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks](by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md) | unassigned |  |  | no |  | `by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md` |  |
+| [UID:0000ZK][0x00472070-0x00477790.BoardArticleDialogs](by-memory/0x00472070-0x00477790.BoardArticleDialogs.md) | unassigned |  |  | no |  | `by-memory/0x00472070-0x00477790.BoardArticleDialogs.md` |  |
 | [UID:0000ZT][0x0047ec70-0x0047ed20.ChangeManConstructor](by-memory/0x0047ec70-0x0047ed20.ChangeManConstructor.md) | unassigned |  |  | no |  | `by-memory/0x0047ec70-0x0047ed20.ChangeManConstructor.md` |  |
 | [UID:0000ZU][0x0047ec70-0x0047efae.ChangeMan](by-memory/0x0047ec70-0x0047efae.ChangeMan.md) | unassigned |  |  | no |  | `by-memory/0x0047ec70-0x0047efae.ChangeMan.md` |  |
 | [UID:0000ZW][0x0047ed50-0x0047ed80.ChangeManRegister](by-memory/0x0047ed50-0x0047ed80.ChangeManRegister.md) | unassigned |  |  | no |  | `by-memory/0x0047ed50-0x0047ed80.ChangeManRegister.md` |  |
@@ -1362,7 +1363,6 @@ Total_Error: 0
 | [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md` |  |
 | [UID:0000ZJ][0x00472040-0x00472069.BoardDialogCommandOneVirtual](by-memory/0x00472040-0x00472069.BoardDialogCommandOneVirtual.md) | unclassified |  |  | no |  | `by-memory/0x00472040-0x00472069.BoardDialogCommandOneVirtual.md` |  |
 | [UID:0002EJ][0x00472070-0x004729dd.BoardListDialogCore](by-memory/0x00472070-0x004729dd.BoardListDialogCore.md) | unclassified |  |  | no |  | `by-memory/0x00472070-0x004729dd.BoardListDialogCore.md` |  |
-| [UID:0000ZK][0x00472070-0x00477790.BoardArticleDialogs](by-memory/0x00472070-0x00477790.BoardArticleDialogs.md) | unclassified |  |  | no |  | `by-memory/0x00472070-0x00477790.BoardArticleDialogs.md` |  |
 | [UID:0002EK][0x004781f0-0x00478238.NewPredefinedFormArticleDialogRawNavigateSelectionHelper](by-memory/0x004781f0-0x00478238.NewPredefinedFormArticleDialogRawNavigateSelectionHelper.md) | unclassified |  |  | no |  | `by-memory/0x004781f0-0x00478238.NewPredefinedFormArticleDialogRawNavigateSelectionHelper.md` |  |
 | [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md` |  |
 | [UID:0002EL][0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm](by-memory/0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm.md) | unclassified |  |  | no |  | `by-memory/0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm.md` |  |

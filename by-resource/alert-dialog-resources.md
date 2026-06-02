@@ -1,6 +1,6 @@
 *** UID:0001R5 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:60 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # Alert Dialog Resources
 
@@ -19,6 +19,15 @@
 | [UID:0001OE][0x0061929c-0x006192c6.AddEmployeeSingleSelectionAlertText](by-memory/0x0061929c-0x006192c6.AddEmployeeSingleSelectionAlertText.md) | [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md) | Korean UTF-16 string shown when more than one inventory item is selected for employee add flow. Keep feature ownership in [UID:0001R9][employee-dialog-resources](by-resource/employee-dialog-resources.md). |
 | dynamic alert text | [UID:00000B][AlertPane](by-class/AlertPane.md), [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md), [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md) | Shared alerts create text controls programmatically instead of using a fixed dialog layout resource. |
 
+## Evidence Matrix
+
+| Resource evidence | Concrete support | Remaining limit |
+| --- | --- | --- |
+| Blue alert frame atlas | [UID:0001A5][0x005008c0-0x0050114d.BlueAlertPaneCore](by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md) documents `DrawContent` and `DrawBorderFrame` use of `BDFRAME.EPF`, frame indexes `0` through `8`, [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md), and broad render callbacks. | The DAT asset payload and original source asset names beyond `BDFRAME.EPF` are not fully reconstructed. |
+| Shared OK label | [UID:0001OC][0x00613a18-0x00613a1e.DialogOkButtonString](by-memory/0x00613a18-0x00613a1e.DialogOkButtonString.md) confirms the inline UTF-16 `OK` string, range end, and broad dialog xrefs. | Final source should decide whether this was a literal, string table entry, or resource macro. |
+| Employee warning string | [UID:0001OE][0x0061929c-0x006192c6.AddEmployeeSingleSelectionAlertText](by-memory/0x0061929c-0x006192c6.AddEmployeeSingleSelectionAlertText.md) confirms the exact static text range and its AddEmployee caller. | Logical ownership belongs to employee-dialog resources; this page only records it because it is shown through the shared alert flow. |
+| Alert ownership | [UID:0000HE][AlertPanes](by-file/AlertPanes.md), [UID:00000B][AlertPane](by-class/AlertPane.md), [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md), and [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md) establish the consuming classes and layout/render context. | Feature-specific alert subclasses are intentionally not collapsed into this shared resource page without caller-specific evidence. |
+
 ## Ownership Notes
 
 - `AlertPane` normally builds controls at runtime from the supplied strings and layout reference. It should not be tied to a single DAT dialog layout solely because derived classes may use themed frames.
@@ -26,6 +35,20 @@
 - Generated `g_uiTileRenderer` calls in `class_BlueAlertPane.cpp` are a data alias artifact over resource lookup and render callback dispatch; do not model this resource as owned by a new renderer singleton without further evidence.
 - `UrlAlertPane` owns the URL buffer and action behavior; it only consumes the shared primary-button string.
 - `AddEmployeeItemDialog` owns the multi-selection warning behavior, but its `OK` label is the shared dialog string at `0x00613a18`.
+
+## Reconstruction Notes
+
+- Treat this page as a resource/ownership index, not a generated C++ source unit. `by-resource` pages are excluded from reconstruction autogen; any source declarations should be documented on the consuming class, file, memory, or global page.
+- Reconstruct `BDFRAME.EPF` usage through the `BlueAlertPane` rendering methods and the central EPF resource registry, not as a standalone alert-local singleton.
+- Keep the shared `OK` label separate from employee-dialog behavior. The existing generated callback-table name is a data alias error.
+- Keep the employee warning text cross-linked here for alert-flow visibility, but retain feature ownership in [UID:0001R9][employee-dialog-resources](by-resource/employee-dialog-resources.md).
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 72 | The page now ties each known alert resource/string to concrete memory, class/file owners, exact supporting pages, generated-alias caveats, and reconstruction boundaries. It is still below high completion because DAT packaging, full alert string inventory, and original resource macro/literal strategy remain incomplete. |
+| Confidence | 84 | Exact strings, frame filename usage, owner classes, and render/global caveats are backed by existing IDA MCP evidence in the linked pages. Confidence is capped by missing DAT payload audit and unresolved final source representation for shared literals. |
 
 ## IDA MCP Evidence
 
@@ -51,3 +74,7 @@
 - Before: page was scored `0/0` despite having several verified resource/string rows.
 - Changed to: `COMPLETION:60`, `CONFIDENCE:80`, with explicit IDA MCP evidence for `BDFRAME.EPF`, shared `OK`, and the employee warning string.
 - Evidence: IDA MCP UTF-16 decoding and xrefs from `0x0061e554`, `0x00613a18`, and `0x0061929c`.
+- 2026-06-02 resource-boundary pass:
+  - What existed before: the page identified the resource rows, but the coverage row was stale and the page did not explain completion/confidence limits.
+  - Changed to: `COMPLETION:72`, `CONFIDENCE:84`, with an evidence matrix, reconstruction notes, and score rationale.
+  - Summary/evidence: linked AlertPanes, AlertPane, BlueAlertPaneCore, Dialog OK string, AddEmployee warning string, and `g_pEPFLib` docs are sufficient for a stronger resource index while preserving DAT/source-representation caveats.
