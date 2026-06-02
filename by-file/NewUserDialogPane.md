@@ -1,13 +1,13 @@
 *** UID:0000LV | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # NewUserDialogPane
 
 ## Status
 
-- Confidence: strong for account-registration behavior; medium for exact split from [UID:0000KX][LoginDialogPane](by-file/LoginDialogPane.md).
+- Confidence: strong for account-registration behavior and login-family placement; medium for exact standalone split from [UID:0000KX][LoginDialogPane](by-file/LoginDialogPane.md).
 - Proposed module: `login/NewUserDialogPane.cpp`, or folded into `login/LoginDialogPane.cpp`.
 - Current recovered source: `source-3/simroot_v2/class_NewUserDialogPane.cpp`
 - Main class: [UID:00009D][NewUserDialogPane](by-class/NewUserDialogPane.md)
@@ -35,6 +35,13 @@ Do not confuse this with [UID:0000LW][NewUserDialogPane2](by-file/NewUserDialogP
 - Keep create-character variants in [UID:0000IK][CreateUserDialogs](by-file/CreateUserDialogs.md), [UID:0000IJ][CreateUserDialogPane](by-file/CreateUserDialogPane.md), [UID:0000LP][NewCreateUserDialogPane](by-file/NewCreateUserDialogPane.md), and [UID:0000LW][NewUserDialogPane2](by-file/NewUserDialogPane2.md).
 - Generated source currently contains escaped `\!=` in C++ output; use the behavior docs and IDA-confirmed boundaries before treating the emitted source as compile-ready.
 
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `80` | The page documents the account-registration role, major method families, exact memory anchor, login-family boundaries, create-character exclusions, and generated-source caveat. Completion remains capped by unresolved field/control names and the exact standalone-vs-folded source split. |
+| Confidence `80` | Confidence is supported by [UID:0002Q3][0x004f9d30-0x004fa7a0.NewUserDialogPaneCoreAndPacketHelpers](by-memory/0x004f9d30-0x004fa7a0.NewUserDialogPaneCoreAndPacketHelpers.md), which records corrected function boundaries, packet helpers, reply handler, and the `LoginDialogPane` family placement. Confidence is not higher because the emitted source still has syntax damage and final file split remains open. |
+
 ## Cross-References
 
 - [UID:00009D][NewUserDialogPane](by-class/NewUserDialogPane.md)
@@ -46,6 +53,7 @@ Do not confuse this with [UID:0000LW][NewUserDialogPane2](by-file/NewUserDialogP
 
 ## Changes
 
+- 2026-06-02: Raised completion/confidence from `74/72` to `80/80` and set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/login/`. Evidence: exact NewUser core memory page records corrected account-flow boundaries through `0x004fa7a0`, packet sender/reply helpers, and login-family placement.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `74`, confidence `72`.
 - Summary/evidence: the page documents account-registration role, key method ranges, boundary exclusions, and cross-references; confidence is limited by the exact split from `LoginDialogPane` and emitted-source syntax caveat.

@@ -1,8 +1,8 @@
 *** UID:0000TA | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:65 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:65 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,11 +12,12 @@
 
 ## Status
 
-- Confidence: medium overall; strong for behavior and current unreferenced status, weak for why the wrapper was retained.
+- Confidence: strong for behavior and current unreferenced status, medium for why the wrapper was retained.
 - Address range: [UID:00019Q][0x004f9060-0x004f90b4.OpenChangePasswordDialog](by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md)
 - Symbol kind: retained duplicate main-menu/account launcher helper.
 - Current IDA name: `___std_parallel_algorithms_hw_threads@0_0` (misleading).
 - Likely owner file: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md), with target behavior in [UID:0000I3][ChangePasswordDialogPane](by-file/ChangePasswordDialogPane.md)
+- Autogen status: reconstructable retained launcher attached to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md); C++ is intentionally blank because live reachability and final helper grouping are not source-final.
 
 ## Behavior
 
@@ -45,6 +46,13 @@ IDA reports no direct caller/xref to the helper start in the current database. T
 
 Keep this as a retained private helper in the login/main-menu family for address-matching reconstruction. It may sit in `login/MainMenuPane.cpp` beside the other retained launch helpers or in `login/ChangePasswordDialogPane.cpp` if account-dialog helpers are grouped by target. A behavior-only source rebuild can rely on the direct action-handler construction path unless later evidence proves this wrapper is reachable.
 
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `72` | The page documents exact behavior, allocation size, constructor target, repeated no-xref checks, raw pointer/immediate searches, active duplicate main-menu path, and source-placement caveat. Completion remains capped because the reason for retention and final helper grouping are unresolved. |
+| Confidence `80` | Confidence is strong for what the helper does and for the current unreferenced/duplicate status. It is not higher because no live caller or callback table has been found and an address-matching rebuild may choose different grouping. |
+
 ## Cross-References
 
 - [UID:00019Q][0x004f9060-0x004f90b4.OpenChangePasswordDialog](by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md)
@@ -55,6 +63,7 @@ Keep this as a retained private helper in the login/main-menu family for address
 
 ## Changes
 
+- 2026-06-02: Raised completion/confidence from `65/65` to `72/80`, marked reconstructable, and attached to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md). C++ remains blank because this retained launcher is below the final-code gate and live reachability remains unresolved.
 - Before: documented as a retained opener with weak unresolved reachability.
 - After: documented as a retained duplicate launcher whose lack of current refs has been rechecked; the active main-menu action path is now recorded as directly duplicating the allocation/constructor sequence.
 - Why: IDA MCP found no direct or raw-pointer references to `0x004f9060`, while `0x004f7a10` case `2` performs the same `620`-byte allocation and `0x004fdd40` constructor call.

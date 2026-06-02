@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 161
+Total_Reconstructable: 162
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 73
+Total_Reconstructed_Assigned: 74
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 88
-Total_Unclassified: 424
+Total_Unclassified: 423
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -54,6 +54,7 @@ Total_Error: 0
 | [UID:000083][MerchantDialogPane](by-class/MerchantDialogPane.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-class/MerchantDialogPane.md` |  |
 | [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-class/NewHumanImageLib.md` |  |
 | [UID:000097][NewOptionPane](by-class/NewOptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-class/NewOptionPane.md` |  |
+| [UID:00009D][NewUserDialogPane](by-class/NewUserDialogPane.md) | assigned | `0000LV` |  | no | `auto-generated/NexusTK/login/NewUserDialogPane.cpp` | `by-class/NewUserDialogPane.md` |  |
 | [UID:00009F][NewUserMiscDialogPane](by-class/NewUserMiscDialogPane.md) | assigned | `0000LX` |  | no | `auto-generated/NexusTK/login/NewUserMiscDialogPane.cpp` | `by-class/NewUserMiscDialogPane.md` |  |
 | [UID:00009V][OptionPane](by-class/OptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-class/OptionPane.md` |  |
 | [UID:0000A5][ParcelIconPane](by-class/ParcelIconPane.md) | assigned | `0000MF` | 20 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/ParcelIconPane.md` |  |
@@ -394,7 +395,6 @@ Total_Error: 0
 | [UID:00009A][NewSpellInventoryPane](by-class/NewSpellInventoryPane.md) | unclassified |  |  | no |  | `by-class/NewSpellInventoryPane.md` |  |
 | [UID:00009B][NewSystemMessageModifyHeightPane](by-class/NewSystemMessageModifyHeightPane.md) | unclassified |  |  | no |  | `by-class/NewSystemMessageModifyHeightPane.md` |  |
 | [UID:00009C][NewSystemMessagePane](by-class/NewSystemMessagePane.md) | unclassified |  |  | no |  | `by-class/NewSystemMessagePane.md` |  |
-| [UID:00009D][NewUserDialogPane](by-class/NewUserDialogPane.md) | unclassified |  |  | no |  | `by-class/NewUserDialogPane.md` |  |
 | [UID:00009E][NewUserDialogPane2](by-class/NewUserDialogPane2.md) | unclassified |  |  | no |  | `by-class/NewUserDialogPane2.md` |  |
 | [UID:00009G][NewUserShapeSelectControlPane](by-class/NewUserShapeSelectControlPane.md) | unclassified |  |  | no |  | `by-class/NewUserShapeSelectControlPane.md` |  |
 | [UID:00009H][NexonclubProxyDialog](by-class/NexonclubProxyDialog.md) | unclassified |  |  | no |  | `by-class/NexonclubProxyDialog.md` |  |
