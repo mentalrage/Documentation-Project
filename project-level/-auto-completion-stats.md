@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 11:19:05
+Generated: 2026-06-02 11:23:00
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -138,8 +138,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00021I` | 60 | 85 | 72.5 | `by-memory/0x00485780-0x00485867.ClanDepositMoneyPacketHelpers.md` |
-| `00021J` | 60 | 85 | 72.5 | `by-memory/0x00485870-0x00485955.ClanDepositItemPacketHelpers.md` |
 | `00021L` | 60 | 85 | 72.5 | `by-memory/0x00485cc0-0x0048632e.ClanNameActionPacketHelpers.md` |
 | `00021M` | 60 | 85 | 72.5 | `by-memory/0x00486530-0x004867f2.ClanWithdrawAndNoticePacketHelpers.md` |
 | `00022S` | 60 | 85 | 72.5 | `by-memory/0x004f3140-0x004f35fd.ListCoreMethods.md` |
@@ -163,6 +161,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000052` | 62 | 76 | 69.0 | `by-class/FittingRoomDownloadControlPane.md` |
 | `00006Y` | 62 | 76 | 69.0 | `by-class/ItemWhoInputPaneState.md` |
 | `0002DT` | 62 | 76 | 69.0 | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |
+| `0000D9` | 62 | 78 | 70.0 | `by-class/SimpleUString.md` |
+| `0002D6` | 62 | 78 | 70.0 | `by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md` |
 
 ## Low_Confidence
 

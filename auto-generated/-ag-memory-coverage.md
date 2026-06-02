@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1130
+Total_Reconstructable: 1132
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 587
+Total_Reconstructed_Assigned: 589
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 543
-Total_Unclassified: 996
+Total_Unclassified: 994
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -87,6 +87,8 @@ Total_Error: 0
 | [UID:00021E][0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request](by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |  |
 | [UID:00021F][0x00485520-0x00485588.SendClanJoinListRefreshPacket](by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |  |
 | [UID:00021H][0x00485690-0x004856f9.SendClanLeaveRequestPacket](by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |  |
+| [UID:00021I][0x00485780-0x00485867.ClanDepositMoneyPacketHelpers](by-memory/0x00485780-0x00485867.ClanDepositMoneyPacketHelpers.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485780-0x00485867.ClanDepositMoneyPacketHelpers.md` |  |
+| [UID:00021J][0x00485870-0x00485955.ClanDepositItemPacketHelpers](by-memory/0x00485870-0x00485955.ClanDepositItemPacketHelpers.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485870-0x00485955.ClanDepositItemPacketHelpers.md` |  |
 | [UID:00021N][0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper](by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |  |
 | [UID:00021T][0x004885a0-0x00488602.ClanInfoListPaneRawConstructor](by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |  |
 | [UID:00021Y][0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers](by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |  |
@@ -1452,8 +1454,6 @@ Total_Error: 0
 | [UID:00021C][0x00484f70-0x0048540b.ClanStatusPacketDispatcher](by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md) | unclassified |  |  | no |  | `by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md` |  |
 | [UID:00021G][0x00485590-0x00485682.SendClanJoinListSelectionPacket](by-memory/0x00485590-0x00485682.SendClanJoinListSelectionPacket.md) | unclassified |  |  | no |  | `by-memory/0x00485590-0x00485682.SendClanJoinListSelectionPacket.md` |  |
 | [UID:00010D][0x00485700-0x00485778.SendClanLeaveResponse](by-memory/0x00485700-0x00485778.SendClanLeaveResponse.md) | unclassified |  |  | no |  | `by-memory/0x00485700-0x00485778.SendClanLeaveResponse.md` |  |
-| [UID:00021I][0x00485780-0x00485867.ClanDepositMoneyPacketHelpers](by-memory/0x00485780-0x00485867.ClanDepositMoneyPacketHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00485780-0x00485867.ClanDepositMoneyPacketHelpers.md` |  |
-| [UID:00021J][0x00485870-0x00485955.ClanDepositItemPacketHelpers](by-memory/0x00485870-0x00485955.ClanDepositItemPacketHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00485870-0x00485955.ClanDepositItemPacketHelpers.md` |  |
 | [UID:00021K][0x00485960-0x00485abe.ClanSubtype6PacketHelpers](by-memory/0x00485960-0x00485abe.ClanSubtype6PacketHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00485960-0x00485abe.ClanSubtype6PacketHelpers.md` |  |
 | [UID:00010E][0x00485ac0-0x00485cbd.SendClanAttributePacket](by-memory/0x00485ac0-0x00485cbd.SendClanAttributePacket.md) | unclassified |  |  | no |  | `by-memory/0x00485ac0-0x00485cbd.SendClanAttributePacket.md` |  |
 | [UID:00021L][0x00485cc0-0x0048632e.ClanNameActionPacketHelpers](by-memory/0x00485cc0-0x0048632e.ClanNameActionPacketHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00485cc0-0x0048632e.ClanNameActionPacketHelpers.md` |  |
