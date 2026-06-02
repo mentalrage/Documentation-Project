@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 174
+Total_Reconstructable: 178
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 85
+Total_Reconstructed_Assigned: 88
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 89
-Total_Unclassified: 411
+Total_Reconstructable_Unassigned: 90
+Total_Unclassified: 407
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -92,6 +92,9 @@ Total_Error: 0
 | [UID:0000E9][SwallowLayerPane](by-class/SwallowLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SwallowLayerPane.md` |  |
 | [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/TakeOffInputPane.md` |  |
 | [UID:0000EZ][ThrowReallyInputPane](by-class/ThrowReallyInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ThrowReallyInputPane.md` |  |
+| [UID:0000F6][TransferReplyPredefinedAlert](by-class/TransferReplyPredefinedAlert.md) | assigned | `0000HW` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/TransferReplyPredefinedAlert.md` |  |
+| [UID:0000FA][TreeItor_near_class_EventHandler___](by-class/TreeItor_near_class_EventHandler___.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/TreeItor_near_class_EventHandler___.md` |  |
+| [UID:0000F8][Tree_near_class_EventHandler___](by-class/Tree_near_class_EventHandler___.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/Tree_near_class_EventHandler___.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
 | [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md) | assigned | `0000P4` |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-class/VideoPlayerPane.md` |  |
 | [UID:0000G1][WeatherLayerPane](by-class/WeatherLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/WeatherLayerPane.md` |  |
@@ -183,6 +186,7 @@ Total_Error: 0
 | [UID:0000E8][StringMenuItem](by-class/StringMenuItem.md) | unassigned |  |  | no |  | `by-class/StringMenuItem.md` |  |
 | [UID:0000EW][ThreadMan](by-class/ThreadMan.md) | unassigned |  |  | no |  | `by-class/ThreadMan.md` |  |
 | [UID:0000F3][TimerPane](by-class/TimerPane.md) | unassigned |  |  | no |  | `by-class/TimerPane.md` |  |
+| [UID:0000FD][UInt32Vector](by-class/UInt32Vector.md) | unassigned |  |  | no |  | `by-class/UInt32Vector.md` |  |
 | [UID:0000FS][UserStatusPane](by-class/UserStatusPane.md) | unassigned |  |  | no |  | `by-class/UserStatusPane.md` |  |
 | [UID:0000FW][VirusChecker](by-class/VirusChecker.md) | unassigned |  |  | no |  | `by-class/VirusChecker.md` |  |
 | [UID:0000FX][VoteMenuPane](by-class/VoteMenuPane.md) | unassigned |  |  | no |  | `by-class/VoteMenuPane.md` |  |
@@ -558,14 +562,10 @@ Total_Error: 0
 | [UID:0000F2][TimerMgrTimerQueue](by-class/TimerMgrTimerQueue.md) | unclassified |  |  | no |  | `by-class/TimerMgrTimerQueue.md` |  |
 | [UID:0000F4][TotemFrame](by-class/TotemFrame.md) | unclassified |  |  | no |  | `by-class/TotemFrame.md` |  |
 | [UID:0000F5][TransferReplyAlert](by-class/TransferReplyAlert.md) | unclassified |  |  | no |  | `by-class/TransferReplyAlert.md` |  |
-| [UID:0000F6][TransferReplyPredefinedAlert](by-class/TransferReplyPredefinedAlert.md) | unclassified |  |  | no |  | `by-class/TransferReplyPredefinedAlert.md` |  |
 | [UID:0000F7][TransferServerDialogPane](by-class/TransferServerDialogPane.md) | unclassified |  |  | no |  | `by-class/TransferServerDialogPane.md` |  |
-| [UID:0000FA][TreeItor_near_class_EventHandler___](by-class/TreeItor_near_class_EventHandler___.md) | unclassified |  |  | no |  | `by-class/TreeItor_near_class_EventHandler___.md` |  |
 | [UID:0000FB][TreeItor_struct_FolderTreePane__TreeElem_](by-class/TreeItor_struct_FolderTreePane__TreeElem_.md) | unclassified |  |  | no |  | `by-class/TreeItor_struct_FolderTreePane__TreeElem_.md` |  |
 | [UID:0000FC][TreeStorage_struct_FolderTreePane__TreeElem_](by-class/TreeStorage_struct_FolderTreePane__TreeElem_.md) | unclassified |  |  | no |  | `by-class/TreeStorage_struct_FolderTreePane__TreeElem_.md` |  |
-| [UID:0000F8][Tree_near_class_EventHandler___](by-class/Tree_near_class_EventHandler___.md) | unclassified |  |  | no |  | `by-class/Tree_near_class_EventHandler___.md` |  |
 | [UID:0000F9][Tree_struct_FolderTreePane__TreeElem_](by-class/Tree_struct_FolderTreePane__TreeElem_.md) | unclassified |  |  | no |  | `by-class/Tree_struct_FolderTreePane__TreeElem_.md` |  |
-| [UID:0000FD][UInt32Vector](by-class/UInt32Vector.md) | unclassified |  |  | no |  | `by-class/UInt32Vector.md` |  |
 | [UID:0000FE][UniAPIInit](by-class/UniAPIInit.md) | unclassified |  |  | no |  | `by-class/UniAPIInit.md` |  |
 | [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md) | unclassified |  |  | no |  | `by-class/UrlAlertPane.md` |  |
 | [UID:0000FG][UseInputPane](by-class/UseInputPane.md) | unclassified |  |  | no |  | `by-class/UseInputPane.md` |  |

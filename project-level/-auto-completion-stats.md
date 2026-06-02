@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 13:02:21
+Generated: 2026-06-02 13:07:59
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -157,10 +157,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000FD` | 70 | 72 | 71.0 | `by-class/UInt32Vector.md` |
-| `0000FA` | 72 | 72 | 72.0 | `by-class/TreeItor_near_class_EventHandler___.md` |
-| `0000F8` | 72 | 72 | 72.0 | `by-class/Tree_near_class_EventHandler___.md` |
-| `0000F6` | 74 | 72 | 73.0 | `by-class/TransferReplyPredefinedAlert.md` |
 | `0000GD` | 74 | 72 | 73.0 | `by-class/YFlipEffecter.md` |
 | `0000LY` | 76 | 72 | 74.0 | `by-file/NewUserShapeSelectControlPane.md` |
 | `0000MP` | 76 | 72 | 74.0 | `by-file/PrettyButtonControlPane.md` |
@@ -182,6 +178,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00007J` | 72 | 74 | 73.0 | `by-class/MailDeleteReplyAlert.md` |
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
+| `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
+| `0000BE` | 76 | 74 | 75.0 | `by-class/PursuitMessageDialogPane.md` |
+| `0000DO` | 76 | 74 | 75.0 | `by-class/SpellInventoryPane2.md` |
+| `0000QC` | 76 | 74 | 75.0 | `by-global/g_pBrowserFileLoadText.md` |
 
 ## Low_Both
 
@@ -227,7 +227,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
-| `0000FD` | 70 | 72 | 71.0 | `by-class/UInt32Vector.md` |
 | `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
 | `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 | `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
@@ -240,10 +239,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
 | `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
 | `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
-| `0000FA` | 72 | 72 | 72.0 | `by-class/TreeItor_near_class_EventHandler___.md` |
-| `0000F8` | 72 | 72 | 72.0 | `by-class/Tree_near_class_EventHandler___.md` |
 | `00000V` | 65 | 80 | 72.5 | `by-class/BaramApp.md` |
 | `00004W` | 65 | 80 | 72.5 | `by-class/FileDownloader.md` |
+| `000018` | 68 | 78 | 73.0 | `by-class/BrowserDialogOld.md` |
+| `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
+| `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 
 ### by-external-research
 
