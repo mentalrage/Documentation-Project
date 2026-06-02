@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1201
+Total_Reconstructable: 1203
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 667
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 534
-Total_Unclassified: 928
+Total_Reconstructable_Unassigned: 536
+Total_Unclassified: 926
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -1161,9 +1161,11 @@ Total_Error: 0
 | [UID:00025S][0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData](by-memory/0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData.md` |  |
 | [UID:0002OU][0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData](by-memory/0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData.md` |  |
 | [UID:00025T][0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData](by-memory/0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData.md` |  |
+| [UID:00025U][0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData](by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md` |  |
 | [UID:00025Z][0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData](by-memory/0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData.md` |  |
 | [UID:0002OF][0x00620284-0x00620294.ObjectListVtableData](by-memory/0x00620284-0x00620294.ObjectListVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00620284-0x00620294.ObjectListVtableData.md` |  |
 | [UID:000260][0x00620284-0x00620c74.ObjectPaneReadOnlyData](by-memory/0x00620284-0x00620c74.ObjectPaneReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00620284-0x00620c74.ObjectPaneReadOnlyData.md` |  |
+| [UID:000261][0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData](by-memory/0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData.md` |  |
 | [UID:000263][0x006219e8-0x00621db8.PaneParcelReadOnlyData](by-memory/0x006219e8-0x00621db8.PaneParcelReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x006219e8-0x00621db8.PaneParcelReadOnlyData.md` |  |
 | [UID:0002OG][0x00621a6c-0x00621af8.PanelPaneVtableData](by-memory/0x00621a6c-0x00621af8.PanelPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00621a6c-0x00621af8.PanelPaneVtableData.md` |  |
 | [UID:0002NC][0x00621afc-0x00621b98.EditablePaperPaneVtableData](by-memory/0x00621afc-0x00621b98.EditablePaperPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00621afc-0x00621b98.EditablePaperPaneVtableData.md` |  |
@@ -1960,12 +1962,10 @@ Total_Error: 0
 | [UID:00025L][0x0061c7a8-0x0061c9c8.InventoryPaneReadOnlyData](by-memory/0x0061c7a8-0x0061c9c8.InventoryPaneReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0061c7a8-0x0061c9c8.InventoryPaneReadOnlyData.md` |  |
 | [UID:00025O][0x0061cf68-0x0061d118.LObjectLogoReadOnlyData](by-memory/0x0061cf68-0x0061d118.LObjectLogoReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0061cf68-0x0061d118.LObjectLogoReadOnlyData.md` |  |
 | [UID:00025R][0x0061e5b4-0x0061e704.MapNameMiniMapButtonReadOnlyData](by-memory/0x0061e5b4-0x0061e704.MapNameMiniMapButtonReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0061e5b4-0x0061e704.MapNameMiniMapButtonReadOnlyData.md` |  |
-| [UID:00025U][0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData](by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md` |  |
 | [UID:00025V][0x0061fa3c-0x0061fafc.MessageShowReadOnlyData](by-memory/0x0061fa3c-0x0061fafc.MessageShowReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0061fa3c-0x0061fafc.MessageShowReadOnlyData.md` |  |
 | [UID:00025W][0x0061fafc-0x0061fb74.MidiPlayerReadOnlyData](by-memory/0x0061fafc-0x0061fb74.MidiPlayerReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0061fafc-0x0061fb74.MidiPlayerReadOnlyData.md` |  |
 | [UID:00025X][0x0061fb74-0x0061fc04.WorkThreadNotificationReadOnlyData](by-memory/0x0061fb74-0x0061fc04.WorkThreadNotificationReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0061fb74-0x0061fc04.WorkThreadNotificationReadOnlyData.md` |  |
 | [UID:00025Y][0x0061fc04-0x0061fd04.MusicControlDialogReadOnlyData](by-memory/0x0061fc04-0x0061fd04.MusicControlDialogReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0061fc04-0x0061fd04.MusicControlDialogReadOnlyData.md` |  |
-| [UID:000261][0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData](by-memory/0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData.md` |  |
 | [UID:000262][0x0062179c-0x006219e8.PaletteReadOnlyData](by-memory/0x0062179c-0x006219e8.PaletteReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0062179c-0x006219e8.PaletteReadOnlyData.md` |  |
 | [UID:000265][0x00622034-0x00622158.PhotoPictureReadOnlyData](by-memory/0x00622034-0x00622158.PhotoPictureReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x00622034-0x00622158.PhotoPictureReadOnlyData.md` |  |
 | [UID:000266][0x00622158-0x006222d8.PowerPaneReadOnlyData](by-memory/0x00622158-0x006222d8.PowerPaneReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x00622158-0x006222d8.PowerPaneReadOnlyData.md` |  |

@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 17:22:46
+Generated: 2026-06-02 17:27:29
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -124,8 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00025U` | 65 | 85 | 75.0 | `by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md` |
-| `000261` | 65 | 85 | 75.0 | `by-memory/0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData.md` |
 | `00026J` | 65 | 85 | 75.0 | `by-memory/0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData.md` |
 | `00026X` | 65 | 85 | 75.0 | `by-memory/0x006307f4-0x00630bd8.UserPaneInputStrings.md` |
 | `000276` | 65 | 85 | 75.0 | `by-memory/0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks.md` |
@@ -149,6 +147,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
 | `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
 | `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
+| `0002BJ` | 66 | 80 | 73.0 | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |
+| `0002BN` | 66 | 80 | 73.0 | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |
 
 ## Low_Confidence
 
