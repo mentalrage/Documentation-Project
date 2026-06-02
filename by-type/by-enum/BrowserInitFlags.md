@@ -1,8 +1,8 @@
 *** UID:0001SK | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:68 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -38,6 +38,16 @@
 
 The current best classification is "source-level Browser initial state constant or bitmask value", not a final enum. Keep it reconstructable because the initializer likely existed in source, but do not emit a C++ enum or attach code until the Browser layout around `+0x220-+0x233` is recovered and the field name is known with higher confidence.
 
+## Autogen Status
+
+- Reconstructable: true, as a Browser-owned source-level initializer/constant candidate.
+- Parent: [UID:0000HV][Browser](by-file/Browser.md).
+- C++: intentionally blank; final declaration form and field name remain open.
+
+## Score Rationale
+
+Completion is raised for the parent attachment and clearer classification: the initializer value, exact write address, object offset, owner function, and non-overlap with the separate `+0x222` flag and `WM_KEYUP` message use are documented. Confidence stays at `80` because this may ultimately be a field initializer or bitmask constant rather than an enum declaration.
+
 ## Open Questions
 
 - Decide whether this is really an enum, a bitmask, or a packed state word once the `Browser` object layout is recovered.
@@ -56,3 +66,7 @@ The current best classification is "source-level Browser initial state constant 
 - What existed before: the page treated `257` primarily as `kBrowserDefaultActiveFlags` with medium confidence, and it only referenced the constructor decompile at a summary level.
 - What it was changed to: the page now treats `0x0101` as a provisional Browser state-word/bitmask initializer, records the exact constructor memory page, separates it from Browser offset `+0x222` and Win32 `WM_KEYUP`, and keeps C++ emission deferred.
 - Summary and evidence: IDA MCP decompilation/disassembly proves the `0x0047004d` write to Browser offset `+0x22c`; local IDA scanning found no other `+0x22c` access in the browser/OLE cluster, while `+0x222` is a separate browser-host flag used by overlay/initialization paths.
+- 2026-06-02:
+  - What existed before: the page was `68/80`, reconstructable, but had no parent attachment.
+  - Changed to: completion `72` and `AUTOGEN_PARENT_UID:0000HV`.
+  - Summary/evidence: the Browser source root is already validated at `NexusTK/browser/`, and this page's own evidence identifies the initializer as Browser-object state rather than a separate message-id enum.

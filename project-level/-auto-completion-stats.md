@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 12:25:37
+Generated: 2026-06-02 12:27:35
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -127,7 +127,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000P3` | blank | `(blank)` | `by-file/VectorHelpers.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-
 ## Low_Completion
 
 | UID | Completion | Confidence | Combined | Path |
@@ -162,7 +161,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
 | `0001AZ` | 65 | 65 | 65.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
 | `0001HV` | 65 | 65 | 65.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
@@ -187,12 +185,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000AC` | 70 | 72 | 71.0 | `by-class/PatchPane__PatchFileSlice.md` |
 | `0000FD` | 70 | 72 | 71.0 | `by-class/UInt32Vector.md` |
 | `0000FA` | 72 | 72 | 72.0 | `by-class/TreeItor_near_class_EventHandler___.md` |
+| `0000F8` | 72 | 72 | 72.0 | `by-class/Tree_near_class_EventHandler___.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
 | `0001AZ` | 65 | 65 | 65.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
 | `0001HV` | 65 | 65 | 65.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
@@ -217,6 +215,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00013R` | 62 | 78 | 70.0 | `by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md` |
 | `00017N` | 62 | 78 | 70.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
 | `0002R4` | 62 | 78 | 70.0 | `by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md` |
+| `0002RU` | 62 | 78 | 70.0 | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |
 
 ## By Folder
 
@@ -352,7 +351,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
 | `0001AZ` | 65 | 65 | 65.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
 | `0001HV` | 65 | 65 | 65.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
@@ -377,6 +375,7 @@ _No scored files._
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `0002A8` | 75 | 65 | 70.0 | `by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md` |
+| `0002A9` | 75 | 65 | 70.0 | `by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md` |
 
 ### by-meta
 
@@ -423,8 +422,8 @@ _No scored files._
 | `0001TZ` | 64 | 78 | 71.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
 | `0001SM` | 62 | 82 | 72.0 | `by-type/by-enum/BrowserOverlayStyle.md` |
 | `0001X4` | 62 | 82 | 72.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
-| `0001SK` | 68 | 80 | 74.0 | `by-type/by-enum/BrowserInitFlags.md` |
 | `0001TR` | 68 | 82 | 75.0 | `by-type/by-struct/AttachedObjectRegistryLayout.md` |
+| `0001SK` | 72 | 80 | 76.0 | `by-type/by-enum/BrowserInitFlags.md` |
 | `0001UA` | 70 | 84 | 77.0 | `by-type/by-struct/EffectPixMapInfo.md` |
 | `0001W7` | 72 | 82 | 77.0 | `by-type/by-struct/SpecializedButtonPaneLayouts.md` |
 | `0001SV` | 70 | 86 | 78.0 | `by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md` |

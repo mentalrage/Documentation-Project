@@ -5,14 +5,15 @@
 Total_Type: 198
 Total_Reconstructable: 190
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 6
+Total_Reconstructed_Assigned: 7
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 184
+Total_Reconstructable_Unassigned: 183
 Total_Unclassified: 5
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| [UID:0001SK][BrowserInitFlags](by-type/by-enum/BrowserInitFlags.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-type/by-enum/BrowserInitFlags.md` |  |
 | [UID:0001VI][ParcelNotificationPaneLayouts](by-type/by-struct/ParcelNotificationPaneLayouts.md) | assigned | `0000MF` | 5 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-type/by-struct/ParcelNotificationPaneLayouts.md` |  |
 | [UID:0001VJ][PatchPane2Layout](by-type/by-struct/PatchPane2Layout.md) | assigned | `0000AA` |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-type/by-struct/PatchPane2Layout.md` |  |
 | [UID:0001VN][RankingCategoryRecordLayout](by-type/by-struct/RankingCategoryRecordLayout.md) | assigned | `0000BL` | 5 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-struct/RankingCategoryRecordLayout.md` |  |
@@ -24,7 +25,6 @@ Total_Error: 0
 | [UID:0001WO][CandidateStringDequeTemplate](by-type/by-template/CandidateStringDequeTemplate.md) | not_reconstructable |  |  | no |  | `by-type/by-template/CandidateStringDequeTemplate.md` |  |
 | [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md) | unassigned |  |  | no |  | `by-type/by-constant/DownloaderMessageIds.md` |  |
 | [UID:0001SJ][BrowserDispatchEventId](by-type/by-enum/BrowserDispatchEventId.md) | unassigned |  |  | no |  | `by-type/by-enum/BrowserDispatchEventId.md` |  |
-| [UID:0001SK][BrowserInitFlags](by-type/by-enum/BrowserInitFlags.md) | unassigned |  |  | no |  | `by-type/by-enum/BrowserInitFlags.md` |  |
 | [UID:0001SL][BrowserMessageId](by-type/by-enum/BrowserMessageId.md) | unassigned |  |  | no |  | `by-type/by-enum/BrowserMessageId.md` |  |
 | [UID:0001SM][BrowserOverlayStyle](by-type/by-enum/BrowserOverlayStyle.md) | unassigned |  |  | no |  | `by-type/by-enum/BrowserOverlayStyle.md` |  |
 | [UID:0001SN][HttpGetNotificationState](by-type/by-enum/HttpGetNotificationState.md) | unassigned |  |  | no |  | `by-type/by-enum/HttpGetNotificationState.md` |  |

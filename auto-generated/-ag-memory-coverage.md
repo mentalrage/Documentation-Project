@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1158
+Total_Reconstructable: 1159
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 613
+Total_Reconstructed_Assigned: 614
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 545
-Total_Unclassified: 968
+Total_Unclassified: 967
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -81,6 +81,7 @@ Total_Error: 0
 | [UID:0002H6][0x00465430-0x0046564c.ApplicationValidateLicense](by-memory/0x00465430-0x0046564c.ApplicationValidateLicense.md) | assigned | `00000D` | 75 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465430-0x0046564c.ApplicationValidateLicense.md` |  |
 | [UID:0000YT][0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat](by-memory/0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md) | assigned | `0000HG` | 50 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md` |  |
 | [UID:00020V][0x0046a630-0x0046a6ea.BrowserWindowHostWndProc](by-memory/0x0046a630-0x0046a6ea.BrowserWindowHostWndProc.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046a630-0x0046a6ea.BrowserWindowHostWndProc.md` |  |
+| [UID:00020W][0x0046a760-0x0046a855.BrowserRawWindowProcClone](by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |  |
 | [UID:000210][0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers](by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md) | assigned | `0000P9` |  | no | `auto-generated/NexusTK/ui/dialogs/WebBoardDialog.cpp` | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |  |
 | [UID:000214][0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper](by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md) | assigned | `0000P9` |  | no | `auto-generated/NexusTK/ui/dialogs/WebBoardDialog.cpp` | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |  |
 | [UID:000215][0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor](by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md` |  |
@@ -1367,7 +1368,6 @@ Total_Error: 0
 | [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md) | unclassified |  |  | no |  | `by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md` |  |
 | [UID:0000Z4][0x00469640-0x0046a39c.BrowserWindowCore](by-memory/0x00469640-0x0046a39c.BrowserWindowCore.md) | unclassified |  |  | no |  | `by-memory/0x00469640-0x0046a39c.BrowserWindowCore.md` |  |
 | [UID:00020U][0x0046a510-0x0046a617.BrowserWindowAcceleratorTranslateMessage](by-memory/0x0046a510-0x0046a617.BrowserWindowAcceleratorTranslateMessage.md) | unclassified |  |  | no |  | `by-memory/0x0046a510-0x0046a617.BrowserWindowAcceleratorTranslateMessage.md` |  |
-| [UID:00020W][0x0046a760-0x0046a855.BrowserRawWindowProcClone](by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md) | unclassified |  |  | no |  | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |  |
 | [UID:0000Z5][0x0046a860-0x0046ad0a.BrowserPaneAndDialog](by-memory/0x0046a860-0x0046ad0a.BrowserPaneAndDialog.md) | unclassified |  |  | no |  | `by-memory/0x0046a860-0x0046ad0a.BrowserPaneAndDialog.md` |  |
 | [UID:0000Z6][0x0046b520-0x0046cfe0.BrowserControlPaneCore](by-memory/0x0046b520-0x0046cfe0.BrowserControlPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x0046b520-0x0046cfe0.BrowserControlPaneCore.md` |  |
 | [UID:0000Z7][0x0046d050-0x0046d324.WebBoardDialog](by-memory/0x0046d050-0x0046d324.WebBoardDialog.md) | unclassified |  |  | no |  | `by-memory/0x0046d050-0x0046d324.WebBoardDialog.md` |  |
