@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 128
+Total_Reconstructable: 129
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 41
+Total_Reconstructed_Assigned: 42
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 457
+Total_Unclassified: 456
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -50,6 +50,7 @@ Total_Error: 0
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
 | [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-class/SelfSaveInputPane.md` |  |
 | [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
+| [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/TakeOffInputPane.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
@@ -528,7 +529,6 @@ Total_Error: 0
 | [UID:0000E9][SwallowLayerPane](by-class/SwallowLayerPane.md) | unclassified |  |  | no |  | `by-class/SwallowLayerPane.md` |  |
 | [UID:0000EA][SystemMessagePane](by-class/SystemMessagePane.md) | unclassified |  |  | no |  | `by-class/SystemMessagePane.md` |  |
 | [UID:0000EB][TabPane](by-class/TabPane.md) | unclassified |  |  | no |  | `by-class/TabPane.md` |  |
-| [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) | unclassified |  |  | no |  | `by-class/TakeOffInputPane.md` |  |
 | [UID:0000ED][TargetObjectWithKeyboardPane](by-class/TargetObjectWithKeyboardPane.md) | unclassified |  |  | no |  | `by-class/TargetObjectWithKeyboardPane.md` |  |
 | [UID:0000EE][TargetOptionDialog](by-class/TargetOptionDialog.md) | unclassified |  |  | no |  | `by-class/TargetOptionDialog.md` |  |
 | [UID:0000EF][TargetOptionEditControlPane](by-class/TargetOptionEditControlPane.md) | unclassified |  |  | no |  | `by-class/TargetOptionEditControlPane.md` |  |

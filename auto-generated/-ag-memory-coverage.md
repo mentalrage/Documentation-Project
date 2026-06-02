@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2130
-Total_Reconstructable: 1000
+Total_Reconstructable: 1003
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 473
+Total_Reconstructed_Assigned: 476
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 527
-Total_Unclassified: 1119
+Total_Unclassified: 1116
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -446,6 +446,9 @@ Total_Error: 0
 | [UID:0001LA][0x005af580-0x005af5ea.SendObjectActionPacket](by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md` |  |
 | [UID:0001LY][0x005b1570-0x005b2562.SayTargetMessageInputPanes](by-memory/0x005b1570-0x005b2562.SayTargetMessageInputPanes.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-memory/0x005b1570-0x005b2562.SayTargetMessageInputPanes.md` |  |
 | [UID:0001LZ][0x005b1ec0-0x005b2152.SayToGroupMessageInputPane](by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md` |  |
+| [UID:0001M0][0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor](by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md` |  |
+| [UID:0001M1][0x005b2720-0x005b296b.TakeOffInputPane](by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md` |  |
+| [UID:0001M2][0x005b27c0-0x005b2827.SendTakeOffPacket](by-memory/0x005b27c0-0x005b2827.SendTakeOffPacket.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-memory/0x005b27c0-0x005b2827.SendTakeOffPacket.md` |  |
 | [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md` |  |
 | [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md` |  |
 | [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |  |
@@ -1812,9 +1815,6 @@ Total_Error: 0
 | [UID:0001LV][0x005b1280-0x005b130d.SpellSlotInputPaneConstructor](by-memory/0x005b1280-0x005b130d.SpellSlotInputPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b1280-0x005b130d.SpellSlotInputPaneConstructor.md` |  |
 | [UID:0001LW][0x005b13a0-0x005b140c.SpellSlotInputPaneKeyInput](by-memory/0x005b13a0-0x005b140c.SpellSlotInputPaneKeyInput.md) | unclassified |  |  | no |  | `by-memory/0x005b13a0-0x005b140c.SpellSlotInputPaneKeyInput.md` |  |
 | [UID:0001LX][0x005b1410-0x005b14e6.SpellSlotInputPaneSubmitSpellSlot](by-memory/0x005b1410-0x005b14e6.SpellSlotInputPaneSubmitSpellSlot.md) | unclassified |  |  | no |  | `by-memory/0x005b1410-0x005b14e6.SpellSlotInputPaneSubmitSpellSlot.md` |  |
-| [UID:0001M0][0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor](by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md` |  |
-| [UID:0001M1][0x005b2720-0x005b296b.TakeOffInputPane](by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md` |  |
-| [UID:0001M2][0x005b27c0-0x005b2827.SendTakeOffPacket](by-memory/0x005b27c0-0x005b2827.SendTakeOffPacket.md) | unclassified |  |  | no |  | `by-memory/0x005b27c0-0x005b2827.SendTakeOffPacket.md` |  |
 | [UID:0001M3][0x005b29c0-0x005b2f68.EmotionInputPane](by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md` |  |
 | [UID:0001M4][0x005b2f70-0x005b2fcb.SendEmotionPacket](by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md) | unclassified |  |  | no |  | `by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md` |  |
 | [UID:0001M5][0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor](by-memory/0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor.md` |  |

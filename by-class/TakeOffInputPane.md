@@ -1,8 +1,8 @@
 *** UID:0000EC | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -19,7 +19,7 @@
 
 ## Class Purpose
 
-`TakeOffInputPane` is the equipment-removal command prompt. It supports a shortcut path, single-slot unequip, and an all-slots `*` path that iterates a fixed equipment slot list.
+`TakeOffInputPane` is the equipment-removal command prompt. It supports a shortcut path, single-slot unequip, and an all-equipment `A` path that iterates a fixed equipment slot list.
 
 ## Method Notes
 
@@ -29,7 +29,7 @@
 | `TakeOffInputPane` | `0x005b26e0-0x005b2720` | Raw constructor-shaped bytes; prompt id `0x22`, `CharInputPane` base construction, and vtable installation. |
 | `HandleTakeOffShortcut` | `0x005b2720-0x005b27b3` | Sends shortcut opcode `0x2d` or delegates to `CharInputPane`. |
 | `SendTakeOffPacket` | `0x005b27c0-0x005b2827` | Shared helper that sends opcode `0x1f` with a selector byte; also called by `SelfLookPane`. |
-| `ProcessUnequipCommand` | `0x005b2830-0x005b296b` | Handles `*` all-slots removal or sends slot unequip opcode `0x1f`. |
+| `ProcessUnequipCommand` | `0x005b2830-0x005b296b` | Handles one-character input, the `A` all-equipment path, or slot-key unequip opcode `0x1f`. |
 | `ScalarDeletingDestructor` | `0x005b7940-0x005b797b` | Delete wrapper around the destructor. |
 
 ## Evidence Notes
@@ -38,7 +38,8 @@
 - IDA reports no function at `0x005b26e0`, but raw disassembly shows constructor-shaped bytes that install vtables `0x0062f92c`, `0x0062f97c`, and `0x0062f9ac` after `CharInputPane` construction.
 - IDA confirms `0x005b27c0` as a real helper function. It sends opcode `0x1f` through [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) when [UID:0000PQ][g_activeDialogCount](by-global/g_activeDialogCount.md) is not positive.
 - IDA `py_eval` confirms the fixed equipment key table [UID:0000PX][g_equipmentSlotKeys](by-global/g_equipmentSlotKeys.md) at `0x00630bd8` contains `wash#nlr####fm#c###[]12`.
-- Wave3 generated source shows packet opcodes `0x2d` and `0x1f`, and an all-slots selector list of 14 equipment slots. Treat this as a lead; IDA is the authority for the helper boundary and table use.
+- IDA MCP on 2026-06-02 confirms `ProcessUnequipCommand` compares the input wchar to `0x0041` (`A`) before calling `SendTakeOffPacket` for the fourteen all-equipment selectors. Older generated/source-lead wording that labeled this typed command as `*` should not be treated as authority.
+- IDA MCP confirms internal padding at `0x005b27b3-0x005b27c0`, `0x005b2827-0x005b2830`, and `0x005b296b-0x005b2970`, so the main method island is now split cleanly from its alignment bytes.
 
 ## Cross-References
 
@@ -58,3 +59,6 @@
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `84`, confidence `78`.
 - Evidence: the page documents equipment-removal behavior, destructor/raw-constructor/shortcut/packet/command/destructor methods, packet opcodes, equipment-slot key table, globals, and vtable identity; confidence remains capped by raw-constructor reachability and final helper source owner.
+- 2026-06-02 TakeOff refresh:
+  - Changed to: completion `86`, confidence `82`, `RECONSTRUCTABLE:TRUE`, parent [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md).
+  - Evidence: refreshed memory pages document exact function boundaries, vtable xrefs, raw constructor stores, opcode `0x2d` and `0x1f` packet paths, `A` all-equipment branch, selector list, and padding splits. C++ remains blank because final names/source ownership are below 95% confidence.

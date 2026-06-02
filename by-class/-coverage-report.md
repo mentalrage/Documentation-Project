@@ -521,7 +521,7 @@
 - [UID:0000E9][SwallowLayerPane](by-class/SwallowLayerPane.md) : reconstructable : 84% : high : - Confidence: strong for behavior and IDA boundaries; current generated output is incomplete.
 - [UID:0000EA][SystemMessagePane](by-class/SystemMessagePane.md) : reconstructable : 84% : high : - Confidence: strong for class role and IDA boundaries; several virtual helper names remain provisional.
 - [UID:0000EB][TabPane](by-class/TabPane.md) : reconstructable : 82% : medium-high : - Confidence: strong for local behavior and range, medium for final source grouping.
-- [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) : reconstructable : 84% : medium-high : - Confidence: strong for behavior, packet helper, vtable identity, and module placement; medium for raw-constructor reachability and final helper source owner.
+- [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) : reconstructable : 86% : strong : Take-off equipment-removal prompt with raw constructor, shortcut opcode `0x2d`, shared opcode `0x1f` helper, `A` all-equipment command, slot-key table scan, vtable identity, and padding boundaries documented.
 - [UID:0000ED][TargetObjectWithKeyboardPane](by-class/TargetObjectWithKeyboardPane.md) : reconstructable : 86% : high : - Confidence: strong for class behavior and IDA boundaries; medium for exact original file split.
 - [UID:0000EE][TargetOptionDialog](by-class/TargetOptionDialog.md) : reconstructable : 84% : strong : - Confidence: strong for behavior and pairing with `TargetOptionEditControlPane`.
 - [UID:0000EF][TargetOptionEditControlPane](by-class/TargetOptionEditControlPane.md) : reconstructable : 82% : strong : - Confidence: strong for behavior and ownership by `TargetOptionDialog`.

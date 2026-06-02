@@ -1,7 +1,7 @@
 *** UID:0000KC | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ItemActionInputPanes
 
@@ -41,7 +41,7 @@ ui/dialogs/ItemTargetInputPane.cpp
 | `GiveAllInputPane` | `0x005b4cc0-0x005b4eee` | `class_GiveAllInputPane.cpp` | Single-letter give-all prompt with confirmation callback. |
 | `GiveInputPane` | `0x005b4f70-0x005b5223` | `class_GiveInputPane.cpp` | Slot give prompt; routes gold input to `GiveGoldInputPane`. |
 | `GiveGoldInputPane` | raw constructor `0x005b52b0-0x005b52f0`, submit `0x005b52f0-0x005b538a` | `class_GiveGoldInputPane.cpp` | Numeric gold-give prompt; sends opcode `0x2a`. |
-| `TakeOffInputPane` | destructor `0x004f2010-0x004f2092`, raw constructor `0x005b26e0-0x005b2720`, methods `0x005b2720-0x005b296b`, helper `0x005b27c0-0x005b2827`, scalar destructor `0x005b7940-0x005b797b` | `class_TakeOffInputPane.cpp` | Equipment removal prompt; supports `*` all-slots shortcut and opcode `0x1f`/`0x2d` paths. |
+| `TakeOffInputPane` | destructor `0x004f2010-0x004f2092`, raw constructor `0x005b26e0-0x005b2720`, methods `0x005b2720-0x005b296b`, helper `0x005b27c0-0x005b2827`, scalar destructor `0x005b7940-0x005b797b` | `class_TakeOffInputPane.cpp` | Equipment removal prompt; supports event shortcut opcode `0x2d`, typed `A` all-equipment removal, and opcode `0x1f` slot removal. |
 | `ChangeItemSlotInputPane` | raw constructor `0x005b2fd0-0x005b3010`, methods `0x005b3010-0x005b3196` | `class_ChangeItemSlotInputPane.cpp` | Comma-separated source/destination slot prompt; sends opcode `0x30` subcommand `0`. |
 | `ThrowInputPane` | `0x005b5890-0x005b5aac` | `class_ThrowInputPane.cpp` | Slot throw prompt; sends opcode `0x17`. |
 | `ThrowReallyInputPane` | raw constructor `0x005b5b30-0x005b5b80`, accept handler `0x005b5b80-0x005b5c20` | `class_ThrowReallyInputPane.cpp` | Confirmation prompt for throwing/discarding an item. |
@@ -62,6 +62,8 @@ ui/dialogs/ItemTargetInputPane.cpp
 - 2026-05-27 IDA raw-disassembly follow-up confirms [UID:0001M0][0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor](by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md) as constructor-shaped bytes. It uses prompt id `0x22`, calls `CharInputPane::CharInputPane`, and installs vtables `0x0062f92c`, `0x0062f97c`, and `0x0062f9ac`.
 - IDA confirms [UID:0001M2][0x005b27c0-0x005b2827.SendTakeOffPacket](by-memory/0x005b27c0-0x005b2827.SendTakeOffPacket.md) as a real helper that sends opcode `0x1f` plus a selector byte through [UID:0000Q5][g_packetSender](by-global/g_packetSender.md). It is called by both `TakeOffInputPane` and `SelfLookPane`, so final helper source placement remains open.
 - IDA confirms [UID:0000PX][g_equipmentSlotKeys](by-global/g_equipmentSlotKeys.md) at `0x00630bd8` as the fixed 23-entry table used by `TakeOffInputPane::ProcessUnequipCommand`: `wash#nlr####fm#c###[]12`.
+- 2026-06-02 IDA MCP refresh confirms the TakeOff typed all-equipment branch compares the read wchar to `0x0041` (`A`), not `*`. The opcode `0x2d` shortcut is a separate event-handler path at `0x005b2720`, while opcode `0x1f` is used by the `A` selector loop and table-matched single-slot removals.
+- The same refresh confirms TakeOff internal alignment padding at `0x005b27b3-0x005b27c0`, `0x005b2827-0x005b2830`, and `0x005b296b-0x005b2970`; keep these in [UID:0000VN][-ignored](by-memory/-ignored.md), not as source functions.
 - 2026-05-27 IDA raw-disassembly follow-up confirms [UID:0001MM][0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor](by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md) as constructor-shaped bytes. It uses prompt id `0xa5`, calls `CharInputPane::CharInputPane`, installs vtables `0x00630278`, `0x006302c8`, and `0x006302f8`, and stores the confirmed item slot byte at `+0x108`.
 - The small functions at `0x005b77c8` and `0x005b77d3` are shared input-pane destructor adjustor thunks, not handwritten `TakeOffInputPane` logic. They are documented and ignored in [UID:0001N6][0x005b77c8-0x005b77de.SharedInputPaneAdjustorThunks](by-memory/0x005b77c8-0x005b77de.SharedInputPaneAdjustorThunks.md).
 - 2026-05-27 IDA decompilation confirms [UID:0001MR][0x005b62d0-0x005b64fa.WieldInputPane](by-memory/0x005b62d0-0x005b64fa.WieldInputPane.md) and [UID:0001MT][0x005b6560-0x005b6760.WearInputPane](by-memory/0x005b6560-0x005b6760.WearInputPane.md) are clean IDA-modeled constructors/methods, not raw constructor cases. Wield uses prompt id `0x0d`, Wear uses prompt id `0x21`, both derive from `CharInputPane`, both format prompts with the local player name from `dword_67A748`, and both validate typed slot letters against `dword_69AE0C + 0x284`.
@@ -144,3 +146,6 @@ Do not run these migrations until the non-IDA constructor starts and uncovered n
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:90` and `CONFIDENCE:80`.
   - Summary/evidence: direct item command input panes, raw constructor cases, packet helper ownership, slot tables, vtable family, migration sequence, and extensive memory/class refs are documented; confidence is capped by `ItemWhoInputPane` split and non-IDA raw constructor starts.
+- 2026-06-02 metadata/evidence refresh:
+  - Set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/ui/dialogs/`.
+  - Corrected TakeOff all-equipment wording from older `*` source-lead text to IDA-confirmed typed `A` behavior.

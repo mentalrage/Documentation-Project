@@ -2989,6 +2989,12 @@ For each ignored range, include:
   - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
   - Owner docs: [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md), [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md), and [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md).
 
+- `0x005b27b3-0x005b27c0`, `0x005b2827-0x005b2830`, and `0x005b296b-0x005b2970` - TakeOffInputPane internal alignment padding.
+  - Why ignored: confirmed `0xcc` compiler/linker alignment bytes between the TakeOff shortcut handler, shared packet helper, command handler, and following function boundary.
+  - Evidence: 2026-06-02 IDA MCP `lookup_funcs` confirms `sub_5B2720` ends at `0x005b27b3`, `sub_5B27C0` ends at `0x005b2827`, and `sub_5B2830` ends at `0x005b296b`; raw byte reads show thirteen, nine, and five `0xcc` bytes respectively before the next boundary.
+  - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
+  - Owner docs: [UID:0001M1][0x005b2720-0x005b296b.TakeOffInputPane](by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md), [UID:0001M2][0x005b27c0-0x005b2827.SendTakeOffPacket](by-memory/0x005b27c0-0x005b2827.SendTakeOffPacket.md), and [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md).
+
 - `0x005b6c00-0x005b6c30` - switch/jump table bytes for `BlockListenInputPane` command dispatch.
   - Why ignored: compiler-generated switch data supporting the `A/a` and `D/d` command dispatcher, not a standalone source function.
   - Evidence: 2026-06-02 IDA MCP disassembly at `0x005b6c00` labels the bytes as a jump table and indirect table for the switch in [UID:0001MY][0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher](by-memory/0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher.md); raw byte read reports 48 bytes from `0x005b6c00-0x005b6c30`.

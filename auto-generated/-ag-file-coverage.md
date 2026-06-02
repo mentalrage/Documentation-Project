@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 150
+Total_Reconstructed_Assigned: 151
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 138
+Total_Error: 137
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -63,6 +63,7 @@ Total_Error: 138
 | [UID:0000JY][HumanImageLib](by-file/HumanImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/HumanImageLib.cpp` | `by-file/HumanImageLib.md` | by-file generated root |
 | [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-file/ImageFrameTable.md` | by-file generated root |
 | [UID:0000K2][ImageLib](by-file/ImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-file/ImageLib.md` | by-file generated root |
+| [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-file/ItemActionInputPanes.md` | by-file generated root |
 | [UID:0000KF][ItemMenuDialogs](by-file/ItemMenuDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/ItemMenuDialogs.cpp` | `by-file/ItemMenuDialogs.md` | by-file generated root |
 | [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ItemObjImageLib.cpp` | `by-file/ItemObjImageLib.md` | by-file generated root |
 | [UID:0000KJ][KeySpeedMgr](by-file/KeySpeedMgr.md) | assigned |  |  | no | `auto-generated/NexusTK/input/KeySpeedMgr.cpp` | `by-file/KeySpeedMgr.md` | by-file generated root |
@@ -219,7 +220,6 @@ Total_Error: 138
 | [UID:0000K9][InterfaceEfx](by-file/InterfaceEfx.md) | error |  |  | no |  | `by-file/InterfaceEfx.md` | by-file generated root |
 | [UID:0000KA][InventoryPane](by-file/InventoryPane.md) | error |  |  | no |  | `by-file/InventoryPane.md` | by-file generated root |
 | [UID:0000KB][InventoryScrollPane](by-file/InventoryScrollPane.md) | error |  |  | no |  | `by-file/InventoryScrollPane.md` | by-file generated root |
-| [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md) | error |  |  | no |  | `by-file/ItemActionInputPanes.md` | by-file generated root |
 | [UID:0000KD][ItemCatalog](by-file/ItemCatalog.md) | error |  |  | no |  | `by-file/ItemCatalog.md` | by-file generated root |
 | [UID:0000KE][ItemDialogs](by-file/ItemDialogs.md) | error |  |  | no |  | `by-file/ItemDialogs.md` | by-file generated root |
 | [UID:0000KG][ItemObjectPane](by-file/ItemObjectPane.md) | error |  |  | no |  | `by-file/ItemObjectPane.md` | by-file generated root |
