@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 18:56:31
+Generated: 2026-06-02 19:04:40
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -120,10 +120,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000176` | 66 | 82 | 74.0 | `by-memory/0x004d0f50-0x004d165d.ImageFrameTable.md` |
-| `000008` | 66 | 84 | 75.0 | `by-class/AddItemWithCountDialog.md` |
-| `0002KU` | 66 | 84 | 75.0 | `by-memory/0x004d1730-0x004d1772.ResourceLayoutTableGetFrameSize.md` |
-| `0002KV` | 66 | 84 | 75.0 | `by-memory/0x004d1780-0x004d17b2.ResourceLayoutTableGetEntryCount.md` |
 | `0002JD` | 66 | 84 | 75.0 | `by-memory/0x00517240-0x0051724f.SeparatorMenuItemGetStyleFlags.md` |
 | `00024S` | 66 | 84 | 75.0 | `by-memory/0x00610ed8-0x006125a8.AboveFrameAndLocaleReadOnlyData.md` |
 | `00025Z` | 66 | 86 | 76.0 | `by-memory/0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData.md` |
@@ -145,6 +141,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BG` | 68 | 76 | 72.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
 | `0002BQ` | 68 | 76 | 72.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
 | `00016Z` | 68 | 76 | 72.0 | `by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md` |
+| `0002BX` | 68 | 76 | 72.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
+| `0002BZ` | 68 | 76 | 72.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
+| `0002C0` | 68 | 76 | 72.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
+| `0002C1` | 68 | 76 | 72.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
 
 ## Low_Confidence
 
