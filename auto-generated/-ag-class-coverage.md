@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 150
+Total_Reconstructable: 152
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 65
+Total_Reconstructed_Assigned: 66
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 85
-Total_Unclassified: 435
+Total_Reconstructable_Unassigned: 86
+Total_Unclassified: 433
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -54,6 +54,7 @@ Total_Error: 0
 | [UID:0000A6][ParcelPane](by-class/ParcelPane.md) | assigned | `0000MF` | 10 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/ParcelPane.md` |  |
 | [UID:0000A9][PatchPane](by-class/PatchPane.md) | assigned | `0000MH` | 10 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane.md` |  |
 | [UID:0000AA][PatchPane2](by-class/PatchPane2.md) | assigned | `0000MH` | 20 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane2.md` |  |
+| [UID:0000AI][PixelEffecter](by-class/PixelEffecter.md) | assigned | `0000IZ` | 20 | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/PixelEffecter.md` |  |
 | [UID:0000AU][ProfileDialog](by-class/ProfileDialog.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-class/ProfileDialog.md` |  |
 | [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md) | assigned | `0000MT` | 10 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-class/ProgressBarControlPane.md` |  |
 | [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md) | assigned | `0000MX` |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-class/QuitInputPane.md` |  |
@@ -110,6 +111,7 @@ Total_Error: 0
 | [UID:00003T][DialogPane](by-class/DialogPane.md) | unassigned |  |  | no |  | `by-class/DialogPane.md` |  |
 | [UID:00003U][DialogSession](by-class/DialogSession.md) | unassigned |  |  | no |  | `by-class/DialogSession.md` |  |
 | [UID:00003Y][DirectX](by-class/DirectX.md) | unassigned |  |  | no |  | `by-class/DirectX.md` |  |
+| [UID:00003X][DirectionButtonControlPane](by-class/DirectionButtonControlPane.md) | unassigned |  |  | no |  | `by-class/DirectionButtonControlPane.md` |  |
 | [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md) | unassigned |  |  | no |  | `by-class/EffectObjImageLib.md` |  |
 | [UID:00004C][EmployeeDialogPane](by-class/EmployeeDialogPane.md) | unassigned |  |  | no |  | `by-class/EmployeeDialogPane.md` |  |
 | [UID:00004D][EmployeeItemPropertyDialogPane](by-class/EmployeeItemPropertyDialogPane.md) | unassigned |  |  | no |  | `by-class/EmployeeItemPropertyDialogPane.md` |  |
@@ -252,7 +254,6 @@ Total_Error: 0
 | [UID:00003F][DamageNumberObjectPane](by-class/DamageNumberObjectPane.md) | unclassified |  |  | no |  | `by-class/DamageNumberObjectPane.md` |  |
 | [UID:00003O][DeleteReplyAlert](by-class/DeleteReplyAlert.md) | unclassified |  |  | no |  | `by-class/DeleteReplyAlert.md` |  |
 | [UID:00003R][DialDialog](by-class/DialDialog.md) | unclassified |  |  | no |  | `by-class/DialDialog.md` |  |
-| [UID:00003X][DirectionButtonControlPane](by-class/DirectionButtonControlPane.md) | unclassified |  |  | no |  | `by-class/DirectionButtonControlPane.md` |  |
 | [UID:000040][DoubleParamMemberFunctionObject0_void____thiscall_UserPane_____signed_char__h43ff6c8e0528](by-class/DoubleParamMemberFunctionObject0_void____thiscall_UserPane_____signed_char__h43ff6c8e0528.md) | unclassified |  |  | no |  | `by-class/DoubleParamMemberFunctionObject0_void____thiscall_UserPane_____signed_char__h43ff6c8e0528.md` |  |
 | [UID:000041][DoubleParamMemberFunctionObject_void____thiscall_MixItemDialog_____unsigne__h9ece1f1df45d](by-class/DoubleParamMemberFunctionObject_void____thiscall_MixItemDialog_____unsigne__h9ece1f1df45d.md) | unclassified |  |  | no |  | `by-class/DoubleParamMemberFunctionObject_void____thiscall_MixItemDialog_____unsigne__h9ece1f1df45d.md` |  |
 | [UID:000042][DropAllInputPane](by-class/DropAllInputPane.md) | unclassified |  |  | no |  | `by-class/DropAllInputPane.md` |  |
@@ -425,7 +426,6 @@ Total_Error: 0
 | [UID:0000AF][PhoneEntryDialog](by-class/PhoneEntryDialog.md) | unclassified |  |  | no |  | `by-class/PhoneEntryDialog.md` |  |
 | [UID:0000AG][PhotoPane](by-class/PhotoPane.md) | unclassified |  |  | no |  | `by-class/PhotoPane.md` |  |
 | [UID:0000AH][PictureViewPane](by-class/PictureViewPane.md) | unclassified |  |  | no |  | `by-class/PictureViewPane.md` |  |
-| [UID:0000AI][PixelEffecter](by-class/PixelEffecter.md) | unclassified |  |  | no |  | `by-class/PixelEffecter.md` |  |
 | [UID:0000AJ][PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_](by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md) | unclassified |  |  | no |  | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |  |
 | [UID:0000AK][PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_](by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md) | unclassified |  |  | no |  | `by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md` |  |
 | [UID:0000AM][PoolAllocator](by-class/PoolAllocator.md) | unclassified |  |  | no |  | `by-class/PoolAllocator.md` |  |

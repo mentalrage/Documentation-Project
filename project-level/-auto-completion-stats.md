@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 10:12:58
+Generated: 2026-06-02 10:18:34
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -142,7 +142,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001Z5` | 58 | 88 | 73.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
-| `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
 | `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `0002G3` | 60 | 72 | 66.0 | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |
 | `0002BM` | 60 | 72 | 66.0 | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |
@@ -166,6 +165,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001ZK` | 60 | 85 | 72.5 | `by-memory/0x0045f020-0x0045f0a7.RankingRewardEntryVectorDestroy.md` |
 | `0001ZJ` | 60 | 85 | 72.5 | `by-memory/0x0045f130-0x0045f33a.RankingRewardVectorRangeAllocationHelpers.md` |
 | `00021A` | 60 | 85 | 72.5 | `by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md` |
+| `00021I` | 60 | 85 | 72.5 | `by-memory/0x00485780-0x00485867.ClanDepositMoneyPacketHelpers.md` |
 
 ## Low_Confidence
 
@@ -193,16 +193,14 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00029K` | 70 | 65 | 67.5 | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |
 | `0002A8` | 75 | 65 | 70.0 | `by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md` |
 | `0002A9` | 75 | 65 | 70.0 | `by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md` |
-| `00003X` | 62 | 66 | 64.0 | `by-class/DirectionButtonControlPane.md` |
-| `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
 | `0000AB` | 62 | 68 | 65.0 | `by-class/PatchPane__PatchFileData.md` |
+| `00003E` | 70 | 68 | 69.0 | `by-class/CursorManager.md` |
+| `00009F` | 72 | 68 | 70.0 | `by-class/NewUserMiscDialogPane.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
-| `00003X` | 62 | 66 | 64.0 | `by-class/DirectionButtonControlPane.md` |
 | `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `0000AB` | 62 | 68 | 65.0 | `by-class/PatchPane__PatchFileData.md` |
 | `0000TA` | 65 | 65 | 65.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
@@ -226,6 +224,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002DU` | 60 | 74 | 67.0 | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |
 | `0002FP` | 62 | 72 | 67.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 | `0002FQ` | 62 | 72 | 67.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
+| `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
+| `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
 
 ## By Folder
 
@@ -233,8 +233,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
-| `00003X` | 62 | 66 | 64.0 | `by-class/DirectionButtonControlPane.md` |
 | `0000AB` | 62 | 68 | 65.0 | `by-class/PatchPane__PatchFileData.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
@@ -258,6 +256,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 | `0000AC` | 70 | 72 | 71.0 | `by-class/PatchPane__PatchFileSlice.md` |
+| `0000FD` | 70 | 72 | 71.0 | `by-class/UInt32Vector.md` |
+| `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
 
 ### by-external-research
 
