@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 15:29:24
+Generated: 2026-06-02 15:33:42
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -119,12 +119,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000P3` | blank | `(blank)` | `by-file/VectorHelpers.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
+
 ## Low_Completion
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00021K` | 65 | 85 | 75.0 | `by-memory/0x00485960-0x00485abe.ClanSubtype6PacketHelpers.md` |
-| `00021O` | 65 | 85 | 75.0 | `by-memory/0x00487370-0x004873b5.ClanStatusPaneRefreshChildPanes.md` |
 | `00021P` | 65 | 85 | 75.0 | `by-memory/0x004873c0-0x00487475.ClanStatusPaneShowInfoList.md` |
 | `00021Q` | 65 | 85 | 75.0 | `by-memory/0x00487480-0x00487535.ClanStatusPaneShowJoinList.md` |
 | `00021R` | 65 | 85 | 75.0 | `by-memory/0x00487540-0x004875f5.ClanStatusPaneShowEnlistList.md` |
@@ -148,6 +147,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001R7` | 65 | 85 | 75.0 | `by-resource/backpane-background-resources.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
+| `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
+| `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 
 ## Low_Confidence
 
