@@ -2,8 +2,8 @@
 *** COMPLETION:68 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HM | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -44,6 +44,12 @@ Exact vtable data is now documented at [UID:0002MR][0x0061b864-0x0061b874.AUTOBU
 
 IDA callers for `0x004e6ab0` come from `UserLookPane` profile/look packet parsing, so the concrete instantiation is shared across map persistence, profile/look payloads, and startup media rather than belonging to one feature file.
 
+## Reconstruction Notes
+
+- Reconstructable: true as the concrete emitted `_AUTOBUF<unsigned char>` support type.
+- Parent: [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md), now assigned to `NexusTK/util/`.
+- C++: intentionally blank. The field layout and two concrete helpers are documented, but the final template spelling, header/source split, and full template contract are not source-quality yet.
+
 ## Evidence
 
 - IDA MCP `lookup_funcs` on 2026-05-30 confirms real functions at `0x004e6ab0` size `0x27` and `0x004f5640` size `0x2a`.
@@ -70,3 +76,4 @@ IDA callers for `0x004e6ab0` come from `UserLookPane` profile/look packet parsin
 ## Changes
 
 - 2026-05-31: Raised scoring from `60/75` to `68/82` and marked the class reconstructable after adding the exact vtable-data page. Evidence: IDA MCP verified the concrete vtable range, constructor helper, resize helper, and MapPane/UserLookPane caller evidence. Scores remain below final-audit levels because the exact original template spelling/header location and full template contract are not yet settled.
+- 2026-06-02: Attached the concrete class to [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md) after the file page was assigned to `NexusTK/util/`. C++ remains blank pending final template/header audit.

@@ -5,9 +5,9 @@
 Total_Type: 198
 Total_Reconstructable: 190
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 9
+Total_Reconstructed_Assigned: 10
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 181
+Total_Reconstructable_Unassigned: 180
 Total_Unclassified: 5
 Total_Error: 0
 
@@ -20,6 +20,7 @@ Total_Error: 0
 | [UID:0001VN][RankingCategoryRecordLayout](by-type/by-struct/RankingCategoryRecordLayout.md) | assigned | `0000BL` | 5 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-struct/RankingCategoryRecordLayout.md` |  |
 | [UID:0001VO][RankingEventScrollPaneLayout](by-type/by-struct/RankingEventScrollPaneLayout.md) | assigned | `0000BO` | 5 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-struct/RankingEventScrollPaneLayout.md` |  |
 | [UID:0001VP][RectBoundsLayout](by-type/by-struct/RectBoundsLayout.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-type/by-struct/RectBoundsLayout.md` |  |
+| [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md) | assigned | `0000HM` | 20 | no | `auto-generated/NexusTK/util/AUTOBUF.cpp` | `by-type/by-template/AUTOBUF_unsigned_char.md` |  |
 | [UID:0001X4][BoardArticleDialogVtableFamily](by-type/by-vtable/BoardArticleDialogVtableFamily.md) | assigned | `0000HT` |  | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |  |
 | [UID:0001YK][RankingEventScrollPaneVtables](by-type/by-vtable/RankingEventScrollPaneVtables.md) | assigned | `0000BO` | 6 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-vtable/RankingEventScrollPaneVtables.md` |  |
 | [UID:0001VS][ResourceLayoutBucket](by-type/by-struct/ResourceLayoutBucket.md) | not_reconstructable |  |  | no |  | `by-type/by-struct/ResourceLayoutBucket.md` |  |
@@ -127,7 +128,6 @@ Total_Error: 0
 | [UID:0001WH][VoteMenuPaneLayout](by-type/by-struct/VoteMenuPaneLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/VoteMenuPaneLayout.md` |  |
 | [UID:0001WI][WaitableTimerLayout](by-type/by-struct/WaitableTimerLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/WaitableTimerLayout.md` |  |
 | [UID:0001WJ][WeatherLayerDataLayouts](by-type/by-struct/WeatherLayerDataLayouts.md) | unassigned |  |  | no |  | `by-type/by-struct/WeatherLayerDataLayouts.md` |  |
-| [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md) | unassigned |  |  | no |  | `by-type/by-template/AUTOBUF_unsigned_char.md` |  |
 | [UID:0001WP][FolderTreePaneTreeTemplates](by-type/by-template/FolderTreePaneTreeTemplates.md) | unassigned |  |  | no |  | `by-type/by-template/FolderTreePaneTreeTemplates.md` |  |
 | [UID:0001WQ][FunctionObjectTemplates](by-type/by-template/FunctionObjectTemplates.md) | unassigned |  |  | no |  | `by-type/by-template/FunctionObjectTemplates.md` |  |
 | [UID:0001WR][ProtectedArrayTemplates](by-type/by-template/ProtectedArrayTemplates.md) | unassigned |  |  | no |  | `by-type/by-template/ProtectedArrayTemplates.md` |  |

@@ -1,13 +1,13 @@
 *** UID:0000HM | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:64 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # AUTOBUF
 
 ## Status
 
-- Confidence: medium for exact original filename, strong for byte-buffer ownership role.
+- Confidence: strong for utility ownership and byte-buffer role; medium for exact original filename/casing.
 - Proposed source artifact: `util/AUTOBUF.h`, `util/AutoBuf.h`, or an adjacent buffer utility header.
 - Primary concrete instantiation: [UID:00000P][AUTOBUF_unsigned_char](by-class/AUTOBUF_unsigned_char.md)
 - Current generated source: `source-3/simroot_v2/class_AUTOBUF_unsigned_char.cpp`
@@ -29,6 +29,23 @@ The generated `class_AUTOBUF_unsigned_char.cpp` file currently emits only the re
 
 Use this as shared utility/header support. Do not migrate the constructor as `LogoPlayerPane` behavior, and do not treat `class_AUTOBUF_unsigned_char.cpp` as a feature-specific source file.
 
+## Proposed Placement
+
+- Projected reconstruction folder: `NexusTK/util/`.
+- Likely source artifact: `util/AUTOBUF.h` or a nearby utility template header.
+- Validator handling: this page uses the `by-file` root as the autogen owner bucket even though the original artifact was probably header/template support rather than a standalone `.cpp` implementation.
+
+The `util/` placement is supported by [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md), [UID:00000P][AUTOBUF_unsigned_char](by-class/AUTOBUF_unsigned_char.md), and the proposed source-tree utility-container section. The concrete instantiation is used by map loading, startup media, and profile/look parsing, so feature-specific ownership would be misleading.
+
+## Evidence Map
+
+| Evidence | Impact |
+| --- | --- |
+| [UID:000188][0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize.md) | Confirms the concrete resize helper frees old storage, allocates the requested byte count, and updates pointer/count fields. |
+| [UID:00019E][0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor.md) | Confirms constructor helper behavior and MapPane caller evidence, excluding LogoPlayerPane-only ownership. |
+| [UID:0002MR][0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData](by-memory/0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData.md) | Confirms RTTI/vtable data for `_AUTOBUF<unsigned char>`, recreated through declarations rather than copied as source data. |
+| [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md) | Consolidates field layout, caller spread, and template/header uncertainty. |
+
 ## Cross-References
 
 - [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md)
@@ -44,3 +61,7 @@ Use this as shared utility/header support. Do not migrate the constructor as `Lo
 - What existed before: the page documented shared buffer ownership and constructor/resize evidence but remained scored as unevaluated.
 - What it was changed to: scores were set to `64/78`.
 - Summary and evidence: byte-buffer role and two concrete code ranges are well supported, but exact original filename/header placement remains medium confidence.
+- 2026-06-02:
+  - Before: projected reconstruction path was blank, leaving the file root in generated coverage error state.
+  - After: scored as `72/86` and assigned `NexusTK/util/`.
+  - Summary/evidence: proposed source-tree utility-container rationale, concrete constructor/resize/vtable child pages, and cross-feature caller evidence support utility ownership. C++ remains absent because the likely original artifact is template/header support and exact spelling/casing is not final-audit quality.

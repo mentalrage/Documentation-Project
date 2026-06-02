@@ -5,14 +5,15 @@
 Total_Type: 586
 Total_Reconstructable: 183
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 94
+Total_Reconstructed_Assigned: 95
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 89
+Total_Reconstructable_Unassigned: 88
 Total_Unclassified: 402
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| [UID:00000P][AUTOBUF_unsigned_char](by-class/AUTOBUF_unsigned_char.md) | assigned | `0000HM` | 10 | no | `auto-generated/NexusTK/util/AUTOBUF.cpp` | `by-class/AUTOBUF_unsigned_char.md` |  |
 | [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-class/AddEmployeeItemDialog.md` |  |
 | [UID:00000A][AddToBlockListenInputPane](by-class/AddToBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/AddToBlockListenInputPane.md` |  |
 | [UID:00000X][BlockListenInputPane](by-class/BlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/BlockListenInputPane.md` |  |
@@ -108,7 +109,6 @@ Total_Error: 0
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
 | [UID:00008S][MSGHandler](by-class/MSGHandler.md) | coded | `0000LM` | 10 | yes | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-class/MSGHandler.md` |  |
 | [UID:00001G][CandidateStringQueue](by-class/CandidateStringQueue.md) | not_reconstructable |  |  | no |  | `by-class/CandidateStringQueue.md` |  |
-| [UID:00000P][AUTOBUF_unsigned_char](by-class/AUTOBUF_unsigned_char.md) | unassigned |  |  | no |  | `by-class/AUTOBUF_unsigned_char.md` |  |
 | [UID:000005][AboveFrame](by-class/AboveFrame.md) | unassigned |  |  | no |  | `by-class/AboveFrame.md` |  |
 | [UID:00000B][AlertPane](by-class/AlertPane.md) | unassigned |  |  | no |  | `by-class/AlertPane.md` |  |
 | [UID:00000Q][AutoInit](by-class/AutoInit.md) | unassigned |  |  | no |  | `by-class/AutoInit.md` |  |

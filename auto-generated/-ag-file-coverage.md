@@ -5,14 +5,15 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 185
+Total_Reconstructed_Assigned: 186
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 103
+Total_Error: 102
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md) | assigned |  |  | no | `auto-generated/NexusTK/util/AUTOBUF.cpp` | `by-file/AUTOBUF.md` | by-file generated root |
 | [UID:00020J][AesBlockCipher](by-file/AesBlockCipher.md) | assigned |  |  | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-file/AesBlockCipher.md` | by-file generated root |
 | [UID:0000HE][AlertPanes](by-file/AlertPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-file/AlertPanes.md` | by-file generated root |
 | [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md) | assigned |  |  | no | `auto-generated/NexusTK/render/AlphaMaskSurface.cpp` | `by-file/AlphaMaskSurface.md` | by-file generated root |
@@ -198,7 +199,6 @@ Total_Error: 103
 | [UID:0000HG][Application](by-file/Application.md) | coded |  |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-file/Application.md` | by-file generated root |
 | [UID:0000L6][MD5](by-file/MD5.md) | coded |  |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-file/MD5.md` | by-file generated root |
 | [UID:0000LM][MSGHandler](by-file/MSGHandler.md) | coded |  |  | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-file/MSGHandler.md` | by-file generated root |
-| [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md) | error |  |  | no |  | `by-file/AUTOBUF.md` | by-file generated root |
 | [UID:0000HH][ArgumentedItemInputDialogs](by-file/ArgumentedItemInputDialogs.md) | error |  |  | no |  | `by-file/ArgumentedItemInputDialogs.md` | by-file generated root |
 | [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) | error |  |  | no |  | `by-file/ArgumentedMenuDialogs.md` | by-file generated root |
 | [UID:0000HJ][AttachedObjectPane](by-file/AttachedObjectPane.md) | error |  |  | no |  | `by-file/AttachedObjectPane.md` | by-file generated root |

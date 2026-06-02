@@ -2,8 +2,8 @@
 *** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HM | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:20 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -47,6 +47,12 @@ Likely fields from the local constructor:
 
 Do not migrate `0x004f5640` as a `LogoPlayerPane` member. It should become template support, an inline emitted constructor, or a type-support helper once Wave3 can represent template-owned routines cleanly.
 
+## Reconstruction Notes
+
+- Reconstructable: true as a concrete template-instantiation documentation record.
+- Parent: [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md), now assigned to `NexusTK/util/`.
+- C++: intentionally blank. The field layout and concrete helpers are known, but the full template declaration and original spelling/header split remain open.
+
 ## Cross-References
 
 - [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md)
@@ -61,3 +67,4 @@ Do not migrate `0x004f5640` as a `LogoPlayerPane` member. It should become templ
 ## Changes
 
 - 2026-05-31: Replaced unevaluated `0/0` scoring with IDA-backed `76/86` and marked the type reconstructable. Evidence: IDA MCP verified the constructor, resize helper, direct callers, and exact `_AUTOBUF<unsigned char>` vtable data; completion remains below high-final levels because exact original spelling/header placement and the full template contract are still open.
+- 2026-06-02: Attached the template-instantiation documentation to [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md) after the file page was assigned to `NexusTK/util/`. No C++ emitted because the final source declaration is not at the 95+ gate.
