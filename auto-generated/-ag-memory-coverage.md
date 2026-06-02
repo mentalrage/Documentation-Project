@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1212
+Total_Reconstructable: 1213
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 671
+Total_Reconstructed_Assigned: 673
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 541
-Total_Unclassified: 917
+Total_Reconstructable_Unassigned: 540
+Total_Unclassified: 916
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -97,6 +97,7 @@ Total_Error: 0
 | [UID:0000ZM][0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions](by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md) | assigned | `0000HW` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |  |
 | [UID:0002SE][0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest](by-memory/0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest.md) | assigned | `000033` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest.md` |  |
 | [UID:0002SF][0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest](by-memory/0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest.md) | assigned | `000034` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest.md` |  |
+| [UID:0002FW][0x00482310-0x00482400.ChatButtonRectHelperRaw](by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |  |
 | [UID:0002G0][0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw](by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md) | assigned | `00001T` | 40 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |  |
 | [UID:0002G1][0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw](by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md) | assigned | `00001T` | 50 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md` |  |
 | [UID:00021D][0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request](by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |  |
@@ -126,6 +127,7 @@ Total_Error: 0
 | [UID:0002PB][0x004949e0-0x00494a81.ControlPaneConstructor](by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md) | assigned | `0000IG` | 10 | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md` |  |
 | [UID:000115][0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter](by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md) | assigned | `0000AW` | 20 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |  |
 | [UID:000117][0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter](by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md) | assigned | `0000AW` | 30 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md` |  |
+| [UID:000118][0x00494b50-0x00499e30.ButtonChoiceControlCore](by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |  |
 | [UID:0002PC][0x00494bf0-0x00494bf7.ControlPaneIgnoresHitTesting](by-memory/0x00494bf0-0x00494bf7.ControlPaneIgnoresHitTesting.md) | assigned | `0000IG` | 20 | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-memory/0x00494bf0-0x00494bf7.ControlPaneIgnoresHitTesting.md` |  |
 | [UID:000119][0x00494c80-0x00494daa.ProgressBarControlPaneConstructor](by-memory/0x00494c80-0x00494daa.ProgressBarControlPaneConstructor.md) | assigned | `0000AW` | 40 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494c80-0x00494daa.ProgressBarControlPaneConstructor.md` |  |
 | [UID:00011A][0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder](by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md) | assigned | `0000AW` | 50 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |  |
@@ -792,7 +794,6 @@ Total_Error: 0
 | [UID:000114][0x004949e0-0x00494bf6.ControlPane](by-memory/0x004949e0-0x00494bf6.ControlPane.md) | unassigned |  |  | no |  | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |  |
 | [UID:000116][0x00494a90-0x00494b4b.ProgressBarRangeSetters](by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md) | unassigned |  |  | no |  | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |  |
 | [UID:0002PD][0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers](by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md` |  |
-| [UID:000118][0x00494b50-0x00499e30.ButtonChoiceControlCore](by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md) | unassigned |  |  | no |  | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |  |
 | [UID:00011B][0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw](by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md) | unassigned |  |  | no |  | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |  |
 | [UID:00011D][0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh](by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md) | unassigned |  |  | no |  | `by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md` |  |
 | [UID:00011E][0x004964a0-0x0049662f.RadioGroupControlPaneOptionHelpers](by-memory/0x004964a0-0x0049662f.RadioGroupControlPaneOptionHelpers.md) | unassigned |  |  | no |  | `by-memory/0x004964a0-0x0049662f.RadioGroupControlPaneOptionHelpers.md` |  |
@@ -1488,7 +1489,6 @@ Total_Error: 0
 | [UID:0002FT][0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent](by-memory/0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent.md) | unclassified |  |  | no |  | `by-memory/0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent.md` |  |
 | [UID:0002FU][0x00482150-0x004822f6.ChattingHandlePaneOnPaint](by-memory/0x00482150-0x004822f6.ChattingHandlePaneOnPaint.md) | unclassified |  |  | no |  | `by-memory/0x00482150-0x004822f6.ChattingHandlePaneOnPaint.md` |  |
 | [UID:0002FV][0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder](by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md) | unclassified |  |  | no |  | `by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md` |  |
-| [UID:0002FW][0x00482310-0x00482400.ChatButtonRectHelperRaw](by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md) | unclassified |  |  | no |  | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |  |
 | [UID:000107][0x00482400-0x004824e0.GetChatButtonAtPoint](by-memory/0x00482400-0x004824e0.GetChatButtonAtPoint.md) | unclassified |  |  | no |  | `by-memory/0x00482400-0x004824e0.GetChatButtonAtPoint.md` |  |
 | [UID:0002FX][0x004824e0-0x00482b01.ChattingColorPaneConstructor](by-memory/0x004824e0-0x00482b01.ChattingColorPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x004824e0-0x00482b01.ChattingColorPaneConstructor.md` |  |
 | [UID:0002FY][0x00482b10-0x00482b2f.ChattingColorPaneDestructor](by-memory/0x00482b10-0x00482b2f.ChattingColorPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00482b10-0x00482b2f.ChattingColorPaneDestructor.md` |  |
