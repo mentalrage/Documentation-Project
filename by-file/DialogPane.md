@@ -1,6 +1,6 @@
 *** UID:0000IT | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/core/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # DialogPane
@@ -35,6 +35,7 @@ Many feature dialogs should remain separate feature files, but their common life
 - IDA MCP `list_globals` confirms three `DialogPane` vtable bases at `0x00618a64`, `0x00618ac4`, and `0x00618af4`; `disasm` confirms `0x0048c27b` and `0x0048c286` as 11-byte destructor adjustor thunks.
 - IDA layout review on 2026-05-26 confirms inherited dialog fields at `+0x0f8`, `+0x1f8`, `+0x1fc`, `+0x200`, `+0x204`, mouse/control state from `+0x208` through `+0x238`, `+0x23c`, and the custom background/tile state through `+0x268`.
 - IDA MCP on 2026-05-25 reports 47 direct callers to `0x0049eac0` and 69 direct callers to `0x0049eb90`, confirming the slide helpers are shared dialog infrastructure rather than ranking/clan feature methods.
+- IDA MCP on 2026-06-02 confirms the base constructor at `0x0049d8a0` increments [UID:0001PH][0x0069b380-0x0069b381.g_activeDialogCount](by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md), and the destructor at `0x0049d9f0` decrements it. Other UI/input paths only compare the byte, so the storage owner belongs with common dialog lifetime state.
 - Generated source shows many feature dialogs calling `DialogPane::DialogPane`.
 - Wave3 metadata has useful high-level structure notes, but the active generated file has low automated quality because cross-file class references were not resolved during grading. That issue is logged in [Wave3 noticed problems](../wave3_noticed_problems.md).
 
@@ -63,3 +64,6 @@ Many feature dialogs should remain separate feature files, but their common life
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank.
   - Changed to: `NexusTK/ui/core/`.
   - Summary/evidence: `by-project-structure/proposed-source-tree.md` places `DialogPane.cpp` under `ui/core`, and the 2026-05-31 IDA MCP recheck confirms this is common dialog infrastructure rather than a feature-dialog source.
+- 2026-06-02 active-dialog counter ownership:
+  - Changed confidence from `78` to `80`.
+  - Evidence: IDA MCP shows `DialogPane` construction increments the global active-dialog byte and destruction decrements it; all other reviewed refs are consumers that gate immediate UI/input commands.

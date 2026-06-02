@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 06:53:10
+Generated: 2026-06-02 07:00:23
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -152,8 +152,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
-| `0001PI` | 50 | 65 | 57.5 | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |
 | `0001Q1` | 50 | 65 | 57.5 | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |
 | `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
 | `0000V3` | 50 | 70 | 60.0 | `by-item/PacketTransformHelpers.md` |
@@ -177,6 +175,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00023A` | 50 | 85 | 67.5 | `by-memory/0x00524590-0x005245b1.MetaManNodeDestroyHelper.md` |
 | `00023K` | 50 | 85 | 67.5 | `by-memory/0x005426e0-0x00542ab5.DialogPaneScalarDeletingDestructorIsland.md` |
 | `00024A` | 50 | 85 | 67.5 | `by-memory/0x005b83a0-0x005b83a7.UserPaneVirtualDword1340F8Accessor.md` |
+| `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
+| `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 
 ## Low_Confidence
 
@@ -187,8 +187,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
-| `0001PI` | 50 | 65 | 57.5 | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |
 | `0001Q1` | 50 | 65 | 57.5 | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |
 | `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
 | `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
@@ -207,13 +205,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00023F` | 55 | 65 | 60.0 | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |
 | `000272` | 55 | 65 | 60.0 | `by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md` |
 | `000279` | 55 | 65 | 60.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
+| `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
+| `0002AZ` | 55 | 65 | 60.0 | `by-memory/0x0069b4f8-0x0069b4fc.MapPaneRenderScratchFlag.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
-| `0001PI` | 50 | 65 | 57.5 | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |
 | `0001Q1` | 50 | 65 | 57.5 | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |
 | `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
 | `0000V3` | 50 | 70 | 60.0 | `by-item/PacketTransformHelpers.md` |
@@ -237,6 +235,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
 | `0002AZ` | 55 | 65 | 60.0 | `by-memory/0x0069b4f8-0x0069b4fc.MapPaneRenderScratchFlag.md` |
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
+| `0000UZ` | 50 | 75 | 62.5 | `by-item/LoadPcxImage_004A17B0.md` |
+| `0000V2` | 50 | 75 | 62.5 | `by-item/PacketDigest_00515380.md` |
 
 ## By Folder
 
@@ -372,8 +372,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
-| `0001PI` | 50 | 65 | 57.5 | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |
 | `0001Q1` | 50 | 65 | 57.5 | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |
 | `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
 | `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
@@ -397,6 +395,8 @@ _No scored files._
 | `0002AZ` | 55 | 65 | 60.0 | `by-memory/0x0069b4f8-0x0069b4fc.MapPaneRenderScratchFlag.md` |
 | `0001KJ` | 55 | 70 | 62.5 | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |
 | `0000WX` | 60 | 65 | 62.5 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
+| `0001ZZ` | 60 | 65 | 62.5 | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |
+| `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
 
 ### by-meta
 
