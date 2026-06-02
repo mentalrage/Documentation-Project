@@ -2959,6 +2959,12 @@ For each ignored range, include:
   - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
   - Owner docs: [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md), [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md), and [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md).
 
+- `0x005add18-0x005add20` and `0x005add8a-0x005add90` - alignment padding around `QuitInputPane::OnConfirmInput`.
+  - Why ignored: confirmed `0xcc` compiler/linker alignment bytes between the raw `QuitInputPane` constructor-shaped body, the modeled confirmation handler, and the next raw helper body.
+  - Evidence: 2026-06-02 IDA MCP raw byte read for `0x005adcc0-0x005add90` shows the constructor-shaped body returning at `0x005add17`, eight `0xcc` bytes through `0x005add20`, the modeled handler returning at `0x005add89`, and six `0xcc` bytes through `0x005add90`.
+  - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
+  - Owner docs: [UID:0001KS][0x005adcc0-0x005add8a.QuitInputPaneCore](by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md), [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md), and [UID:0000MX][QuitDialogs](by-file/QuitDialogs.md).
+
 - `0x00483f86-0x00483f90`, `0x00483fd9-0x00483fe0`, `0x00483fe5-0x00483ff0`, and `0x00483ffb-0x00484000` - CheatDetector internal alignment padding.
   - Why ignored: confirmed `0xcc` compiler/linker alignment bytes between documented `CheatDetector` constructor, time-snapshot helper, vtable helper, singleton-clear helper, and scalar deleting destructor ranges.
   - Evidence: 2026-05-30 IDA MCP byte audit reports all four spans as `0xcc` alignment. The same pass discovered the previously undocumented executable helper at [UID:0002EN][0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper](by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md).

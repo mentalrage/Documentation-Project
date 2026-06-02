@@ -419,7 +419,7 @@
 - [UID:0000BE][PursuitMessageDialogPane](by-class/PursuitMessageDialogPane.md) : reconstructable : 76% : medium : - Confidence: medium for class role, strong for constructor bytes and shared destructor caveats.
 - [UID:0000BF][Queue](by-class/Queue.md) : reconstructable : 82% : medium : - Confidence: strong for layout and method roles, medium for active feature ownership.
 - [UID:0000BG][QuitDialog](by-class/QuitDialog.md) : reconstructable : 82% : strong : - Confidence: strong for role and IDA boundaries.
-- [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md) : reconstructable : 82% : strong : - Confidence: strong for behavior; medium for final source grouping.
+- [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md) : reconstructable : 82% : strong : Older typed quit confirmation prompt attached to `QuitDialogs.cpp`, with raw constructor, modeled `Y/y` handler, destructor/singleton behavior, vtable data, and alignment evidence documented.
 - [UID:0000BI][RadioGroupControlPane](by-class/RadioGroupControlPane.md) : reconstructable : 78% : strong : - Confidence: strong.
 - [UID:0000BJ][RainingLayerPane](by-class/RainingLayerPane.md) : reconstructable : 82% : strong : - Confidence: strong for behavior and boundaries.
 - [UID:0000BK][RankingCategoryCollection](by-class/RankingCategoryCollection.md) : reconstructable : 82% : strong : Ranking category parser/accessor collection with exact parser/helper pages, selected-category state, vector growth/copy behavior, and generated constructor mismatch documented.

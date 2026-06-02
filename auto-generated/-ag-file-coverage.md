@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 148
+Total_Reconstructed_Assigned: 149
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 140
+Total_Error: 139
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -104,6 +104,7 @@ Total_Error: 140
 | [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md) | assigned |  |  | no | `auto-generated/NexusTK/profile/ProfileStorage.cpp` | `by-file/ProfileStorage.md` | by-file generated root |
 | [UID:0000MT][ProgressBarControlPane](by-file/ProgressBarControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-file/ProgressBarControlPane.md` | by-file generated root |
 | [UID:0000MW][Queue](by-file/Queue.md) | assigned |  |  | no | `auto-generated/NexusTK/util/Queue.cpp` | `by-file/Queue.md` | by-file generated root |
+| [UID:0000MX][QuitDialogs](by-file/QuitDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-file/QuitDialogs.md` | by-file generated root |
 | [UID:0000MZ][RankingDialog](by-file/RankingDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-file/RankingDialog.md` | by-file generated root |
 | [UID:0000N0][ReconnectDialog](by-file/ReconnectDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/network/ReconnectDialog.cpp` | `by-file/ReconnectDialog.md` | by-file generated root |
 | [UID:0000N2][RectBounds](by-file/RectBounds.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-file/RectBounds.md` | by-file generated root |
@@ -267,7 +268,6 @@ Total_Error: 140
 | [UID:0000MP][PrettyButtonControlPane](by-file/PrettyButtonControlPane.md) | error |  |  | no |  | `by-file/PrettyButtonControlPane.md` | by-file generated root |
 | [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md) | error |  |  | no |  | `by-file/ProtectedArray.md` | by-file generated root |
 | [UID:0000MV][ProtocolSend](by-file/ProtocolSend.md) | error |  |  | no |  | `by-file/ProtocolSend.md` | by-file generated root |
-| [UID:0000MX][QuitDialogs](by-file/QuitDialogs.md) | error |  |  | no |  | `by-file/QuitDialogs.md` | by-file generated root |
 | [UID:0000MY][RainingLayerPane](by-file/RainingLayerPane.md) | error |  |  | no |  | `by-file/RainingLayerPane.md` | by-file generated root |
 | [UID:0000N1][RectangleControlPane](by-file/RectangleControlPane.md) | error |  |  | no |  | `by-file/RectangleControlPane.md` | by-file generated root |
 | [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md) | error |  |  | no |  | `by-file/ResourceLayoutTable.md` | by-file generated root |

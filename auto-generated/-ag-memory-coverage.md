@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2122
-Total_Reconstructable: 967
+Total_Reconstructable: 968
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 440
+Total_Reconstructed_Assigned: 441
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 527
-Total_Unclassified: 1144
+Total_Unclassified: 1143
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -425,6 +425,7 @@ Total_Error: 0
 | [UID:0001KM][0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions](by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |  |
 | [UID:0002RX][0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode](by-memory/0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-memory/0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode.md` |  |
 | [UID:0001KQ][0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory](by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |  |
+| [UID:0001KS][0x005adcc0-0x005add8a.QuitInputPaneCore](by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md) | assigned | `0000MX` |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |  |
 | [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
@@ -1752,7 +1753,6 @@ Total_Error: 0
 | [UID:0001KN][0x005a3e30-0x005a3ff3.UseInventorySlotDispatch](by-memory/0x005a3e30-0x005a3ff3.UseInventorySlotDispatch.md) | unclassified |  |  | no |  | `by-memory/0x005a3e30-0x005a3ff3.UseInventorySlotDispatch.md` |  |
 | [UID:0001KP][0x005a94b0-0x005a95d2.QuitPromptLauncher](by-memory/0x005a94b0-0x005a95d2.QuitPromptLauncher.md) | unclassified |  |  | no |  | `by-memory/0x005a94b0-0x005a95d2.QuitPromptLauncher.md` |  |
 | [UID:0001KR][0x005adc20-0x005adcb3.GroupMemberMarkers](by-memory/0x005adc20-0x005adcb3.GroupMemberMarkers.md) | unclassified |  |  | no |  | `by-memory/0x005adc20-0x005adcb3.GroupMemberMarkers.md` |  |
-| [UID:0001KS][0x005adcc0-0x005add8a.QuitInputPaneCore](by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |  |
 | [UID:0001KT][0x005addf0-0x005adf2e.QuitDialogCore](by-memory/0x005addf0-0x005adf2e.QuitDialogCore.md) | unclassified |  |  | no |  | `by-memory/0x005addf0-0x005adf2e.QuitDialogCore.md` |  |
 | [UID:0001KU][0x005adf40-0x005adfcd.SpellStringInputPaneConstructor](by-memory/0x005adf40-0x005adfcd.SpellStringInputPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005adf40-0x005adfcd.SpellStringInputPaneConstructor.md` |  |
 | [UID:0001KV][0x005adf40-0x005ae1a4.SpellStringInputPane](by-memory/0x005adf40-0x005ae1a4.SpellStringInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005adf40-0x005ae1a4.SpellStringInputPane.md` |  |

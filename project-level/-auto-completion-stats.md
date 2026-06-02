@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 02:12:35
+Generated: 2026-06-02 02:25:12
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -124,7 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000MP` | blank | `(blank)` | `by-file/PrettyButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MU` | blank | `(blank)` | `by-file/ProtectedArray.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MV` | blank | `(blank)` | `by-file/ProtocolSend.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000MX` | blank | `(blank)` | `by-file/QuitDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MY` | blank | `(blank)` | `by-file/RainingLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000N1` | blank | `(blank)` | `by-file/RectangleControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000N5` | blank | `(blank)` | `by-file/ResourceLayoutTable.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -163,7 +162,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
 | `0001KY` | 50 | 65 | 57.5 | `by-memory/0x005ae2a0-0x005aeb1f.SpellWhoInputPane.md` |
 | `0001L4` | 50 | 65 | 57.5 | `by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md` |
 | `0001L6` | 50 | 65 | 57.5 | `by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md` |
@@ -188,6 +186,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001MJ` | 50 | 65 | 57.5 | `by-memory/0x005b5440-0x005b5547.GroupInputPane.md` |
 | `0001ML` | 50 | 65 | 57.5 | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |
 | `0001MM` | 50 | 65 | 57.5 | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |
+| `0001MW` | 50 | 65 | 57.5 | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |
 
 ## Low_Confidence
 
@@ -198,7 +197,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
 | `0001KY` | 50 | 65 | 57.5 | `by-memory/0x005ae2a0-0x005aeb1f.SpellWhoInputPane.md` |
 | `0001L4` | 50 | 65 | 57.5 | `by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md` |
 | `0001L6` | 50 | 65 | 57.5 | `by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md` |
@@ -218,12 +216,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001MC` | 50 | 65 | 57.5 | `by-memory/0x005b3940-0x005b3bba.ChatInputPane.md` |
 | `0001MF` | 50 | 65 | 57.5 | `by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md` |
 | `0001MG` | 50 | 65 | 57.5 | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |
+| `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
 | `0001KY` | 50 | 65 | 57.5 | `by-memory/0x005ae2a0-0x005aeb1f.SpellWhoInputPane.md` |
 | `0001L4` | 50 | 65 | 57.5 | `by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md` |
 | `0001L6` | 50 | 65 | 57.5 | `by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md` |
@@ -248,6 +246,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001MJ` | 50 | 65 | 57.5 | `by-memory/0x005b5440-0x005b5547.GroupInputPane.md` |
 | `0001ML` | 50 | 65 | 57.5 | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |
 | `0001MM` | 50 | 65 | 57.5 | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |
+| `0001MW` | 50 | 65 | 57.5 | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |
 
 ## By Folder
 
@@ -383,7 +382,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
 | `0001KY` | 50 | 65 | 57.5 | `by-memory/0x005ae2a0-0x005aeb1f.SpellWhoInputPane.md` |
 | `0001L4` | 50 | 65 | 57.5 | `by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md` |
 | `0001L6` | 50 | 65 | 57.5 | `by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md` |
@@ -408,6 +406,7 @@ _No scored files._
 | `0001MJ` | 50 | 65 | 57.5 | `by-memory/0x005b5440-0x005b5547.GroupInputPane.md` |
 | `0001ML` | 50 | 65 | 57.5 | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |
 | `0001MM` | 50 | 65 | 57.5 | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |
+| `0001MW` | 50 | 65 | 57.5 | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |
 
 ### by-meta
 

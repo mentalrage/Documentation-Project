@@ -1,8 +1,8 @@
 *** UID:0000BH | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for behavior; medium for final source grouping.
+- Confidence: strong for behavior and `QuitDialogs.cpp` ownership; medium-high for raw constructor modeling.
 - Likely source file: [UID:0000MX][QuitDialogs](by-file/QuitDialogs.md)
 - Core address range: [UID:0001KS][0x005adcc0-0x005add8a.QuitInputPaneCore](by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md)
 - Destructor ranges: [UID:0001N7][0x005b7836-0x005b784c.QuitInputPaneDestructorThunks](by-memory/0x005b7836-0x005b784c.QuitInputPaneDestructorThunks.md) and [UID:0001NC][0x005b7b30-0x005b7b75.QuitInputPaneScalarDeletingDestructor](by-memory/0x005b7b30-0x005b7b75.QuitInputPaneScalarDeletingDestructor.md)
@@ -52,6 +52,8 @@ IDA caller fanout shows these helpers are used by many typed input panes, so the
 - IDA MCP `xrefs_to 0x005b7836` and `0x005b7841` shows vtable data refs at `0x0062f0a4` and `0x0062f0d4`.
 - 2026-05-26 recheck: `0x005b7836-0x005b784c` is compiler-generated thunk glue, now listed in [UID:0000VN][-ignored](by-memory/-ignored.md).
 - `OpenQuitPrompt_5A94B0` also creates this class in the non-modal quit prompt path, guarded by `g_pQuitInputPane`.
+- 2026-06-02 IDA MCP refresh confirms `0x005add20-0x005add8a` as the modeled handler, no direct callers for `0x005add20`, vtable data reference at `0x0062f09c`, `g_pQuitInputPane` writes from `OpenQuitPrompt` and raw constructor bytes, and `g_pQuitInputPane` clear in the scalar deleting destructor.
+- 2026-06-02 raw byte read confirms the constructor-shaped body `0x005adcc0-0x005add18`, eight `0xcc` alignment bytes at `0x005add18-0x005add20`, the modeled handler body `0x005add20-0x005add8a`, and alignment bytes at `0x005add8a-0x005add90`.
 
 ## Cross-References
 
@@ -70,3 +72,5 @@ IDA caller fanout shows these helpers are used by many typed input panes, so the
   - Before: The page was unevaluated though it documented constructor bytes, singleton storage, confirm behavior, destructor thunks, shared helper caveats, and evidence.
   - After: Scored as high completion and strong confidence with final source grouping still treated as medium uncertainty.
   - Evidence: Existing method map, shared helper caveat, IDA MCP evidence notes, singleton cross-references, and `OpenQuitPrompt` relationship cover the class behavior.
+- 2026-06-02: Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000MX][QuitDialogs](by-file/QuitDialogs.md).
+  Evidence: parent file now has strong `ui/dialogs/QuitDialogs.cpp` confidence, and current IDA MCP revalidates the class-specific constructor/handler/destructor/singleton evidence.

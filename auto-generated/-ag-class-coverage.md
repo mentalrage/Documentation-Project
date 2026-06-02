@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 121
+Total_Reconstructable: 122
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 34
+Total_Reconstructed_Assigned: 35
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 464
+Total_Unclassified: 463
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -38,6 +38,7 @@ Total_Error: 0
 | [UID:0000AA][PatchPane2](by-class/PatchPane2.md) | assigned | `0000MH` | 20 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane2.md` |  |
 | [UID:0000AU][ProfileDialog](by-class/ProfileDialog.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-class/ProfileDialog.md` |  |
 | [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md) | assigned | `0000MT` | 10 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-class/ProgressBarControlPane.md` |  |
+| [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md) | assigned | `0000MX` |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-class/QuitInputPane.md` |  |
 | [UID:0000BL][RankingCategoryRecord](by-class/RankingCategoryRecord.md) | assigned | `0000MZ` | 50 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingCategoryRecord.md` |  |
 | [UID:0000BO][RankingEventScrollPane](by-class/RankingEventScrollPane.md) | assigned | `0000MZ` | 20 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingEventScrollPane.md` |  |
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-class/RectBounds.md` |  |
@@ -444,7 +445,6 @@ Total_Error: 0
 | [UID:0000BE][PursuitMessageDialogPane](by-class/PursuitMessageDialogPane.md) | unclassified |  |  | no |  | `by-class/PursuitMessageDialogPane.md` |  |
 | [UID:0000BF][Queue](by-class/Queue.md) | unclassified |  |  | no |  | `by-class/Queue.md` |  |
 | [UID:0000BG][QuitDialog](by-class/QuitDialog.md) | unclassified |  |  | no |  | `by-class/QuitDialog.md` |  |
-| [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md) | unclassified |  |  | no |  | `by-class/QuitInputPane.md` |  |
 | [UID:0000BI][RadioGroupControlPane](by-class/RadioGroupControlPane.md) | unclassified |  |  | no |  | `by-class/RadioGroupControlPane.md` |  |
 | [UID:0000BJ][RainingLayerPane](by-class/RainingLayerPane.md) | unclassified |  |  | no |  | `by-class/RainingLayerPane.md` |  |
 | [UID:0000BK][RankingCategoryCollection](by-class/RankingCategoryCollection.md) | unclassified |  |  | no |  | `by-class/RankingCategoryCollection.md` |  |

@@ -1,15 +1,15 @@
 *** UID:0000MX | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # QuitDialogs
 
 ## Status
 
-- Confidence: strong for class grouping; medium for final folder/name.
+- Confidence: strong for class grouping and `ui/dialogs/` placement; medium-high for final split between menu launcher and dialog implementation.
 - Proposed module folder: `ui/dialogs/`
-- Candidate file: `ui/dialogs/QuitDialogs.cpp`
+- Candidate file: `NexusTK/ui/dialogs/QuitDialogs.cpp`
 - Current generated sources: `class_QuitDialog.cpp` and `class_QuitInputPane.cpp`.
 - Evidence basis: `simroot_v2` generated files, Wave3 metadata, and targeted IDA MCP checks on 2026-05-24. `wave3.py` was not used because `wave3-status.md` was marked `DEBUGGING`.
 
@@ -52,6 +52,15 @@ Targeted checks on 2026-05-24 confirmed:
 - `g_pQuitInputPane` is `dword_69BF5C` at `0x0069bf5c`, written by the typed-prompt constructor/launcher and cleared by the destructor.
 - 2026-05-26 recheck confirms `0x005b7836-0x005b784c` are compiler-generated destructor adjustor thunks; model the `QuitInputPane` destructor/inheritance, not handwritten thunk functions.
 
+2026-06-02 IDA MCP refresh confirmed:
+
+- `OpenQuitPrompt_5A94B0` remains `0x005a94b0-0x005a95d2`, called from `0x005a5cc8`; it chooses the modal `QuitDialog` path when `byte_66DA97 == 1` and otherwise creates a singleton typed `QuitInputPane`.
+- `lookup_funcs` still reports `0x005adcc0` and `0x005add18` as `Not a function`, while `0x005add20` is `sub_5ADD20`, size `0x6a`, ending at `0x005add8a`.
+- `disasm 0x005adcc0` shows constructor-shaped bytes through `0x005add17`, then `0xcc` alignment bytes through the modeled handler start at `0x005add20`.
+- `decompile 0x005add20` confirms one-character `Y/y` handling, timer unregister through `0x00597a10`, and main-menu/parcel transition through `0x005047f0`; non-confirming input calls `0x00544690`.
+- `xrefs_to 0x0069bf5c` still reports duplicate prevention/allocation writes from `OpenQuitPrompt`, constructor-shaped singleton write at `0x005adcf2`, and destructor clear at `0x005b7b36`.
+- `xrefs_to 0x0062f0a4` and `0x0062f0d4` reports `QuitInputPane` vtable writes in both `OpenQuitPrompt` and the raw constructor-shaped body.
+
 ## Ownership Notes
 
 - `ReadInputText` at `0x004f2300` and `GetInputLength` at `0x004f2310` are shared [UID:000077][LineInputPane](by-class/LineInputPane.md) helpers with broad caller fanout. They are emitted in `class_QuitInputPane.cpp`, but they should remain in [UID:0000K7][InputPanes](by-file/InputPanes.md).
@@ -77,3 +86,5 @@ Targeted checks on 2026-05-24 confirmed:
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `84`, confidence `78`.
 - Summary/evidence: the page documents quit prompt grouping, modal/typed paths, global singleton, IDA evidence, shared input helper boundary, generated-name caveat, and cross-references; confidence remains capped by final folder/name uncertainty.
+- 2026-06-02: Raised to `86/82` and added `NexusTK/ui/dialogs/` reconstruction path.
+  - Evidence: fresh IDA MCP revalidated the launcher, modal/typed branch behavior, raw typed-prompt constructor, modeled input handler, singleton xrefs, destructor clear, and vtable-store map. The remaining uncertainty is source-file split rather than feature ownership.
