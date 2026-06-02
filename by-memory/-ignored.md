@@ -1058,11 +1058,11 @@ For each ignored range, include:
   - Replacement/procurement: compiler-generated table from the key-handler switch.
   - Owner docs: [UID:0001L0][0x005ae410-0x005ae68a.SpellWhoInputPaneKeyNavigationInput](by-memory/0x005ae410-0x005ae68a.SpellWhoInputPaneKeyNavigationInput.md), [UID:0001KY][0x005ae2a0-0x005aeb1f.SpellWhoInputPane](by-memory/0x005ae2a0-0x005aeb1f.SpellWhoInputPane.md).
 
-- `0x005aed3d-0x005aed40`, `0x005aedcb-0x005aedd0`, `0x005af2e7-0x005af2f0`, `0x005af383-0x005af390`, and `0x005b7aec-0x005b7af0` - `ItemWhoInputPane` alignment padding.
-  - Why ignored: confirmed `0xcc` compiler alignment between exact `ItemWhoInputPane` bodies and after the scalar deleting destructor; no handwritten source semantics.
+- `0x005aed3d-0x005aed40`, `0x005aedcb-0x005aedd0`, `0x005af2e7-0x005af2f0`, `0x005af383-0x005af390`, `0x005af3af-0x005af3b0`, `0x005af4ef-0x005af4f0`, `0x005af57b-0x005af580`, `0x005af5ea-0x005af5f0`, and `0x005b7aec-0x005b7af0` - `ItemWhoInputPane` and target-selection alignment padding.
+  - Why ignored: confirmed `0xcc` compiler alignment between exact `ItemWhoInputPane` and target-selection bodies and after the scalar deleting destructor; no handwritten source semantics.
   - Evidence: 2026-06-02 IDA MCP raw-byte check shows each listed range is all `0xcc`; `lookup_funcs` confirms the neighboring function end/start boundaries.
   - Replacement/procurement: compiler/linker-generated alignment.
-  - Owner docs: [UID:0001L4][0x005aec60-0x005af2e7.ItemWhoInputPane](by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md), [UID:0002S4][0x005b7a20-0x005b7aec.ItemWhoInputPaneScalarDeletingDestructor](by-memory/0x005b7a20-0x005b7aec.ItemWhoInputPaneScalarDeletingDestructor.md).
+  - Owner docs: [UID:0001L4][0x005aec60-0x005af2e7.ItemWhoInputPane](by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md), [UID:0001L8][0x005af390-0x005b050d.TargetSelectionInputPanes](by-memory/0x005af390-0x005b050d.TargetSelectionInputPanes.md), [UID:0002S5][0x005af3b0-0x005af4ef.ItemWhoTargetNavigationRawHelpers](by-memory/0x005af3b0-0x005af4ef.ItemWhoTargetNavigationRawHelpers.md), [UID:0001L9][0x005af4f0-0x005af57b.SendTargetedActionPacket](by-memory/0x005af4f0-0x005af57b.SendTargetedActionPacket.md), [UID:0001LA][0x005af580-0x005af5ea.SendObjectActionPacket](by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md), [UID:0002S4][0x005b7a20-0x005b7aec.ItemWhoInputPaneScalarDeletingDestructor](by-memory/0x005b7a20-0x005b7aec.ItemWhoInputPaneScalarDeletingDestructor.md).
 
 - `0x005aefaf-0x005af050` - `ItemWhoInputPane` key-handler switch support table.
   - Why ignored: compiler-generated switch/jump-table support bytes for [UID:0002S2][0x005aedd0-0x005aefaf.ItemWhoInputPaneKeyInput](by-memory/0x005aedd0-0x005aefaf.ItemWhoInputPaneKeyInput.md), not a standalone handwritten function.
