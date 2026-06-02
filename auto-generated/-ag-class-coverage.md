@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 135
+Total_Reconstructable: 136
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 48
+Total_Reconstructed_Assigned: 49
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 450
+Total_Unclassified: 449
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -34,6 +34,7 @@ Total_Error: 0
 | [UID:000058][FlyingParcelPane](by-class/FlyingParcelPane.md) | assigned | `0000MF` | 30 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/FlyingParcelPane.md` |  |
 | [UID:00005F][FpsPane](by-class/FpsPane.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-class/FpsPane.md` |  |
 | [UID:00005V][GrafPort](by-class/GrafPort.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-class/GrafPort.md` |  |
+| [UID:00005W][GroupInputPane](by-class/GroupInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/GroupInputPane.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
 | [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPlayerPane.md` |  |
@@ -287,7 +288,6 @@ Total_Error: 0
 | [UID:00005S][GiveAllInputPane](by-class/GiveAllInputPane.md) | unclassified |  |  | no |  | `by-class/GiveAllInputPane.md` |  |
 | [UID:00005T][GiveGoldInputPane](by-class/GiveGoldInputPane.md) | unclassified |  |  | no |  | `by-class/GiveGoldInputPane.md` |  |
 | [UID:00005U][GiveInputPane](by-class/GiveInputPane.md) | unclassified |  |  | no |  | `by-class/GiveInputPane.md` |  |
-| [UID:00005W][GroupInputPane](by-class/GroupInputPane.md) | unclassified |  |  | no |  | `by-class/GroupInputPane.md` |  |
 | [UID:000060][HandlerFindFunc](by-class/HandlerFindFunc.md) | unclassified |  |  | no |  | `by-class/HandlerFindFunc.md` |  |
 | [UID:000062][HeadSelectDialog](by-class/HeadSelectDialog.md) | unclassified |  |  | no |  | `by-class/HeadSelectDialog.md` |  |
 | [UID:000061][HeaderSystemMessage](by-class/HeaderSystemMessage.md) | unclassified |  |  | no |  | `by-class/HeaderSystemMessage.md` |  |

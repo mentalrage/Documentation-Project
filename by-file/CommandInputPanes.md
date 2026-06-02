@@ -38,7 +38,7 @@ ui/dialogs/SpellCommandInputPanes.cpp
 | Entity | Current range | Current file | Role |
 | --- | --- | --- | --- |
 | `EmotionInputPane` | `0x005b29c0-0x005b2f68`, helper `0x005b2f70-0x005b2fcb` | `class_EmotionInputPane.cpp` | Emotion command prompt; maps letter input to emotion indices, opens an emotion menu on help shortcut, and sends opcode `0x1d`. |
-| `GroupInputPane` | `0x005b5440-0x005b5547` plus projected `0x005b5400` constructor | `class_GroupInputPane.cpp` | Line-input group command sender; sends opcode `0x2e` with converted text. |
+| `GroupInputPane` | `0x005b5400-0x005b5547` via raw constructor [UID:0002SB][0x005b5400-0x005b5440.GroupInputPaneRawConstructor](by-memory/0x005b5400-0x005b5440.GroupInputPaneRawConstructor.md) and submit method [UID:0001MJ][0x005b5440-0x005b5547.GroupInputPane](by-memory/0x005b5440-0x005b5547.GroupInputPane.md) | `class_GroupInputPane.cpp` | Line-input group command sender; sends opcode `0x2e` with converted text. |
 | `PostInputPane` | `0x005b5630-0x005b5830` | `class_PostInputPane.cpp` | Single-letter post selection prompt; sends opcode `0x34`. |
 | `SpellSpellInputPane` | [UID:0001MO][0x005b6120-0x005b62c8.SpellSpellInputPane](by-memory/0x005b6120-0x005b62c8.SpellSpellInputPane.md) | `class_SpellSpellInputPane.cpp` | Spell-selection prompt used by spell-on-spell flows; current stronger placement is [UID:0000O0][SpellInputPanes](by-file/SpellInputPanes.md). |
 | [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md) | `0x005b67c0-0x005b68b0`, factory at `0x005aa140` | `class_SelfSaveInputPane.cpp` | Single-character self-save confirmation prompt that sends opcode `0x25` after `y`/`Y`; current constructor/factory modeling has IDA boundary caveats. |
@@ -50,7 +50,7 @@ ui/dialogs/SpellCommandInputPanes.cpp
 - IDA recheck on 2026-05-26 resolves adjacent helper `0x005b2f70-0x005b2fcb` as [UID:0001M4][0x005b2f70-0x005b2fcb.SendEmotionPacket](by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md), called only by `EmotionInputPane::OnCharInput`. Do not attach that range to `ChangeItemSlotInputPane`.
 - 2026-06-02 IDA MCP refresh confirms `EmotionInputPane` constructor callers at `0x005a6138`, `0x005a9390`, and the `?` help/menu reopen path at `0x005b2f38`; `OnCharInput` is a vtable-reached body from slot `0x0062fa00`; `SendEmotionPacket` is called only from `0x005b2aef`, `0x005b2b15`, and `0x005b2f52`.
 - The same refresh confirms `0x005b2f68-0x005b2f70` and `0x005b2fcb-0x005b2fd0` are pure `0xcc` alignment spans between the Emotion command cluster, its helper, and the following `ChangeItemSlotInputPane` raw-constructor neighborhood.
-- IDA reports no function at `GroupInputPane::GroupInputPane` projected start `0x005b5400`; the previous IDA function is `0x005b52f0-0x005b538a`, and the next is `0x005b5440-0x005b5547`.
+- 2026-06-02 IDA MCP refresh resolves `GroupInputPane::GroupInputPane` as raw constructor-shaped bytes at `0x005b5400-0x005b5440`: IDA still reports no function at the start, but disassembly shows prompt id `0x2f`, line-input base construction, and vtable stores to `0x006300d4`, `0x00630124`, and `0x00630154`. The following submit method remains the modeled function `0x005b5440-0x005b5547`.
 - `PostInputPane` and `SpellSpellInputPane` have clean IDA-aligned ranges. `SpellSpellInputPane` now cross-references [UID:0000O0][SpellInputPanes](by-file/SpellInputPanes.md) as the stronger spell-domain owner.
 - [UID:0000NM][SelfSaveInputPane](by-file/SelfSaveInputPane.md) is source-structure relevant because it fills the gap immediately before the block-list input pane neighborhood. IDA currently misses its constructor start and the adjacent raw send helper, so use the memory docs before migration.
 - 2026-05-25 IDA recheck confirms `SelfSaveInputPane` still has raw constructor/helper starts at `0x005b67c0` and `0x005b6870`, a real virtual handler at `0x005b6800`, and a discontiguous factory at `0x005aa140` with no direct callers.
@@ -91,6 +91,7 @@ Do not run these migrations until `EmotionInputPane::OnCharInput` and the `Group
 - [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md)
 - [UID:0001M3][0x005b29c0-0x005b2f68.EmotionInputPane](by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md)
 - [UID:0001M4][0x005b2f70-0x005b2fcb.SendEmotionPacket](by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md)
+- [UID:0002SB][0x005b5400-0x005b5440.GroupInputPaneRawConstructor](by-memory/0x005b5400-0x005b5440.GroupInputPaneRawConstructor.md)
 - [UID:0001MJ][0x005b5440-0x005b5547.GroupInputPane](by-memory/0x005b5440-0x005b5547.GroupInputPane.md)
 - [UID:0001MK][0x005b5630-0x005b5830.PostInputPane](by-memory/0x005b5630-0x005b5830.PostInputPane.md)
 - [UID:0001MO][0x005b6120-0x005b62c8.SpellSpellInputPane](by-memory/0x005b6120-0x005b62c8.SpellSpellInputPane.md)

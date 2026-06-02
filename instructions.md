@@ -6,6 +6,7 @@
 - Remember to update by-meta files, and create new meta documents when needed for uncovered topics.
 - Remember that files prefixed with `-` are meta/additional files on that topic. Please check those as they have additional information and instructions.
 - Consider this task efectively never complete. You can always create more detailed documentation once full binary documentation has been completed.
+- Git is only a backup/sync tool for this documentation work. Do not interrupt small documentation edits for commits; commit/push after roughly 30 minutes of work or after a large batch of about 50+ meaningful edits.
 
 ## Detailed Info ##
 Please read `E:\NTK\GhidraBridge\source-3\project-documentation\by-structure.md` for more information about documentation structure and how data is structured and written. This is required.
