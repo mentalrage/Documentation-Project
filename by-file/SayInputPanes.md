@@ -1,17 +1,17 @@
 *** UID:0000N9 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SayInputPanes
 
 ## Status
 
-- Confidence: strong for the confirmed input pane behaviors; medium for exact split between say/chat/group/clan files.
-- Proposed module folder: `social/`
-- Proposed source file: `social/SayInputPanes.cpp`
+- Confidence: strong for the confirmed input pane behaviors and `social/` placement; medium-high for exact split between say/chat/group/clan files.
+- Proposed module folder: `NexusTK/social/`
+- Proposed source file: `NexusTK/social/SayInputPanes.cpp`
 - Possible split files: `social/WhisperInputPanes.cpp`, `social/ChatInputPane.cpp`, [UID:0000JS][Group](by-file/Group.md), and [UID:0000I5][Chatting](by-file/Chatting.md)
-- Evidence basis: Wave3 class inspection, generated `simroot_v2` sources, IDA MCP function-boundary/xref checks on 2026-05-23, and cross-references from chat selector/handle code.
+- Evidence basis: current IDA MCP function-boundary/xref checks, existing class/memory docs, and cross-references from chat selector/handle code. Generated Wave3/simroot names are treated as provisional leads only.
 
 ## Hypothesis
 
@@ -24,6 +24,7 @@ The `Say*` and `ShoutInputPane` classes form a social chat input family. The cod
 | Entity | Current range | Current file | Role |
 | --- | --- | --- | --- |
 | `SayToPlanMessageInputPane` mode helpers | `0x005a4b60-0x005a5791` | `class_SayToPlanMessageInputPane.cpp`, `class_ShoutInputPane.cpp` | Recent-recipient management, deferred send state, mode dispatch, default say open, last-recipient whisper open, and shout-pane creation. |
+| [UID:0002RX][0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode](by-memory/0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode.md) | `0x005a5110-0x005a5337` | exact child memory page | Central current-mode dispatcher for default say, shout, whisper, group, and plan/clan input panes. |
 | `SayToUserMessageInputPane` | `0x005b1570-0x005b1812` | `class_SayToUserMessageInputPane.cpp` | Legacy direct-message input pane for a named recipient. |
 | `NewSayToUserMessageInputPane` | `0x005b1990-0x005b1d42`, thunks/destructor at `0x005b7820+`, `0x005b7af0` | `class_NewSayToUserMessageInputPane.cpp` | Modern direct-message input pane with backspace return to name-entry flow. |
 | `SayToGroupMessageInputPane` | `0x005b1ec0-0x005b2152` | `class_SayToGroupMessageInputPane.cpp` | Group message input; sends opcode `0x19` with group name and message payload. |
@@ -35,7 +36,9 @@ The `Say*` and `ShoutInputPane` classes form a social chat input family. The cod
 
 ## Boundary And Data Notes
 
-- IDA MCP confirms mode/helper starts at `0x0059ed60`, `0x005a4b60`, `0x005a5010`, `0x005a5110`, `0x005a53c0`, `0x005a54b0`, and `0x005a5710`.
+- Current IDA MCP confirms mode/helper starts at `0x0059ed60`, `0x005a4b60`, `0x005a5010`, `0x005a5110`, `0x005a53c0`, `0x005a54b0`, and `0x005a5710`.
+- Current IDA MCP on 2026-06-02 confirms `0x005a5110` size `0x227`, callers from chat variety selection `0x0048126b`, chat handle code `0x00481ef6`, icons/action dispatch `0x004cf704`, and `UserPane::OnKeyEvent` at `0x005a6351`, plus callees into recent-recipient update, default say open, shout creation, and modern direct-message input.
+- Current IDA MCP `py_eval` on 2026-06-02 shows the broader `0x005a4b60-0x005a5791` neighborhood also contains small `IconsPane` action helpers at `0x005a4db0`, `0x005a4e40`, `0x005a4e70`, `0x005a4f40`, and related action bodies; keep the broad aggregate as mixed-neighborhood evidence rather than a single-file source owner.
 - IDA MCP confirms target-message pane starts at `0x005b1570`, `0x005b1640`, `0x005b1990`, `0x005b1a60`, `0x005b1c40`, `0x005b1ec0`, `0x005b1f80`, `0x005b22d0`, and `0x005b2390`.
 - IDA MCP confirms default/recipient/shout starts at `0x005b34d0`, `0x005b3570`, `0x005b3670`, `0x005b3cb0`, `0x005b4080`, and `0x005b4260`.
 - IDA reports no function at Wave3's `SayInputPane::SayInputPane` projected start `0x005b3490`; the confirmed constructor-like overload begins at `0x005b34d0`.
@@ -69,6 +72,7 @@ Consider leaving `SayToGroupMessageInputPane` attached to [UID:0000JS][Group](by
 - [UID:0000C7][SayToUserNameInputPane](by-class/SayToUserNameInputPane.md)
 - [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md)
 - [UID:0001KO][0x005a4b60-0x005a5791.SayModeHelpers](by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md)
+- [UID:0002RX][0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode](by-memory/0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode.md)
 - [UID:0001LY][0x005b1570-0x005b2562.SayTargetMessageInputPanes](by-memory/0x005b1570-0x005b2562.SayTargetMessageInputPanes.md)
 - [UID:0001MB][0x005b34d0-0x005b37ea.SayInputPane](by-memory/0x005b34d0-0x005b37ea.SayInputPane.md)
 - [UID:0001MD][0x005b3cb0-0x005b4219.SayToUserNameInputPane](by-memory/0x005b3cb0-0x005b4219.SayToUserNameInputPane.md)
@@ -82,3 +86,7 @@ Consider leaving `SayToGroupMessageInputPane` attached to [UID:0000JS][Group](by
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `84` and confidence to `78`.
   - Evidence: document covers the social input family, proposed contents, confirmed address starts, ownership/split caveats, migration notes, and cross-references; confidence remains limited by unresolved constructor starts and the still-open split between say, chat, group, and clan/plan modules.
+- 2026-06-02 path and confidence update:
+  - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank and confidence was below the parent-attachment threshold at `78`.
+  - After: set `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/"`, scores `86/82`, and added current IDA evidence for the exact current-mode dispatcher child.
+  - Evidence: current IDA MCP confirms the mode dispatcher boundary/callers/callees, while `by-project-structure/proposed-source-tree.md` places `SayInputPanes.cpp` under `social/`.

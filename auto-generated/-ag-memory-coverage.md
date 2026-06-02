@@ -2,13 +2,13 @@
 
 # ag-memory-coverage
 
-Total_Type: 2121
-Total_Reconstructable: 963
+Total_Type: 2122
+Total_Reconstructable: 965
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 437
+Total_Reconstructed_Assigned: 438
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 526
-Total_Unclassified: 1147
+Total_Reconstructable_Unassigned: 527
+Total_Unclassified: 1146
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -423,6 +423,7 @@ Total_Error: 0
 | [UID:0001KL][0x005a2530-0x005b8395.UserPane](by-memory/0x005a2530-0x005b8395.UserPane.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-memory/0x005a2530-0x005b8395.UserPane.md` |  |
 | [UID:0002RW][0x005a2de0-0x005a2dfb.LivingObjectPaneGetViewportPosition](by-memory/0x005a2de0-0x005a2dfb.LivingObjectPaneGetViewportPosition.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x005a2de0-0x005a2dfb.LivingObjectPaneGetViewportPosition.md` |  |
 | [UID:0001KM][0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions](by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |  |
+| [UID:0002RX][0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode](by-memory/0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-memory/0x005a5110-0x005a5337.OpenInputPaneForCurrentSayMode.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -860,6 +861,7 @@ Total_Error: 0
 | [UID:0002L6][0x00598290-0x00598471.TimerMgrTimerQueueSpliceTimerRange](by-memory/0x00598290-0x00598471.TimerMgrTimerQueueSpliceTimerRange.md) | unassigned |  |  | no |  | `by-memory/0x00598290-0x00598471.TimerMgrTimerQueueSpliceTimerRange.md` |  |
 | [UID:0002L7][0x00598480-0x005986d9.TimerMgrTimerQueueInsertTimer](by-memory/0x00598480-0x005986d9.TimerMgrTimerQueueInsertTimer.md) | unassigned |  |  | no |  | `by-memory/0x00598480-0x005986d9.TimerMgrTimerQueueInsertTimer.md` |  |
 | [UID:0001KB][0x005986e0-0x00598cbe.TimerPane](by-memory/0x005986e0-0x00598cbe.TimerPane.md) | unassigned |  |  | no |  | `by-memory/0x005986e0-0x00598cbe.TimerPane.md` |  |
+| [UID:0001KO][0x005a4b60-0x005a5791.SayModeHelpers](by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md) | unassigned |  |  | no |  | `by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md` |  |
 | [UID:0001NM][0x005b83b0-0x005baafe.UserStatusPane](by-memory/0x005b83b0-0x005baafe.UserStatusPane.md) | unassigned |  |  | no |  | `by-memory/0x005b83b0-0x005baafe.UserStatusPane.md` |  |
 | [UID:0001NN][0x005b85b0-0x005b86ca.UserStatusPaneSummaryAccessors](by-memory/0x005b85b0-0x005b86ca.UserStatusPaneSummaryAccessors.md) | unassigned |  |  | no |  | `by-memory/0x005b85b0-0x005b86ca.UserStatusPaneSummaryAccessors.md` |  |
 | [UID:0002LP][0x005b86e0-0x005b86f8.UserStatusPaneSetStatusIconId](by-memory/0x005b86e0-0x005b86f8.UserStatusPaneSetStatusIconId.md) | unassigned |  |  | no |  | `by-memory/0x005b86e0-0x005b86f8.UserStatusPaneSetStatusIconId.md` |  |
@@ -1746,7 +1748,6 @@ Total_Error: 0
 | [UID:0001KJ][0x0059ded0-0x0059f0a4.CheckBoxTextControlPane](by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md) | unclassified |  |  | no |  | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |  |
 | [UID:0001KK][0x0059f260-0x005a2523.UserLookPaneAndProfilePanes](by-memory/0x0059f260-0x005a2523.UserLookPaneAndProfilePanes.md) | unclassified |  |  | no |  | `by-memory/0x0059f260-0x005a2523.UserLookPaneAndProfilePanes.md` |  |
 | [UID:0001KN][0x005a3e30-0x005a3ff3.UseInventorySlotDispatch](by-memory/0x005a3e30-0x005a3ff3.UseInventorySlotDispatch.md) | unclassified |  |  | no |  | `by-memory/0x005a3e30-0x005a3ff3.UseInventorySlotDispatch.md` |  |
-| [UID:0001KO][0x005a4b60-0x005a5791.SayModeHelpers](by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md) | unclassified |  |  | no |  | `by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md` |  |
 | [UID:0001KP][0x005a94b0-0x005a95d2.QuitPromptLauncher](by-memory/0x005a94b0-0x005a95d2.QuitPromptLauncher.md) | unclassified |  |  | no |  | `by-memory/0x005a94b0-0x005a95d2.QuitPromptLauncher.md` |  |
 | [UID:0001KQ][0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory](by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md) | unclassified |  |  | no |  | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |  |
 | [UID:0001KR][0x005adc20-0x005adcb3.GroupMemberMarkers](by-memory/0x005adc20-0x005adcb3.GroupMemberMarkers.md) | unclassified |  |  | no |  | `by-memory/0x005adc20-0x005adcb3.GroupMemberMarkers.md` |  |
