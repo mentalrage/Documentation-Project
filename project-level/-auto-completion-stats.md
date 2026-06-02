@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 03:34:27
+Generated: 2026-06-02 03:40:49
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -161,7 +161,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001LZ` | 50 | 65 | 57.5 | `by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md` |
 | `0001M0` | 50 | 65 | 57.5 | `by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md` |
 | `0001M1` | 50 | 65 | 57.5 | `by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md` |
 | `0001M3` | 50 | 65 | 57.5 | `by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md` |
@@ -186,6 +185,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
 | `0001O3` | 50 | 65 | 57.5 | `by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md` |
 | `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
+| `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
 
 ## Low_Confidence
 
@@ -196,7 +196,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001LZ` | 50 | 65 | 57.5 | `by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md` |
 | `0001M0` | 50 | 65 | 57.5 | `by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md` |
 | `0001M1` | 50 | 65 | 57.5 | `by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md` |
 | `0001M3` | 50 | 65 | 57.5 | `by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md` |
@@ -216,12 +215,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001MM` | 50 | 65 | 57.5 | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |
 | `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
 | `0001NT` | 50 | 65 | 57.5 | `by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md` |
+| `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001LZ` | 50 | 65 | 57.5 | `by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md` |
 | `0001M0` | 50 | 65 | 57.5 | `by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md` |
 | `0001M1` | 50 | 65 | 57.5 | `by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md` |
 | `0001M3` | 50 | 65 | 57.5 | `by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md` |
@@ -246,6 +245,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
 | `0001O3` | 50 | 65 | 57.5 | `by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md` |
 | `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
+| `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
 
 ## By Folder
 
@@ -381,7 +381,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001LZ` | 50 | 65 | 57.5 | `by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md` |
 | `0001M0` | 50 | 65 | 57.5 | `by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md` |
 | `0001M1` | 50 | 65 | 57.5 | `by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md` |
 | `0001M3` | 50 | 65 | 57.5 | `by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md` |
@@ -406,6 +405,7 @@ _No scored files._
 | `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
 | `0001O3` | 50 | 65 | 57.5 | `by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md` |
 | `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
+| `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
 
 ### by-meta
 
