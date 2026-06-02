@@ -1,8 +1,8 @@
 *** UID:000043 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for submit behavior, raw constructor bytes, and vtable identity; medium for raw-constructor reachability/modeling.
+- Confidence: strong for submit behavior, raw constructor bytes, vtable identity, packet behavior, and item-action module placement; medium for raw-constructor reachability/modeling.
 - Likely source file: [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md)
 - Address ranges: raw constructor [UID:0001MH][0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor](by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md), aggregate methods [UID:0001MG][0x005b44b0-0x005b538a.DropGiveInputPanes](by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md)
 - Current recovered file: `source-3/simroot_v2/class_DropGoldInputPane.cpp`
@@ -51,3 +51,7 @@
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `72/78`.
   - Summary/evidence: numeric prompt role, raw constructor bytes, submit method, busy gate, packet encoding, vtable identity, and creator relationship are documented; confidence stays below the other drop panes because constructor reachability/modeling remains raw.
+- 2026-06-02 metadata/evidence refresh:
+  - Before: page metadata left `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` blank.
+  - After: raised to `80/84`, marked reconstructable, and attached to [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md).
+  - Evidence: [UID:0001MH][0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor](by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md) and [UID:0001MG][0x005b44b0-0x005b538a.DropGiveInputPanes](by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md) now record refreshed constructor, submit, vtable, packet, and item-action ownership evidence.

@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1022
+Total_Reconstructable: 1026
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 495
+Total_Reconstructed_Assigned: 499
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 527
-Total_Unclassified: 1103
+Total_Unclassified: 1099
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -466,8 +466,12 @@ Total_Error: 0
 | [UID:0002SA][0x005b4220-0x005b4255.ShoutInputPaneRawConstructor](by-memory/0x005b4220-0x005b4255.ShoutInputPaneRawConstructor.md) | assigned | `0000D5` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-memory/0x005b4220-0x005b4255.ShoutInputPaneRawConstructor.md` |  |
 | [UID:0001MF][0x005b4260-0x005b43bc.ShoutInputPane](by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md) | assigned | `0000D5` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md` |  |
 | [UID:0001MG][0x005b44b0-0x005b538a.DropGiveInputPanes](by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |  |
+| [UID:0001MH][0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor](by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md) | assigned | `000043` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |  |
+| [UID:0001MI][0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor](by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md) | assigned | `00005T` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |  |
 | [UID:0002SB][0x005b5400-0x005b5440.GroupInputPaneRawConstructor](by-memory/0x005b5400-0x005b5440.GroupInputPaneRawConstructor.md) | assigned | `00005W` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-memory/0x005b5400-0x005b5440.GroupInputPaneRawConstructor.md` |  |
 | [UID:0001MJ][0x005b5440-0x005b5547.GroupInputPane](by-memory/0x005b5440-0x005b5547.GroupInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-memory/0x005b5440-0x005b5547.GroupInputPane.md` |  |
+| [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |  |
+| [UID:0001MM][0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor](by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md) | assigned | `0000EZ` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |  |
 | [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md` |  |
 | [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md` |  |
 | [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |  |
@@ -1836,11 +1840,7 @@ Total_Error: 0
 | [UID:0001LX][0x005b1410-0x005b14e6.SpellSlotInputPaneSubmitSpellSlot](by-memory/0x005b1410-0x005b14e6.SpellSlotInputPaneSubmitSpellSlot.md) | unclassified |  |  | no |  | `by-memory/0x005b1410-0x005b14e6.SpellSlotInputPaneSubmitSpellSlot.md` |  |
 | [UID:0001MD][0x005b3cb0-0x005b4219.SayToUserNameInputPane](by-memory/0x005b3cb0-0x005b4219.SayToUserNameInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b3cb0-0x005b4219.SayToUserNameInputPane.md` |  |
 | [UID:0001ME][0x005b3e80-0x005b4071.LineInputPaneHistoryNavigation](by-memory/0x005b3e80-0x005b4071.LineInputPaneHistoryNavigation.md) | unclassified |  |  | no |  | `by-memory/0x005b3e80-0x005b4071.LineInputPaneHistoryNavigation.md` |  |
-| [UID:0001MH][0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor](by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |  |
-| [UID:0001MI][0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor](by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |  |
 | [UID:0001MK][0x005b5630-0x005b5830.PostInputPane](by-memory/0x005b5630-0x005b5830.PostInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b5630-0x005b5830.PostInputPane.md` |  |
-| [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md) | unclassified |  |  | no |  | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |  |
-| [UID:0001MM][0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor](by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |  |
 | [UID:0001MN][0x005b6120-0x005b61e7.SpellSpellInputPaneConstructor](by-memory/0x005b6120-0x005b61e7.SpellSpellInputPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b6120-0x005b61e7.SpellSpellInputPaneConstructor.md` |  |
 | [UID:0001MO][0x005b6120-0x005b62c8.SpellSpellInputPane](by-memory/0x005b6120-0x005b62c8.SpellSpellInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b6120-0x005b62c8.SpellSpellInputPane.md` |  |
 | [UID:0001MP][0x005b61f0-0x005b625c.SpellSpellInputPaneKeyInput](by-memory/0x005b61f0-0x005b625c.SpellSpellInputPaneKeyInput.md) | unclassified |  |  | no |  | `by-memory/0x005b61f0-0x005b625c.SpellSpellInputPaneKeyInput.md` |  |

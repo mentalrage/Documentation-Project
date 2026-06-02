@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 05:34:22
+Generated: 2026-06-02 05:43:43
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -157,10 +157,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
-| `0001MI` | 50 | 65 | 57.5 | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |
-| `0001ML` | 50 | 65 | 57.5 | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |
-| `0001MM` | 50 | 65 | 57.5 | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |
 | `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
 | `0001NT` | 50 | 65 | 57.5 | `by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md` |
 | `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
@@ -182,6 +178,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
 | `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
 | `0001PI` | 50 | 65 | 57.5 | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |
+| `0001Q1` | 50 | 65 | 57.5 | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |
+| `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
+| `0000V3` | 50 | 70 | 60.0 | `by-item/PacketTransformHelpers.md` |
+| `0000UZ` | 50 | 75 | 62.5 | `by-item/LoadPcxImage_004A17B0.md` |
 
 ## Low_Confidence
 
@@ -192,10 +192,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
-| `0001MI` | 50 | 65 | 57.5 | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |
-| `0001ML` | 50 | 65 | 57.5 | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |
-| `0001MM` | 50 | 65 | 57.5 | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |
 | `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
 | `0001NT` | 50 | 65 | 57.5 | `by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md` |
 | `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
@@ -212,15 +208,15 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001P0` | 50 | 65 | 57.5 | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |
 | `0001P3` | 50 | 65 | 57.5 | `by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md` |
 | `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
+| `0001P9` | 50 | 65 | 57.5 | `by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md` |
+| `0001PE` | 50 | 65 | 57.5 | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |
+| `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
+| `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
-| `0001MI` | 50 | 65 | 57.5 | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |
-| `0001ML` | 50 | 65 | 57.5 | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |
-| `0001MM` | 50 | 65 | 57.5 | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |
 | `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
 | `0001NT` | 50 | 65 | 57.5 | `by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md` |
 | `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
@@ -242,6 +238,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
 | `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
 | `0001PI` | 50 | 65 | 57.5 | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |
+| `0001Q1` | 50 | 65 | 57.5 | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |
+| `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
+| `0000V3` | 50 | 70 | 60.0 | `by-item/PacketTransformHelpers.md` |
+| `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
 
 ## By Folder
 
@@ -377,10 +377,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
-| `0001MI` | 50 | 65 | 57.5 | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |
-| `0001ML` | 50 | 65 | 57.5 | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |
-| `0001MM` | 50 | 65 | 57.5 | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |
 | `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
 | `0001NT` | 50 | 65 | 57.5 | `by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md` |
 | `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
@@ -402,6 +398,10 @@ _No scored files._
 | `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
 | `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
 | `0001PI` | 50 | 65 | 57.5 | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |
+| `0001Q1` | 50 | 65 | 57.5 | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |
+| `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
+| `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
+| `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 
 ### by-meta
 

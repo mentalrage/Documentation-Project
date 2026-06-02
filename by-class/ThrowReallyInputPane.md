@@ -1,8 +1,8 @@
 *** UID:0000EZ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for accept behavior, raw constructor bytes, and vtable identity; medium for raw-constructor reachability.
+- Confidence: strong for accept behavior, raw constructor bytes, stored-slot layout, vtable identity, and item-action module placement; medium for raw-constructor reachability.
 - Likely source file: [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md)
 - Address ranges: [UID:0001MM][0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor](by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md), [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md)
 - Current recovered file: `source-3/simroot_v2/class_ThrowReallyInputPane.cpp`
@@ -51,3 +51,7 @@
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:82` and `CONFIDENCE:80`.
   - Summary/evidence: scored from the raw constructor/vtable evidence, stored slot layout, accept-body decompilation, packet send behavior, and documented caveat that the constructor bytes are not currently an IDA-defined function start.
+- 2026-06-02 reconstructable metadata alignment:
+  - Before: class coverage described this page as reconstructable, but page metadata left `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` blank.
+  - After: set `CONFIDENCE:84`, marked reconstructable, and attached to [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md).
+  - Evidence: [UID:0001MM][0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor](by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md) and [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md) now record refreshed constructor, accept handler, vtable, packet, and item-action ownership evidence.

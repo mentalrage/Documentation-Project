@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 136
+Total_Reconstructable: 139
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 49
+Total_Reconstructed_Assigned: 52
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 449
+Total_Unclassified: 446
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -27,12 +27,14 @@ Total_Error: 0
 | [UID:00003Z][DLPalette](by-class/DLPalette.md) | assigned | `0000MA` |  | no | `auto-generated/NexusTK/render/Palette.cpp` | `by-class/DLPalette.md` |  |
 | [UID:00003N][DeleteFromBlockListenInputPane](by-class/DeleteFromBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/DeleteFromBlockListenInputPane.md` |  |
 | [UID:00003Q][DescPane](by-class/DescPane.md) | assigned | `0000IS` |  | no | `auto-generated/NexusTK/ui/controls/DescPane.cpp` | `by-class/DescPane.md` |  |
+| [UID:000043][DropGoldInputPane](by-class/DropGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/DropGoldInputPane.md` |  |
 | [UID:000049][EffectObjectPane](by-class/EffectObjectPane.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/EffectObjectPane.md` |  |
 | [UID:00004B][EmotionInputPane](by-class/EmotionInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/EmotionInputPane.md` |  |
 | [UID:00004N][EventHandler](by-class/EventHandler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/EventHandler.md` |  |
 | [UID:00004P][ExceptionHandler](by-class/ExceptionHandler.md) | assigned | `0000J8` |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-class/ExceptionHandler.md` |  |
 | [UID:000058][FlyingParcelPane](by-class/FlyingParcelPane.md) | assigned | `0000MF` | 30 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/FlyingParcelPane.md` |  |
 | [UID:00005F][FpsPane](by-class/FpsPane.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-class/FpsPane.md` |  |
+| [UID:00005T][GiveGoldInputPane](by-class/GiveGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/GiveGoldInputPane.md` |  |
 | [UID:00005V][GrafPort](by-class/GrafPort.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-class/GrafPort.md` |  |
 | [UID:00005W][GroupInputPane](by-class/GroupInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/GroupInputPane.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
@@ -58,6 +60,7 @@ Total_Error: 0
 | [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/ShoutInputPane.md` |  |
 | [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
 | [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/TakeOffInputPane.md` |  |
+| [UID:0000EZ][ThrowReallyInputPane](by-class/ThrowReallyInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ThrowReallyInputPane.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
@@ -243,7 +246,6 @@ Total_Error: 0
 | [UID:000040][DoubleParamMemberFunctionObject0_void____thiscall_UserPane_____signed_char__h43ff6c8e0528](by-class/DoubleParamMemberFunctionObject0_void____thiscall_UserPane_____signed_char__h43ff6c8e0528.md) | unclassified |  |  | no |  | `by-class/DoubleParamMemberFunctionObject0_void____thiscall_UserPane_____signed_char__h43ff6c8e0528.md` |  |
 | [UID:000041][DoubleParamMemberFunctionObject_void____thiscall_MixItemDialog_____unsigne__h9ece1f1df45d](by-class/DoubleParamMemberFunctionObject_void____thiscall_MixItemDialog_____unsigne__h9ece1f1df45d.md) | unclassified |  |  | no |  | `by-class/DoubleParamMemberFunctionObject_void____thiscall_MixItemDialog_____unsigne__h9ece1f1df45d.md` |  |
 | [UID:000042][DropAllInputPane](by-class/DropAllInputPane.md) | unclassified |  |  | no |  | `by-class/DropAllInputPane.md` |  |
-| [UID:000043][DropGoldInputPane](by-class/DropGoldInputPane.md) | unclassified |  |  | no |  | `by-class/DropGoldInputPane.md` |  |
 | [UID:000044][DropInputPane](by-class/DropInputPane.md) | unclassified |  |  | no |  | `by-class/DropInputPane.md` |  |
 | [UID:00004G][EPFImageControlPane](by-class/EPFImageControlPane.md) | unclassified |  |  | no |  | `by-class/EPFImageControlPane.md` |  |
 | [UID:00004H][EPFTextEditObject](by-class/EPFTextEditObject.md) | unclassified |  |  | no |  | `by-class/EPFTextEditObject.md` |  |
@@ -286,7 +288,6 @@ Total_Error: 0
 | [UID:00005Q][GeneralPurposePanel](by-class/GeneralPurposePanel.md) | unclassified |  |  | no |  | `by-class/GeneralPurposePanel.md` |  |
 | [UID:00005R][GeneralPurposePanel2](by-class/GeneralPurposePanel2.md) | unclassified |  |  | no |  | `by-class/GeneralPurposePanel2.md` |  |
 | [UID:00005S][GiveAllInputPane](by-class/GiveAllInputPane.md) | unclassified |  |  | no |  | `by-class/GiveAllInputPane.md` |  |
-| [UID:00005T][GiveGoldInputPane](by-class/GiveGoldInputPane.md) | unclassified |  |  | no |  | `by-class/GiveGoldInputPane.md` |  |
 | [UID:00005U][GiveInputPane](by-class/GiveInputPane.md) | unclassified |  |  | no |  | `by-class/GiveInputPane.md` |  |
 | [UID:000060][HandlerFindFunc](by-class/HandlerFindFunc.md) | unclassified |  |  | no |  | `by-class/HandlerFindFunc.md` |  |
 | [UID:000062][HeadSelectDialog](by-class/HeadSelectDialog.md) | unclassified |  |  | no |  | `by-class/HeadSelectDialog.md` |  |
@@ -550,7 +551,6 @@ Total_Error: 0
 | [UID:0000EV][Thread](by-class/Thread.md) | unclassified |  |  | no |  | `by-class/Thread.md` |  |
 | [UID:0000EX][ThreadSafeNodeList](by-class/ThreadSafeNodeList.md) | unclassified |  |  | no |  | `by-class/ThreadSafeNodeList.md` |  |
 | [UID:0000EY][ThrowInputPane](by-class/ThrowInputPane.md) | unclassified |  |  | no |  | `by-class/ThrowInputPane.md` |  |
-| [UID:0000EZ][ThrowReallyInputPane](by-class/ThrowReallyInputPane.md) | unclassified |  |  | no |  | `by-class/ThrowReallyInputPane.md` |  |
 | [UID:0000F0][TimerHandler](by-class/TimerHandler.md) | unclassified |  |  | no |  | `by-class/TimerHandler.md` |  |
 | [UID:0000F1][TimerMgr](by-class/TimerMgr.md) | unclassified |  |  | no |  | `by-class/TimerMgr.md` |  |
 | [UID:0000F2][TimerMgrTimerQueue](by-class/TimerMgrTimerQueue.md) | unclassified |  |  | no |  | `by-class/TimerMgrTimerQueue.md` |  |
