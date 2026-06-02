@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1037
+Total_Reconstructable: 1039
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 507
+Total_Reconstructed_Assigned: 508
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 530
-Total_Unclassified: 1088
+Total_Reconstructable_Unassigned: 531
+Total_Unclassified: 1086
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -497,6 +497,7 @@ Total_Error: 0
 | [UID:0002GL][0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData](by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md) | assigned | `00008S` | 100 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md` |  |
 | [UID:00027B][0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag](by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |  |
 | [UID:0001OL][0x0066de18-0x0066de30.g_metaAliasTableName](by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md) | assigned | `0000LC` |  | no | `auto-generated/NexusTK/metadata/MetaMan.cpp` | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |  |
+| [UID:0001OR][0x0067a748-0x0067a74c.g_pCollectionData](by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |  |
 | [UID:00028Y][0x0067a878-0x0067a934.AesMutableStateAndKeySchedule](by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md) | assigned | `00020J` | 70 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md` |  |
 | [UID:000291][0x0067a980-0x0067a998.ApplicationTimingBaselines](by-memory/0x0067a980-0x0067a998.ApplicationTimingBaselines.md) | assigned | `0000HG` | 110 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a980-0x0067a998.ApplicationTimingBaselines.md` |  |
 | [UID:000293][0x0067a9c0-0x0067ab18.ApplicationOsVersionState](by-memory/0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md) | assigned | `0000HG` | 120 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md` |  |
@@ -1054,6 +1055,7 @@ Total_Error: 0
 | [UID:00027U][0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord](by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md) | unassigned |  |  | no |  | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |  |
 | [UID:0001ON][0x006702c8-0x00670784.RainCoordinateTables](by-memory/0x006702c8-0x00670784.RainCoordinateTables.md) | unassigned |  |  | no |  | `by-memory/0x006702c8-0x00670784.RainCoordinateTables.md` |  |
 | [UID:0001OO][0x00670784-0x006707d0.SnowPatternByteTables](by-memory/0x00670784-0x006707d0.SnowPatternByteTables.md) | unassigned |  |  | no |  | `by-memory/0x00670784-0x006707d0.SnowPatternByteTables.md` |  |
+| [UID:0001OP][0x0067a738-0x0067a73c.g_pCashShopRequest](by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md) | unassigned |  |  | no |  | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |  |
 | [UID:0001P7][0x0067ab48-0x0067ab4c.g_pKeySpeedMgr](by-memory/0x0067ab48-0x0067ab4c.g_pKeySpeedMgr.md) | unassigned |  |  | no |  | `by-memory/0x0067ab48-0x0067ab4c.g_pKeySpeedMgr.md` |  |
 | [UID:0002B5][0x0067adc4-0x0067adec.UiChatClanSingletonSlots](by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md) | unassigned |  |  | no |  | `by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md` |  |
 | [UID:00029Q][0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C](by-memory/0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C.md) | unassigned |  |  | no |  | `by-memory/0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C.md` |  |
@@ -2008,11 +2010,9 @@ Total_Error: 0
 | [UID:00028F][0x00672f24-0x006738c0.MsvcRuntimeMutableData](by-memory/0x00672f24-0x006738c0.MsvcRuntimeMutableData.md) | unclassified |  |  | no |  | `by-memory/0x00672f24-0x006738c0.MsvcRuntimeMutableData.md` |  |
 | [UID:00028G][0x006738c0-0x0067a730.CppRttiTypeDescriptorData](by-memory/0x006738c0-0x0067a730.CppRttiTypeDescriptorData.md) | unclassified |  |  | no |  | `by-memory/0x006738c0-0x0067a730.CppRttiTypeDescriptorData.md` |  |
 | [UID:00028H][0x0067a730-0x0067a738.CrtStdioOptionsStorage](by-memory/0x0067a730-0x0067a738.CrtStdioOptionsStorage.md) | unclassified |  |  | no |  | `by-memory/0x0067a730-0x0067a738.CrtStdioOptionsStorage.md` |  |
-| [UID:0001OP][0x0067a738-0x0067a73c.g_pCashShopRequest](by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md) | unclassified |  |  | no |  | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |  |
 | [UID:00028I][0x0067a73c-0x0067a740.g_pFittingRoomDialog](by-memory/0x0067a73c-0x0067a740.g_pFittingRoomDialog.md) | unclassified |  |  | no |  | `by-memory/0x0067a73c-0x0067a740.g_pFittingRoomDialog.md` |  |
 | [UID:00028J][0x0067a740-0x0067a744.g_pBackPane](by-memory/0x0067a740-0x0067a744.g_pBackPane.md) | unclassified |  |  | no |  | `by-memory/0x0067a740-0x0067a744.g_pBackPane.md` |  |
 | [UID:0001OQ][0x0067a744-0x0067a748.g_pEPFLib](by-memory/0x0067a744-0x0067a748.g_pEPFLib.md) | unclassified |  |  | no |  | `by-memory/0x0067a744-0x0067a748.g_pEPFLib.md` |  |
-| [UID:0001OR][0x0067a748-0x0067a74c.g_pCollectionData](by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md) | unclassified |  |  | no |  | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |  |
 | [UID:00028K][0x0067a74c-0x0067a750.g_pApplicationCleanupQueue](by-memory/0x0067a74c-0x0067a750.g_pApplicationCleanupQueue.md) | unclassified |  |  | no |  | `by-memory/0x0067a74c-0x0067a750.g_pApplicationCleanupQueue.md` |  |
 | [UID:0001OS][0x0067a750-0x0067a754.g_pLanguageMan](by-memory/0x0067a750-0x0067a754.g_pLanguageMan.md) | unclassified |  |  | no |  | `by-memory/0x0067a750-0x0067a754.g_pLanguageMan.md` |  |
 | [UID:00028L][0x0067a754-0x0067a758.g_pEventMan](by-memory/0x0067a754-0x0067a758.g_pEventMan.md) | unclassified |  |  | no |  | `by-memory/0x0067a754-0x0067a758.g_pEventMan.md` |  |

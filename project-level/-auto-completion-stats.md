@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 06:25:18
+Generated: 2026-06-02 06:30:43
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -153,8 +153,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
-| `0001OR` | 50 | 65 | 57.5 | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |
 | `0001P0` | 50 | 65 | 57.5 | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |
 | `0001P3` | 50 | 65 | 57.5 | `by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md` |
 | `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
@@ -178,6 +176,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00020E` | 50 | 85 | 67.5 | `by-memory/0x00460f10-0x00460f99.ByteSpanSubtractRows.md` |
 | `00020F` | 50 | 85 | 67.5 | `by-memory/0x00460fa0-0x00460ffe.ByteSpanFill8Blocks.md` |
 | `00020G` | 50 | 85 | 67.5 | `by-memory/0x00461000-0x0046104b.ByteSpanCopy8Blocks.md` |
+| `00020H` | 50 | 85 | 67.5 | `by-memory/0x00461050-0x0046109e.ByteSpanAdd8Blocks.md` |
+| `00020I` | 50 | 85 | 67.5 | `by-memory/0x004610a0-0x004610ee.ByteSpanSubtract8Blocks.md` |
 
 ## Low_Confidence
 
@@ -188,8 +188,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
-| `0001OR` | 50 | 65 | 57.5 | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |
 | `0001P0` | 50 | 65 | 57.5 | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |
 | `0001P3` | 50 | 65 | 57.5 | `by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md` |
 | `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
@@ -208,13 +206,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
 | `00021T` | 55 | 65 | 60.0 | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |
 | `00021Y` | 55 | 65 | 60.0 | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |
+| `00021Z` | 55 | 65 | 60.0 | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |
+| `000223` | 55 | 65 | 60.0 | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
-| `0001OR` | 50 | 65 | 57.5 | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |
 | `0001P0` | 50 | 65 | 57.5 | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |
 | `0001P3` | 50 | 65 | 57.5 | `by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md` |
 | `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
@@ -238,6 +236,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00021Z` | 55 | 65 | 60.0 | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |
 | `000223` | 55 | 65 | 60.0 | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |
 | `000141` | 55 | 65 | 60.0 | `by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md` |
+| `00022C` | 55 | 65 | 60.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
+| `0002HY` | 55 | 65 | 60.0 | `by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md` |
 
 ## By Folder
 
@@ -373,8 +373,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
-| `0001OR` | 50 | 65 | 57.5 | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |
 | `0001P0` | 50 | 65 | 57.5 | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |
 | `0001P3` | 50 | 65 | 57.5 | `by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md` |
 | `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
@@ -398,6 +396,8 @@ _No scored files._
 | `000223` | 55 | 65 | 60.0 | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |
 | `000141` | 55 | 65 | 60.0 | `by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md` |
 | `00022C` | 55 | 65 | 60.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
+| `0002HY` | 55 | 65 | 60.0 | `by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md` |
+| `00023F` | 55 | 65 | 60.0 | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |
 
 ### by-meta
 
