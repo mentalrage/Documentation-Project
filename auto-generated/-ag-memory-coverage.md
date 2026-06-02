@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1177
+Total_Reconstructable: 1179
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 636
+Total_Reconstructed_Assigned: 638
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 541
-Total_Unclassified: 952
+Total_Unclassified: 950
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -93,6 +93,8 @@ Total_Error: 0
 | [UID:0000ZM][0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions](by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md) | assigned | `0000HW` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |  |
 | [UID:0002SE][0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest](by-memory/0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest.md) | assigned | `000033` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest.md` |  |
 | [UID:0002SF][0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest](by-memory/0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest.md) | assigned | `000034` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest.md` |  |
+| [UID:0002G0][0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw](by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md) | assigned | `00001T` | 40 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |  |
+| [UID:0002G1][0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw](by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md) | assigned | `00001T` | 50 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md` |  |
 | [UID:00021D][0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request](by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |  |
 | [UID:00021E][0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request](by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |  |
 | [UID:00021F][0x00485520-0x00485588.SendClanJoinListRefreshPacket](by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |  |
@@ -1463,8 +1465,6 @@ Total_Error: 0
 | [UID:0002FX][0x004824e0-0x00482b01.ChattingColorPaneConstructor](by-memory/0x004824e0-0x00482b01.ChattingColorPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x004824e0-0x00482b01.ChattingColorPaneConstructor.md` |  |
 | [UID:0002FY][0x00482b10-0x00482b2f.ChattingColorPaneDestructor](by-memory/0x00482b10-0x00482b2f.ChattingColorPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00482b10-0x00482b2f.ChattingColorPaneDestructor.md` |  |
 | [UID:0002FZ][0x00482b30-0x00482c32.ChattingColorPaneOnButtonResponse](by-memory/0x00482b30-0x00482c32.ChattingColorPaneOnButtonResponse.md) | unclassified |  |  | no |  | `by-memory/0x00482b30-0x00482c32.ChattingColorPaneOnButtonResponse.md` |  |
-| [UID:0002G0][0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw](by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md) | unclassified |  |  | no |  | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |  |
-| [UID:0002G1][0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw](by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md) | unclassified |  |  | no |  | `by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md` |  |
 | [UID:0002G2][0x00482ca0-0x00482d3c.ChattingColorSelectPaneConstructor](by-memory/0x00482ca0-0x00482d3c.ChattingColorSelectPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00482ca0-0x00482d3c.ChattingColorSelectPaneConstructor.md` |  |
 | [UID:0002G5][0x00482d60-0x00482f4f.ChattingColorSelectPaneDrawItem](by-memory/0x00482d60-0x00482f4f.ChattingColorSelectPaneDrawItem.md) | unclassified |  |  | no |  | `by-memory/0x00482d60-0x00482f4f.ChattingColorSelectPaneDrawItem.md` |  |
 | [UID:0002G6][0x00482f50-0x00482fa5.ChattingColorSelectPaneOnSelectionChanged](by-memory/0x00482f50-0x00482fa5.ChattingColorSelectPaneOnSelectionChanged.md) | unclassified |  |  | no |  | `by-memory/0x00482f50-0x00482fa5.ChattingColorSelectPaneOnSelectionChanged.md` |  |

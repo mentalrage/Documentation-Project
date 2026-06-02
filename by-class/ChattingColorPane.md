@@ -1,9 +1,9 @@
 *** UID:00001T | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000I5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -38,6 +38,12 @@
 - Wave3 also lists later methods at `0x0049dad0`, `0x00529ee0`, `0x0052a120`, `0x005304c0`, and `0x005304f0` under `ChattingColorPane`; those should not drive chat source-file ownership without a focused owner review. The `0x005304c0` and `0x005304f0` bodies are now documented as [UID:0001CU][0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers](by-memory/0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers.md), not chat-color methods.
 - Confirmed object fields in the local constructor include child pointers at `+0x26c`, `+0x270`, and `+0x274`, persisted color-byte storage across `+0x278..+0x2a4`, and selected/category state at `+0x2a8`.
 
+## Reconstruction Notes
+
+- Reconstructable: true for the local chat color dialog shell and exact child methods through `0x00482ca0`.
+- Parent: [UID:0000I5][Chatting](by-file/Chatting.md). A future split into `social/ChatColorDialog.cpp` remains plausible, but the file-level chat module is the current stable owner.
+- C++: intentionally blank. The constructor/action behavior is strong, but helper names, vtable slot semantics, and polluted generated-class ownership still need final cleanup before source-quality output.
+
 ## Evidence Notes
 
 - IDA MCP confirms exact local bodies at `0x004824e0-0x00482b01`, `0x00482b10-0x00482b2f`, `0x00482b30-0x00482c32`, raw helpers at `0x00482c40-0x00482c54` and `0x00482c60-0x00482c9f`, and `0xcc` padding between those bodies.
@@ -66,3 +72,7 @@
 - What existed before: the method list used a broad `0x004824e0-0x00482b00` constructor/destructor-labeled range and one button-response range.
 - What it was changed to: exact by-memory child pages now cover constructor, destructor body, button response, two raw helper bodies, and internal padding through `0x00482ca0`; score was updated from `60/70` to `78/84`.
 - Summary and evidence: IDA MCP function iteration, vtable data, decompilation, raw disassembly, and padding audit verify the local color dialog core. The score remains below high because later generated class attachments are still polluted and the raw helper callers/source names remain unresolved.
+- 2026-06-02:
+  - Before: reconstructable/autogen metadata was blank despite strong local range evidence.
+  - After: marked `RECONSTRUCTABLE:TRUE` and attached under [UID:0000I5][Chatting](by-file/Chatting.md).
+  - Summary/evidence: parent file confidence is strong enough for autogen ownership, while C++ remains blank pending final helper names and source split.

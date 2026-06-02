@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 181
+Total_Reconstructable: 183
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 92
+Total_Reconstructed_Assigned: 94
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 89
-Total_Unclassified: 404
+Total_Unclassified: 402
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -22,6 +22,7 @@ Total_Error: 0
 | [UID:00001J][ChangeItemSlotInputPane](by-class/ChangeItemSlotInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ChangeItemSlotInputPane.md` |  |
 | [UID:00001M][ChangeSpellSlotInputPane](by-class/ChangeSpellSlotInputPane.md) | assigned | `0000O0` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-class/ChangeSpellSlotInputPane.md` |  |
 | [UID:00001Q][ChatInputPane](by-class/ChatInputPane.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChatInputPane.md` |  |
+| [UID:00001T][ChattingColorPane](by-class/ChattingColorPane.md) | assigned | `0000I5` | 80 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChattingColorPane.md` |  |
 | [UID:00002T][CloudFilterEffecter](by-class/CloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/CloudFilterEffecter.md` |  |
 | [UID:000033][ConfirmDeleteAlert](by-class/ConfirmDeleteAlert.md) | assigned | `0000HW` | 40 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteAlert.md` |  |
 | [UID:000034][ConfirmDeleteMailAlert](by-class/ConfirmDeleteMailAlert.md) | assigned | `0000HW` | 60 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteMailAlert.md` |  |
@@ -51,6 +52,7 @@ Total_Error: 0
 | [UID:00005T][GiveGoldInputPane](by-class/GiveGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/GiveGoldInputPane.md` |  |
 | [UID:00005V][GrafPort](by-class/GrafPort.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-class/GrafPort.md` |  |
 | [UID:00005W][GroupInputPane](by-class/GroupInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/GroupInputPane.md` |  |
+| [UID:000060][HandlerFindFunc](by-class/HandlerFindFunc.md) | assigned | `0000J7` | 80 | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/HandlerFindFunc.md` |  |
 | [UID:00006B][IconsPane](by-class/IconsPane.md) | assigned | `0000JZ` |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-class/IconsPane.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPaneState.md` |  |
@@ -233,7 +235,6 @@ Total_Error: 0
 | [UID:00001N][CharacterSummaryRecord](by-class/CharacterSummaryRecord.md) | unclassified |  |  | no |  | `by-class/CharacterSummaryRecord.md` |  |
 | [UID:00001R][ChattingBackPane](by-class/ChattingBackPane.md) | unclassified |  |  | no |  | `by-class/ChattingBackPane.md` |  |
 | [UID:00001S][ChattingColorListPane](by-class/ChattingColorListPane.md) | unclassified |  |  | no |  | `by-class/ChattingColorListPane.md` |  |
-| [UID:00001T][ChattingColorPane](by-class/ChattingColorPane.md) | unclassified |  |  | no |  | `by-class/ChattingColorPane.md` |  |
 | [UID:00001U][ChattingColorSelectPane](by-class/ChattingColorSelectPane.md) | unclassified |  |  | no |  | `by-class/ChattingColorSelectPane.md` |  |
 | [UID:00001V][ChattingHandlePane](by-class/ChattingHandlePane.md) | unclassified |  |  | no |  | `by-class/ChattingHandlePane.md` |  |
 | [UID:00001W][ChattingModifyHeightPane](by-class/ChattingModifyHeightPane.md) | unclassified |  |  | no |  | `by-class/ChattingModifyHeightPane.md` |  |
@@ -315,7 +316,6 @@ Total_Error: 0
 | [UID:00005R][GeneralPurposePanel2](by-class/GeneralPurposePanel2.md) | unclassified |  |  | no |  | `by-class/GeneralPurposePanel2.md` |  |
 | [UID:00005S][GiveAllInputPane](by-class/GiveAllInputPane.md) | unclassified |  |  | no |  | `by-class/GiveAllInputPane.md` |  |
 | [UID:00005U][GiveInputPane](by-class/GiveInputPane.md) | unclassified |  |  | no |  | `by-class/GiveInputPane.md` |  |
-| [UID:000060][HandlerFindFunc](by-class/HandlerFindFunc.md) | unclassified |  |  | no |  | `by-class/HandlerFindFunc.md` |  |
 | [UID:000062][HeadSelectDialog](by-class/HeadSelectDialog.md) | unclassified |  |  | no |  | `by-class/HeadSelectDialog.md` |  |
 | [UID:000061][HeaderSystemMessage](by-class/HeaderSystemMessage.md) | unclassified |  |  | no |  | `by-class/HeaderSystemMessage.md` |  |
 | [UID:000063][HelpPane](by-class/HelpPane.md) | unclassified |  |  | no |  | `by-class/HelpPane.md` |  |
