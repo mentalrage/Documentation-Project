@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 10:06:16
+Generated: 2026-06-02 10:12:58
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -142,10 +142,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001Z5` | 58 | 88 | 73.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
-| `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
-| `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
-| `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
-| `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
 | `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
 | `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `0002G3` | 60 | 72 | 66.0 | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |
@@ -166,6 +162,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001ZE` | 60 | 85 | 72.5 | `by-memory/0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper.md` |
 | `000202` | 60 | 85 | 72.5 | `by-memory/0x0045d790-0x0045d7c2.RankingRewardEntryVectorInit.md` |
 | `000204` | 60 | 85 | 72.5 | `by-memory/0x0045db60-0x0045db9e.RankingRewardEntryItemAt.md` |
+| `0001ZI` | 60 | 85 | 72.5 | `by-memory/0x0045eae0-0x0045efd0.RankingRewardVectorStorageHelpers.md` |
+| `0001ZK` | 60 | 85 | 72.5 | `by-memory/0x0045f020-0x0045f0a7.RankingRewardEntryVectorDestroy.md` |
+| `0001ZJ` | 60 | 85 | 72.5 | `by-memory/0x0045f130-0x0045f33a.RankingRewardVectorRangeAllocationHelpers.md` |
+| `00021A` | 60 | 85 | 72.5 | `by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md` |
 
 ## Low_Confidence
 
@@ -175,10 +175,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000MV` | 76 | 62 | 69.0 | `by-file/ProtocolSend.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
-| `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
-| `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
-| `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
 | `0000TA` | 65 | 65 | 65.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 65 | 65 | 65.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
 | `0000TE` | 65 | 65 | 65.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
@@ -196,15 +192,15 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002AW` | 70 | 65 | 67.5 | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |
 | `00029K` | 70 | 65 | 67.5 | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |
 | `0002A8` | 75 | 65 | 70.0 | `by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md` |
+| `0002A9` | 75 | 65 | 70.0 | `by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md` |
+| `00003X` | 62 | 66 | 64.0 | `by-class/DirectionButtonControlPane.md` |
+| `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
+| `0000AB` | 62 | 68 | 65.0 | `by-class/PatchPane__PatchFileData.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
-| `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
-| `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
-| `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
 | `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
 | `00003X` | 62 | 66 | 64.0 | `by-class/DirectionButtonControlPane.md` |
 | `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
@@ -226,6 +222,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BM` | 60 | 72 | 66.0 | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |
 | `0002BO` | 60 | 72 | 66.0 | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |
 | `0002CE` | 60 | 72 | 66.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
+| `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
+| `0002DU` | 60 | 74 | 67.0 | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |
+| `0002FP` | 62 | 72 | 67.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
+| `0002FQ` | 62 | 72 | 67.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
 
 ## By Folder
 
@@ -361,10 +361,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
-| `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
-| `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
-| `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
 | `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
@@ -386,6 +382,10 @@ _No scored files._
 | `0002BL` | 62 | 73 | 67.5 | `by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md` |
 | `0002BC` | 65 | 70 | 67.5 | `by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md` |
 | `000201` | 70 | 65 | 67.5 | `by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md` |
+| `0002AV` | 70 | 65 | 67.5 | `by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md` |
+| `0002AW` | 70 | 65 | 67.5 | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |
+| `00029K` | 70 | 65 | 67.5 | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |
+| `0002IA` | 60 | 76 | 68.0 | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |
 
 ### by-meta
 

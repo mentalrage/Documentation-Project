@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1110
+Total_Reconstructable: 1114
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 570
+Total_Reconstructed_Assigned: 574
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 540
-Total_Unclassified: 1016
+Total_Unclassified: 1012
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -154,6 +154,8 @@ Total_Error: 0
 | [UID:00015T][0x004b7ca0-0x004b7cb6.RectArea](by-memory/0x004b7ca0-0x004b7cb6.RectArea.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-memory/0x004b7ca0-0x004b7cb6.RectArea.md` |  |
 | [UID:00022I][0x004b7f90-0x004b8198.RectAnchorTransformHelpers](by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md) | assigned | `0000N2` | 45 | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md` |  |
 | [UID:00015U][0x004b8220-0x004b8284.BuildFieldMapPath](by-memory/0x004b8220-0x004b8284.BuildFieldMapPath.md) | assigned | `0000JA` |  | no | `auto-generated/NexusTK/map/FieldMapPane.cpp` | `by-memory/0x004b8220-0x004b8284.BuildFieldMapPath.md` |  |
+| [UID:00022L][0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper](by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md) | assigned | `0000N2` | 46 | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |  |
+| [UID:00022M][0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter](by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md) | assigned | `00005V` | 35 | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |  |
 | [UID:000160][0x004b8bf0-0x004bb8c4.GrafPort](by-memory/0x004b8bf0-0x004bb8c4.GrafPort.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-memory/0x004b8bf0-0x004bb8c4.GrafPort.md` |  |
 | [UID:000162][0x004b95e0-0x004b969f.GrafPortDrawStateAccessors](by-memory/0x004b95e0-0x004b969f.GrafPortDrawStateAccessors.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-memory/0x004b95e0-0x004b969f.GrafPortDrawStateAccessors.md` |  |
 | [UID:000163][0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers](by-memory/0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-memory/0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers.md` |  |
@@ -260,8 +262,10 @@ Total_Error: 0
 | [UID:0002QO][0x005060f0-0x00506169.MapPaneRemoveObjectPaneById](by-memory/0x005060f0-0x00506169.MapPaneRemoveObjectPaneById.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x005060f0-0x00506169.MapPaneRemoveObjectPaneById.md` |  |
 | [UID:0002QP][0x00506170-0x005061d3.MapPaneDetachObjectPane](by-memory/0x00506170-0x005061d3.MapPaneDetachObjectPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00506170-0x005061d3.MapPaneDetachObjectPane.md` |  |
 | [UID:0002QQ][0x005062f0-0x0050637a.MapPaneFindObjectIntersectingRect](by-memory/0x005062f0-0x0050637a.MapPaneFindObjectIntersectingRect.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x005062f0-0x0050637a.MapPaneFindObjectIntersectingRect.md` |  |
+| [UID:000231][0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper](by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md) | assigned | `0000L3` | 35 | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |  |
 | [UID:0001AS][0x005063e0-0x00506962.ProfileSidecarRefresh](by-memory/0x005063e0-0x00506962.ProfileSidecarRefresh.md) | assigned | `0000MS` |  | no | `auto-generated/NexusTK/profile/ProfileStorage.cpp` | `by-memory/0x005063e0-0x00506962.ProfileSidecarRefresh.md` |  |
 | [UID:0001AU][0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane](by-memory/0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane.md` |  |
+| [UID:000232][0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch](by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md) | assigned | `0000L3` | 36 | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |  |
 | [UID:0001AY][0x00513800-0x00513920.SelfSaveOKPaneFactory](by-memory/0x00513800-0x00513920.SelfSaveOKPaneFactory.md) | assigned | `0000NN` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveOKPane.cpp` | `by-memory/0x00513800-0x00513920.SelfSaveOKPaneFactory.md` |  |
 | [UID:0001B0][0x005147d0-0x00514914.SelfSaveOKPane](by-memory/0x005147d0-0x00514914.SelfSaveOKPane.md) | assigned | `0000NN` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveOKPane.cpp` | `by-memory/0x005147d0-0x00514914.SelfSaveOKPane.md` |  |
 | [UID:0001B6][0x005151f0-0x00515f48.MD5HashHelpers](by-memory/0x005151f0-0x00515f48.MD5HashHelpers.md) | assigned | `0000L6` |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-memory/0x005151f0-0x00515f48.MD5HashHelpers.md` |  |
@@ -1557,13 +1561,11 @@ Total_Error: 0
 | [UID:00015M][0x004b6cb0-0x004b7112.FrameScheduler](by-memory/0x004b6cb0-0x004b7112.FrameScheduler.md) | unclassified |  |  | no |  | `by-memory/0x004b6cb0-0x004b7112.FrameScheduler.md` |  |
 | [UID:00015P][0x004b7590-0x004b75a6.FramePartPaneAdjustorThunks](by-memory/0x004b7590-0x004b75a6.FramePartPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b7590-0x004b75a6.FramePartPaneAdjustorThunks.md` |  |
 | [UID:00022K][0x004b81f0-0x004b821e.FileExists](by-memory/0x004b81f0-0x004b821e.FileExists.md) | unclassified |  |  | no |  | `by-memory/0x004b81f0-0x004b821e.FileExists.md` |  |
-| [UID:00022L][0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper](by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md) | unclassified |  |  | no |  | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |  |
 | [UID:00015V][0x004b83d0-0x004b8bd3.GeneralPurposePanel](by-memory/0x004b83d0-0x004b8bd3.GeneralPurposePanel.md) | unclassified |  |  | no |  | `by-memory/0x004b83d0-0x004b8bd3.GeneralPurposePanel.md` |  |
 | [UID:00015W][0x004b85f0-0x004b8643.GeneralPurposePanelChildAccessors](by-memory/0x004b85f0-0x004b8643.GeneralPurposePanelChildAccessors.md) | unclassified |  |  | no |  | `by-memory/0x004b85f0-0x004b8643.GeneralPurposePanelChildAccessors.md` |  |
 | [UID:00015X][0x004b8650-0x004b8822.GeneralPurposePanelSwitchActiveTab](by-memory/0x004b8650-0x004b8822.GeneralPurposePanelSwitchActiveTab.md) | unclassified |  |  | no |  | `by-memory/0x004b8650-0x004b8822.GeneralPurposePanelSwitchActiveTab.md` |  |
 | [UID:00015Y][0x004b89a0-0x004b8a7e.GeneralPurposePanel2SwitchActiveChild](by-memory/0x004b89a0-0x004b8a7e.GeneralPurposePanel2SwitchActiveChild.md) | unclassified |  |  | no |  | `by-memory/0x004b89a0-0x004b8a7e.GeneralPurposePanel2SwitchActiveChild.md` |  |
 | [UID:00015Z][0x004b8a80-0x004b8a9a.GeneralPurposePanelSingletonClearHelpers](by-memory/0x004b8a80-0x004b8a9a.GeneralPurposePanelSingletonClearHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004b8a80-0x004b8a9a.GeneralPurposePanelSingletonClearHelpers.md` |  |
-| [UID:00022M][0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter](by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md) | unclassified |  |  | no |  | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |  |
 | [UID:000161][0x004b8e00-0x004b8e11.BackPaneGetBounds](by-memory/0x004b8e00-0x004b8e11.BackPaneGetBounds.md) | unclassified |  |  | no |  | `by-memory/0x004b8e00-0x004b8e11.BackPaneGetBounds.md` |  |
 | [UID:000167][0x004ba250-0x004ba444.SurfaceSpriteBlitHelper](by-memory/0x004ba250-0x004ba444.SurfaceSpriteBlitHelper.md) | unclassified |  |  | no |  | `by-memory/0x004ba250-0x004ba444.SurfaceSpriteBlitHelper.md` |  |
 | [UID:000168][0x004ba450-0x004ba53b.GrafPortDrawRectFrame](by-memory/0x004ba450-0x004ba53b.GrafPortDrawRectFrame.md) | unclassified |  |  | no |  | `by-memory/0x004ba450-0x004ba53b.GrafPortDrawRectFrame.md` |  |
@@ -1647,8 +1649,6 @@ Total_Error: 0
 | [UID:0001AM][0x00503620-0x00503648.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503648.MiniMapButtonPaneCleanup.md) | unclassified |  |  | no |  | `by-memory/0x00503620-0x00503648.MiniMapButtonPaneCleanup.md` |  |
 | [UID:0001AN][0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks.md) | unclassified |  |  | no |  | `by-memory/0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks.md` |  |
 | [UID:0001AQ][0x00505100-0x00505123.ScaleDirectionOffsetToPixels](by-memory/0x00505100-0x00505123.ScaleDirectionOffsetToPixels.md) | unclassified |  |  | no |  | `by-memory/0x00505100-0x00505123.ScaleDirectionOffsetToPixels.md` |  |
-| [UID:000231][0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper](by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md) | unclassified |  |  | no |  | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |  |
-| [UID:000232][0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch](by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md) | unclassified |  |  | no |  | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |  |
 | [UID:0001AX][0x00510400-0x005104c7.MapPaneDayNightPacketRawBody](by-memory/0x00510400-0x005104c7.MapPaneDayNightPacketRawBody.md) | unclassified |  |  | no |  | `by-memory/0x00510400-0x005104c7.MapPaneDayNightPacketRawBody.md` |  |
 | [UID:0001AZ][0x00514380-0x005143b7.FriendNameListSyncRawHandler](by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md) | unclassified |  |  | no |  | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |  |
 | [UID:0001B1][0x00514920-0x00514e5b.MapRefreshDimmer](by-memory/0x00514920-0x00514e5b.MapRefreshDimmer.md) | unclassified |  |  | no |  | `by-memory/0x00514920-0x00514e5b.MapRefreshDimmer.md` |  |
