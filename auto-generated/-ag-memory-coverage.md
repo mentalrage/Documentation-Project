@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1203
+Total_Reconstructable: 1205
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 667
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 536
-Total_Unclassified: 926
+Total_Reconstructable_Unassigned: 538
+Total_Unclassified: 924
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -1191,6 +1191,7 @@ Total_Error: 0
 | [UID:0002NK][0x006244c4-0x00624550.GroupPane2VtableData](by-memory/0x006244c4-0x00624550.GroupPane2VtableData.md) | unassigned |  |  | no |  | `by-memory/0x006244c4-0x00624550.GroupPane2VtableData.md` |  |
 | [UID:0002NL][0x00624550-0x006245dc.NewGroupPaneVtableData](by-memory/0x00624550-0x006245dc.NewGroupPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00624550-0x006245dc.NewGroupPaneVtableData.md` |  |
 | [UID:00026F][0x00624c64-0x00624f20.SimpleServerSelectReadOnlyData](by-memory/0x00624c64-0x00624f20.SimpleServerSelectReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00624c64-0x00624f20.SimpleServerSelectReadOnlyData.md` |  |
+| [UID:00026J][0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData](by-memory/0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData.md` |  |
 | [UID:00026O][0x0062df94-0x0062e26c.TextEditReadOnlyData](by-memory/0x0062df94-0x0062e26c.TextEditReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0062df94-0x0062e26c.TextEditReadOnlyData.md` |  |
 | [UID:0002OZ][0x0062e184-0x0062e18c.TextFilterVtableData](by-memory/0x0062e184-0x0062e18c.TextFilterVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0062e184-0x0062e18c.TextFilterVtableData.md` |  |
 | [UID:00026S][0x0062e57c-0x0062e624.UniApiUrlAlertReadOnlyData](by-memory/0x0062e57c-0x0062e624.UniApiUrlAlertReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0062e57c-0x0062e624.UniApiUrlAlertReadOnlyData.md` |  |
@@ -1205,6 +1206,7 @@ Total_Error: 0
 | [UID:0002N7][0x0063041c-0x006304a4.SpellSpellInputPaneVtableData](by-memory/0x0063041c-0x006304a4.SpellSpellInputPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0063041c-0x006304a4.SpellSpellInputPaneVtableData.md` |  |
 | [UID:0002N8][0x006305c0-0x00630648.SelfSaveInputPaneVtableData](by-memory/0x006305c0-0x00630648.SelfSaveInputPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x006305c0-0x00630648.SelfSaveInputPaneVtableData.md` |  |
 | [UID:0002N9][0x0063064c-0x006307ec.BlockListenInputPaneVtableData](by-memory/0x0063064c-0x006307ec.BlockListenInputPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0063064c-0x006307ec.BlockListenInputPaneVtableData.md` |  |
+| [UID:00026X][0x006307f4-0x00630bd8.UserPaneInputStrings](by-memory/0x006307f4-0x00630bd8.UserPaneInputStrings.md) | unassigned |  |  | no |  | `by-memory/0x006307f4-0x00630bd8.UserPaneInputStrings.md` |  |
 | [UID:00026Z][0x0063104c-0x00631184.VideoVirusReadOnlyData](by-memory/0x0063104c-0x00631184.VideoVirusReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0063104c-0x00631184.VideoVirusReadOnlyData.md` |  |
 | [UID:0002OT][0x006310dc-0x006310e4.VirusCheckerVtableData](by-memory/0x006310dc-0x006310e4.VirusCheckerVtableData.md) | unassigned |  |  | no |  | `by-memory/0x006310dc-0x006310e4.VirusCheckerVtableData.md` |  |
 | [UID:0002P2][0x00631184-0x0063118c.WaitableTimerVtableData](by-memory/0x00631184-0x0063118c.WaitableTimerVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00631184-0x0063118c.WaitableTimerVtableData.md` |  |
@@ -1972,7 +1974,6 @@ Total_Error: 0
 | [UID:000269][0x00622d24-0x00622f54.QueueReconnectCopyReadOnlyData](by-memory/0x00622d24-0x00622f54.QueueReconnectCopyReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x00622d24-0x00622f54.QueueReconnectCopyReadOnlyData.md` |  |
 | [UID:00026G][0x00624f20-0x00625008.SocketReadOnlyData](by-memory/0x00624f20-0x00625008.SocketReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x00624f20-0x00625008.SocketReadOnlyData.md` |  |
 | [UID:00026I][0x0062ce60-0x0062d02c.AudioReadOnlyData](by-memory/0x0062ce60-0x0062d02c.AudioReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0062ce60-0x0062d02c.AudioReadOnlyData.md` |  |
-| [UID:00026J][0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData](by-memory/0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData.md` |  |
 | [UID:00026K][0x0062d418-0x0062d5ac.StartupWindowReadOnlyData](by-memory/0x0062d418-0x0062d5ac.StartupWindowReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0062d418-0x0062d5ac.StartupWindowReadOnlyData.md` |  |
 | [UID:00026L][0x0062d5ac-0x0062d5fc.StdioFileStringIterReadOnlyData](by-memory/0x0062d5ac-0x0062d5fc.StdioFileStringIterReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0062d5ac-0x0062d5fc.StdioFileStringIterReadOnlyData.md` |  |
 | [UID:00026M][0x0062d5fc-0x0062da10.SystemMessageReadOnlyData](by-memory/0x0062d5fc-0x0062da10.SystemMessageReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0062d5fc-0x0062da10.SystemMessageReadOnlyData.md` |  |
@@ -1981,7 +1982,6 @@ Total_Error: 0
 | [UID:00026Q][0x0062e338-0x0062e480.TimerTotemReadOnlyData](by-memory/0x0062e338-0x0062e480.TimerTotemReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0062e338-0x0062e480.TimerTotemReadOnlyData.md` |  |
 | [UID:00026R][0x0062e480-0x0062e57c.TransferServerReadOnlyData](by-memory/0x0062e480-0x0062e57c.TransferServerReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0062e480-0x0062e57c.TransferServerReadOnlyData.md` |  |
 | [UID:00026V][0x0062eccc-0x0062ef0c.UserLookReadOnlyData](by-memory/0x0062eccc-0x0062ef0c.UserLookReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0062eccc-0x0062ef0c.UserLookReadOnlyData.md` |  |
-| [UID:00026X][0x006307f4-0x00630bd8.UserPaneInputStrings](by-memory/0x006307f4-0x00630bd8.UserPaneInputStrings.md) | unclassified |  |  | no |  | `by-memory/0x006307f4-0x00630bd8.UserPaneInputStrings.md` |  |
 | [UID:0001OF][0x00630bd8-0x00630c06.g_equipmentSlotKeys](by-memory/0x00630bd8-0x00630c06.g_equipmentSlotKeys.md) | unclassified |  |  | no |  | `by-memory/0x00630bd8-0x00630c06.g_equipmentSlotKeys.md` |  |
 | [UID:00026Y][0x00630c06-0x0063104c.UserStatusMenuReadOnlyData](by-memory/0x00630c06-0x0063104c.UserStatusMenuReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x00630c06-0x0063104c.UserStatusMenuReadOnlyData.md` |  |
 | [UID:000271][0x00631400-0x00631570.WorldMapReadOnlyData](by-memory/0x00631400-0x00631570.WorldMapReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x00631400-0x00631570.WorldMapReadOnlyData.md` |  |
