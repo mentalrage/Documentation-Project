@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 11:37:46
+Generated: 2026-06-02 11:41:18
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -137,8 +137,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00026H` | 60 | 85 | 72.5 | `by-memory/0x00625008-0x0062ce60.ServerPacketNameTable.md` |
-| `00027N` | 60 | 85 | 72.5 | `by-memory/0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable.md` |
 | `00027Z` | 60 | 85 | 72.5 | `by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md` |
 | `000281` | 60 | 85 | 72.5 | `by-memory/0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary.md` |
 | `0001R9` | 60 | 85 | 72.5 | `by-resource/employee-dialog-resources.md` |
@@ -162,6 +160,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00017N` | 62 | 78 | 70.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
 | `0002R4` | 62 | 78 | 70.0 | `by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md` |
 | `0002RU` | 62 | 78 | 70.0 | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |
+| `0002P9` | 62 | 80 | 71.0 | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |
+| `0002HV` | 62 | 80 | 71.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
 
 ## Low_Confidence
 
