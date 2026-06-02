@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 18:41:51
+Generated: 2026-06-02 18:46:13
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -120,7 +120,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00005M` | 66 | 82 | 74.0 | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |
 | `0002NP` | 66 | 82 | 74.0 | `by-memory/0x00488630-0x00488674.ClanStringListPaneRawConstructor.md` |
 | `00021V` | 66 | 82 | 74.0 | `by-memory/0x00488fa0-0x00488fd5.ClanDepMoneyInputDialogRawConstructor.md` |
 | `0002NT` | 66 | 82 | 74.0 | `by-memory/0x00489070-0x004890a5.ClanWidMoneyInputDialogRawConstructor.md` |
@@ -145,6 +144,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000234` | 66 | 88 | 77.0 | `by-memory/0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize.md` |
 | `000260` | 67 | 86 | 76.5 | `by-memory/0x00620284-0x00620c74.ObjectPaneReadOnlyData.md` |
 | `00025S` | 67 | 88 | 77.5 | `by-memory/0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData.md` |
+| `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 
 ## Low_Confidence
 
@@ -234,9 +234,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00007J` | 72 | 74 | 73.0 | `by-class/MailDeleteReplyAlert.md` |
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
-| `00005M` | 66 | 82 | 74.0 | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |
 | `00000Y` | 68 | 80 | 74.0 | `by-class/BlueAlertPane.md` |
 | `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
+| `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
 
 ### by-external-research
 

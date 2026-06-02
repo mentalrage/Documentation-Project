@@ -1,13 +1,13 @@
 *** UID:0000JO | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # FunctionObjects
 
 ## Status
 
-- Confidence: medium for original source name, strong for support/template role.
+- Confidence: high for shared callback utility ownership; still capped for exact original file naming.
 - Proposed header-heavy module: `util/FunctionObjects.h`
 - Optional companion source: `util/FunctionObjects.cpp`
 - Current recovered sources: the `source-3/simroot_v2/class_*FunctionObject*.cpp` family.
@@ -36,6 +36,9 @@ Do not treat each long generated `class_*FunctionObject*.cpp` file as an origina
 
 ## Evidence Notes
 
+- The project-structure page explicitly reserves `util/FunctionObjects.cpp` / `util/FunctionObjects.h` for this family, with header-heavy template declarations and optional emitted destructor/base support.
+- [UID:0001Q9][client_callback_dispatch](by-meta/client_callback_dispatch.md) independently routes reusable callback declarations, base destructors, and virtual dispatch helpers into `FunctionObjects` while leaving construction sites in feature modules.
+- [UID:0001WQ][FunctionObjectTemplates](by-type/by-template/FunctionObjectTemplates.md) records the shared template family and known instantiations across application, popup-menu, music dialog, mix-item, and user-pane consumers.
 - IDA `lookup_funcs` confirms representative callback bodies as small real functions: `0x0049af00` size `0x11`, `0x004671a0` size `0x0d`, `0x004b0880` size `0x21`, `0x0052a3e0` size `0x5e`, and `0x005b77b0` size `0x18`.
 - IDA `xrefs_to` for these bodies are data/vtable references rather than normal code callers, which is expected for virtual callback objects.
 - 2026-05-26 IDA MCP recheck reconfirms those representative boundaries and reports no direct code callers for the invoke wrappers.
@@ -52,6 +55,12 @@ Feature modules should own the code that allocates and configures these callback
 Current feature consumers include [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md), [UID:0000LN][MusicControlDialog](by-file/MusicControlDialog.md), [UID:0000M1][NumberInputDialog](by-file/NumberInputDialog.md), [UID:0000KE][ItemDialogs](by-file/ItemDialogs.md), [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md), [UID:0000HG][Application](by-file/Application.md), and [UID:0000P1][UserPane](by-file/UserPane.md).
 
 `StringUtil.cpp` should not absorb the `FunctionObjectT<mystr::StringBase<...>>` files only because the template parameter is a string type. Those instantiations are callback-template support.
+
+## Attachment Policy
+
+Pages for generated `FunctionObject*` instantiations may use this file as `AUTOGEN_PARENT_UID` when their own type/function evidence is at least high-confidence and the page describes reusable callback support rather than feature-specific construction. Keep feature-specific invoke wrappers cross-linked to their consumer modules, but do not move constructor/allocation ownership out of those modules only because the callback object type lives here.
+
+The confidence score is raised only to the minimum parent-link threshold because the shared utility role is well supported but the exact original source split is still inferred. Final source could have been a mostly header-only `FunctionObjects.h`, a small companion `.cpp`, or a project-specific callback header with a different basename.
 
 ## Generated Output Caveats
 
@@ -76,6 +85,10 @@ Current feature consumers include [UID:0000MN][PopupMenuControls](by-file/PopupM
 
 ## Changes
 
+- 2026-06-02 parent-link confidence refinement:
+  - What existed before: `COMPLETION:82` and `CONFIDENCE:76`.
+  - Changed to: `COMPLETION:84` and `CONFIDENCE:80`.
+  - Summary/evidence: existing project-structure, meta-dispatch, template-family, and IDA vtable/data-xref evidence now supports using this file as a parent for high-confidence generated `FunctionObject*` template pages. Confidence remains capped at 80 because exact original header/source naming is still not proven.
 - 2026-06-01 reconstruction path fill-in:
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank while the body proposed `util/FunctionObjects.h` with an optional `util/FunctionObjects.cpp`.
   - Changed to: `NexusTK/util/`.
