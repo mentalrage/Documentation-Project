@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 18:32:38
+Generated: 2026-06-02 18:37:20
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -121,11 +121,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BS` | 66 | 80 | 73.0 | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |
-| `0002BT` | 66 | 80 | 73.0 | `by-memory/0x005266b0-0x00526784.MidiTrackBufferedByteReader.md` |
-| `0002BW` | 66 | 80 | 73.0 | `by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md` |
-| `0002C2` | 66 | 80 | 73.0 | `by-memory/0x00527000-0x00527039.MidiSourceRawReadHelper.md` |
-| `0002C5` | 66 | 80 | 73.0 | `by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md` |
 | `00005M` | 66 | 82 | 74.0 | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |
 | `00009J` | 66 | 82 | 74.0 | `by-class/NumberArgsInputPane.md` |
 | `00009L` | 66 | 82 | 74.0 | `by-class/NumberInputPane.md` |
@@ -146,6 +141,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000176` | 66 | 82 | 74.0 | `by-memory/0x004d0f50-0x004d165d.ImageFrameTable.md` |
 | `000008` | 66 | 84 | 75.0 | `by-class/AddItemWithCountDialog.md` |
 | `0002KU` | 66 | 84 | 75.0 | `by-memory/0x004d1730-0x004d1772.ResourceLayoutTableGetFrameSize.md` |
+| `0002KV` | 66 | 84 | 75.0 | `by-memory/0x004d1780-0x004d17b2.ResourceLayoutTableGetEntryCount.md` |
+| `0002JD` | 66 | 84 | 75.0 | `by-memory/0x00517240-0x0051724f.SeparatorMenuItemGetStyleFlags.md` |
+| `00024S` | 66 | 84 | 75.0 | `by-memory/0x00610ed8-0x006125a8.AboveFrameAndLocaleReadOnlyData.md` |
+| `00025Z` | 66 | 86 | 76.0 | `by-memory/0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData.md` |
+| `000234` | 66 | 88 | 77.0 | `by-memory/0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize.md` |
 
 ## Low_Confidence
 
@@ -205,7 +205,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
 | `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
 | `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
-| `0002BS` | 66 | 80 | 73.0 | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |
+| `000018` | 68 | 78 | 73.0 | `by-class/BrowserDialogOld.md` |
 
 ## By Folder
 
@@ -354,11 +354,6 @@ _No scored files._
 | `0002C3` | 68 | 76 | 72.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 | `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
 | `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
-| `0002BS` | 66 | 80 | 73.0 | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |
-| `0002BT` | 66 | 80 | 73.0 | `by-memory/0x005266b0-0x00526784.MidiTrackBufferedByteReader.md` |
-| `0002BW` | 66 | 80 | 73.0 | `by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md` |
-| `0002C2` | 66 | 80 | 73.0 | `by-memory/0x00527000-0x00527039.MidiSourceRawReadHelper.md` |
-| `0002C5` | 66 | 80 | 73.0 | `by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md` |
 | `0002JW` | 68 | 78 | 73.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
 | `0002FP` | 68 | 78 | 73.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 | `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
@@ -366,6 +361,11 @@ _No scored files._
 | `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
+| `0002C9` | 68 | 78 | 73.0 | `by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md` |
+| `0002CA` | 68 | 78 | 73.0 | `by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md` |
+| `0002CD` | 68 | 78 | 73.0 | `by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md` |
+| `0002CE` | 68 | 78 | 73.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
+| `0001HP` | 68 | 78 | 73.0 | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |
 
 ### by-meta
 

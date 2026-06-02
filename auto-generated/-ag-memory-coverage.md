@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1218
+Total_Reconstructable: 1223
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 678
+Total_Reconstructed_Assigned: 683
 Total_Reconstructed_Coded: 18
 Total_Reconstructable_Unassigned: 540
-Total_Unclassified: 911
+Total_Unclassified: 906
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -388,7 +388,12 @@ Total_Error: 0
 | [UID:0001CF][0x00525b10-0x0052664b.MidiPlayerAndWinMMHelpers](by-memory/0x00525b10-0x0052664b.MidiPlayerAndWinMMHelpers.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x00525b10-0x0052664b.MidiPlayerAndWinMMHelpers.md` |  |
 | [UID:0001CG][0x00525be0-0x00525dbb.MidiStreamCallback](by-memory/0x00525be0-0x00525dbb.MidiStreamCallback.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x00525be0-0x00525dbb.MidiStreamCallback.md` |  |
 | [UID:0001CH][0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers](by-memory/0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers.md` |  |
+| [UID:0002BS][0x00526650-0x005266a1.MidiExactReadHelper](by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |  |
+| [UID:0002BT][0x005266b0-0x00526784.MidiTrackBufferedByteReader](by-memory/0x005266b0-0x00526784.MidiTrackBufferedByteReader.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x005266b0-0x00526784.MidiTrackBufferedByteReader.md` |  |
+| [UID:0002BW][0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader](by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md` |  |
+| [UID:0002C2][0x00527000-0x00527039.MidiSourceRawReadHelper](by-memory/0x00527000-0x00527039.MidiSourceRawReadHelper.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x00527000-0x00527039.MidiSourceRawReadHelper.md` |  |
 | [UID:0002C4][0x00527080-0x005270b5.MidiReaderConstructorInit](by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |  |
+| [UID:0002C5][0x005270c0-0x005270d5.MidiParseSuccessWrapper](by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md` |  |
 | [UID:0001CI][0x005270e0-0x005271a3.MidiDocumentRelease](by-memory/0x005270e0-0x005271a3.MidiDocumentRelease.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x005270e0-0x005271a3.MidiDocumentRelease.md` |  |
 | [UID:0001CJ][0x005277c0-0x005285dd.MiscWorkThreadAndNotifications](by-memory/0x005277c0-0x005285dd.MiscWorkThreadAndNotifications.md) | assigned | `0000LG` |  | no | `auto-generated/NexusTK/app/MiscWorkThread.cpp` | `by-memory/0x005277c0-0x005285dd.MiscWorkThreadAndNotifications.md` |  |
 | [UID:0002QR][0x0052a540-0x0052c325.NewUserDialogPane2CreateUserVariant](by-memory/0x0052a540-0x0052c325.NewUserDialogPane2CreateUserVariant.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0052a540-0x0052c325.NewUserDialogPane2CreateUserVariant.md` |  |
@@ -1714,15 +1719,10 @@ Total_Error: 0
 | [UID:0001C5][0x005226f0-0x005226fb.MessageShowPaneClearSingletonEH](by-memory/0x005226f0-0x005226fb.MessageShowPaneClearSingletonEH.md) | unclassified |  |  | no |  | `by-memory/0x005226f0-0x005226fb.MessageShowPaneClearSingletonEH.md` |  |
 | [UID:0001C6][0x005226fb-0x00522711.MessageShowPaneAdjustorThunks](by-memory/0x005226fb-0x00522711.MessageShowPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x005226fb-0x00522711.MessageShowPaneAdjustorThunks.md` |  |
 | [UID:0001C7][0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor](by-memory/0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor.md` |  |
-| [UID:0002BS][0x00526650-0x005266a1.MidiExactReadHelper](by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md) | unclassified |  |  | no |  | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |  |
 | [UID:00023B][0x00526650-0x005270d5.MidiFileReaderAndSMFParserHelpers](by-memory/0x00526650-0x005270d5.MidiFileReaderAndSMFParserHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00526650-0x005270d5.MidiFileReaderAndSMFParserHelpers.md` |  |
-| [UID:0002BT][0x005266b0-0x00526784.MidiTrackBufferedByteReader](by-memory/0x005266b0-0x00526784.MidiTrackBufferedByteReader.md) | unclassified |  |  | no |  | `by-memory/0x005266b0-0x00526784.MidiTrackBufferedByteReader.md` |  |
 | [UID:0002BU][0x00526790-0x005269ea.MidiEventReader](by-memory/0x00526790-0x005269ea.MidiEventReader.md) | unclassified |  |  | no |  | `by-memory/0x00526790-0x005269ea.MidiEventReader.md` |  |
 | [UID:0002BV][0x005269f0-0x00526ba8.MidiStreamEventEncoder](by-memory/0x005269f0-0x00526ba8.MidiStreamEventEncoder.md) | unclassified |  |  | no |  | `by-memory/0x005269f0-0x00526ba8.MidiStreamEventEncoder.md` |  |
-| [UID:0002BW][0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader](by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md) | unclassified |  |  | no |  | `by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md` |  |
 | [UID:0002BY][0x00526da0-0x00526f09.MidiTrackBufferPrimeReset](by-memory/0x00526da0-0x00526f09.MidiTrackBufferPrimeReset.md) | unclassified |  |  | no |  | `by-memory/0x00526da0-0x00526f09.MidiTrackBufferPrimeReset.md` |  |
-| [UID:0002C2][0x00527000-0x00527039.MidiSourceRawReadHelper](by-memory/0x00527000-0x00527039.MidiSourceRawReadHelper.md) | unclassified |  |  | no |  | `by-memory/0x00527000-0x00527039.MidiSourceRawReadHelper.md` |  |
-| [UID:0002C5][0x005270c0-0x005270d5.MidiParseSuccessWrapper](by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md) | unclassified |  |  | no |  | `by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md` |  |
 | [UID:0002C6][0x005271b0-0x005273a0.MidiStreamBufferFillHelper](by-memory/0x005271b0-0x005273a0.MidiStreamBufferFillHelper.md) | unclassified |  |  | no |  | `by-memory/0x005271b0-0x005273a0.MidiStreamBufferFillHelper.md` |  |
 | [UID:00023C][0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers](by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md) | unclassified |  |  | no |  | `by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md` |  |
 | [UID:0002C7][0x005273a0-0x005277bb.MidiSMFDocumentLoadHelper](by-memory/0x005273a0-0x005277bb.MidiSMFDocumentLoadHelper.md) | unclassified |  |  | no |  | `by-memory/0x005273a0-0x005277bb.MidiSMFDocumentLoadHelper.md` |  |
