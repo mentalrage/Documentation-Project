@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 15:08:26
+Generated: 2026-06-02 15:20:11
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -124,8 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002GO` | 65 | 85 | 75.0 | `by-memory/0x004651e0-0x004651e7.ApplicationIsRunning.md` |
-| `00020R` | 65 | 85 | 75.0 | `by-memory/0x00469050-0x0046907a.ObjectPaneClearOutputRects.md` |
 | `00020S` | 65 | 85 | 75.0 | `by-memory/0x00469080-0x004690a5.ObjectPaneGetEmptyRect.md` |
 | `000217` | 65 | 85 | 75.0 | `by-memory/0x004710d0-0x004710df.BrowserPanePlaySound.md` |
 | `000218` | 65 | 85 | 75.0 | `by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md` |
@@ -149,6 +147,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000276` | 65 | 85 | 75.0 | `by-memory/0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks.md` |
 | `000278` | 65 | 85 | 75.0 | `by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md` |
 | `00027M` | 65 | 85 | 75.0 | `by-memory/0x0066db44-0x0066db4c.UiResourceStringPointers.md` |
+| `00027O` | 65 | 85 | 75.0 | `by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md` |
+| `00029U` | 65 | 85 | 75.0 | `by-memory/0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags.md` |
 
 ## Low_Confidence
 

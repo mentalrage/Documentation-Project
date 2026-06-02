@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1183
+Total_Reconstructable: 1184
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 660
-Total_Reconstructed_Coded: 19
-Total_Reconstructable_Unassigned: 523
-Total_Unclassified: 946
+Total_Reconstructed_Coded: 18
+Total_Reconstructable_Unassigned: 524
+Total_Unclassified: 945
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -78,6 +78,7 @@ Total_Error: 0
 | [UID:0002H5][0x00464f50-0x00465115.ApplicationDetectOS](by-memory/0x00464f50-0x00465115.ApplicationDetectOS.md) | assigned | `00000D` | 8 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00464f50-0x00465115.ApplicationDetectOS.md` |  |
 | [UID:0002JV][0x00465120-0x00465124.ApplicationGetOsCode](by-memory/0x00465120-0x00465124.ApplicationGetOsCode.md) | assigned | `00000D` | 31 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465120-0x00465124.ApplicationGetOsCode.md` |  |
 | [UID:0002JW][0x00465130-0x004651b8.ApplicationReadProcessorName](by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md) | assigned | `00000D` | 32 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |  |
+| [UID:0002GO][0x004651e0-0x004651e7.ApplicationIsRunning](by-memory/0x004651e0-0x004651e7.ApplicationIsRunning.md) | assigned | `00000D` | 50 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004651e0-0x004651e7.ApplicationIsRunning.md` |  |
 | [UID:0002JY][0x004652e0-0x004652fc.ApplicationCopyProcessorName](by-memory/0x004652e0-0x004652fc.ApplicationCopyProcessorName.md) | assigned | `00000D` | 34 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004652e0-0x004652fc.ApplicationCopyProcessorName.md` |  |
 | [UID:0002GP][0x00465300-0x00465308.ApplicationGetVersionMajor](by-memory/0x00465300-0x00465308.ApplicationGetVersionMajor.md) | assigned | `00000D` | 60 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465300-0x00465308.ApplicationGetVersionMajor.md` |  |
 | [UID:0002GQ][0x00465310-0x00465318.ApplicationGetVersionMinor](by-memory/0x00465310-0x00465318.ApplicationGetVersionMinor.md) | assigned | `00000D` | 70 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465310-0x00465318.ApplicationGetVersionMinor.md` |  |
@@ -658,7 +659,6 @@ Total_Error: 0
 | [UID:0002H4][0x00464f40-0x00464f47.ApplicationIsExitRequested](by-memory/0x00464f40-0x00464f47.ApplicationIsExitRequested.md) | coded | `00000D` | 7 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00464f40-0x00464f47.ApplicationIsExitRequested.md` |  |
 | [UID:0002GM][0x004651c0-0x004651c4.ApplicationGetInstanceHandle](by-memory/0x004651c0-0x004651c4.ApplicationGetInstanceHandle.md) | coded | `00000D` | 30 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004651c0-0x004651c4.ApplicationGetInstanceHandle.md` |  |
 | [UID:0002GN][0x004651d0-0x004651d7.ApplicationGetMainWindowHandle](by-memory/0x004651d0-0x004651d7.ApplicationGetMainWindowHandle.md) | coded | `00000D` | 40 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004651d0-0x004651d7.ApplicationGetMainWindowHandle.md` |  |
-| [UID:0002GO][0x004651e0-0x004651e7.ApplicationIsRunning](by-memory/0x004651e0-0x004651e7.ApplicationIsRunning.md) | coded | `00000D` | 50 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004651e0-0x004651e7.ApplicationIsRunning.md` |  |
 | [UID:0002GR][0x00465650-0x00465686.ApplicationExchangeMSGHandler](by-memory/0x00465650-0x00465686.ApplicationExchangeMSGHandler.md) | coded | `00000D` | 80 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465650-0x00465686.ApplicationExchangeMSGHandler.md` |  |
 | [UID:0002GS][0x00465690-0x0046572d.ApplicationMapFromScreen](by-memory/0x00465690-0x0046572d.ApplicationMapFromScreen.md) | coded | `00000D` | 90 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465690-0x0046572d.ApplicationMapFromScreen.md` |  |
 | [UID:0002GT][0x00465730-0x004657cd.ApplicationMapToScreen](by-memory/0x00465730-0x004657cd.ApplicationMapToScreen.md) | coded | `00000D` | 100 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465730-0x004657cd.ApplicationMapToScreen.md` |  |
@@ -704,6 +704,7 @@ Total_Error: 0
 | [UID:0002JX][0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo](by-memory/0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo.md) | unassigned |  |  | no |  | `by-memory/0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo.md` |  |
 | [UID:0002JZ][0x00465320-0x00465424.GetExecutableVersionLowWord](by-memory/0x00465320-0x00465424.GetExecutableVersionLowWord.md) | unassigned |  |  | no |  | `by-memory/0x00465320-0x00465424.GetExecutableVersionLowWord.md` |  |
 | [UID:0000YS][0x004657d0-0x00467406.PasswordGuardAndFatalError](by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md) | unassigned |  |  | no |  | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |  |
+| [UID:00020R][0x00469050-0x0046907a.ObjectPaneClearOutputRects](by-memory/0x00469050-0x0046907a.ObjectPaneClearOutputRects.md) | unassigned |  |  | no |  | `by-memory/0x00469050-0x0046907a.ObjectPaneClearOutputRects.md` |  |
 | [UID:0002M0][0x004690b0-0x004690f6.BlackHoleConstructor](by-memory/0x004690b0-0x004690f6.BlackHoleConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004690b0-0x004690f6.BlackHoleConstructor.md` |  |
 | [UID:0000Z0][0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue](by-memory/0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue.md) | unassigned |  |  | no |  | `by-memory/0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue.md` |  |
 | [UID:0002M1][0x00469100-0x00469115.BlackHoleDestructor](by-memory/0x00469100-0x00469115.BlackHoleDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00469100-0x00469115.BlackHoleDestructor.md` |  |
@@ -1384,7 +1385,6 @@ Total_Error: 0
 | [UID:0000YW][0x004673a0-0x004673b1.DestroyExceptionHandler](by-memory/0x004673a0-0x004673b1.DestroyExceptionHandler.md) | unclassified |  |  | no |  | `by-memory/0x004673a0-0x004673b1.DestroyExceptionHandler.md` |  |
 | [UID:0000YY][0x00467510-0x00467b2d.BackPaneAndBackGroundPane](by-memory/0x00467510-0x00467b2d.BackPaneAndBackGroundPane.md) | unclassified |  |  | no |  | `by-memory/0x00467510-0x00467b2d.BackPaneAndBackGroundPane.md` |  |
 | [UID:0000YZ][0x00467b30-0x0046904e.BalloonObjectPane](by-memory/0x00467b30-0x0046904e.BalloonObjectPane.md) | unclassified |  |  | no |  | `by-memory/0x00467b30-0x0046904e.BalloonObjectPane.md` |  |
-| [UID:00020R][0x00469050-0x0046907a.ObjectPaneClearOutputRects](by-memory/0x00469050-0x0046907a.ObjectPaneClearOutputRects.md) | unclassified |  |  | no |  | `by-memory/0x00469050-0x0046907a.ObjectPaneClearOutputRects.md` |  |
 | [UID:00020S][0x00469080-0x004690a5.ObjectPaneGetEmptyRect](by-memory/0x00469080-0x004690a5.ObjectPaneGetEmptyRect.md) | unclassified |  |  | no |  | `by-memory/0x00469080-0x004690a5.ObjectPaneGetEmptyRect.md` |  |
 | [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md) | unclassified |  |  | no |  | `by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md` |  |
 | [UID:0000Z4][0x00469640-0x0046a39c.BrowserWindowCore](by-memory/0x00469640-0x0046a39c.BrowserWindowCore.md) | unclassified |  |  | no |  | `by-memory/0x00469640-0x0046a39c.BrowserWindowCore.md` |  |

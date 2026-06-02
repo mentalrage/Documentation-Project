@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 190
+Total_Reconstructable: 191
 Total_Not_Reconstructable: 1
 Total_Reconstructed_Assigned: 104
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 86
-Total_Unclassified: 395
+Total_Reconstructable_Unassigned: 87
+Total_Unclassified: 394
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -181,6 +181,7 @@ Total_Error: 0
 | [UID:00008W][MyItemListPane](by-class/MyItemListPane.md) | unassigned |  |  | no |  | `by-class/MyItemListPane.md` |  |
 | [UID:000090][NewGroupPane](by-class/NewGroupPane.md) | unassigned |  |  | no |  | `by-class/NewGroupPane.md` |  |
 | [UID:00009Q][ObjectList](by-class/ObjectList.md) | unassigned |  |  | no |  | `by-class/ObjectList.md` |  |
+| [UID:00009R][ObjectPane](by-class/ObjectPane.md) | unassigned |  |  | no |  | `by-class/ObjectPane.md` |  |
 | [UID:0000A8][PasswordError](by-class/PasswordError.md) | unassigned |  |  | no |  | `by-class/PasswordError.md` |  |
 | [UID:0000AL][PlainMemberFunctionObjectT_void____thiscall_MusicControlDialog_____class_m__h73bc206d7ae6](by-class/PlainMemberFunctionObjectT_void____thiscall_MusicControlDialog_____class_m__h73bc206d7ae6.md) | unassigned |  |  | no |  | `by-class/PlainMemberFunctionObjectT_void____thiscall_MusicControlDialog_____class_m__h73bc206d7ae6.md` |  |
 | [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md) | unassigned |  |  | no |  | `by-class/ResourceLayoutTable.md` |  |
@@ -417,7 +418,6 @@ Total_Error: 0
 | [UID:00009N][ObjectImageButtonPane](by-class/ObjectImageButtonPane.md) | unclassified |  |  | no |  | `by-class/ObjectImageButtonPane.md` |  |
 | [UID:00009O][ObjectImageControlPane](by-class/ObjectImageControlPane.md) | unclassified |  |  | no |  | `by-class/ObjectImageControlPane.md` |  |
 | [UID:00009P][ObjectInfoObjectPane](by-class/ObjectInfoObjectPane.md) | unclassified |  |  | no |  | `by-class/ObjectInfoObjectPane.md` |  |
-| [UID:00009R][ObjectPane](by-class/ObjectPane.md) | unclassified |  |  | no |  | `by-class/ObjectPane.md` |  |
 | [UID:00009S][ObjectStatusBlob](by-class/ObjectStatusBlob.md) | unclassified |  |  | no |  | `by-class/ObjectStatusBlob.md` |  |
 | [UID:00009T][OldSystemMessagePane](by-class/OldSystemMessagePane.md) | unclassified |  |  | no |  | `by-class/OldSystemMessagePane.md` |  |
 | [UID:00009U][OldUserStatusPane](by-class/OldUserStatusPane.md) | unclassified |  |  | no |  | `by-class/OldUserStatusPane.md` |  |

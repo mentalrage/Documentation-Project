@@ -52,12 +52,6 @@ HWND Application::GetMainWindowHandle() const
     return m_hMainWnd;
 }
 
-// UID:0002GO | by-memory/0x004651e0-0x004651e7.ApplicationIsRunning.md
-bool Application::IsRunning() const
-{
-    return m_isRunning != 0;
-}
-
 // UID:0002GR | by-memory/0x00465650-0x00465686.ApplicationExchangeMSGHandler.md
 MSGHandler* Application::ExchangeMSGHandler(MSGHandler* handler)
 {

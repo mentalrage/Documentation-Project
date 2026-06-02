@@ -1,7 +1,7 @@
 *** UID:00009R | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Current recovered file: `source-3/simroot_v2/class_ObjectPane.cpp`
 - Current Wave3 grade: `96.4`
 - Current Wave3 coverage: 12 modeled methods, zero missing target refs.
+- Rebuild handling: source-authored class; C++ block remains blank because final layout, virtual slot names, and emitted source are not final-audit quality.
 
 ## Class Purpose
 
@@ -61,3 +62,7 @@ Classes such as [UID:00007B][LivingObjectPane](by-class/LivingObjectPane.md), it
 - Before: completion/confidence metadata were `0/0` even though the page already covered base-class purpose, object state, method anchors, and a Wave3 materialization caveat.
 - Changed to: `COMPLETION:82` and `CONFIDENCE:80`.
 - Evidence: the page documents constructor/destructor, attach/detach, bounds, object-data, position, helper virtuals, derived-class relationships, and the `SetObjectData` emitted-source omission; confidence remains medium-high because one important method still depends on IDA decompilation rather than current generated output.
+- 2026-06-02 reconstructable marker update:
+  - What existed before: the class page described a reconstructable ObjectPane base class but left `RECONSTRUCTABLE` blank.
+  - What it was changed to: marked `RECONSTRUCTABLE:TRUE` while keeping the C++ block blank.
+  - Summary/evidence: ObjectPane owns confirmed constructor/destructor, attach/detach, bounds, object-data, position, and virtual rect helper methods; final emitted class source still waits on layout and virtual-slot naming.
