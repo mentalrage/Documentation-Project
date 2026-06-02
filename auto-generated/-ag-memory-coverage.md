@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2120
-Total_Reconstructable: 941
+Total_Reconstructable: 942
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 416
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 525
-Total_Unclassified: 1168
+Total_Reconstructable_Unassigned: 526
+Total_Unclassified: 1167
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -824,6 +824,7 @@ Total_Error: 0
 | [UID:0001J4][0x00584910-0x0058498b.SimpleUStringVectorPushBack](by-memory/0x00584910-0x0058498b.SimpleUStringVectorPushBack.md) | unassigned |  |  | no |  | `by-memory/0x00584910-0x0058498b.SimpleUStringVectorPushBack.md` |  |
 | [UID:0002O9][0x0058e380-0x0058e3d7.TextEditPaneCopyWideText](by-memory/0x0058e380-0x0058e3d7.TextEditPaneCopyWideText.md) | unassigned |  |  | no |  | `by-memory/0x0058e380-0x0058e3d7.TextEditPaneCopyWideText.md` |  |
 | [UID:0002RU][0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides](by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md) | unassigned |  |  | no |  | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |  |
+| [UID:0001JT][0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter](by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md) | unassigned |  |  | no |  | `by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md` |  |
 | [UID:0001K6][0x00597570-0x005986da.TimerMgrAndTimerQueue](by-memory/0x00597570-0x005986da.TimerMgrAndTimerQueue.md) | unassigned |  |  | no |  | `by-memory/0x00597570-0x005986da.TimerMgrAndTimerQueue.md` |  |
 | [UID:0002KX][0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick](by-memory/0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick.md) | unassigned |  |  | no |  | `by-memory/0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick.md` |  |
 | [UID:0001KA][0x00597dc0-0x005986da.TimerMgrQueueHelpers](by-memory/0x00597dc0-0x005986da.TimerMgrQueueHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00597dc0-0x005986da.TimerMgrQueueHelpers.md` |  |
@@ -1715,7 +1716,6 @@ Total_Error: 0
 | [UID:0001JP][0x00591d60-0x00593a10.TextEditPaneFormattingRuns](by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md) | unclassified |  |  | no |  | `by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md` |  |
 | [UID:0001JR][0x00593db0-0x00593ef5.DrawTextRunCallback](by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md) | unclassified |  |  | no |  | `by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md` |  |
 | [UID:0001JS][0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap](by-memory/0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap.md) | unclassified |  |  | no |  | `by-memory/0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap.md` |  |
-| [UID:0001JT][0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter](by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md) | unclassified |  |  | no |  | `by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md` |  |
 | [UID:0001JU][0x00595760-0x005958fe.TextFilterAndSanitizer](by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md) | unclassified |  |  | no |  | `by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md` |  |
 | [UID:0001JV][0x00595900-0x00596242.TextPad](by-memory/0x00595900-0x00596242.TextPad.md) | unclassified |  |  | no |  | `by-memory/0x00595900-0x00596242.TextPad.md` |  |
 | [UID:0001JW][0x00595be0-0x00595f26.TextPadCommandHelper](by-memory/0x00595be0-0x00595f26.TextPadCommandHelper.md) | unclassified |  |  | no |  | `by-memory/0x00595be0-0x00595f26.TextPadCommandHelper.md` |  |
