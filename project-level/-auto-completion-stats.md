@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 07:18:29
+Generated: 2026-06-02 07:27:59
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -63,7 +63,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000K5` | blank | `(blank)` | `by-file/IMEPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JZ` | blank | `(blank)` | `by-file/IconsPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K0` | blank | `(blank)` | `by-file/IdleWatcher.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000K3` | blank | `(blank)` | `by-file/ImageLoaders.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K4` | blank | `(blank)` | `by-file/ImageWriters.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K6` | blank | `(blank)` | `by-file/InputMan.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K7` | blank | `(blank)` | `by-file/InputPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -150,8 +149,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000UZ` | 50 | 75 | 62.5 | `by-item/LoadPcxImage_004A17B0.md` |
-| `0000V2` | 50 | 75 | 62.5 | `by-item/PacketDigest_00515380.md` |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
 | `000208` | 50 | 85 | 67.5 | `by-memory/0x00460940-0x004609d3.BlitTransparentShadow565MmxBlocks.md` |
@@ -175,6 +172,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
 | `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
 | `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
+| `00021H` | 55 | 65 | 60.0 | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |
+| `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
 
 ## Low_Confidence
 
@@ -230,11 +229,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
 | `0002AZ` | 55 | 65 | 60.0 | `by-memory/0x0069b4f8-0x0069b4fc.MapPaneRenderScratchFlag.md` |
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
-| `0000UZ` | 50 | 75 | 62.5 | `by-item/LoadPcxImage_004A17B0.md` |
-| `0000V2` | 50 | 75 | 62.5 | `by-item/PacketDigest_00515380.md` |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
 | `0000CU` | 55 | 70 | 62.5 | `by-class/SelfLookPane.md` |
+| `0000NY` | 55 | 70 | 62.5 | `by-file/SpecializedButtonPanes.md` |
+| `0001KJ` | 55 | 70 | 62.5 | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |
 
 ## By Folder
 
@@ -340,8 +339,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000UZ` | 50 | 75 | 62.5 | `by-item/LoadPcxImage_004A17B0.md` |
-| `0000V2` | 50 | 75 | 62.5 | `by-item/PacketDigest_00515380.md` |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
 | `0000UO` | 60 | 78 | 69.0 | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |
@@ -365,6 +362,8 @@ _No scored files._
 | `0000VA` | 70 | 85 | 77.5 | `by-item/ResolveSpritePartPath_004E19D0.md` |
 | `0000VB` | 70 | 85 | 77.5 | `by-item/ResourceLayoutEntry.md` |
 | `0000VC` | 70 | 85 | 77.5 | `by-item/ScaleDirectionOffsetToPixels_00505100.md` |
+| `0000VE` | 70 | 85 | 77.5 | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |
+| `0000VF` | 70 | 85 | 77.5 | `by-item/ScreenshotProofPacket_00558240.md` |
 
 ### by-memory
 

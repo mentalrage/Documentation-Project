@@ -5,14 +5,16 @@
 Total_Type: 64
 Total_Reconstructable: 27
 Total_Not_Reconstructable: 2
-Total_Reconstructed_Assigned: 2
+Total_Reconstructed_Assigned: 4
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 25
+Total_Reconstructable_Unassigned: 23
 Total_Unclassified: 35
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| [UID:0000UZ][LoadPcxImage_004A17B0](by-item/LoadPcxImage_004A17B0.md) | assigned | `0000K3` |  | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-item/LoadPcxImage_004A17B0.md` |  |
+| [UID:0000V2][PacketDigest_00515380](by-item/PacketDigest_00515380.md) | assigned | `0000L6` |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-item/PacketDigest_00515380.md` |  |
 | [UID:0000V3][PacketTransformHelpers](by-item/PacketTransformHelpers.md) | assigned | `0000M9` |  | no | `auto-generated/NexusTK/network/PacketTransform.cpp` | `by-item/PacketTransformHelpers.md` |  |
 | [UID:0000V9][ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90](by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md` |  |
 | [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md) | not_reconstructable |  |  | no |  | `by-item/InitAlphaSurfaceView_004623C0.md` |  |
@@ -23,10 +25,8 @@ Total_Error: 0
 | [UID:0000UW][LoadDatFileBuffer_004BB120](by-item/LoadDatFileBuffer_004BB120.md) | unassigned |  |  | no |  | `by-item/LoadDatFileBuffer_004BB120.md` |  |
 | [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) | unassigned |  |  | no |  | `by-item/LoadFrameDrawRecord_004D1600.md` |  |
 | [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) | unassigned |  |  | no |  | `by-item/LoadImageFrameTable_004D0F50.md` |  |
-| [UID:0000UZ][LoadPcxImage_004A17B0](by-item/LoadPcxImage_004A17B0.md) | unassigned |  |  | no |  | `by-item/LoadPcxImage_004A17B0.md` |  |
 | [UID:0000V0][LoadTileEpfMetadata_004D1B80](by-item/LoadTileEpfMetadata_004D1B80.md) | unassigned |  |  | no |  | `by-item/LoadTileEpfMetadata_004D1B80.md` |  |
 | [UID:0000V1][PacketBufferHelpers](by-item/PacketBufferHelpers.md) | unassigned |  |  | no |  | `by-item/PacketBufferHelpers.md` |  |
-| [UID:0000V2][PacketDigest_00515380](by-item/PacketDigest_00515380.md) | unassigned |  |  | no |  | `by-item/PacketDigest_00515380.md` |  |
 | [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md) | unassigned |  |  | no |  | `by-item/PaletteSlotTable.md` |  |
 | [UID:0000V5][ParseEntries_004A5E60](by-item/ParseEntries_004A5E60.md) | unassigned |  |  | no |  | `by-item/ParseEntries_004A5E60.md` |  |
 | [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md) | unassigned |  |  | no |  | `by-item/PathExistsViaStat_00582460.md` |  |
