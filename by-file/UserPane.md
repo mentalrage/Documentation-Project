@@ -1,14 +1,14 @@
 *** UID:0000P1 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # UserPane
 
 ## Status
 
-- Confidence: strong for `UserPane` class anchors; medium for final split from adjacent `LivingObjectPane` and social-input helpers.
-- Proposed module: `ui/panels/UserPane.cpp`
+- Confidence: strong for `UserPane` class anchors and `ui/panels/` placement; medium-high for final split from adjacent `LivingObjectPane` and social-input helpers.
+- Proposed module: `NexusTK/ui/panels/UserPane.cpp`
 - Current recovered source: `class_UserPane.cpp`
 - Main address doc: [UID:0001KL][0x005a2530-0x005b8395.UserPane](by-memory/0x005a2530-0x005b8395.UserPane.md)
 
@@ -41,13 +41,17 @@ This file should be treated as a user/player pane module, not as the owner of ev
 
 ## Evidence Notes
 
-- Wave3 reports `UserPane` grade `95.3` and zero missing refs.
+- Current IDA MCP lookup on 2026-06-02 confirms the primary `UserPane` anchors: constructor `0x005a2530` size `0x72b`, non-deleting destructor `0x005a2c60` size `0x114`, name-buffer setter `0x005a2d80` size `0x17`, slot label helpers at `0x005a40d0` size `0x23c` and `0x005a4310` size `0x213`, virtual handlers at `0x005a5b80`/`0x005a5bd0`/`0x005a76c0`/`0x005a83b0`/`0x005a8840`, name-label methods at `0x005a8e70`/`0x005a8f60`, and scalar deleting destructor `0x005b8230` size `0x165`.
 - IDA confirms the constructor at `0x005a2530-0x005a2c5b`, with xrefs from UI initialization paths at `0x004f84e2` and `0x004f8a49`.
+- Current IDA MCP caller checks on 2026-06-02 also confirm the local-player name-buffer setter at `0x005a2d80` is called from the same UI initialization function at `0x004f84ad` and `0x004f8a14`.
 - IDA confirms the scalar deleting destructor at `0x005b8230-0x005b8395`, reached through vtable/destructor thunks around `0x005b792e` and `0x005b7939`.
 - IDA confirms `0x005a2c60` as a real non-deleting destructor cleanup body matching the scalar deleting destructor without the conditional delete.
 - IDA MCP on 2026-05-26 confirms the destructor and `HideNameLabel` paths read [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md) and call the BowGauge timer cleanup helper at [UID:0001DC][0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers](by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md). This is not BulletinSession logic despite the generated label.
 - IDA MCP on 2026-05-26 identifies the large [UID:0000FQ][UserPane](by-class/UserPane.md) [UID:0000TI][PoolAllocatorStaticInstances](by-global/PoolAllocatorStaticInstances.md) at `0x0069bf34`, constructed by `0x0041a4b0` with block size `1305476` and `2` blocks per chunk. The related constructor-failure cleanup wrapper is [UID:0001AA][0x00502420-0x0050245e.UserPanePoolFreeUnwindWrapper](by-memory/0x00502420-0x0050245e.UserPanePoolFreeUnwindWrapper.md).
+- Current IDA MCP xrefs on 2026-06-02 tie `0x0069bf34` to the static constructor wrapper `0x0041a4b0`, UI allocation sites `0x004f84c5`/`0x004f8a2c`, unwind wrapper `0x00502420`, scalar destructor cleanup `0x005b834e`, and static destructor wrapper `0x0060c450`.
+- Current IDA MCP xrefs on 2026-06-02 tie the local-player name buffer `0x0069bee0` to `0x005a2d80`, neighboring getter/conversion helpers `0x005a2da0`/`0x005a2dc0`, and block-list validation `0x005b6cc0`.
 - IDA MCP on 2026-05-28 confirms the adjacent `0x005b83a0-0x005b83a7` function is a `UserPane` vtable accessor, not part of `UserStatusPane`; keep it with `UserPane.cpp` unless later field semantics tie it to a narrower helper.
+- Current IDA MCP byte checks on 2026-06-02 confirm the neighboring `0x005a2523-0x005a2530`, `0x005b8395-0x005b83a0`, and `0x005b83a7-0x005b83b0` spans are all `0xcc` padding with no function starts.
 - Wave3 currently omits several IDA-confirmed local helper starts and still attaches some social/history helpers to `UserPane`; use the exclusion notes above before source migration.
 - The drop/give confirmation callback wrapper is [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md) template support. Keep its type declaration with the shared callback family while leaving `UserPane` as the target action owner.
 
@@ -70,3 +74,7 @@ This file should be treated as a user/player pane module, not as the owner of ev
 ## Changes
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `86/78`. Summary/evidence: the page covers local-player pane ownership, method families, global/layout links, and boundaries against `LivingObjectPane` and chat-input helpers; the large range and adjacent social/UI helpers keep final source split below high confidence.
+- 2026-06-02 path and confidence update:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and confidence stayed below the parent-attachment threshold at `78`.
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/"`, scores `88/82`, and stronger current IDA evidence for function sizes, caller sites, global xrefs, and padding boundaries.
+  - Summary/evidence: current IDA MCP and raw IDA export checks confirm the UserPane anchors and surrounding exclusions, while `by-project-structure/proposed-source-tree.md` already places `UserPane.cpp` under `ui/panels/`.
