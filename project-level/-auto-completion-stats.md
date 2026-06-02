@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 18:51:48
+Generated: 2026-06-02 18:56:31
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -120,9 +120,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000111` | 66 | 82 | 74.0 | `by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md` |
-| `0002P8` | 66 | 82 | 74.0 | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |
-| `0002PC` | 66 | 82 | 74.0 | `by-memory/0x00494bf0-0x00494bf7.ControlPaneIgnoresHitTesting.md` |
 | `000176` | 66 | 82 | 74.0 | `by-memory/0x004d0f50-0x004d165d.ImageFrameTable.md` |
 | `000008` | 66 | 84 | 75.0 | `by-class/AddItemWithCountDialog.md` |
 | `0002KU` | 66 | 84 | 75.0 | `by-memory/0x004d1730-0x004d1772.ResourceLayoutTableGetFrameSize.md` |
@@ -145,6 +142,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
 | `0002FF` | 68 | 76 | 72.0 | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |
 | `0002FG` | 68 | 76 | 72.0 | `by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md` |
+| `0002BG` | 68 | 76 | 72.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
+| `0002BQ` | 68 | 76 | 72.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
+| `00016Z` | 68 | 76 | 72.0 | `by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md` |
 
 ## Low_Confidence
 
