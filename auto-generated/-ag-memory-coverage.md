@@ -2,10 +2,10 @@
 
 # ag-memory-coverage
 
-Total_Type: 2140
-Total_Reconstructable: 1223
+Total_Type: 2141
+Total_Reconstructable: 1224
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 694
+Total_Reconstructed_Assigned: 695
 Total_Reconstructed_Coded: 18
 Total_Reconstructable_Unassigned: 529
 Total_Unclassified: 906
@@ -653,6 +653,7 @@ Total_Error: 0
 | [UID:0001O0][0x005c1bd0-0x005c2a5a.SnowingLayerPane](by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md` |  |
 | [UID:0001O1][0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes](by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |  |
 | [UID:0001O3][0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers](by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md) | assigned | `0000E9` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md` |  |
+| [UID:0002SG][0x00610f60-0x00610fd4.AboveFrameResourceStrings](by-memory/0x00610f60-0x00610fd4.AboveFrameResourceStrings.md) | assigned | `0000JL` | 220 | no | `auto-generated/NexusTK/ui/core/FrameChrome.cpp` | `by-memory/0x00610f60-0x00610fd4.AboveFrameResourceStrings.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |  |
