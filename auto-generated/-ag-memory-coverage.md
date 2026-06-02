@@ -7,9 +7,9 @@ Total_Reconstructable: 1093
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 552
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 536
+Total_Reconstructable_Unassigned: 534
 Total_Unclassified: 1032
-Total_Error: 5
+Total_Error: 7
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -570,6 +570,8 @@ Total_Error: 5
 | [UID:00020Y][0x0046d330-0x0046d475.WebBoardDialogVirtualCompanions](by-memory/0x0046d330-0x0046d475.WebBoardDialogVirtualCompanions.md) | error | `0000G2` |  | no |  | `by-memory/0x0046d330-0x0046d475.WebBoardDialogVirtualCompanions.md` | by-memory/0x0046d330-0x0046d475.WebBoardDialogVirtualCompanions.md: autogen_parent_ineligible: parent is not marked reconstructable |
 | [UID:000212][0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks](by-memory/0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks.md) | error | `0000G3` |  | no |  | `by-memory/0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks.md` | by-memory/0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks.md: autogen_parent_ineligible: parent is not marked reconstructable |
 | [UID:000216][0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks](by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md) | error | `00001B` |  | no |  | `by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md` | by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md: autogen_parent_ineligible: parent is not marked reconstructable |
+| [UID:00017A][0x004d2720-0x004e649b.HumanImageLib](by-memory/0x004d2720-0x004e649b.HumanImageLib.md) | error | `00006A` |  | no |  | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` | by-memory/0x004d2720-0x004e649b.HumanImageLib.md: autogen_parent_unknown: parent UID is not in validator.ini |
+| [UID:00017C][0x004dac40-0x004e685f.MonsterImageLib](by-memory/0x004dac40-0x004e685f.MonsterImageLib.md) | error | `00008N` |  | no |  | `by-memory/0x004dac40-0x004e685f.MonsterImageLib.md` | by-memory/0x004dac40-0x004e685f.MonsterImageLib.md: autogen_parent_unknown: parent UID is not in validator.ini |
 | [UID:0000Z2][0x00469180-0x004691fa.PaneChildRegistry](by-memory/0x00469180-0x004691fa.PaneChildRegistry.md) | not_reconstructable |  |  | no |  | `by-memory/0x00469180-0x004691fa.PaneChildRegistry.md` |  |
 | [UID:0000ZV][0x0047ed20-0x0047ed50.ChangeManConstructorCleanup](by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md) | not_reconstructable |  |  | no |  | `by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md` |  |
 | [UID:00010I][0x00488610-0x004888f0.ClanListPaneVirtuals](by-memory/0x00488610-0x004888f0.ClanListPaneVirtuals.md) | not_reconstructable |  |  | no |  | `by-memory/0x00488610-0x004888f0.ClanListPaneVirtuals.md` |  |
@@ -771,10 +773,8 @@ Total_Error: 5
 | [UID:0002J0][0x004d1a20-0x004d1b72.MapTileImageLibDrawTile](by-memory/0x004d1a20-0x004d1b72.MapTileImageLibDrawTile.md) | unassigned |  |  | no |  | `by-memory/0x004d1a20-0x004d1b72.MapTileImageLibDrawTile.md` |  |
 | [UID:0002J1][0x004d1b80-0x004d1f22.LoadTileEpfMetadata](by-memory/0x004d1b80-0x004d1f22.LoadTileEpfMetadata.md) | unassigned |  |  | no |  | `by-memory/0x004d1b80-0x004d1f22.LoadTileEpfMetadata.md` |  |
 | [UID:000179][0x004d1f30-0x004d2697.ObjectStatusBlobParsers](by-memory/0x004d1f30-0x004d2697.ObjectStatusBlobParsers.md) | unassigned |  |  | no |  | `by-memory/0x004d1f30-0x004d2697.ObjectStatusBlobParsers.md` |  |
-| [UID:00017A][0x004d2720-0x004e649b.HumanImageLib](by-memory/0x004d2720-0x004e649b.HumanImageLib.md) | unassigned |  |  | no |  | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |  |
 | [UID:00017B][0x004d4ad0-0x004d4f67.HumanImageLibDestructor](by-memory/0x004d4ad0-0x004d4f67.HumanImageLibDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004d4ad0-0x004d4f67.HumanImageLibDestructor.md` |  |
 | [UID:0002JN][0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables](by-memory/0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables.md) | unassigned |  |  | no |  | `by-memory/0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables.md` |  |
-| [UID:00017C][0x004dac40-0x004e685f.MonsterImageLib](by-memory/0x004dac40-0x004e685f.MonsterImageLib.md) | unassigned |  |  | no |  | `by-memory/0x004dac40-0x004e685f.MonsterImageLib.md` |  |
 | [UID:00017E][0x004dbe60-0x004dc174.MonsterImageLibGetArchiveBoundsBucket](by-memory/0x004dbe60-0x004dc174.MonsterImageLibGetArchiveBoundsBucket.md) | unassigned |  |  | no |  | `by-memory/0x004dbe60-0x004dc174.MonsterImageLibGetArchiveBoundsBucket.md` |  |
 | [UID:0002LA][0x004dc420-0x004dc68c.RidingImageLibLoadRidingDefinitions](by-memory/0x004dc420-0x004dc68c.RidingImageLibLoadRidingDefinitions.md) | unassigned |  |  | no |  | `by-memory/0x004dc420-0x004dc68c.RidingImageLibLoadRidingDefinitions.md` |  |
 | [UID:00017F][0x004dc420-0x004e6980.RidingImageLib](by-memory/0x004dc420-0x004e6980.RidingImageLib.md) | unassigned |  |  | no |  | `by-memory/0x004dc420-0x004e6980.RidingImageLib.md` |  |

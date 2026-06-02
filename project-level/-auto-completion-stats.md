@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 09:03:08
+Generated: 2026-06-02 09:05:24
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -144,8 +144,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00017A` | 56 | 72 | 64.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
-| `00017C` | 56 | 78 | 67.0 | `by-memory/0x004dac40-0x004e685f.MonsterImageLib.md` |
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `0002G4` | 58 | 70 | 64.0 | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |
 | `0002KQ` | 58 | 70 | 64.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
@@ -169,6 +167,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001Z5` | 58 | 88 | 73.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
 | `0000WX` | 60 | 65 | 62.5 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
 | `0001ZZ` | 60 | 65 | 62.5 | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |
+| `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
+| `00022D` | 60 | 65 | 62.5 | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |
 
 ## Low_Confidence
 
@@ -215,7 +215,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
 | `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
 | `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
-| `00017A` | 56 | 72 | 64.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002G4` | 58 | 70 | 64.0 | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |
 | `0002KQ` | 58 | 70 | 64.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
 | `0001CP` | 58 | 70 | 64.0 | `by-memory/0x00528e60-0x0052a535.MusicControlDialog.md` |
@@ -229,6 +228,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002C0` | 58 | 72 | 65.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
 | `0002C1` | 58 | 72 | 65.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
 | `0002C3` | 58 | 72 | 65.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
+| `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 
 ## By Folder
 
@@ -374,7 +374,6 @@ _No scored files._
 | `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
 | `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
 | `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
-| `00017A` | 56 | 72 | 64.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002G4` | 58 | 70 | 64.0 | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |
 | `0002KQ` | 58 | 70 | 64.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
 | `0001CP` | 58 | 70 | 64.0 | `by-memory/0x00528e60-0x0052a535.MusicControlDialog.md` |
@@ -389,6 +388,7 @@ _No scored files._
 | `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
+| `00019Q` | 65 | 65 | 65.0 | `by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md` |
 
 ### by-meta
 
