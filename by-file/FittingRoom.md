@@ -1,7 +1,7 @@
 *** UID:0000JE | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:83 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/cashshop/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # FittingRoom
 
@@ -158,6 +158,7 @@ cashshop/
 
 ## Changes
 
+- 2026-06-02: Set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/cashshop/`. Evidence: the page already proposes `cashshop/FittingRoom.cpp`, groups the fitting-room dialog/list/catalog/download controls as the cash-shop fitting-room feature, and has high enough confidence for child autogen attachment.
 - 2026-05-30: Added the missing `0x0041d580-0x0041d5d5` `FittingRoomDownloadControlPane` deleting-destructor wrapper to the file-level contents and cross-references. Evidence: IDA MCP reports the wrapper as a real function with vtable/data reference, adjacent adjustor-thunk code references, shared teardown call, and conditional delete-helper call.
 - 2026-05-27: Existing note said `0x0041b9e0` was not an IDA function start and only listed nearby real starts. Changed it to distinguish IDA function-boundary status from byte-level code ownership: `0x0041b9e0-0x0041ba20` is now documented as a raw `FittingRoomDownloadControlPane` constructor-shaped body, and `0x0041ba20-0x0041ba3f` as a raw destructor/body helper. Evidence: IDA MCP `lookup_funcs`/`xrefs_to` still reports no function/xrefs at `0x0041b9e0`, while manual IDA disassembly shows fitting-room download vtable writes, `this + 0x108` clear, and the adjacent destructor vtable restore before `OnPaint`.
 - 2026-05-30: Existing fitting-room file notes described core `FittingRoomDialog` methods only through class and aggregate docs. Changed them to link exact `by-memory` pages for constructor, command handling, and scalar deleting destructor. Evidence: IDA MCP function list, decompilation, callers, and callees for `0x0041bdd0`, `0x0041c310`, and `0x0041d490`.

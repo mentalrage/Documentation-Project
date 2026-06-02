@@ -1,8 +1,8 @@
 *** UID:0000V3 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:50 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000M9 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,7 @@
 - Likely source module: [UID:0000M9][PacketTransform](by-file/PacketTransform.md)
 - Related class: [UID:0000DD][Socket](by-class/Socket.md)
 - Related globals: [UID:0000TG][PacketTransformGlobals](by-global/PacketTransformGlobals.md)
-- Evidence basis: `simroot_v2` generated output and IDA MCP lookup/xref/decompile/disassembly checks on 2026-05-24 and 2026-05-25.
+- Evidence basis: `simroot_v2` generated output and IDA MCP lookup/xref/decompile/disassembly checks on 2026-05-24, 2026-05-25, and 2026-06-02.
 
 ## Helpers
 
@@ -56,11 +56,22 @@ Current generated output is still inconsistent:
 
 IDA decompiles the helper as returning a byte and using integer-address source, destination, and key pointers. A safer source-facing declaration is likely byte-buffer oriented, for example `std::uint8_t XorTransformBuffer(const std::uint8_t* src, std::uint8_t* dst, std::uint32_t length, const std::uint8_t* keyBytes, std::uint32_t keyDwordStride)`, with internal dword reads where alignment is known or intentionally tolerated.
 
-IDA MCP recheck on 2026-05-31 confirms `0x00575c30-0x00575caa`, `0x00575cb0-0x00575d83`, `0x00577030-0x0057713d`, and `0x00578e00-0x00578e94` as real functions with the caller relationships listed above. The same recheck reports `0x00575b90` as not modeled as an IDA function, so the string-key helper remains a raw/IDA-missed helper range until its exact boundary and source shape are separately verified.
+IDA MCP rechecks on 2026-05-31 and 2026-06-02 confirm `0x00575c30-0x00575caa`, `0x00575cb0-0x00575d83`, `0x00577030-0x0057713d`, and `0x00578e00-0x00578e94` as real functions with the caller relationships listed above. The same rechecks report `0x00575b90` as not modeled as an IDA function, so the string-key helper remains a raw/IDA-missed helper range until its exact boundary and source shape are separately verified.
+
+2026-06-02 IDA MCP `xrefs_to` reconfirms:
+
+| Helper | Direct xrefs |
+| --- | --- |
+| `0x00575c30` | `0x004f8544` in [UID:00019K][0x004f7d10-0x004f8b2a.InitializeMainUiGraph](by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md) |
+| `0x00575cb0` | `0x00578b72` in [UID:0001I3][0x00578b20-0x00578c40.SocketTransformFramePayload](by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md), `0x00578cd2` in [UID:0001I4][0x00578c40-0x00578df1.SocketBuildEncryptedPacket](by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md) |
+| `0x00577030` | `0x00574880` in [UID:0001HS][0x005747e0-0x00574ad8.SocketLifecycle](by-memory/0x005747e0-0x00574ad8.SocketLifecycle.md), `0x00576181` in [UID:0001I1][0x00575d90-0x005796c7.SocketTransportCore](by-memory/0x00575d90-0x005796c7.SocketTransportCore.md) |
+| `0x00578e00` | `0x00578bb2`, `0x00578bed`, `0x00578c26` in `SocketTransformFramePayload`; `0x00578d27`, `0x00578d67`, `0x00578d99` in `SocketBuildEncryptedPacket` |
 
 ## Ownership Decision
 
 These helpers should be reconstructed as packet/protocol transform support, not as [UID:0000M8][PacketBuffer](by-file/PacketBuffer.md) scalar helpers and not as feature send code. `Socket` owns the methods that decide when to decode or encode packets; `PacketTransform` owns the reusable key-table and XOR operations.
+
+The reconstructed C++ block remains blank. The overview is now attached to [UID:0000M9][PacketTransform](by-file/PacketTransform.md), but final helper prototypes and the raw `0x00575b90` source shape are not final-source quality.
 
 ## Cross-References
 
@@ -78,6 +89,7 @@ These helpers should be reconstructed as packet/protocol transform support, not 
 
 ## Changes
 
+- 2026-06-02: Raised grading to `74/82` and attached to [UID:0000M9][PacketTransform](by-file/PacketTransform.md) after setting the parent projected path. IDA MCP rechecked helper starts and xrefs: `0x00575b90` remains raw/no-function, while `0x00575c30`, `0x00575cb0`, `0x00577030`, and `0x00578e00` retain the documented function ranges and callers. C++ remains blank because final prototypes and raw helper shape are still unresolved.
 - 2026-05-31: Grading and reconstruction status changed from unevaluated/blank to `50/70` and `RECONSTRUCTABLE:TRUE`.
   - Before: the page body documented packet transform helpers, but the validator metadata still showed `0/0` and no reconstruction status.
   - After: the metadata now tracks the group as rebuild-relevant packet transform code, while staying below high confidence because `0x00575b90` is still not an IDA-modeled function and final signatures remain open.

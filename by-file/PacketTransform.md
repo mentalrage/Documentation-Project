@@ -1,7 +1,7 @@
 *** UID:0000M9 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/network/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PacketTransform
 
@@ -102,6 +102,7 @@ network/
 
 ## Changes
 
+- 2026-06-02: Set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/network/` and raised confidence from `78` to `82`. Evidence: the page already proposes `network/PacketTransform.cpp`, IDA MCP recheck confirms the modeled helper starts and xref sets, and the only remaining placement ambiguity is whether this was a standalone network helper file or a private `Socket.cpp` section.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `88`, confidence `78`.
 - Summary/evidence: the page documents helper grouping, transform globals, exact IDA function/xref evidence, generated-output caveats, source placement, keep-out boundaries, open questions, and cross-references; confidence remains capped by uncertainty over a separate source file versus a private `Socket.cpp` section and final helper/global names.

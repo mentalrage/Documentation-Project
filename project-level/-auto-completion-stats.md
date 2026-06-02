@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 07:10:04
+Generated: 2026-06-02 07:18:29
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -51,7 +51,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000J6` | blank | `(blank)` | `by-file/Event.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JC` | blank | `(blank)` | `by-file/FileDownloader.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JD` | blank | `(blank)` | `by-file/FileIO.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JE` | blank | `(blank)` | `by-file/FittingRoom.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JH` | blank | `(blank)` | `by-file/FontImageLib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JI` | blank | `(blank)` | `by-file/FontStyle.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JM` | blank | `(blank)` | `by-file/FrameMgr.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -108,7 +107,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000M5` | blank | `(blank)` | `by-file/ObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M6` | blank | `(blank)` | `by-file/ObjectStatusBlob.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M8` | blank | `(blank)` | `by-file/PacketBuffer.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000M9` | blank | `(blank)` | `by-file/PacketTransform.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MB` | blank | `(blank)` | `by-file/PaletteLib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MC` | blank | `(blank)` | `by-file/Pane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MD` | blank | `(blank)` | `by-file/PaneChildRegistry.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -152,8 +150,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
-| `0000V3` | 50 | 70 | 60.0 | `by-item/PacketTransformHelpers.md` |
 | `0000UZ` | 50 | 75 | 62.5 | `by-item/LoadPcxImage_004A17B0.md` |
 | `0000V2` | 50 | 75 | 62.5 | `by-item/PacketDigest_00515380.md` |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
@@ -177,6 +173,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
 | `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
+| `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
+| `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
 
 ## Low_Confidence
 
@@ -212,8 +210,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
-| `0000V3` | 50 | 70 | 60.0 | `by-item/PacketTransformHelpers.md` |
 | `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
 | `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
@@ -237,6 +233,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000UZ` | 50 | 75 | 62.5 | `by-item/LoadPcxImage_004A17B0.md` |
 | `0000V2` | 50 | 75 | 62.5 | `by-item/PacketDigest_00515380.md` |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
+| `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
+| `0000CU` | 55 | 70 | 62.5 | `by-class/SelfLookPane.md` |
 
 ## By Folder
 
@@ -342,7 +340,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000V3` | 50 | 70 | 60.0 | `by-item/PacketTransformHelpers.md` |
 | `0000UZ` | 50 | 75 | 62.5 | `by-item/LoadPcxImage_004A17B0.md` |
 | `0000V2` | 50 | 75 | 62.5 | `by-item/PacketDigest_00515380.md` |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
@@ -367,12 +364,12 @@ _No scored files._
 | `0000V8` | 70 | 85 | 77.5 | `by-item/PopupMenuSelectionCallback_0049AF00.md` |
 | `0000VA` | 70 | 85 | 77.5 | `by-item/ResolveSpritePartPath_004E19D0.md` |
 | `0000VB` | 70 | 85 | 77.5 | `by-item/ResourceLayoutEntry.md` |
+| `0000VC` | 70 | 85 | 77.5 | `by-item/ScaleDirectionOffsetToPixels_00505100.md` |
 
 ### by-memory
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
 | `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
 | `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
@@ -397,6 +394,7 @@ _No scored files._
 | `0001ZZ` | 60 | 65 | 62.5 | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |
 | `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
 | `00022D` | 60 | 65 | 62.5 | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |
+| `00022E` | 60 | 65 | 62.5 | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |
 
 ### by-meta
 

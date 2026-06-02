@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1049
+Total_Reconstructable: 1050
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 517
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 532
-Total_Unclassified: 1076
+Total_Reconstructable_Unassigned: 533
+Total_Unclassified: 1075
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -543,6 +543,7 @@ Total_Error: 0
 | [UID:0002I5][0x00504090-0x00504093.MapPaneNullCallback40](by-memory/0x00504090-0x00504093.MapPaneNullCallback40.md) | not_reconstructable |  |  | no |  | `by-memory/0x00504090-0x00504093.MapPaneNullCallback40.md` |  |
 | [UID:0000W8][0x00419ee0-0x00419ef4.InitializeOleSupport](by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md) | unassigned |  |  | no |  | `by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md` |  |
 | [UID:0000WG][0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers](by-memory/0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers.md) | unassigned |  |  | no |  | `by-memory/0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers.md` |  |
+| [UID:0002DR][0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers](by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |  |
 | [UID:0000XA][0x00439e00-0x00439ea3.DequeDestroy](by-memory/0x00439e00-0x00439ea3.DequeDestroy.md) | unassigned |  |  | no |  | `by-memory/0x00439e00-0x00439ea3.DequeDestroy.md` |  |
 | [UID:0000XB][0x0043e0b0-0x0043e241.DequeEnsureCapacity](by-memory/0x0043e0b0-0x0043e241.DequeEnsureCapacity.md) | unassigned |  |  | no |  | `by-memory/0x0043e0b0-0x0043e241.DequeEnsureCapacity.md` |  |
 | [UID:0000XP][0x004563c0-0x00457547.MiniMapVersionManager](by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md) | unassigned |  |  | no |  | `by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md` |  |
@@ -1161,7 +1162,6 @@ Total_Error: 0
 | [UID:0002DP][0x00420b60-0x00420cf9.FittingRoomListPaneHitTestSlot](by-memory/0x00420b60-0x00420cf9.FittingRoomListPaneHitTestSlot.md) | unclassified |  |  | no |  | `by-memory/0x00420b60-0x00420cf9.FittingRoomListPaneHitTestSlot.md` |  |
 | [UID:0002DQ][0x00420d00-0x00420d50.ValidateFittingSelectionIndex](by-memory/0x00420d00-0x00420d50.ValidateFittingSelectionIndex.md) | unclassified |  |  | no |  | `by-memory/0x00420d00-0x00420d50.ValidateFittingSelectionIndex.md` |  |
 | [UID:0002DU][0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers](by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |  |
-| [UID:0002DR][0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers](by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |  |
 | [UID:0002DV][0x00421310-0x00421362.SimpleUStringClear](by-memory/0x00421310-0x00421362.SimpleUStringClear.md) | unclassified |  |  | no |  | `by-memory/0x00421310-0x00421362.SimpleUStringClear.md` |  |
 | [UID:0000WT][0x00421310-0x004216cb.SimpleUStringSso7](by-memory/0x00421310-0x004216cb.SimpleUStringSso7.md) | unclassified |  |  | no |  | `by-memory/0x00421310-0x004216cb.SimpleUStringSso7.md` |  |
 | [UID:0002DW][0x00421380-0x004213e1.FittingRoomDialogItemEntryRelease](by-memory/0x00421380-0x004213e1.FittingRoomDialogItemEntryRelease.md) | unclassified |  |  | no |  | `by-memory/0x00421380-0x004213e1.FittingRoomDialogItemEntryRelease.md` |  |
