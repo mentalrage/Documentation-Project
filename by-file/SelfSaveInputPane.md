@@ -1,14 +1,15 @@
 *** UID:0000NM | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SelfSaveInputPane
 
 ## Status
 
-- Confidence: medium-high for behavior; medium for final source grouping.
+- Confidence: strong for class behavior, constructor/factory evidence, and packet sender usage; medium-high for final source grouping.
 - Proposed owner: [UID:0000ID][CommandInputPanes](by-file/CommandInputPanes.md), likely as a small command-prompt class.
+- Proposed reconstruction path: `NexusTK/ui/dialogs/SelfSaveInputPane.cpp`
 - Current generated source: `source-3/simroot_v2/class_SelfSaveInputPane.cpp`
 - Main address docs: [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md) and [UID:0001KQ][0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory](by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md)
 
@@ -49,6 +50,14 @@ The class sits in the same command-input neighborhood as spell and block-list pr
 - IDA MCP `disasm` reconfirmed the raw helper `0x005b6870-0x005b68b0` writes opcode `0x25`, appends a zero byte, and queues one byte through `dword_67A7EC`.
 - IDA MCP `py_eval` reconfirmed 489 xrefs to `dword_67A7EC`.
 
+2026-06-02 recheck using IDA MCP only:
+
+- `lookup_funcs` reports `0x005aa140` as `sub_5AA140`, size `0x80`, ending at `0x005aa1c0`; `0x005aa1c0` itself is not a function.
+- `decompile 0x005aa140` shows allocation of `264` bytes, localized string lookup id `38` (`0x26`), `CharInputPane` construction, and three `SelfSaveInputPane` vtable writes.
+- `xrefs_to` for `0x006305c0`, `0x00630610`, and `0x00630640` reports factory stores at `0x005aa196`, `0x005aa19c`, and `0x005aa1a6`, plus raw constructor stores at `0x005b67df`, `0x005b67e7`, and `0x005b67f1`.
+- `callers` still reports no direct callers for `0x005aa140`, `0x005b67c0`, `0x005b6800`, or `0x005b6870`; `0x005b6800` remains reachable through the vtable data slot at `0x00630608`.
+- Raw byte reads show `0x005b67c0-0x005b67ff` as a constructor-shaped body, `0x005b6800-0x005b686b` as the modeled input handler, `0x005b6870-0x005b68af` as the raw send helper, and `0xcc` alignment bytes before the next neighborhood at `0x005b68c0`.
+
 ## Cross-References
 
 - [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md)
@@ -66,3 +75,5 @@ The class sits in the same command-input neighborhood as spell and block-list pr
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `84` and confidence to `76`.
   - Evidence: document covers prompt behavior, proposed ownership, raw constructor/send helper, factory/open helper, packet-sender dependency, boundary notes, two IDA rechecks, and cross-references; confidence is capped by raw unmodeled starts and final grouping under command input panes.
+- 2026-06-02: Raised to `86/82` and added `NexusTK/ui/dialogs/` reconstruction path.
+  - Evidence: fresh IDA MCP confirms the exact factory/open helper, current vtable-store map, no direct caller state, vtable-only handler reachability, and raw byte boundaries for the constructor/helper island.

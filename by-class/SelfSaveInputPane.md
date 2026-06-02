@@ -1,8 +1,8 @@
 *** UID:0000CW | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NM | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: medium-high.
+- Confidence: strong for class behavior, vtable identity, and modeled handler; medium-high for final source grouping.
 - Likely source file: [UID:0000ID][CommandInputPanes](by-file/CommandInputPanes.md) or generated quarantine page [UID:0000NM][SelfSaveInputPane](by-file/SelfSaveInputPane.md)
 - Vtable family: [UID:0001XA][CommandInputPaneVtableFamily](by-type/by-vtable/CommandInputPaneVtableFamily.md)
 - Current recovered file: `source-3/simroot_v2/class_SelfSaveInputPane.cpp`
@@ -41,6 +41,8 @@
 - The adjacent raw helper at `0x005b6870` sends the same opcode `0x25` without checking input; it should be reviewed with this class before migration.
 - Sender storage is the shared [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / `dword_67A7EC`, not a SelfSave-specific global.
 - Current `simroot_v2/class_SelfSaveInputPane.cpp` still omits the `0x005b6870` raw helper and the `0x005aa140` factory/open helper.
+- 2026-06-02 IDA MCP recheck keeps `0x005b67c0` and `0x005b6870` as non-modeled raw starts, confirms `0x005b6800-0x005b686c` as `sub_5B6800`, confirms `0x005aa140-0x005aa1c0` as `sub_5AA140`, and reconfirms no direct callers for the constructor/factory/helper addresses.
+- 2026-06-02 IDA MCP raw bytes show constructor-shaped code from `0x005b67c0`, the modeled handler from `0x005b6800`, the raw send helper from `0x005b6870`, and `0xcc` alignment after `0x005b68b0`.
 
 ## Cross-References
 
@@ -58,3 +60,5 @@
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `74`, confidence `76`.
 - Evidence: the page documents the confirmation role, vtable family, constructor-shaped bytes, real input handler, opcode behavior, shared packet sender, and factory/open-helper caveats; completion remains limited because the raw send helper and factory ownership still need final placement.
+- 2026-06-02: Raised to `80/82`, marked `RECONSTRUCTABLE:TRUE`, and attached to [UID:0000NM][SelfSaveInputPane](by-file/SelfSaveInputPane.md).
+  Evidence: current IDA MCP reconfirms the exact factory boundary, modeled handler, vtable data reachability, raw constructor/helper byte layout, and absence of direct caller xrefs.
