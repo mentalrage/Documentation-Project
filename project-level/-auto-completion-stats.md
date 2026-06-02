@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 18:23:48
+Generated: 2026-06-02 18:28:51
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -121,8 +121,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
-| `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
 | `0002BJ` | 66 | 80 | 73.0 | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |
 | `0002BN` | 66 | 80 | 73.0 | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |
 | `0002BS` | 66 | 80 | 73.0 | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |
@@ -146,6 +144,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00021X` | 66 | 82 | 74.0 | `by-memory/0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor.md` |
 | `000111` | 66 | 82 | 74.0 | `by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md` |
 | `0002P8` | 66 | 82 | 74.0 | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |
+| `0002PC` | 66 | 82 | 74.0 | `by-memory/0x00494bf0-0x00494bf7.ControlPaneIgnoresHitTesting.md` |
+| `000176` | 66 | 82 | 74.0 | `by-memory/0x004d0f50-0x004d165d.ImageFrameTable.md` |
 
 ## Low_Confidence
 
@@ -182,8 +182,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
-| `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
-| `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
 | `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
 | `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
 | `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
@@ -206,6 +204,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
 | `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
 | `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
+| `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
+| `0002BJ` | 66 | 80 | 73.0 | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |
 
 ## By Folder
 
@@ -341,8 +341,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
-| `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
 | `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
 | `0002FF` | 68 | 76 | 72.0 | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |
 | `0002FG` | 68 | 76 | 72.0 | `by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md` |
@@ -366,6 +364,8 @@ _No scored files._
 | `0002JW` | 68 | 78 | 73.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
 | `0002FP` | 68 | 78 | 73.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 | `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
+| `00016O` | 68 | 78 | 73.0 | `by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md` |
+| `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 
 ### by-meta
 
