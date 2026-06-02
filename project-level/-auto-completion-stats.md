@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 13:20:49
+Generated: 2026-06-02 13:23:00
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -127,8 +127,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00013P` | 62 | 78 | 70.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
-| `00013R` | 62 | 78 | 70.0 | `by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md` |
 | `00017N` | 62 | 78 | 70.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
 | `0002R4` | 62 | 78 | 70.0 | `by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md` |
 | `0002RU` | 62 | 78 | 70.0 | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |
@@ -152,6 +150,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00011A` | 64 | 76 | 70.0 | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |
 | `0000HM` | 64 | 78 | 71.0 | `by-file/AUTOBUF.md` |
 | `00013X` | 64 | 78 | 71.0 | `by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md` |
+| `0002PH` | 64 | 78 | 71.0 | `by-memory/0x004bc090-0x004bd3e8.SoftwareRenderCompatSpriteBlitCallback.md` |
+| `0002PK` | 64 | 78 | 71.0 | `by-memory/0x004c0f80-0x004c3123.SoftwareRenderRgb565SpriteBlitCallback.md` |
 
 ## Low_Confidence
 
@@ -187,8 +187,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00013P` | 62 | 78 | 70.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
-| `00013R` | 62 | 78 | 70.0 | `by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md` |
 | `00017N` | 62 | 78 | 70.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
 | `0002R4` | 62 | 78 | 70.0 | `by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md` |
 | `0002RU` | 62 | 78 | 70.0 | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |
@@ -212,6 +210,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002PH` | 64 | 78 | 71.0 | `by-memory/0x004bc090-0x004bd3e8.SoftwareRenderCompatSpriteBlitCallback.md` |
 | `0002PK` | 64 | 78 | 71.0 | `by-memory/0x004c0f80-0x004c3123.SoftwareRenderRgb565SpriteBlitCallback.md` |
 | `0002IB` | 64 | 78 | 71.0 | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |
+| `000172` | 64 | 78 | 71.0 | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |
+| `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
 
 ## By Folder
 
@@ -347,8 +347,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00013P` | 62 | 78 | 70.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
-| `00013R` | 62 | 78 | 70.0 | `by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md` |
 | `00017N` | 62 | 78 | 70.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
 | `0002R4` | 62 | 78 | 70.0 | `by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md` |
 | `0002RU` | 62 | 78 | 70.0 | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |
@@ -372,6 +370,8 @@ _No scored files._
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
 | `00014U` | 62 | 82 | 72.0 | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |
+| `0000ZM` | 64 | 80 | 72.0 | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |
+| `0002G1` | 66 | 78 | 72.0 | `by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md` |
 
 ### by-meta
 
