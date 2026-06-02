@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 18:46:13
+Generated: 2026-06-02 18:51:48
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -120,17 +120,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002NP` | 66 | 82 | 74.0 | `by-memory/0x00488630-0x00488674.ClanStringListPaneRawConstructor.md` |
-| `00021V` | 66 | 82 | 74.0 | `by-memory/0x00488fa0-0x00488fd5.ClanDepMoneyInputDialogRawConstructor.md` |
-| `0002NT` | 66 | 82 | 74.0 | `by-memory/0x00489070-0x004890a5.ClanWidMoneyInputDialogRawConstructor.md` |
-| `0002NV` | 66 | 82 | 74.0 | `by-memory/0x00489140-0x00489175.ClanExpelNameInputDialogRawConstructor.md` |
-| `0002NX` | 66 | 82 | 74.0 | `by-memory/0x00489270-0x004892a5.ClanSummonNameInputDialogRawConstructor.md` |
-| `0002NZ` | 66 | 82 | 74.0 | `by-memory/0x004893a0-0x004893d5.ClanAppearNameInputDialogRawConstructor.md` |
-| `0002O1` | 66 | 82 | 74.0 | `by-memory/0x004894d0-0x00489505.ClanChangeNameInputDialogRawConstructor.md` |
-| `00021W` | 66 | 82 | 74.0 | `by-memory/0x00489f80-0x00489fb5.ClanEnlistInputDialogRawConstructor.md` |
-| `0002O4` | 66 | 82 | 74.0 | `by-memory/0x00489ff0-0x0048a025.ClanChangeInputDialogRawConstructor.md` |
-| `0002O6` | 66 | 82 | 74.0 | `by-memory/0x0048a060-0x0048a09e.ClanLeaveConfirmDialogRawConstructor.md` |
-| `00021X` | 66 | 82 | 74.0 | `by-memory/0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor.md` |
 | `000111` | 66 | 82 | 74.0 | `by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md` |
 | `0002P8` | 66 | 82 | 74.0 | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |
 | `0002PC` | 66 | 82 | 74.0 | `by-memory/0x00494bf0-0x00494bf7.ControlPaneIgnoresHitTesting.md` |
@@ -145,6 +134,17 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000260` | 67 | 86 | 76.5 | `by-memory/0x00620284-0x00620c74.ObjectPaneReadOnlyData.md` |
 | `00025S` | 67 | 88 | 77.5 | `by-memory/0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
+| `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
+| `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
+| `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
+| `00006S` | 68 | 76 | 72.0 | `by-class/InventoryPane2.md` |
+| `00009H` | 68 | 76 | 72.0 | `by-class/NexonclubProxyDialog.md` |
+| `0000BS` | 68 | 76 | 72.0 | `by-class/RecordVector_4E57C0.md` |
+| `0000CR` | 68 | 76 | 72.0 | `by-class/SelectionControlPane.md` |
+| `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
+| `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
+| `0002FF` | 68 | 76 | 72.0 | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |
+| `0002FG` | 68 | 76 | 72.0 | `by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md` |
 
 ## Low_Confidence
 
