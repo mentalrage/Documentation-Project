@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 07:50:32
+Generated: 2026-06-02 07:55:52
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -150,11 +150,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
-| `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
-| `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
-| `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
-| `00021H` | 55 | 65 | 60.0 | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |
-| `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
 | `00021T` | 55 | 65 | 60.0 | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |
 | `00021Y` | 55 | 65 | 60.0 | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |
 | `00021Z` | 55 | 65 | 60.0 | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |
@@ -173,6 +168,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00001H` | 55 | 72 | 63.5 | `by-class/CashShopRequest.md` |
 | `0000I0` | 55 | 72 | 63.5 | `by-file/CashShopRequest.md` |
 | `0002KT` | 55 | 72 | 63.5 | `by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md` |
+| `0002I3` | 55 | 72 | 63.5 | `by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md` |
+| `0001HC` | 55 | 72 | 63.5 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
+| `0002EE` | 55 | 75 | 65.0 | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |
+| `0000ST` | 55 | 80 | 67.5 | `by-global/g_screenHeight.md` |
+| `0002H0` | 55 | 80 | 67.5 | `by-memory/0x004639d0-0x00464a52.ApplicationInitialize.md` |
 
 ## Low_Confidence
 
@@ -183,11 +183,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
-| `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
-| `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
-| `00021H` | 55 | 65 | 60.0 | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |
-| `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
 | `00021T` | 55 | 65 | 60.0 | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |
 | `00021Y` | 55 | 65 | 60.0 | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |
 | `00021Z` | 55 | 65 | 60.0 | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |
@@ -203,16 +198,16 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000WX` | 60 | 65 | 62.5 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
 | `0001ZZ` | 60 | 65 | 62.5 | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |
 | `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
+| `00022D` | 60 | 65 | 62.5 | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |
+| `00022E` | 60 | 65 | 62.5 | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |
+| `00022I` | 60 | 65 | 62.5 | `by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md` |
+| `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
+| `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
-| `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
-| `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
-| `00021H` | 55 | 65 | 60.0 | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |
-| `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
 | `00021T` | 55 | 65 | 60.0 | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |
 | `00021Y` | 55 | 65 | 60.0 | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |
 | `00021Z` | 55 | 65 | 60.0 | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |
@@ -233,6 +228,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001KJ` | 55 | 70 | 62.5 | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |
 | `0000WX` | 60 | 65 | 62.5 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
 | `0001ZZ` | 60 | 65 | 62.5 | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |
+| `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
+| `00022D` | 60 | 65 | 62.5 | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |
+| `00022E` | 60 | 65 | 62.5 | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |
+| `00022I` | 60 | 65 | 62.5 | `by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md` |
+| `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
 
 ## By Folder
 
@@ -368,11 +368,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
-| `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
-| `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
-| `00021H` | 55 | 65 | 60.0 | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |
-| `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
 | `00021T` | 55 | 65 | 60.0 | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |
 | `00021Y` | 55 | 65 | 60.0 | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |
 | `00021Z` | 55 | 65 | 60.0 | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |
@@ -393,6 +388,11 @@ _No scored files._
 | `00022E` | 60 | 65 | 62.5 | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |
 | `00022I` | 60 | 65 | 62.5 | `by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md` |
 | `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
+| `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
+| `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
+| `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
+| `0002KT` | 55 | 72 | 63.5 | `by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md` |
+| `0002I3` | 55 | 72 | 63.5 | `by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md` |
 
 ### by-meta
 
