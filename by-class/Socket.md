@@ -15,7 +15,7 @@
 - Confidence: strong for class responsibility and owner file.
 - Current Wave3 file: `class_Socket.cpp`
 - Likely source module: [UID:0000NS][Socket](by-file/Socket.md)
-- Current relevant ranges: `0x005747e0-0x00574ad8`, `0x00575d90-0x005796c7`, and `0x005967d0-0x005967e5`
+- Current relevant ranges: `0x005747e0-0x00574ad8` and `0x00575d90-0x005796c7`; the `0x005967d0-0x005967e5` helper is now treated as inherited [UID:0000OR][Thread](by-file/Thread.md) infrastructure called by Socket setup.
 - Evidence basis: `simroot_v2` generated source, Wave3 metadata/xrefs, and IDA MCP lookup/xref checks on 2026-05-23.
 
 ## Responsibility
@@ -45,7 +45,7 @@ IDA MCP evidence from 2026-05-25 makes Socket the lifetime owner for [UID:0000Q5
 | `0x00578c40` | `BuildEncryptedPacket` | Builds encrypted/transformed outbound payloads; see [UID:0001I4][0x00578c40-0x00578df1.SocketBuildEncryptedPacket](by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md). |
 | `0x005794c0` | `ClearPacketSenderGlobal` | Constructor-unwind cleanup helper that clears `g_packetSender`; not a public Socket API. |
 | `0x005795a0` | `ScalarDeletingDestructor` | Vtable deleting destructor path that mirrors teardown and clears `g_packetSender`. |
-| `0x005967d0` | `QueueThreadEvent` | Small event/thread wrapper outside the main class cluster. |
+| `0x005967d0` | inherited wait-handle helper call | Stale generated Socket-owned row; current IDA evidence says the helper itself is base `Thread` infrastructure, called from serial transport setup. |
 
 ## Transport Modes
 
@@ -73,7 +73,6 @@ The packet buffer helper functions are separate utilities documented under [UID:
 
 ## Open Questions
 
-- Confirm whether `QueueThreadEvent` is a true `Socket` method or a generic `Thread` helper emitted with Socket ownership.
 - Review final field names once class layout inspection is reliable; targeted `inspect class-layout Socket --field-limit 80` timed out during this pass.
 - Confirm the source-facing type of `g_packetSender` after reconciling Socket lifetime ownership with the generated `CashShopRequest::QueueAndSendPacket` call sites.
 - Confirm whether packet transform helpers were separate original file-scope functions or private functions in the same socket translation unit.
@@ -97,6 +96,10 @@ The packet buffer helper functions are separate utilities documented under [UID:
 
 ## Changes
 
+- 2026-06-02 `0x005967d0` ownership update:
+  - What existed before: the page listed `QueueThreadEvent` as a Socket method and left an open question about whether it was truly Socket-owned.
+  - Changed to: the helper is described as inherited base `Thread` infrastructure called by Socket serial setup.
+  - Summary/evidence: [UID:0001JZ][0x005967d0-0x005967e5.SocketThreadEvent](by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md) now records IDA MCP lookup/decompile/disassembly/caller/callee/xref/raw-byte evidence for the Thread wait-handle append helper.
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `86`, confidence `82`.
 - Evidence: the page documents responsibility, owner file, major transport ranges, important methods, transport modes, packet encoding, `g_packetSender` ownership, and subsystem cross-references; confidence remains capped by open field naming and helper/source split questions.

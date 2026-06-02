@@ -11,7 +11,7 @@
 - Proposed module: `network/Socket.cpp`
 - Current Wave3 file: `class_Socket.cpp`
 - Main class: [UID:0000DD][Socket](by-class/Socket.md)
-- Main address docs: [UID:0001HS][0x005747e0-0x00574ad8.SocketLifecycle](by-memory/0x005747e0-0x00574ad8.SocketLifecycle.md), [UID:0001I1][0x00575d90-0x005796c7.SocketTransportCore](by-memory/0x00575d90-0x005796c7.SocketTransportCore.md), [UID:0001I3][0x00578b20-0x00578c40.SocketTransformFramePayload](by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md), [UID:0001I4][0x00578c40-0x00578df1.SocketBuildEncryptedPacket](by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md), and [UID:0001JZ][0x005967d0-0x005967e5.SocketThreadEvent](by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md)
+- Main address docs: [UID:0001HS][0x005747e0-0x00574ad8.SocketLifecycle](by-memory/0x005747e0-0x00574ad8.SocketLifecycle.md), [UID:0001I1][0x00575d90-0x005796c7.SocketTransportCore](by-memory/0x00575d90-0x005796c7.SocketTransportCore.md), [UID:0001I3][0x00578b20-0x00578c40.SocketTransformFramePayload](by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md), and [UID:0001I4][0x00578c40-0x00578df1.SocketBuildEncryptedPacket](by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md). [UID:0001JZ][0x005967d0-0x005967e5.SocketThreadEvent](by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md) is now treated as called inherited Thread infrastructure, not Socket-owned source.
 - Evidence basis: `simroot_v2` generated source, Wave3 metadata, Wave3 xrefs, and IDA MCP lookup/xref checks on 2026-05-23.
 
 ## Hypothesis
@@ -45,7 +45,7 @@ Keep these nearby functions out of `Socket.cpp` unless later evidence proves oth
 ## Evidence
 
 - Wave3 reports `Socket` as the only class attached to `class_Socket.cpp`, with 26 included methods and owner file `class_Socket.cpp`.
-- IDA MCP confirms key function boundaries: constructor `0x005747e0-0x005749d9`, destructor `0x005749e0-0x00574ad8`, `SendEncodedPacket` `0x00576660-0x00576c75`, `BuildEncryptedPacket` `0x00578c40-0x00578df1`, and `QueueThreadEvent` `0x005967d0-0x005967e5`.
+- IDA MCP confirms key Socket function boundaries: constructor `0x005747e0-0x005749d9`, destructor `0x005749e0-0x00574ad8`, `SendEncodedPacket` `0x00576660-0x00576c75`, and `BuildEncryptedPacket` `0x00578c40-0x00578df1`. The transport setup path calls the inherited Thread wait-handle helper at `0x005967d0-0x005967e5`, but current IDA evidence places that helper with [UID:0000OR][Thread](by-file/Thread.md).
 - Wave3 and IDA both report three direct code refs to `SendEncodedPacket` from the destructor/scalar destructor and command dispatcher.
 - IDA MCP `py_eval` on 2026-05-25 reports 489 xrefs and five direct writes to `0x0067a7ec`; the writer set is entirely the Socket constructor/destructor family, including [UID:0001I6][0x005794c0-0x005794cb.ClearPacketSenderGlobal](by-memory/0x005794c0-0x005794cb.ClearPacketSenderGlobal.md) and scalar deleting destructor `0x005795a0`.
 - The constructor seeds the handshake/key path, allocates packet buffers, initializes receive/frame state, sets `g_packetSender`, and optionally dispatches mode-6 startup messages.
@@ -93,6 +93,10 @@ Expected dependencies include `Thread`, `Application`/window access, configurati
 
 ## Changes
 
+- 2026-06-02 `0x005967d0` source-owner correction.
+  - Before: `Socket.md` listed [UID:0001JZ][0x005967d0-0x005967e5.SocketThreadEvent](by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md) as a main Socket address doc and described it as `QueueThreadEvent`.
+  - After: the page treats that range as called inherited [UID:0000OR][Thread](by-file/Thread.md) infrastructure and keeps it only as transport-setup caller context.
+  - Evidence: the child memory page now records IDA MCP lookup/decompile/disassembly/caller/callee/xref/raw-byte evidence showing the helper mutates base `Thread` wait-handle fields only.
 - 2026-05-30: Scored documentation completeness/confidence.
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `88` and confidence to `82`.

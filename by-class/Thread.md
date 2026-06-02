@@ -30,7 +30,7 @@
 | `0x00596540-0x005965bf` | Graceful stop helper that posts stop message then terminates if still active. |
 | `0x005965c0-0x005965cc` | Force terminate wrapper. |
 | `0x005965e0-0x005967c7` | Start/resume and synchronous message helper family, omitted from active generated source. |
-| `0x005967d0-0x005967e5` | Secondary wait-handle registration wrapper, currently documented as a Socket-owned review item. |
+| `0x005967d0-0x005967e5` | Secondary wait-handle registration wrapper, now reclassified from stale Socket ownership to base `Thread` ownership after IDA body/caller review. |
 | `0x00596810-0x0059695e` | Worker dispatch loop and base message handlers. |
 | `0x00596960-0x00596ae8` | Async/sync message post helpers. Current `simroot_v2/class_Thread.cpp` emits `Thread::DispatchRequest` at `0x00596960` and an event-returning helper at `0x00596a00`; older docs/generated owners may still attach nearby wait helpers to `CashShopRequest`. |
 | `0x00596af0-0x00596bac` | `_beginthreadex` entry function. |
@@ -48,7 +48,7 @@
 
 - Final names/signatures for the sync-send and post-message helpers.
 - Whether `0x0041b6b0` is truly the base `Thread::OnSignaled` implementation or a derived-class virtual slot with polluted owner metadata.
-- Whether the `0x005967d0` wrapper should stay with [UID:0000DD][Socket](by-class/Socket.md) or move back to base `Thread`.
+- Final source-level names for the `0x005967d0` wait-handle registration wrapper and its wait-count/handle-array fields.
 
 ## Cross-References
 
@@ -60,6 +60,10 @@
 
 ## Changes
 
+- 2026-06-02 wait-handle wrapper ownership update:
+  - What existed before: the `0x005967d0` method-family row and open question treated the helper as a Socket-owned review item.
+  - Changed to: documented as a base `Thread` wait-handle registration wrapper with Socket only as the observed caller.
+  - Summary/evidence: [UID:0001JZ][0x005967d0-0x005967e5.SocketThreadEvent](by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md) records IDA MCP body/caller/callee/raw-byte evidence showing only inherited `Thread` wait-count and wait-handle array writes.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:80`.
