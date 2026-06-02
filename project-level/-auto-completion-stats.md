@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 06:38:39
+Generated: 2026-06-02 06:43:48
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -153,8 +153,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
-| `0001P9` | 50 | 65 | 57.5 | `by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md` |
 | `0001PE` | 50 | 65 | 57.5 | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |
 | `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
 | `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
@@ -178,6 +176,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00020I` | 50 | 85 | 67.5 | `by-memory/0x004610a0-0x004610ee.ByteSpanSubtract8Blocks.md` |
 | `000215` | 50 | 85 | 67.5 | `by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md` |
 | `00022V` | 50 | 85 | 67.5 | `by-memory/0x004f5b20-0x004f5c73.MapiSendMailHelper.md` |
+| `000237` | 50 | 85 | 67.5 | `by-memory/0x00515f50-0x00515ff2.MD5EndianEncodeDecodeHelpers.md` |
+| `00023A` | 50 | 85 | 67.5 | `by-memory/0x00524590-0x005245b1.MetaManNodeDestroyHelper.md` |
 
 ## Low_Confidence
 
@@ -188,8 +188,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
-| `0001P9` | 50 | 65 | 57.5 | `by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md` |
 | `0001PE` | 50 | 65 | 57.5 | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |
 | `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
 | `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
@@ -208,13 +206,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000223` | 55 | 65 | 60.0 | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |
 | `000141` | 55 | 65 | 60.0 | `by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md` |
 | `00022C` | 55 | 65 | 60.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
+| `0002HY` | 55 | 65 | 60.0 | `by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md` |
+| `00023F` | 55 | 65 | 60.0 | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
-| `0001P9` | 50 | 65 | 57.5 | `by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md` |
 | `0001PE` | 50 | 65 | 57.5 | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |
 | `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
 | `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
@@ -238,6 +236,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002HY` | 55 | 65 | 60.0 | `by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md` |
 | `00023F` | 55 | 65 | 60.0 | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |
 | `000272` | 55 | 65 | 60.0 | `by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md` |
+| `000279` | 55 | 65 | 60.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
+| `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
 
 ## By Folder
 
@@ -373,8 +373,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001P4` | 50 | 65 | 57.5 | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |
-| `0001P9` | 50 | 65 | 57.5 | `by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md` |
 | `0001PE` | 50 | 65 | 57.5 | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |
 | `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
 | `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
@@ -398,6 +396,8 @@ _No scored files._
 | `00023F` | 55 | 65 | 60.0 | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |
 | `000272` | 55 | 65 | 60.0 | `by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md` |
 | `000279` | 55 | 65 | 60.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
+| `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
+| `0002AZ` | 55 | 65 | 60.0 | `by-memory/0x0069b4f8-0x0069b4fc.MapPaneRenderScratchFlag.md` |
 
 ### by-meta
 
