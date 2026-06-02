@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1186
+Total_Reconstructable: 1188
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 660
+Total_Reconstructed_Assigned: 661
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 526
-Total_Unclassified: 943
+Total_Reconstructable_Unassigned: 527
+Total_Unclassified: 941
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -91,6 +91,7 @@ Total_Error: 0
 | [UID:000214][0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper](by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md) | assigned | `0000P9` |  | no | `auto-generated/NexusTK/ui/dialogs/WebBoardDialog.cpp` | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |  |
 | [UID:000215][0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor](by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md` |  |
 | [UID:0002P3][0x0046ff50-0x00470159.BrowserControlPaneOldConstructor](by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md) | assigned | `000016` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md` |  |
+| [UID:000218][0x004710e0-0x0047110e.BrowserGuidCompareHelper](by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md` |  |
 | [UID:0000ZL][0x004777a0-0x00478f8e.NewPredefinedFormArticleDialog](by-memory/0x004777a0-0x00478f8e.NewPredefinedFormArticleDialog.md) | assigned | `0000LT` |  | no | `auto-generated/NexusTK/ui/dialogs/NewPredefinedFormArticleDialog.cpp` | `by-memory/0x004777a0-0x00478f8e.NewPredefinedFormArticleDialog.md` |  |
 | [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md) | assigned | `0000HW` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md` |  |
 | [UID:0000ZM][0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions](by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md) | assigned | `0000HW` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |  |
@@ -738,6 +739,7 @@ Total_Error: 0
 | [UID:0002G4][0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw](by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md) | unassigned |  |  | no |  | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |  |
 | [UID:0002G9][0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw](by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md) | unassigned |  |  | no |  | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |  |
 | [UID:00010A][0x00484030-0x00484221.ClanStatusPaneConstructor](by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md` |  |
+| [UID:00021C][0x00484f70-0x0048540b.ClanStatusPacketDispatcher](by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md) | unassigned |  |  | no |  | `by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md` |  |
 | [UID:00010F][0x00486330-0x0048652d.SubmitClanChangeHelper](by-memory/0x00486330-0x0048652d.SubmitClanChangeHelper.md) | unassigned |  |  | no |  | `by-memory/0x00486330-0x0048652d.SubmitClanChangeHelper.md` |  |
 | [UID:00010H][0x00487600-0x0048779f.ClanStatusRowActionPacket](by-memory/0x00487600-0x0048779f.ClanStatusRowActionPacket.md) | unassigned |  |  | no |  | `by-memory/0x00487600-0x0048779f.ClanStatusRowActionPacket.md` |  |
 | [UID:0002NN][0x00488610-0x00488615.ClanInfoListPaneFalseActionVirtual](by-memory/0x00488610-0x00488615.ClanInfoListPaneFalseActionVirtual.md) | unassigned |  |  | no |  | `by-memory/0x00488610-0x00488615.ClanInfoListPaneFalseActionVirtual.md` |  |
@@ -1403,7 +1405,6 @@ Total_Error: 0
 | [UID:000213][0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper](by-memory/0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper.md) | unclassified |  |  | no |  | `by-memory/0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper.md` |  |
 | [UID:0000ZD][0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse](by-memory/0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse.md) | unclassified |  |  | no |  | `by-memory/0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse.md` |  |
 | [UID:0000ZF][0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers.md` |  |
-| [UID:000218][0x004710e0-0x0047110e.BrowserGuidCompareHelper](by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md) | unclassified |  |  | no |  | `by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md` |  |
 | [UID:000219][0x00471110-0x00471141.CrtWideVsnprintfWrapper](by-memory/0x00471110-0x00471141.CrtWideVsnprintfWrapper.md) | unclassified |  |  | no |  | `by-memory/0x00471110-0x00471141.CrtWideVsnprintfWrapper.md` |  |
 | [UID:0000ZH][0x00471150-0x00471ff1.BulletinSessionCore](by-memory/0x00471150-0x00471ff1.BulletinSessionCore.md) | unclassified |  |  | no |  | `by-memory/0x00471150-0x00471ff1.BulletinSessionCore.md` |  |
 | [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md` |  |
@@ -1488,7 +1489,6 @@ Total_Error: 0
 | [UID:00021B][0x00484230-0x004842ad.ClanStatusPaneConstructorCleanup](by-memory/0x00484230-0x004842ad.ClanStatusPaneConstructorCleanup.md) | unclassified |  |  | no |  | `by-memory/0x00484230-0x004842ad.ClanStatusPaneConstructorCleanup.md` |  |
 | [UID:00010B][0x004842b0-0x00484a50.ClanAttributePacketParser](by-memory/0x004842b0-0x00484a50.ClanAttributePacketParser.md) | unclassified |  |  | no |  | `by-memory/0x004842b0-0x00484a50.ClanAttributePacketParser.md` |  |
 | [UID:00010C][0x00484a60-0x00484f16.ClanStatusPaneFrameAndInput](by-memory/0x00484a60-0x00484f16.ClanStatusPaneFrameAndInput.md) | unclassified |  |  | no |  | `by-memory/0x00484a60-0x00484f16.ClanStatusPaneFrameAndInput.md` |  |
-| [UID:00021C][0x00484f70-0x0048540b.ClanStatusPacketDispatcher](by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md) | unclassified |  |  | no |  | `by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md` |  |
 | [UID:00021G][0x00485590-0x00485682.SendClanJoinListSelectionPacket](by-memory/0x00485590-0x00485682.SendClanJoinListSelectionPacket.md) | unclassified |  |  | no |  | `by-memory/0x00485590-0x00485682.SendClanJoinListSelectionPacket.md` |  |
 | [UID:00010D][0x00485700-0x00485778.SendClanLeaveResponse](by-memory/0x00485700-0x00485778.SendClanLeaveResponse.md) | unclassified |  |  | no |  | `by-memory/0x00485700-0x00485778.SendClanLeaveResponse.md` |  |
 | [UID:00021K][0x00485960-0x00485abe.ClanSubtype6PacketHelpers](by-memory/0x00485960-0x00485abe.ClanSubtype6PacketHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00485960-0x00485abe.ClanSubtype6PacketHelpers.md` |  |

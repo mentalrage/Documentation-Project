@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 15:23:04
+Generated: 2026-06-02 15:29:24
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -123,8 +123,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000218` | 65 | 85 | 75.0 | `by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md` |
-| `00021C` | 65 | 85 | 75.0 | `by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md` |
 | `00021K` | 65 | 85 | 75.0 | `by-memory/0x00485960-0x00485abe.ClanSubtype6PacketHelpers.md` |
 | `00021O` | 65 | 85 | 75.0 | `by-memory/0x00487370-0x004873b5.ClanStatusPaneRefreshChildPanes.md` |
 | `00021P` | 65 | 85 | 75.0 | `by-memory/0x004873c0-0x00487475.ClanStatusPaneShowInfoList.md` |
@@ -147,6 +145,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00027O` | 65 | 85 | 75.0 | `by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md` |
 | `00029U` | 65 | 85 | 75.0 | `by-memory/0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags.md` |
 | `00029J` | 65 | 85 | 75.0 | `by-memory/0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag.md` |
+| `0001R7` | 65 | 85 | 75.0 | `by-resource/backpane-background-resources.md` |
+| `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
+| `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 
 ## Low_Confidence
 
