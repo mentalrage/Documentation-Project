@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1122
+Total_Reconstructable: 1129
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 579
+Total_Reconstructed_Assigned: 586
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 543
-Total_Unclassified: 1004
+Total_Unclassified: 997
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -39,6 +39,13 @@ Total_Error: 0
 | [UID:0002K8][0x0045c100-0x0045c1a8.RankingCategoryRecordSetEndTimeFromPackedDateTime](by-memory/0x0045c100-0x0045c1a8.RankingCategoryRecordSetEndTimeFromPackedDateTime.md) | assigned | `0000BL` | 90 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045c100-0x0045c1a8.RankingCategoryRecordSetEndTimeFromPackedDateTime.md` |  |
 | [UID:0002K9][0x0045c1e0-0x0045c238.RankingCategoryRecordAppendUserEntry](by-memory/0x0045c1e0-0x0045c238.RankingCategoryRecordAppendUserEntry.md) | assigned | `0000BL` | 100 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045c1e0-0x0045c238.RankingCategoryRecordAppendUserEntry.md` |  |
 | [UID:0002KA][0x0045c240-0x0045c256.RankingCategoryRecordResetUserEntries](by-memory/0x0045c240-0x0045c256.RankingCategoryRecordResetUserEntries.md) | assigned | `0000BL` | 110 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045c240-0x0045c256.RankingCategoryRecordResetUserEntries.md` |  |
+| [UID:0001ZD][0x0045d530-0x0045d740.RankingCategoryVectorStorageHelpers](by-memory/0x0045d530-0x0045d740.RankingCategoryVectorStorageHelpers.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045d530-0x0045d740.RankingCategoryVectorStorageHelpers.md` |  |
+| [UID:0001ZE][0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper](by-memory/0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper.md` |  |
+| [UID:000202][0x0045d790-0x0045d7c2.RankingRewardEntryVectorInit](by-memory/0x0045d790-0x0045d7c2.RankingRewardEntryVectorInit.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045d790-0x0045d7c2.RankingRewardEntryVectorInit.md` |  |
+| [UID:000204][0x0045db60-0x0045db9e.RankingRewardEntryItemAt](by-memory/0x0045db60-0x0045db9e.RankingRewardEntryItemAt.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045db60-0x0045db9e.RankingRewardEntryItemAt.md` |  |
+| [UID:0001ZI][0x0045eae0-0x0045efd0.RankingRewardVectorStorageHelpers](by-memory/0x0045eae0-0x0045efd0.RankingRewardVectorStorageHelpers.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045eae0-0x0045efd0.RankingRewardVectorStorageHelpers.md` |  |
+| [UID:0001ZK][0x0045f020-0x0045f0a7.RankingRewardEntryVectorDestroy](by-memory/0x0045f020-0x0045f0a7.RankingRewardEntryVectorDestroy.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045f020-0x0045f0a7.RankingRewardEntryVectorDestroy.md` |  |
+| [UID:0001ZJ][0x0045f130-0x0045f33a.RankingRewardVectorRangeAllocationHelpers](by-memory/0x0045f130-0x0045f33a.RankingRewardVectorRangeAllocationHelpers.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045f130-0x0045f33a.RankingRewardVectorRangeAllocationHelpers.md` |  |
 | [UID:000208][0x00460940-0x004609d3.BlitTransparentShadow565MmxBlocks](by-memory/0x00460940-0x004609d3.BlitTransparentShadow565MmxBlocks.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00460940-0x004609d3.BlitTransparentShadow565MmxBlocks.md` |  |
 | [UID:000209][0x004609e0-0x00460af9.Rgb565TransparentAlphaBlendMmxBlocks](by-memory/0x004609e0-0x00460af9.Rgb565TransparentAlphaBlendMmxBlocks.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x004609e0-0x00460af9.Rgb565TransparentAlphaBlendMmxBlocks.md` |  |
 | [UID:00020A][0x00460c90-0x00460d51.Rgb565AlphaMapMmxBlocks](by-memory/0x00460c90-0x00460d51.Rgb565AlphaMapMmxBlocks.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00460c90-0x00460d51.Rgb565AlphaMapMmxBlocks.md` |  |
@@ -1302,19 +1309,12 @@ Total_Error: 0
 | [UID:0000Y1][0x0045981b-0x00459830.RankingDialogAdjustorThunks](by-memory/0x0045981b-0x00459830.RankingDialogAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0045981b-0x00459830.RankingDialogAdjustorThunks.md` |  |
 | [UID:0000Y8][0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks](by-memory/0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks.md` |  |
 | [UID:0001ZC][0x0045c260-0x0045d4f8.RankingCategoryCollection](by-memory/0x0045c260-0x0045d4f8.RankingCategoryCollection.md) | unclassified |  |  | no |  | `by-memory/0x0045c260-0x0045d4f8.RankingCategoryCollection.md` |  |
-| [UID:0001ZD][0x0045d530-0x0045d740.RankingCategoryVectorStorageHelpers](by-memory/0x0045d530-0x0045d740.RankingCategoryVectorStorageHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0045d530-0x0045d740.RankingCategoryVectorStorageHelpers.md` |  |
-| [UID:0001ZE][0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper](by-memory/0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper.md) | unclassified |  |  | no |  | `by-memory/0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper.md` |  |
-| [UID:000202][0x0045d790-0x0045d7c2.RankingRewardEntryVectorInit](by-memory/0x0045d790-0x0045d7c2.RankingRewardEntryVectorInit.md) | unclassified |  |  | no |  | `by-memory/0x0045d790-0x0045d7c2.RankingRewardEntryVectorInit.md` |  |
 | [UID:000203][0x0045d7d0-0x0045d7db.RankingRewardEntryItemVectorUnwindThunk](by-memory/0x0045d7d0-0x0045d7db.RankingRewardEntryItemVectorUnwindThunk.md) | unclassified |  |  | no |  | `by-memory/0x0045d7d0-0x0045d7db.RankingRewardEntryItemVectorUnwindThunk.md` |  |
 | [UID:0001ZF][0x0045d7e0-0x0045db54.RankingRewardEntryParseAndAccessors](by-memory/0x0045d7e0-0x0045db54.RankingRewardEntryParseAndAccessors.md) | unclassified |  |  | no |  | `by-memory/0x0045d7e0-0x0045db54.RankingRewardEntryParseAndAccessors.md` |  |
-| [UID:000204][0x0045db60-0x0045db9e.RankingRewardEntryItemAt](by-memory/0x0045db60-0x0045db9e.RankingRewardEntryItemAt.md) | unclassified |  |  | no |  | `by-memory/0x0045db60-0x0045db9e.RankingRewardEntryItemAt.md` |  |
 | [UID:0001ZG][0x0045dba0-0x0045f12c.RankingRewardInfoDialogCore](by-memory/0x0045dba0-0x0045f12c.RankingRewardInfoDialogCore.md) | unclassified |  |  | no |  | `by-memory/0x0045dba0-0x0045f12c.RankingRewardInfoDialogCore.md` |  |
 | [UID:0001ZH][0x0045ddd0-0x0045df8c.RankingRewardInfoPacketHandler](by-memory/0x0045ddd0-0x0045df8c.RankingRewardInfoPacketHandler.md) | unclassified |  |  | no |  | `by-memory/0x0045ddd0-0x0045df8c.RankingRewardInfoPacketHandler.md` |  |
-| [UID:0001ZI][0x0045eae0-0x0045efd0.RankingRewardVectorStorageHelpers](by-memory/0x0045eae0-0x0045efd0.RankingRewardVectorStorageHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0045eae0-0x0045efd0.RankingRewardVectorStorageHelpers.md` |  |
 | [UID:0000YA][0x0045efe0-0x0045efeb.RankingRewardInfoDialogClearSingletonHelper](by-memory/0x0045efe0-0x0045efeb.RankingRewardInfoDialogClearSingletonHelper.md) | unclassified |  |  | no |  | `by-memory/0x0045efe0-0x0045efeb.RankingRewardInfoDialogClearSingletonHelper.md` |  |
-| [UID:0001ZK][0x0045f020-0x0045f0a7.RankingRewardEntryVectorDestroy](by-memory/0x0045f020-0x0045f0a7.RankingRewardEntryVectorDestroy.md) | unclassified |  |  | no |  | `by-memory/0x0045f020-0x0045f0a7.RankingRewardEntryVectorDestroy.md` |  |
 | [UID:0000YB][0x0045f0a8-0x0045f0bd.RankingRewardInfoDialogAdjustorThunks](by-memory/0x0045f0a8-0x0045f0bd.RankingRewardInfoDialogAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0045f0a8-0x0045f0bd.RankingRewardInfoDialogAdjustorThunks.md` |  |
-| [UID:0001ZJ][0x0045f130-0x0045f33a.RankingRewardVectorRangeAllocationHelpers](by-memory/0x0045f130-0x0045f33a.RankingRewardVectorRangeAllocationHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0045f130-0x0045f33a.RankingRewardVectorRangeAllocationHelpers.md` |  |
 | [UID:0000YC][0x0045f97d-0x0045f992.RankingUserListPaneAdjustorThunks](by-memory/0x0045f97d-0x0045f992.RankingUserListPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0045f97d-0x0045f992.RankingUserListPaneAdjustorThunks.md` |  |
 | [UID:0000YD][0x0045fa00-0x004604f4.Rgb555565BlitHelpers](by-memory/0x0045fa00-0x004604f4.Rgb555565BlitHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0045fa00-0x004604f4.Rgb555565BlitHelpers.md` |  |
 | [UID:0000YE][0x00460500-0x00460709.AlphaBlendSpan16](by-memory/0x00460500-0x00460709.AlphaBlendSpan16.md) | unclassified |  |  | no |  | `by-memory/0x00460500-0x00460709.AlphaBlendSpan16.md` |  |
