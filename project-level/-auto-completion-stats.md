@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 15:06:43
+Generated: 2026-06-02 15:08:26
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -124,7 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001RH` | 65 | 82 | 73.5 | `by-resource/meta-dat-metadata-cache.md` |
 | `0002GO` | 65 | 85 | 75.0 | `by-memory/0x004651e0-0x004651e7.ApplicationIsRunning.md` |
 | `00020R` | 65 | 85 | 75.0 | `by-memory/0x00469050-0x0046907a.ObjectPaneClearOutputRects.md` |
 | `00020S` | 65 | 85 | 75.0 | `by-memory/0x00469080-0x004690a5.ObjectPaneGetEmptyRect.md` |
@@ -149,6 +148,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00026X` | 65 | 85 | 75.0 | `by-memory/0x006307f4-0x00630bd8.UserPaneInputStrings.md` |
 | `000276` | 65 | 85 | 75.0 | `by-memory/0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks.md` |
 | `000278` | 65 | 85 | 75.0 | `by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md` |
+| `00027M` | 65 | 85 | 75.0 | `by-memory/0x0066db44-0x0066db4c.UiResourceStringPointers.md` |
 
 ## Low_Confidence
 
@@ -382,7 +382,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001RH` | 65 | 82 | 73.5 | `by-resource/meta-dat-metadata-cache.md` |
 | `0001R7` | 65 | 85 | 75.0 | `by-resource/backpane-background-resources.md` |
 | `0001RN` | 68 | 84 | 76.0 | `by-resource/startup-logo-media.md` |
 | `0001R8` | 70 | 85 | 77.5 | `by-resource/collection-ui-resources.md` |
@@ -395,6 +394,7 @@ _No scored files._
 | `0001RA` | 70 | 88 | 79.0 | `by-resource/exchange-dialog-resources.md` |
 | `0001RB` | 70 | 88 | 79.0 | `by-resource/forced-inform-message-resources.md` |
 | `0001RR` | 70 | 88 | 79.0 | `by-resource/totem-frame-resources.md` |
+| `0001RH` | 72 | 86 | 79.0 | `by-resource/meta-dat-metadata-cache.md` |
 | `0001R9` | 72 | 88 | 80.0 | `by-resource/employee-dialog-resources.md` |
 | `0001RI` | 72 | 88 | 80.0 | `by-resource/new-human-motion-tables.md` |
 | `0001RQ` | 72 | 88 | 80.0 | `by-resource/timerpane-number-resources.md` |
