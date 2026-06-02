@@ -5,20 +5,22 @@
 Total_Type: 198
 Total_Reconstructable: 190
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 7
+Total_Reconstructed_Assigned: 9
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 183
+Total_Reconstructable_Unassigned: 181
 Total_Unclassified: 5
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | [UID:0001SK][BrowserInitFlags](by-type/by-enum/BrowserInitFlags.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-type/by-enum/BrowserInitFlags.md` |  |
+| [UID:0001SM][BrowserOverlayStyle](by-type/by-enum/BrowserOverlayStyle.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-type/by-enum/BrowserOverlayStyle.md` |  |
 | [UID:0001VI][ParcelNotificationPaneLayouts](by-type/by-struct/ParcelNotificationPaneLayouts.md) | assigned | `0000MF` | 5 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-type/by-struct/ParcelNotificationPaneLayouts.md` |  |
 | [UID:0001VJ][PatchPane2Layout](by-type/by-struct/PatchPane2Layout.md) | assigned | `0000AA` |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-type/by-struct/PatchPane2Layout.md` |  |
 | [UID:0001VN][RankingCategoryRecordLayout](by-type/by-struct/RankingCategoryRecordLayout.md) | assigned | `0000BL` | 5 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-struct/RankingCategoryRecordLayout.md` |  |
 | [UID:0001VO][RankingEventScrollPaneLayout](by-type/by-struct/RankingEventScrollPaneLayout.md) | assigned | `0000BO` | 5 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-struct/RankingEventScrollPaneLayout.md` |  |
 | [UID:0001VP][RectBoundsLayout](by-type/by-struct/RectBoundsLayout.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-type/by-struct/RectBoundsLayout.md` |  |
+| [UID:0001X4][BoardArticleDialogVtableFamily](by-type/by-vtable/BoardArticleDialogVtableFamily.md) | assigned | `0000HT` |  | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |  |
 | [UID:0001YK][RankingEventScrollPaneVtables](by-type/by-vtable/RankingEventScrollPaneVtables.md) | assigned | `0000BO` | 6 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-vtable/RankingEventScrollPaneVtables.md` |  |
 | [UID:0001VS][ResourceLayoutBucket](by-type/by-struct/ResourceLayoutBucket.md) | not_reconstructable |  |  | no |  | `by-type/by-struct/ResourceLayoutBucket.md` |  |
 | [UID:0001VU][ResourceLayoutStore](by-type/by-struct/ResourceLayoutStore.md) | not_reconstructable |  |  | no |  | `by-type/by-struct/ResourceLayoutStore.md` |  |
@@ -26,7 +28,6 @@ Total_Error: 0
 | [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md) | unassigned |  |  | no |  | `by-type/by-constant/DownloaderMessageIds.md` |  |
 | [UID:0001SJ][BrowserDispatchEventId](by-type/by-enum/BrowserDispatchEventId.md) | unassigned |  |  | no |  | `by-type/by-enum/BrowserDispatchEventId.md` |  |
 | [UID:0001SL][BrowserMessageId](by-type/by-enum/BrowserMessageId.md) | unassigned |  |  | no |  | `by-type/by-enum/BrowserMessageId.md` |  |
-| [UID:0001SM][BrowserOverlayStyle](by-type/by-enum/BrowserOverlayStyle.md) | unassigned |  |  | no |  | `by-type/by-enum/BrowserOverlayStyle.md` |  |
 | [UID:0001SN][HttpGetNotificationState](by-type/by-enum/HttpGetNotificationState.md) | unassigned |  |  | no |  | `by-type/by-enum/HttpGetNotificationState.md` |  |
 | [UID:0001SO][MapServerPacketOpcode](by-type/by-enum/MapServerPacketOpcode.md) | unassigned |  |  | no |  | `by-type/by-enum/MapServerPacketOpcode.md` |  |
 | [UID:0001SP][MiscWorkThreadMessageId](by-type/by-enum/MiscWorkThreadMessageId.md) | unassigned |  |  | no |  | `by-type/by-enum/MiscWorkThreadMessageId.md` |  |
@@ -136,7 +137,6 @@ Total_Error: 0
 | [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/BinaryCodecVtables.md` |  |
 | [UID:0001X2][BlackHoleVtable](by-type/by-vtable/BlackHoleVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/BlackHoleVtable.md` |  |
 | [UID:0001X3][BlueAlertPaneVtables](by-type/by-vtable/BlueAlertPaneVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/BlueAlertPaneVtables.md` |  |
-| [UID:0001X4][BoardArticleDialogVtableFamily](by-type/by-vtable/BoardArticleDialogVtableFamily.md) | unassigned |  |  | no |  | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |  |
 | [UID:0001X5][BulletinDialogVtables](by-type/by-vtable/BulletinDialogVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/BulletinDialogVtables.md` |  |
 | [UID:0001X6][CachedHashTableVtable](by-type/by-vtable/CachedHashTableVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/CachedHashTableVtable.md` |  |
 | [UID:0001X7][ChangeManVtable](by-type/by-vtable/ChangeManVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/ChangeManVtable.md` |  |

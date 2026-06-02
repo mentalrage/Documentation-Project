@@ -1,7 +1,7 @@
 *** UID:0000HT | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # BoardDialogs
 
@@ -32,6 +32,12 @@ Possible compact legacy structure:
 ```text
 ui/dialogs/BulletinDialogs.cpp
 ```
+
+## Reconstruction Handling
+
+- The assigned reconstruction folder is `NexusTK/ui/dialogs/`, staging this page as the current `BoardDialogs.cpp` owner bucket.
+- Treat this as a practical parent for board/article dialog class-layout and vtable documentation while the final split between `BoardDialogs.cpp`, `ArticleDialogs.cpp`, `BulletinDialogs.cpp`, and companion alert files remains open.
+- Do not emit final C++ from this page yet. It is an ownership and grouping anchor for child documentation, not proof that every listed helper belongs in one original source file.
 
 ## Proposed Contents
 
@@ -132,6 +138,7 @@ IDA reports no function at Wave3's `BulletinDialog` constructor start `0x0047200
 - What existed before: the page had extensive board/article/web-board module evidence but remained scored as unevaluated.
 - What it was changed to: scores were set to `80/84`.
 - Summary and evidence: board/article dialog ownership is strongly supported by many IDA-confirmed ranges, vtables, and source grouping notes; confidence remains below 100 because the web-board split, raw constructor starts, and alert companion placement still need final migration decisions.
+- 2026-06-02: Assigned projected reconstruction path `NexusTK/ui/dialogs/` and raised scores to `82/85`. This lets confirmed board/article child layout pages attach to a stable file-owner bucket while preserving the documented caveat that the exact original file split remains unresolved.
 - 2026-05-27: The web-board rows previously summarized active `WebBoardDialog` as `0x0046d050-0x0046da63` and `WebBoardDialogOld` as `0x0046e2a0-0x0046ee7a`. Updated them to include the newly documented helper coverage: active URL escape/render helpers through `0x0046e25b`, and the raw old-dialog teardown-like helper at `0x0046e260-0x0046e294`. Evidence is in [UID:000210][0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers](by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md).
 - 2026-05-27: The `WebBoardDialogOld` row previously omitted raw helper `0x0046e4c0-0x0046e63c`. Added it after IDA MCP confirmed it as a mode/control rectangle helper with switch-table bytes before the old constructor; evidence is in [UID:000211][0x0046e4c0-0x0046e63c.WebBoardDialogOldModeRectHelper](by-memory/0x0046e4c0-0x0046e63c.WebBoardDialogOldModeRectHelper.md).
 - 2026-05-27: The `WebBoardDialogOld` row previously left destructor/callback coverage between the old constructor and packet forwarder implicit. Added `0x0046e8c0-0x0046e9f5` after IDA MCP confirmed the destructor and old browser-control close/reposition callbacks; evidence is in [UID:000212][0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks](by-memory/0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks.md).

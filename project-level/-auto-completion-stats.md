@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 13:43:08
+Generated: 2026-06-02 13:49:15
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -27,7 +27,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000HN` | blank | `(blank)` | `by-file/AutoInit.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HO` | blank | `(blank)` | `by-file/BackPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HQ` | blank | `(blank)` | `by-file/BinaryCodec.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000HT` | blank | `(blank)` | `by-file/BoardDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HU` | blank | `(blank)` | `by-file/BowGaugeObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I1` | blank | `(blank)` | `by-file/CashShopVersionRequest.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -127,8 +126,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001SM` | 62 | 82 | 72.0 | `by-type/by-enum/BrowserOverlayStyle.md` |
-| `0001X4` | 62 | 82 | 72.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
 | `00020L` | 62 | 86 | 74.0 | `by-memory/0x00461790-0x0046189b.AesCbcEncryptRaw.md` |
 | `00020M` | 62 | 86 | 74.0 | `by-memory/0x004618a0-0x004619b8.AesCbcDecryptRaw.md` |
 | `0001Z7` | 62 | 88 | 75.0 | `by-memory/0x0060d670-0x0066d000.ReadOnlyDataSection.md` |
@@ -152,6 +149,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000ZM` | 64 | 80 | 72.0 | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |
 | `0002P7` | 64 | 82 | 73.0 | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |
 | `0002PA` | 64 | 82 | 73.0 | `by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md` |
+| `0001Z5` | 64 | 88 | 76.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
+| `00000E` | 65 | 75 | 70.0 | `by-class/ApplicationHelper_4A6C40.md` |
 
 ## Low_Confidence
 
@@ -211,7 +210,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 | `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
-| `0001SM` | 62 | 82 | 72.0 | `by-type/by-enum/BrowserOverlayStyle.md` |
+| `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
 
 ## By Folder
 
@@ -416,17 +415,17 @@ _No scored files._
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001TZ` | 64 | 78 | 71.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
-| `0001SM` | 62 | 82 | 72.0 | `by-type/by-enum/BrowserOverlayStyle.md` |
-| `0001X4` | 62 | 82 | 72.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
 | `0001TR` | 68 | 82 | 75.0 | `by-type/by-struct/AttachedObjectRegistryLayout.md` |
 | `0001SK` | 72 | 80 | 76.0 | `by-type/by-enum/BrowserInitFlags.md` |
 | `0001UA` | 70 | 84 | 77.0 | `by-type/by-struct/EffectPixMapInfo.md` |
+| `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
 | `0001W7` | 72 | 82 | 77.0 | `by-type/by-struct/SpecializedButtonPaneLayouts.md` |
 | `0001SV` | 70 | 86 | 78.0 | `by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md` |
 | `0001YP` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollCollectionPaneVtables.md` |
 | `0001YQ` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollInventoryPaneVtables.md` |
 | `0001YS` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollSpellInventoryPaneVtables.md` |
 | `0001YT` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollVolumePaneVtables.md` |
+| `0001SM` | 72 | 84 | 78.0 | `by-type/by-enum/BrowserOverlayStyle.md` |
 | `0001U7` | 72 | 84 | 78.0 | `by-type/by-struct/EffectFrameRecord.md` |
 | `0001W5` | 72 | 84 | 78.0 | `by-type/by-struct/SimpleUStringSso7Layout.md` |
 | `0001SO` | 74 | 82 | 78.0 | `by-type/by-enum/MapServerPacketOpcode.md` |

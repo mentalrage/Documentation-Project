@@ -1,8 +1,8 @@
 *** UID:0001X4 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:62 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,8 @@
 - Covered module: [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md) and [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md).
 - Confidence: strong for table bases and constructor/store xrefs; medium for final class splits in small alert helpers.
 - Evidence basis: IDA MCP `list_globals`, `py_eval` xref dumps, vtable-base xrefs, raw constructor stores, and exact child-range checks. `simroot_v2` is useful only as a lead and for recording generated-data issues.
+- Rebuild handling: source-declared/generated-binary. These tables should be regenerated from class declarations and inheritance layout, not hand-authored as raw address tables.
+- Autogen parent: [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md) as the current board/article dialog owner bucket. Alert companion rows remain cross-referenced to [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md).
 
 ## Core Dialog Tables
 
@@ -57,6 +59,25 @@ Current `simroot_v2` metadata reports `vtable_count: 0` for the checked board/ar
 
 Use this page as the class-layout anchor for the board/article dialog module. The table order supports a compact original source organization around `BulletinDialog`, board-list panes/dialogs, article-list panes/dialogs, article viewer/composer classes, predefined-form article dialogs, and small alert companions.
 
+## Coverage And Split Notes
+
+| Area | Current state | Next evidence needed |
+| --- | --- | --- |
+| `BulletinDialog` | Exact vtable data child exists at [UID:0002MI][0x00613ba4-0x00613c44.BulletinDialogVtableData](by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md). | Final inherited slot names and header declaration shape. |
+| Board/article core dialogs | Primary, secondary, and tertiary table bases plus constructor stores are listed. | Exact by-memory vtable-data child pages for each class, matching the `BulletinDialog` split quality. |
+| Reply/delete alert companions | Table bases and store xrefs are documented, with raw constructor evidence for `TransferReplyAlert`. | Raw constructor confirmation for the remaining projected alert starts and final placement between board/mail/shared alert source files. |
+| Mail-adjacent tables | Neighboring mail tables are identified and intentionally cross-referenced rather than owned here. | Keep owner split synchronized with [UID:0001Y2][MailDialogVtableFamily](by-type/by-vtable/MailDialogVtableFamily.md). |
+
+## Autogen Status
+
+- Reconstructable: true, as source-declared/generated-binary class-layout data.
+- Parent: [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md).
+- C++: intentionally blank; vtable bytes should emerge from the final C++ class hierarchy, and inherited slot names are not complete enough for declarations here.
+
+## Score Rationale
+
+Completion is raised for parent attachment, rebuild classification, and explicit coverage gaps. Confidence rises modestly because the table bases and constructor-store evidence are already IDA-backed, but exact child splits for most family members and several projected alert constructors still limit the score.
+
 ## Cross-References
 
 - [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md)
@@ -73,4 +94,5 @@ Use this page as the class-layout anchor for the board/article dialog module. Th
 ## Changes
 
 - 2026-05-31: Changed completion/confidence from `0/0` to `62/82` and marked the page reconstructable. Evidence: the page already had broad IDA-backed family inventory, and the `BulletinDialog` row now points to exact IDA-verified data child [UID:0002MI][0x00613ba4-0x00613c44.BulletinDialogVtableData](by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md). Completion remains moderate because most other vtable clusters in the family still need exact by-memory child splits.
+- 2026-06-02: Raised completion/confidence to `70/84`, attached `AUTOGEN_PARENT_UID:0000HT`, and added rebuild handling, autogen status, and coverage/split notes. Evidence: [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md) is now staged under `NexusTK/ui/dialogs/`, has `85` confidence, and already identifies this vtable family as the class-layout anchor for board/article dialogs; alert companion ownership remains explicitly cross-referenced to [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md).
 - 2026-05-27: The `TransferReplyAlert` vtable evidence previously listed `0x00478fb7` as part of a projected/inline constructor group. Updated it to cite raw constructor range [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md). Evidence: IDA raw disassembly confirms the three vtable stores at `0x00478fb7`, `0x00478fbd`, and `0x00478fc7`.
