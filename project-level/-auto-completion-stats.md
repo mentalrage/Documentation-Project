@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 14:53:10
+Generated: 2026-06-02 14:58:53
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -124,9 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000WH` | 65 | 80 | 72.5 | `by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md` |
-| `0002H3` | 65 | 80 | 72.5 | `by-memory/0x00464e40-0x00464f34.ApplicationRequestExit.md` |
-| `00022Z` | 65 | 80 | 72.5 | `by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md` |
 | `0002C8` | 65 | 80 | 72.5 | `by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md` |
 | `0001AO` | 65 | 82 | 73.5 | `by-memory/0x005039f0-0x00504521.GameServerNationAndMapInit.md` |
 | `0001RH` | 65 | 82 | 73.5 | `by-resource/meta-dat-metadata-cache.md` |
@@ -149,6 +146,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00025M` | 65 | 85 | 75.0 | `by-memory/0x0061c9c8-0x0061ca48.KeySpeedStringResourceReadOnlyData.md` |
 | `00025T` | 65 | 85 | 75.0 | `by-memory/0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData.md` |
 | `00025U` | 65 | 85 | 75.0 | `by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md` |
+| `000261` | 65 | 85 | 75.0 | `by-memory/0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData.md` |
+| `00026J` | 65 | 85 | 75.0 | `by-memory/0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData.md` |
+| `00026X` | 65 | 85 | 75.0 | `by-memory/0x006307f4-0x00630bd8.UserPaneInputStrings.md` |
 
 ## Low_Confidence
 
@@ -365,10 +365,10 @@ _No scored files._
 | `0002C0` | 68 | 76 | 72.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
 | `0002C1` | 68 | 76 | 72.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
 | `0002C3` | 68 | 76 | 72.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
-| `0000WH` | 65 | 80 | 72.5 | `by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md` |
-| `0002H3` | 65 | 80 | 72.5 | `by-memory/0x00464e40-0x00464f34.ApplicationRequestExit.md` |
-| `00022Z` | 65 | 80 | 72.5 | `by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md` |
 | `0002C8` | 65 | 80 | 72.5 | `by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md` |
+| `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
+| `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
+| `0002BJ` | 66 | 80 | 73.0 | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |
 
 ### by-meta
 

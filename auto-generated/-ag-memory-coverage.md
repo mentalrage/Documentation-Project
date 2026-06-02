@@ -3,17 +3,18 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1180
+Total_Reconstructable: 1182
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 659
+Total_Reconstructed_Assigned: 660
 Total_Reconstructed_Coded: 19
-Total_Reconstructable_Unassigned: 521
-Total_Unclassified: 949
+Total_Reconstructable_Unassigned: 522
+Total_Unclassified: 947
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md` |  |
+| [UID:0000WH][0x0041a5d0-0x0041b5da.CashShopRequestItemSetup](by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md) | assigned | `00001H` |  | no | `auto-generated/NexusTK/cashshop/CashShopRequest.cpp` | `by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md` |  |
 | [UID:0002D6][0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw](by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md) | assigned | `000054` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md` |  |
 | [UID:0002DA][0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers](by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md) | assigned | `000054` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |  |
 | [UID:0002DN][0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent](by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md` |  |
@@ -923,6 +924,7 @@ Total_Error: 0
 | [UID:0002Q9][0x004fd520-0x004fdd33.NewUserShapeSelectControlPaneCore](by-memory/0x004fd520-0x004fdd33.NewUserShapeSelectControlPaneCore.md) | unassigned |  |  | no |  | `by-memory/0x004fd520-0x004fdd33.NewUserShapeSelectControlPaneCore.md` |  |
 | [UID:0001A4][0x00500640-0x00502754.SpecializedButtonPanes](by-memory/0x00500640-0x00502754.SpecializedButtonPanes.md) | unassigned |  |  | no |  | `by-memory/0x00500640-0x00502754.SpecializedButtonPanes.md` |  |
 | [UID:0001A5][0x005008c0-0x0050114d.BlueAlertPaneCore](by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md) | unassigned |  |  | no |  | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |  |
+| [UID:00022Z][0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers](by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md` |  |
 | [UID:000230][0x00503960-0x005039ed.GameServerNationRequestPacketRawHelper](by-memory/0x00503960-0x005039ed.GameServerNationRequestPacketRawHelper.md) | unassigned |  |  | no |  | `by-memory/0x00503960-0x005039ed.GameServerNationRequestPacketRawHelper.md` |  |
 | [UID:0001AO][0x005039f0-0x00504521.GameServerNationAndMapInit](by-memory/0x005039f0-0x00504521.GameServerNationAndMapInit.md) | unassigned |  |  | no |  | `by-memory/0x005039f0-0x00504521.GameServerNationAndMapInit.md` |  |
 | [UID:0002HX][0x00503a80-0x00503b58.GameServerConfigCopyNationEntryOrFallback](by-memory/0x00503a80-0x00503b58.GameServerConfigCopyNationEntryOrFallback.md) | unassigned |  |  | no |  | `by-memory/0x00503a80-0x00503b58.GameServerConfigCopyNationEntryOrFallback.md` |  |
@@ -1231,7 +1233,6 @@ Total_Error: 0
 | [UID:0000WE][0x0041a4b0-0x0041a4cd.UserPanePoolStaticConstructorWrapper](by-memory/0x0041a4b0-0x0041a4cd.UserPanePoolStaticConstructorWrapper.md) | unclassified |  |  | no |  | `by-memory/0x0041a4b0-0x0041a4cd.UserPanePoolStaticConstructorWrapper.md` |  |
 | [UID:0000WF][0x0041a4cd-0x0041a550.StaticRuntimeInitializerWrappersAfterUserPanePool](by-memory/0x0041a4cd-0x0041a550.StaticRuntimeInitializerWrappersAfterUserPanePool.md) | unclassified |  |  | no |  | `by-memory/0x0041a4cd-0x0041a550.StaticRuntimeInitializerWrappersAfterUserPanePool.md` |  |
 | [UID:0002CH][0x0041a5d0-0x0041a607.CashShopRequestConstructorRaw](by-memory/0x0041a5d0-0x0041a607.CashShopRequestConstructorRaw.md) | unclassified |  |  | no |  | `by-memory/0x0041a5d0-0x0041a607.CashShopRequestConstructorRaw.md` |  |
-| [UID:0000WH][0x0041a5d0-0x0041b5da.CashShopRequestItemSetup](by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md) | unclassified |  |  | no |  | `by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md` |  |
 | [UID:0002CI][0x0041a610-0x0041a662.CashShopRequestNonDeletingDestructorRaw](by-memory/0x0041a610-0x0041a662.CashShopRequestNonDeletingDestructorRaw.md) | unclassified |  |  | no |  | `by-memory/0x0041a610-0x0041a662.CashShopRequestNonDeletingDestructorRaw.md` |  |
 | [UID:0000WI][0x0041a670-0x0041b69f.FileDownloaderDispatch](by-memory/0x0041a670-0x0041b69f.FileDownloaderDispatch.md) | unclassified |  |  | no |  | `by-memory/0x0041a670-0x0041b69f.FileDownloaderDispatch.md` |  |
 | [UID:0000WJ][0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload](by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md) | unclassified |  |  | no |  | `by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md` |  |
@@ -1665,7 +1666,6 @@ Total_Error: 0
 | [UID:00022X][0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors](by-memory/0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors.md) | unclassified |  |  | no |  | `by-memory/0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors.md` |  |
 | [UID:00022Y][0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers](by-memory/0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers.md` |  |
 | [UID:0002BD][0x00503060-0x005030bc.UiResourceDescriptorVirtualDispatchHelper](by-memory/0x00503060-0x005030bc.UiResourceDescriptorVirtualDispatchHelper.md) | unclassified |  |  | no |  | `by-memory/0x00503060-0x005030bc.UiResourceDescriptorVirtualDispatchHelper.md` |  |
-| [UID:00022Z][0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers](by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md` |  |
 | [UID:0002BE][0x005030c0-0x00503104.UiResourceDescriptorRectWriteHelper](by-memory/0x005030c0-0x00503104.UiResourceDescriptorRectWriteHelper.md) | unclassified |  |  | no |  | `by-memory/0x005030c0-0x00503104.UiResourceDescriptorRectWriteHelper.md` |  |
 | [UID:0002BF][0x00503110-0x005031e1.WideGlyphResourceTextRendererRaw](by-memory/0x00503110-0x005031e1.WideGlyphResourceTextRendererRaw.md) | unclassified |  |  | no |  | `by-memory/0x00503110-0x005031e1.WideGlyphResourceTextRendererRaw.md` |  |
 | [UID:0001AK][0x005031f0-0x005038fd.MapNamePane](by-memory/0x005031f0-0x005038fd.MapNamePane.md) | unclassified |  |  | no |  | `by-memory/0x005031f0-0x005038fd.MapNamePane.md` |  |
