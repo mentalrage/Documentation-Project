@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1115
+Total_Reconstructable: 1118
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 575
+Total_Reconstructed_Assigned: 577
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 540
-Total_Unclassified: 1011
+Total_Reconstructable_Unassigned: 541
+Total_Unclassified: 1008
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -83,6 +83,8 @@ Total_Error: 0
 | [UID:00021Y][0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers](by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |  |
 | [UID:00021Z][0x0048e310-0x0048e479.ConfigRawTableHelpers](by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |  |
 | [UID:0002BI][0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser](by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md) | assigned | `0000N4` | 36 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |  |
+| [UID:0002BM][0x00490810-0x00490b01.MihosoftLauncherParser](by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md) | assigned | `0000N4` | 48 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |  |
+| [UID:0002BO][0x004910d0-0x00491445.BixelLauncherParser](by-memory/0x004910d0-0x00491445.BixelLauncherParser.md) | assigned | `0000N4` | 56 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |  |
 | [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md) | assigned | `0000N4` | 60 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |  |
 | [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md) | assigned | `0000N4` | 70 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |  |
 | [UID:0002PB][0x004949e0-0x00494a81.ControlPaneConstructor](by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md) | assigned | `0000IG` | 10 | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md` |  |
@@ -642,6 +644,7 @@ Total_Error: 0
 | [UID:000101][0x0047ef20-0x0047ef3f.CompareChangeEntries](by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md) | unassigned |  |  | no |  | `by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md` |  |
 | [UID:000102][0x0047ef40-0x0047ef4b.ClearChangeManSingleton](by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md) | unassigned |  |  | no |  | `by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md` |  |
 | [UID:000103][0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor](by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md` |  |
+| [UID:0002G3][0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw](by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md) | unassigned |  |  | no |  | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |  |
 | [UID:0002G4][0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw](by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md) | unassigned |  |  | no |  | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |  |
 | [UID:00010A][0x00484030-0x00484221.ClanStatusPaneConstructor](by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md` |  |
 | [UID:00010F][0x00486330-0x0048652d.SubmitClanChangeHelper](by-memory/0x00486330-0x0048652d.SubmitClanChangeHelper.md) | unassigned |  |  | no |  | `by-memory/0x00486330-0x0048652d.SubmitClanChangeHelper.md` |  |
@@ -1425,7 +1428,6 @@ Total_Error: 0
 | [UID:0002G0][0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw](by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md) | unclassified |  |  | no |  | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |  |
 | [UID:0002G1][0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw](by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md) | unclassified |  |  | no |  | `by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md` |  |
 | [UID:0002G2][0x00482ca0-0x00482d3c.ChattingColorSelectPaneConstructor](by-memory/0x00482ca0-0x00482d3c.ChattingColorSelectPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00482ca0-0x00482d3c.ChattingColorSelectPaneConstructor.md` |  |
-| [UID:0002G3][0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw](by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md) | unclassified |  |  | no |  | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |  |
 | [UID:0002G5][0x00482d60-0x00482f4f.ChattingColorSelectPaneDrawItem](by-memory/0x00482d60-0x00482f4f.ChattingColorSelectPaneDrawItem.md) | unclassified |  |  | no |  | `by-memory/0x00482d60-0x00482f4f.ChattingColorSelectPaneDrawItem.md` |  |
 | [UID:0002G6][0x00482f50-0x00482fa5.ChattingColorSelectPaneOnSelectionChanged](by-memory/0x00482f50-0x00482fa5.ChattingColorSelectPaneOnSelectionChanged.md) | unclassified |  |  | no |  | `by-memory/0x00482f50-0x00482fa5.ChattingColorSelectPaneOnSelectionChanged.md` |  |
 | [UID:0002G7][0x00482fb0-0x00483206.ChattingColorListPaneConstructor](by-memory/0x00482fb0-0x00483206.ChattingColorListPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00482fb0-0x00483206.ChattingColorListPaneConstructor.md` |  |
@@ -1480,9 +1482,7 @@ Total_Error: 0
 | [UID:0002BJ][0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser](by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md) | unclassified |  |  | no |  | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |  |
 | [UID:0002BK][0x00490200-0x0049050a.LgInternetSessionLauncherParser](by-memory/0x00490200-0x0049050a.LgInternetSessionLauncherParser.md) | unclassified |  |  | no |  | `by-memory/0x00490200-0x0049050a.LgInternetSessionLauncherParser.md` |  |
 | [UID:0002BL][0x00490510-0x00490809.LauncherHostPortPayloadParser](by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md) | unclassified |  |  | no |  | `by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md` |  |
-| [UID:0002BM][0x00490810-0x00490b01.MihosoftLauncherParser](by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md) | unclassified |  |  | no |  | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |  |
 | [UID:0002BN][0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser](by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md) | unclassified |  |  | no |  | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |  |
-| [UID:0002BO][0x004910d0-0x00491445.BixelLauncherParser](by-memory/0x004910d0-0x00491445.BixelLauncherParser.md) | unclassified |  |  | no |  | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |  |
 | [UID:0002BP][0x00491450-0x0049178d.KwgLauncherParser](by-memory/0x00491450-0x0049178d.KwgLauncherParser.md) | unclassified |  |  | no |  | `by-memory/0x00491450-0x0049178d.KwgLauncherParser.md` |  |
 | [UID:0002BR][0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser](by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md) | unclassified |  |  | no |  | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |  |
 | [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md` |  |
