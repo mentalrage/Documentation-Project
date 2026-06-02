@@ -1,7 +1,7 @@
 *** UID:0000OJ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # TextBoxPane
 
@@ -48,3 +48,5 @@ Keep this as a small neighboring `ui/controls/TextBoxPane.cpp` for now. It is a 
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `78` and confidence to `80`.
   - Evidence: document covers text-box role, proposed contents, ownership decision, constructor evidence, override/helper ranges, and cross-references; completion remains lower because behavior and fields are summarized rather than deeply reconstructed.
+- 2026-06-01: `PROPOSED_RECONSTRUCTION_PATH` changed from blank to `NexusTK/ui/controls/`.
+  - Evidence: the page already proposed `ui/controls/TextBoxPane.cpp`, and [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) places `TextBoxPane.cpp` with neighboring UI controls.

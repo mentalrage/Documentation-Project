@@ -2,13 +2,13 @@
 
 # ag-memory-coverage
 
-Total_Type: 2118
-Total_Reconstructable: 937
+Total_Type: 2120
+Total_Reconstructable: 940
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 413
+Total_Reconstructed_Assigned: 415
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 524
-Total_Unclassified: 1170
+Total_Reconstructable_Unassigned: 525
+Total_Unclassified: 1169
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -399,6 +399,8 @@ Total_Error: 0
 | [UID:0001JG][0x0058d750-0x0058dc5b.DialDialog](by-memory/0x0058d750-0x0058dc5b.DialDialog.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |  |
 | [UID:0001JH][0x0058da20-0x0058db94.DialDialogModemResponseParser](by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |  |
 | [UID:0001JL][0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper](by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |  |
+| [UID:0001JO][0x00591300-0x005954b2.TextBoxPane](by-memory/0x00591300-0x005954b2.TextBoxPane.md) | assigned | `0000OJ` |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-memory/0x00591300-0x005954b2.TextBoxPane.md` |  |
+| [UID:0002RV][0x00595390-0x005954b2.TextBoxPaneConstructor](by-memory/0x00595390-0x005954b2.TextBoxPaneConstructor.md) | assigned | `0000OJ` |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-memory/0x00595390-0x005954b2.TextBoxPaneConstructor.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -820,6 +822,7 @@ Total_Error: 0
 | [UID:0002LO][0x005845b0-0x005845eb.StringBaseCompareWideLiteral](by-memory/0x005845b0-0x005845eb.StringBaseCompareWideLiteral.md) | unassigned |  |  | no |  | `by-memory/0x005845b0-0x005845eb.StringBaseCompareWideLiteral.md` |  |
 | [UID:0001J4][0x00584910-0x0058498b.SimpleUStringVectorPushBack](by-memory/0x00584910-0x0058498b.SimpleUStringVectorPushBack.md) | unassigned |  |  | no |  | `by-memory/0x00584910-0x0058498b.SimpleUStringVectorPushBack.md` |  |
 | [UID:0002O9][0x0058e380-0x0058e3d7.TextEditPaneCopyWideText](by-memory/0x0058e380-0x0058e3d7.TextEditPaneCopyWideText.md) | unassigned |  |  | no |  | `by-memory/0x0058e380-0x0058e3d7.TextEditPaneCopyWideText.md` |  |
+| [UID:0002RU][0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides](by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md) | unassigned |  |  | no |  | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |  |
 | [UID:0001K6][0x00597570-0x005986da.TimerMgrAndTimerQueue](by-memory/0x00597570-0x005986da.TimerMgrAndTimerQueue.md) | unassigned |  |  | no |  | `by-memory/0x00597570-0x005986da.TimerMgrAndTimerQueue.md` |  |
 | [UID:0002KX][0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick](by-memory/0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick.md) | unassigned |  |  | no |  | `by-memory/0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick.md` |  |
 | [UID:0001KA][0x00597dc0-0x005986da.TimerMgrQueueHelpers](by-memory/0x00597dc0-0x005986da.TimerMgrQueueHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00597dc0-0x005986da.TimerMgrQueueHelpers.md` |  |
@@ -1708,7 +1711,6 @@ Total_Error: 0
 | [UID:000247][0x0058dc60-0x0058dca5.TerminalPaneScalarDeletingDestructor](by-memory/0x0058dc60-0x0058dca5.TerminalPaneScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0058dc60-0x0058dca5.TerminalPaneScalarDeletingDestructor.md` |  |
 | [UID:0001JM][0x0058dce0-0x005917c8.TextEditPaneCore](by-memory/0x0058dce0-0x005917c8.TextEditPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x0058dce0-0x005917c8.TextEditPaneCore.md` |  |
 | [UID:0001JN][0x0058e490-0x0058e690.TextEditPaneSerialization](by-memory/0x0058e490-0x0058e690.TextEditPaneSerialization.md) | unclassified |  |  | no |  | `by-memory/0x0058e490-0x0058e690.TextEditPaneSerialization.md` |  |
-| [UID:0001JO][0x00591300-0x005954b2.TextBoxPane](by-memory/0x00591300-0x005954b2.TextBoxPane.md) | unclassified |  |  | no |  | `by-memory/0x00591300-0x005954b2.TextBoxPane.md` |  |
 | [UID:0001JP][0x00591d60-0x00593a10.TextEditPaneFormattingRuns](by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md) | unclassified |  |  | no |  | `by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md` |  |
 | [UID:0001JQ][0x00593c20-0x00593ce4.TextRunMeasureCallback](by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md) | unclassified |  |  | no |  | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |  |
 | [UID:0001JR][0x00593db0-0x00593ef5.DrawTextRunCallback](by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md) | unclassified |  |  | no |  | `by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md` |  |

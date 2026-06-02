@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 140
+Total_Reconstructed_Assigned: 141
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 148
+Total_Error: 147
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -134,6 +134,7 @@ Total_Error: 148
 | [UID:0000OE][SystemMessagePanes](by-file/SystemMessagePanes.md) | assigned |  |  | no | `auto-generated/NexusTK/social/SystemMessagePanes.cpp` | `by-file/SystemMessagePanes.md` | by-file generated root |
 | [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-file/TargetSelectionInputPanes.md` | by-file generated root |
 | [UID:0000OI][TerminalPane](by-file/TerminalPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-file/TerminalPane.md` | by-file generated root |
+| [UID:0000OJ][TextBoxPane](by-file/TextBoxPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-file/TextBoxPane.md` | by-file generated root |
 | [UID:0000OL][TextDialog](by-file/TextDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/TextDialog.cpp` | `by-file/TextDialog.md` | by-file generated root |
 | [UID:0000ON][TextEditPane](by-file/TextEditPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/TextEditPane.cpp` | `by-file/TextEditPane.md` | by-file generated root |
 | [UID:0000OO][TextFilter](by-file/TextFilter.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/TextFilter.cpp` | `by-file/TextFilter.md` | by-file generated root |
@@ -287,7 +288,6 @@ Total_Error: 148
 | [UID:0000OD][SwallowLayerPane](by-file/SwallowLayerPane.md) | error |  |  | no |  | `by-file/SwallowLayerPane.md` | by-file generated root |
 | [UID:0000OF][TabPane](by-file/TabPane.md) | error |  |  | no |  | `by-file/TabPane.md` | by-file generated root |
 | [UID:0000OG][TargetOptionDialog](by-file/TargetOptionDialog.md) | error |  |  | no |  | `by-file/TargetOptionDialog.md` | by-file generated root |
-| [UID:0000OJ][TextBoxPane](by-file/TextBoxPane.md) | error |  |  | no |  | `by-file/TextBoxPane.md` | by-file generated root |
 | [UID:0000OK][TextButtonControlPane](by-file/TextButtonControlPane.md) | error |  |  | no |  | `by-file/TextButtonControlPane.md` | by-file generated root |
 | [UID:0000OM][TextEditControlPane](by-file/TextEditControlPane.md) | error |  |  | no |  | `by-file/TextEditControlPane.md` | by-file generated root |
 | [UID:0000OQ][TextPad](by-file/TextPad.md) | error |  |  | no |  | `by-file/TextPad.md` | by-file generated root |
