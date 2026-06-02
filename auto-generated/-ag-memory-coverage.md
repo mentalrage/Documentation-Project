@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1145
+Total_Reconstructable: 1147
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 602
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 543
-Total_Unclassified: 981
+Total_Reconstructable_Unassigned: 545
+Total_Unclassified: 979
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -671,6 +671,8 @@ Total_Error: 0
 | [UID:000101][0x0047ef20-0x0047ef3f.CompareChangeEntries](by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md) | unassigned |  |  | no |  | `by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md` |  |
 | [UID:000102][0x0047ef40-0x0047ef4b.ClearChangeManSingleton](by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md) | unassigned |  |  | no |  | `by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md` |  |
 | [UID:000103][0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor](by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md` |  |
+| [UID:0002FP][0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper](by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md) | unassigned |  |  | no |  | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |  |
+| [UID:0002FQ][0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper](by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md) | unassigned |  |  | no |  | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |  |
 | [UID:0002G3][0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw](by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md) | unassigned |  |  | no |  | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |  |
 | [UID:0002G4][0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw](by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md) | unassigned |  |  | no |  | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |  |
 | [UID:00010A][0x00484030-0x00484221.ClanStatusPaneConstructor](by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md` |  |
@@ -1429,8 +1431,6 @@ Total_Error: 0
 | [UID:0002FO][0x00481750-0x00481a72.ChattingVarietySelectPaneDrawBorder](by-memory/0x00481750-0x00481a72.ChattingVarietySelectPaneDrawBorder.md) | unclassified |  |  | no |  | `by-memory/0x00481750-0x00481a72.ChattingVarietySelectPaneDrawBorder.md` |  |
 | [UID:0002FM][0x00481a80-0x00481acd.ChattingVarietySelectPaneGetItemRect](by-memory/0x00481a80-0x00481acd.ChattingVarietySelectPaneGetItemRect.md) | unclassified |  |  | no |  | `by-memory/0x00481a80-0x00481acd.ChattingVarietySelectPaneGetItemRect.md` |  |
 | [UID:000106][0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest](by-memory/0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest.md) | unclassified |  |  | no |  | `by-memory/0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest.md` |  |
-| [UID:0002FP][0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper](by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md) | unclassified |  |  | no |  | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |  |
-| [UID:0002FQ][0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper](by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md) | unclassified |  |  | no |  | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |  |
 | [UID:0002FR][0x00481c10-0x00481d2a.ChattingHandlePaneConstructor](by-memory/0x00481c10-0x00481d2a.ChattingHandlePaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00481c10-0x00481d2a.ChattingHandlePaneConstructor.md` |  |
 | [UID:0002FS][0x00481d30-0x00481d59.ChattingHandlePaneDestructor](by-memory/0x00481d30-0x00481d59.ChattingHandlePaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00481d30-0x00481d59.ChattingHandlePaneDestructor.md` |  |
 | [UID:0002FT][0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent](by-memory/0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent.md) | unclassified |  |  | no |  | `by-memory/0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent.md` |  |
