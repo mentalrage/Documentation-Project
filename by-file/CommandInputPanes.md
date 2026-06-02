@@ -1,7 +1,7 @@
 *** UID:0000ID | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # CommandInputPanes
 
@@ -48,6 +48,8 @@ ui/dialogs/SpellCommandInputPanes.cpp
 
 - IDA confirms `EmotionInputPane` starts at `0x005b29c0` and `0x005b2a70`, but Wave3's current emitted `OnCharInput` code is only a helper struct. 2026-05-26 IDA decompilation confirms the missing body reads exactly one character, maps `a-p` through [UID:0001M4][0x005b2f70-0x005b2fcb.SendEmotionPacket](by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md), and builds a localized emotion menu on `?`. Track the emitted-body gap under [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md).
 - IDA recheck on 2026-05-26 resolves adjacent helper `0x005b2f70-0x005b2fcb` as [UID:0001M4][0x005b2f70-0x005b2fcb.SendEmotionPacket](by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md), called only by `EmotionInputPane::OnCharInput`. Do not attach that range to `ChangeItemSlotInputPane`.
+- 2026-06-02 IDA MCP refresh confirms `EmotionInputPane` constructor callers at `0x005a6138`, `0x005a9390`, and the `?` help/menu reopen path at `0x005b2f38`; `OnCharInput` is a vtable-reached body from slot `0x0062fa00`; `SendEmotionPacket` is called only from `0x005b2aef`, `0x005b2b15`, and `0x005b2f52`.
+- The same refresh confirms `0x005b2f68-0x005b2f70` and `0x005b2fcb-0x005b2fd0` are pure `0xcc` alignment spans between the Emotion command cluster, its helper, and the following `ChangeItemSlotInputPane` raw-constructor neighborhood.
 - IDA reports no function at `GroupInputPane::GroupInputPane` projected start `0x005b5400`; the previous IDA function is `0x005b52f0-0x005b538a`, and the next is `0x005b5440-0x005b5547`.
 - `PostInputPane` and `SpellSpellInputPane` have clean IDA-aligned ranges. `SpellSpellInputPane` now cross-references [UID:0000O0][SpellInputPanes](by-file/SpellInputPanes.md) as the stronger spell-domain owner.
 - [UID:0000NM][SelfSaveInputPane](by-file/SelfSaveInputPane.md) is source-structure relevant because it fills the gap immediately before the block-list input pane neighborhood. IDA currently misses its constructor start and the adjacent raw send helper, so use the memory docs before migration.
@@ -102,3 +104,6 @@ Do not run these migrations until `EmotionInputPane::OnCharInput` and the `Group
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:82` and `CONFIDENCE:76`.
   - Summary/evidence: command-input family contents, likely split options, vtable anchors, IDA boundary caveats, omitted/generated-body issues, migration sequence, and cross-file dependencies are documented; confidence is capped by unresolved grouping between command, spell, item-action, block-list, and social prompt modules.
+- 2026-06-02 Emotion attachment refresh:
+  - Changed to: `CONFIDENCE:82` and `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/"`.
+  - Why: Emotion constructor, virtual input handler, helper, vtable data, caller map, helper-only ownership, and padding boundaries are now IDA-confirmed; confidence remains below `95` because broader command/spell/social split still has unresolved source-file boundaries.

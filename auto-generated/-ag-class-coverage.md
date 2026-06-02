@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 129
+Total_Reconstructable: 130
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 42
+Total_Reconstructed_Assigned: 43
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 456
+Total_Unclassified: 455
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -25,6 +25,7 @@ Total_Error: 0
 | [UID:00003N][DeleteFromBlockListenInputPane](by-class/DeleteFromBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/DeleteFromBlockListenInputPane.md` |  |
 | [UID:00003Q][DescPane](by-class/DescPane.md) | assigned | `0000IS` |  | no | `auto-generated/NexusTK/ui/controls/DescPane.cpp` | `by-class/DescPane.md` |  |
 | [UID:000049][EffectObjectPane](by-class/EffectObjectPane.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/EffectObjectPane.md` |  |
+| [UID:00004B][EmotionInputPane](by-class/EmotionInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/EmotionInputPane.md` |  |
 | [UID:00004N][EventHandler](by-class/EventHandler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/EventHandler.md` |  |
 | [UID:00004P][ExceptionHandler](by-class/ExceptionHandler.md) | assigned | `0000J8` |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-class/ExceptionHandler.md` |  |
 | [UID:000058][FlyingParcelPane](by-class/FlyingParcelPane.md) | assigned | `0000MF` | 30 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/FlyingParcelPane.md` |  |
@@ -247,7 +248,6 @@ Total_Error: 0
 | [UID:000046][EarthquakeEffecter](by-class/EarthquakeEffecter.md) | unclassified |  |  | no |  | `by-class/EarthquakeEffecter.md` |  |
 | [UID:000047][EatInputPane](by-class/EatInputPane.md) | unclassified |  |  | no |  | `by-class/EatInputPane.md` |  |
 | [UID:000048][EditablePaperPane](by-class/EditablePaperPane.md) | unclassified |  |  | no |  | `by-class/EditablePaperPane.md` |  |
-| [UID:00004B][EmotionInputPane](by-class/EmotionInputPane.md) | unclassified |  |  | no |  | `by-class/EmotionInputPane.md` |  |
 | [UID:00004K][ErrorMessage](by-class/ErrorMessage.md) | unclassified |  |  | no |  | `by-class/ErrorMessage.md` |  |
 | [UID:00004L][Event](by-class/Event.md) | unclassified |  |  | no |  | `by-class/Event.md` |  |
 | [UID:00004O][EventMan](by-class/EventMan.md) | unclassified |  |  | no |  | `by-class/EventMan.md` |  |

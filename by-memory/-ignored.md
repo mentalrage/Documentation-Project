@@ -2995,6 +2995,12 @@ For each ignored range, include:
   - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
   - Owner docs: [UID:0001M1][0x005b2720-0x005b296b.TakeOffInputPane](by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md), [UID:0001M2][0x005b27c0-0x005b2827.SendTakeOffPacket](by-memory/0x005b27c0-0x005b2827.SendTakeOffPacket.md), and [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md).
 
+- `0x005b2f68-0x005b2f70` and `0x005b2fcb-0x005b2fd0` - EmotionInputPane helper boundary alignment padding.
+  - Why ignored: confirmed `0xcc` compiler/linker alignment bytes between `EmotionInputPane::OnCharInput`, the private emotion packet helper, and the following `ChangeItemSlotInputPane` raw constructor neighborhood.
+  - Evidence: 2026-06-02 IDA MCP `lookup_funcs` confirms `sub_5B2A70` ends at `0x005b2f68`, `sub_5B2F70` starts at `0x005b2f70` and ends at `0x005b2fcb`, and `0x005b2fd0` is not an IDA function start; raw byte reads show eight and five `0xcc` bytes respectively.
+  - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
+  - Owner docs: [UID:0001M3][0x005b29c0-0x005b2f68.EmotionInputPane](by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md), [UID:0001M4][0x005b2f70-0x005b2fcb.SendEmotionPacket](by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md), and [UID:00004B][EmotionInputPane](by-class/EmotionInputPane.md).
+
 - `0x005b6c00-0x005b6c30` - switch/jump table bytes for `BlockListenInputPane` command dispatch.
   - Why ignored: compiler-generated switch data supporting the `A/a` and `D/d` command dispatcher, not a standalone source function.
   - Evidence: 2026-06-02 IDA MCP disassembly at `0x005b6c00` labels the bytes as a jump table and indirect table for the switch in [UID:0001MY][0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher](by-memory/0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher.md); raw byte read reports 48 bytes from `0x005b6c00-0x005b6c30`.
