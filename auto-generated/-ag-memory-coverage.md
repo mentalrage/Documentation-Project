@@ -2,18 +2,19 @@
 
 # ag-memory-coverage
 
-Total_Type: 2136
-Total_Reconstructable: 1093
+Total_Type: 2137
+Total_Reconstructable: 1097
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 552
+Total_Reconstructed_Assigned: 553
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 534
-Total_Unclassified: 1032
-Total_Error: 7
+Total_Reconstructable_Unassigned: 535
+Total_Unclassified: 1029
+Total_Error: 9
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md` |  |
+| [UID:0002SC][0x00424020-0x004242e4.FittingRoomTextButtonControlPane](by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md) | assigned | `000055` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md` |  |
 | [UID:0000XZ][0x00458610-0x0045f9f5.RankingDialog](by-memory/0x00458610-0x0045f9f5.RankingDialog.md) | assigned | `0000MZ` | 1 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x00458610-0x0045f9f5.RankingDialog.md` |  |
 | [UID:0000Y2][0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters](by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md) | assigned | `0000BO` | 10 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |  |
 | [UID:0000Y3][0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent](by-memory/0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent.md) | assigned | `0000BO` | 20 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent.md` |  |
@@ -570,8 +571,10 @@ Total_Error: 7
 | [UID:00020Y][0x0046d330-0x0046d475.WebBoardDialogVirtualCompanions](by-memory/0x0046d330-0x0046d475.WebBoardDialogVirtualCompanions.md) | error | `0000G2` |  | no |  | `by-memory/0x0046d330-0x0046d475.WebBoardDialogVirtualCompanions.md` | by-memory/0x0046d330-0x0046d475.WebBoardDialogVirtualCompanions.md: autogen_parent_ineligible: parent is not marked reconstructable |
 | [UID:000212][0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks](by-memory/0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks.md) | error | `0000G3` |  | no |  | `by-memory/0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks.md` | by-memory/0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks.md: autogen_parent_ineligible: parent is not marked reconstructable |
 | [UID:000216][0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks](by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md) | error | `00001B` |  | no |  | `by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md` | by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md: autogen_parent_ineligible: parent is not marked reconstructable |
+| [UID:0002G4][0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw](by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md) | error | `00001U` |  | no |  | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` | by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md: autogen_parent_ineligible: parent is not marked reconstructable |
 | [UID:00017A][0x004d2720-0x004e649b.HumanImageLib](by-memory/0x004d2720-0x004e649b.HumanImageLib.md) | error | `00006A` |  | no |  | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` | by-memory/0x004d2720-0x004e649b.HumanImageLib.md: autogen_parent_unknown: parent UID is not in validator.ini |
 | [UID:00017C][0x004dac40-0x004e685f.MonsterImageLib](by-memory/0x004dac40-0x004e685f.MonsterImageLib.md) | error | `00008N` |  | no |  | `by-memory/0x004dac40-0x004e685f.MonsterImageLib.md` | by-memory/0x004dac40-0x004e685f.MonsterImageLib.md: autogen_parent_unknown: parent UID is not in validator.ini |
+| [UID:0001CP][0x00528e60-0x0052a535.MusicControlDialog](by-memory/0x00528e60-0x0052a535.MusicControlDialog.md) | error | `00008U` |  | no |  | `by-memory/0x00528e60-0x0052a535.MusicControlDialog.md` | by-memory/0x00528e60-0x0052a535.MusicControlDialog.md: autogen_parent_ineligible: parent is not marked reconstructable |
 | [UID:0000Z2][0x00469180-0x004691fa.PaneChildRegistry](by-memory/0x00469180-0x004691fa.PaneChildRegistry.md) | not_reconstructable |  |  | no |  | `by-memory/0x00469180-0x004691fa.PaneChildRegistry.md` |  |
 | [UID:0000ZV][0x0047ed20-0x0047ed50.ChangeManConstructorCleanup](by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md) | not_reconstructable |  |  | no |  | `by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md` |  |
 | [UID:00010I][0x00488610-0x004888f0.ClanListPaneVirtuals](by-memory/0x00488610-0x004888f0.ClanListPaneVirtuals.md) | not_reconstructable |  |  | no |  | `by-memory/0x00488610-0x004888f0.ClanListPaneVirtuals.md` |  |
@@ -650,6 +653,8 @@ Total_Error: 7
 | [UID:0002OC][0x0048a100-0x0048a11f.ClanItemDialogVtableResetDestructorTail](by-memory/0x0048a100-0x0048a11f.ClanItemDialogVtableResetDestructorTail.md) | unassigned |  |  | no |  | `by-memory/0x0048a100-0x0048a11f.ClanItemDialogVtableResetDestructorTail.md` |  |
 | [UID:0002OB][0x0048a120-0x0048a1be.ClanItemDialogConfirmValidation](by-memory/0x0048a120-0x0048a1be.ClanItemDialogConfirmValidation.md) | unassigned |  |  | no |  | `by-memory/0x0048a120-0x0048a1be.ClanItemDialogConfirmValidation.md` |  |
 | [UID:00010W][0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor](by-memory/0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor.md` |  |
+| [UID:0002BG][0x0048f400-0x0048f4cf.CommandLineArgumentCounter](by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md) | unassigned |  |  | no |  | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |  |
+| [UID:0002BQ][0x00491790-0x004918dc.GameBillLauncherGate](by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md) | unassigned |  |  | no |  | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |  |
 | [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md) | unassigned |  |  | no |  | `by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md` |  |
 | [UID:000112][0x00493f10-0x00493f79.SimpleUStringVectorDestructor](by-memory/0x00493f10-0x00493f79.SimpleUStringVectorDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00493f10-0x00493f79.SimpleUStringVectorDestructor.md` |  |
 | [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |  |
@@ -876,7 +881,6 @@ Total_Error: 7
 | [UID:0001C4][0x00522530-0x005226ea.MessageShowPaneSetWrappedText](by-memory/0x00522530-0x005226ea.MessageShowPaneSetWrappedText.md) | unassigned |  |  | no |  | `by-memory/0x00522530-0x005226ea.MessageShowPaneSetWrappedText.md` |  |
 | [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md) | unassigned |  |  | no |  | `by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md` |  |
 | [UID:0001CD][0x00524d10-0x00525914.MetaTableRowTreeHelpers](by-memory/0x00524d10-0x00525914.MetaTableRowTreeHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00524d10-0x00525914.MetaTableRowTreeHelpers.md` |  |
-| [UID:0001CP][0x00528e60-0x0052a535.MusicControlDialog](by-memory/0x00528e60-0x0052a535.MusicControlDialog.md) | unassigned |  |  | no |  | `by-memory/0x00528e60-0x0052a535.MusicControlDialog.md` |  |
 | [UID:0002N2][0x0052a3e0-0x0052a43e.MusicControlDialogFolderCallbackInvoke](by-memory/0x0052a3e0-0x0052a43e.MusicControlDialogFolderCallbackInvoke.md) | unassigned |  |  | no |  | `by-memory/0x0052a3e0-0x0052a43e.MusicControlDialogFolderCallbackInvoke.md` |  |
 | [UID:0002N3][0x0052a4a0-0x0052a4de.MusicControlDialogFolderCallbackDestructor](by-memory/0x0052a4a0-0x0052a4de.MusicControlDialogFolderCallbackDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0052a4a0-0x0052a4de.MusicControlDialogFolderCallbackDestructor.md` |  |
 | [UID:0002JS][0x00530ee0-0x0053125d.ObjectListConstructor](by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md` |  |
@@ -1408,7 +1412,6 @@ Total_Error: 7
 | [UID:0002G1][0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw](by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md) | unclassified |  |  | no |  | `by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md` |  |
 | [UID:0002G2][0x00482ca0-0x00482d3c.ChattingColorSelectPaneConstructor](by-memory/0x00482ca0-0x00482d3c.ChattingColorSelectPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00482ca0-0x00482d3c.ChattingColorSelectPaneConstructor.md` |  |
 | [UID:0002G3][0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw](by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md) | unclassified |  |  | no |  | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |  |
-| [UID:0002G4][0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw](by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md) | unclassified |  |  | no |  | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |  |
 | [UID:0002G5][0x00482d60-0x00482f4f.ChattingColorSelectPaneDrawItem](by-memory/0x00482d60-0x00482f4f.ChattingColorSelectPaneDrawItem.md) | unclassified |  |  | no |  | `by-memory/0x00482d60-0x00482f4f.ChattingColorSelectPaneDrawItem.md` |  |
 | [UID:0002G6][0x00482f50-0x00482fa5.ChattingColorSelectPaneOnSelectionChanged](by-memory/0x00482f50-0x00482fa5.ChattingColorSelectPaneOnSelectionChanged.md) | unclassified |  |  | no |  | `by-memory/0x00482f50-0x00482fa5.ChattingColorSelectPaneOnSelectionChanged.md` |  |
 | [UID:0002G7][0x00482fb0-0x00483206.ChattingColorListPaneConstructor](by-memory/0x00482fb0-0x00483206.ChattingColorListPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00482fb0-0x00483206.ChattingColorListPaneConstructor.md` |  |
@@ -1459,7 +1462,6 @@ Total_Error: 7
 | [UID:00010Y][0x0048d480-0x0048d49f.CollectionEntryControlPaneDestructor](by-memory/0x0048d480-0x0048d49f.CollectionEntryControlPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0048d480-0x0048d49f.CollectionEntryControlPaneDestructor.md` |  |
 | [UID:00010Z][0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton](by-memory/0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton.md) | unclassified |  |  | no |  | `by-memory/0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton.md` |  |
 | [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md) | unclassified |  |  | no |  | `by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md` |  |
-| [UID:0002BG][0x0048f400-0x0048f4cf.CommandLineArgumentCounter](by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md) | unclassified |  |  | no |  | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |  |
 | [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md) | unclassified |  |  | no |  | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |  |
 | [UID:0002BH][0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser](by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md) | unclassified |  |  | no |  | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |  |
 | [UID:0002BI][0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser](by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md) | unclassified |  |  | no |  | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |  |
@@ -1470,7 +1472,6 @@ Total_Error: 7
 | [UID:0002BN][0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser](by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md) | unclassified |  |  | no |  | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |  |
 | [UID:0002BO][0x004910d0-0x00491445.BixelLauncherParser](by-memory/0x004910d0-0x00491445.BixelLauncherParser.md) | unclassified |  |  | no |  | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |  |
 | [UID:0002BP][0x00491450-0x0049178d.KwgLauncherParser](by-memory/0x00491450-0x0049178d.KwgLauncherParser.md) | unclassified |  |  | no |  | `by-memory/0x00491450-0x0049178d.KwgLauncherParser.md` |  |
-| [UID:0002BQ][0x00491790-0x004918dc.GameBillLauncherGate](by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md) | unclassified |  |  | no |  | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |  |
 | [UID:0002BR][0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser](by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md) | unclassified |  |  | no |  | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |  |
 | [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md` |  |
 | [UID:000113][0x00494520-0x004949df.ConnStatusPane](by-memory/0x00494520-0x004949df.ConnStatusPane.md) | unclassified |  |  | no |  | `by-memory/0x00494520-0x004949df.ConnStatusPane.md` |  |

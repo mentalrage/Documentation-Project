@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 146
+Total_Reconstructable: 147
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 59
+Total_Reconstructed_Assigned: 60
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 439
+Total_Unclassified: 438
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -33,6 +33,7 @@ Total_Error: 0
 | [UID:00004B][EmotionInputPane](by-class/EmotionInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/EmotionInputPane.md` |  |
 | [UID:00004N][EventHandler](by-class/EventHandler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/EventHandler.md` |  |
 | [UID:00004P][ExceptionHandler](by-class/ExceptionHandler.md) | assigned | `0000J8` |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-class/ExceptionHandler.md` |  |
+| [UID:000055][FittingRoomTextButtonControlPane](by-class/FittingRoomTextButtonControlPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomTextButtonControlPane.md` |  |
 | [UID:000058][FlyingParcelPane](by-class/FlyingParcelPane.md) | assigned | `0000MF` | 30 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/FlyingParcelPane.md` |  |
 | [UID:00005F][FpsPane](by-class/FpsPane.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-class/FpsPane.md` |  |
 | [UID:00005T][GiveGoldInputPane](by-class/GiveGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/GiveGoldInputPane.md` |  |
@@ -275,7 +276,6 @@ Total_Error: 0
 | [UID:000052][FittingRoomDownloadControlPane](by-class/FittingRoomDownloadControlPane.md) | unclassified |  |  | no |  | `by-class/FittingRoomDownloadControlPane.md` |  |
 | [UID:000053][FittingRoomListPane](by-class/FittingRoomListPane.md) | unclassified |  |  | no |  | `by-class/FittingRoomListPane.md` |  |
 | [UID:000054][FittingRoomScrollPane](by-class/FittingRoomScrollPane.md) | unclassified |  |  | no |  | `by-class/FittingRoomScrollPane.md` |  |
-| [UID:000055][FittingRoomTextButtonControlPane](by-class/FittingRoomTextButtonControlPane.md) | unclassified |  |  | no |  | `by-class/FittingRoomTextButtonControlPane.md` |  |
 | [UID:000056][FittingRoomUserImageControlPane](by-class/FittingRoomUserImageControlPane.md) | unclassified |  |  | no |  | `by-class/FittingRoomUserImageControlPane.md` |  |
 | [UID:000057][FlyingObjectPane](by-class/FlyingObjectPane.md) | unclassified |  |  | no |  | `by-class/FlyingObjectPane.md` |  |
 | [UID:000059][FolderSelectDialog](by-class/FolderSelectDialog.md) | unclassified |  |  | no |  | `by-class/FolderSelectDialog.md` |  |
