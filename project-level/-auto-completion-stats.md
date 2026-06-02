@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 14:24:07
+Generated: 2026-06-02 14:26:39
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -125,8 +125,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002PH` | 64 | 78 | 71.0 | `by-memory/0x004bc090-0x004bd3e8.SoftwareRenderCompatSpriteBlitCallback.md` |
-| `0002PK` | 64 | 78 | 71.0 | `by-memory/0x004c0f80-0x004c3123.SoftwareRenderRgb565SpriteBlitCallback.md` |
 | `0002IB` | 64 | 78 | 71.0 | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |
 | `000172` | 64 | 78 | 71.0 | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |
 | `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
@@ -150,6 +148,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002GO` | 65 | 85 | 75.0 | `by-memory/0x004651e0-0x004651e7.ApplicationIsRunning.md` |
 | `00020R` | 65 | 85 | 75.0 | `by-memory/0x00469050-0x0046907a.ObjectPaneClearOutputRects.md` |
 | `00020S` | 65 | 85 | 75.0 | `by-memory/0x00469080-0x004690a5.ObjectPaneGetEmptyRect.md` |
+| `000217` | 65 | 85 | 75.0 | `by-memory/0x004710d0-0x004710df.BrowserPanePlaySound.md` |
+| `000218` | 65 | 85 | 75.0 | `by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md` |
 
 ## Low_Confidence
 
@@ -189,8 +189,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `0002PH` | 64 | 78 | 71.0 | `by-memory/0x004bc090-0x004bd3e8.SoftwareRenderCompatSpriteBlitCallback.md` |
-| `0002PK` | 64 | 78 | 71.0 | `by-memory/0x004c0f80-0x004c3123.SoftwareRenderRgb565SpriteBlitCallback.md` |
 | `0002IB` | 64 | 78 | 71.0 | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |
 | `000172` | 64 | 78 | 71.0 | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |
 | `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
@@ -210,6 +208,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
 | `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
 | `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
+| `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
+| `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
 
 ## By Folder
 
@@ -347,8 +347,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `0002PH` | 64 | 78 | 71.0 | `by-memory/0x004bc090-0x004bd3e8.SoftwareRenderCompatSpriteBlitCallback.md` |
-| `0002PK` | 64 | 78 | 71.0 | `by-memory/0x004c0f80-0x004c3123.SoftwareRenderRgb565SpriteBlitCallback.md` |
 | `0002IB` | 64 | 78 | 71.0 | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |
 | `000172` | 64 | 78 | 71.0 | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |
 | `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
@@ -370,6 +368,8 @@ _No scored files._
 | `00016Z` | 68 | 76 | 72.0 | `by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md` |
 | `0002BX` | 68 | 76 | 72.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
 | `0002BZ` | 68 | 76 | 72.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
+| `0002C0` | 68 | 76 | 72.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
+| `0002C1` | 68 | 76 | 72.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
 
 ### by-meta
 
