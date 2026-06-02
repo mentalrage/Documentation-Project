@@ -3,12 +3,12 @@
 # ag-global-coverage
 
 Total_Type: 158
-Total_Reconstructable: 25
+Total_Reconstructable: 26
 Total_Not_Reconstructable: 2
 Total_Reconstructed_Assigned: 17
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 8
-Total_Unclassified: 131
+Total_Reconstructable_Unassigned: 9
+Total_Unclassified: 130
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -38,6 +38,7 @@ Total_Error: 0
 | [UID:0000RB][g_pKeySpeedMgr](by-global/g_pKeySpeedMgr.md) | unassigned |  |  | no |  | `by-global/g_pKeySpeedMgr.md` |  |
 | [UID:0000RD][g_pLightObjImageLib](by-global/g_pLightObjImageLib.md) | unassigned |  |  | no |  | `by-global/g_pLightObjImageLib.md` |  |
 | [UID:0000RK][g_pMessageShowPane](by-global/g_pMessageShowPane.md) | unassigned |  |  | no |  | `by-global/g_pMessageShowPane.md` |  |
+| [UID:0000ST][g_screenHeight](by-global/g_screenHeight.md) | unassigned |  |  | no |  | `by-global/g_screenHeight.md` |  |
 | [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md) | unassigned |  |  | no |  | `by-global/g_screenWidth.md` |  |
 | [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) | unassigned |  |  | no |  | `by-global/g_useEpfAssets.md` |  |
 | [UID:0000PH][CloseMainMenuDialogSingletons_4F69A0](by-global/CloseMainMenuDialogSingletons_4F69A0.md) | unclassified |  |  | no |  | `by-global/CloseMainMenuDialogSingletons_4F69A0.md` |  |
@@ -169,5 +170,4 @@ Total_Error: 0
 | [UID:0000SC][g_pStaffsDialog](by-global/g_pStaffsDialog.md) | unclassified |  |  | no |  | `by-global/g_pStaffsDialog.md` |  |
 | [UID:0000SD][g_pStaticObjImageLib](by-global/g_pStaticObjImageLib.md) | unclassified |  |  | no |  | `by-global/g_pStaticObjImageLib.md` |  |
 | [UID:0000SE][g_pTabPane](by-global/g_pTabPane.md) | unclassified |  |  | no |  | `by-global/g_pTabPane.md` |  |
-| [UID:0000ST][g_screenHeight](by-global/g_screenHeight.md) | unclassified |  |  | no |  | `by-global/g_screenHeight.md` |  |
 | [UID:0002CG][g_selfLookLastHoverEquipmentSlotId](by-global/g_selfLookLastHoverEquipmentSlotId.md) | unclassified |  |  | no |  | `by-global/g_selfLookLastHoverEquipmentSlotId.md` |  |

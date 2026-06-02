@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1085
+Total_Reconstructable: 1086
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 551
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 534
-Total_Unclassified: 1040
+Total_Reconstructable_Unassigned: 535
+Total_Unclassified: 1039
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -578,6 +578,7 @@ Total_Error: 0
 | [UID:0000W8][0x00419ee0-0x00419ef4.InitializeOleSupport](by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md) | unassigned |  |  | no |  | `by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md` |  |
 | [UID:0000WG][0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers](by-memory/0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers.md) | unassigned |  |  | no |  | `by-memory/0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers.md` |  |
 | [UID:0002DR][0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers](by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |  |
+| [UID:0002EE][0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers](by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |  |
 | [UID:0000XA][0x00439e00-0x00439ea3.DequeDestroy](by-memory/0x00439e00-0x00439ea3.DequeDestroy.md) | unassigned |  |  | no |  | `by-memory/0x00439e00-0x00439ea3.DequeDestroy.md` |  |
 | [UID:0000XB][0x0043e0b0-0x0043e241.DequeEnsureCapacity](by-memory/0x0043e0b0-0x0043e241.DequeEnsureCapacity.md) | unassigned |  |  | no |  | `by-memory/0x0043e0b0-0x0043e241.DequeEnsureCapacity.md` |  |
 | [UID:0000XP][0x004563c0-0x00457547.MiniMapVersionManager](by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md) | unassigned |  |  | no |  | `by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md` |  |
@@ -1222,7 +1223,6 @@ Total_Error: 0
 | [UID:0002E6][0x00422ba0-0x00422e91.FittingRoomDialogItemStateLoadCategoryFromJson](by-memory/0x00422ba0-0x00422e91.FittingRoomDialogItemStateLoadCategoryFromJson.md) | unclassified |  |  | no |  | `by-memory/0x00422ba0-0x00422e91.FittingRoomDialogItemStateLoadCategoryFromJson.md` |  |
 | [UID:0002EH][0x00422e91-0x00422ec0.FittingRoomCategorySwitchTable](by-memory/0x00422e91-0x00422ec0.FittingRoomCategorySwitchTable.md) | unclassified |  |  | no |  | `by-memory/0x00422e91-0x00422ec0.FittingRoomCategorySwitchTable.md` |  |
 | [UID:0002ED][0x00422ec0-0x00422ff1.FittingRoomItemShopTestJsonLoader](by-memory/0x00422ec0-0x00422ff1.FittingRoomItemShopTestJsonLoader.md) | unclassified |  |  | no |  | `by-memory/0x00422ec0-0x00422ff1.FittingRoomItemShopTestJsonLoader.md` |  |
-| [UID:0002EE][0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers](by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |  |
 | [UID:0000WW][0x00423b00-0x00423c3c.DATIndexVectorResizeAndFill](by-memory/0x00423b00-0x00423c3c.DATIndexVectorResizeAndFill.md) | unclassified |  |  | no |  | `by-memory/0x00423b00-0x00423c3c.DATIndexVectorResizeAndFill.md` |  |
 | [UID:0000WX][0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers](by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md) | unclassified |  |  | no |  | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |  |
 | [UID:0000WY][0x00424630-0x00428b4b.JsonCppValueCore](by-memory/0x00424630-0x00428b4b.JsonCppValueCore.md) | unclassified |  |  | no |  | `by-memory/0x00424630-0x00428b4b.JsonCppValueCore.md` |  |

@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 08:45:32
+Generated: 2026-06-02 08:55:31
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -144,11 +144,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002EE` | 55 | 75 | 65.0 | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |
-| `0000ST` | 55 | 80 | 67.5 | `by-global/g_screenHeight.md` |
-| `0002H0` | 55 | 80 | 67.5 | `by-memory/0x004639d0-0x00464a52.ApplicationInitialize.md` |
-| `0002H1` | 55 | 80 | 67.5 | `by-memory/0x00464a60-0x00464cc1.ApplicationCleanupResources.md` |
-| `0002H2` | 55 | 80 | 67.5 | `by-memory/0x00464cd0-0x00464e1f.ApplicationRunMessageLoop.md` |
 | `00020T` | 55 | 85 | 70.0 | `by-memory/0x0046a3d0-0x0046a505.BrowserWindowDocHostUiHandlerStubs.md` |
 | `00020V` | 55 | 85 | 70.0 | `by-memory/0x0046a630-0x0046a6ea.BrowserWindowHostWndProc.md` |
 | `00020X` | 55 | 85 | 70.0 | `by-memory/0x0046ad10-0x0046b51d.BrowserDialogPaneVirtuals.md` |
@@ -169,6 +164,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BZ` | 58 | 72 | 65.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
 | `0002C0` | 58 | 72 | 65.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
 | `0002C1` | 58 | 72 | 65.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
+| `0002C3` | 58 | 72 | 65.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
+| `0002DN` | 58 | 76 | 67.0 | `by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md` |
+| `0000ZL` | 58 | 76 | 67.0 | `by-memory/0x004777a0-0x00478f8d.NewPredefinedFormArticleDialog.md` |
+| `00017R` | 58 | 78 | 68.0 | `by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md` |
+| `0002HW` | 58 | 78 | 68.0 | `by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md` |
 
 ## Low_Confidence
 
@@ -222,13 +222,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002KD` | 58 | 70 | 64.0 | `by-memory/0x005465e0-0x0054660a.ParcelPaneOnKeyDown.md` |
 | `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
 | `00003X` | 62 | 66 | 64.0 | `by-class/DirectionButtonControlPane.md` |
-| `0002EE` | 55 | 75 | 65.0 | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |
 | `0002BG` | 58 | 72 | 65.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
 | `0002BQ` | 58 | 72 | 65.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
 | `0002BX` | 58 | 72 | 65.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
 | `0002BZ` | 58 | 72 | 65.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
 | `0002C0` | 58 | 72 | 65.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
 | `0002C1` | 58 | 72 | 65.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
+| `0002C3` | 58 | 72 | 65.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 
 ## By Folder
 
@@ -307,7 +307,6 @@ _No scored files._
 | `0000TA` | 65 | 65 | 65.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 65 | 65 | 65.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
 | `0000TE` | 65 | 65 | 65.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
-| `0000ST` | 55 | 80 | 67.5 | `by-global/g_screenHeight.md` |
 | `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
 | `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
 | `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
@@ -321,6 +320,7 @@ _No scored files._
 | `0000PY` | 78 | 74 | 76.0 | `by-global/g_fpsDebugActive.md` |
 | `0000PZ` | 78 | 74 | 76.0 | `by-global/g_fpsLogEnabled.md` |
 | `0000SM` | 70 | 84 | 77.0 | `by-global/g_pUrlAlertPane.md` |
+| `0000ST` | 70 | 84 | 77.0 | `by-global/g_screenHeight.md` |
 | `0000SU` | 70 | 84 | 77.0 | `by-global/g_screenWidth.md` |
 | `0000T6` | 72 | 82 | 77.0 | `by-global/MainUiLayerSlots.md` |
 | `0000SJ` | 72 | 84 | 78.0 | `by-global/g_pTimerPane.md` |
@@ -379,7 +379,6 @@ _No scored files._
 | `0002KQ` | 58 | 70 | 64.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
 | `0001CP` | 58 | 70 | 64.0 | `by-memory/0x00528e60-0x0052a535.MusicControlDialog.md` |
 | `0002KD` | 58 | 70 | 64.0 | `by-memory/0x005465e0-0x0054660a.ParcelPaneOnKeyDown.md` |
-| `0002EE` | 55 | 75 | 65.0 | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |
 | `0002BG` | 58 | 72 | 65.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
 | `0002BQ` | 58 | 72 | 65.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
 | `0002BX` | 58 | 72 | 65.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
@@ -389,6 +388,7 @@ _No scored files._
 | `0002C3` | 58 | 72 | 65.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 | `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
+| `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
 
 ### by-meta
 
