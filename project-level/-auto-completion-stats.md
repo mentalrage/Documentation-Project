@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 07:47:11
+Generated: 2026-06-02 07:50:32
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -150,8 +150,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
-| `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
-| `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
 | `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
 | `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
@@ -173,6 +171,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000NY` | 55 | 70 | 62.5 | `by-file/SpecializedButtonPanes.md` |
 | `0001KJ` | 55 | 70 | 62.5 | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |
 | `00001H` | 55 | 72 | 63.5 | `by-class/CashShopRequest.md` |
+| `0000I0` | 55 | 72 | 63.5 | `by-file/CashShopRequest.md` |
+| `0002KT` | 55 | 72 | 63.5 | `by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md` |
 
 ## Low_Confidence
 
@@ -183,8 +183,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
-| `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
 | `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
 | `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
@@ -203,13 +201,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
 | `0002AZ` | 55 | 65 | 60.0 | `by-memory/0x0069b4f8-0x0069b4fc.MapPaneRenderScratchFlag.md` |
 | `0000WX` | 60 | 65 | 62.5 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
+| `0001ZZ` | 60 | 65 | 62.5 | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |
+| `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
-| `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
 | `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
 | `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
@@ -233,6 +231,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000CU` | 55 | 70 | 62.5 | `by-class/SelfLookPane.md` |
 | `0000NY` | 55 | 70 | 62.5 | `by-file/SpecializedButtonPanes.md` |
 | `0001KJ` | 55 | 70 | 62.5 | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |
+| `0000WX` | 60 | 65 | 62.5 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
+| `0001ZZ` | 60 | 65 | 62.5 | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |
 
 ## By Folder
 
@@ -368,8 +368,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
-| `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
 | `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
 | `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
@@ -393,6 +391,8 @@ _No scored files._
 | `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
 | `00022D` | 60 | 65 | 62.5 | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |
 | `00022E` | 60 | 65 | 62.5 | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |
+| `00022I` | 60 | 65 | 62.5 | `by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md` |
+| `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
 
 ### by-meta
 
