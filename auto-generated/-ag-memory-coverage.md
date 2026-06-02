@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1157
+Total_Reconstructable: 1158
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 612
+Total_Reconstructed_Assigned: 613
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 545
-Total_Unclassified: 969
+Total_Unclassified: 968
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -263,6 +263,7 @@ Total_Error: 0
 | [UID:0002Q6][0x004f8f10-0x004f8f95.OpenTransferServerDialog](by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |  |
 | [UID:00019P][0x004f8fa0-0x004f9055.OpenCreateUserDialog](by-memory/0x004f8fa0-0x004f9055.OpenCreateUserDialog.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f8fa0-0x004f9055.OpenCreateUserDialog.md` |  |
 | [UID:00019Q][0x004f9060-0x004f90b4.OpenChangePasswordDialog](by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md` |  |
+| [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md` |  |
 | [UID:00019S][0x004f91c0-0x004f927d.OpenTerminalPane](by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md` |  |
 | [UID:0002Q8][0x004fce80-0x004fd520.UserShapeSelectControlPaneCore](by-memory/0x004fce80-0x004fd520.UserShapeSelectControlPaneCore.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-memory/0x004fce80-0x004fd520.UserShapeSelectControlPaneCore.md` |  |
 | [UID:0002QA][0x004fdd40-0x004fe782.ChangePasswordDialogPaneCore](by-memory/0x004fdd40-0x004fe782.ChangePasswordDialogPaneCore.md) | assigned | `0000I3` |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-memory/0x004fdd40-0x004fe782.ChangePasswordDialogPaneCore.md` |  |
@@ -1625,7 +1626,6 @@ Total_Error: 0
 | [UID:00019L][0x004f8b30-0x004f8b8d.EnsureLoginDialogPane](by-memory/0x004f8b30-0x004f8b8d.EnsureLoginDialogPane.md) | unclassified |  |  | no |  | `by-memory/0x004f8b30-0x004f8b8d.EnsureLoginDialogPane.md` |  |
 | [UID:00019M][0x004f8b90-0x004f8c07.ComputeMenuItemRect](by-memory/0x004f8b90-0x004f8c07.ComputeMenuItemRect.md) | unclassified |  |  | no |  | `by-memory/0x004f8b90-0x004f8c07.ComputeMenuItemRect.md` |  |
 | [UID:00019N][0x004f8c10-0x004f8cfa.MainMenuHitTest](by-memory/0x004f8c10-0x004f8cfa.MainMenuHitTest.md) | unclassified |  |  | no |  | `by-memory/0x004f8c10-0x004f8cfa.MainMenuHitTest.md` |  |
-| [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md` |  |
 | [UID:00019T][0x004f9280-0x004f9d28.ProfileLoadAndLegacyImport](by-memory/0x004f9280-0x004f9d28.ProfileLoadAndLegacyImport.md) | unclassified |  |  | no |  | `by-memory/0x004f9280-0x004f9d28.ProfileLoadAndLegacyImport.md` |  |
 | [UID:00019W][0x004ff040-0x00502c0c.ScrolledTextControlPane](by-memory/0x004ff040-0x00502c0c.ScrolledTextControlPane.md) | unclassified |  |  | no |  | `by-memory/0x004ff040-0x00502c0c.ScrolledTextControlPane.md` |  |
 | [UID:00019X][0x004ff400-0x00502cbd.ScrolledTextControlPaneForMadeBy](by-memory/0x004ff400-0x00502cbd.ScrolledTextControlPaneForMadeBy.md) | unclassified |  |  | no |  | `by-memory/0x004ff400-0x00502cbd.ScrolledTextControlPaneForMadeBy.md` |  |

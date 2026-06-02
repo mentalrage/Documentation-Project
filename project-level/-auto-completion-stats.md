@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 12:23:18
+Generated: 2026-06-02 12:25:37
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -162,11 +162,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000TC` | 65 | 65 | 65.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
-| `0000TE` | 65 | 65 | 65.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
 | `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
-| `00019R` | 65 | 65 | 65.0 | `by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md` |
 | `0001AZ` | 65 | 65 | 65.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
 | `0001HV` | 65 | 65 | 65.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
 | `00028Z` | 65 | 65 | 65.0 | `by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md` |
@@ -187,16 +184,16 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00008R` | 78 | 70 | 74.0 | `by-class/Motion.md` |
 | `0000AE` | 68 | 72 | 70.0 | `by-class/PhoneBookListPane.md` |
 | `0000BX` | 68 | 72 | 70.0 | `by-class/RequestSyncGate.md` |
+| `0000AC` | 70 | 72 | 71.0 | `by-class/PatchPane__PatchFileSlice.md` |
+| `0000FD` | 70 | 72 | 71.0 | `by-class/UInt32Vector.md` |
+| `0000FA` | 72 | 72 | 72.0 | `by-class/TreeItor_near_class_EventHandler___.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000TC` | 65 | 65 | 65.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
-| `0000TE` | 65 | 65 | 65.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
 | `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
-| `00019R` | 65 | 65 | 65.0 | `by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md` |
 | `0001AZ` | 65 | 65 | 65.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
 | `0001HV` | 65 | 65 | 65.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
 | `00028Z` | 65 | 65 | 65.0 | `by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md` |
@@ -217,6 +214,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002DA` | 65 | 74 | 69.5 | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |
 | `0000D9` | 62 | 78 | 70.0 | `by-class/SimpleUString.md` |
 | `00013P` | 62 | 78 | 70.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
+| `00013R` | 62 | 78 | 70.0 | `by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md` |
+| `00017N` | 62 | 78 | 70.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
+| `0002R4` | 62 | 78 | 70.0 | `by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md` |
 
 ## By Folder
 
@@ -292,8 +292,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000TC` | 65 | 65 | 65.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
-| `0000TE` | 65 | 65 | 65.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
 | `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
 | `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
 | `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
@@ -304,6 +302,8 @@ _No scored files._
 | `0000PP` | 78 | 72 | 75.0 | `by-global/g_activeBrowserPane.md` |
 | `0002CG` | 70 | 82 | 76.0 | `by-global/g_selfLookLastHoverEquipmentSlotId.md` |
 | `0000TA` | 72 | 80 | 76.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
+| `0000TC` | 72 | 80 | 76.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
+| `0000TE` | 72 | 80 | 76.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
 | `0000PQ` | 78 | 74 | 76.0 | `by-global/g_activeDialogCount.md` |
 | `0000PY` | 78 | 74 | 76.0 | `by-global/g_fpsDebugActive.md` |
 | `0000PZ` | 78 | 74 | 76.0 | `by-global/g_fpsLogEnabled.md` |
@@ -354,7 +354,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
-| `00019R` | 65 | 65 | 65.0 | `by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md` |
 | `0001AZ` | 65 | 65 | 65.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
 | `0001HV` | 65 | 65 | 65.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
 | `00028Z` | 65 | 65 | 65.0 | `by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md` |
@@ -377,6 +376,7 @@ _No scored files._
 | `00011A` | 64 | 76 | 70.0 | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
+| `0002A8` | 75 | 65 | 70.0 | `by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md` |
 
 ### by-meta
 

@@ -1,8 +1,8 @@
 *** UID:0000TE | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:65 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:65 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: medium overall; strong for behavior and current unreferenced status, weak for why the wrapper was retained.
+- Confidence: strong for behavior, source owner, and current unreferenced status; medium for why the wrapper was retained.
 - Address range: [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md)
 - Current generated file: no standalone `simroot_v2` recovered source found in this pass.
 - Likely owner source: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
@@ -38,6 +38,16 @@ This duplicates the story branch inside `MainMenuPane::ActivateMenuItem`. Curren
 
 Keep this with `login/MainMenuPane.cpp` as a menu action helper for address-matching reconstruction unless later xrefs prove a separate callback table or dead-code exclusion. Do not place it in `HistoryViewingPane.cpp`; the helper selects the menu resource and allocates the viewer, while `HistoryViewingPane` owns viewer behavior. A behavior-only source rebuild can rely on the direct action-handler construction path.
 
+## Autogen Status
+
+- Reconstructable: true, as a retained project helper with exact behavior and boundary evidence.
+- Parent: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md).
+- C++: intentionally blank; this is a small retained wrapper, but final source shape and retention reason are not final-audit quality.
+
+## Score Rationale
+
+The score is raised because repeated IDA checks confirm a real `0x7f`-byte function, allocator and `HistoryViewingPane` constructor callees, constructor call sites, no direct/raw-pointer/immediate references to the helper start, and matching direct construction in `MainMenuPane::ActivateMenuItem`. Confidence remains below final range because the exact reason the duplicate wrapper survived is still unknown.
+
 ## Cross-References
 
 - [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md)
@@ -52,3 +62,7 @@ Keep this with `login/MainMenuPane.cpp` as a menu action helper for address-matc
 - After: documented as a retained duplicate launcher whose current lack of refs has been rechecked; the active main-menu story action is documented as directly duplicating the allocation/constructor sequence.
 - Why: IDA MCP found no direct or raw-pointer references to `0x004f90c0`, while `0x004f7a10` story case performs the same `264`-byte allocation and `0x004ffd80` constructor call.
 - Evidence: 2026-05-28 IDA MCP `xrefs_to`, `callers`, `find_bytes`, immediate `search`, and `decompile 0x004f7a10`.
+- 2026-06-02 score and parent update:
+  - What existed before: the helper was scored `65/65` with no reconstructable parent attachment.
+  - Changed to: completion `72`, confidence `80`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000L0`.
+  - Summary/evidence: exact function size, callees, call sites, repeated no-xref scans, and duplicated active main-menu construction support treating this as retained `MainMenuPane.cpp` project code while keeping C++ blank.

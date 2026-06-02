@@ -3,18 +3,20 @@
 # ag-global-coverage
 
 Total_Type: 158
-Total_Reconstructable: 27
+Total_Reconstructable: 29
 Total_Not_Reconstructable: 2
-Total_Reconstructed_Assigned: 18
+Total_Reconstructed_Assigned: 20
 Total_Reconstructed_Coded: 0
 Total_Reconstructable_Unassigned: 9
-Total_Unclassified: 129
+Total_Unclassified: 127
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | [UID:00020K][AesBlockCipherStateAndTables](by-global/AesBlockCipherStateAndTables.md) | assigned | `00020J` | 80 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-global/AesBlockCipherStateAndTables.md` |  |
 | [UID:0000TA][OpenChangePasswordDialog_4F9060](by-global/OpenChangePasswordDialog_4F9060.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-global/OpenChangePasswordDialog_4F9060.md` |  |
+| [UID:0000TC][OpenHistoryViewingPane_4F9140](by-global/OpenHistoryViewingPane_4F9140.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-global/OpenHistoryViewingPane_4F9140.md` |  |
+| [UID:0000TE][OpenStoryViewingPane_4F90C0](by-global/OpenStoryViewingPane_4F90C0.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-global/OpenStoryViewingPane_4F90C0.md` |  |
 | [UID:0000TL][SendOptionPacket11B_540E50](by-global/SendOptionPacket11B_540E50.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-global/SendOptionPacket11B_540E50.md` |  |
 | [UID:0000SF][g_pTerminalPane](by-global/g_pTerminalPane.md) | assigned | `0000OI` |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-global/g_pTerminalPane.md` |  |
 | [UID:0000SG][g_pTextFilter](by-global/g_pTextFilter.md) | assigned | `0000OO` |  | no | `auto-generated/NexusTK/ui/controls/TextFilter.cpp` | `by-global/g_pTextFilter.md` |  |
@@ -62,9 +64,7 @@ Total_Error: 0
 | [UID:0000T8][MemoryAllocationHelpers](by-global/MemoryAllocationHelpers.md) | unclassified |  |  | no |  | `by-global/MemoryAllocationHelpers.md` |  |
 | [UID:0000T9][MidiPlayerWinMMState](by-global/MidiPlayerWinMMState.md) | unclassified |  |  | no |  | `by-global/MidiPlayerWinMMState.md` |  |
 | [UID:0000TB][OpenCreateUserDialog_4F8FA0](by-global/OpenCreateUserDialog_4F8FA0.md) | unclassified |  |  | no |  | `by-global/OpenCreateUserDialog_4F8FA0.md` |  |
-| [UID:0000TC][OpenHistoryViewingPane_4F9140](by-global/OpenHistoryViewingPane_4F9140.md) | unclassified |  |  | no |  | `by-global/OpenHistoryViewingPane_4F9140.md` |  |
 | [UID:0000TD][OpenQuitPrompt_5A94B0](by-global/OpenQuitPrompt_5A94B0.md) | unclassified |  |  | no |  | `by-global/OpenQuitPrompt_5A94B0.md` |  |
-| [UID:0000TE][OpenStoryViewingPane_4F90C0](by-global/OpenStoryViewingPane_4F90C0.md) | unclassified |  |  | no |  | `by-global/OpenStoryViewingPane_4F90C0.md` |  |
 | [UID:0000TF][OpenTerminalPane_4F91C0](by-global/OpenTerminalPane_4F91C0.md) | unclassified |  |  | no |  | `by-global/OpenTerminalPane_4F91C0.md` |  |
 | [UID:0000TG][PacketTransformGlobals](by-global/PacketTransformGlobals.md) | unclassified |  |  | no |  | `by-global/PacketTransformGlobals.md` |  |
 | [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md) | unclassified |  |  | no |  | `by-global/ParseEntries_004A5E60.md` |  |
