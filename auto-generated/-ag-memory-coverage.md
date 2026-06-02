@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1043
+Total_Reconstructable: 1045
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 512
+Total_Reconstructed_Assigned: 514
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 531
-Total_Unclassified: 1082
+Total_Unclassified: 1080
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -505,6 +505,8 @@ Total_Error: 0
 | [UID:0001P3][0x0067ab28-0x0067ab2c.g_activeBrowserControlPane](by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md` |  |
 | [UID:0001P4][0x0067ab2c-0x0067ab30.g_pChangeMan](by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md) | assigned | `0000I2` |  | no | `auto-generated/NexusTK/app/ChangeMan.cpp` | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |  |
 | [UID:0001P9][0x0067ab84-0x0067ab88.g_activeBrowserPane](by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md` |  |
+| [UID:0001PE][0x0069ae0c-0x0069ae10.g_activeUserStatusPane](by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md) | assigned | `0000P2` |  | no | `auto-generated/NexusTK/ui/panels/UserStatusPane.cpp` | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |  |
+| [UID:0001PG][0x0069b374-0x0069b378.g_layoutContext_69B374](by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md) | assigned | `0000L1` |  | no | `auto-generated/NexusTK/ui/MainUiGraph.cpp` | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |  |
 | [UID:0002GZ][0x00463970-0x004639c4.ApplicationDestructor](by-memory/0x00463970-0x004639c4.ApplicationDestructor.md) | coded | `00000D` | 2 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00463970-0x004639c4.ApplicationDestructor.md` |  |
 | [UID:0002H4][0x00464f40-0x00464f47.ApplicationIsExitRequested](by-memory/0x00464f40-0x00464f47.ApplicationIsExitRequested.md) | coded | `00000D` | 7 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00464f40-0x00464f47.ApplicationIsExitRequested.md` |  |
 | [UID:0002GM][0x004651c0-0x004651c4.ApplicationGetInstanceHandle](by-memory/0x004651c0-0x004651c4.ApplicationGetInstanceHandle.md) | coded | `00000D` | 30 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004651c0-0x004651c4.ApplicationGetInstanceHandle.md` |  |
@@ -2070,7 +2072,6 @@ Total_Error: 0
 | [UID:0001PC][0x0069ae00-0x0069ae04.g_pSimpleHelpPane](by-memory/0x0069ae00-0x0069ae04.g_pSimpleHelpPane.md) | unclassified |  |  | no |  | `by-memory/0x0069ae00-0x0069ae04.g_pSimpleHelpPane.md` |  |
 | [UID:0001PD][0x0069ae04-0x0069ae08.g_pItemHelpPane](by-memory/0x0069ae04-0x0069ae08.g_pItemHelpPane.md) | unclassified |  |  | no |  | `by-memory/0x0069ae04-0x0069ae08.g_pItemHelpPane.md` |  |
 | [UID:00029D][0x0069ae08-0x0069ae0c.g_pScreenDimmer](by-memory/0x0069ae08-0x0069ae0c.g_pScreenDimmer.md) | unclassified |  |  | no |  | `by-memory/0x0069ae08-0x0069ae0c.g_pScreenDimmer.md` |  |
-| [UID:0001PE][0x0069ae0c-0x0069ae10.g_activeUserStatusPane](by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md) | unclassified |  |  | no |  | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |  |
 | [UID:0002AT][0x0069ae10-0x0069ae14.g_frameRegistry](by-memory/0x0069ae10-0x0069ae14.g_frameRegistry.md) | unclassified |  |  | no |  | `by-memory/0x0069ae10-0x0069ae14.g_frameRegistry.md` |  |
 | [UID:0002AU][0x0069ae14-0x0069ae18.UnreferencedInitializedDword_69AE14](by-memory/0x0069ae14-0x0069ae18.UnreferencedInitializedDword_69AE14.md) | unclassified |  |  | no |  | `by-memory/0x0069ae14-0x0069ae18.UnreferencedInitializedDword_69AE14.md` |  |
 | [UID:0002AV][0x0069ae18-0x0069af20.KeyboardStateGlobals](by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md` |  |
@@ -2081,7 +2082,6 @@ Total_Error: 0
 | [UID:00029L][0x0069b350-0x0069b358.StartupClearedUnusedDwords](by-memory/0x0069b350-0x0069b358.StartupClearedUnusedDwords.md) | unclassified |  |  | no |  | `by-memory/0x0069b350-0x0069b358.StartupClearedUnusedDwords.md` |  |
 | [UID:00029M][0x0069b358-0x0069b370.UiSingletonAndMainUiLayerGlobals](by-memory/0x0069b358-0x0069b370.UiSingletonAndMainUiLayerGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0069b358-0x0069b370.UiSingletonAndMainUiLayerGlobals.md` |  |
 | [UID:00029N][0x0069b370-0x0069b374.UnreferencedInitializedDword_69B370](by-memory/0x0069b370-0x0069b374.UnreferencedInitializedDword_69B370.md) | unclassified |  |  | no |  | `by-memory/0x0069b370-0x0069b374.UnreferencedInitializedDword_69B370.md` |  |
-| [UID:0001PG][0x0069b374-0x0069b378.g_layoutContext_69B374](by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md) | unclassified |  |  | no |  | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |  |
 | [UID:00029O][0x0069b378-0x0069b380.MainUiLayerSlotsTail](by-memory/0x0069b378-0x0069b380.MainUiLayerSlotsTail.md) | unclassified |  |  | no |  | `by-memory/0x0069b378-0x0069b380.MainUiLayerSlotsTail.md` |  |
 | [UID:0001PH][0x0069b380-0x0069b381.g_activeDialogCount](by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md) | unclassified |  |  | no |  | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |  |
 | [UID:00029P][0x0069b381-0x0069b39c.UnreferencedInitializedBytes_69B381](by-memory/0x0069b381-0x0069b39c.UnreferencedInitializedBytes_69B381.md) | unclassified |  |  | no |  | `by-memory/0x0069b381-0x0069b39c.UnreferencedInitializedBytes_69B381.md` |  |

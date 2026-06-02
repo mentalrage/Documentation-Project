@@ -1,7 +1,7 @@
 *** UID:0000L1 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MainUiGraph
 
@@ -70,3 +70,7 @@ Use `ui/MainUiGraph.cpp` as the current source-layout hypothesis. `app/Applicati
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:80`.
   - Summary/evidence: post-login UI bootstrap role, global/layer state, layout branches, common tail, sole caller, source placement, and key cross-references are documented; confidence is capped by provisional graph/root layout and generated helper naming.
+- 2026-06-02: Assigned validator reconstruction path.
+  - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank while the page already named `ui/MainUiGraph.cpp` as the working source placement.
+  - After: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/"`.
+  - Evidence: this page documents `MainUiGraph.cpp` as the live-game UI bootstrap, and [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) already tracks the UI subsystem layout.
