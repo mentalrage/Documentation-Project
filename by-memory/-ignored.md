@@ -2959,6 +2959,18 @@ For each ignored range, include:
   - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
   - Owner docs: [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md), [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md), and [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md).
 
+- `0x005b6c00-0x005b6c30` - switch/jump table bytes for `BlockListenInputPane` command dispatch.
+  - Why ignored: compiler-generated switch data supporting the `A/a` and `D/d` command dispatcher, not a standalone source function.
+  - Evidence: 2026-06-02 IDA MCP disassembly at `0x005b6c00` labels the bytes as a jump table and indirect table for the switch in [UID:0001MY][0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher](by-memory/0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher.md); raw byte read reports 48 bytes from `0x005b6c00-0x005b6c30`.
+  - Replacement/procurement: no independent source replacement; recreate through the dispatcher source.
+  - Owner docs: [UID:0001MY][0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher](by-memory/0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher.md) and [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md).
+
+- `0x005b6c7c-0x005b6c80`, `0x005b70f7-0x005b7100`, and `0x005b7447-0x005b7450` - alignment padding around block-list packet helper islands.
+  - Why ignored: confirmed `0xcc` compiler/linker alignment bytes between raw block-list packet helper bodies and adjacent constructor/function starts.
+  - Evidence: 2026-06-02 IDA MCP raw byte reads report four `0xcc` bytes at `0x005b6c7c-0x005b6c80`, nine `0xcc` bytes at `0x005b70f7-0x005b7100`, and nine `0xcc` bytes at `0x005b7447-0x005b7450`.
+  - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
+  - Owner docs: [UID:0002RY][0x005b6c30-0x005b6c7c.SendBlockListenModePacket](by-memory/0x005b6c30-0x005b6c7c.SendBlockListenModePacket.md), [UID:0002S0][0x005b7010-0x005b70f7.SendAddBlockListenPacket](by-memory/0x005b7010-0x005b70f7.SendAddBlockListenPacket.md), [UID:0002RZ][0x005b7360-0x005b7447.SendDeleteBlockListenPacket](by-memory/0x005b7360-0x005b7447.SendDeleteBlockListenPacket.md), and [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md).
+
 - `0x005add18-0x005add20` and `0x005add8a-0x005add90` - alignment padding around `QuitInputPane::OnConfirmInput`.
   - Why ignored: confirmed `0xcc` compiler/linker alignment bytes between the raw `QuitInputPane` constructor-shaped body, the modeled confirmation handler, and the next raw helper body.
   - Evidence: 2026-06-02 IDA MCP raw byte read for `0x005adcc0-0x005add90` shows the constructor-shaped body returning at `0x005add17`, eight `0xcc` bytes through `0x005add20`, the modeled handler returning at `0x005add89`, and six `0xcc` bytes through `0x005add90`.

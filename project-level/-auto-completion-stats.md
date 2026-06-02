@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 02:25:12
+Generated: 2026-06-02 02:50:28
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3597
-- Scored files: 3430
+- Tracked files: 3600
+- Scored files: 3433
 - Ignored files: 167
 
 ## projected_path_completion
@@ -27,7 +27,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000HN` | blank | `(blank)` | `by-file/AutoInit.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HO` | blank | `(blank)` | `by-file/BackPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HQ` | blank | `(blank)` | `by-file/BinaryCodec.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000HS` | blank | `(blank)` | `by-file/BlockListenInputPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HT` | blank | `(blank)` | `by-file/BoardDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HU` | blank | `(blank)` | `by-file/BowGaugeObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HW` | blank | `(blank)` | `by-file/BulletinReplyAlerts.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -186,7 +185,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001MJ` | 50 | 65 | 57.5 | `by-memory/0x005b5440-0x005b5547.GroupInputPane.md` |
 | `0001ML` | 50 | 65 | 57.5 | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |
 | `0001MM` | 50 | 65 | 57.5 | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |
-| `0001MW` | 50 | 65 | 57.5 | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |
+| `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
 
 ## Low_Confidence
 
@@ -246,7 +245,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001MJ` | 50 | 65 | 57.5 | `by-memory/0x005b5440-0x005b5547.GroupInputPane.md` |
 | `0001ML` | 50 | 65 | 57.5 | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |
 | `0001MM` | 50 | 65 | 57.5 | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |
-| `0001MW` | 50 | 65 | 57.5 | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |
+| `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
 
 ## By Folder
 
@@ -406,7 +405,7 @@ _No scored files._
 | `0001MJ` | 50 | 65 | 57.5 | `by-memory/0x005b5440-0x005b5547.GroupInputPane.md` |
 | `0001ML` | 50 | 65 | 57.5 | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |
 | `0001MM` | 50 | 65 | 57.5 | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |
-| `0001MW` | 50 | 65 | 57.5 | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |
+| `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
 
 ### by-meta
 

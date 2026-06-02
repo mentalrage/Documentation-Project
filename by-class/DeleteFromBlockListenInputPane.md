@@ -1,8 +1,8 @@
 *** UID:00003N | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HS | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for behavior; medium for final source grouping.
+- Confidence: strong for behavior and source grouping.
 - Likely source file: [UID:0000HS][BlockListenInputPanes](by-file/BlockListenInputPanes.md)
 - Exact memory pages: [UID:0001N1][0x005b7100-0x005b7140.DeleteFromBlockListenInputPaneConstructor](by-memory/0x005b7100-0x005b7140.DeleteFromBlockListenInputPaneConstructor.md), [UID:0001N2][0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm](by-memory/0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm.md)
 - Module index: [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md)
@@ -44,6 +44,7 @@ Wave3 currently attaches excluded methods `0x00680067` and `0x00690052` to this 
 - IDA MCP callees include shared input helpers, [UID:0000PM][FindBlockListEntry_5B74E0](by-global/FindBlockListEntry_5B74E0.md), vector move/destroy helpers, config persistence, packet-buffer helpers, `WideCharToMultiByte`, and the broad send funnel at `0x00574bb0`.
 - IDA MCP `xrefs_to 0x005b7140` reports a vtable/data reference at `0x006307ac`.
 - IDA MCP `lookup_funcs` reports `0x00680067` and `0x00690052` as `Not a function`; `xrefs_to` reports data refs only.
+- 2026-06-02 IDA MCP refresh confirms the same `0x005b7140` modeled function and vtable reference, plus the adjacent raw packet helper at [UID:0002RZ][0x005b7360-0x005b7447.SendDeleteBlockListenPacket](by-memory/0x005b7360-0x005b7447.SendDeleteBlockListenPacket.md).
 
 ## Cross-References
 
@@ -60,3 +61,8 @@ Wave3 currently attaches excluded methods `0x00680067` and `0x00690052` to this 
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `76/82`.
   - Summary/evidence: prompt constructor, confirm behavior, packet shape, bad method rows, vtable views, callees, and network/config side effects are documented; remaining uncertainty is mainly final source grouping.
+
+- 2026-06-02:
+  - Before: the class was not marked reconstructable or attached to a source parent.
+  - After: marked `RECONSTRUCTABLE:TRUE`, attached to [UID:0000HS][BlockListenInputPanes](by-file/BlockListenInputPanes.md), and raised to `80/86`.
+  - Summary/evidence: source folder is now validated as `NexusTK/social/`; fresh IDA MCP confirms confirm-handler, vtable, callee, bad-row, and raw-helper adjacency evidence.

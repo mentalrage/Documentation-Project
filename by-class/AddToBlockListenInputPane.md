@@ -1,8 +1,8 @@
 *** UID:00000A | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HS | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for behavior; medium for final source grouping.
+- Confidence: strong for behavior and source grouping.
 - Likely source file: [UID:0000HS][BlockListenInputPanes](by-file/BlockListenInputPanes.md)
 - Exact memory pages: [UID:0001MZ][0x005b6c80-0x005b6cc0.AddToBlockListenInputPaneConstructor](by-memory/0x005b6c80-0x005b6cc0.AddToBlockListenInputPaneConstructor.md), [UID:0001N0][0x005b6cc0-0x005b700e.AddToBlockListenInputPaneSubmitBlockedName](by-memory/0x005b6cc0-0x005b700e.AddToBlockListenInputPaneSubmitBlockedName.md)
 - Module index: [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md)
@@ -41,6 +41,7 @@ The submit handler accepts only alphabetic ASCII wide characters, compares again
 - IDA MCP confirms three `AddToBlockListenInputPane` vtable views at `0x006306d8`, `0x00630728`, and `0x00630758`, with stores from `BlockListenInputPane` dispatch and raw constructor-shaped bytes.
 - IDA MCP callees include shared input helpers, `FindBlockListEntry_5B74E0`, packet-buffer byte/write helpers, `WideCharToMultiByte`, config persistence, and the broad send funnel at `0x00574bb0`.
 - IDA MCP `xrefs_to 0x005b6cc0` reports a vtable/data reference at `0x00630720`.
+- 2026-06-02 IDA MCP refresh confirms the same `0x005b6cc0` modeled function and vtable reference, plus the adjacent raw packet helper at [UID:0002S0][0x005b7010-0x005b70f7.SendAddBlockListenPacket](by-memory/0x005b7010-0x005b70f7.SendAddBlockListenPacket.md).
 
 ## Cross-References
 
@@ -56,3 +57,8 @@ The submit handler accepts only alphabetic ASCII wide characters, compares again
 - What existed before: the page had exact method, vtable, validation, and packet evidence but was still scored `0/0`.
 - What it was changed to: scores were set to `70/82` based on the existing IDA-backed constructor/submit-handler split and source-file placement.
 - Summary and evidence: completion remains below high because final source grouping and the raw constructor-shaped range still need deeper validation.
+
+- 2026-06-02:
+  - Before: the class was not marked reconstructable or attached to a source parent.
+  - After: marked `RECONSTRUCTABLE:TRUE`, attached to [UID:0000HS][BlockListenInputPanes](by-file/BlockListenInputPanes.md), and raised to `76/86`.
+  - Summary/evidence: source folder is now validated as `NexusTK/social/`; fresh IDA MCP confirms submit-handler, vtable, callee, and raw-helper adjacency evidence.

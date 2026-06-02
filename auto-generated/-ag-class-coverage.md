@@ -3,23 +3,26 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 122
+Total_Reconstructable: 125
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 35
+Total_Reconstructed_Assigned: 38
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 463
+Total_Unclassified: 460
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-class/AddEmployeeItemDialog.md` |  |
+| [UID:00000A][AddToBlockListenInputPane](by-class/AddToBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/AddToBlockListenInputPane.md` |  |
+| [UID:00000X][BlockListenInputPane](by-class/BlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/BlockListenInputPane.md` |  |
 | [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserControlPaneOld.md` |  |
 | [UID:00003D][CScrollBarBackPane](by-class/CScrollBarBackPane.md) | assigned | `0000NF` |  | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/CScrollBarBackPane.md` |  |
 | [UID:00003A][Crasher](by-class/Crasher.md) | assigned | `0000II` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-class/Crasher.md` |  |
 | [UID:00003C][CriticalSectionLock](by-class/CriticalSectionLock.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/CriticalSectionLock.md` |  |
 | [UID:00003J][DATFileResolver](by-class/DATFileResolver.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-class/DATFileResolver.md` |  |
 | [UID:00003Z][DLPalette](by-class/DLPalette.md) | assigned | `0000MA` |  | no | `auto-generated/NexusTK/render/Palette.cpp` | `by-class/DLPalette.md` |  |
+| [UID:00003N][DeleteFromBlockListenInputPane](by-class/DeleteFromBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/DeleteFromBlockListenInputPane.md` |  |
 | [UID:00003Q][DescPane](by-class/DescPane.md) | assigned | `0000IS` |  | no | `auto-generated/NexusTK/ui/controls/DescPane.cpp` | `by-class/DescPane.md` |  |
 | [UID:000049][EffectObjectPane](by-class/EffectObjectPane.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/EffectObjectPane.md` |  |
 | [UID:00004N][EventHandler](by-class/EventHandler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/EventHandler.md` |  |
@@ -139,7 +142,6 @@ Total_Error: 0
 | [UID:000007][AddItemDialog](by-class/AddItemDialog.md) | unclassified |  |  | no |  | `by-class/AddItemDialog.md` |  |
 | [UID:000008][AddItemWithCountDialog](by-class/AddItemWithCountDialog.md) | unclassified |  |  | no |  | `by-class/AddItemWithCountDialog.md` |  |
 | [UID:000009][AddMixingItemDialog](by-class/AddMixingItemDialog.md) | unclassified |  |  | no |  | `by-class/AddMixingItemDialog.md` |  |
-| [UID:00000A][AddToBlockListenInputPane](by-class/AddToBlockListenInputPane.md) | unclassified |  |  | no |  | `by-class/AddToBlockListenInputPane.md` |  |
 | [UID:00000C][AlphaMaskSurface](by-class/AlphaMaskSurface.md) | unclassified |  |  | no |  | `by-class/AlphaMaskSurface.md` |  |
 | [UID:00000E][ApplicationHelper_4A6C40](by-class/ApplicationHelper_4A6C40.md) | unclassified |  |  | no |  | `by-class/ApplicationHelper_4A6C40.md` |  |
 | [UID:00000F][ArgumentedItemConfirmInputDialogPane](by-class/ArgumentedItemConfirmInputDialogPane.md) | unclassified |  |  | no |  | `by-class/ArgumentedItemConfirmInputDialogPane.md` |  |
@@ -156,7 +158,6 @@ Total_Error: 0
 | [UID:00000S][BackPane](by-class/BackPane.md) | unclassified |  |  | no |  | `by-class/BackPane.md` |  |
 | [UID:00000T][BackStoryDialogPane](by-class/BackStoryDialogPane.md) | unclassified |  |  | no |  | `by-class/BackStoryDialogPane.md` |  |
 | [UID:00000U][BalloonObjectPane](by-class/BalloonObjectPane.md) | unclassified |  |  | no |  | `by-class/BalloonObjectPane.md` |  |
-| [UID:00000X][BlockListenInputPane](by-class/BlockListenInputPane.md) | unclassified |  |  | no |  | `by-class/BlockListenInputPane.md` |  |
 | [UID:00000Z][BoardListDialog](by-class/BoardListDialog.md) | unclassified |  |  | no |  | `by-class/BoardListDialog.md` |  |
 | [UID:000010][BoardListPane](by-class/BoardListPane.md) | unclassified |  |  | no |  | `by-class/BoardListPane.md` |  |
 | [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md) | unclassified |  |  | no |  | `by-class/BowGaugeObjectPane.md` |  |
@@ -228,7 +229,6 @@ Total_Error: 0
 | [UID:00003W][DIError](by-class/DIError.md) | unclassified |  |  | no |  | `by-class/DIError.md` |  |
 | [UID:000045][DSError](by-class/DSError.md) | unclassified |  |  | no |  | `by-class/DSError.md` |  |
 | [UID:00003F][DamageNumberObjectPane](by-class/DamageNumberObjectPane.md) | unclassified |  |  | no |  | `by-class/DamageNumberObjectPane.md` |  |
-| [UID:00003N][DeleteFromBlockListenInputPane](by-class/DeleteFromBlockListenInputPane.md) | unclassified |  |  | no |  | `by-class/DeleteFromBlockListenInputPane.md` |  |
 | [UID:00003O][DeleteReplyAlert](by-class/DeleteReplyAlert.md) | unclassified |  |  | no |  | `by-class/DeleteReplyAlert.md` |  |
 | [UID:00003R][DialDialog](by-class/DialDialog.md) | unclassified |  |  | no |  | `by-class/DialDialog.md` |  |
 | [UID:00003X][DirectionButtonControlPane](by-class/DirectionButtonControlPane.md) | unclassified |  |  | no |  | `by-class/DirectionButtonControlPane.md` |  |

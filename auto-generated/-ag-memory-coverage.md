@@ -2,13 +2,13 @@
 
 # ag-memory-coverage
 
-Total_Type: 2122
-Total_Reconstructable: 968
+Total_Type: 2125
+Total_Reconstructable: 979
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 441
+Total_Reconstructed_Assigned: 452
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 527
-Total_Unclassified: 1143
+Total_Unclassified: 1135
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -427,6 +427,17 @@ Total_Error: 0
 | [UID:0001KQ][0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory](by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |  |
 | [UID:0001KS][0x005adcc0-0x005add8a.QuitInputPaneCore](by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md) | assigned | `0000MX` |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |  |
 | [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md` |  |
+| [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md` |  |
+| [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |  |
+| [UID:0001MX][0x005b6900-0x005b6a1b.BlockListenInputPaneKeyHandler](by-memory/0x005b6900-0x005b6a1b.BlockListenInputPaneKeyHandler.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b6900-0x005b6a1b.BlockListenInputPaneKeyHandler.md` |  |
+| [UID:0001MY][0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher](by-memory/0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher.md` |  |
+| [UID:0002RY][0x005b6c30-0x005b6c7c.SendBlockListenModePacket](by-memory/0x005b6c30-0x005b6c7c.SendBlockListenModePacket.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b6c30-0x005b6c7c.SendBlockListenModePacket.md` |  |
+| [UID:0001MZ][0x005b6c80-0x005b6cc0.AddToBlockListenInputPaneConstructor](by-memory/0x005b6c80-0x005b6cc0.AddToBlockListenInputPaneConstructor.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b6c80-0x005b6cc0.AddToBlockListenInputPaneConstructor.md` |  |
+| [UID:0001N0][0x005b6cc0-0x005b700e.AddToBlockListenInputPaneSubmitBlockedName](by-memory/0x005b6cc0-0x005b700e.AddToBlockListenInputPaneSubmitBlockedName.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b6cc0-0x005b700e.AddToBlockListenInputPaneSubmitBlockedName.md` |  |
+| [UID:0002S0][0x005b7010-0x005b70f7.SendAddBlockListenPacket](by-memory/0x005b7010-0x005b70f7.SendAddBlockListenPacket.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b7010-0x005b70f7.SendAddBlockListenPacket.md` |  |
+| [UID:0001N1][0x005b7100-0x005b7140.DeleteFromBlockListenInputPaneConstructor](by-memory/0x005b7100-0x005b7140.DeleteFromBlockListenInputPaneConstructor.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b7100-0x005b7140.DeleteFromBlockListenInputPaneConstructor.md` |  |
+| [UID:0001N2][0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm](by-memory/0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm.md` |  |
+| [UID:0002RZ][0x005b7360-0x005b7447.SendDeleteBlockListenPacket](by-memory/0x005b7360-0x005b7447.SendDeleteBlockListenPacket.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b7360-0x005b7447.SendDeleteBlockListenPacket.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -1826,14 +1837,6 @@ Total_Error: 0
 | [UID:0001MR][0x005b62d0-0x005b64fa.WieldInputPane](by-memory/0x005b62d0-0x005b64fa.WieldInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b62d0-0x005b64fa.WieldInputPane.md` |  |
 | [UID:0001MS][0x005b6500-0x005b6560.SendWieldPacket](by-memory/0x005b6500-0x005b6560.SendWieldPacket.md) | unclassified |  |  | no |  | `by-memory/0x005b6500-0x005b6560.SendWieldPacket.md` |  |
 | [UID:0001MT][0x005b6560-0x005b6760.WearInputPane](by-memory/0x005b6560-0x005b6760.WearInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b6560-0x005b6760.WearInputPane.md` |  |
-| [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md` |  |
-| [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md) | unclassified |  |  | no |  | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |  |
-| [UID:0001MX][0x005b6900-0x005b6a1b.BlockListenInputPaneKeyHandler](by-memory/0x005b6900-0x005b6a1b.BlockListenInputPaneKeyHandler.md) | unclassified |  |  | no |  | `by-memory/0x005b6900-0x005b6a1b.BlockListenInputPaneKeyHandler.md` |  |
-| [UID:0001MY][0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher](by-memory/0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher.md) | unclassified |  |  | no |  | `by-memory/0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher.md` |  |
-| [UID:0001MZ][0x005b6c80-0x005b6cc0.AddToBlockListenInputPaneConstructor](by-memory/0x005b6c80-0x005b6cc0.AddToBlockListenInputPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b6c80-0x005b6cc0.AddToBlockListenInputPaneConstructor.md` |  |
-| [UID:0001N0][0x005b6cc0-0x005b700e.AddToBlockListenInputPaneSubmitBlockedName](by-memory/0x005b6cc0-0x005b700e.AddToBlockListenInputPaneSubmitBlockedName.md) | unclassified |  |  | no |  | `by-memory/0x005b6cc0-0x005b700e.AddToBlockListenInputPaneSubmitBlockedName.md` |  |
-| [UID:0001N1][0x005b7100-0x005b7140.DeleteFromBlockListenInputPaneConstructor](by-memory/0x005b7100-0x005b7140.DeleteFromBlockListenInputPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b7100-0x005b7140.DeleteFromBlockListenInputPaneConstructor.md` |  |
-| [UID:0001N2][0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm](by-memory/0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm.md) | unclassified |  |  | no |  | `by-memory/0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm.md` |  |
 | [UID:0001N3][0x005b74e0-0x005b7553.FindBlockListEntry](by-memory/0x005b74e0-0x005b7553.FindBlockListEntry.md) | unclassified |  |  | no |  | `by-memory/0x005b74e0-0x005b7553.FindBlockListEntry.md` |  |
 | [UID:0001N4][0x005b75d0-0x005b760d.ConfirmInputPaneConstructor](by-memory/0x005b75d0-0x005b760d.ConfirmInputPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b75d0-0x005b760d.ConfirmInputPaneConstructor.md` |  |
 | [UID:0001N5][0x005b77b0-0x005b77c8.UserPaneDoubleParamCallback](by-memory/0x005b77b0-0x005b77c8.UserPaneDoubleParamCallback.md) | unclassified |  |  | no |  | `by-memory/0x005b77b0-0x005b77c8.UserPaneDoubleParamCallback.md` |  |
