@@ -1,8 +1,8 @@
 *** UID:0000DC | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for behavior, medium for final source owner.
+- Confidence: strong for behavior, constructor/vtable evidence, snow static storage, and weather-layer source-family ownership; medium-high for final standalone versus umbrella source split.
 - Likely source file: [UID:0000NR][SnowingLayerPane](by-file/SnowingLayerPane.md), or part of [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md)
 - Address docs: [UID:0001O1][0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes](by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md) and [UID:0001O0][0x005c1bd0-0x005c2a5a.SnowingLayerPane](by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md)
 - Current recovered file: `source-3/simroot_v2/class_SnowingLayerPane.cpp`
@@ -63,3 +63,6 @@
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `84`, confidence `78`.
 - Evidence: the page documents the weather-layer role, method ranges, constructor caller, vtable refs, sibling split, globals/table cross-references, and Wave3 ownership caveat; confidence remains capped by unresolved render/global aliases and final source-owner placement.
+- 2026-06-02 IDA/source-family refresh:
+  - Changed to: completion `86`, confidence `82`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000P8`.
+  - Evidence: refreshed IDA confirms constructor caller `0x0050dc17`, vtable refs, Snowing-exclusive method ends, destructor thunks, and table/descriptor storage references. C++ remains blank because the class is below the 95+ final-source threshold.

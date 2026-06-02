@@ -191,7 +191,7 @@ Hard rule: do not guess UIDs. Every new `.md` file created under a scanned `by-*
 
 ### Git Backup Workflow
 
-Git is used here as a general backup and sync tool for documentation work. Only stop to commit and push after roughly 30 minutes of documentation work or after a large batch, about 50+ meaningful edits. Do not interrupt smaller documentation passes for Git, and do not spend documentation time trying to keep the worktree cosmetically tidy, hand-clean validator output, or optimize diffs for review polish. Treat validator-produced updates as normal generated state. The priority is accurate documentation progress backed up to the remote repository.
+Git is used here as a general backup and sync tool for documentation work, not as a review-polish or worktree-cleanliness task. Only stop to commit and push after roughly 30 minutes of documentation work or after a large batch, about 50+ meaningful edits. Do not interrupt smaller documentation passes for Git, and do not spend documentation time trying to keep the worktree cosmetically tidy, hand-clean validator output, remove generated placeholders, or optimize diffs for review polish. Treat validator-produced updates as normal generated state. The priority is accurate documentation progress backed up to the remote repository at practical intervals.
 
 `tools/validator.ini` is tool-owned state and must not be manually edited during normal documentation work. Let `tools/validator.py` create and update it. Manual edits are reserved only for extreme recovery cases, such as confirmed corruption or an `.ini` error that breaks the validator itself.
 

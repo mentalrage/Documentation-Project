@@ -1,7 +1,7 @@
 *** UID:0000NR | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SnowingLayerPane
 
@@ -69,3 +69,4 @@ The base and sibling weather layers are now documented in [UID:0000P8][WeatherLa
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `86` and confidence to `80`.
   - Evidence: document captures weather-layer role, proposed contents, method families, constructor/vtable evidence, global table refs, boundary notes, Wave3 issue caveat, and cross-references; confidence remains capped by final split between a standalone snow file and shared `WeatherLayerPane`.
+- 2026-06-02 source-path update: `PROPOSED_RECONSTRUCTION_PATH` set to `NexusTK/map/`, matching current proposed source tree placement for map weather companion modules.

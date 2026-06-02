@@ -1,8 +1,8 @@
 *** UID:0000G1 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -56,3 +56,5 @@ Current metadata reports a stored method-name control-character artifact for the
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:80` and `CONFIDENCE:84`.
   - Summary/evidence: scored from the base weather-pane constructor/timer behavior, derived-pane relationships, map/tile/global dependencies, IDA boundary confirmation, and generated metadata caveats.
+- 2026-06-02 reconstruction metadata:
+  - Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md). C++ remains blank because this page is below the 95+ final-source threshold.

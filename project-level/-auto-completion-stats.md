@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 05:55:10
+Generated: 2026-06-02 06:09:18
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -129,7 +129,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000NE` | blank | `(blank)` | `by-file/ScrollableControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NI` | blank | `(blank)` | `by-file/ScrolledTextControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NP` | blank | `(blank)` | `by-file/Session.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NR` | blank | `(blank)` | `by-file/SnowingLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NT` | blank | `(blank)` | `by-file/SoftwareBlend16.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NU` | blank | `(blank)` | `by-file/SortedList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NW` | blank | `(blank)` | `by-file/SoundObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -140,7 +139,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000O3` | blank | `(blank)` | `by-file/StaffsDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O6` | blank | `(blank)` | `by-file/StaticObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O8` | blank | `(blank)` | `by-file/StaticTextControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000OD` | blank | `(blank)` | `by-file/SwallowLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OF` | blank | `(blank)` | `by-file/TabPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OG` | blank | `(blank)` | `by-file/TargetOptionDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OK` | blank | `(blank)` | `by-file/TextButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -148,7 +146,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000OS` | blank | `(blank)` | `by-file/ThreadSafeNodeList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000P0` | blank | `(blank)` | `by-file/UserLookPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000P3` | blank | `(blank)` | `by-file/VectorHelpers.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000P8` | blank | `(blank)` | `by-file/WeatherLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 
@@ -156,10 +153,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
-| `0001O0` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md` |
-| `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
-| `0001O3` | 50 | 65 | 57.5 | `by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md` |
 | `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
 | `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
 | `00027B` | 50 | 65 | 57.5 | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |
@@ -181,6 +174,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000UZ` | 50 | 75 | 62.5 | `by-item/LoadPcxImage_004A17B0.md` |
 | `0000V2` | 50 | 75 | 62.5 | `by-item/PacketDigest_00515380.md` |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
+| `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
+| `000208` | 50 | 85 | 67.5 | `by-memory/0x00460940-0x004609d3.BlitTransparentShadow565MmxBlocks.md` |
+| `000209` | 50 | 85 | 67.5 | `by-memory/0x004609e0-0x00460af9.Rgb565TransparentAlphaBlendMmxBlocks.md` |
+| `00020A` | 50 | 85 | 67.5 | `by-memory/0x00460c90-0x00460d51.Rgb565AlphaMapMmxBlocks.md` |
 
 ## Low_Confidence
 
@@ -191,10 +188,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
-| `0001O0` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md` |
-| `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
-| `0001O3` | 50 | 65 | 57.5 | `by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md` |
 | `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
 | `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
 | `00027B` | 50 | 65 | 57.5 | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |
@@ -211,15 +204,15 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
 | `0001PI` | 50 | 65 | 57.5 | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |
 | `0001Q1` | 50 | 65 | 57.5 | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |
+| `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
+| `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
+| `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
+| `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
-| `0001O0` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md` |
-| `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
-| `0001O3` | 50 | 65 | 57.5 | `by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md` |
 | `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
 | `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
 | `00027B` | 50 | 65 | 57.5 | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |
@@ -241,6 +234,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
 | `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
+| `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
+| `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
+| `00021H` | 55 | 65 | 60.0 | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |
+| `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
 
 ## By Folder
 
@@ -376,10 +373,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
-| `0001O0` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md` |
-| `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
-| `0001O3` | 50 | 65 | 57.5 | `by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md` |
 | `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
 | `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
 | `00027B` | 50 | 65 | 57.5 | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |
@@ -401,6 +394,10 @@ _No scored files._
 | `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
 | `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
+| `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
+| `00021H` | 55 | 65 | 60.0 | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |
+| `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
+| `00021T` | 55 | 65 | 60.0 | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |
 
 ### by-meta
 

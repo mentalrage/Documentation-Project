@@ -1,7 +1,7 @@
 *** UID:0000OD | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SwallowLayerPane
 
@@ -65,3 +65,6 @@
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `84` and confidence to `78`.
   - Evidence: document captures weather-overlay role, proposed contents, function map, raw helper caveats, construction/vtable evidence, Snowing/Swallow destructor boundary, and cross-references; confidence is capped by generated data completeness and final standalone-vs-weather source split.
+- 2026-06-02 source-path update:
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/"`.
+  - Evidence: current project-structure guidance groups `WeatherLayerPane`, `RainingLayerPane`, `SnowingLayerPane`, and `SwallowLayerPane` as map UI/weather companions under `map/`; the Swallow constructor is reached from `MapPane` weather setup and owns map overlay sprite/timer behavior.

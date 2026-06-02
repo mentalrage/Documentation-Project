@@ -1,7 +1,7 @@
 *** UID:0000P8 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # WeatherLayerPane
 
@@ -33,7 +33,7 @@ The original project may have used one source per concrete layer because Wave2 i
 ## Ownership Notes
 
 - `MapPane::SetWeatherEffect`/weather-state logic at `0x0050db50` allocates one of the weather layers and attaches it to the map pane. IDA confirms direct constructor calls to `RainingLayerPane`, `SnowingLayerPane`, and `SwallowLayerPane` from that function.
-- 2026-05-24 IDA recheck confirms `0x0050db50` as a modeled function start, confirms `WeatherLayerPane::WeatherLayerPane` at `0x005c12a0` is called by the rain/snow/swallow constructors, and shows `WeatherLayerPane::OnTimerEvent` at `0x005c13b0` referenced from the rain/snow/swallow vtables at `0x00631218`, `0x006312a8`, and `0x00631338`.
+- 2026-06-02 IDA recheck confirms `0x0050db50` as a modeled function start, confirms `WeatherLayerPane::WeatherLayerPane` at `0x005c12a0` is called by the rain/snow/swallow constructors, and shows `WeatherLayerPane::OnTimerEvent` at `0x005c13b0` referenced from the rain/snow/swallow vtables at `0x00631218`, `0x006312a8`, and `0x00631338`.
 - Keep these classes under `map/`, not generic render, unless later evidence proves the original project grouped weather effects with render effects. The owning lifetime and construction path are map-state driven.
 - [UID:0000NR][SnowingLayerPane](by-file/SnowingLayerPane.md) already has a dedicated source candidate. Use this page as the broader source-family and base-class anchor.
 - `SwallowLayerPane` current generated output now emits the real `0x005c2340` destructor and `0x005c2930` invalidation helper, but [UID:0001O3][0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers](by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md) at `0x005c2760` and `0x005c2840` are still mis-owned by generated `BackPane` output and have no IDA function objects/xrefs.
@@ -61,3 +61,4 @@ The original project may have used one source per concrete layer because Wave2 i
 ## Changes
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `86/80`. Summary/evidence: the page documents the weather-layer source family, map ownership, class/memory/global/type refs, IDA checks, and generated-output caveats; final one-file versus split-file layout remains unresolved.
+- 2026-06-02 source-path update: `PROPOSED_RECONSTRUCTION_PATH` set to `NexusTK/map/`, matching the proposed source tree and current ownership decision that weather overlays are map-state companions rather than generic render code.

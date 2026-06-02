@@ -1,8 +1,8 @@
 *** UID:0000BJ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -55,3 +55,5 @@ The exact table block is documented at [UID:0001ON][0x006702c8-0x00670784.RainCo
   - Before: The page was unevaluated despite documenting constructor, two rain-rendering paths, coordinate tables, relationships, and stale alias caveats.
   - After: Scored as high completion and strong confidence for the rain weather overlay.
   - Evidence: Existing method map, key relationships, IDA caller/vtable notes, and rain-table cross-references document behavior and boundaries.
+- 2026-06-02 reconstruction metadata:
+  - Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md), the current weather-layer source-family parent. C++ remains blank because this page is below the 95+ final-source threshold and final separate-file ownership is still being tracked.

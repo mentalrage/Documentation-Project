@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 140
+Total_Reconstructable: 144
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 53
+Total_Reconstructed_Assigned: 57
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 445
+Total_Unclassified: 441
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -50,6 +50,7 @@ Total_Error: 0
 | [UID:0000AU][ProfileDialog](by-class/ProfileDialog.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-class/ProfileDialog.md` |  |
 | [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md) | assigned | `0000MT` | 10 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-class/ProgressBarControlPane.md` |  |
 | [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md) | assigned | `0000MX` |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-class/QuitInputPane.md` |  |
+| [UID:0000BJ][RainingLayerPane](by-class/RainingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/RainingLayerPane.md` |  |
 | [UID:0000BL][RankingCategoryRecord](by-class/RankingCategoryRecord.md) | assigned | `0000MZ` | 50 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingCategoryRecord.md` |  |
 | [UID:0000BO][RankingEventScrollPane](by-class/RankingEventScrollPane.md) | assigned | `0000MZ` | 20 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingEventScrollPane.md` |  |
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-class/RectBounds.md` |  |
@@ -58,11 +59,14 @@ Total_Error: 0
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
 | [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-class/SelfSaveInputPane.md` |  |
 | [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/ShoutInputPane.md` |  |
+| [UID:0000DC][SnowingLayerPane](by-class/SnowingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SnowingLayerPane.md` |  |
 | [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
+| [UID:0000E9][SwallowLayerPane](by-class/SwallowLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SwallowLayerPane.md` |  |
 | [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/TakeOffInputPane.md` |  |
 | [UID:0000EZ][ThrowReallyInputPane](by-class/ThrowReallyInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ThrowReallyInputPane.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
 | [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md) | assigned | `0000P4` |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-class/VideoPlayerPane.md` |  |
+| [UID:0000G1][WeatherLayerPane](by-class/WeatherLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/WeatherLayerPane.md` |  |
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
 | [UID:00008S][MSGHandler](by-class/MSGHandler.md) | coded | `0000LM` | 10 | yes | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-class/MSGHandler.md` |  |
@@ -453,7 +457,6 @@ Total_Error: 0
 | [UID:0000BF][Queue](by-class/Queue.md) | unclassified |  |  | no |  | `by-class/Queue.md` |  |
 | [UID:0000BG][QuitDialog](by-class/QuitDialog.md) | unclassified |  |  | no |  | `by-class/QuitDialog.md` |  |
 | [UID:0000BI][RadioGroupControlPane](by-class/RadioGroupControlPane.md) | unclassified |  |  | no |  | `by-class/RadioGroupControlPane.md` |  |
-| [UID:0000BJ][RainingLayerPane](by-class/RainingLayerPane.md) | unclassified |  |  | no |  | `by-class/RainingLayerPane.md` |  |
 | [UID:0000BK][RankingCategoryCollection](by-class/RankingCategoryCollection.md) | unclassified |  |  | no |  | `by-class/RankingCategoryCollection.md` |  |
 | [UID:0000BM][RankingDialog](by-class/RankingDialog.md) | unclassified |  |  | no |  | `by-class/RankingDialog.md` |  |
 | [UID:0000BN][RankingEventListPane](by-class/RankingEventListPane.md) | unclassified |  |  | no |  | `by-class/RankingEventListPane.md` |  |
@@ -498,7 +501,6 @@ Total_Error: 0
 | [UID:0000D6][SimpleHelpPane](by-class/SimpleHelpPane.md) | unclassified |  |  | no |  | `by-class/SimpleHelpPane.md` |  |
 | [UID:0000D7][SimpleHelpPane2](by-class/SimpleHelpPane2.md) | unclassified |  |  | no |  | `by-class/SimpleHelpPane2.md` |  |
 | [UID:0000DB][SliderControlPane](by-class/SliderControlPane.md) | unclassified |  |  | no |  | `by-class/SliderControlPane.md` |  |
-| [UID:0000DC][SnowingLayerPane](by-class/SnowingLayerPane.md) | unclassified |  |  | no |  | `by-class/SnowingLayerPane.md` |  |
 | [UID:0000DD][Socket](by-class/Socket.md) | unclassified |  |  | no |  | `by-class/Socket.md` |  |
 | [UID:0000DE][SolidColorFilterEffecter](by-class/SolidColorFilterEffecter.md) | unclassified |  |  | no |  | `by-class/SolidColorFilterEffecter.md` |  |
 | [UID:0000DF][SortedList](by-class/SortedList.md) | unclassified |  |  | no |  | `by-class/SortedList.md` |  |
@@ -528,7 +530,6 @@ Total_Error: 0
 | [UID:0000E4][StaticTextControlPane2](by-class/StaticTextControlPane2.md) | unclassified |  |  | no |  | `by-class/StaticTextControlPane2.md` |  |
 | [UID:0000E5][StaticTextControlPane2__SimpleHelpTextPartPane](by-class/StaticTextControlPane2__SimpleHelpTextPartPane.md) | unclassified |  |  | no |  | `by-class/StaticTextControlPane2__SimpleHelpTextPartPane.md` |  |
 | [UID:0000E7][StringIter](by-class/StringIter.md) | unclassified |  |  | no |  | `by-class/StringIter.md` |  |
-| [UID:0000E9][SwallowLayerPane](by-class/SwallowLayerPane.md) | unclassified |  |  | no |  | `by-class/SwallowLayerPane.md` |  |
 | [UID:0000EA][SystemMessagePane](by-class/SystemMessagePane.md) | unclassified |  |  | no |  | `by-class/SystemMessagePane.md` |  |
 | [UID:0000EB][TabPane](by-class/TabPane.md) | unclassified |  |  | no |  | `by-class/TabPane.md` |  |
 | [UID:0000ED][TargetObjectWithKeyboardPane](by-class/TargetObjectWithKeyboardPane.md) | unclassified |  |  | no |  | `by-class/TargetObjectWithKeyboardPane.md` |  |
@@ -583,7 +584,6 @@ Total_Error: 0
 | [UID:0000GB][WSAError](by-class/WSAError.md) | unclassified |  |  | no |  | `by-class/WSAError.md` |  |
 | [UID:0000FZ][WaterFilterEffecter](by-class/WaterFilterEffecter.md) | unclassified |  |  | no |  | `by-class/WaterFilterEffecter.md` |  |
 | [UID:0000G0][WearInputPane](by-class/WearInputPane.md) | unclassified |  |  | no |  | `by-class/WearInputPane.md` |  |
-| [UID:0000G1][WeatherLayerPane](by-class/WeatherLayerPane.md) | unclassified |  |  | no |  | `by-class/WeatherLayerPane.md` |  |
 | [UID:0000G2][WebBoardDialog](by-class/WebBoardDialog.md) | unclassified |  |  | no |  | `by-class/WebBoardDialog.md` |  |
 | [UID:0000G3][WebBoardDialogOld](by-class/WebBoardDialogOld.md) | unclassified |  |  | no |  | `by-class/WebBoardDialogOld.md` |  |
 | [UID:0000G4][WieldInputPane](by-class/WieldInputPane.md) | unclassified |  |  | no |  | `by-class/WieldInputPane.md` |  |

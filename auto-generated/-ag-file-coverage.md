@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 155
+Total_Reconstructed_Assigned: 158
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 133
+Total_Error: 130
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -129,6 +129,7 @@ Total_Error: 133
 | [UID:0000NN][SelfSaveOKPane](by-file/SelfSaveOKPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveOKPane.cpp` | `by-file/SelfSaveOKPane.md` | by-file generated root |
 | [UID:0000NO][ServerSelectPane](by-file/ServerSelectPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-file/ServerSelectPane.md` | by-file generated root |
 | [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/SimpleListPane.cpp` | `by-file/SimpleListPane.md` | by-file generated root |
+| [UID:0000NR][SnowingLayerPane](by-file/SnowingLayerPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/SnowingLayerPane.cpp` | `by-file/SnowingLayerPane.md` | by-file generated root |
 | [UID:0000NS][Socket](by-file/Socket.md) | assigned |  |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-file/Socket.md` | by-file generated root |
 | [UID:0000NV][SoundManager](by-file/SoundManager.md) | assigned |  |  | no | `auto-generated/NexusTK/audio/SoundManager.cpp` | `by-file/SoundManager.md` | by-file generated root |
 | [UID:0000O0][SpellInputPanes](by-file/SpellInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-file/SpellInputPanes.md` | by-file generated root |
@@ -140,6 +141,7 @@ Total_Error: 133
 | [UID:0000OA][StringBase](by-file/StringBase.md) | assigned |  |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-file/StringBase.md` | by-file generated root |
 | [UID:0000OB][StringUtil](by-file/StringUtil.md) | assigned |  |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-file/StringUtil.md` | by-file generated root |
 | [UID:0000OC][Surface](by-file/Surface.md) | assigned |  |  | no | `auto-generated/NexusTK/render/Surface.cpp` | `by-file/Surface.md` | by-file generated root |
+| [UID:0000OD][SwallowLayerPane](by-file/SwallowLayerPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/SwallowLayerPane.cpp` | `by-file/SwallowLayerPane.md` | by-file generated root |
 | [UID:0000OE][SystemMessagePanes](by-file/SystemMessagePanes.md) | assigned |  |  | no | `auto-generated/NexusTK/social/SystemMessagePanes.cpp` | `by-file/SystemMessagePanes.md` | by-file generated root |
 | [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-file/TargetSelectionInputPanes.md` | by-file generated root |
 | [UID:0000OI][TerminalPane](by-file/TerminalPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-file/TerminalPane.md` | by-file generated root |
@@ -163,6 +165,7 @@ Total_Error: 133
 | [UID:0000P5][VirusChecker](by-file/VirusChecker.md) | assigned |  |  | no | `auto-generated/NexusTK/security/VirusChecker.cpp` | `by-file/VirusChecker.md` | by-file generated root |
 | [UID:0000P6][VoteMenuPane](by-file/VoteMenuPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/menu/VoteMenuPane.cpp` | `by-file/VoteMenuPane.md` | by-file generated root |
 | [UID:0000P7][WaitableTimer](by-file/WaitableTimer.md) | assigned |  |  | no | `auto-generated/NexusTK/util/WaitableTimer.cpp` | `by-file/WaitableTimer.md` | by-file generated root |
+| [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-file/WeatherLayerPane.md` | by-file generated root |
 | [UID:0000P9][WebBoardDialog](by-file/WebBoardDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/WebBoardDialog.cpp` | `by-file/WebBoardDialog.md` | by-file generated root |
 | [UID:0000PA][WinMain](by-file/WinMain.md) | assigned |  |  | no | `auto-generated/NexusTK/app/WinMain.cpp` | `by-file/WinMain.md` | by-file generated root |
 | [UID:0000HG][Application](by-file/Application.md) | coded |  |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-file/Application.md` | by-file generated root |
@@ -279,7 +282,6 @@ Total_Error: 133
 | [UID:0000NE][ScrollableControlPane](by-file/ScrollableControlPane.md) | error |  |  | no |  | `by-file/ScrollableControlPane.md` | by-file generated root |
 | [UID:0000NI][ScrolledTextControlPane](by-file/ScrolledTextControlPane.md) | error |  |  | no |  | `by-file/ScrolledTextControlPane.md` | by-file generated root |
 | [UID:0000NP][Session](by-file/Session.md) | error |  |  | no |  | `by-file/Session.md` | by-file generated root |
-| [UID:0000NR][SnowingLayerPane](by-file/SnowingLayerPane.md) | error |  |  | no |  | `by-file/SnowingLayerPane.md` | by-file generated root |
 | [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md) | error |  |  | no |  | `by-file/SoftwareBlend16.md` | by-file generated root |
 | [UID:0000NU][SortedList](by-file/SortedList.md) | error |  |  | no |  | `by-file/SortedList.md` | by-file generated root |
 | [UID:0000NW][SoundObjectPane](by-file/SoundObjectPane.md) | error |  |  | no |  | `by-file/SoundObjectPane.md` | by-file generated root |
@@ -290,7 +292,6 @@ Total_Error: 133
 | [UID:0000O3][StaffsDialogPane](by-file/StaffsDialogPane.md) | error |  |  | no |  | `by-file/StaffsDialogPane.md` | by-file generated root |
 | [UID:0000O6][StaticObjectPane](by-file/StaticObjectPane.md) | error |  |  | no |  | `by-file/StaticObjectPane.md` | by-file generated root |
 | [UID:0000O8][StaticTextControlPane](by-file/StaticTextControlPane.md) | error |  |  | no |  | `by-file/StaticTextControlPane.md` | by-file generated root |
-| [UID:0000OD][SwallowLayerPane](by-file/SwallowLayerPane.md) | error |  |  | no |  | `by-file/SwallowLayerPane.md` | by-file generated root |
 | [UID:0000OF][TabPane](by-file/TabPane.md) | error |  |  | no |  | `by-file/TabPane.md` | by-file generated root |
 | [UID:0000OG][TargetOptionDialog](by-file/TargetOptionDialog.md) | error |  |  | no |  | `by-file/TargetOptionDialog.md` | by-file generated root |
 | [UID:0000OK][TextButtonControlPane](by-file/TextButtonControlPane.md) | error |  |  | no |  | `by-file/TextButtonControlPane.md` | by-file generated root |
@@ -298,6 +299,5 @@ Total_Error: 133
 | [UID:0000OS][ThreadSafeNodeList](by-file/ThreadSafeNodeList.md) | error |  |  | no |  | `by-file/ThreadSafeNodeList.md` | by-file generated root |
 | [UID:0000P0][UserLookPane](by-file/UserLookPane.md) | error |  |  | no |  | `by-file/UserLookPane.md` | by-file generated root |
 | [UID:0000P3][VectorHelpers](by-file/VectorHelpers.md) | error |  |  | no |  | `by-file/VectorHelpers.md` | by-file generated root |
-| [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md) | error |  |  | no |  | `by-file/WeatherLayerPane.md` | by-file generated root |
 | [UID:0000PB][WorldMapPane](by-file/WorldMapPane.md) | error |  |  | no |  | `by-file/WorldMapPane.md` | by-file generated root |
 | [UID:0000PC][Zlib](by-file/Zlib.md) | error |  |  | no |  | `by-file/Zlib.md` | by-file generated root |

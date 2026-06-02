@@ -1,8 +1,8 @@
 *** UID:0000E9 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -57,3 +57,5 @@ Generated metadata includes a bad/excluded method row at `0x00570053`; IDA place
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `84`, confidence `80`.
 - Evidence: the page documents the weather-layer behavior, method map, raw helper caveats, generated misownership, constructor call-in, vtable refs, and shared destructor island; confidence remains capped by raw flight helpers that IDA still does not model as functions.
+- 2026-06-02 reconstruction metadata:
+  - Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md), the current weather-layer source-family parent. C++ remains blank because raw flight-helper ownership/liveness needs more work and the class is below the 95+ final-source threshold.
