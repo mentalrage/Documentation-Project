@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 179
+Total_Reconstructable: 181
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 90
+Total_Reconstructed_Assigned: 92
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 89
-Total_Unclassified: 406
+Total_Unclassified: 404
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -23,6 +23,8 @@ Total_Error: 0
 | [UID:00001M][ChangeSpellSlotInputPane](by-class/ChangeSpellSlotInputPane.md) | assigned | `0000O0` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-class/ChangeSpellSlotInputPane.md` |  |
 | [UID:00001Q][ChatInputPane](by-class/ChatInputPane.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChatInputPane.md` |  |
 | [UID:00002T][CloudFilterEffecter](by-class/CloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/CloudFilterEffecter.md` |  |
+| [UID:000033][ConfirmDeleteAlert](by-class/ConfirmDeleteAlert.md) | assigned | `0000HW` | 40 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteAlert.md` |  |
+| [UID:000034][ConfirmDeleteMailAlert](by-class/ConfirmDeleteMailAlert.md) | assigned | `0000HW` | 60 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteMailAlert.md` |  |
 | [UID:00003A][Crasher](by-class/Crasher.md) | assigned | `0000II` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-class/Crasher.md` |  |
 | [UID:00003C][CriticalSectionLock](by-class/CriticalSectionLock.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/CriticalSectionLock.md` |  |
 | [UID:00003J][DATFileResolver](by-class/DATFileResolver.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-class/DATFileResolver.md` |  |
@@ -263,8 +265,6 @@ Total_Error: 0
 | [UID:000030][ColorStringSystemMessage](by-class/ColorStringSystemMessage.md) | unclassified |  |  | no |  | `by-class/ColorStringSystemMessage.md` |  |
 | [UID:000031][Config](by-class/Config.md) | unclassified |  |  | no |  | `by-class/Config.md` |  |
 | [UID:000032][ConfigEntryBlock](by-class/ConfigEntryBlock.md) | unclassified |  |  | no |  | `by-class/ConfigEntryBlock.md` |  |
-| [UID:000033][ConfirmDeleteAlert](by-class/ConfirmDeleteAlert.md) | unclassified |  |  | no |  | `by-class/ConfirmDeleteAlert.md` |  |
-| [UID:000034][ConfirmDeleteMailAlert](by-class/ConfirmDeleteMailAlert.md) | unclassified |  |  | no |  | `by-class/ConfirmDeleteMailAlert.md` |  |
 | [UID:000035][ConfirmInputPane](by-class/ConfirmInputPane.md) | unclassified |  |  | no |  | `by-class/ConfirmInputPane.md` |  |
 | [UID:000037][ConnStatusPane](by-class/ConnStatusPane.md) | unclassified |  |  | no |  | `by-class/ConnStatusPane.md` |  |
 | [UID:000036][ConnectionClosedDialog](by-class/ConnectionClosedDialog.md) | unclassified |  |  | no |  | `by-class/ConnectionClosedDialog.md` |  |

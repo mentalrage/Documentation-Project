@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 13:56:07
+Generated: 2026-06-02 14:04:14
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3613
-- Scored files: 3446
+- Tracked files: 3615
+- Scored files: 3448
 - Ignored files: 167
 
 ## projected_path_completion
@@ -126,8 +126,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000033` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteAlert.md` |
-| `000034` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteMailAlert.md` |
 | `000060` | 64 | 76 | 70.0 | `by-class/HandlerFindFunc.md` |
 | `0002G0` | 64 | 76 | 70.0 | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |
 | `000115` | 64 | 76 | 70.0 | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |
@@ -142,7 +140,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
 | `0001TZ` | 64 | 78 | 71.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
 | `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
-| `0000ZM` | 64 | 80 | 72.0 | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |
 | `0002P7` | 64 | 82 | 73.0 | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |
 | `0002PA` | 64 | 82 | 73.0 | `by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md` |
 | `0001Z5` | 64 | 88 | 76.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
@@ -151,6 +148,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
 | `00000V` | 65 | 80 | 72.5 | `by-class/BaramApp.md` |
 | `00004W` | 65 | 80 | 72.5 | `by-class/FileDownloader.md` |
+| `0000JC` | 65 | 80 | 72.5 | `by-file/FileDownloader.md` |
+| `0000WH` | 65 | 80 | 72.5 | `by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md` |
+| `0002H3` | 65 | 80 | 72.5 | `by-memory/0x00464e40-0x00464f34.ApplicationRequestExit.md` |
 
 ## Low_Confidence
 
@@ -186,8 +186,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000033` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteAlert.md` |
-| `000034` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteMailAlert.md` |
 | `000060` | 64 | 76 | 70.0 | `by-class/HandlerFindFunc.md` |
 | `0002G0` | 64 | 76 | 70.0 | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |
 | `000115` | 64 | 76 | 70.0 | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |
@@ -211,6 +209,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 | `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
 | `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
+| `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
+| `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 
 ## By Folder
 
@@ -218,8 +218,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000033` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteAlert.md` |
-| `000034` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteMailAlert.md` |
 | `000060` | 64 | 76 | 70.0 | `by-class/HandlerFindFunc.md` |
 | `00000E` | 65 | 75 | 70.0 | `by-class/ApplicationHelper_4A6C40.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
@@ -243,6 +241,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
+| `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
+| `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 
 ### by-external-research
 
@@ -361,7 +361,6 @@ _No scored files._
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
-| `0000ZM` | 64 | 80 | 72.0 | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |
 | `0002G1` | 66 | 78 | 72.0 | `by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md` |
 | `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
 | `00011B` | 66 | 78 | 72.0 | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |
@@ -371,6 +370,7 @@ _No scored files._
 | `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
 | `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
 | `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
+| `0002FF` | 68 | 76 | 72.0 | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |
 
 ### by-meta
 

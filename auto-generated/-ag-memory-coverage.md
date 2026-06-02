@@ -2,13 +2,13 @@
 
 # ag-memory-coverage
 
-Total_Type: 2138
-Total_Reconstructable: 1174
+Total_Type: 2140
+Total_Reconstructable: 1177
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 633
+Total_Reconstructed_Assigned: 636
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 541
-Total_Unclassified: 953
+Total_Unclassified: 952
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -90,6 +90,9 @@ Total_Error: 0
 | [UID:0002P3][0x0046ff50-0x00470159.BrowserControlPaneOldConstructor](by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md) | assigned | `000016` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md` |  |
 | [UID:0000ZL][0x004777a0-0x00478f8e.NewPredefinedFormArticleDialog](by-memory/0x004777a0-0x00478f8e.NewPredefinedFormArticleDialog.md) | assigned | `0000LT` |  | no | `auto-generated/NexusTK/ui/dialogs/NewPredefinedFormArticleDialog.cpp` | `by-memory/0x004777a0-0x00478f8e.NewPredefinedFormArticleDialog.md` |  |
 | [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md) | assigned | `0000HW` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md` |  |
+| [UID:0000ZM][0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions](by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md) | assigned | `0000HW` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |  |
+| [UID:0002SE][0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest](by-memory/0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest.md) | assigned | `000033` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest.md` |  |
+| [UID:0002SF][0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest](by-memory/0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest.md) | assigned | `000034` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest.md` |  |
 | [UID:00021D][0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request](by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |  |
 | [UID:00021E][0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request](by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |  |
 | [UID:00021F][0x00485520-0x00485588.SendClanJoinListRefreshPacket](by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |  |
@@ -1403,7 +1406,6 @@ Total_Error: 0
 | [UID:0002EJ][0x00472070-0x004729dd.BoardListDialogCore](by-memory/0x00472070-0x004729dd.BoardListDialogCore.md) | unclassified |  |  | no |  | `by-memory/0x00472070-0x004729dd.BoardListDialogCore.md` |  |
 | [UID:0002EK][0x004781f0-0x00478238.NewPredefinedFormArticleDialogRawNavigateSelectionHelper](by-memory/0x004781f0-0x00478238.NewPredefinedFormArticleDialogRawNavigateSelectionHelper.md) | unclassified |  |  | no |  | `by-memory/0x004781f0-0x00478238.NewPredefinedFormArticleDialogRawNavigateSelectionHelper.md` |  |
 | [UID:0002EL][0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm](by-memory/0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm.md) | unclassified |  |  | no |  | `by-memory/0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm.md` |  |
-| [UID:0000ZM][0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions](by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md) | unclassified |  |  | no |  | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |  |
 | [UID:0002EM][0x00479050-0x00479098.TransferReplyPredefinedAlertRawConstructor](by-memory/0x00479050-0x00479098.TransferReplyPredefinedAlertRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00479050-0x00479098.TransferReplyPredefinedAlertRawConstructor.md` |  |
 | [UID:0000ZN][0x004790a0-0x0047910f.TransferReplyPredefinedAlertOnAlertAction](by-memory/0x004790a0-0x0047910f.TransferReplyPredefinedAlertOnAlertAction.md) | unclassified |  |  | no |  | `by-memory/0x004790a0-0x0047910f.TransferReplyPredefinedAlertOnAlertAction.md` |  |
 | [UID:0000ZO][0x00479110-0x0047ec2b.MailDialogs](by-memory/0x00479110-0x0047ec2b.MailDialogs.md) | unclassified |  |  | no |  | `by-memory/0x00479110-0x0047ec2b.MailDialogs.md` |  |
