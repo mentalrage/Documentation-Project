@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 06:09:18
+Generated: 2026-06-02 06:17:09
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -153,9 +153,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
-| `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
-| `00027B` | 50 | 65 | 57.5 | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |
 | `0001OL` | 50 | 65 | 57.5 | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |
 | `00027U` | 50 | 65 | 57.5 | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |
 | `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
@@ -178,6 +175,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000208` | 50 | 85 | 67.5 | `by-memory/0x00460940-0x004609d3.BlitTransparentShadow565MmxBlocks.md` |
 | `000209` | 50 | 85 | 67.5 | `by-memory/0x004609e0-0x00460af9.Rgb565TransparentAlphaBlendMmxBlocks.md` |
 | `00020A` | 50 | 85 | 67.5 | `by-memory/0x00460c90-0x00460d51.Rgb565AlphaMapMmxBlocks.md` |
+| `00020C` | 50 | 85 | 67.5 | `by-memory/0x00460df0-0x00460e79.ByteSpanCopyRows.md` |
+| `00020D` | 50 | 85 | 67.5 | `by-memory/0x00460e80-0x00460f09.ByteSpanAddRows.md` |
+| `00020E` | 50 | 85 | 67.5 | `by-memory/0x00460f10-0x00460f99.ByteSpanSubtractRows.md` |
 
 ## Low_Confidence
 
@@ -188,9 +188,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
-| `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
-| `00027B` | 50 | 65 | 57.5 | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |
 | `0001OL` | 50 | 65 | 57.5 | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |
 | `00027U` | 50 | 65 | 57.5 | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |
 | `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
@@ -208,14 +205,14 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
 | `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
+| `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
+| `00021H` | 55 | 65 | 60.0 | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |
+| `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
-| `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
-| `00027B` | 50 | 65 | 57.5 | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |
 | `0001OL` | 50 | 65 | 57.5 | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |
 | `00027U` | 50 | 65 | 57.5 | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |
 | `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
@@ -238,6 +235,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00021F` | 55 | 65 | 60.0 | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |
 | `00021H` | 55 | 65 | 60.0 | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |
 | `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
+| `00021T` | 55 | 65 | 60.0 | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |
+| `00021Y` | 55 | 65 | 60.0 | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |
+| `00021Z` | 55 | 65 | 60.0 | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |
 
 ## By Folder
 
@@ -373,9 +373,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
-| `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
-| `00027B` | 50 | 65 | 57.5 | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |
 | `0001OL` | 50 | 65 | 57.5 | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |
 | `00027U` | 50 | 65 | 57.5 | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |
 | `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
@@ -398,6 +395,9 @@ _No scored files._
 | `00021H` | 55 | 65 | 60.0 | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |
 | `00021N` | 55 | 65 | 60.0 | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |
 | `00021T` | 55 | 65 | 60.0 | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |
+| `00021Y` | 55 | 65 | 60.0 | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |
+| `00021Z` | 55 | 65 | 60.0 | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |
+| `000223` | 55 | 65 | 60.0 | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |
 
 ### by-meta
 

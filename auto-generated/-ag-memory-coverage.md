@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1032
+Total_Reconstructable: 1035
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 504
+Total_Reconstructed_Assigned: 506
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 528
-Total_Unclassified: 1093
+Total_Reconstructable_Unassigned: 529
+Total_Unclassified: 1090
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -492,8 +492,10 @@ Total_Error: 0
 | [UID:0001O3][0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers](by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md) | assigned | `0000E9` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
+| [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
 | [UID:0002GL][0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData](by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md) | assigned | `00008S` | 100 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md` |  |
+| [UID:00027B][0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag](by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |  |
 | [UID:00028Y][0x0067a878-0x0067a934.AesMutableStateAndKeySchedule](by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md) | assigned | `00020J` | 70 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md` |  |
 | [UID:000291][0x0067a980-0x0067a998.ApplicationTimingBaselines](by-memory/0x0067a980-0x0067a998.ApplicationTimingBaselines.md) | assigned | `0000HG` | 110 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a980-0x0067a998.ApplicationTimingBaselines.md` |  |
 | [UID:000293][0x0067a9c0-0x0067ab18.ApplicationOsVersionState](by-memory/0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md) | assigned | `0000HG` | 120 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md` |  |
@@ -945,6 +947,7 @@ Total_Error: 0
 | [UID:0002NG][0x00610ed8-0x00610f60.AboveFrameVtableData](by-memory/0x00610ed8-0x00610f60.AboveFrameVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00610ed8-0x00610f60.AboveFrameVtableData.md` |  |
 | [UID:00024S][0x00610ed8-0x006125a8.AboveFrameAndLocaleReadOnlyData](by-memory/0x00610ed8-0x006125a8.AboveFrameAndLocaleReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00610ed8-0x006125a8.AboveFrameAndLocaleReadOnlyData.md` |  |
 | [UID:0002NE][0x006125a8-0x006125bc.PasswordErrorVtableData](by-memory/0x006125a8-0x006125bc.PasswordErrorVtableData.md) | unassigned |  |  | no |  | `by-memory/0x006125a8-0x006125bc.PasswordErrorVtableData.md` |  |
+| [UID:0001OB][0x006131b4-0x006139df.BrowserVtablesAndStrings](by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md) | unassigned |  |  | no |  | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |  |
 | [UID:00024W][0x00613ab0-0x00614cd0.BoardMailReadOnlyData](by-memory/0x00613ab0-0x00614cd0.BoardMailReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00613ab0-0x00614cd0.BoardMailReadOnlyData.md` |  |
 | [UID:0002MI][0x00613ba4-0x00613c44.BulletinDialogVtableData](by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md` |  |
 | [UID:0002M8][0x00614cd0-0x00614cdc.ChangeManVtableData](by-memory/0x00614cd0-0x00614cdc.ChangeManVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00614cd0-0x00614cdc.ChangeManVtableData.md` |  |
@@ -1905,10 +1908,8 @@ Total_Error: 0
 | [UID:00024P][0x0060f038-0x0060f4c0.MsvcStlNumericRdata](by-memory/0x0060f038-0x0060f4c0.MsvcStlNumericRdata.md) | unclassified |  |  | no |  | `by-memory/0x0060f038-0x0060f4c0.MsvcStlNumericRdata.md` |  |
 | [UID:00024Q][0x0060f4c0-0x006104f4.LodePngReadOnlyData](by-memory/0x0060f4c0-0x006104f4.LodePngReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0060f4c0-0x006104f4.LodePngReadOnlyData.md` |  |
 | [UID:00024U][0x00612f3c-0x006131b4.BackGroundBalloonBlackHoleReadOnlyData](by-memory/0x00612f3c-0x006131b4.BackGroundBalloonBlackHoleReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x00612f3c-0x006131b4.BackGroundBalloonBlackHoleReadOnlyData.md` |  |
-| [UID:0001OB][0x006131b4-0x006139df.BrowserVtablesAndStrings](by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md) | unclassified |  |  | no |  | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |  |
 | [UID:00024V][0x006139df-0x00613a18.BrowserCloseScriptString](by-memory/0x006139df-0x00613a18.BrowserCloseScriptString.md) | unclassified |  |  | no |  | `by-memory/0x006139df-0x00613a18.BrowserCloseScriptString.md` |  |
 | [UID:0001OC][0x00613a18-0x00613a1e.DialogOkButtonString](by-memory/0x00613a18-0x00613a1e.DialogOkButtonString.md) | unclassified |  |  | no |  | `by-memory/0x00613a18-0x00613a1e.DialogOkButtonString.md` |  |
-| [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) | unclassified |  |  | no |  | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |  |
 | [UID:000250][0x006164f4-0x006168d0.CollectionReadOnlyData](by-memory/0x006164f4-0x006168d0.CollectionReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x006164f4-0x006168d0.CollectionReadOnlyData.md` |  |
 | [UID:000251][0x006168d0-0x00617a38.ConfigChannelReadOnlyData](by-memory/0x006168d0-0x00617a38.ConfigChannelReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x006168d0-0x00617a38.ConfigChannelReadOnlyData.md` |  |
 | [UID:000253][0x0061885c-0x006189dc.CrasherDatFileReadOnlyData](by-memory/0x0061885c-0x006189dc.CrasherDatFileReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0061885c-0x006189dc.CrasherDatFileReadOnlyData.md` |  |
@@ -1959,7 +1960,6 @@ Total_Error: 0
 | [UID:000278][0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets](by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md) | unclassified |  |  | no |  | `by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md` |  |
 | [UID:000279][0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers](by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md) | unclassified |  |  | no |  | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |  |
 | [UID:00027A][0x0066d47c-0x0066d880.ChecksumLookupTablesData](by-memory/0x0066d47c-0x0066d880.ChecksumLookupTablesData.md) | unclassified |  |  | no |  | `by-memory/0x0066d47c-0x0066d880.ChecksumLookupTablesData.md` |  |
-| [UID:00027B][0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag](by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md) | unclassified |  |  | no |  | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |  |
 | [UID:00027C][0x0066d888-0x0066da88.EventManKeyTranslationTables](by-memory/0x0066d888-0x0066da88.EventManKeyTranslationTables.md) | unclassified |  |  | no |  | `by-memory/0x0066d888-0x0066da88.EventManKeyTranslationTables.md` |  |
 | [UID:00027D][0x0066da88-0x0066da90.FolderSelectDriveRootBuffer](by-memory/0x0066da88-0x0066da90.FolderSelectDriveRootBuffer.md) | unclassified |  |  | no |  | `by-memory/0x0066da88-0x0066da90.FolderSelectDriveRootBuffer.md` |  |
 | [UID:00027E][0x0066da90-0x0066da94.g_fpsDebugActive](by-memory/0x0066da90-0x0066da94.g_fpsDebugActive.md) | unclassified |  |  | no |  | `by-memory/0x0066da90-0x0066da94.g_fpsDebugActive.md` |  |
