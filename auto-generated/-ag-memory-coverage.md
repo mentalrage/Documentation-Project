@@ -5,9 +5,9 @@
 Total_Type: 2138
 Total_Reconstructable: 1174
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 627
+Total_Reconstructed_Assigned: 629
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 547
+Total_Reconstructable_Unassigned: 545
 Total_Unclassified: 953
 Total_Error: 0
 
@@ -327,6 +327,8 @@ Total_Error: 0
 | [UID:0002JH][0x00516f80-0x00516f8d.MenuItemSetStateFlag0](by-memory/0x00516f80-0x00516f8d.MenuItemSetStateFlag0.md) | assigned | `00007V` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-memory/0x00516f80-0x00516f8d.MenuItemSetStateFlag0.md` |  |
 | [UID:0002J5][0x00516f90-0x00516f94.MenuItemStateFlag1Accessor](by-memory/0x00516f90-0x00516f94.MenuItemStateFlag1Accessor.md) | assigned | `00007V` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-memory/0x00516f90-0x00516f94.MenuItemStateFlag1Accessor.md` |  |
 | [UID:0002JI][0x00516fa0-0x00516fad.MenuItemSetStateFlag1](by-memory/0x00516fa0-0x00516fad.MenuItemSetStateFlag1.md) | assigned | `00007V` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-memory/0x00516fa0-0x00516fad.MenuItemSetStateFlag1.md` |  |
+| [UID:0002JJ][0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect](by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md) | assigned | `00007V` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |  |
+| [UID:0002JK][0x00516fd0-0x00516fe1.MenuItemSetBoundsRect](by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md) | assigned | `00007V` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |  |
 | [UID:000238][0x00517450-0x00517d23.MenuDialogFactoryHelpers](by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md) | assigned | `0000OP` |  | no | `auto-generated/NexusTK/ui/dialogs/TextMenuDialogs.cpp` | `by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md` |  |
 | [UID:0001BL][0x00517d30-0x00517ebf.MerchantDialogPaneBase](by-memory/0x00517d30-0x00517ebf.MerchantDialogPaneBase.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-memory/0x00517d30-0x00517ebf.MerchantDialogPaneBase.md` |  |
 | [UID:0001BM][0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual](by-memory/0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-memory/0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual.md` |  |
@@ -930,8 +932,6 @@ Total_Error: 0
 | [UID:000234][0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize](by-memory/0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize.md) | unassigned |  |  | no |  | `by-memory/0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize.md` |  |
 | [UID:0001BK][0x00516290-0x00517441.MenuPaneAndItems](by-memory/0x00516290-0x00517441.MenuPaneAndItems.md) | unassigned |  |  | no |  | `by-memory/0x00516290-0x00517441.MenuPaneAndItems.md` |  |
 | [UID:0002J3][0x00516f00-0x00516f67.MenuItemConstructor](by-memory/0x00516f00-0x00516f67.MenuItemConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00516f00-0x00516f67.MenuItemConstructor.md` |  |
-| [UID:0002JJ][0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect](by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md) | unassigned |  |  | no |  | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |  |
-| [UID:0002JK][0x00516fd0-0x00516fe1.MenuItemSetBoundsRect](by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md) | unassigned |  |  | no |  | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |  |
 | [UID:0002J6][0x00516ff0-0x00517070.StringMenuItemConstructor](by-memory/0x00516ff0-0x00517070.StringMenuItemConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00516ff0-0x00517070.StringMenuItemConstructor.md` |  |
 | [UID:0002J7][0x00517070-0x00517089.StringMenuItemCopyText](by-memory/0x00517070-0x00517089.StringMenuItemCopyText.md) | unassigned |  |  | no |  | `by-memory/0x00517070-0x00517089.StringMenuItemCopyText.md` |  |
 | [UID:0002J8][0x00517090-0x005170d0.StringMenuItemMeasureText](by-memory/0x00517090-0x005170d0.StringMenuItemMeasureText.md) | unassigned |  |  | no |  | `by-memory/0x00517090-0x005170d0.StringMenuItemMeasureText.md` |  |

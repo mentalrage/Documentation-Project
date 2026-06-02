@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 13:35:37
+Generated: 2026-06-02 13:39:25
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -127,8 +127,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002JJ` | 62 | 80 | 71.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
-| `0002JK` | 62 | 80 | 71.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
 | `00014U` | 62 | 82 | 72.0 | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |
 | `0001SM` | 62 | 82 | 72.0 | `by-type/by-enum/BrowserOverlayStyle.md` |
 | `0001X4` | 62 | 82 | 72.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
@@ -152,6 +150,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
 | `0001TZ` | 64 | 78 | 71.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
 | `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
+| `0000ZM` | 64 | 80 | 72.0 | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |
+| `0002P7` | 64 | 82 | 73.0 | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |
 
 ## Low_Confidence
 
@@ -198,8 +198,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `0002JJ` | 62 | 80 | 71.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
-| `0002JK` | 62 | 80 | 71.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
 | `0000HM` | 64 | 78 | 71.0 | `by-file/AUTOBUF.md` |
 | `00013X` | 64 | 78 | 71.0 | `by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md` |
 | `0002PH` | 64 | 78 | 71.0 | `by-memory/0x004bc090-0x004bd3e8.SoftwareRenderCompatSpriteBlitCallback.md` |
@@ -212,6 +210,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
+| `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
+| `00014U` | 62 | 82 | 72.0 | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |
 
 ## By Folder
 
@@ -353,8 +353,6 @@ _No scored files._
 | `00011A` | 64 | 76 | 70.0 | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `0002JJ` | 62 | 80 | 71.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
-| `0002JK` | 62 | 80 | 71.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
 | `00013X` | 64 | 78 | 71.0 | `by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md` |
 | `0002PH` | 64 | 78 | 71.0 | `by-memory/0x004bc090-0x004bd3e8.SoftwareRenderCompatSpriteBlitCallback.md` |
 | `0002PK` | 64 | 78 | 71.0 | `by-memory/0x004c0f80-0x004c3123.SoftwareRenderRgb565SpriteBlitCallback.md` |
@@ -372,6 +370,8 @@ _No scored files._
 | `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
 | `0001AT` | 66 | 78 | 72.0 | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |
 | `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
+| `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
+| `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
 
 ### by-meta
 
