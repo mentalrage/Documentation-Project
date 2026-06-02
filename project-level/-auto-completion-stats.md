@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 17:15:04
+Generated: 2026-06-02 17:22:46
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -124,9 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000251` | 65 | 85 | 75.0 | `by-memory/0x006168d0-0x00617a38.ConfigChannelReadOnlyData.md` |
-| `00025M` | 65 | 85 | 75.0 | `by-memory/0x0061c9c8-0x0061ca48.KeySpeedStringResourceReadOnlyData.md` |
-| `00025T` | 65 | 85 | 75.0 | `by-memory/0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData.md` |
 | `00025U` | 65 | 85 | 75.0 | `by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md` |
 | `000261` | 65 | 85 | 75.0 | `by-memory/0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData.md` |
 | `00026J` | 65 | 85 | 75.0 | `by-memory/0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData.md` |
@@ -149,6 +146,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00011B` | 66 | 78 | 72.0 | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |
 | `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
 | `0001AT` | 66 | 78 | 72.0 | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |
+| `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
+| `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
+| `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
 
 ## Low_Confidence
 
