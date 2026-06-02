@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 23:39:34
+Generated: 2026-06-01 23:43:05
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -171,7 +171,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JL` | 50 | 65 | 57.5 | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |
 | `0001JO` | 50 | 65 | 57.5 | `by-memory/0x00591300-0x005954b2.TextBoxPane.md` |
 | `0001JQ` | 50 | 65 | 57.5 | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |
 | `0001JT` | 50 | 65 | 57.5 | `by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md` |
@@ -196,6 +195,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
 | `0001KO` | 50 | 65 | 57.5 | `by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md` |
 | `0001KQ` | 50 | 65 | 57.5 | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |
+| `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
 
 ## Low_Confidence
 
@@ -206,7 +206,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001JL` | 50 | 65 | 57.5 | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |
 | `0001JO` | 50 | 65 | 57.5 | `by-memory/0x00591300-0x005954b2.TextBoxPane.md` |
 | `0001JQ` | 50 | 65 | 57.5 | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |
 | `0001JT` | 50 | 65 | 57.5 | `by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md` |
@@ -226,12 +225,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001KD` | 50 | 65 | 57.5 | `by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md` |
 | `0001KE` | 50 | 65 | 57.5 | `by-memory/0x005995b0-0x00599a34.UniAPIInit.md` |
 | `0001KG` | 50 | 65 | 57.5 | `by-memory/0x00599cc0-0x0059bc8b.UserInfoDialogPane.md` |
+| `0001KI` | 50 | 65 | 57.5 | `by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JL` | 50 | 65 | 57.5 | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |
 | `0001JO` | 50 | 65 | 57.5 | `by-memory/0x00591300-0x005954b2.TextBoxPane.md` |
 | `0001JQ` | 50 | 65 | 57.5 | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |
 | `0001JT` | 50 | 65 | 57.5 | `by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md` |
@@ -256,6 +255,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
 | `0001KO` | 50 | 65 | 57.5 | `by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md` |
 | `0001KQ` | 50 | 65 | 57.5 | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |
+| `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
 
 ## By Folder
 
@@ -391,7 +391,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JL` | 50 | 65 | 57.5 | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |
 | `0001JO` | 50 | 65 | 57.5 | `by-memory/0x00591300-0x005954b2.TextBoxPane.md` |
 | `0001JQ` | 50 | 65 | 57.5 | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |
 | `0001JT` | 50 | 65 | 57.5 | `by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md` |
@@ -416,6 +415,7 @@ _No scored files._
 | `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
 | `0001KO` | 50 | 65 | 57.5 | `by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md` |
 | `0001KQ` | 50 | 65 | 57.5 | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |
+| `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
 
 ### by-meta
 
