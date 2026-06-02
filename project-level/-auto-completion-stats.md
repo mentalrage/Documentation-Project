@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 00:57:15
+Generated: 2026-06-02 01:01:04
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -169,7 +169,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001K8` | 50 | 65 | 57.5 | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |
 | `0001K9` | 50 | 65 | 57.5 | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |
 | `0001KD` | 50 | 65 | 57.5 | `by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md` |
 | `0001KE` | 50 | 65 | 57.5 | `by-memory/0x005995b0-0x00599a34.UniAPIInit.md` |
@@ -194,6 +193,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001M5` | 50 | 65 | 57.5 | `by-memory/0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor.md` |
 | `0001M6` | 50 | 65 | 57.5 | `by-memory/0x005b3010-0x005b3196.ChangeItemSlotInputPane.md` |
 | `0001M7` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b3260.ChangeSpellSlotInputPaneRawConstructor.md` |
+| `0001M8` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b340e.ChangeSpellSlotInputPane.md` |
 
 ## Low_Confidence
 
@@ -204,7 +204,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001K8` | 50 | 65 | 57.5 | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |
 | `0001K9` | 50 | 65 | 57.5 | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |
 | `0001KD` | 50 | 65 | 57.5 | `by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md` |
 | `0001KE` | 50 | 65 | 57.5 | `by-memory/0x005995b0-0x00599a34.UniAPIInit.md` |
@@ -224,12 +223,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001LZ` | 50 | 65 | 57.5 | `by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md` |
 | `0001M0` | 50 | 65 | 57.5 | `by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md` |
 | `0001M1` | 50 | 65 | 57.5 | `by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md` |
+| `0001M3` | 50 | 65 | 57.5 | `by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001K8` | 50 | 65 | 57.5 | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |
 | `0001K9` | 50 | 65 | 57.5 | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |
 | `0001KD` | 50 | 65 | 57.5 | `by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md` |
 | `0001KE` | 50 | 65 | 57.5 | `by-memory/0x005995b0-0x00599a34.UniAPIInit.md` |
@@ -254,6 +253,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001M5` | 50 | 65 | 57.5 | `by-memory/0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor.md` |
 | `0001M6` | 50 | 65 | 57.5 | `by-memory/0x005b3010-0x005b3196.ChangeItemSlotInputPane.md` |
 | `0001M7` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b3260.ChangeSpellSlotInputPaneRawConstructor.md` |
+| `0001M8` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b340e.ChangeSpellSlotInputPane.md` |
 
 ## By Folder
 
@@ -389,7 +389,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001K8` | 50 | 65 | 57.5 | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |
 | `0001K9` | 50 | 65 | 57.5 | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |
 | `0001KD` | 50 | 65 | 57.5 | `by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md` |
 | `0001KE` | 50 | 65 | 57.5 | `by-memory/0x005995b0-0x00599a34.UniAPIInit.md` |
@@ -414,6 +413,7 @@ _No scored files._
 | `0001M5` | 50 | 65 | 57.5 | `by-memory/0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor.md` |
 | `0001M6` | 50 | 65 | 57.5 | `by-memory/0x005b3010-0x005b3196.ChangeItemSlotInputPane.md` |
 | `0001M7` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b3260.ChangeSpellSlotInputPaneRawConstructor.md` |
+| `0001M8` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b340e.ChangeSpellSlotInputPane.md` |
 
 ### by-meta
 
