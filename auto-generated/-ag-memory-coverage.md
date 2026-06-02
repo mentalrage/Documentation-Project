@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1211
+Total_Reconstructable: 1212
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 670
+Total_Reconstructed_Assigned: 671
 Total_Reconstructed_Coded: 18
 Total_Reconstructable_Unassigned: 541
-Total_Unclassified: 918
+Total_Unclassified: 917
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -243,6 +243,7 @@ Total_Error: 0
 | [UID:0002IA][0x004ce7e0-0x004ce839.HierListTailInsertWrapper](by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md) | assigned | `0000JV` |  | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |  |
 | [UID:0002IB][0x004ce840-0x004ce854.HierListDefaultInsertWrapper](by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md) | assigned | `000065` | 30 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |  |
 | [UID:00022Q][0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md) | assigned | `0000JZ` |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |  |
+| [UID:000171][0x004cfe60-0x004cffaf.IdleWatcher](by-memory/0x004cfe60-0x004cffaf.IdleWatcher.md) | assigned | `0000K0` |  | no | `auto-generated/NexusTK/app/IdleWatcher.cpp` | `by-memory/0x004cfe60-0x004cffaf.IdleWatcher.md` |  |
 | [UID:0002IN][0x004cffb0-0x004d006f.ImageLibConstructor](by-memory/0x004cffb0-0x004d006f.ImageLibConstructor.md) | assigned | `00006E` | 10 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004cffb0-0x004d006f.ImageLibConstructor.md` |  |
 | [UID:000172][0x004cffb0-0x004e6572.ImageLib](by-memory/0x004cffb0-0x004e6572.ImageLib.md) | assigned | `0000K2` | 30 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |  |
 | [UID:000173][0x004d0070-0x004d011b.ImageLibDestructor](by-memory/0x004d0070-0x004d011b.ImageLibDestructor.md) | assigned | `00006E` | 20 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004d0070-0x004d011b.ImageLibDestructor.md` |  |
@@ -1630,7 +1631,6 @@ Total_Error: 0
 | [UID:00016Y][0x004cee60-0x004cf1ef.HourPane](by-memory/0x004cee60-0x004cf1ef.HourPane.md) | unclassified |  |  | no |  | `by-memory/0x004cee60-0x004cf1ef.HourPane.md` |  |
 | [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md` |  |
 | [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md) | unclassified |  |  | no |  | `by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md` |  |
-| [UID:000171][0x004cfe60-0x004cffaf.IdleWatcher](by-memory/0x004cfe60-0x004cffaf.IdleWatcher.md) | unclassified |  |  | no |  | `by-memory/0x004cfe60-0x004cffaf.IdleWatcher.md` |  |
 | [UID:00017G][0x004dc730-0x004dc7d8.RidingImageLibDestructor](by-memory/0x004dc730-0x004dc7d8.RidingImageLibDestructor.md) | unclassified |  |  | no |  | `by-memory/0x004dc730-0x004dc7d8.RidingImageLibDestructor.md` |  |
 | [UID:00017H][0x004dcf60-0x004e6aa6.StaticObjImageLib](by-memory/0x004dcf60-0x004e6aa6.StaticObjImageLib.md) | unclassified |  |  | no |  | `by-memory/0x004dcf60-0x004e6aa6.StaticObjImageLib.md` |  |
 | [UID:00017I][0x004dd1e0-0x004dd2bd.StaticObjImageLibDestructor](by-memory/0x004dd1e0-0x004dd2bd.StaticObjImageLibDestructor.md) | unclassified |  |  | no |  | `by-memory/0x004dd1e0-0x004dd2bd.StaticObjImageLibDestructor.md` |  |

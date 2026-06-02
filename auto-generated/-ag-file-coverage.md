@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 189
+Total_Reconstructed_Assigned: 190
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 99
+Total_Error: 98
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -78,6 +78,7 @@ Total_Error: 99
 | [UID:0000JV][HierList](by-file/HierList.md) | assigned |  |  | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-file/HierList.md` | by-file generated root |
 | [UID:0000JY][HumanImageLib](by-file/HumanImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/HumanImageLib.cpp` | `by-file/HumanImageLib.md` | by-file generated root |
 | [UID:0000JZ][IconsPane](by-file/IconsPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-file/IconsPane.md` | by-file generated root |
+| [UID:0000K0][IdleWatcher](by-file/IdleWatcher.md) | assigned |  |  | no | `auto-generated/NexusTK/app/IdleWatcher.cpp` | `by-file/IdleWatcher.md` | by-file generated root |
 | [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-file/ImageFrameTable.md` | by-file generated root |
 | [UID:0000K2][ImageLib](by-file/ImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-file/ImageLib.md` | by-file generated root |
 | [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-file/ImageLoaders.md` | by-file generated root |
@@ -232,7 +233,6 @@ Total_Error: 99
 | [UID:0000JW][HistoryViewingPane](by-file/HistoryViewingPane.md) | error |  |  | no |  | `by-file/HistoryViewingPane.md` | by-file generated root |
 | [UID:0000JX][HourPane](by-file/HourPane.md) | error |  |  | no |  | `by-file/HourPane.md` | by-file generated root |
 | [UID:0000K5][IMEPanes](by-file/IMEPanes.md) | error |  |  | no |  | `by-file/IMEPanes.md` | by-file generated root |
-| [UID:0000K0][IdleWatcher](by-file/IdleWatcher.md) | error |  |  | no |  | `by-file/IdleWatcher.md` | by-file generated root |
 | [UID:0000K4][ImageWriters](by-file/ImageWriters.md) | error |  |  | no |  | `by-file/ImageWriters.md` | by-file generated root |
 | [UID:0000K6][InputMan](by-file/InputMan.md) | error |  |  | no |  | `by-file/InputMan.md` | by-file generated root |
 | [UID:0000K7][InputPanes](by-file/InputPanes.md) | error |  |  | no |  | `by-file/InputPanes.md` | by-file generated root |

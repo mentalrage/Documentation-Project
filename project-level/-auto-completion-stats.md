@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 17:49:36
+Generated: 2026-06-02 17:56:52
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -48,7 +48,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000JW` | blank | `(blank)` | `by-file/HistoryViewingPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JX` | blank | `(blank)` | `by-file/HourPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K5` | blank | `(blank)` | `by-file/IMEPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000K0` | blank | `(blank)` | `by-file/IdleWatcher.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K4` | blank | `(blank)` | `by-file/ImageWriters.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K6` | blank | `(blank)` | `by-file/InputMan.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K7` | blank | `(blank)` | `by-file/InputPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -122,7 +121,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
@@ -147,6 +145,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009J` | 66 | 82 | 74.0 | `by-class/NumberArgsInputPane.md` |
 | `00009L` | 66 | 82 | 74.0 | `by-class/NumberInputPane.md` |
 | `0002NP` | 66 | 82 | 74.0 | `by-memory/0x00488630-0x00488674.ClanStringListPaneRawConstructor.md` |
+| `00021V` | 66 | 82 | 74.0 | `by-memory/0x00488fa0-0x00488fd5.ClanDepMoneyInputDialogRawConstructor.md` |
 
 ## Low_Confidence
 
@@ -158,7 +157,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000PP` | 78 | 72 | 75.0 | `by-global/g_activeBrowserPane.md` |
 | `0000IQ` | 79 | 72 | 75.5 | `by-file/Decoder.md` |
 | `0000NP` | 80 | 72 | 76.0 | `by-file/Session.md` |
-| `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 | `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
@@ -177,12 +175,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LS` | 78 | 74 | 76.0 | `by-file/NewInventoryPane.md` |
 | `0000LZ` | 78 | 74 | 76.0 | `by-file/NexonclubProxyDialog.md` |
 | `0000P3` | 78 | 74 | 76.0 | `by-file/VectorHelpers.md` |
+| `0000PQ` | 78 | 74 | 76.0 | `by-global/g_activeDialogCount.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
@@ -207,6 +205,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
 | `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
 | `0002FF` | 68 | 76 | 72.0 | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |
+| `0002FG` | 68 | 76 | 72.0 | `by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md` |
 
 ## By Folder
 
@@ -214,7 +213,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 | `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
@@ -239,6 +237,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00007C` | 72 | 74 | 73.0 | `by-class/LivingObjectPane__BoxRotator.md` |
 | `00007J` | 72 | 74 | 73.0 | `by-class/MailDeleteReplyAlert.md` |
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
+| `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 
 ### by-external-research
 
