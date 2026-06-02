@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 11:41:18
+Generated: 2026-06-02 11:44:07
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -51,7 +51,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000JM` | blank | `(blank)` | `by-file/FrameMgr.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JN` | blank | `(blank)` | `by-file/FriendListDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JQ` | blank | `(blank)` | `by-file/GeneralPurposePanel.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JT` | blank | `(blank)` | `by-file/HeadSelectDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JW` | blank | `(blank)` | `by-file/HistoryViewingPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JX` | blank | `(blank)` | `by-file/HourPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K5` | blank | `(blank)` | `by-file/IMEPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -137,8 +136,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00027Z` | 60 | 85 | 72.5 | `by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md` |
-| `000281` | 60 | 85 | 72.5 | `by-memory/0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary.md` |
 | `0001R9` | 60 | 85 | 72.5 | `by-resource/employee-dialog-resources.md` |
 | `0002FP` | 62 | 72 | 67.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 | `0002FQ` | 62 | 72 | 67.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
@@ -162,6 +159,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002RU` | 62 | 78 | 70.0 | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |
 | `0002P9` | 62 | 80 | 71.0 | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |
 | `0002HV` | 62 | 80 | 71.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
+| `0002JJ` | 62 | 80 | 71.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
+| `0002JK` | 62 | 80 | 71.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
 
 ## Low_Confidence
 

@@ -1,7 +1,7 @@
 *** UID:0000JT | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # HeadSelectDialog
 
@@ -78,6 +78,8 @@ Do not pull adjacent `0x00552110+` functions into this file by address locality.
 
 ## Changes
 
+- 2026-06-02: Set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/ui/dialogs/` so reviewed `HeadSelectDialog` data/memory pages can attach without projected-path errors.
+  - Evidence: the page already proposes `ui/dialogs/HeadSelectDialog.cpp`, and its ownership decision keeps the class under packet-driven UI dialogs rather than create-user or generic image-control modules.
 - Before: `HeadSelectDialog` core and `OnAction` ended at `0x005520e4`, and the `0x0054ca50` wrapper path was unnamed.
 - Changed to: the core/action range ends at `0x005520e5`, and the `0x0054ca50` wrapper is part of the message-dialog dispatcher/wrapper island.
 - Summary/evidence: 2026-05-28 IDA MCP byte/function review shows the old endpoint omitted the final `retn 8` operand byte, and the wrapper at `0x0054ca50-0x0054caa9` allocates `0x304` bytes before calling the `HeadSelectDialog` constructor.

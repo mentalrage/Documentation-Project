@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1143
+Total_Reconstructable: 1145
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 600
+Total_Reconstructed_Assigned: 602
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 543
-Total_Unclassified: 983
+Total_Unclassified: 981
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -580,6 +580,8 @@ Total_Error: 0
 | [UID:00027I][0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants](by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |  |
 | [UID:00027N][0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable](by-memory/0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable.md` |  |
 | [UID:0001OL][0x0066de18-0x0066de30.g_metaAliasTableName](by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md) | assigned | `0000LC` |  | no | `auto-generated/NexusTK/metadata/MetaMan.cpp` | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |  |
+| [UID:00027Z][0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary](by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md) | assigned | `0000JT` |  | no | `auto-generated/NexusTK/ui/dialogs/HeadSelectDialog.cpp` | `by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md` |  |
+| [UID:000281][0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary](by-memory/0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary.md) | assigned | `0000JT` |  | no | `auto-generated/NexusTK/ui/dialogs/HeadSelectDialog.cpp` | `by-memory/0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary.md` |  |
 | [UID:0001OR][0x0067a748-0x0067a74c.g_pCollectionData](by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |  |
 | [UID:0001P0][0x0067a7ec-0x0067a7f0.g_packetSender](by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md) | assigned | `0000NS` |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |  |
 | [UID:00028Y][0x0067a878-0x0067a934.AesMutableStateAndKeySchedule](by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md) | assigned | `00020J` | 70 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md` |  |
@@ -2003,9 +2005,7 @@ Total_Error: 0
 | [UID:0001OM][0x0066dee0-0x0066dee1.FriendNameListSyncEnabled](by-memory/0x0066dee0-0x0066dee1.FriendNameListSyncEnabled.md) | unclassified |  |  | no |  | `by-memory/0x0066dee0-0x0066dee1.FriendNameListSyncEnabled.md` |  |
 | [UID:00027X][0x0066dee1-0x0066dee4.FriendNameOptionPalettePadding](by-memory/0x0066dee1-0x0066dee4.FriendNameOptionPalettePadding.md) | unclassified |  |  | no |  | `by-memory/0x0066dee1-0x0066dee4.FriendNameOptionPalettePadding.md` |  |
 | [UID:00027Y][0x0066dee4-0x0066df00.OptionPaletteStaticResourceData](by-memory/0x0066dee4-0x0066df00.OptionPaletteStaticResourceData.md) | unclassified |  |  | no |  | `by-memory/0x0066dee4-0x0066df00.OptionPaletteStaticResourceData.md` |  |
-| [UID:00027Z][0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary](by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md) | unclassified |  |  | no |  | `by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md` |  |
 | [UID:000280][0x0066ed20-0x0066eea0.HeadSelectDialogLayoutPadding](by-memory/0x0066ed20-0x0066eea0.HeadSelectDialogLayoutPadding.md) | unclassified |  |  | no |  | `by-memory/0x0066ed20-0x0066eea0.HeadSelectDialogLayoutPadding.md` |  |
-| [UID:000281][0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary](by-memory/0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary.md) | unclassified |  |  | no |  | `by-memory/0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary.md` |  |
 | [UID:000282][0x0066fce4-0x0066fe40.HeadSelectToSelfLookPadding](by-memory/0x0066fce4-0x0066fe40.HeadSelectToSelfLookPadding.md) | unclassified |  |  | no |  | `by-memory/0x0066fce4-0x0066fe40.HeadSelectToSelfLookPadding.md` |  |
 | [UID:000283][0x0066fe40-0x0066fe44.SelfLookPaneLastHoverEquipmentSlotId](by-memory/0x0066fe40-0x0066fe44.SelfLookPaneLastHoverEquipmentSlotId.md) | unclassified |  |  | no |  | `by-memory/0x0066fe40-0x0066fe44.SelfLookPaneLastHoverEquipmentSlotId.md` |  |
 | [UID:000284][0x0066fe44-0x0066fe4a.SpelledPaneWhitespaceDelimiter](by-memory/0x0066fe44-0x0066fe4a.SpelledPaneWhitespaceDelimiter.md) | unclassified |  |  | no |  | `by-memory/0x0066fe44-0x0066fe4a.SpelledPaneWhitespaceDelimiter.md` |  |
