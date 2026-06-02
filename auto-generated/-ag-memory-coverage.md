@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1073
+Total_Reconstructable: 1078
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 539
+Total_Reconstructed_Assigned: 544
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 534
-Total_Unclassified: 1052
+Total_Unclassified: 1047
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -75,6 +75,9 @@ Total_Error: 0
 | [UID:00021F][0x00485520-0x00485588.SendClanJoinListRefreshPacket](by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |  |
 | [UID:00021H][0x00485690-0x004856f9.SendClanLeaveRequestPacket](by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485690-0x004856f9.SendClanLeaveRequestPacket.md` |  |
 | [UID:00021N][0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper](by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x004872e0-0x00487335.ClanStatusPaneRowEligibilityHelper.md` |  |
+| [UID:00021T][0x004885a0-0x00488602.ClanInfoListPaneRawConstructor](by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |  |
+| [UID:00021Y][0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers](by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |  |
+| [UID:00021Z][0x0048e310-0x0048e479.ConfigRawTableHelpers](by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |  |
 | [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md) | assigned | `0000N4` | 60 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |  |
 | [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md) | assigned | `0000N4` | 70 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |  |
 | [UID:0002PB][0x004949e0-0x00494a81.ControlPaneConstructor](by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md) | assigned | `0000IG` | 10 | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md` |  |
@@ -84,6 +87,7 @@ Total_Error: 0
 | [UID:000119][0x00494c80-0x00494daa.ProgressBarControlPaneConstructor](by-memory/0x00494c80-0x00494daa.ProgressBarControlPaneConstructor.md) | assigned | `0000AW` | 40 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494c80-0x00494daa.ProgressBarControlPaneConstructor.md` |  |
 | [UID:00011A][0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder](by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md) | assigned | `0000AW` | 50 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |  |
 | [UID:00011C][0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar](by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md) | assigned | `0000AW` | 60 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md` |  |
+| [UID:000223][0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers](by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |  |
 | [UID:000129][0x0049bae0-0x0049bbef.Crasher](by-memory/0x0049bae0-0x0049bbef.Crasher.md) | assigned | `00003A` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-memory/0x0049bae0-0x0049bbef.Crasher.md` |  |
 | [UID:00012A][0x0049bcf0-0x0049bd19.CriticalSectionLock](by-memory/0x0049bcf0-0x0049bd19.CriticalSectionLock.md) | assigned | `00003C` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-memory/0x0049bcf0-0x0049bd19.CriticalSectionLock.md` |  |
 | [UID:00012B][0x0049bd30-0x0049d6ed.DATManagers](by-memory/0x0049bd30-0x0049d6ed.DATManagers.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-memory/0x0049bd30-0x0049d6ed.DATManagers.md` |  |
@@ -101,6 +105,7 @@ Total_Error: 0
 | [UID:000130][0x004a0cb0-0x004a0d37.VersatileAlertPaneDestructor](by-memory/0x004a0cb0-0x004a0d37.VersatileAlertPaneDestructor.md) | assigned | `0000FU` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-memory/0x004a0cb0-0x004a0d37.VersatileAlertPaneDestructor.md` |  |
 | [UID:000139][0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor](by-memory/0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor.md) | assigned | `000006` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-memory/0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor.md` |  |
 | [UID:00013A][0x004a4b20-0x004a4d3b.AddEmployeeItemDialog](by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md) | assigned | `000006` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md` |  |
+| [UID:000141][0x004a6a80-0x004a82a9.EventDispatcher](by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md` |  |
 | [UID:000142][0x004a6c40-0x004a6cda.ApplicationIdleWorkScheduler](by-memory/0x004a6c40-0x004a6cda.ApplicationIdleWorkScheduler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a6c40-0x004a6cda.ApplicationIdleWorkScheduler.md` |  |
 | [UID:000143][0x004a7120-0x004a712b.ApplicationIdleTickBaseline](by-memory/0x004a7120-0x004a712b.ApplicationIdleTickBaseline.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a7120-0x004a712b.ApplicationIdleTickBaseline.md` |  |
 | [UID:00014A][0x004a8970-0x004a8a84.EventHandlerBase](by-memory/0x004a8970-0x004a8a84.EventHandlerBase.md) | assigned | `00004N` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a8970-0x004a8a84.EventHandlerBase.md` |  |
@@ -1431,7 +1436,6 @@ Total_Error: 0
 | [UID:00021Q][0x00487480-0x00487535.ClanStatusPaneShowJoinList](by-memory/0x00487480-0x00487535.ClanStatusPaneShowJoinList.md) | unclassified |  |  | no |  | `by-memory/0x00487480-0x00487535.ClanStatusPaneShowJoinList.md` |  |
 | [UID:00021R][0x00487540-0x004875f5.ClanStatusPaneShowEnlistList](by-memory/0x00487540-0x004875f5.ClanStatusPaneShowEnlistList.md) | unclassified |  |  | no |  | `by-memory/0x00487540-0x004875f5.ClanStatusPaneShowEnlistList.md` |  |
 | [UID:00021S][0x004877d0-0x00488594.ClanStatusPacketDialogHandlers](by-memory/0x004877d0-0x00488594.ClanStatusPacketDialogHandlers.md) | unclassified |  |  | no |  | `by-memory/0x004877d0-0x00488594.ClanStatusPacketDialogHandlers.md` |  |
-| [UID:00021T][0x004885a0-0x00488602.ClanInfoListPaneRawConstructor](by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |  |
 | [UID:00021U][0x00488900-0x00488b3d.ClanListPaneInputHandlers](by-memory/0x00488900-0x00488b3d.ClanListPaneInputHandlers.md) | unclassified |  |  | no |  | `by-memory/0x00488900-0x00488b3d.ClanListPaneInputHandlers.md` |  |
 | [UID:00010J][0x00488b40-0x00488fa0.ClanNameInputDialogCore](by-memory/0x00488b40-0x00488fa0.ClanNameInputDialogCore.md) | unclassified |  |  | no |  | `by-memory/0x00488b40-0x00488fa0.ClanNameInputDialogCore.md` |  |
 | [UID:00010L][0x00489600-0x00489f80.ClanAttrInputDialogCore](by-memory/0x00489600-0x00489f80.ClanAttrInputDialogCore.md) | unclassified |  |  | no |  | `by-memory/0x00489600-0x00489f80.ClanAttrInputDialogCore.md` |  |
@@ -1439,7 +1443,6 @@ Total_Error: 0
 | [UID:00010P][0x0048a810-0x0048ae65.ClanWidItemDialog](by-memory/0x0048a810-0x0048ae65.ClanWidItemDialog.md) | unclassified |  |  | no |  | `by-memory/0x0048a810-0x0048ae65.ClanWidItemDialog.md` |  |
 | [UID:00010Q][0x0048ae70-0x0048b1b1.ClanItemListPane](by-memory/0x0048ae70-0x0048b1b1.ClanItemListPane.md) | unclassified |  |  | no |  | `by-memory/0x0048ae70-0x0048b1b1.ClanItemListPane.md` |  |
 | [UID:00010R][0x0048b1c0-0x0048b7dc.ClanBankPane](by-memory/0x0048b1c0-0x0048b7dc.ClanBankPane.md) | unclassified |  |  | no |  | `by-memory/0x0048b1c0-0x0048b7dc.ClanBankPane.md` |  |
-| [UID:00021Y][0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers](by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |  |
 | [UID:00010S][0x0048b8c0-0x0048c251.ClanBankItemListPane](by-memory/0x0048b8c0-0x0048c251.ClanBankItemListPane.md) | unclassified |  |  | no |  | `by-memory/0x0048b8c0-0x0048c251.ClanBankItemListPane.md` |  |
 | [UID:00010T][0x0048c260-0x0048c63f.ClanDestructorBand](by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md) | unclassified |  |  | no |  | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |  |
 | [UID:00010U][0x0048c27b-0x0048c290.DialogPaneAdjustorThunks](by-memory/0x0048c27b-0x0048c290.DialogPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0048c27b-0x0048c290.DialogPaneAdjustorThunks.md` |  |
@@ -1447,7 +1450,6 @@ Total_Error: 0
 | [UID:00010X][0x0048c640-0x0048e305.CollectionDialogControls](by-memory/0x0048c640-0x0048e305.CollectionDialogControls.md) | unclassified |  |  | no |  | `by-memory/0x0048c640-0x0048e305.CollectionDialogControls.md` |  |
 | [UID:00010Y][0x0048d480-0x0048d49f.CollectionEntryControlPaneDestructor](by-memory/0x0048d480-0x0048d49f.CollectionEntryControlPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0048d480-0x0048d49f.CollectionEntryControlPaneDestructor.md` |  |
 | [UID:00010Z][0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton](by-memory/0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton.md) | unclassified |  |  | no |  | `by-memory/0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton.md` |  |
-| [UID:00021Z][0x0048e310-0x0048e479.ConfigRawTableHelpers](by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |  |
 | [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md) | unclassified |  |  | no |  | `by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md` |  |
 | [UID:0002BG][0x0048f400-0x0048f4cf.CommandLineArgumentCounter](by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md) | unclassified |  |  | no |  | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |  |
 | [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md) | unclassified |  |  | no |  | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |  |
@@ -1489,7 +1491,6 @@ Total_Error: 0
 | [UID:000125][0x0049b490-0x0049b4e5.RectangleControlPaneScalarDeletingDestructor](by-memory/0x0049b490-0x0049b4e5.RectangleControlPaneScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0049b490-0x0049b4e5.RectangleControlPaneScalarDeletingDestructor.md` |  |
 | [UID:000128][0x0049b8f0-0x0049b8f5.RectangleControlPaneTypeId](by-memory/0x0049b8f0-0x0049b8f5.RectangleControlPaneTypeId.md) | unclassified |  |  | no |  | `by-memory/0x0049b8f0-0x0049b8f5.RectangleControlPaneTypeId.md` |  |
 | [UID:000222][0x0049b920-0x0049b925.StaticTextControlPaneTypeId](by-memory/0x0049b920-0x0049b925.StaticTextControlPaneTypeId.md) | unclassified |  |  | no |  | `by-memory/0x0049b920-0x0049b925.StaticTextControlPaneTypeId.md` |  |
-| [UID:000223][0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers](by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |  |
 | [UID:000224][0x0049ba30-0x0049bad9.MsvcAlignedArrayAllocationHelpers](by-memory/0x0049ba30-0x0049bad9.MsvcAlignedArrayAllocationHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0049ba30-0x0049bad9.MsvcAlignedArrayAllocationHelpers.md` |  |
 | [UID:000226][0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers](by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md) | unclassified |  |  | no |  | `by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md` |  |
 | [UID:000227][0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder](by-memory/0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder.md) | unclassified |  |  | no |  | `by-memory/0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder.md` |  |
@@ -1519,7 +1520,6 @@ Total_Error: 0
 | [UID:00013K][0x004a55e0-0x004a5621.EncoderFinalize](by-memory/0x004a55e0-0x004a5621.EncoderFinalize.md) | unclassified |  |  | no |  | `by-memory/0x004a55e0-0x004a5621.EncoderFinalize.md` |  |
 | [UID:00013W][0x004a5e60-0x004a609f.ParseEntries](by-memory/0x004a5e60-0x004a609f.ParseEntries.md) | unclassified |  |  | no |  | `by-memory/0x004a5e60-0x004a609f.ParseEntries.md` |  |
 | [UID:000229][0x004a60a0-0x004a60cb.MsvcInt64RuntimeHelpers](by-memory/0x004a60a0-0x004a60cb.MsvcInt64RuntimeHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004a60a0-0x004a60cb.MsvcInt64RuntimeHelpers.md` |  |
-| [UID:000141][0x004a6a80-0x004a82a9.EventDispatcher](by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md) | unclassified |  |  | no |  | `by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md` |  |
 | [UID:00022A][0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers](by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md` |  |
 | [UID:00022B][0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers](by-memory/0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers.md` |  |
 | [UID:00014B][0x004a8a90-0x004ab434.EventObjects](by-memory/0x004a8a90-0x004ab434.EventObjects.md) | unclassified |  |  | no |  | `by-memory/0x004a8a90-0x004ab434.EventObjects.md` |  |

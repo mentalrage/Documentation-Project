@@ -1,7 +1,7 @@
 *** UID:0000I9 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ClanBank
 
@@ -96,3 +96,7 @@ Before non-dry-run ownership changes, exclude or re-own the outlier `0x00430041`
   - What existed before: the proposed contents table listed real helpers only as raw addresses `0x0048a100` and `0x0048a120`.
   - Changed to: linked exact child pages [UID:0002OC][0x0048a100-0x0048a11f.ClanItemDialogVtableResetDestructorTail](by-memory/0x0048a100-0x0048a11f.ClanItemDialogVtableResetDestructorTail.md) and [UID:0002OB][0x0048a120-0x0048a1be.ClanItemDialogConfirmValidation](by-memory/0x0048a120-0x0048a1be.ClanItemDialogConfirmValidation.md).
   - Summary/evidence: IDA MCP verified both ranges and showed the confirm path calls reusable [UID:0002OA][0x00498c10-0x00498c1f.TextEditControlPaneReadTextForwarder](by-memory/0x00498c10-0x00498c1f.TextEditControlPaneReadTextForwarder.md), so the bank source owns the dialog behavior but not the text-control helper.
+- 2026-06-02: Filled the validator projected path from the page's own source-layout evidence.
+  - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though the status and hypothesis sections already place the likely source as `social/ClanBank.cpp`.
+  - After: projected path is `NexusTK/social/`, matching sibling [UID:0000I8][Clan](by-file/Clan.md) and the documented `social/ClanBank.cpp` split.
+  - Evidence: the proposed contents and migration notes keep `ClanBankPane`, `ClanBankItemListPane`, clan item dialogs, and raw bank packet helpers together under the clan-bank social module.

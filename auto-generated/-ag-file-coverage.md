@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 163
+Total_Reconstructed_Assigned: 166
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 125
+Total_Error: 122
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -20,14 +20,17 @@ Total_Error: 125
 | [UID:0000HR][BlackHole](by-file/BlackHole.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/BlackHole.cpp` | `by-file/BlackHole.md` | by-file generated root |
 | [UID:0000HS][BlockListenInputPanes](by-file/BlockListenInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-file/BlockListenInputPanes.md` | by-file generated root |
 | [UID:0000HV][Browser](by-file/Browser.md) | assigned |  |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-file/Browser.md` | by-file generated root |
+| [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-file/ButtonControlPane.md` | by-file generated root |
 | [UID:0000HZ][CachedHashTable](by-file/CachedHashTable.md) | assigned |  |  | no | `auto-generated/NexusTK/util/CachedHashTable.cpp` | `by-file/CachedHashTable.md` | by-file generated root |
 | [UID:0000I2][ChangeMan](by-file/ChangeMan.md) | assigned |  |  | no | `auto-generated/NexusTK/app/ChangeMan.cpp` | `by-file/ChangeMan.md` | by-file generated root |
 | [UID:0000I3][ChangePasswordDialogPane](by-file/ChangePasswordDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-file/ChangePasswordDialogPane.md` | by-file generated root |
 | [UID:0000I5][Chatting](by-file/Chatting.md) | assigned |  |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-file/Chatting.md` | by-file generated root |
 | [UID:0000I7][CheckBoxControlPane](by-file/CheckBoxControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/CheckBoxControlPane.cpp` | `by-file/CheckBoxControlPane.md` | by-file generated root |
 | [UID:0000I8][Clan](by-file/Clan.md) | assigned |  |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-file/Clan.md` | by-file generated root |
+| [UID:0000I9][ClanBank](by-file/ClanBank.md) | assigned |  |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-file/ClanBank.md` | by-file generated root |
 | [UID:0000IC][CollectionPane](by-file/CollectionPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-file/CollectionPane.md` | by-file generated root |
 | [UID:0000ID][CommandInputPanes](by-file/CommandInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-file/CommandInputPanes.md` | by-file generated root |
+| [UID:0000IE][Config](by-file/Config.md) | assigned |  |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-file/Config.md` | by-file generated root |
 | [UID:0000IG][ControlPane](by-file/ControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-file/ControlPane.md` | by-file generated root |
 | [UID:0000IH][CopyWindow](by-file/CopyWindow.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/CopyWindow.cpp` | `by-file/CopyWindow.md` | by-file generated root |
 | [UID:0000II][Crasher](by-file/Crasher.md) | assigned |  |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-file/Crasher.md` | by-file generated root |
@@ -189,15 +192,12 @@ Total_Error: 125
 | [UID:0000HU][BowGaugeObjectPane](by-file/BowGaugeObjectPane.md) | error |  |  | no |  | `by-file/BowGaugeObjectPane.md` | by-file generated root |
 | [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md) | error |  |  | no |  | `by-file/BulletinReplyAlerts.md` | by-file generated root |
 | [UID:0000HX][BulletinSession](by-file/BulletinSession.md) | error |  |  | no |  | `by-file/BulletinSession.md` | by-file generated root |
-| [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md) | error |  |  | no |  | `by-file/ButtonControlPane.md` | by-file generated root |
 | [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md) | error |  |  | no |  | `by-file/CashShopRequest.md` | by-file generated root |
 | [UID:0000I1][CashShopVersionRequest](by-file/CashShopVersionRequest.md) | error |  |  | no |  | `by-file/CashShopVersionRequest.md` | by-file generated root |
 | [UID:0000I4][CharacterSummaryRecord](by-file/CharacterSummaryRecord.md) | error |  |  | no |  | `by-file/CharacterSummaryRecord.md` | by-file generated root |
 | [UID:0000I6][CheatDetector](by-file/CheatDetector.md) | error |  |  | no |  | `by-file/CheatDetector.md` | by-file generated root |
-| [UID:0000I9][ClanBank](by-file/ClanBank.md) | error |  |  | no |  | `by-file/ClanBank.md` | by-file generated root |
 | [UID:0000IA][ClanDialogs](by-file/ClanDialogs.md) | error |  |  | no |  | `by-file/ClanDialogs.md` | by-file generated root |
 | [UID:0000IB][CollectionDialogPane](by-file/CollectionDialogPane.md) | error |  |  | no |  | `by-file/CollectionDialogPane.md` | by-file generated root |
-| [UID:0000IE][Config](by-file/Config.md) | error |  |  | no |  | `by-file/Config.md` | by-file generated root |
 | [UID:0000IF][ConnStatusPane](by-file/ConnStatusPane.md) | error |  |  | no |  | `by-file/ConnStatusPane.md` | by-file generated root |
 | [UID:0000IJ][CreateUserDialogPane](by-file/CreateUserDialogPane.md) | error |  |  | no |  | `by-file/CreateUserDialogPane.md` | by-file generated root |
 | [UID:0000IL][CursorManager](by-file/CursorManager.md) | error |  |  | no |  | `by-file/CursorManager.md` | by-file generated root |

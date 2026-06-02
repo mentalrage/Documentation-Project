@@ -1,7 +1,7 @@
 *** UID:0000IE | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/config/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Config
 
@@ -104,3 +104,7 @@ profile/ProfileStorage.cpp
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:86` and `CONFIDENCE:84`.
   - Summary/evidence: config/registry split, proposed source files, function inventory, raw table helpers, responsibilities, source-layout decision, and generated-output caveats are documented; confidence is strong but not complete because registry destructor/generated stub details still need final cleanup.
+- 2026-06-02: Filled the validator projected path from the existing source-layout decision.
+  - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though the status, hypothesis, and source-layout sections place `Config.cpp` under `config/`.
+  - After: projected path is `NexusTK/config/`, matching [UID:0000N4][RegistryConfig](by-file/RegistryConfig.md) and the proposed `config/Config.cpp` / `config/RegistryConfig.cpp` split.
+  - Evidence: the page's proposed contents keep `Config`, `ConfigEntryBlock`, raw config-table helpers, and config-entry construction/destruction in the lower-level configuration module.

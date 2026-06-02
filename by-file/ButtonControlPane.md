@@ -1,7 +1,7 @@
 *** UID:0000HY | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ButtonControlPane
 
@@ -73,3 +73,7 @@ The likely original organization was not one class per file. `ButtonControlPane`
   - Before: page documented the reusable button/choice-control family, proposed file grouping, class/memory/type links, and IDA/Wave3 caveats but remained unevaluated.
   - After: score reflects documented base button, image button, text-button, checkbox, radio group, slider, selection, and select-box relationships while keeping final file-split and helper-name pollution caveats.
   - Evidence: recorded IDA checks cover constructor xrefs, raw radio-option helper ownership, checkbox caller/resource evidence, selection setter behavior, and cross-links to the core/destructor memory ranges.
+- 2026-06-02: Filled the validator projected path from the existing proposed module.
+  - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though the status section places the family in `ui/controls/ButtonControlPane.cpp`.
+  - After: projected path is `NexusTK/ui/controls/`, matching the documented button/choice-control module grouping.
+  - Evidence: the page's proposed contents keep `ButtonControlPane`, image/text buttons, checkboxes, radio groups, slider controls, selection helpers, and select-box controls under the shared control source family.
