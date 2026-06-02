@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1184
+Total_Reconstructable: 1186
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 660
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 524
-Total_Unclassified: 945
+Total_Reconstructable_Unassigned: 526
+Total_Unclassified: 943
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -705,6 +705,7 @@ Total_Error: 0
 | [UID:0002JZ][0x00465320-0x00465424.GetExecutableVersionLowWord](by-memory/0x00465320-0x00465424.GetExecutableVersionLowWord.md) | unassigned |  |  | no |  | `by-memory/0x00465320-0x00465424.GetExecutableVersionLowWord.md` |  |
 | [UID:0000YS][0x004657d0-0x00467406.PasswordGuardAndFatalError](by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md) | unassigned |  |  | no |  | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |  |
 | [UID:00020R][0x00469050-0x0046907a.ObjectPaneClearOutputRects](by-memory/0x00469050-0x0046907a.ObjectPaneClearOutputRects.md) | unassigned |  |  | no |  | `by-memory/0x00469050-0x0046907a.ObjectPaneClearOutputRects.md` |  |
+| [UID:00020S][0x00469080-0x004690a5.ObjectPaneGetEmptyRect](by-memory/0x00469080-0x004690a5.ObjectPaneGetEmptyRect.md) | unassigned |  |  | no |  | `by-memory/0x00469080-0x004690a5.ObjectPaneGetEmptyRect.md` |  |
 | [UID:0002M0][0x004690b0-0x004690f6.BlackHoleConstructor](by-memory/0x004690b0-0x004690f6.BlackHoleConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004690b0-0x004690f6.BlackHoleConstructor.md` |  |
 | [UID:0000Z0][0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue](by-memory/0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue.md) | unassigned |  |  | no |  | `by-memory/0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue.md` |  |
 | [UID:0002M1][0x00469100-0x00469115.BlackHoleDestructor](by-memory/0x00469100-0x00469115.BlackHoleDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00469100-0x00469115.BlackHoleDestructor.md` |  |
@@ -719,6 +720,7 @@ Total_Error: 0
 | [UID:0000ZE][0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor](by-memory/0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor.md` |  |
 | [UID:0000ZG][0x00470300-0x00470329.AutoInit](by-memory/0x00470300-0x00470329.AutoInit.md) | unassigned |  |  | no |  | `by-memory/0x00470300-0x00470329.AutoInit.md` |  |
 | [UID:000216][0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks](by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md) | unassigned |  |  | no |  | `by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md` |  |
+| [UID:000217][0x004710d0-0x004710df.BrowserPanePlaySound](by-memory/0x004710d0-0x004710df.BrowserPanePlaySound.md) | unassigned |  |  | no |  | `by-memory/0x004710d0-0x004710df.BrowserPanePlaySound.md` |  |
 | [UID:0000ZK][0x00472070-0x00477790.BoardArticleDialogs](by-memory/0x00472070-0x00477790.BoardArticleDialogs.md) | unassigned |  |  | no |  | `by-memory/0x00472070-0x00477790.BoardArticleDialogs.md` |  |
 | [UID:0000ZT][0x0047ec70-0x0047ed20.ChangeManConstructor](by-memory/0x0047ec70-0x0047ed20.ChangeManConstructor.md) | unassigned |  |  | no |  | `by-memory/0x0047ec70-0x0047ed20.ChangeManConstructor.md` |  |
 | [UID:0000ZU][0x0047ec70-0x0047efae.ChangeMan](by-memory/0x0047ec70-0x0047efae.ChangeMan.md) | unassigned |  |  | no |  | `by-memory/0x0047ec70-0x0047efae.ChangeMan.md` |  |
@@ -1385,7 +1387,6 @@ Total_Error: 0
 | [UID:0000YW][0x004673a0-0x004673b1.DestroyExceptionHandler](by-memory/0x004673a0-0x004673b1.DestroyExceptionHandler.md) | unclassified |  |  | no |  | `by-memory/0x004673a0-0x004673b1.DestroyExceptionHandler.md` |  |
 | [UID:0000YY][0x00467510-0x00467b2d.BackPaneAndBackGroundPane](by-memory/0x00467510-0x00467b2d.BackPaneAndBackGroundPane.md) | unclassified |  |  | no |  | `by-memory/0x00467510-0x00467b2d.BackPaneAndBackGroundPane.md` |  |
 | [UID:0000YZ][0x00467b30-0x0046904e.BalloonObjectPane](by-memory/0x00467b30-0x0046904e.BalloonObjectPane.md) | unclassified |  |  | no |  | `by-memory/0x00467b30-0x0046904e.BalloonObjectPane.md` |  |
-| [UID:00020S][0x00469080-0x004690a5.ObjectPaneGetEmptyRect](by-memory/0x00469080-0x004690a5.ObjectPaneGetEmptyRect.md) | unclassified |  |  | no |  | `by-memory/0x00469080-0x004690a5.ObjectPaneGetEmptyRect.md` |  |
 | [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md) | unclassified |  |  | no |  | `by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md` |  |
 | [UID:0000Z4][0x00469640-0x0046a39c.BrowserWindowCore](by-memory/0x00469640-0x0046a39c.BrowserWindowCore.md) | unclassified |  |  | no |  | `by-memory/0x00469640-0x0046a39c.BrowserWindowCore.md` |  |
 | [UID:00020U][0x0046a510-0x0046a617.BrowserWindowAcceleratorTranslateMessage](by-memory/0x0046a510-0x0046a617.BrowserWindowAcceleratorTranslateMessage.md) | unclassified |  |  | no |  | `by-memory/0x0046a510-0x0046a617.BrowserWindowAcceleratorTranslateMessage.md` |  |
@@ -1402,7 +1403,6 @@ Total_Error: 0
 | [UID:000213][0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper](by-memory/0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper.md) | unclassified |  |  | no |  | `by-memory/0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper.md` |  |
 | [UID:0000ZD][0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse](by-memory/0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse.md) | unclassified |  |  | no |  | `by-memory/0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse.md` |  |
 | [UID:0000ZF][0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers.md` |  |
-| [UID:000217][0x004710d0-0x004710df.BrowserPanePlaySound](by-memory/0x004710d0-0x004710df.BrowserPanePlaySound.md) | unclassified |  |  | no |  | `by-memory/0x004710d0-0x004710df.BrowserPanePlaySound.md` |  |
 | [UID:000218][0x004710e0-0x0047110e.BrowserGuidCompareHelper](by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md) | unclassified |  |  | no |  | `by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md` |  |
 | [UID:000219][0x00471110-0x00471141.CrtWideVsnprintfWrapper](by-memory/0x00471110-0x00471141.CrtWideVsnprintfWrapper.md) | unclassified |  |  | no |  | `by-memory/0x00471110-0x00471141.CrtWideVsnprintfWrapper.md` |  |
 | [UID:0000ZH][0x00471150-0x00471ff1.BulletinSessionCore](by-memory/0x00471150-0x00471ff1.BulletinSessionCore.md) | unclassified |  |  | no |  | `by-memory/0x00471150-0x00471ff1.BulletinSessionCore.md` |  |
