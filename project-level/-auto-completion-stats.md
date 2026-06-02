@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 18:12:41
+Generated: 2026-06-02 18:15:47
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -121,8 +121,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
-| `00011B` | 66 | 78 | 72.0 | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |
 | `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
 | `0001AT` | 66 | 78 | 72.0 | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |
 | `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
@@ -146,6 +144,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002NZ` | 66 | 82 | 74.0 | `by-memory/0x004893a0-0x004893d5.ClanAppearNameInputDialogRawConstructor.md` |
 | `0002O1` | 66 | 82 | 74.0 | `by-memory/0x004894d0-0x00489505.ClanChangeNameInputDialogRawConstructor.md` |
 | `00021W` | 66 | 82 | 74.0 | `by-memory/0x00489f80-0x00489fb5.ClanEnlistInputDialogRawConstructor.md` |
+| `0002O4` | 66 | 82 | 74.0 | `by-memory/0x00489ff0-0x0048a025.ClanChangeInputDialogRawConstructor.md` |
+| `0002O6` | 66 | 82 | 74.0 | `by-memory/0x0048a060-0x0048a09e.ClanLeaveConfirmDialogRawConstructor.md` |
 
 ## Low_Confidence
 
@@ -182,8 +182,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
-| `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
-| `00011B` | 66 | 78 | 72.0 | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |
 | `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
 | `0001AT` | 66 | 78 | 72.0 | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |
 | `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
@@ -206,6 +204,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BX` | 68 | 76 | 72.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
 | `0002BZ` | 68 | 76 | 72.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
 | `0002C0` | 68 | 76 | 72.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
+| `0002C1` | 68 | 76 | 72.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
+| `0002C3` | 68 | 76 | 72.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 
 ## By Folder
 
@@ -341,8 +341,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
-| `00011B` | 66 | 78 | 72.0 | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |
 | `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
 | `0001AT` | 66 | 78 | 72.0 | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |
 | `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
@@ -366,6 +364,8 @@ _No scored files._
 | `0002BS` | 66 | 80 | 73.0 | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |
 | `0002BT` | 66 | 80 | 73.0 | `by-memory/0x005266b0-0x00526784.MidiTrackBufferedByteReader.md` |
 | `0002BW` | 66 | 80 | 73.0 | `by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md` |
+| `0002C2` | 66 | 80 | 73.0 | `by-memory/0x00527000-0x00527039.MidiSourceRawReadHelper.md` |
+| `0002C5` | 66 | 80 | 73.0 | `by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md` |
 
 ### by-meta
 
