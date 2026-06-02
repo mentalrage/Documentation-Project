@@ -1,8 +1,8 @@
 *** UID:0000VI | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:50 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:75 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000O5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,11 +12,12 @@
 
 ## Status
 
-- Confidence: strong that this is startup notice code; medium for exact function boundaries.
+- Confidence: strong that this is startup notice code; medium-high for raw-start identity; medium for exact function ends.
 - Entity kind: raw-code helper/boundary issue
 - Likely owner: [UID:0000O5][StartupWindow](by-file/StartupWindow.md)
 - Main memory doc: [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md)
-- Rebuild handling: `source-authored` startup/update-notice helper code. Marked reconstructable, but parent attachment and C++ are blank because exact helper boundaries and caller paths remain unresolved.
+- Rebuild handling: `source-authored` startup/update-notice helper code. Marked reconstructable and attached to the StartupWindow file parent, but C++ remains blank because exact helper ends, source names, and promoted function boundaries are not final-source quality.
+- Canonical evidence: [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) is the detailed aggregate for this raw island; this by-item page stays as the boundary-debt tracker.
 
 ## Finding
 
@@ -37,6 +38,22 @@ Rechecked on 2026-05-31:
 - IDA still has no function objects at raw starts `0x005815b0`, `0x005817e0`, `0x00581860`, `0x005818d0`, or `0x005819d0`.
 - Raw disassembly at each start begins with valid function-shaped prologue/setup code, not padding: `0x005815b0`, `0x005817e0`, and `0x00581860` use security-cookie frames; `0x005818d0` begins with a normal `this`/state check; `0x005819d0` builds a larger stack frame and loads `lpClassName`.
 - Current `simroot_v2/class_StartupWindow.cpp` still maps the update-check window procedure around `0x00581100` and includes the `brm_main.pcx`, `brm_st_a/b/c.pcx`, and `brm_ex_a/b.pcx` load behavior. Treat this as a generated-source lead only; IDA raw starts above are the boundary evidence.
+
+## Canonical Evidence Map
+
+| Evidence page | Score | Role |
+| --- | ---: | --- |
+| [UID:0000O5][StartupWindow](by-file/StartupWindow.md) | `86/80` | Source-file owner for the startup/update notice window and private helper family. |
+| [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) | `84/86` | Authoritative address-range inventory, raw helper starts, caller/xref evidence, touched globals, and padding boundaries. |
+| [UID:0001RO][startup-update-notice-resources](by-resource/startup-update-notice-resources.md) | `75/88` | Confirms the `brm_*.pcx` notice assets and update-notice resource role. |
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 70 | The page identifies every known raw helper start, observed behavior, impact, follow-up work, canonical aggregate evidence, and file owner. It remains below high completion because the raw starts have not been promoted into exact function pages or finalized source names. |
+| Confidence | 80 | Existing IDA-backed docs now provide enough evidence to attach the tracker to [UID:0000O5][StartupWindow](by-file/StartupWindow.md). Confidence is capped at 80 because IDA still lacks formal function objects for the raw helper starts. |
+| Reconstructable | true | The bytes are source-authored startup notice helper code, but reconstructed C++ is intentionally blank until boundaries and names become final-source quality. |
 
 ## Impact
 
@@ -60,3 +77,4 @@ Generated `class_StartupWindow.cpp` currently inlines or omits parts of this hel
 - What existed before: the page was unevaluated (`COMPLETION:0`, `CONFIDENCE:0`) and had no reconstructable classification.
 - What it was changed to: the page is now marked reconstructable with low-to-moderate completion and medium confidence, while parent attachment and C++ remain blank.
 - Summary and evidence: IDA MCP raw-disassembly verification on 2026-05-31 reconfirmed the unmodeled helper starts are valid code but still lack IDA function records. The score stays conservative because exact helper ends, caller paths, and how the raw helpers relate to the generated `UpdateCheckWindowProc` body remain unresolved.
+- 2026-06-02: Raised from `50/75` to `70/80` and attached to [UID:0000O5][StartupWindow](by-file/StartupWindow.md) using the now-complete [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) aggregate as canonical evidence. C++ remains blank because raw helper boundaries and source names are still not final.

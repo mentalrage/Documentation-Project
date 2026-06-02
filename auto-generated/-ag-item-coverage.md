@@ -5,9 +5,9 @@
 Total_Type: 64
 Total_Reconstructable: 27
 Total_Not_Reconstructable: 2
-Total_Reconstructed_Assigned: 4
+Total_Reconstructed_Assigned: 5
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 23
+Total_Reconstructable_Unassigned: 22
 Total_Unclassified: 35
 Total_Error: 0
 
@@ -17,6 +17,7 @@ Total_Error: 0
 | [UID:0000V2][PacketDigest_00515380](by-item/PacketDigest_00515380.md) | assigned | `0000L6` |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-item/PacketDigest_00515380.md` |  |
 | [UID:0000V3][PacketTransformHelpers](by-item/PacketTransformHelpers.md) | assigned | `0000M9` |  | no | `auto-generated/NexusTK/network/PacketTransform.cpp` | `by-item/PacketTransformHelpers.md` |  |
 | [UID:0000V9][ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90](by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md` |  |
+| [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |  |
 | [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md) | not_reconstructable |  |  | no |  | `by-item/InitAlphaSurfaceView_004623C0.md` |  |
 | [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) | not_reconstructable |  |  | no |  | `by-item/ScopedMarkerMissingMethodBodies.md` |  |
 | [UID:0000US][HalfBlendSpan16Blocks_00460C10](by-item/HalfBlendSpan16Blocks_00460C10.md) | unassigned |  |  | no |  | `by-item/HalfBlendSpan16Blocks_00460C10.md` |  |
@@ -39,7 +40,6 @@ Total_Error: 0
 | [UID:0000VF][ScreenshotProofPacket_00558240](by-item/ScreenshotProofPacket_00558240.md) | unassigned |  |  | no |  | `by-item/ScreenshotProofPacket_00558240.md` |  |
 | [UID:0000VG][ServerSelectHelpers_574510_5745b0](by-item/ServerSelectHelpers_574510_5745b0.md) | unassigned |  |  | no |  | `by-item/ServerSelectHelpers_574510_5745b0.md` |  |
 | [UID:0000VH][SpellMenuActionButtonState_51d6c0_51e600](by-item/SpellMenuActionButtonState_51d6c0_51e600.md) | unassigned |  |  | no |  | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |  |
-| [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md) | unassigned |  |  | no |  | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |  |
 | [UID:0000VJ][TransferServerDialogPaneThunks_599220_5993e0](by-item/TransferServerDialogPaneThunks_599220_5993e0.md) | unassigned |  |  | no |  | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |  |
 | [UID:0000VK][VectorGrowArchiveIndex_004E5990](by-item/VectorGrowArchiveIndex_004E5990.md) | unassigned |  |  | no |  | `by-item/VectorGrowArchiveIndex_004E5990.md` |  |
 | [UID:0000TU][AILFileOpenCallback_0057B630](by-item/AILFileOpenCallback_0057B630.md) | unclassified |  |  | no |  | `by-item/AILFileOpenCallback_0057B630.md` |  |
