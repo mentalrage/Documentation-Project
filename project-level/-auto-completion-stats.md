@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 01:44:34
+Generated: 2026-06-02 01:49:25
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3595
-- Scored files: 3428
+- Tracked files: 3596
+- Scored files: 3429
 - Ignored files: 167
 
 ## projected_path_completion
@@ -165,7 +165,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
 | `0001KO` | 50 | 65 | 57.5 | `by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md` |
 | `0001KQ` | 50 | 65 | 57.5 | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |
 | `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
@@ -190,6 +189,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001MG` | 50 | 65 | 57.5 | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |
 | `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
 | `0001MI` | 50 | 65 | 57.5 | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |
+| `0001MJ` | 50 | 65 | 57.5 | `by-memory/0x005b5440-0x005b5547.GroupInputPane.md` |
 
 ## Low_Confidence
 
@@ -200,7 +200,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
 | `0001KO` | 50 | 65 | 57.5 | `by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md` |
 | `0001KQ` | 50 | 65 | 57.5 | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |
 | `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
@@ -220,12 +219,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001M7` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b3260.ChangeSpellSlotInputPaneRawConstructor.md` |
 | `0001M8` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b340e.ChangeSpellSlotInputPane.md` |
 | `0001MB` | 50 | 65 | 57.5 | `by-memory/0x005b34d0-0x005b37ea.SayInputPane.md` |
+| `0001MC` | 50 | 65 | 57.5 | `by-memory/0x005b3940-0x005b3bba.ChatInputPane.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
 | `0001KO` | 50 | 65 | 57.5 | `by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md` |
 | `0001KQ` | 50 | 65 | 57.5 | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |
 | `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
@@ -250,6 +249,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001MG` | 50 | 65 | 57.5 | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |
 | `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
 | `0001MI` | 50 | 65 | 57.5 | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |
+| `0001MJ` | 50 | 65 | 57.5 | `by-memory/0x005b5440-0x005b5547.GroupInputPane.md` |
 
 ## By Folder
 
@@ -385,7 +385,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
 | `0001KO` | 50 | 65 | 57.5 | `by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md` |
 | `0001KQ` | 50 | 65 | 57.5 | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |
 | `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
@@ -410,6 +409,7 @@ _No scored files._
 | `0001MG` | 50 | 65 | 57.5 | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |
 | `0001MH` | 50 | 65 | 57.5 | `by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md` |
 | `0001MI` | 50 | 65 | 57.5 | `by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md` |
+| `0001MJ` | 50 | 65 | 57.5 | `by-memory/0x005b5440-0x005b5547.GroupInputPane.md` |
 
 ### by-meta
 
