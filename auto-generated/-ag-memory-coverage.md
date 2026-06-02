@@ -5,9 +5,9 @@
 Total_Type: 2138
 Total_Reconstructable: 1174
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 625
+Total_Reconstructed_Assigned: 626
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 549
+Total_Reconstructable_Unassigned: 548
 Total_Unclassified: 953
 Total_Error: 0
 
@@ -495,6 +495,7 @@ Total_Error: 0
 | [UID:0001JG][0x0058d750-0x0058dc5b.DialDialog](by-memory/0x0058d750-0x0058dc5b.DialDialog.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |  |
 | [UID:0001JH][0x0058da20-0x0058db94.DialDialogModemResponseParser](by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |  |
 | [UID:0001JL][0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper](by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |  |
+| [UID:0002RU][0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides](by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md) | assigned | `0000OJ` |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |  |
 | [UID:0001JO][0x00591300-0x005954b2.TextBoxPane](by-memory/0x00591300-0x005954b2.TextBoxPane.md) | assigned | `0000OJ` |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-memory/0x00591300-0x005954b2.TextBoxPane.md` |  |
 | [UID:0001JQ][0x00593c20-0x00593ce4.TextRunMeasureCallback](by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md) | assigned | `0000ON` |  | no | `auto-generated/NexusTK/ui/controls/TextEditPane.cpp` | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |  |
 | [UID:0002RV][0x00595390-0x005954b2.TextBoxPaneConstructor](by-memory/0x00595390-0x005954b2.TextBoxPaneConstructor.md) | assigned | `0000OJ` |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-memory/0x00595390-0x005954b2.TextBoxPaneConstructor.md` |  |
@@ -1043,7 +1044,6 @@ Total_Error: 0
 | [UID:0002LO][0x005845b0-0x005845eb.StringBaseCompareWideLiteral](by-memory/0x005845b0-0x005845eb.StringBaseCompareWideLiteral.md) | unassigned |  |  | no |  | `by-memory/0x005845b0-0x005845eb.StringBaseCompareWideLiteral.md` |  |
 | [UID:0001J4][0x00584910-0x0058498b.SimpleUStringVectorPushBack](by-memory/0x00584910-0x0058498b.SimpleUStringVectorPushBack.md) | unassigned |  |  | no |  | `by-memory/0x00584910-0x0058498b.SimpleUStringVectorPushBack.md` |  |
 | [UID:0002O9][0x0058e380-0x0058e3d7.TextEditPaneCopyWideText](by-memory/0x0058e380-0x0058e3d7.TextEditPaneCopyWideText.md) | unassigned |  |  | no |  | `by-memory/0x0058e380-0x0058e3d7.TextEditPaneCopyWideText.md` |  |
-| [UID:0002RU][0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides](by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md) | unassigned |  |  | no |  | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |  |
 | [UID:0001JT][0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter](by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md) | unassigned |  |  | no |  | `by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md` |  |
 | [UID:0001K6][0x00597570-0x005986da.TimerMgrAndTimerQueue](by-memory/0x00597570-0x005986da.TimerMgrAndTimerQueue.md) | unassigned |  |  | no |  | `by-memory/0x00597570-0x005986da.TimerMgrAndTimerQueue.md` |  |
 | [UID:0002KX][0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick](by-memory/0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick.md) | unassigned |  |  | no |  | `by-memory/0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick.md` |  |
