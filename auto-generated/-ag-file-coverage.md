@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 166
+Total_Reconstructed_Assigned: 167
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 122
+Total_Error: 121
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -22,6 +22,7 @@ Total_Error: 122
 | [UID:0000HV][Browser](by-file/Browser.md) | assigned |  |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-file/Browser.md` | by-file generated root |
 | [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-file/ButtonControlPane.md` | by-file generated root |
 | [UID:0000HZ][CachedHashTable](by-file/CachedHashTable.md) | assigned |  |  | no | `auto-generated/NexusTK/util/CachedHashTable.cpp` | `by-file/CachedHashTable.md` | by-file generated root |
+| [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md) | assigned |  |  | no | `auto-generated/NexusTK/cashshop/CashShopRequest.cpp` | `by-file/CashShopRequest.md` | by-file generated root |
 | [UID:0000I2][ChangeMan](by-file/ChangeMan.md) | assigned |  |  | no | `auto-generated/NexusTK/app/ChangeMan.cpp` | `by-file/ChangeMan.md` | by-file generated root |
 | [UID:0000I3][ChangePasswordDialogPane](by-file/ChangePasswordDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-file/ChangePasswordDialogPane.md` | by-file generated root |
 | [UID:0000I5][Chatting](by-file/Chatting.md) | assigned |  |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-file/Chatting.md` | by-file generated root |
@@ -192,7 +193,6 @@ Total_Error: 122
 | [UID:0000HU][BowGaugeObjectPane](by-file/BowGaugeObjectPane.md) | error |  |  | no |  | `by-file/BowGaugeObjectPane.md` | by-file generated root |
 | [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md) | error |  |  | no |  | `by-file/BulletinReplyAlerts.md` | by-file generated root |
 | [UID:0000HX][BulletinSession](by-file/BulletinSession.md) | error |  |  | no |  | `by-file/BulletinSession.md` | by-file generated root |
-| [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md) | error |  |  | no |  | `by-file/CashShopRequest.md` | by-file generated root |
 | [UID:0000I1][CashShopVersionRequest](by-file/CashShopVersionRequest.md) | error |  |  | no |  | `by-file/CashShopVersionRequest.md` | by-file generated root |
 | [UID:0000I4][CharacterSummaryRecord](by-file/CharacterSummaryRecord.md) | error |  |  | no |  | `by-file/CharacterSummaryRecord.md` | by-file generated root |
 | [UID:0000I6][CheatDetector](by-file/CheatDetector.md) | error |  |  | no |  | `by-file/CheatDetector.md` | by-file generated root |

@@ -1,8 +1,8 @@
 *** UID:00001H | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:55 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000I0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -13,11 +13,31 @@
 ## Status
 
 - Confidence: strong for class ownership, medium for final original module split.
+- Current reconstruction source module: [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md) at `NexusTK/cashshop/`.
+- Autogen status: reconstructable/attached for placeholder routing only; C++ remains blank because field/helper names and source split boundaries are not final-source quality.
 - Current Wave3 file: `class_CashShopRequest.cpp`
-- Likely source module: [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md)
 - Current relevant ranges: `0x0041a5d0-0x0041b5da`, `0x00453a30-0x00453a9c`, `0x00574b90-0x00575377`, and `0x00596620-0x005969b0`
 - Stale generated ownership note: `0x00528290-0x005283d4` is now corrected to [UID:00008I][MiscWorkThread](by-class/MiscWorkThread.md); keep [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md) only as a correction record.
 - Evidence basis: `simroot_v2` generated source, Wave3 metadata/xrefs, and IDA MCP lookup/xref checks through 2026-05-25.
+
+## Score Rationale
+
+| Field | Value | Reason |
+| --- | ---: | --- |
+| Completion | 72 | The class now has exact child pages for the early setup cluster, send/status cluster, and wait/dispatch boundary, plus documented global lifetime corrections. It is not higher because final source ownership of downloader-submit and generic send helpers remains unresolved. |
+| Confidence | 80 | The class is supported by IDA-backed method ranges and a valid parent file path. Confidence is capped at the attach threshold because generated global types are known polluted by Socket/FileDownloader lifetime evidence. |
+| Reconstructable | TRUE | The class can be routed to the current CashShopRequest source placeholder. The reconstruction body is intentionally blank until final class layout, helper names, and split decisions are stronger. |
+
+## Evidence Map
+
+| Evidence | What it supports | Boundary note |
+| --- | --- | --- |
+| [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md) | Valid current file parent under `NexusTK/cashshop/`. | File page keeps generic queue/send split candidates explicit. |
+| [UID:0000WH][0x0041a5d0-0x0041b5da.CashShopRequestItemSetup](by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md) | Constructor/destructor and request-payload setup ownership. | Aggregate still contains provisional downloader helper ownership. |
+| [UID:0001HT][0x00574b90-0x00575377.CashShopRequestSendQueue](by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md) | Queue/send API and send/status helper cluster. | Many callers are non-cash-shop features, so final API placement can still move. |
+| [UID:0001JY][0x00596620-0x005969b0.CashShopRequestWaitDispatch](by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md) | Request wait/dispatch mechanics adjacent to this class. | Current source planning treats the queue post primitive as [UID:0000OR][Thread](by-file/Thread.md). |
+| [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) | Packet sender lifetime correction. | Lifetime owner is Socket; generated `CashShopRequest*` types cannot be trusted alone. |
+| [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) | Downloader singleton storage correction. | Lifetime owner is FileDownloader; request-submit helpers need explicit split review. |
 
 ## Responsibility
 
@@ -111,3 +131,4 @@ Field names should remain provisional until layout review is fast enough to run 
 - Before: the early `0x0041a5d0` cluster was represented by a broad aggregate range and address-only rows for constructor, submit helpers, and scalar deleting destructor.
 - After: the class method inventory points to exact `by-memory` pages for the raw constructor/destructor body, the three downloader submit helpers, and the scalar deleting destructor.
 - Summary/evidence: IDA MCP and raw disassembly split the cluster into exact child ranges; the submit helpers remain provisional because live callers pass FileDownloader-lifetime `dword_67A738`.
+- Current update: raised from `55/72` to `72/80`, marked reconstructable, and attached to [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md). C++ remains blank because final field/helper names and source split decisions are not strong enough.

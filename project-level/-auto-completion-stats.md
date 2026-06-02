@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 08:39:36
+Generated: 2026-06-02 08:45:32
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -31,7 +31,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000HU` | blank | `(blank)` | `by-file/BowGaugeObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HW` | blank | `(blank)` | `by-file/BulletinReplyAlerts.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000I0` | blank | `(blank)` | `by-file/CashShopRequest.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I1` | blank | `(blank)` | `by-file/CashShopVersionRequest.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I6` | blank | `(blank)` | `by-file/CheatDetector.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -145,9 +144,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00001H` | 55 | 72 | 63.5 | `by-class/CashShopRequest.md` |
-| `0000I0` | 55 | 72 | 63.5 | `by-file/CashShopRequest.md` |
-| `0001HC` | 55 | 72 | 63.5 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
 | `0002EE` | 55 | 75 | 65.0 | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |
 | `0000ST` | 55 | 80 | 67.5 | `by-global/g_screenHeight.md` |
 | `0002H0` | 55 | 80 | 67.5 | `by-memory/0x004639d0-0x00464a52.ApplicationInitialize.md` |
@@ -170,6 +166,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BG` | 58 | 72 | 65.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
 | `0002BQ` | 58 | 72 | 65.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
 | `0002BX` | 58 | 72 | 65.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
+| `0002BZ` | 58 | 72 | 65.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
+| `0002C0` | 58 | 72 | 65.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
+| `0002C1` | 58 | 72 | 65.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
 
 ## Low_Confidence
 
@@ -216,9 +215,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
 | `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
 | `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
-| `00001H` | 55 | 72 | 63.5 | `by-class/CashShopRequest.md` |
-| `0000I0` | 55 | 72 | 63.5 | `by-file/CashShopRequest.md` |
-| `0001HC` | 55 | 72 | 63.5 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
 | `00017A` | 56 | 72 | 64.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002G4` | 58 | 70 | 64.0 | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |
 | `0002KQ` | 58 | 70 | 64.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
@@ -230,6 +226,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BG` | 58 | 72 | 65.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
 | `0002BQ` | 58 | 72 | 65.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
 | `0002BX` | 58 | 72 | 65.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
+| `0002BZ` | 58 | 72 | 65.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
+| `0002C0` | 58 | 72 | 65.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
+| `0002C1` | 58 | 72 | 65.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
 
 ## By Folder
 
@@ -238,7 +237,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
-| `00001H` | 55 | 72 | 63.5 | `by-class/CashShopRequest.md` |
 | `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
 | `00003X` | 62 | 66 | 64.0 | `by-class/DirectionButtonControlPane.md` |
 | `0000AB` | 62 | 68 | 65.0 | `by-class/PatchPane__PatchFileData.md` |
@@ -262,6 +260,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000BX` | 68 | 72 | 70.0 | `by-class/RequestSyncGate.md` |
 | `00009F` | 72 | 68 | 70.0 | `by-class/NewUserMiscDialogPane.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
+| `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 
 ### by-external-research
 
@@ -271,7 +270,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000I0` | 55 | 72 | 63.5 | `by-file/CashShopRequest.md` |
 | `0000LX` | 68 | 62 | 65.0 | `by-file/NewUserMiscDialogPane.md` |
 | `0000MG` | 60 | 75 | 67.5 | `by-file/PasswordGuard.md` |
 | `0000MV` | 76 | 62 | 69.0 | `by-file/ProtocolSend.md` |
@@ -292,6 +290,7 @@ _No scored files._
 | `0000HI` | 70 | 82 | 76.0 | `by-file/ArgumentedMenuDialogs.md` |
 | `0000HU` | 70 | 82 | 76.0 | `by-file/BowGaugeObjectPane.md` |
 | `0000HZ` | 72 | 80 | 76.0 | `by-file/CachedHashTable.md` |
+| `0000I0` | 72 | 80 | 76.0 | `by-file/CashShopRequest.md` |
 | `0000LS` | 78 | 74 | 76.0 | `by-file/NewInventoryPane.md` |
 | `0000LZ` | 78 | 74 | 76.0 | `by-file/NexonclubProxyDialog.md` |
 | `0000P3` | 78 | 74 | 76.0 | `by-file/VectorHelpers.md` |
@@ -375,7 +374,6 @@ _No scored files._
 | `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
 | `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
 | `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
-| `0001HC` | 55 | 72 | 63.5 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
 | `00017A` | 56 | 72 | 64.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002G4` | 58 | 70 | 64.0 | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |
 | `0002KQ` | 58 | 70 | 64.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
@@ -390,6 +388,7 @@ _No scored files._
 | `0002C1` | 58 | 72 | 65.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
 | `0002C3` | 58 | 72 | 65.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 | `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
+| `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 
 ### by-meta
 

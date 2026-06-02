@@ -1,19 +1,38 @@
 *** UID:0000I0 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:55 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/cashshop/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # CashShopRequest
 
 ## Status
 
 - Confidence: strong for class ownership, medium for original module placement.
-- Proposed module: `cashshop/CashShopRequest.cpp`, with a possible later split of the generic queue/send funnel into a base [UID:0000OR][Thread](by-file/Thread.md) request helper or network sender interface
+- Proposed module: `NexusTK/cashshop/CashShopRequest.cpp`, with a possible later split of the generic queue/send funnel into a base [UID:0000OR][Thread](by-file/Thread.md) request helper or network sender interface.
+- Projected path status: valid current reconstruction target; source split caveats still block final-source C++.
 - Current Wave3 file: `class_CashShopRequest.cpp`
 - Main class: [UID:00001H][CashShopRequest](by-class/CashShopRequest.md)
 - Main address docs: [UID:0000WH][0x0041a5d0-0x0041b5da.CashShopRequestItemSetup](by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md), [UID:0001HT][0x00574b90-0x00575377.CashShopRequestSendQueue](by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md), [UID:0001HW][0x00574d40-0x00574e44.SendPositionUpdate](by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md), [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md), [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md), and [UID:0001JY][0x00596620-0x005969b0.CashShopRequestWaitDispatch](by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md)
 - Stale generated ownership note: the former `0x00528290-0x005283d4` auth/directory range is now corrected to [UID:0000LG][MiscWorkThread](by-file/MiscWorkThread.md); see [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md).
 - Evidence basis: `simroot_v2` generated source, Wave3 metadata/xrefs, and IDA MCP lookup/xref checks through 2026-05-25.
+
+## Score Rationale
+
+| Field | Value | Reason |
+| --- | ---: | --- |
+| Completion | 72 | The page now has a valid projected source path, exact child coverage for the constructor/destructor and send clusters, and explicit FileDownloader/Socket/Thread boundary notes. It is not higher because several helpers still need final source ownership review. |
+| Confidence | 80 | Existing IDA-backed child pages and the proposed source tree support `NexusTK/cashshop/` as the current reconstruction home. Confidence is capped at the attach threshold because queue/send and downloader helpers may later split out. |
+
+## Evidence Map
+
+| Evidence | What it supports | Ownership caveat |
+| --- | --- | --- |
+| [UID:0000WH][0x0041a5d0-0x0041b5da.CashShopRequestItemSetup](by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md) | Early constructor/destructor and request-payload setup cluster. | Aggregate page still includes provisional downloader-submit helpers. |
+| [UID:0001HT][0x00574b90-0x00575377.CashShopRequestSendQueue](by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md) | Send/status helper cluster and `QueueAndSendPacket` reachability. | Generic send API is used by many feature modules and may split to a base request/network interface. |
+| [UID:0001JY][0x00596620-0x005969b0.CashShopRequestWaitDispatch](by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md) | Synchronous wait/dispatch mechanics and the generic queue post primitive. | Current ownership is [UID:0000OR][Thread](by-file/Thread.md), so this is supporting boundary evidence rather than CashShopRequest-owned source. |
+| [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) | Packet sender lifetime is Socket constructor/destructor-family owned. | Generated `CashShopRequest*` global typing is not final ownership proof. |
+| [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) and [UID:0001OP][0x0067a738-0x0067a73c.g_pCashShopRequest](by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md) | Downloader request singleton storage and caller argument source. | Lifetime writes point to FileDownloader, not a CashShopRequest-owned global. |
+| [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) | Current projected placement under `cashshop/CashShopRequest.cpp`. | Tree also records the later `Thread`/network split candidates. |
 
 ## Hypothesis
 
@@ -126,3 +145,4 @@ cashshop/
 - Before: this proposed source file described the early constructor/destructor and request-submit cluster through broad ranges and address-only mentions.
 - After: the contents list and cross-references point to exact `by-memory` child pages for the raw constructor/destructor, scalar deleting destructor, and three downloader request-submit helpers.
 - Summary/evidence: IDA MCP and raw disassembly split the early cluster into exact children, while receiver evidence for the submit helpers still points through FileDownloader-lifetime `dword_67A738`.
+- Current update: raised from `55/72` to `72/80` and set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/cashshop/` based on the proposed source tree plus IDA-backed child pages. C++ remains blank because final helper/class names and source split boundaries are not final-source quality.
