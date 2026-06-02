@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1134
+Total_Reconstructable: 1137
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 591
+Total_Reconstructed_Assigned: 594
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 543
-Total_Unclassified: 992
+Total_Unclassified: 989
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -220,6 +220,7 @@ Total_Error: 0
 | [UID:00018U][0x004f0350-0x004f03cb.LanguageManLookupAndSingletonHelpers](by-memory/0x004f0350-0x004f03cb.LanguageManLookupAndSingletonHelpers.md) | assigned | `0000KK` |  | no | `auto-generated/NexusTK/localization/LanguageMan.cpp` | `by-memory/0x004f0350-0x004f03cb.LanguageManLookupAndSingletonHelpers.md` |  |
 | [UID:00018V][0x004f03d0-0x004f0477.LanguageManScalarDeletingDestructor](by-memory/0x004f03d0-0x004f0477.LanguageManScalarDeletingDestructor.md) | assigned | `0000KK` |  | no | `auto-generated/NexusTK/localization/LanguageMan.cpp` | `by-memory/0x004f03d0-0x004f0477.LanguageManScalarDeletingDestructor.md` |  |
 | [UID:000192][0x004f30e0-0x004f3139.ListNonDeletingDestructor](by-memory/0x004f30e0-0x004f3139.ListNonDeletingDestructor.md) | assigned | `0000KS` |  | no | `auto-generated/NexusTK/util/List.cpp` | `by-memory/0x004f30e0-0x004f3139.ListNonDeletingDestructor.md` |  |
+| [UID:00022S][0x004f3140-0x004f35fd.ListCoreMethods](by-memory/0x004f3140-0x004f35fd.ListCoreMethods.md) | assigned | `0000KS` |  | no | `auto-generated/NexusTK/util/List.cpp` | `by-memory/0x004f3140-0x004f35fd.ListCoreMethods.md` |  |
 | [UID:000198][0x004f4b30-0x004f4b4c.ApplicationRegisterChangeListener](by-memory/0x004f4b30-0x004f4b4c.ApplicationRegisterChangeListener.md) | assigned | `00000D` |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f4b30-0x004f4b4c.ApplicationRegisterChangeListener.md` |  |
 | [UID:00019A][0x004f4b50-0x004f4b6c.ApplicationUnregisterChangeListener](by-memory/0x004f4b50-0x004f4b6c.ApplicationUnregisterChangeListener.md) | assigned | `00000D` |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f4b50-0x004f4b6c.ApplicationUnregisterChangeListener.md` |  |
 | [UID:0002PL][0x004f4c10-0x004f4eac.LogoPaneConstructor](by-memory/0x004f4c10-0x004f4eac.LogoPaneConstructor.md) | assigned | `00007G` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-memory/0x004f4c10-0x004f4eac.LogoPaneConstructor.md` |  |
@@ -238,6 +239,8 @@ Total_Error: 0
 | [UID:0002PW][0x004f5620-0x004f5634.LogoPlayerPaneOnClose](by-memory/0x004f5620-0x004f5634.LogoPlayerPaneOnClose.md) | assigned | `00007H` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-memory/0x004f5620-0x004f5634.LogoPlayerPaneOnClose.md` |  |
 | [UID:0002PX][0x004f566a-0x004f5680.LogoPlayerPaneDeletingDestructorThunks](by-memory/0x004f566a-0x004f5680.LogoPlayerPaneDeletingDestructorThunks.md) | assigned | `00007H` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-memory/0x004f566a-0x004f5680.LogoPlayerPaneDeletingDestructorThunks.md` |  |
 | [UID:0002PY][0x004f5680-0x004f570c.LogoPlayerPaneScalarDeletingDestructor](by-memory/0x004f5680-0x004f570c.LogoPlayerPaneScalarDeletingDestructor.md) | assigned | `00007H` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-memory/0x004f5680-0x004f570c.LogoPlayerPaneScalarDeletingDestructor.md` |  |
+| [UID:00022T][0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop](by-memory/0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-memory/0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop.md` |  |
+| [UID:00022U][0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart](by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md` |  |
 | [UID:00022V][0x004f5b20-0x004f5c73.MapiSendMailHelper](by-memory/0x004f5b20-0x004f5c73.MapiSendMailHelper.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x004f5b20-0x004f5c73.MapiSendMailHelper.md` |  |
 | [UID:00019G][0x004f5c80-0x004f5f17.WinMain](by-memory/0x004f5c80-0x004f5f17.WinMain.md) | assigned | `0000PA` |  | no | `auto-generated/NexusTK/app/WinMain.cpp` | `by-memory/0x004f5c80-0x004f5f17.WinMain.md` |  |
 | [UID:0002PZ][0x004f5f20-0x004f5f4e.BaramAppConstructorRaw](by-memory/0x004f5f20-0x004f5f4e.BaramAppConstructorRaw.md) | assigned | `00000V` |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f5f20-0x004f5f4e.BaramAppConstructorRaw.md` |  |
@@ -1604,13 +1607,10 @@ Total_Error: 0
 | [UID:00018Y][0x004f20a0-0x004f22f4.SpellPromptTextHelper](by-memory/0x004f20a0-0x004f22f4.SpellPromptTextHelper.md) | unclassified |  |  | no |  | `by-memory/0x004f20a0-0x004f22f4.SpellPromptTextHelper.md` |  |
 | [UID:00018Z][0x004f2e59-0x004f2e9a.InputPaneBaseAdjustorThunks](by-memory/0x004f2e59-0x004f2e9a.InputPaneBaseAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004f2e59-0x004f2e9a.InputPaneBaseAdjustorThunks.md` |  |
 | [UID:000191][0x004f3060-0x004f30d5.ListConstructor](by-memory/0x004f3060-0x004f30d5.ListConstructor.md) | unclassified |  |  | no |  | `by-memory/0x004f3060-0x004f30d5.ListConstructor.md` |  |
-| [UID:00022S][0x004f3140-0x004f35fd.ListCoreMethods](by-memory/0x004f3140-0x004f35fd.ListCoreMethods.md) | unclassified |  |  | no |  | `by-memory/0x004f3140-0x004f35fd.ListCoreMethods.md` |  |
 | [UID:000193][0x004f3600-0x004f3a43.SortedList](by-memory/0x004f3600-0x004f3a43.SortedList.md) | unclassified |  |  | no |  | `by-memory/0x004f3600-0x004f3a43.SortedList.md` |  |
 | [UID:000194][0x004f3a50-0x004f4a77.ListPane](by-memory/0x004f3a50-0x004f4a77.ListPane.md) | unclassified |  |  | no |  | `by-memory/0x004f3a50-0x004f4a77.ListPane.md` |  |
 | [UID:000196][0x004f4aa0-0x004f4ab4.OperatorNewWrapper](by-memory/0x004f4aa0-0x004f4ab4.OperatorNewWrapper.md) | unclassified |  |  | no |  | `by-memory/0x004f4aa0-0x004f4ab4.OperatorNewWrapper.md` |  |
 | [UID:000197][0x004f4ac0-0x004f4b00.OperatorDeleteWrapper](by-memory/0x004f4ac0-0x004f4b00.OperatorDeleteWrapper.md) | unclassified |  |  | no |  | `by-memory/0x004f4ac0-0x004f4b00.OperatorDeleteWrapper.md` |  |
-| [UID:00022T][0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop](by-memory/0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop.md) | unclassified |  |  | no |  | `by-memory/0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop.md` |  |
-| [UID:00022U][0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart](by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md) | unclassified |  |  | no |  | `by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md` |  |
 | [UID:00019J][0x004f69a0-0x004f6a31.CloseMainMenuDialogSingletons](by-memory/0x004f69a0-0x004f6a31.CloseMainMenuDialogSingletons.md) | unclassified |  |  | no |  | `by-memory/0x004f69a0-0x004f6a31.CloseMainMenuDialogSingletons.md` |  |
 | [UID:00019K][0x004f7d10-0x004f8b2a.InitializeMainUiGraph](by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md) | unclassified |  |  | no |  | `by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md` |  |
 | [UID:00019L][0x004f8b30-0x004f8b8d.EnsureLoginDialogPane](by-memory/0x004f8b30-0x004f8b8d.EnsureLoginDialogPane.md) | unclassified |  |  | no |  | `by-memory/0x004f8b30-0x004f8b8d.EnsureLoginDialogPane.md` |  |

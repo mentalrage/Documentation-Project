@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 11:26:50
+Generated: 2026-06-02 11:30:41
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -138,9 +138,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00022S` | 60 | 85 | 72.5 | `by-memory/0x004f3140-0x004f35fd.ListCoreMethods.md` |
-| `00022T` | 60 | 85 | 72.5 | `by-memory/0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop.md` |
-| `00022U` | 60 | 85 | 72.5 | `by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md` |
 | `000233` | 60 | 85 | 72.5 | `by-memory/0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck.md` |
 | `000238` | 60 | 85 | 72.5 | `by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md` |
 | `000243` | 60 | 85 | 72.5 | `by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md` |
@@ -163,6 +160,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002D6` | 62 | 78 | 70.0 | `by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md` |
 | `0002E4` | 62 | 78 | 70.0 | `by-memory/0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson.md` |
 | `0002EA` | 62 | 78 | 70.0 | `by-memory/0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw.md` |
+| `0002PD` | 62 | 78 | 70.0 | `by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md` |
+| `000138` | 62 | 78 | 70.0 | `by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md` |
+| `00013P` | 62 | 78 | 70.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
 
 ## Low_Confidence
 
