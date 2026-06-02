@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 17:56:52
+Generated: 2026-06-02 18:01:05
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -121,8 +121,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
@@ -146,6 +144,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009L` | 66 | 82 | 74.0 | `by-class/NumberInputPane.md` |
 | `0002NP` | 66 | 82 | 74.0 | `by-memory/0x00488630-0x00488674.ClanStringListPaneRawConstructor.md` |
 | `00021V` | 66 | 82 | 74.0 | `by-memory/0x00488fa0-0x00488fd5.ClanDepMoneyInputDialogRawConstructor.md` |
+| `0002NT` | 66 | 82 | 74.0 | `by-memory/0x00489070-0x004890a5.ClanWidMoneyInputDialogRawConstructor.md` |
+| `0002NV` | 66 | 82 | 74.0 | `by-memory/0x00489140-0x00489175.ClanExpelNameInputDialogRawConstructor.md` |
 
 ## Low_Confidence
 
@@ -157,7 +157,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000PP` | 78 | 72 | 75.0 | `by-global/g_activeBrowserPane.md` |
 | `0000IQ` | 79 | 72 | 75.5 | `by-file/Decoder.md` |
 | `0000NP` | 80 | 72 | 76.0 | `by-file/Session.md` |
-| `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 | `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
 | `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
@@ -176,13 +175,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LZ` | 78 | 74 | 76.0 | `by-file/NexonclubProxyDialog.md` |
 | `0000P3` | 78 | 74 | 76.0 | `by-file/VectorHelpers.md` |
 | `0000PQ` | 78 | 74 | 76.0 | `by-global/g_activeDialogCount.md` |
+| `0000PY` | 78 | 74 | 76.0 | `by-global/g_fpsDebugActive.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
@@ -206,6 +204,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
 | `0002FF` | 68 | 76 | 72.0 | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |
 | `0002FG` | 68 | 76 | 72.0 | `by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md` |
+| `0002BG` | 68 | 76 | 72.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
+| `0002BQ` | 68 | 76 | 72.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
 
 ## By Folder
 
@@ -213,7 +213,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 | `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
 | `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
@@ -238,6 +237,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00007J` | 72 | 74 | 73.0 | `by-class/MailDeleteReplyAlert.md` |
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
+| `00005M` | 66 | 82 | 74.0 | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |
 
 ### by-external-research
 
@@ -341,7 +341,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
@@ -366,6 +365,7 @@ _No scored files._
 | `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
 | `0002BJ` | 66 | 80 | 73.0 | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |
 | `0002BN` | 66 | 80 | 73.0 | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |
+| `0002BS` | 66 | 80 | 73.0 | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |
 
 ### by-meta
 
