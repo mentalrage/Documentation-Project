@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2120
-Total_Reconstructable: 943
+Total_Reconstructable: 946
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 417
+Total_Reconstructed_Assigned: 420
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 526
-Total_Unclassified: 1166
+Total_Unclassified: 1163
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -403,6 +403,9 @@ Total_Error: 0
 | [UID:0001JQ][0x00593c20-0x00593ce4.TextRunMeasureCallback](by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md) | assigned | `0000ON` |  | no | `auto-generated/NexusTK/ui/controls/TextEditPane.cpp` | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |  |
 | [UID:0002RV][0x00595390-0x005954b2.TextBoxPaneConstructor](by-memory/0x00595390-0x005954b2.TextBoxPaneConstructor.md) | assigned | `0000OJ` |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-memory/0x00595390-0x005954b2.TextBoxPaneConstructor.md` |  |
 | [UID:0001JU][0x00595760-0x005958fe.TextFilterAndSanitizer](by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md) | assigned | `0000OO` |  | no | `auto-generated/NexusTK/ui/controls/TextFilter.cpp` | `by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md` |  |
+| [UID:0001JV][0x00595900-0x00596242.TextPad](by-memory/0x00595900-0x00596242.TextPad.md) | assigned | `0000OQ` |  | no | `auto-generated/NexusTK/ui/dialogs/TextPad.cpp` | `by-memory/0x00595900-0x00596242.TextPad.md` |  |
+| [UID:0001JW][0x00595be0-0x00595f26.TextPadCommandHelper](by-memory/0x00595be0-0x00595f26.TextPadCommandHelper.md) | assigned | `0000OQ` |  | no | `auto-generated/NexusTK/ui/dialogs/TextPad.cpp` | `by-memory/0x00595be0-0x00595f26.TextPadCommandHelper.md` |  |
+| [UID:000248][0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers](by-memory/0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers.md) | assigned | `0000OQ` |  | no | `auto-generated/NexusTK/ui/dialogs/TextPad.cpp` | `by-memory/0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -1717,9 +1720,6 @@ Total_Error: 0
 | [UID:0001JP][0x00591d60-0x00593a10.TextEditPaneFormattingRuns](by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md) | unclassified |  |  | no |  | `by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md` |  |
 | [UID:0001JR][0x00593db0-0x00593ef5.DrawTextRunCallback](by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md) | unclassified |  |  | no |  | `by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md` |  |
 | [UID:0001JS][0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap](by-memory/0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap.md) | unclassified |  |  | no |  | `by-memory/0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap.md` |  |
-| [UID:0001JV][0x00595900-0x00596242.TextPad](by-memory/0x00595900-0x00596242.TextPad.md) | unclassified |  |  | no |  | `by-memory/0x00595900-0x00596242.TextPad.md` |  |
-| [UID:0001JW][0x00595be0-0x00595f26.TextPadCommandHelper](by-memory/0x00595be0-0x00595f26.TextPadCommandHelper.md) | unclassified |  |  | no |  | `by-memory/0x00595be0-0x00595f26.TextPadCommandHelper.md` |  |
-| [UID:000248][0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers](by-memory/0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers.md` |  |
 | [UID:0001JX][0x00596250-0x0059756e.ThreadAndThreadMan](by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md) | unclassified |  |  | no |  | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |  |
 | [UID:0001JY][0x00596620-0x005969b0.CashShopRequestWaitDispatch](by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md) | unclassified |  |  | no |  | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |  |
 | [UID:0001JZ][0x005967d0-0x005967e5.SocketThreadEvent](by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md) | unclassified |  |  | no |  | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |  |

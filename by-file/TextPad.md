@@ -1,13 +1,13 @@
 *** UID:0000OQ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # TextPad
 
 ## Status
 
-- Confidence: medium for original source placement, strong for class behavior and main ranges.
+- Confidence: strong for class behavior and main ranges; medium-strong for original source placement.
 - Proposed module: `ui/dialogs/TextPad.cpp`
 - Proposed header: `ui/dialogs/TextPad.h`
 - Current recovered source: `source-3/simroot_v2/class_TextPad.cpp`
@@ -73,3 +73,7 @@ Keep this separate from [UID:0000OL][TextDialog](by-file/TextDialog.md). `TextDi
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `84` and confidence to `76`.
   - Evidence: document captures full-screen text pad role, command helper behavior, standalone helper island, function map, ownership boundaries, IDA xref/reachability caveats, and cross-references; confidence is capped by no known constructor caller and medium original source placement.
+- 2026-06-02: assigned reconstruction path and raised confidence for parent attachment.
+  - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank and confidence was capped at `76`.
+  - After: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/"` and `CONFIDENCE:80`.
+  - Evidence: [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) places `TextPad.cpp` under `ui/dialogs`; existing IDA-backed docs keep `TextPad` separate from `TextDialog`, `EditablePaperPane`, terminal, and chat modules. Confidence remains capped at `80` because no constructor caller is known.

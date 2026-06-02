@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 00:02:32
+Generated: 2026-06-02 00:10:18
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -154,7 +154,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000OG` | blank | `(blank)` | `by-file/TargetOptionDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OK` | blank | `(blank)` | `by-file/TextButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OM` | blank | `(blank)` | `by-file/TextEditControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000OQ` | blank | `(blank)` | `by-file/TextPad.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OS` | blank | `(blank)` | `by-file/ThreadSafeNodeList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OY` | blank | `(blank)` | `by-file/UserInfoDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OZ` | blank | `(blank)` | `by-file/UserListDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -170,8 +169,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JV` | 50 | 65 | 57.5 | `by-memory/0x00595900-0x00596242.TextPad.md` |
-| `000248` | 50 | 65 | 57.5 | `by-memory/0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers.md` |
 | `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
@@ -195,6 +192,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001L4` | 50 | 65 | 57.5 | `by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md` |
 | `0001L6` | 50 | 65 | 57.5 | `by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md` |
 | `0001L8` | 50 | 65 | 57.5 | `by-memory/0x005af390-0x005b050d.TargetSelectionInputPanes.md` |
+| `0001L9` | 50 | 65 | 57.5 | `by-memory/0x005af4f0-0x005af57b.SendTargetedActionPacket.md` |
+| `0001LA` | 50 | 65 | 57.5 | `by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md` |
 
 ## Low_Confidence
 
@@ -205,8 +204,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001JV` | 50 | 65 | 57.5 | `by-memory/0x00595900-0x00596242.TextPad.md` |
-| `000248` | 50 | 65 | 57.5 | `by-memory/0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers.md` |
 | `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
@@ -225,13 +222,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
 | `0001KO` | 50 | 65 | 57.5 | `by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md` |
 | `0001KQ` | 50 | 65 | 57.5 | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |
+| `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
+| `0001KY` | 50 | 65 | 57.5 | `by-memory/0x005ae2a0-0x005aeb1f.SpellWhoInputPane.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JV` | 50 | 65 | 57.5 | `by-memory/0x00595900-0x00596242.TextPad.md` |
-| `000248` | 50 | 65 | 57.5 | `by-memory/0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers.md` |
 | `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
@@ -255,6 +252,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001L4` | 50 | 65 | 57.5 | `by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md` |
 | `0001L6` | 50 | 65 | 57.5 | `by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md` |
 | `0001L8` | 50 | 65 | 57.5 | `by-memory/0x005af390-0x005b050d.TargetSelectionInputPanes.md` |
+| `0001L9` | 50 | 65 | 57.5 | `by-memory/0x005af4f0-0x005af57b.SendTargetedActionPacket.md` |
+| `0001LA` | 50 | 65 | 57.5 | `by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md` |
 
 ## By Folder
 
@@ -390,8 +389,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JV` | 50 | 65 | 57.5 | `by-memory/0x00595900-0x00596242.TextPad.md` |
-| `000248` | 50 | 65 | 57.5 | `by-memory/0x00595f30-0x00596242.TextPadStandaloneFileAndInsertHelpers.md` |
 | `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
@@ -415,6 +412,8 @@ _No scored files._
 | `0001L4` | 50 | 65 | 57.5 | `by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md` |
 | `0001L6` | 50 | 65 | 57.5 | `by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md` |
 | `0001L8` | 50 | 65 | 57.5 | `by-memory/0x005af390-0x005b050d.TargetSelectionInputPanes.md` |
+| `0001L9` | 50 | 65 | 57.5 | `by-memory/0x005af4f0-0x005af57b.SendTargetedActionPacket.md` |
+| `0001LA` | 50 | 65 | 57.5 | `by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md` |
 
 ### by-meta
 
