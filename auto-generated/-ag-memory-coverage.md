@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1026
+Total_Reconstructable: 1028
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 499
+Total_Reconstructed_Assigned: 500
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 527
-Total_Unclassified: 1099
+Total_Reconstructable_Unassigned: 528
+Total_Unclassified: 1097
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -485,6 +485,7 @@ Total_Error: 0
 | [UID:0001N2][0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm](by-memory/0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm.md` |  |
 | [UID:0002RZ][0x005b7360-0x005b7447.SendDeleteBlockListenPacket](by-memory/0x005b7360-0x005b7447.SendDeleteBlockListenPacket.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b7360-0x005b7447.SendDeleteBlockListenPacket.md` |  |
 | [UID:0002S4][0x005b7a20-0x005b7aec.ItemWhoInputPaneScalarDeletingDestructor](by-memory/0x005b7a20-0x005b7aec.ItemWhoInputPaneScalarDeletingDestructor.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005b7a20-0x005b7aec.ItemWhoInputPaneScalarDeletingDestructor.md` |  |
+| [UID:0001NT][0x005c0040-0x005c045b.VideoPlayerPane](by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md) | assigned | `0000P4` |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -926,6 +927,7 @@ Total_Error: 0
 | [UID:0001NM][0x005b83b0-0x005baafe.UserStatusPane](by-memory/0x005b83b0-0x005baafe.UserStatusPane.md) | unassigned |  |  | no |  | `by-memory/0x005b83b0-0x005baafe.UserStatusPane.md` |  |
 | [UID:0001NN][0x005b85b0-0x005b86ca.UserStatusPaneSummaryAccessors](by-memory/0x005b85b0-0x005b86ca.UserStatusPaneSummaryAccessors.md) | unassigned |  |  | no |  | `by-memory/0x005b85b0-0x005b86ca.UserStatusPaneSummaryAccessors.md` |  |
 | [UID:0002LP][0x005b86e0-0x005b86f8.UserStatusPaneSetStatusIconId](by-memory/0x005b86e0-0x005b86f8.UserStatusPaneSetStatusIconId.md) | unassigned |  |  | no |  | `by-memory/0x005b86e0-0x005b86f8.UserStatusPaneSetStatusIconId.md` |  |
+| [UID:0001NS][0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper](by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md) | unassigned |  |  | no |  | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |  |
 | [UID:0001NU][0x005c0460-0x005c0fe1.VirusChecker](by-memory/0x005c0460-0x005c0fe1.VirusChecker.md) | unassigned |  |  | no |  | `by-memory/0x005c0460-0x005c0fe1.VirusChecker.md` |  |
 | [UID:0001NV][0x005c05a0-0x005c0937.VirusCheckerV3LoadAndScan](by-memory/0x005c05a0-0x005c0937.VirusCheckerV3LoadAndScan.md) | unassigned |  |  | no |  | `by-memory/0x005c05a0-0x005c0937.VirusCheckerV3LoadAndScan.md` |  |
 | [UID:0001NW][0x005c0940-0x005c0fe1.VirusCheckerProcessTreeHelpers](by-memory/0x005c0940-0x005c0fe1.VirusCheckerProcessTreeHelpers.md) | unassigned |  |  | no |  | `by-memory/0x005c0940-0x005c0fe1.VirusCheckerProcessTreeHelpers.md` |  |
@@ -1872,8 +1874,6 @@ Total_Error: 0
 | [UID:0001NP][0x005bc610-0x005bfd98.MenuVarietyPanes](by-memory/0x005bc610-0x005bfd98.MenuVarietyPanes.md) | unclassified |  |  | no |  | `by-memory/0x005bc610-0x005bfd98.MenuVarietyPanes.md` |  |
 | [UID:0001NQ][0x005bd9b0-0x005bda3b.MenuVarietySelectPaneHitTest](by-memory/0x005bd9b0-0x005bda3b.MenuVarietySelectPaneHitTest.md) | unclassified |  |  | no |  | `by-memory/0x005bd9b0-0x005bda3b.MenuVarietySelectPaneHitTest.md` |  |
 | [UID:0001NR][0x005bda40-0x005bfbc1.OldUserStatusPane](by-memory/0x005bda40-0x005bfbc1.OldUserStatusPane.md) | unclassified |  |  | no |  | `by-memory/0x005bda40-0x005bfbc1.OldUserStatusPane.md` |  |
-| [UID:0001NS][0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper](by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md) | unclassified |  |  | no |  | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |  |
-| [UID:0001NT][0x005c0040-0x005c045b.VideoPlayerPane](by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md) | unclassified |  |  | no |  | `by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md` |  |
 | [UID:0001NZ][0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes](by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md) | unclassified |  |  | no |  | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |  |
 | [UID:0001O0][0x005c1bd0-0x005c2a5a.SnowingLayerPane](by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md) | unclassified |  |  | no |  | `by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md` |  |
 | [UID:0001O1][0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes](by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md) | unclassified |  |  | no |  | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |  |

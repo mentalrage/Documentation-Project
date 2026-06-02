@@ -508,6 +508,7 @@ See [UID:0000P4][VideoPlayerPane](by-file/VideoPlayerPane.md). This reusable UI/
 - `VideoPlayerPane` owns playback start/stop, idle-frame decode/copy, `term` notification handling, `VisD` completion handling, and Bink handle teardown.
 - `0x005c0090` is likely the non-deleting base destructor body, even though current Wave3 output emits it under `LogoPlayerPane`.
 - `0x005c0110` remains a mixed-placement helper: current callers are `LogoPlayerPane`, but the behavior is generic Bink-open setup and physically sits in the video-pane island.
+- `0x005c0180`, `0x005c01a0`, and `0x005c01d0` are IDA-unpromoted helper bodies for close-current-video, Bink sound toggling, and Bink seek. They operate on the `VideoPlayerPane` Bink handle at `+0xfc` and should stay in this module unless later evidence proves dead or differently owned helper remnants.
 
 Rationale: IDA MCP confirms the video pane function island at `0x005c0040-0x005c045b`, vtable xrefs for playback virtuals, and direct use from `LogoPlayerPane`. It is a `Pane` subclass and should live with UI core unless later source evidence shows a dedicated media folder.
 

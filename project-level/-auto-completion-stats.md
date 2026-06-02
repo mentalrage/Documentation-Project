@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 05:43:43
+Generated: 2026-06-02 05:55:10
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -148,7 +148,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000OS` | blank | `(blank)` | `by-file/ThreadSafeNodeList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000P0` | blank | `(blank)` | `by-file/UserLookPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000P3` | blank | `(blank)` | `by-file/VectorHelpers.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000P4` | blank | `(blank)` | `by-file/VideoPlayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000P8` | blank | `(blank)` | `by-file/WeatherLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -157,8 +156,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
-| `0001NT` | 50 | 65 | 57.5 | `by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md` |
 | `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
 | `0001O0` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md` |
 | `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
@@ -182,6 +179,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
 | `0000V3` | 50 | 70 | 60.0 | `by-item/PacketTransformHelpers.md` |
 | `0000UZ` | 50 | 75 | 62.5 | `by-item/LoadPcxImage_004A17B0.md` |
+| `0000V2` | 50 | 75 | 62.5 | `by-item/PacketDigest_00515380.md` |
+| `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 
 ## Low_Confidence
 
@@ -192,8 +191,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
-| `0001NT` | 50 | 65 | 57.5 | `by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md` |
 | `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
 | `0001O0` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md` |
 | `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
@@ -212,13 +209,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001PE` | 50 | 65 | 57.5 | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |
 | `0001PG` | 50 | 65 | 57.5 | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |
 | `0001PH` | 50 | 65 | 57.5 | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |
+| `0001PI` | 50 | 65 | 57.5 | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |
+| `0001Q1` | 50 | 65 | 57.5 | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
-| `0001NT` | 50 | 65 | 57.5 | `by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md` |
 | `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
 | `0001O0` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md` |
 | `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
@@ -242,6 +239,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
 | `0000V3` | 50 | 70 | 60.0 | `by-item/PacketTransformHelpers.md` |
 | `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
+| `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
+| `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
 
 ## By Folder
 
@@ -377,8 +376,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001NS` | 50 | 65 | 57.5 | `by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md` |
-| `0001NT` | 50 | 65 | 57.5 | `by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md` |
 | `0001NZ` | 50 | 65 | 57.5 | `by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md` |
 | `0001O0` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md` |
 | `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
@@ -402,6 +399,8 @@ _No scored files._
 | `0002DR` | 50 | 68 | 59.0 | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |
 | `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
 | `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
+| `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
+| `00021E` | 55 | 65 | 60.0 | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |
 
 ### by-meta
 

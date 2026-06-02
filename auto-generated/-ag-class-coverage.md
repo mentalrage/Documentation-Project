@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 139
+Total_Reconstructable: 140
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 52
+Total_Reconstructed_Assigned: 53
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 446
+Total_Unclassified: 445
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -62,6 +62,7 @@ Total_Error: 0
 | [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/TakeOffInputPane.md` |  |
 | [UID:0000EZ][ThrowReallyInputPane](by-class/ThrowReallyInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ThrowReallyInputPane.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
+| [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md) | assigned | `0000P4` |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-class/VideoPlayerPane.md` |  |
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
 | [UID:00008S][MSGHandler](by-class/MSGHandler.md) | coded | `0000LM` | 10 | yes | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-class/MSGHandler.md` |  |
@@ -579,7 +580,6 @@ Total_Error: 0
 | [UID:0000FQ][UserPane](by-class/UserPane.md) | unclassified |  |  | no |  | `by-class/UserPane.md` |  |
 | [UID:0000FR][UserShapeSelectControlPane](by-class/UserShapeSelectControlPane.md) | unclassified |  |  | no |  | `by-class/UserShapeSelectControlPane.md` |  |
 | [UID:0000FT][UserStatusPane2](by-class/UserStatusPane2.md) | unclassified |  |  | no |  | `by-class/UserStatusPane2.md` |  |
-| [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md) | unclassified |  |  | no |  | `by-class/VideoPlayerPane.md` |  |
 | [UID:0000GB][WSAError](by-class/WSAError.md) | unclassified |  |  | no |  | `by-class/WSAError.md` |  |
 | [UID:0000FZ][WaterFilterEffecter](by-class/WaterFilterEffecter.md) | unclassified |  |  | no |  | `by-class/WaterFilterEffecter.md` |  |
 | [UID:0000G0][WearInputPane](by-class/WearInputPane.md) | unclassified |  |  | no |  | `by-class/WearInputPane.md` |  |
