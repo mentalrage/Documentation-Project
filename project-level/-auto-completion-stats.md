@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 10:22:42
+Generated: 2026-06-02 10:25:01
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -142,7 +142,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001Z5` | 58 | 88 | 73.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
-| `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `0002G3` | 60 | 72 | 66.0 | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |
 | `0002BM` | 60 | 72 | 66.0 | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |
 | `0002BO` | 60 | 72 | 66.0 | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |
@@ -166,6 +165,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001ZJ` | 60 | 85 | 72.5 | `by-memory/0x0045f130-0x0045f33a.RankingRewardVectorRangeAllocationHelpers.md` |
 | `00021A` | 60 | 85 | 72.5 | `by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md` |
 | `00021I` | 60 | 85 | 72.5 | `by-memory/0x00485780-0x00485867.ClanDepositMoneyPacketHelpers.md` |
+| `00021J` | 60 | 85 | 72.5 | `by-memory/0x00485870-0x00485955.ClanDepositItemPacketHelpers.md` |
 
 ## Low_Confidence
 
@@ -201,7 +201,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `0000TA` | 65 | 65 | 65.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 65 | 65 | 65.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
 | `0000TE` | 65 | 65 | 65.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
@@ -226,6 +225,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
 | `0000MG` | 60 | 75 | 67.5 | `by-file/PasswordGuard.md` |
 | `0000YS` | 60 | 75 | 67.5 | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |
+| `0002BL` | 62 | 73 | 67.5 | `by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md` |
 
 ## By Folder
 
@@ -361,7 +361,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
 | `00019Q` | 65 | 65 | 65.0 | `by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md` |
@@ -386,6 +385,7 @@ _No scored files._
 | `0002AW` | 70 | 65 | 67.5 | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |
 | `00029K` | 70 | 65 | 67.5 | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |
 | `0002IA` | 60 | 76 | 68.0 | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |
+| `0002G9` | 62 | 74 | 68.0 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
 
 ### by-meta
 

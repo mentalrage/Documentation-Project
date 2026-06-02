@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1114
+Total_Reconstructable: 1115
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 574
+Total_Reconstructed_Assigned: 575
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 540
-Total_Unclassified: 1012
+Total_Unclassified: 1011
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -82,6 +82,7 @@ Total_Error: 0
 | [UID:00021T][0x004885a0-0x00488602.ClanInfoListPaneRawConstructor](by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x004885a0-0x00488602.ClanInfoListPaneRawConstructor.md` |  |
 | [UID:00021Y][0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers](by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |  |
 | [UID:00021Z][0x0048e310-0x0048e479.ConfigRawTableHelpers](by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |  |
+| [UID:0002BI][0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser](by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md) | assigned | `0000N4` | 36 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |  |
 | [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md) | assigned | `0000N4` | 60 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |  |
 | [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md) | assigned | `0000N4` | 70 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |  |
 | [UID:0002PB][0x004949e0-0x00494a81.ControlPaneConstructor](by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md) | assigned | `0000IG` | 10 | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md` |  |
@@ -1476,7 +1477,6 @@ Total_Error: 0
 | [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md) | unclassified |  |  | no |  | `by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md` |  |
 | [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md) | unclassified |  |  | no |  | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |  |
 | [UID:0002BH][0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser](by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md) | unclassified |  |  | no |  | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |  |
-| [UID:0002BI][0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser](by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md) | unclassified |  |  | no |  | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |  |
 | [UID:0002BJ][0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser](by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md) | unclassified |  |  | no |  | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |  |
 | [UID:0002BK][0x00490200-0x0049050a.LgInternetSessionLauncherParser](by-memory/0x00490200-0x0049050a.LgInternetSessionLauncherParser.md) | unclassified |  |  | no |  | `by-memory/0x00490200-0x0049050a.LgInternetSessionLauncherParser.md` |  |
 | [UID:0002BL][0x00490510-0x00490809.LauncherHostPortPayloadParser](by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md) | unclassified |  |  | no |  | `by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md` |  |
