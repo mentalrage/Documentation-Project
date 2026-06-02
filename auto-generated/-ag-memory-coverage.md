@@ -2,10 +2,10 @@
 
 # ag-memory-coverage
 
-Total_Type: 2141
-Total_Reconstructable: 1224
+Total_Type: 2144
+Total_Reconstructable: 1227
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 695
+Total_Reconstructed_Assigned: 698
 Total_Reconstructed_Coded: 18
 Total_Reconstructable_Unassigned: 529
 Total_Unclassified: 906
@@ -660,6 +660,9 @@ Total_Error: 0
 | [UID:000251][0x006168d0-0x00617a38.ConfigChannelReadOnlyData](by-memory/0x006168d0-0x00617a38.ConfigChannelReadOnlyData.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x006168d0-0x00617a38.ConfigChannelReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
 | [UID:0002GL][0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData](by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md) | assigned | `00008S` | 100 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md` |  |
+| [UID:0002SH][0x0061fd04-0x0061fd94.NewUserDialogPane2VtableData](by-memory/0x0061fd04-0x0061fd94.NewUserDialogPane2VtableData.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0061fd04-0x0061fd94.NewUserDialogPane2VtableData.md` |  |
+| [UID:0002SJ][0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData](by-memory/0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData.md` |  |
+| [UID:0002SI][0x0061fe3c-0x0061fecc.CreateUserDialogPaneVtableData](by-memory/0x0061fe3c-0x0061fecc.CreateUserDialogPaneVtableData.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0061fe3c-0x0061fecc.CreateUserDialogPaneVtableData.md` |  |
 | [UID:00026H][0x00625008-0x0062ce60.ServerPacketNameTable](by-memory/0x00625008-0x0062ce60.ServerPacketNameTable.md) | assigned | `0000NS` |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-memory/0x00625008-0x0062ce60.ServerPacketNameTable.md` |  |
 | [UID:000272][0x00631570-0x00632560.BrowserComGuidReadOnlyData](by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md` |  |
 | [UID:000276][0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks](by-memory/0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks.md) | assigned | `0000HJ` |  | no | `auto-generated/NexusTK/map/AttachedObjectPane.cpp` | `by-memory/0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks.md` |  |

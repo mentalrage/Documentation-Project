@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 19:10:15
+Generated: 2026-06-02 19:20:49
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3616
-- Scored files: 3449
+- Tracked files: 3619
+- Scored files: 3452
 - Ignored files: 167
 
 ## projected_path_completion
@@ -120,8 +120,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00025Z` | 66 | 86 | 76.0 | `by-memory/0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData.md` |
-| `000234` | 66 | 88 | 77.0 | `by-memory/0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize.md` |
 | `000260` | 67 | 86 | 76.5 | `by-memory/0x00620284-0x00620c74.ObjectPaneReadOnlyData.md` |
 | `00025S` | 67 | 88 | 77.5 | `by-memory/0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
@@ -145,6 +143,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002C1` | 68 | 76 | 72.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
 | `0002C3` | 68 | 76 | 72.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 | `000018` | 68 | 78 | 73.0 | `by-class/BrowserDialogOld.md` |
+| `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
+| `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 
 ## Low_Confidence
 
