@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 09:30:52
+Generated: 2026-06-02 09:41:28
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -51,7 +51,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000JI` | blank | `(blank)` | `by-file/FontStyle.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JM` | blank | `(blank)` | `by-file/FrameMgr.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JN` | blank | `(blank)` | `by-file/FriendListDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JP` | blank | `(blank)` | `by-file/GameServerConfig.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JQ` | blank | `(blank)` | `by-file/GeneralPurposePanel.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JT` | blank | `(blank)` | `by-file/HeadSelectDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JW` | blank | `(blank)` | `by-file/HistoryViewingPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -107,7 +106,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000ME` | blank | `(blank)` | `by-file/PanelPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MG` | blank | `(blank)` | `by-file/PasswordGuard.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MI` | blank | `(blank)` | `by-file/PathUtil.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000MN` | blank | `(blank)` | `by-file/PopupMenuControls.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MP` | blank | `(blank)` | `by-file/PrettyButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MU` | blank | `(blank)` | `by-file/ProtectedArray.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MV` | blank | `(blank)` | `by-file/ProtocolSend.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -143,11 +141,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00017R` | 58 | 78 | 68.0 | `by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md` |
-| `0002HW` | 58 | 78 | 68.0 | `by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md` |
-| `0002JH` | 58 | 78 | 68.0 | `by-memory/0x00516f80-0x00516f8d.MenuItemSetStateFlag0.md` |
-| `0002JI` | 58 | 78 | 68.0 | `by-memory/0x00516fa0-0x00516fad.MenuItemSetStateFlag1.md` |
-| `0002J4` | 58 | 80 | 69.0 | `by-memory/0x00516f70-0x00516f74.MenuItemStateFlag0Accessor.md` |
 | `0002I1` | 58 | 82 | 70.0 | `by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md` |
 | `0001Z5` | 58 | 88 | 73.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
 | `0000WX` | 60 | 65 | 62.5 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
@@ -168,6 +161,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002CE` | 60 | 72 | 66.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
 | `0002DU` | 60 | 74 | 67.0 | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |
 | `0000MG` | 60 | 75 | 67.5 | `by-file/PasswordGuard.md` |
+| `0000YS` | 60 | 75 | 67.5 | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |
+| `00002T` | 60 | 76 | 68.0 | `by-class/CloudFilterEffecter.md` |
+| `0002IA` | 60 | 76 | 68.0 | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |
+| `000022` | 60 | 78 | 69.0 | `by-class/CheckBoxTextControlPane.md` |
+| `0000UO` | 60 | 78 | 69.0 | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |
 
 ## Low_Confidence
 

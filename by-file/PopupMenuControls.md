@@ -1,7 +1,7 @@
 *** UID:0000MN | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/menu/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PopupMenuControls
 
@@ -87,3 +87,7 @@ IDA caller evidence ties `PopupMenuControlPane::OnDraw` to `MenuPane::GetItemByI
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `84`, confidence `78`.
 - Summary/evidence: the page documents the popup menu framework hypothesis, proposed contents, IDA boundary evidence, ownership notes, vtable/layout refs, generated callback caveat, and cross-references; confidence remains capped by exact split between control, menu pane, and menu item sources.
+- 2026-06-02 projected path and confidence update:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and confidence stayed at `78`.
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/menu/"` and `CONFIDENCE:80`.
+  - Summary/evidence: `by-project-structure/proposed-source-tree.md` names `PopupMenuControls.cpp` under `ui/menu/`, and this file already records IDA-backed popup-control, menu-pane, menu-item, vtable, layout, and callback evidence. Confidence remains capped at 80 because a later source-layout pass may split `MenuPane.cpp`, `MenuItem.cpp`, or `PopupMenuControlPane.cpp` from the consolidated file.

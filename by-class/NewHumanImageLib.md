@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LR | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for method families, medium for final field/type names.
 - Likely source file: [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md)
+- Autogen parent: [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md). Class declaration/source ownership is confirmed, but final C++ remains blank until field and helper names reach final-source quality.
 - Address ranges: [UID:00017R][0x004dfd10-0x004e68a7.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md)
 - Current recovered file: `source-3/simroot_v2/class_NewHumanImageLib.cpp`
 - Singleton: [UID:0000RT][g_pNewHumanImageLib](by-global/g_pNewHumanImageLib.md) at `0x0067a760`
@@ -95,3 +96,6 @@ Disabled/excluded but still owner-relevant:
 - Before: the class page did not mark the confirmed source-owned class as reconstructable and referenced the constructor only by start address.
 - Changed to: `RECONSTRUCTABLE:TRUE`, `COMPLETION:82`, `CONFIDENCE:82`, and the exact constructor page/range link.
 - Evidence: IDA MCP `lookup_funcs 0x004dfd10` reports `0x004dfd10-0x004e024a`, with constructor resource loads and object-layout writes documented in [UID:0002JR][0x004dfd10-0x004e024a.NewHumanImageLibConstructor](by-memory/0x004dfd10-0x004e024a.NewHumanImageLibConstructor.md). Scores remain below 95 because final field/type names and full method-by-method reconstruction are still incomplete.
+- Before: `AUTOGEN_PARENT_UID` was blank even though both the class page and file page had 80+ confidence and agreed on ownership.
+- Changed to: `AUTOGEN_PARENT_UID:0000LR`.
+- Evidence: [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) owns `NexusTK/render/NewHumanImageLib.cpp`, and this class page records the matching singleton, vtable, layout, method family, and resource-table evidence. The reconstruction C++ block stays blank because final field names and member declarations remain below the 95+ final-source threshold.

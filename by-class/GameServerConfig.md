@@ -1,8 +1,8 @@
 *** UID:00005O | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JP | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: medium for the class boundary, strong for map/nation-table behavior.
 - Proposed file: [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md)
+- Autogen parent: [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md). This class is source-owned, but final C++ remains blank until the `MapPane` split and source-facing type names are final.
 - Current generated file: `class_GameServerConfig.cpp`
 - Current ranges: `0x005039f0-0x00504520`, `0x00514d80-0x00514ddb`
 - Evidence basis: Wave3 class inspection, generated source, Wave2 report notes, and IDA MCP checks.
@@ -79,3 +80,7 @@
 - 2026-05-28: Added nation-entry parser/resize support through [UID:000234][0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize](by-memory/0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize.md). Evidence: IDA MCP reports the helper as the sole direct target from the `0x00503d10` nation-entry packet parser and shows 68-byte `GameServerNationEntry` stride behavior.
 - Completion/confidence score update: existed before as `0/0`; changed to `82/78`. Summary: nation-table behavior, map-pane initializer caveat, globals, parser/resize support, raw helper caveats, and ownership decisions are well documented, but the class boundary remains medium-confidence. Evidence: memory pages for `0x00503960`, `0x005039f0-0x00504521`, `0x00514d50-0x00514ddc`, and `0x00514ee0-0x00514f6b`, plus global/type/resource cross-references.
 - 2026-05-31: Marked `RECONSTRUCTABLE:TRUE` and replaced broad method rows with exact child by-memory links where IDA MCP verified the boundaries. Evidence: IDA MCP `list_funcs`/raw byte checks found exact function or code-island ranges at `0x005039f0`, `0x00503a50`, `0x00503a80`, `0x00503b60`, `0x00503c70`, `0x00503d10`, and `0x00504110`; the raw destructor end was corrected from `0x00503a78` to `0x00503a7d`.
+- 2026-06-02 parent/confidence update:
+  - What existed before: confidence remained `78` and `AUTOGEN_PARENT_UID` was blank.
+  - Changed to: `CONFIDENCE:80` and `AUTOGEN_PARENT_UID:0000JP`.
+  - Evidence: [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md) is now placed under `NexusTK/map/` using the proposed source tree, and this class page links exact IDA-backed raw constructor/destructor, lookup/request/parser, map-initializer, global, type, and resource evidence. The score is only 80 because final source ownership may split some initializer code into [UID:0000L3][MapPane](by-file/MapPane.md).

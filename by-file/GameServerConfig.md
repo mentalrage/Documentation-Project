@@ -1,7 +1,7 @@
 *** UID:0000JP | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # GameServerConfig
 
@@ -112,3 +112,7 @@ The nation-entry lookup/request methods are used by user/status presentation cod
   - Changed to: `COMPLETION:86` and `CONFIDENCE:78`.
   - Summary/evidence: map/nation-table ownership, raw request packet, nation-entry parser/resize support, `MapPane` initialization relationship, globals/resources, and source-layout decision are documented; confidence is capped by medium class-name certainty, exact `MapPane` split, and raw helper/function-boundary caveats.
 - 2026-05-31: Replaced broad address-only rows with exact by-memory child links and added the raw default-entry seeder. Evidence: IDA MCP function listing and raw byte checks found exact child boundaries inside the old `0x005039f0-0x00504521` aggregate, including hidden raw code at `0x00503b60-0x00503c61`.
+- 2026-06-02 projected path and confidence update:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and confidence stayed at `78` because the final split between `map/GameServerConfig.cpp` and private `MapPane.cpp` helper code remained open.
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/"` and `CONFIDENCE:80`.
+  - Summary/evidence: [UID:0000L3][MapPane](by-file/MapPane.md) remains the neighboring map owner, but `by-project-structure/proposed-source-tree.md` has an explicit `map/GameServerConfig.cpp` section for the nation-entry table helpers, and this page already records IDA-backed child ranges, globals, parser/resize support, and `SOBJ.TBL` caveats. Confidence remains capped at 80 because some initialization code may still move into `MapPane.cpp`.

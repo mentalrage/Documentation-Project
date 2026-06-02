@@ -2,7 +2,7 @@
 *** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MN | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for base class role.
 - Likely source file: [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md)
+- Autogen parent: [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md). Class ownership is strong, but final C++ remains blank until state-flag names and the possible `MenuItem.cpp` split are final-source quality.
 - Main address range: [UID:0001BK][0x00516290-0x00517441.MenuPaneAndItems](by-memory/0x00516290-0x00517441.MenuPaneAndItems.md)
 - Vtables: [UID:0001Y4][MenuItemVtables](by-type/by-vtable/MenuItemVtables.md)
 - Layout docs: [UID:0001V5][MenuItemLayouts](by-type/by-struct/MenuItemLayouts.md)
@@ -57,3 +58,7 @@ The shared base layout starts with the vtable pointer at `+0x00`, a bounds recta
 - Completion/confidence score update: existed before as `0/0`; changed to `76/84`. Summary: the abstract base menu entry role, layout, constructor/destructor, vtable, and derived-class relationships are documented, but the page remains concise and lacks full source-level method/body reconstruction. Evidence: linked menu-pane/items range, `MenuItemVtables`, `MenuItemLayouts`, IDA-confirmed starts, and pure virtual slot notes.
 - Reconstructable metadata update: existed before as blank; changed to `TRUE`. Summary: IDA evidence confirms this is NexusTK menu infrastructure that must be represented in the rebuilt source, but autogen parent/code are intentionally blank because exact original source shape is not at the `95+` threshold.
 - Method-map split update: existed before with only broad address rows for constructor/destructor; changed to UID links for exact by-memory child pages including state-byte accessors/setters and bounds-copy helpers. Evidence: IDA MCP `lookup_funcs`, disassembly, and byte review confirmed the modeled and raw helper bodies.
+- 2026-06-02 parent update:
+  - What existed before: `AUTOGEN_PARENT_UID` was blank.
+  - Changed to: `AUTOGEN_PARENT_UID:0000MN`.
+  - Evidence: [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md) is now a valid `NexusTK/ui/menu/` file root at confidence 80, and this class page has confidence 84 with matching menu-item layout, vtable, constructor/destructor, accessor, setter, and derived-class evidence. The C++ block stays blank because final source names for the state bytes and possible file split remain below the 95+ threshold.
