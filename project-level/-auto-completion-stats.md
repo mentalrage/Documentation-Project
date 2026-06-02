@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 17:36:52
+Generated: 2026-06-02 17:44:35
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -123,9 +123,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00027M` | 65 | 85 | 75.0 | `by-memory/0x0066db44-0x0066db4c.UiResourceStringPointers.md` |
-| `00027O` | 65 | 85 | 75.0 | `by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md` |
-| `00029U` | 65 | 85 | 75.0 | `by-memory/0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags.md` |
 | `00029J` | 65 | 85 | 75.0 | `by-memory/0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag.md` |
 | `0001R7` | 65 | 85 | 75.0 | `by-resource/backpane-background-resources.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
@@ -148,6 +145,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BT` | 66 | 80 | 73.0 | `by-memory/0x005266b0-0x00526784.MidiTrackBufferedByteReader.md` |
 | `0002BW` | 66 | 80 | 73.0 | `by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md` |
 | `0002C2` | 66 | 80 | 73.0 | `by-memory/0x00527000-0x00527039.MidiSourceRawReadHelper.md` |
+| `0002C5` | 66 | 80 | 73.0 | `by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md` |
+| `00005M` | 66 | 82 | 74.0 | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |
+| `00009J` | 66 | 82 | 74.0 | `by-class/NumberArgsInputPane.md` |
 
 ## Low_Confidence
 

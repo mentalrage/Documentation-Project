@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1207
+Total_Reconstructable: 1210
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 669
+Total_Reconstructed_Assigned: 670
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 538
-Total_Unclassified: 922
+Total_Reconstructable_Unassigned: 540
+Total_Unclassified: 919
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -643,6 +643,7 @@ Total_Error: 0
 | [UID:00027B][0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag](by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |  |
 | [UID:00027I][0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants](by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |  |
 | [UID:00027N][0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable](by-memory/0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable.md` |  |
+| [UID:00027O][0x0066dd50-0x0066dd60.MapObjectDirectionMasks](by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md` |  |
 | [UID:0001OL][0x0066de18-0x0066de30.g_metaAliasTableName](by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md) | assigned | `0000LC` |  | no | `auto-generated/NexusTK/metadata/MetaMan.cpp` | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |  |
 | [UID:00027W][0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC](by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |  |
 | [UID:00027Z][0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary](by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md) | assigned | `0000JT` |  | no | `auto-generated/NexusTK/ui/dialogs/HeadSelectDialog.cpp` | `by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md` |  |
@@ -1214,6 +1215,7 @@ Total_Error: 0
 | [UID:0002P2][0x00631184-0x0063118c.WaitableTimerVtableData](by-memory/0x00631184-0x0063118c.WaitableTimerVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00631184-0x0063118c.WaitableTimerVtableData.md` |  |
 | [UID:000270][0x00631184-0x00631400.WaitableWeatherReadOnlyData](by-memory/0x00631184-0x00631400.WaitableWeatherReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00631184-0x00631400.WaitableWeatherReadOnlyData.md` |  |
 | [UID:000277][0x0066d42c-0x0066d430.AutoInitStaticObjectVptr](by-memory/0x0066d42c-0x0066d430.AutoInitStaticObjectVptr.md) | unassigned |  |  | no |  | `by-memory/0x0066d42c-0x0066d430.AutoInitStaticObjectVptr.md` |  |
+| [UID:00027M][0x0066db44-0x0066db4c.UiResourceStringPointers](by-memory/0x0066db44-0x0066db4c.UiResourceStringPointers.md) | unassigned |  |  | no |  | `by-memory/0x0066db44-0x0066db4c.UiResourceStringPointers.md` |  |
 | [UID:00027U][0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord](by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md) | unassigned |  |  | no |  | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |  |
 | [UID:0001ON][0x006702c8-0x00670784.RainCoordinateTables](by-memory/0x006702c8-0x00670784.RainCoordinateTables.md) | unassigned |  |  | no |  | `by-memory/0x006702c8-0x00670784.RainCoordinateTables.md` |  |
 | [UID:0001OO][0x00670784-0x006707d0.SnowPatternByteTables](by-memory/0x00670784-0x006707d0.SnowPatternByteTables.md) | unassigned |  |  | no |  | `by-memory/0x00670784-0x006707d0.SnowPatternByteTables.md` |  |
@@ -1225,6 +1227,7 @@ Total_Error: 0
 | [UID:0002AW][0x0069af20-0x0069af21.KeyboardChordGateFlag](by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md) | unassigned |  |  | no |  | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |  |
 | [UID:00029Q][0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C](by-memory/0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C.md) | unassigned |  |  | no |  | `by-memory/0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C.md` |  |
 | [UID:00029T][0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString](by-memory/0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString.md) | unassigned |  |  | no |  | `by-memory/0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString.md` |  |
+| [UID:00029U][0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags](by-memory/0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags.md) | unassigned |  |  | no |  | `by-memory/0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags.md` |  |
 | [UID:0001PI][0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable](by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md) | unassigned |  |  | no |  | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |  |
 | [UID:00029K][0x0069b424-0x0069b430.ImageLibraryFallbackRecord](by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md) | unassigned |  |  | no |  | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |  |
 | [UID:0001PL][0x0069b430-0x0069b43c.RidingDefinitionGlobalTable](by-memory/0x0069b430-0x0069b43c.RidingDefinitionGlobalTable.md) | unassigned |  |  | no |  | `by-memory/0x0069b430-0x0069b43c.RidingDefinitionGlobalTable.md` |  |
@@ -2006,8 +2009,6 @@ Total_Error: 0
 | [UID:00027J][0x0066daec-0x0066db04.g_emptySimpleUString](by-memory/0x0066daec-0x0066db04.g_emptySimpleUString.md) | unclassified |  |  | no |  | `by-memory/0x0066daec-0x0066db04.g_emptySimpleUString.md` |  |
 | [UID:00027K][0x0066db04-0x0066db3c.HourPaneFrameTable](by-memory/0x0066db04-0x0066db3c.HourPaneFrameTable.md) | unclassified |  |  | no |  | `by-memory/0x0066db04-0x0066db3c.HourPaneFrameTable.md` |  |
 | [UID:00027L][0x0066db3c-0x0066db44.JpegEoiMarkersAndStartupLogoFlagData](by-memory/0x0066db3c-0x0066db44.JpegEoiMarkersAndStartupLogoFlagData.md) | unclassified |  |  | no |  | `by-memory/0x0066db3c-0x0066db44.JpegEoiMarkersAndStartupLogoFlagData.md` |  |
-| [UID:00027M][0x0066db44-0x0066db4c.UiResourceStringPointers](by-memory/0x0066db44-0x0066db4c.UiResourceStringPointers.md) | unclassified |  |  | no |  | `by-memory/0x0066db44-0x0066db4c.UiResourceStringPointers.md` |  |
-| [UID:00027O][0x0066dd50-0x0066dd60.MapObjectDirectionMasks](by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md) | unclassified |  |  | no |  | `by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md` |  |
 | [UID:00027P][0x0066dd60-0x0066dd78.ImageExtensionPointerTable](by-memory/0x0066dd60-0x0066dd78.ImageExtensionPointerTable.md) | unclassified |  |  | no |  | `by-memory/0x0066dd60-0x0066dd78.ImageExtensionPointerTable.md` |  |
 | [UID:00027Q][0x0066dd78-0x0066ddd8.MapPaneDayNightFloatTable](by-memory/0x0066dd78-0x0066ddd8.MapPaneDayNightFloatTable.md) | unclassified |  |  | no |  | `by-memory/0x0066dd78-0x0066ddd8.MapPaneDayNightFloatTable.md` |  |
 | [UID:00027S][0x0066de30-0x0066de6c.NcauthConfirmUserUrlObfuscated](by-memory/0x0066de30-0x0066de6c.NcauthConfirmUserUrlObfuscated.md) | unclassified |  |  | no |  | `by-memory/0x0066de30-0x0066de6c.NcauthConfirmUserUrlObfuscated.md` |  |
@@ -2098,7 +2099,6 @@ Total_Error: 0
 | [UID:00029P][0x0069b381-0x0069b39c.UnreferencedInitializedBytes_69B381](by-memory/0x0069b381-0x0069b39c.UnreferencedInitializedBytes_69B381.md) | unclassified |  |  | no |  | `by-memory/0x0069b381-0x0069b39c.UnreferencedInitializedBytes_69B381.md` |  |
 | [UID:00029R][0x0069b3a8-0x0069b3ac.MemoryManStaticObjectStorage](by-memory/0x0069b3a8-0x0069b3ac.MemoryManStaticObjectStorage.md) | unclassified |  |  | no |  | `by-memory/0x0069b3a8-0x0069b3ac.MemoryManStaticObjectStorage.md` |  |
 | [UID:00029S][0x0069b3ac-0x0069b3d0.TimerMgrStaticObjectStorage](by-memory/0x0069b3ac-0x0069b3d0.TimerMgrStaticObjectStorage.md) | unclassified |  |  | no |  | `by-memory/0x0069b3ac-0x0069b3d0.TimerMgrStaticObjectStorage.md` |  |
-| [UID:00029U][0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags](by-memory/0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags.md) | unclassified |  |  | no |  | `by-memory/0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags.md` |  |
 | [UID:00029V][0x0069b3d8-0x0069b3e0.SurfaceAlphaLookupTablePointers](by-memory/0x0069b3d8-0x0069b3e0.SurfaceAlphaLookupTablePointers.md) | unclassified |  |  | no |  | `by-memory/0x0069b3d8-0x0069b3e0.SurfaceAlphaLookupTablePointers.md` |  |
 | [UID:0001PJ][0x0069b410-0x0069b414.g_pMetaMan](by-memory/0x0069b410-0x0069b414.g_pMetaMan.md) | unclassified |  |  | no |  | `by-memory/0x0069b410-0x0069b414.g_pMetaMan.md` |  |
 | [UID:0001PK][0x0069b414-0x0069b418.g_pWillBeChangedItemPane](by-memory/0x0069b414-0x0069b418.g_pWillBeChangedItemPane.md) | unclassified |  |  | no |  | `by-memory/0x0069b414-0x0069b418.g_pWillBeChangedItemPane.md` |  |
