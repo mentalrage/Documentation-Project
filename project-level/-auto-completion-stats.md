@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 01:17:45
+Generated: 2026-06-02 01:29:00
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -154,7 +154,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000OK` | blank | `(blank)` | `by-file/TextButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OM` | blank | `(blank)` | `by-file/TextEditControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OS` | blank | `(blank)` | `by-file/ThreadSafeNodeList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000OY` | blank | `(blank)` | `by-file/UserInfoDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OZ` | blank | `(blank)` | `by-file/UserListDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000P0` | blank | `(blank)` | `by-file/UserLookPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000P1` | blank | `(blank)` | `by-file/UserPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -168,7 +167,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001KG` | 50 | 65 | 57.5 | `by-memory/0x00599cc0-0x0059bc8b.UserInfoDialogPane.md` |
 | `0001KI` | 50 | 65 | 57.5 | `by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md` |
 | `0001KL` | 50 | 65 | 57.5 | `by-memory/0x005a2530-0x005b8395.UserPane.md` |
 | `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
@@ -193,6 +191,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001MB` | 50 | 65 | 57.5 | `by-memory/0x005b34d0-0x005b37ea.SayInputPane.md` |
 | `0001MC` | 50 | 65 | 57.5 | `by-memory/0x005b3940-0x005b3bba.ChatInputPane.md` |
 | `0001MF` | 50 | 65 | 57.5 | `by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md` |
+| `0001MG` | 50 | 65 | 57.5 | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |
 
 ## Low_Confidence
 
@@ -203,7 +202,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001KG` | 50 | 65 | 57.5 | `by-memory/0x00599cc0-0x0059bc8b.UserInfoDialogPane.md` |
 | `0001KI` | 50 | 65 | 57.5 | `by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md` |
 | `0001KL` | 50 | 65 | 57.5 | `by-memory/0x005a2530-0x005b8395.UserPane.md` |
 | `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
@@ -223,12 +221,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001M4` | 50 | 65 | 57.5 | `by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md` |
 | `0001M5` | 50 | 65 | 57.5 | `by-memory/0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor.md` |
 | `0001M6` | 50 | 65 | 57.5 | `by-memory/0x005b3010-0x005b3196.ChangeItemSlotInputPane.md` |
+| `0001M7` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b3260.ChangeSpellSlotInputPaneRawConstructor.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001KG` | 50 | 65 | 57.5 | `by-memory/0x00599cc0-0x0059bc8b.UserInfoDialogPane.md` |
 | `0001KI` | 50 | 65 | 57.5 | `by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md` |
 | `0001KL` | 50 | 65 | 57.5 | `by-memory/0x005a2530-0x005b8395.UserPane.md` |
 | `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
@@ -253,6 +251,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001MB` | 50 | 65 | 57.5 | `by-memory/0x005b34d0-0x005b37ea.SayInputPane.md` |
 | `0001MC` | 50 | 65 | 57.5 | `by-memory/0x005b3940-0x005b3bba.ChatInputPane.md` |
 | `0001MF` | 50 | 65 | 57.5 | `by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md` |
+| `0001MG` | 50 | 65 | 57.5 | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |
 
 ## By Folder
 
@@ -388,7 +387,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001KG` | 50 | 65 | 57.5 | `by-memory/0x00599cc0-0x0059bc8b.UserInfoDialogPane.md` |
 | `0001KI` | 50 | 65 | 57.5 | `by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md` |
 | `0001KL` | 50 | 65 | 57.5 | `by-memory/0x005a2530-0x005b8395.UserPane.md` |
 | `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
@@ -413,6 +411,7 @@ _No scored files._
 | `0001MB` | 50 | 65 | 57.5 | `by-memory/0x005b34d0-0x005b37ea.SayInputPane.md` |
 | `0001MC` | 50 | 65 | 57.5 | `by-memory/0x005b3940-0x005b3bba.ChatInputPane.md` |
 | `0001MF` | 50 | 65 | 57.5 | `by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md` |
+| `0001MG` | 50 | 65 | 57.5 | `by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md` |
 
 ### by-meta
 
