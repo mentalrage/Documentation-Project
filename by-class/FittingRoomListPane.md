@@ -1,8 +1,8 @@
 *** UID:000053 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Confidence: strong for fitting-room list behavior and local constructor/layout/scroll-management/paint/input/destructor boundaries through `0x00421477`, medium for remaining shared-helper ownership.
 - Current Wave3 file: `class_FittingRoomListPane.cpp`
 - Proposed source module: [UID:0000JE][FittingRoom](by-file/FittingRoom.md)
+- Autogen status: reconstructable source class attached to the fitting-room feature file; C++ remains blank because final field names, helper ownership, and child method snippets are not final-source quality.
 - Evidence basis: Wave3 inspection, generated source, and IDA MCP xref checks on 2026-05-23 with constructor decompilation rechecked on 2026-05-25.
 
 ## Role
@@ -89,6 +90,7 @@ Scrollable item-list pane for the fitting-room dialog. It synchronizes the fitti
 
 ## Changes
 
+- 2026-06-02 low-score child pass: Marked the class `RECONSTRUCTABLE:TRUE` and attached it to [UID:0000JE][FittingRoom](by-file/FittingRoom.md) so confirmed high-confidence child methods can attach to their class parent. C++ remains blank. Evidence: the page already has exact child method coverage through the list-pane constructor, scroll, paint, input, geometry, vector-helper, entry-release, and destructor blocks, and the fitting-room file page has a valid `NexusTK/cashshop/` reconstruction path with `87` confidence.
 - 2026-05-30: Existing method table used address-only rows for constructor, resize, move, scroll update, scroll-position callback, reset, insert, and detach methods. Changed those rows to exact by-memory UID links and added the raw cleanup body at `0x0041ecc0-0x0041ecf5`. Evidence: IDA MCP function inventory/decompilation/xrefs/callees for `0x0041eb90-0x0041f2a6`, simroot names as leads, and byte review of the non-padding constructor tail.
 - 2026-05-30: Existing method table still used address-only rows for paint, key-scroll, input, scroll-step, and hit-test methods. Changed those to exact by-memory UID links, added the `OnInputEvent` jump-table span, and added raw slot-geometry/layout helper pages through `0x00421301`. Evidence: IDA MCP function inventory, vtable data xrefs, byte/disassembly review for no-function raw helper starts, and `simroot_v2` method names used only as leads.
 - 2026-05-30: Existing class documentation still treated the following `0x00421310-0x004216cb` island as unresolved/shared. Changed this page to link the exact fitting-room-owned entry release helpers and scalar deleting destructor, while warning that the same island also contains non-fitting-room string, checkbox, thunk, padding, and runtime/vector support. Evidence: IDA MCP decompilation, function inventory, vtable data refs, and byte audit for `0x00421310-0x004216cb`.

@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 09:22:29
+Generated: 2026-06-02 09:30:52
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -91,7 +91,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LP` | blank | `(blank)` | `by-file/NewCreateUserDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LQ` | blank | `(blank)` | `by-file/NewHistoryDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LS` | blank | `(blank)` | `by-file/NewInventoryPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LT` | blank | `(blank)` | `by-file/NewPredefinedFormArticleDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LV` | blank | `(blank)` | `by-file/NewUserDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LW` | blank | `(blank)` | `by-file/NewUserDialogPane2.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LX` | blank | `(blank)` | `by-file/NewUserMiscDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -144,8 +143,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002DN` | 58 | 76 | 67.0 | `by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md` |
-| `0000ZL` | 58 | 76 | 67.0 | `by-memory/0x004777a0-0x00478f8d.NewPredefinedFormArticleDialog.md` |
 | `00017R` | 58 | 78 | 68.0 | `by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md` |
 | `0002HW` | 58 | 78 | 68.0 | `by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md` |
 | `0002JH` | 58 | 78 | 68.0 | `by-memory/0x00516f80-0x00516f8d.MenuItemSetStateFlag0.md` |
@@ -169,6 +166,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BM` | 60 | 72 | 66.0 | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |
 | `0002BO` | 60 | 72 | 66.0 | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |
 | `0002CE` | 60 | 72 | 66.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
+| `0002DU` | 60 | 74 | 67.0 | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |
+| `0000MG` | 60 | 75 | 67.5 | `by-file/PasswordGuard.md` |
 
 ## Low_Confidence
 
@@ -388,7 +387,7 @@ _No scored files._
 | `0002BM` | 60 | 72 | 66.0 | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |
 | `0002BO` | 60 | 72 | 66.0 | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |
 | `0002CE` | 60 | 72 | 66.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
-| `0002DN` | 58 | 76 | 67.0 | `by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md` |
+| `0002DU` | 60 | 74 | 67.0 | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |
 
 ### by-meta
 

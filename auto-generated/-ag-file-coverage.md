@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 167
+Total_Reconstructed_Assigned: 168
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 121
+Total_Error: 120
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -97,6 +97,7 @@ Total_Error: 121
 | [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-file/MonsterImageLib.md` | by-file generated root |
 | [UID:0000LO][MyItemListPane](by-file/MyItemListPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/MyItemListPane.cpp` | `by-file/MyItemListPane.md` | by-file generated root |
 | [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-file/NewHumanImageLib.md` | by-file generated root |
+| [UID:0000LT][NewPredefinedFormArticleDialog](by-file/NewPredefinedFormArticleDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/NewPredefinedFormArticleDialog.cpp` | `by-file/NewPredefinedFormArticleDialog.md` | by-file generated root |
 | [UID:0000LU][NewSpellInventoryPane](by-file/NewSpellInventoryPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/inventory/NewSpellInventoryPane.cpp` | `by-file/NewSpellInventoryPane.md` | by-file generated root |
 | [UID:0000M1][NumberInputDialog](by-file/NumberInputDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/NumberInputDialog.cpp` | `by-file/NumberInputDialog.md` | by-file generated root |
 | [UID:0000M3][ObjectImageControlPane](by-file/ObjectImageControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ObjectImageControlPane.cpp` | `by-file/ObjectImageControlPane.md` | by-file generated root |
@@ -253,7 +254,6 @@ Total_Error: 121
 | [UID:0000LP][NewCreateUserDialogPane](by-file/NewCreateUserDialogPane.md) | error |  |  | no |  | `by-file/NewCreateUserDialogPane.md` | by-file generated root |
 | [UID:0000LQ][NewHistoryDialogPane](by-file/NewHistoryDialogPane.md) | error |  |  | no |  | `by-file/NewHistoryDialogPane.md` | by-file generated root |
 | [UID:0000LS][NewInventoryPane](by-file/NewInventoryPane.md) | error |  |  | no |  | `by-file/NewInventoryPane.md` | by-file generated root |
-| [UID:0000LT][NewPredefinedFormArticleDialog](by-file/NewPredefinedFormArticleDialog.md) | error |  |  | no |  | `by-file/NewPredefinedFormArticleDialog.md` | by-file generated root |
 | [UID:0000LV][NewUserDialogPane](by-file/NewUserDialogPane.md) | error |  |  | no |  | `by-file/NewUserDialogPane.md` | by-file generated root |
 | [UID:0000LW][NewUserDialogPane2](by-file/NewUserDialogPane2.md) | error |  |  | no |  | `by-file/NewUserDialogPane2.md` | by-file generated root |
 | [UID:0000LX][NewUserMiscDialogPane](by-file/NewUserMiscDialogPane.md) | error |  |  | no |  | `by-file/NewUserMiscDialogPane.md` | by-file generated root |

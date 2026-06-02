@@ -1,7 +1,7 @@
 *** UID:0000LT | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # NewPredefinedFormArticleDialog
 
@@ -74,7 +74,7 @@ Before real migration, verify the exact Wave3 command name for attaching recover
 
 - [UID:000098][NewPredefinedFormArticleDialog](by-class/NewPredefinedFormArticleDialog.md)
 - [UID:0000UE][DeserializePredefinedFormArticleEntries_478650](by-item/DeserializePredefinedFormArticleEntries_478650.md)
-- [UID:0000ZL][0x004777a0-0x00478f8d.NewPredefinedFormArticleDialog](by-memory/0x004777a0-0x00478f8d.NewPredefinedFormArticleDialog.md)
+- [UID:0000ZL][0x004777a0-0x00478f8e.NewPredefinedFormArticleDialog](by-memory/0x004777a0-0x00478f8e.NewPredefinedFormArticleDialog.md)
 - [UID:0000ZQ][0x0047e931-0x0047e947.NewPredefinedFormArticleDialogAdjustorThunks](by-memory/0x0047e931-0x0047e947.NewPredefinedFormArticleDialogAdjustorThunks.md)
 - [UID:0000ZS][0x0047ec30-0x0047ec6b.NewPredefinedFormArticleDialogScalarDeletingDestructor](by-memory/0x0047ec30-0x0047ec6b.NewPredefinedFormArticleDialogScalarDeletingDestructor.md)
 - [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md)
@@ -84,6 +84,7 @@ Before real migration, verify the exact Wave3 command name for attaching recover
 
 ## Changes
 
+- 2026-06-02 low-score pass: Set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/ui/dialogs/`. Evidence: this page already proposes `ui/dialogs/NewPredefinedFormArticleDialog.cpp`, [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) lists the same file under `ui/dialogs/`, and [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md) records it as a strong split candidate for template/form article composition.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `88`, confidence `80`.
 - Summary/evidence: the page documents dialog role, parser/helper ownership, packet/layout model, IDA boundaries, destructor/thunk companions, migration notes, generated-output caveats, and cross-references; confidence remains capped by constructor placeholder emission and alert-body disagreement.
