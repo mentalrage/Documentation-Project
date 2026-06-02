@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1039
+Total_Reconstructable: 1041
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 508
+Total_Reconstructed_Assigned: 510
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 531
-Total_Unclassified: 1086
+Total_Unclassified: 1084
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -498,9 +498,11 @@ Total_Error: 0
 | [UID:00027B][0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag](by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |  |
 | [UID:0001OL][0x0066de18-0x0066de30.g_metaAliasTableName](by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md) | assigned | `0000LC` |  | no | `auto-generated/NexusTK/metadata/MetaMan.cpp` | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |  |
 | [UID:0001OR][0x0067a748-0x0067a74c.g_pCollectionData](by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |  |
+| [UID:0001P0][0x0067a7ec-0x0067a7f0.g_packetSender](by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md) | assigned | `0000NS` |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |  |
 | [UID:00028Y][0x0067a878-0x0067a934.AesMutableStateAndKeySchedule](by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md) | assigned | `00020J` | 70 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md` |  |
 | [UID:000291][0x0067a980-0x0067a998.ApplicationTimingBaselines](by-memory/0x0067a980-0x0067a998.ApplicationTimingBaselines.md) | assigned | `0000HG` | 110 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a980-0x0067a998.ApplicationTimingBaselines.md` |  |
 | [UID:000293][0x0067a9c0-0x0067ab18.ApplicationOsVersionState](by-memory/0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md) | assigned | `0000HG` | 120 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md` |  |
+| [UID:0001P3][0x0067ab28-0x0067ab2c.g_activeBrowserControlPane](by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md` |  |
 | [UID:0002GZ][0x00463970-0x004639c4.ApplicationDestructor](by-memory/0x00463970-0x004639c4.ApplicationDestructor.md) | coded | `00000D` | 2 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00463970-0x004639c4.ApplicationDestructor.md` |  |
 | [UID:0002H4][0x00464f40-0x00464f47.ApplicationIsExitRequested](by-memory/0x00464f40-0x00464f47.ApplicationIsExitRequested.md) | coded | `00000D` | 7 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00464f40-0x00464f47.ApplicationIsExitRequested.md` |  |
 | [UID:0002GM][0x004651c0-0x004651c4.ApplicationGetInstanceHandle](by-memory/0x004651c0-0x004651c4.ApplicationGetInstanceHandle.md) | coded | `00000D` | 30 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004651c0-0x004651c4.ApplicationGetInstanceHandle.md` |  |
@@ -2033,7 +2035,6 @@ Total_Error: 0
 | [UID:00028T][0x0067a7e0-0x0067a7e4.g_pPaletteLib](by-memory/0x0067a7e0-0x0067a7e4.g_pPaletteLib.md) | unclassified |  |  | no |  | `by-memory/0x0067a7e0-0x0067a7e4.g_pPaletteLib.md` |  |
 | [UID:00028U][0x0067a7e4-0x0067a7e8.g_pRankingDialog](by-memory/0x0067a7e4-0x0067a7e8.g_pRankingDialog.md) | unclassified |  |  | no |  | `by-memory/0x0067a7e4-0x0067a7e8.g_pRankingDialog.md` |  |
 | [UID:00028V][0x0067a7e8-0x0067a7ec.g_pRankingRewardInfoDialog](by-memory/0x0067a7e8-0x0067a7ec.g_pRankingRewardInfoDialog.md) | unclassified |  |  | no |  | `by-memory/0x0067a7e8-0x0067a7ec.g_pRankingRewardInfoDialog.md` |  |
-| [UID:0001P0][0x0067a7ec-0x0067a7f0.g_packetSender](by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md) | unclassified |  |  | no |  | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |  |
 | [UID:00028W][0x0067a7f0-0x0067a830.MmxBlendWeightScratchData](by-memory/0x0067a7f0-0x0067a830.MmxBlendWeightScratchData.md) | unclassified |  |  | no |  | `by-memory/0x0067a7f0-0x0067a830.MmxBlendWeightScratchData.md` |  |
 | [UID:0001P1][0x0067a834-0x0067a874.AboveFrameSlots](by-memory/0x0067a834-0x0067a874.AboveFrameSlots.md) | unclassified |  |  | no |  | `by-memory/0x0067a834-0x0067a874.AboveFrameSlots.md` |  |
 | [UID:00028X][0x0067a874-0x0067a878.g_pGeneralPurposePanel](by-memory/0x0067a874-0x0067a878.g_pGeneralPurposePanel.md) | unclassified |  |  | no |  | `by-memory/0x0067a874-0x0067a878.g_pGeneralPurposePanel.md` |  |
@@ -2042,7 +2043,6 @@ Total_Error: 0
 | [UID:000292][0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics](by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md) | unclassified |  |  | no |  | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |  |
 | [UID:000295][0x0067ab20-0x0067ab24.g_pDirectX](by-memory/0x0067ab20-0x0067ab24.g_pDirectX.md) | unclassified |  |  | no |  | `by-memory/0x0067ab20-0x0067ab24.g_pDirectX.md` |  |
 | [UID:0001P2][0x0067ab24-0x0067ab28.g_pFontImageLib](by-memory/0x0067ab24-0x0067ab28.g_pFontImageLib.md) | unclassified |  |  | no |  | `by-memory/0x0067ab24-0x0067ab28.g_pFontImageLib.md` |  |
-| [UID:0001P3][0x0067ab28-0x0067ab2c.g_activeBrowserControlPane](by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md) | unclassified |  |  | no |  | `by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md` |  |
 | [UID:0001P4][0x0067ab2c-0x0067ab30.g_pChangeMan](by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md) | unclassified |  |  | no |  | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |  |
 | [UID:000296][0x0067ab30-0x0067ab34.g_pEventDispatcher](by-memory/0x0067ab30-0x0067ab34.g_pEventDispatcher.md) | unclassified |  |  | no |  | `by-memory/0x0067ab30-0x0067ab34.g_pEventDispatcher.md` |  |
 | [UID:000297][0x0067ab34-0x0067ab38.g_pCrashTarget](by-memory/0x0067ab34-0x0067ab38.g_pCrashTarget.md) | unclassified |  |  | no |  | `by-memory/0x0067ab34-0x0067ab38.g_pCrashTarget.md` |  |
