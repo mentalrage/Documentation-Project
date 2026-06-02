@@ -1,7 +1,7 @@
 *** UID:0000K7 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # InputPanes
 
@@ -61,6 +61,11 @@ Feature-specific derivatives should stay in neighboring modules such as [UID:000
 - [UID:0000N9][SayInputPanes](by-file/SayInputPanes.md)
 
 ## Changes
+
+- 2026-06-02: Filled `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/"`.
+  - Before: prose and `by-project-structure/proposed-source-tree.md` both placed `InputPanes.cpp` under `ui/dialogs/`, but the validator-managed path was blank.
+  - After: the projected path now matches the existing source-tree placement.
+  - Evidence: `by-project-structure/proposed-source-tree.md` lists `ui/dialogs/InputPanes.cpp`, and this page's status/proposed source file already names the same folder.
 
 ### 2026-05-28 - Corrected InputPaneBases terminal byte
 

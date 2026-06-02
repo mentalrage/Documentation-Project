@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 18:37:20
+Generated: 2026-06-02 18:41:51
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -50,7 +50,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000K5` | blank | `(blank)` | `by-file/IMEPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K4` | blank | `(blank)` | `by-file/ImageWriters.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K6` | blank | `(blank)` | `by-file/InputMan.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000K7` | blank | `(blank)` | `by-file/InputPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K8` | blank | `(blank)` | `by-file/IntAlphaSurface.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K9` | blank | `(blank)` | `by-file/InterfaceEfx.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KA` | blank | `(blank)` | `by-file/InventoryPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -122,8 +121,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `00005M` | 66 | 82 | 74.0 | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |
-| `00009J` | 66 | 82 | 74.0 | `by-class/NumberArgsInputPane.md` |
-| `00009L` | 66 | 82 | 74.0 | `by-class/NumberInputPane.md` |
 | `0002NP` | 66 | 82 | 74.0 | `by-memory/0x00488630-0x00488674.ClanStringListPaneRawConstructor.md` |
 | `00021V` | 66 | 82 | 74.0 | `by-memory/0x00488fa0-0x00488fd5.ClanDepMoneyInputDialogRawConstructor.md` |
 | `0002NT` | 66 | 82 | 74.0 | `by-memory/0x00489070-0x004890a5.ClanWidMoneyInputDialogRawConstructor.md` |
@@ -146,6 +143,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00024S` | 66 | 84 | 75.0 | `by-memory/0x00610ed8-0x006125a8.AboveFrameAndLocaleReadOnlyData.md` |
 | `00025Z` | 66 | 86 | 76.0 | `by-memory/0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData.md` |
 | `000234` | 66 | 88 | 77.0 | `by-memory/0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize.md` |
+| `000260` | 67 | 86 | 76.5 | `by-memory/0x00620284-0x00620c74.ObjectPaneReadOnlyData.md` |
+| `00025S` | 67 | 88 | 77.5 | `by-memory/0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData.md` |
 
 ## Low_Confidence
 
@@ -236,8 +235,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `00005M` | 66 | 82 | 74.0 | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |
-| `00009J` | 66 | 82 | 74.0 | `by-class/NumberArgsInputPane.md` |
-| `00009L` | 66 | 82 | 74.0 | `by-class/NumberInputPane.md` |
+| `00000Y` | 68 | 80 | 74.0 | `by-class/BlueAlertPane.md` |
+| `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
 
 ### by-external-research
 

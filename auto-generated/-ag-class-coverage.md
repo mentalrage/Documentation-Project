@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 191
+Total_Reconstructable: 193
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 104
+Total_Reconstructed_Assigned: 106
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 394
+Total_Unclassified: 392
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -75,6 +75,8 @@ Total_Error: 0
 | [UID:00009D][NewUserDialogPane](by-class/NewUserDialogPane.md) | assigned | `0000LV` |  | no | `auto-generated/NexusTK/login/NewUserDialogPane.cpp` | `by-class/NewUserDialogPane.md` |  |
 | [UID:00009E][NewUserDialogPane2](by-class/NewUserDialogPane2.md) | assigned | `0000LW` |  | no | `auto-generated/NexusTK/login/NewUserDialogPane2.cpp` | `by-class/NewUserDialogPane2.md` |  |
 | [UID:00009F][NewUserMiscDialogPane](by-class/NewUserMiscDialogPane.md) | assigned | `0000LX` |  | no | `auto-generated/NexusTK/login/NewUserMiscDialogPane.cpp` | `by-class/NewUserMiscDialogPane.md` |  |
+| [UID:00009J][NumberArgsInputPane](by-class/NumberArgsInputPane.md) | assigned | `0000K7` |  | no | `auto-generated/NexusTK/ui/dialogs/InputPanes.cpp` | `by-class/NumberArgsInputPane.md` |  |
+| [UID:00009L][NumberInputPane](by-class/NumberInputPane.md) | assigned | `0000K7` |  | no | `auto-generated/NexusTK/ui/dialogs/InputPanes.cpp` | `by-class/NumberInputPane.md` |  |
 | [UID:00009V][OptionPane](by-class/OptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-class/OptionPane.md` |  |
 | [UID:0000A5][ParcelIconPane](by-class/ParcelIconPane.md) | assigned | `0000MF` | 20 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/ParcelIconPane.md` |  |
 | [UID:0000A6][ParcelPane](by-class/ParcelPane.md) | assigned | `0000MF` | 10 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/ParcelPane.md` |  |
@@ -411,9 +413,7 @@ Total_Error: 0
 | [UID:00009G][NewUserShapeSelectControlPane](by-class/NewUserShapeSelectControlPane.md) | unclassified |  |  | no |  | `by-class/NewUserShapeSelectControlPane.md` |  |
 | [UID:00009H][NexonclubProxyDialog](by-class/NexonclubProxyDialog.md) | unclassified |  |  | no |  | `by-class/NexonclubProxyDialog.md` |  |
 | [UID:00009I][NexonclubRegistrationDialog](by-class/NexonclubRegistrationDialog.md) | unclassified |  |  | no |  | `by-class/NexonclubRegistrationDialog.md` |  |
-| [UID:00009J][NumberArgsInputPane](by-class/NumberArgsInputPane.md) | unclassified |  |  | no |  | `by-class/NumberArgsInputPane.md` |  |
 | [UID:00009K][NumberInputDialog](by-class/NumberInputDialog.md) | unclassified |  |  | no |  | `by-class/NumberInputDialog.md` |  |
-| [UID:00009L][NumberInputPane](by-class/NumberInputPane.md) | unclassified |  |  | no |  | `by-class/NumberInputPane.md` |  |
 | [UID:00009M][NumericStringControlPane](by-class/NumericStringControlPane.md) | unclassified |  |  | no |  | `by-class/NumericStringControlPane.md` |  |
 | [UID:00009N][ObjectImageButtonPane](by-class/ObjectImageButtonPane.md) | unclassified |  |  | no |  | `by-class/ObjectImageButtonPane.md` |  |
 | [UID:00009O][ObjectImageControlPane](by-class/ObjectImageControlPane.md) | unclassified |  |  | no |  | `by-class/ObjectImageControlPane.md` |  |
