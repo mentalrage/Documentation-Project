@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 08:28:50
+Generated: 2026-06-02 08:39:36
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -145,13 +145,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000CU` | 55 | 70 | 62.5 | `by-class/SelfLookPane.md` |
-| `0000NY` | 55 | 70 | 62.5 | `by-file/SpecializedButtonPanes.md` |
-| `0001KJ` | 55 | 70 | 62.5 | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |
 | `00001H` | 55 | 72 | 63.5 | `by-class/CashShopRequest.md` |
 | `0000I0` | 55 | 72 | 63.5 | `by-file/CashShopRequest.md` |
-| `0002KT` | 55 | 72 | 63.5 | `by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md` |
-| `0002I3` | 55 | 72 | 63.5 | `by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md` |
 | `0001HC` | 55 | 72 | 63.5 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
 | `0002EE` | 55 | 75 | 65.0 | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |
 | `0000ST` | 55 | 80 | 67.5 | `by-global/g_screenHeight.md` |
@@ -170,6 +165,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `0002G4` | 58 | 70 | 64.0 | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |
 | `0002KQ` | 58 | 70 | 64.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
+| `0001CP` | 58 | 70 | 64.0 | `by-memory/0x00528e60-0x0052a535.MusicControlDialog.md` |
+| `0002KD` | 58 | 70 | 64.0 | `by-memory/0x005465e0-0x0054660a.ParcelPaneOnKeyDown.md` |
+| `0002BG` | 58 | 72 | 65.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
+| `0002BQ` | 58 | 72 | 65.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
+| `0002BX` | 58 | 72 | 65.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
 
 ## Low_Confidence
 
@@ -206,9 +206,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
-| `0000CU` | 55 | 70 | 62.5 | `by-class/SelfLookPane.md` |
-| `0000NY` | 55 | 70 | 62.5 | `by-file/SpecializedButtonPanes.md` |
-| `0001KJ` | 55 | 70 | 62.5 | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |
 | `0000WX` | 60 | 65 | 62.5 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
 | `0001ZZ` | 60 | 65 | 62.5 | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |
 | `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
@@ -221,8 +218,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
 | `00001H` | 55 | 72 | 63.5 | `by-class/CashShopRequest.md` |
 | `0000I0` | 55 | 72 | 63.5 | `by-file/CashShopRequest.md` |
-| `0002KT` | 55 | 72 | 63.5 | `by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md` |
-| `0002I3` | 55 | 72 | 63.5 | `by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md` |
 | `0001HC` | 55 | 72 | 63.5 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
 | `00017A` | 56 | 72 | 64.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002G4` | 58 | 70 | 64.0 | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |
@@ -230,6 +225,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001CP` | 58 | 70 | 64.0 | `by-memory/0x00528e60-0x0052a535.MusicControlDialog.md` |
 | `0002KD` | 58 | 70 | 64.0 | `by-memory/0x005465e0-0x0054660a.ParcelPaneOnKeyDown.md` |
 | `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
+| `00003X` | 62 | 66 | 64.0 | `by-class/DirectionButtonControlPane.md` |
+| `0002EE` | 55 | 75 | 65.0 | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |
+| `0002BG` | 58 | 72 | 65.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
+| `0002BQ` | 58 | 72 | 65.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
+| `0002BX` | 58 | 72 | 65.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
 
 ## By Folder
 
@@ -238,7 +238,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
-| `0000CU` | 55 | 70 | 62.5 | `by-class/SelfLookPane.md` |
 | `00001H` | 55 | 72 | 63.5 | `by-class/CashShopRequest.md` |
 | `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
 | `00003X` | 62 | 66 | 64.0 | `by-class/DirectionButtonControlPane.md` |
@@ -262,6 +261,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000AE` | 68 | 72 | 70.0 | `by-class/PhoneBookListPane.md` |
 | `0000BX` | 68 | 72 | 70.0 | `by-class/RequestSyncGate.md` |
 | `00009F` | 72 | 68 | 70.0 | `by-class/NewUserMiscDialogPane.md` |
+| `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 
 ### by-external-research
 
@@ -271,7 +271,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000NY` | 55 | 70 | 62.5 | `by-file/SpecializedButtonPanes.md` |
 | `0000I0` | 55 | 72 | 63.5 | `by-file/CashShopRequest.md` |
 | `0000LX` | 68 | 62 | 65.0 | `by-file/NewUserMiscDialogPane.md` |
 | `0000MG` | 60 | 75 | 67.5 | `by-file/PasswordGuard.md` |
@@ -285,6 +284,7 @@ _No scored files._
 | `0000LW` | 74 | 72 | 73.0 | `by-file/NewUserDialogPane2.md` |
 | `0000KQ` | 76 | 70 | 73.0 | `by-file/LineIterator.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
+| `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
 | `0000LY` | 76 | 72 | 74.0 | `by-file/NewUserShapeSelectControlPane.md` |
 | `0000MP` | 76 | 72 | 74.0 | `by-file/PrettyButtonControlPane.md` |
 | `0000HL` | 68 | 82 | 75.0 | `by-file/AttachmentAnchorResolver.md` |
@@ -365,7 +365,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001KJ` | 55 | 70 | 62.5 | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |
 | `0000WX` | 60 | 65 | 62.5 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
 | `0001ZZ` | 60 | 65 | 62.5 | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |
 | `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
@@ -376,8 +375,6 @@ _No scored files._
 | `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
 | `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
 | `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
-| `0002KT` | 55 | 72 | 63.5 | `by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md` |
-| `0002I3` | 55 | 72 | 63.5 | `by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md` |
 | `0001HC` | 55 | 72 | 63.5 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
 | `00017A` | 56 | 72 | 64.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002G4` | 58 | 70 | 64.0 | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |
@@ -390,6 +387,9 @@ _No scored files._
 | `0002BX` | 58 | 72 | 65.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
 | `0002BZ` | 58 | 72 | 65.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
 | `0002C0` | 58 | 72 | 65.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
+| `0002C1` | 58 | 72 | 65.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
+| `0002C3` | 58 | 72 | 65.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
+| `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 
 ### by-meta
 

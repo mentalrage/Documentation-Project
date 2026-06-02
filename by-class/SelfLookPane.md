@@ -1,8 +1,8 @@
 *** UID:0000CU | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:55 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NL | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Likely source file: [UID:0000NL][SelfLookPane](by-file/SelfLookPane.md)
 - Main address range: [UID:0001H7][0x00565610-0x0056a373.SelfLookPane](by-memory/0x00565610-0x0056a373.SelfLookPane.md)
 - Current recovered file: `source-3/simroot_v2/class_SelfLookPane.cpp`
+- Autogen handling: attached to [UID:0000NL][SelfLookPane](by-file/SelfLookPane.md) because the file parent is `72/82` with projected path `NexusTK/ui/panels/` and this class is now above the 80% confidence attachment threshold. C++ remains blank because the class declaration, fields, and helper method names are not final-audit quality.
 
 ## Class Purpose
 
@@ -59,6 +60,16 @@
 
 - [UID:0002CG][g_selfLookLastHoverEquipmentSlotId](by-global/g_selfLookLastHoverEquipmentSlotId.md) at `0x0066fe40` caches the last hovered equipment slot id for the `OnMouseClick` / mouse-event timer path. It is initialized to `0xffff`, accepts only slot ids `7..20`, and is compared/updated inside `0x00568cb0-0x0056934a`.
 
+## Evidence Map
+
+| Evidence page | Score | Role |
+| --- | ---: | --- |
+| [UID:0000NL][SelfLookPane](by-file/SelfLookPane.md) | `72/82` | Source-file owner with `NexusTK/ui/panels/` placement, SelfLookPane/SelfLookPane2 grouping notes, child-pane caveats, and static-state ownership. |
+| [UID:0001H7][0x00565610-0x0056a373.SelfLookPane](by-memory/0x00565610-0x0056a373.SelfLookPane.md) | `72/82` | Main executable aggregate with exact modeled functions, raw helper bodies, jump-table spans, vtable writes, child-pane construction, and boundaries. |
+| [UID:00023V][0x0056a380-0x0056ba99.SelfLookPanePacketUpdateHelpers](by-memory/0x0056a380-0x0056ba99.SelfLookPanePacketUpdateHelpers.md) | `76/84` | Adjacent packet/update helper island split into exact child pages and attached to the same SelfLookPane file parent. |
+| [UID:0001Y0][LookPaneVtableFamily](by-type/by-vtable/LookPaneVtableFamily.md) | `80/87` | IDA-verified SelfLookPane/SpelledPane/LegendPane/SelfLookPane2 vtable family and store-xref evidence. |
+| [UID:0002CG][g_selfLookLastHoverEquipmentSlotId](by-global/g_selfLookLastHoverEquipmentSlotId.md) | linked | File/static state tied by xrefs only to the SelfLookPane hover-slot branch. |
+
 ## Evidence Notes
 
 - Wave3 reports `SelfLookPane` grade `98.3` and zero missing refs.
@@ -66,6 +77,15 @@
 - IDA confirms the unmodeled destructor helper at `0x005657e0`, child refresh helper at `0x005671e0`, and packet/event handler at `0x005693d0`.
 - 2026-05-28 IDA MCP resolved the former UNKNOWN gap after `HitTestSlot`: `0x0056a380-0x0056ba99` is real packet/update helper code tied to this class, while the boundary bytes are padding.
 - 2026-05-30 IDA MCP xrefs show the only references to `word_66FE40` are the compare/write pair in the `SelfLookPane` hover-slot timer branch at `0x005692c7` and `0x00569310`.
+- 2026-06-01 IDA MCP work in the main executable aggregate records raw non-IDA bodies, switch/jump table spans, constructor/destructor vtable writes, and child `SpelledPane` / `LegendPane` construction refs for the class.
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 76 | The class page now covers responsibility, method inventory, child panes, static state, file owner, main executable ranges, packet helper island, and vtable evidence. It remains below high completion because final class fields, helper names, and exact method child pages are not all finished. |
+| Confidence | 84 | IDA-backed memory, vtable, constructor, helper-island, and global-state pages strongly support class ownership and file placement. Confidence is capped by unresolved generated helper names and source-shape questions around shared child panes. |
+| Reconstructable | true | The class is source-authored UI panel code and should be rebuilt, but final C++ is intentionally blank until the declaration and attached methods reach the 95+ gate. |
 
 ## Cross-References
 
@@ -88,3 +108,4 @@
   - Before: the class page did not identify the `0x0066fe40` state used by `OnMouseClick`.
   - After: the class page records the state as SelfLookPane-owned hover equipment-slot cache and links the global/memory pages.
   - Evidence: IDA MCP xrefs to `word_66FE40` are limited to `0x005692c7` and `0x00569310`, both inside `SelfLookPane::OnMouseClick` / mouse-event handling.
+- 2026-06-02: Raised from `55/70` to `76/84`, marked reconstructable, and attached to [UID:0000NL][SelfLookPane](by-file/SelfLookPane.md) after consolidating the already-validated file, main memory aggregate, packet/update island, vtable-family, and hover-slot global evidence. C++ remains blank under the 95+ reconstruction gate.

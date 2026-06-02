@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1084
+Total_Reconstructable: 1085
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 549
+Total_Reconstructed_Assigned: 550
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 535
-Total_Unclassified: 1041
+Total_Unclassified: 1040
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -231,6 +231,7 @@ Total_Error: 0
 | [UID:0002QE][0x004fee40-0x004ff03f.HandlePasswordChangeReplySimple](by-memory/0x004fee40-0x004ff03f.HandlePasswordChangeReplySimple.md) | assigned | `0000I3` |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-memory/0x004fee40-0x004ff03f.HandlePasswordChangeReplySimple.md` |  |
 | [UID:00019Y][0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore](by-memory/0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore.md) | assigned | `0000NH` |  | no | `auto-generated/NexusTK/ui/controls/ScrolledPictureControlPane.cpp` | `by-memory/0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore.md` |  |
 | [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md) | assigned | `0000HP` |  | no | `auto-generated/NexusTK/login/BackStoryDialogPane.cpp` | `by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md` |  |
+| [UID:0002I3][0x00503ed0-0x00503eef.MapPaneResetEffectListFields](by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md` |  |
 | [UID:0001AP][0x00503ef0-0x0050637a.MapPaneWeatherCoordinateObjectCore](by-memory/0x00503ef0-0x0050637a.MapPaneWeatherCoordinateObjectCore.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00503ef0-0x0050637a.MapPaneWeatherCoordinateObjectCore.md` |  |
 | [UID:0002QF][0x00504530-0x005046c6.MapPaneCleanup](by-memory/0x00504530-0x005046c6.MapPaneCleanup.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00504530-0x005046c6.MapPaneCleanup.md` |  |
 | [UID:0002QH][0x005047f0-0x00504b6b.MapPaneExitToMenuTeardown](by-memory/0x005047f0-0x00504b6b.MapPaneExitToMenuTeardown.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x005047f0-0x00504b6b.MapPaneExitToMenuTeardown.md` |  |
@@ -835,7 +836,6 @@ Total_Error: 0
 | [UID:0002I0][0x00503d10-0x00503e77.GameServerConfigParseNationEntries](by-memory/0x00503d10-0x00503e77.GameServerConfigParseNationEntries.md) | unassigned |  |  | no |  | `by-memory/0x00503d10-0x00503e77.GameServerConfigParseNationEntries.md` |  |
 | [UID:0002I1][0x00503e80-0x00503e8b.MapPaneHasEffectListEntries](by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md) | unassigned |  |  | no |  | `by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md` |  |
 | [UID:0002I2][0x00503e90-0x00503ecd.MapPaneFindActiveEffect](by-memory/0x00503e90-0x00503ecd.MapPaneFindActiveEffect.md) | unassigned |  |  | no |  | `by-memory/0x00503e90-0x00503ecd.MapPaneFindActiveEffect.md` |  |
-| [UID:0002I3][0x00503ed0-0x00503eef.MapPaneResetEffectListFields](by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md) | unassigned |  |  | no |  | `by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md` |  |
 | [UID:0002I4][0x00503ef0-0x0050408d.MapPaneConfigureEffectList](by-memory/0x00503ef0-0x0050408d.MapPaneConfigureEffectList.md) | unassigned |  |  | no |  | `by-memory/0x00503ef0-0x0050408d.MapPaneConfigureEffectList.md` |  |
 | [UID:0002I6][0x005040a0-0x00504102.MapPaneClearEffectList](by-memory/0x005040a0-0x00504102.MapPaneClearEffectList.md) | unassigned |  |  | no |  | `by-memory/0x005040a0-0x00504102.MapPaneClearEffectList.md` |  |
 | [UID:0002I7][0x00504110-0x00504521.MapPaneInitialize](by-memory/0x00504110-0x00504521.MapPaneInitialize.md) | unassigned |  |  | no |  | `by-memory/0x00504110-0x00504521.MapPaneInitialize.md` |  |
@@ -975,6 +975,7 @@ Total_Error: 0
 | [UID:0002L6][0x00598290-0x00598471.TimerMgrTimerQueueSpliceTimerRange](by-memory/0x00598290-0x00598471.TimerMgrTimerQueueSpliceTimerRange.md) | unassigned |  |  | no |  | `by-memory/0x00598290-0x00598471.TimerMgrTimerQueueSpliceTimerRange.md` |  |
 | [UID:0002L7][0x00598480-0x005986d9.TimerMgrTimerQueueInsertTimer](by-memory/0x00598480-0x005986d9.TimerMgrTimerQueueInsertTimer.md) | unassigned |  |  | no |  | `by-memory/0x00598480-0x005986d9.TimerMgrTimerQueueInsertTimer.md` |  |
 | [UID:0001KB][0x005986e0-0x00598cbe.TimerPane](by-memory/0x005986e0-0x00598cbe.TimerPane.md) | unassigned |  |  | no |  | `by-memory/0x005986e0-0x00598cbe.TimerPane.md` |  |
+| [UID:0001KJ][0x0059ded0-0x0059f0a4.CheckBoxTextControlPane](by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md) | unassigned |  |  | no |  | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |  |
 | [UID:0001KO][0x005a4b60-0x005a5791.SayModeHelpers](by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md) | unassigned |  |  | no |  | `by-memory/0x005a4b60-0x005a5791.SayModeHelpers.md` |  |
 | [UID:0001NM][0x005b83b0-0x005baafe.UserStatusPane](by-memory/0x005b83b0-0x005baafe.UserStatusPane.md) | unassigned |  |  | no |  | `by-memory/0x005b83b0-0x005baafe.UserStatusPane.md` |  |
 | [UID:0001NN][0x005b85b0-0x005b86ca.UserStatusPaneSummaryAccessors](by-memory/0x005b85b0-0x005b86ca.UserStatusPaneSummaryAccessors.md) | unassigned |  |  | no |  | `by-memory/0x005b85b0-0x005b86ca.UserStatusPaneSummaryAccessors.md` |  |
@@ -1833,7 +1834,6 @@ Total_Error: 0
 | [UID:000249][0x00599440-0x005995a7.PlatformStringConversionHelpers](by-memory/0x00599440-0x005995a7.PlatformStringConversionHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00599440-0x005995a7.PlatformStringConversionHelpers.md` |  |
 | [UID:0001KF][0x00599a40-0x00599cb3.UrlAlertPane](by-memory/0x00599a40-0x00599cb3.UrlAlertPane.md) | unclassified |  |  | no |  | `by-memory/0x00599a40-0x00599cb3.UrlAlertPane.md` |  |
 | [UID:0001KH][0x0059bc2d-0x0059bc43.UserInfoDialogPaneAdjustorThunks](by-memory/0x0059bc2d-0x0059bc43.UserInfoDialogPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0059bc2d-0x0059bc43.UserInfoDialogPaneAdjustorThunks.md` |  |
-| [UID:0001KJ][0x0059ded0-0x0059f0a4.CheckBoxTextControlPane](by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md) | unclassified |  |  | no |  | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |  |
 | [UID:0001KK][0x0059f260-0x005a2523.UserLookPaneAndProfilePanes](by-memory/0x0059f260-0x005a2523.UserLookPaneAndProfilePanes.md) | unclassified |  |  | no |  | `by-memory/0x0059f260-0x005a2523.UserLookPaneAndProfilePanes.md` |  |
 | [UID:0001KN][0x005a3e30-0x005a3ff3.UseInventorySlotDispatch](by-memory/0x005a3e30-0x005a3ff3.UseInventorySlotDispatch.md) | unclassified |  |  | no |  | `by-memory/0x005a3e30-0x005a3ff3.UseInventorySlotDispatch.md` |  |
 | [UID:0001KP][0x005a94b0-0x005a95d2.QuitPromptLauncher](by-memory/0x005a94b0-0x005a95d2.QuitPromptLauncher.md) | unclassified |  |  | no |  | `by-memory/0x005a94b0-0x005a95d2.QuitPromptLauncher.md` |  |
