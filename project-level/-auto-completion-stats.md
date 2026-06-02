@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 00:10:18
+Generated: 2026-06-02 00:19:14
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -164,12 +164,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000P8` | blank | `(blank)` | `by-file/WeatherLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-
 ## Low_Completion
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
 | `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
@@ -194,6 +192,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001L8` | 50 | 65 | 57.5 | `by-memory/0x005af390-0x005b050d.TargetSelectionInputPanes.md` |
 | `0001L9` | 50 | 65 | 57.5 | `by-memory/0x005af4f0-0x005af57b.SendTargetedActionPacket.md` |
 | `0001LA` | 50 | 65 | 57.5 | `by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md` |
+| `0001LZ` | 50 | 65 | 57.5 | `by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md` |
 
 ## Low_Confidence
 
@@ -204,7 +203,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
 | `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
@@ -224,12 +222,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001KQ` | 50 | 65 | 57.5 | `by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md` |
 | `0001KS` | 50 | 65 | 57.5 | `by-memory/0x005adcc0-0x005add8a.QuitInputPaneCore.md` |
 | `0001KY` | 50 | 65 | 57.5 | `by-memory/0x005ae2a0-0x005aeb1f.SpellWhoInputPane.md` |
+| `0001L4` | 50 | 65 | 57.5 | `by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
 | `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
@@ -254,6 +252,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001L8` | 50 | 65 | 57.5 | `by-memory/0x005af390-0x005b050d.TargetSelectionInputPanes.md` |
 | `0001L9` | 50 | 65 | 57.5 | `by-memory/0x005af4f0-0x005af57b.SendTargetedActionPacket.md` |
 | `0001LA` | 50 | 65 | 57.5 | `by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md` |
+| `0001LZ` | 50 | 65 | 57.5 | `by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md` |
 
 ## By Folder
 
@@ -389,7 +388,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JX` | 50 | 65 | 57.5 | `by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md` |
 | `0001JY` | 50 | 65 | 57.5 | `by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md` |
 | `0001JZ` | 50 | 65 | 57.5 | `by-memory/0x005967d0-0x005967e5.SocketThreadEvent.md` |
 | `0001K0` | 50 | 65 | 57.5 | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |
@@ -414,6 +412,7 @@ _No scored files._
 | `0001L8` | 50 | 65 | 57.5 | `by-memory/0x005af390-0x005b050d.TargetSelectionInputPanes.md` |
 | `0001L9` | 50 | 65 | 57.5 | `by-memory/0x005af4f0-0x005af57b.SendTargetedActionPacket.md` |
 | `0001LA` | 50 | 65 | 57.5 | `by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md` |
+| `0001LZ` | 50 | 65 | 57.5 | `by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md` |
 
 ### by-meta
 
