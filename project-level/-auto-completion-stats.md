@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 08:55:31
+Generated: 2026-06-02 09:03:08
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -144,13 +144,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00020T` | 55 | 85 | 70.0 | `by-memory/0x0046a3d0-0x0046a505.BrowserWindowDocHostUiHandlerStubs.md` |
-| `00020V` | 55 | 85 | 70.0 | `by-memory/0x0046a630-0x0046a6ea.BrowserWindowHostWndProc.md` |
-| `00020X` | 55 | 85 | 70.0 | `by-memory/0x0046ad10-0x0046b51d.BrowserDialogPaneVirtuals.md` |
-| `00020Y` | 55 | 85 | 70.0 | `by-memory/0x0046d330-0x0046d475.WebBoardDialogVirtualCompanions.md` |
-| `000212` | 55 | 85 | 70.0 | `by-memory/0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks.md` |
-| `000216` | 55 | 85 | 70.0 | `by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md` |
-| `00029T` | 55 | 85 | 70.0 | `by-memory/0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString.md` |
 | `00017A` | 56 | 72 | 64.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `00017C` | 56 | 78 | 67.0 | `by-memory/0x004dac40-0x004e685f.MonsterImageLib.md` |
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
@@ -169,6 +162,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000ZL` | 58 | 76 | 67.0 | `by-memory/0x004777a0-0x00478f8d.NewPredefinedFormArticleDialog.md` |
 | `00017R` | 58 | 78 | 68.0 | `by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md` |
 | `0002HW` | 58 | 78 | 68.0 | `by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md` |
+| `0002JH` | 58 | 78 | 68.0 | `by-memory/0x00516f80-0x00516f8d.MenuItemSetStateFlag0.md` |
+| `0002JI` | 58 | 78 | 68.0 | `by-memory/0x00516fa0-0x00516fad.MenuItemSetStateFlag1.md` |
+| `0002J4` | 58 | 80 | 69.0 | `by-memory/0x00516f70-0x00516f74.MenuItemStateFlag0Accessor.md` |
+| `0002I1` | 58 | 82 | 70.0 | `by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md` |
+| `0001Z5` | 58 | 88 | 73.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
+| `0000WX` | 60 | 65 | 62.5 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
+| `0001ZZ` | 60 | 65 | 62.5 | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |
 
 ## Low_Confidence
 
