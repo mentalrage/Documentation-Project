@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 14:58:53
+Generated: 2026-06-02 15:06:43
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -124,8 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002C8` | 65 | 80 | 72.5 | `by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md` |
-| `0001AO` | 65 | 82 | 73.5 | `by-memory/0x005039f0-0x00504521.GameServerNationAndMapInit.md` |
 | `0001RH` | 65 | 82 | 73.5 | `by-resource/meta-dat-metadata-cache.md` |
 | `0002GO` | 65 | 85 | 75.0 | `by-memory/0x004651e0-0x004651e7.ApplicationIsRunning.md` |
 | `00020R` | 65 | 85 | 75.0 | `by-memory/0x00469050-0x0046907a.ObjectPaneClearOutputRects.md` |
@@ -149,6 +147,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000261` | 65 | 85 | 75.0 | `by-memory/0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData.md` |
 | `00026J` | 65 | 85 | 75.0 | `by-memory/0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData.md` |
 | `00026X` | 65 | 85 | 75.0 | `by-memory/0x006307f4-0x00630bd8.UserPaneInputStrings.md` |
+| `000276` | 65 | 85 | 75.0 | `by-memory/0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks.md` |
+| `000278` | 65 | 85 | 75.0 | `by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md` |
 
 ## Low_Confidence
 
@@ -365,10 +365,10 @@ _No scored files._
 | `0002C0` | 68 | 76 | 72.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
 | `0002C1` | 68 | 76 | 72.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
 | `0002C3` | 68 | 76 | 72.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
-| `0002C8` | 65 | 80 | 72.5 | `by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md` |
 | `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
 | `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
 | `0002BJ` | 66 | 80 | 73.0 | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |
+| `0002BN` | 66 | 80 | 73.0 | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |
 
 ### by-meta
 

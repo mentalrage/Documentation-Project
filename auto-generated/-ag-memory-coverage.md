@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1182
+Total_Reconstructable: 1183
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 660
 Total_Reconstructed_Coded: 19
-Total_Reconstructable_Unassigned: 522
-Total_Unclassified: 947
+Total_Reconstructable_Unassigned: 523
+Total_Unclassified: 946
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -966,6 +966,7 @@ Total_Error: 0
 | [UID:0002JS][0x00530ee0-0x0053125d.ObjectListConstructor](by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md` |  |
 | [UID:0001D1][0x00530ee0-0x00531473.ObjectListLifecycle](by-memory/0x00530ee0-0x00531473.ObjectListLifecycle.md) | unassigned |  |  | no |  | `by-memory/0x00530ee0-0x00531473.ObjectListLifecycle.md` |  |
 | [UID:0002JT][0x00531260-0x00531473.ObjectListDestructor](by-memory/0x00531260-0x00531473.ObjectListDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00531260-0x00531473.ObjectListDestructor.md` |  |
+| [UID:0002C8][0x00531480-0x00531498.ObjectListOriginInitializedCheck](by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md) | unassigned |  |  | no |  | `by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md` |  |
 | [UID:0002CE][0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper](by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md) | unassigned |  |  | no |  | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |  |
 | [UID:0002QW][0x00539bc0-0x00539d43.MotionAnimationConstructor](by-memory/0x00539bc0-0x00539d43.MotionAnimationConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00539bc0-0x00539d43.MotionAnimationConstructor.md` |  |
 | [UID:0001DD][0x00539bc0-0x0053d614.MotionAnimation](by-memory/0x00539bc0-0x0053d614.MotionAnimation.md) | unassigned |  |  | no |  | `by-memory/0x00539bc0-0x0053d614.MotionAnimation.md` |  |
@@ -1719,7 +1720,6 @@ Total_Error: 0
 | [UID:0001CU][0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers](by-memory/0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers.md` |  |
 | [UID:0001CZ][0x00530c78-0x00530c8e.NumberInputDialogAdjustorThunks](by-memory/0x00530c78-0x00530c8e.NumberInputDialogAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x00530c78-0x00530c8e.NumberInputDialogAdjustorThunks.md` |  |
 | [UID:00023D][0x00530d00-0x00530ed9.ObjectListRemoveByObjectIdHelper](by-memory/0x00530d00-0x00530ed9.ObjectListRemoveByObjectIdHelper.md) | unclassified |  |  | no |  | `by-memory/0x00530d00-0x00530ed9.ObjectListRemoveByObjectIdHelper.md` |  |
-| [UID:0002C8][0x00531480-0x00531498.ObjectListOriginInitializedCheck](by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md) | unclassified |  |  | no |  | `by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md` |  |
 | [UID:00023E][0x00531480-0x00532530.ObjectListCategorizeLookupHelpers](by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md` |  |
 | [UID:0002C9][0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize](by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md) | unclassified |  |  | no |  | `by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md` |  |
 | [UID:0002CA][0x00531c10-0x00532180.ObjectListTypeDispatchRemove](by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md) | unclassified |  |  | no |  | `by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md` |  |
