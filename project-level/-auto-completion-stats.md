@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 07:32:54
+Generated: 2026-06-02 07:35:16
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -150,10 +150,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
-| `00020F` | 50 | 85 | 67.5 | `by-memory/0x00460fa0-0x00460ffe.ByteSpanFill8Blocks.md` |
-| `00020G` | 50 | 85 | 67.5 | `by-memory/0x00461000-0x0046104b.ByteSpanCopy8Blocks.md` |
-| `00020H` | 50 | 85 | 67.5 | `by-memory/0x00461050-0x0046109e.ByteSpanAdd8Blocks.md` |
-| `00020I` | 50 | 85 | 67.5 | `by-memory/0x004610a0-0x004610ee.ByteSpanSubtract8Blocks.md` |
 | `000215` | 50 | 85 | 67.5 | `by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md` |
 | `00022V` | 50 | 85 | 67.5 | `by-memory/0x004f5b20-0x004f5c73.MapiSendMailHelper.md` |
 | `000237` | 50 | 85 | 67.5 | `by-memory/0x00515f50-0x00515ff2.MD5EndianEncodeDecodeHelpers.md` |
@@ -173,6 +169,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000223` | 55 | 65 | 60.0 | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |
 | `000141` | 55 | 65 | 60.0 | `by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md` |
 | `00022C` | 55 | 65 | 60.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
+| `0002HY` | 55 | 65 | 60.0 | `by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md` |
+| `00023F` | 55 | 65 | 60.0 | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |
+| `000272` | 55 | 65 | 60.0 | `by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md` |
+| `000279` | 55 | 65 | 60.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
 
 ## Low_Confidence
 

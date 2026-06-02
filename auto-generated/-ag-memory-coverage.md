@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1056
+Total_Reconstructable: 1060
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 523
+Total_Reconstructed_Assigned: 527
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 533
-Total_Unclassified: 1069
+Total_Unclassified: 1065
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -42,6 +42,10 @@ Total_Error: 0
 | [UID:00020C][0x00460df0-0x00460e79.ByteSpanCopyRows](by-memory/0x00460df0-0x00460e79.ByteSpanCopyRows.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00460df0-0x00460e79.ByteSpanCopyRows.md` |  |
 | [UID:00020D][0x00460e80-0x00460f09.ByteSpanAddRows](by-memory/0x00460e80-0x00460f09.ByteSpanAddRows.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00460e80-0x00460f09.ByteSpanAddRows.md` |  |
 | [UID:00020E][0x00460f10-0x00460f99.ByteSpanSubtractRows](by-memory/0x00460f10-0x00460f99.ByteSpanSubtractRows.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00460f10-0x00460f99.ByteSpanSubtractRows.md` |  |
+| [UID:00020F][0x00460fa0-0x00460ffe.ByteSpanFill8Blocks](by-memory/0x00460fa0-0x00460ffe.ByteSpanFill8Blocks.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00460fa0-0x00460ffe.ByteSpanFill8Blocks.md` |  |
+| [UID:00020G][0x00461000-0x0046104b.ByteSpanCopy8Blocks](by-memory/0x00461000-0x0046104b.ByteSpanCopy8Blocks.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00461000-0x0046104b.ByteSpanCopy8Blocks.md` |  |
+| [UID:00020H][0x00461050-0x0046109e.ByteSpanAdd8Blocks](by-memory/0x00461050-0x0046109e.ByteSpanAdd8Blocks.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00461050-0x0046109e.ByteSpanAdd8Blocks.md` |  |
+| [UID:00020I][0x004610a0-0x004610ee.ByteSpanSubtract8Blocks](by-memory/0x004610a0-0x004610ee.ByteSpanSubtract8Blocks.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x004610a0-0x004610ee.ByteSpanSubtract8Blocks.md` |  |
 | [UID:00020L][0x00461790-0x0046189b.AesCbcEncryptRaw](by-memory/0x00461790-0x0046189b.AesCbcEncryptRaw.md) | assigned | `00020J` | 10 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00461790-0x0046189b.AesCbcEncryptRaw.md` |  |
 | [UID:00020M][0x004618a0-0x004619b8.AesCbcDecryptRaw](by-memory/0x004618a0-0x004619b8.AesCbcDecryptRaw.md) | assigned | `00020J` | 20 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x004618a0-0x004619b8.AesCbcDecryptRaw.md` |  |
 | [UID:00020N][0x004619c0-0x00461c07.AesEncryptBlock](by-memory/0x004619c0-0x00461c07.AesEncryptBlock.md) | assigned | `00020J` | 30 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x004619c0-0x00461c07.AesEncryptBlock.md` |  |
@@ -1262,10 +1266,6 @@ Total_Error: 0
 | [UID:0000YF][0x00460b00-0x00460c0a.AlphaBlendSpan16Blocks](by-memory/0x00460b00-0x00460c0a.AlphaBlendSpan16Blocks.md) | unclassified |  |  | no |  | `by-memory/0x00460b00-0x00460c0a.AlphaBlendSpan16Blocks.md` |  |
 | [UID:0000YG][0x00460c10-0x00460c8c.HalfBlendSpan16Blocks](by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md) | unclassified |  |  | no |  | `by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md` |  |
 | [UID:00020B][0x00460d60-0x00460dee.ByteSpanFillRows](by-memory/0x00460d60-0x00460dee.ByteSpanFillRows.md) | unclassified |  |  | no |  | `by-memory/0x00460d60-0x00460dee.ByteSpanFillRows.md` |  |
-| [UID:00020F][0x00460fa0-0x00460ffe.ByteSpanFill8Blocks](by-memory/0x00460fa0-0x00460ffe.ByteSpanFill8Blocks.md) | unclassified |  |  | no |  | `by-memory/0x00460fa0-0x00460ffe.ByteSpanFill8Blocks.md` |  |
-| [UID:00020G][0x00461000-0x0046104b.ByteSpanCopy8Blocks](by-memory/0x00461000-0x0046104b.ByteSpanCopy8Blocks.md) | unclassified |  |  | no |  | `by-memory/0x00461000-0x0046104b.ByteSpanCopy8Blocks.md` |  |
-| [UID:00020H][0x00461050-0x0046109e.ByteSpanAdd8Blocks](by-memory/0x00461050-0x0046109e.ByteSpanAdd8Blocks.md) | unclassified |  |  | no |  | `by-memory/0x00461050-0x0046109e.ByteSpanAdd8Blocks.md` |  |
-| [UID:00020I][0x004610a0-0x004610ee.ByteSpanSubtract8Blocks](by-memory/0x004610a0-0x004610ee.ByteSpanSubtract8Blocks.md) | unclassified |  |  | no |  | `by-memory/0x004610a0-0x004610ee.ByteSpanSubtract8Blocks.md` |  |
 | [UID:0000YH][0x004610f0-0x0046178a.AboveFrame](by-memory/0x004610f0-0x0046178a.AboveFrame.md) | unclassified |  |  | no |  | `by-memory/0x004610f0-0x0046178a.AboveFrame.md` |  |
 | [UID:0000YI][0x004615b0-0x00461657.AboveFrameRefreshHelpers](by-memory/0x004615b0-0x00461657.AboveFrameRefreshHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004615b0-0x00461657.AboveFrameRefreshHelpers.md` |  |
 | [UID:0000YJ][0x004616c8-0x004616de.AboveFrameAdjustorThunks](by-memory/0x004616c8-0x004616de.AboveFrameAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004616c8-0x004616de.AboveFrameAdjustorThunks.md` |  |
