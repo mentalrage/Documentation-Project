@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 13:39:25
+Generated: 2026-06-02 13:43:08
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -127,7 +127,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00014U` | 62 | 82 | 72.0 | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |
 | `0001SM` | 62 | 82 | 72.0 | `by-type/by-enum/BrowserOverlayStyle.md` |
 | `0001X4` | 62 | 82 | 72.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
 | `00020L` | 62 | 86 | 74.0 | `by-memory/0x00461790-0x0046189b.AesCbcEncryptRaw.md` |
@@ -152,6 +151,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
 | `0000ZM` | 64 | 80 | 72.0 | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |
 | `0002P7` | 64 | 82 | 73.0 | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |
+| `0002PA` | 64 | 82 | 73.0 | `by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md` |
 
 ## Low_Confidence
 
@@ -211,7 +211,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 | `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
-| `00014U` | 62 | 82 | 72.0 | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |
+| `0001SM` | 62 | 82 | 72.0 | `by-type/by-enum/BrowserOverlayStyle.md` |
 
 ## By Folder
 
@@ -362,7 +362,6 @@ _No scored files._
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
-| `00014U` | 62 | 82 | 72.0 | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |
 | `0000ZM` | 64 | 80 | 72.0 | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |
 | `0002G1` | 66 | 78 | 72.0 | `by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md` |
 | `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
@@ -372,6 +371,7 @@ _No scored files._
 | `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
 | `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
 | `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
+| `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
 
 ### by-meta
 

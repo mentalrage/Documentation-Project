@@ -5,9 +5,9 @@
 Total_Type: 2138
 Total_Reconstructable: 1174
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 629
+Total_Reconstructed_Assigned: 633
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 545
+Total_Reconstructable_Unassigned: 541
 Total_Unclassified: 953
 Total_Error: 0
 
@@ -151,6 +151,10 @@ Total_Error: 0
 | [UID:00014Q][0x004ae060-0x004ae0a3.ExchangeItemListPaneRawConstructor](by-memory/0x004ae060-0x004ae0a3.ExchangeItemListPaneRawConstructor.md) | assigned | `0000J9` |  | no | `auto-generated/NexusTK/ui/dialogs/ExchangeDialog.cpp` | `by-memory/0x004ae060-0x004ae0a3.ExchangeItemListPaneRawConstructor.md` |  |
 | [UID:00014R][0x004ae0b0-0x004ae166.ExchangeItemListPaneRawUpsertHelper](by-memory/0x004ae0b0-0x004ae166.ExchangeItemListPaneRawUpsertHelper.md) | assigned | `0000J9` |  | no | `auto-generated/NexusTK/ui/dialogs/ExchangeDialog.cpp` | `by-memory/0x004ae0b0-0x004ae166.ExchangeItemListPaneRawUpsertHelper.md` |  |
 | [UID:00014S][0x004ae170-0x004ae1ab.ExchangeItemListPaneRawFindHelper](by-memory/0x004ae170-0x004ae1ab.ExchangeItemListPaneRawFindHelper.md) | assigned | `0000J9` |  | no | `auto-generated/NexusTK/ui/dialogs/ExchangeDialog.cpp` | `by-memory/0x004ae170-0x004ae1ab.ExchangeItemListPaneRawFindHelper.md` |  |
+| [UID:0002JO][0x004aeb30-0x004aec77.MyItemListPaneConstructor](by-memory/0x004aeb30-0x004aec77.MyItemListPaneConstructor.md) | assigned | `0000LO` |  | no | `auto-generated/NexusTK/ui/dialogs/MyItemListPane.cpp` | `by-memory/0x004aeb30-0x004aec77.MyItemListPaneConstructor.md` |  |
+| [UID:00014U][0x004aeb30-0x004af031.MyItemListPane](by-memory/0x004aeb30-0x004af031.MyItemListPane.md) | assigned | `0000LO` |  | no | `auto-generated/NexusTK/ui/dialogs/MyItemListPane.cpp` | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |  |
+| [UID:0002JP][0x004aec80-0x004aec8e.MyItemListPaneGetSelectedSlotIndex](by-memory/0x004aec80-0x004aec8e.MyItemListPaneGetSelectedSlotIndex.md) | assigned | `0000LO` |  | no | `auto-generated/NexusTK/ui/dialogs/MyItemListPane.cpp` | `by-memory/0x004aec80-0x004aec8e.MyItemListPaneGetSelectedSlotIndex.md` |  |
+| [UID:0002JQ][0x004aec90-0x004af031.MyItemListPaneDrawListEntry](by-memory/0x004aec90-0x004af031.MyItemListPaneDrawListEntry.md) | assigned | `0000LO` |  | no | `auto-generated/NexusTK/ui/dialogs/MyItemListPane.cpp` | `by-memory/0x004aec90-0x004af031.MyItemListPaneDrawListEntry.md` |  |
 | [UID:00014W][0x004b0880-0x004b08a1.MixItemDialogDoubleParamCallback](by-memory/0x004b0880-0x004b08a1.MixItemDialogDoubleParamCallback.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-memory/0x004b0880-0x004b08a1.MixItemDialogDoubleParamCallback.md` |  |
 | [UID:00014Z][0x004b0bb0-0x004b129b.FieldMapPane](by-memory/0x004b0bb0-0x004b129b.FieldMapPane.md) | assigned | `0000JA` |  | no | `auto-generated/NexusTK/map/FieldMapPane.cpp` | `by-memory/0x004b0bb0-0x004b129b.FieldMapPane.md` |  |
 | [UID:000150][0x004b1130-0x004b119a.FieldMapRectHelper](by-memory/0x004b1130-0x004b119a.FieldMapRectHelper.md) | assigned | `0000JA` |  | no | `auto-generated/NexusTK/map/FieldMapPane.cpp` | `by-memory/0x004b1130-0x004b119a.FieldMapRectHelper.md` |  |
@@ -796,10 +800,6 @@ Total_Error: 0
 | [UID:000147][0x004a7d00-0x004a7d42.EventDispatcherHandlerListDestructor](by-memory/0x004a7d00-0x004a7d42.EventDispatcherHandlerListDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004a7d00-0x004a7d42.EventDispatcherHandlerListDestructor.md` |  |
 | [UID:000148][0x004a87a0-0x004a8810.EventDispatcherHandlerRecordVectorFree](by-memory/0x004a87a0-0x004a8810.EventDispatcherHandlerRecordVectorFree.md) | unassigned |  |  | no |  | `by-memory/0x004a87a0-0x004a8810.EventDispatcherHandlerRecordVectorFree.md` |  |
 | [UID:000149][0x004a88e0-0x004a8966.DequePushBack](by-memory/0x004a88e0-0x004a8966.DequePushBack.md) | unassigned |  |  | no |  | `by-memory/0x004a88e0-0x004a8966.DequePushBack.md` |  |
-| [UID:0002JO][0x004aeb30-0x004aec77.MyItemListPaneConstructor](by-memory/0x004aeb30-0x004aec77.MyItemListPaneConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004aeb30-0x004aec77.MyItemListPaneConstructor.md` |  |
-| [UID:00014U][0x004aeb30-0x004af031.MyItemListPane](by-memory/0x004aeb30-0x004af031.MyItemListPane.md) | unassigned |  |  | no |  | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |  |
-| [UID:0002JP][0x004aec80-0x004aec8e.MyItemListPaneGetSelectedSlotIndex](by-memory/0x004aec80-0x004aec8e.MyItemListPaneGetSelectedSlotIndex.md) | unassigned |  |  | no |  | `by-memory/0x004aec80-0x004aec8e.MyItemListPaneGetSelectedSlotIndex.md` |  |
-| [UID:0002JQ][0x004aec90-0x004af031.MyItemListPaneDrawListEntry](by-memory/0x004aec90-0x004af031.MyItemListPaneDrawListEntry.md) | unassigned |  |  | no |  | `by-memory/0x004aec90-0x004af031.MyItemListPaneDrawListEntry.md` |  |
 | [UID:00022C][0x004b12a0-0x004b13ce.VirtualReadableStringHelpers](by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md) | unassigned |  |  | no |  | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |  |
 | [UID:000157][0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers](by-memory/0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers.md) | unassigned |  |  | no |  | `by-memory/0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers.md` |  |
 | [UID:0002MV][0x004b3d50-0x004b3fa4.FolderTreeStorageInsertAt](by-memory/0x004b3d50-0x004b3fa4.FolderTreeStorageInsertAt.md) | unassigned |  |  | no |  | `by-memory/0x004b3d50-0x004b3fa4.FolderTreeStorageInsertAt.md` |  |
