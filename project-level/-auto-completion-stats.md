@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-01 23:24:33
+Generated: 2026-06-01 23:29:30
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -120,7 +120,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000ME` | blank | `(blank)` | `by-file/PanelPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MG` | blank | `(blank)` | `by-file/PasswordGuard.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MI` | blank | `(blank)` | `by-file/PathUtil.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000MJ` | blank | `(blank)` | `by-file/PhoneBookDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000ML` | blank | `(blank)` | `by-file/PlatformApi.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MN` | blank | `(blank)` | `by-file/PopupMenuControls.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MP` | blank | `(blank)` | `by-file/PrettyButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -172,7 +171,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JE` | 50 | 65 | 57.5 | `by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md` |
 | `0001JG` | 50 | 65 | 57.5 | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |
 | `0001JH` | 50 | 65 | 57.5 | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |
 | `0001JL` | 50 | 65 | 57.5 | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |
@@ -197,6 +195,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001KG` | 50 | 65 | 57.5 | `by-memory/0x00599cc0-0x0059bc8b.UserInfoDialogPane.md` |
 | `0001KI` | 50 | 65 | 57.5 | `by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md` |
 | `0001KL` | 50 | 65 | 57.5 | `by-memory/0x005a2530-0x005b8395.UserPane.md` |
+| `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
 
 ## Low_Confidence
 
@@ -207,7 +206,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001JE` | 50 | 65 | 57.5 | `by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md` |
 | `0001JG` | 50 | 65 | 57.5 | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |
 | `0001JH` | 50 | 65 | 57.5 | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |
 | `0001JL` | 50 | 65 | 57.5 | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |
@@ -227,12 +225,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001K7` | 50 | 65 | 57.5 | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |
 | `0001K8` | 50 | 65 | 57.5 | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |
 | `0001K9` | 50 | 65 | 57.5 | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |
+| `0001KD` | 50 | 65 | 57.5 | `by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JE` | 50 | 65 | 57.5 | `by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md` |
 | `0001JG` | 50 | 65 | 57.5 | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |
 | `0001JH` | 50 | 65 | 57.5 | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |
 | `0001JL` | 50 | 65 | 57.5 | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |
@@ -257,6 +255,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001KG` | 50 | 65 | 57.5 | `by-memory/0x00599cc0-0x0059bc8b.UserInfoDialogPane.md` |
 | `0001KI` | 50 | 65 | 57.5 | `by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md` |
 | `0001KL` | 50 | 65 | 57.5 | `by-memory/0x005a2530-0x005b8395.UserPane.md` |
+| `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
 
 ## By Folder
 
@@ -392,7 +391,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001JE` | 50 | 65 | 57.5 | `by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md` |
 | `0001JG` | 50 | 65 | 57.5 | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |
 | `0001JH` | 50 | 65 | 57.5 | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |
 | `0001JL` | 50 | 65 | 57.5 | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |
@@ -417,6 +415,7 @@ _No scored files._
 | `0001KG` | 50 | 65 | 57.5 | `by-memory/0x00599cc0-0x0059bc8b.UserInfoDialogPane.md` |
 | `0001KI` | 50 | 65 | 57.5 | `by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md` |
 | `0001KL` | 50 | 65 | 57.5 | `by-memory/0x005a2530-0x005b8395.UserPane.md` |
+| `0001KM` | 50 | 65 | 57.5 | `by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md` |
 
 ### by-meta
 

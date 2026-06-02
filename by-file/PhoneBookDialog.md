@@ -1,7 +1,7 @@
 *** UID:0000MJ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PhoneBookDialog
 
@@ -10,7 +10,7 @@
 - Confidence: strong for phone-book/dial feature ownership, medium for final split from `TerminalPane.cpp`.
 - Proposed module: `login/PhoneBookDialog.cpp`
 - Current recovered sources: `class_PhoneBookDialog.cpp`, `class_PhoneBookListPane.cpp`, `class_PhoneEntryDialog.cpp`, `class_DialDialog.cpp`
-- Evidence basis: Wave3 class/method summaries, generated source, and IDA MCP boundary checks on 2026-05-23.
+- Evidence basis: IDA MCP boundary checks, current documentation cross-references, and generated-source caveats. Generated source is used only as a hint where IDA-backed docs corroborate behavior.
 
 ## File Role
 
@@ -46,7 +46,6 @@ An alternate original layout is one larger terminal source file containing both 
 
 - IDA MCP confirms the phone-book block at `0x0058c350-0x0058d74c` and the dial block at `0x0058d750-0x0058dc5b`.
 - 2026-05-26 IDA recheck: [UID:0001JF][0x0058cfa0-0x0058cfdb.PhoneBookSelectedEntryHelper](by-memory/0x0058cfa0-0x0058cfdb.PhoneBookSelectedEntryHelper.md) has only one direct caller, `PhoneBookDialog::OnCommand` at `0x0058cd8c`; [UID:0001JL][0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper](by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md) is called from `SavePhoneBook` and the nearby phone-list rendering area.
-- Wave3 reports high class grades: `PhoneBookDialog` `97.7`, `PhoneBookListPane` `97.5`, `PhoneEntryDialog` `95.8`, and `DialDialog` `96.8`.
 - Current emitted source is incomplete for `PhoneBookDialog::SavePhoneBook` and `PhoneBookListPane::RenderEntry`; use method summaries and IDA boundaries rather than the emitted bodies for those rows.
 - Current `simroot_v2/class_PhoneBookListPane.cpp` now emits `0x0058cfa0` as `PhoneBookListPane::GetSelectedEntryData`, but `PhoneBookDialog::OnCommand` still calls it through a `ChattingColorListPane` cast and delete/list helpers through `ArticleListPane`. Treat those local types as owner pollution until list-base relationships are reviewed.
 
@@ -70,3 +69,5 @@ An alternate original layout is one larger terminal source file containing both 
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `86`, confidence `80`.
 - Summary/evidence: the page documents phone-book/dial feature ownership, class grouping, behavior, IDA boundary evidence, current generated-source caveats, TerminalPane relationship, and cross-references; confidence remains capped by final split from `TerminalPane.cpp`.
+- 2026-06-01: `PROPOSED_RECONSTRUCTION_PATH` changed from blank to `NexusTK/login/`.
+  - Summary/evidence: the page already proposed `login/PhoneBookDialog.cpp`; [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) places `PhoneBookDialog.cpp` in the login family; sibling pre-login dialog files use the same projected path.

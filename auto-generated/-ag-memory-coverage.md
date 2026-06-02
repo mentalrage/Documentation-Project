@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2118
-Total_Reconstructable: 933
+Total_Reconstructable: 934
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 409
+Total_Reconstructed_Assigned: 410
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 524
-Total_Unclassified: 1174
+Total_Unclassified: 1173
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -395,6 +395,7 @@ Total_Error: 0
 | [UID:000246][0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual](by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md) | assigned | `0000OE` |  | no | `auto-generated/NexusTK/social/SystemMessagePanes.cpp` | `by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md` |  |
 | [UID:0001JB][0x0058af50-0x0058c350.TerminalPaneAndSetup](by-memory/0x0058af50-0x0058c350.TerminalPaneAndSetup.md) | assigned | `0000OI` |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-memory/0x0058af50-0x0058c350.TerminalPaneAndSetup.md` |  |
 | [UID:0001JC][0x0058b130-0x0058b44b.TerminalPaneStreamParser](by-memory/0x0058b130-0x0058b44b.TerminalPaneStreamParser.md) | assigned | `0000OI` |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-memory/0x0058b130-0x0058b44b.TerminalPaneStreamParser.md` |  |
+| [UID:0001JE][0x0058c350-0x0058d74c.PhoneBookDialogs](by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -1697,7 +1698,6 @@ Total_Error: 0
 | [UID:0001J9][0x0058aadb-0x0058aaf1.ForcedInformMessageDialogDestructorThunks](by-memory/0x0058aadb-0x0058aaf1.ForcedInformMessageDialogDestructorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0058aadb-0x0058aaf1.ForcedInformMessageDialogDestructorThunks.md` |  |
 | [UID:0001JA][0x0058abf0-0x0058acb2.ForcedInformMessageDialogDestructor](by-memory/0x0058abf0-0x0058acb2.ForcedInformMessageDialogDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0058abf0-0x0058acb2.ForcedInformMessageDialogDestructor.md` |  |
 | [UID:0001JD][0x0058b620-0x0058b64e.TerminalPaneReconnectLeaveCallback](by-memory/0x0058b620-0x0058b64e.TerminalPaneReconnectLeaveCallback.md) | unclassified |  |  | no |  | `by-memory/0x0058b620-0x0058b64e.TerminalPaneReconnectLeaveCallback.md` |  |
-| [UID:0001JE][0x0058c350-0x0058d74c.PhoneBookDialogs](by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md) | unclassified |  |  | no |  | `by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md` |  |
 | [UID:0001JF][0x0058cfa0-0x0058cfdb.PhoneBookSelectedEntryHelper](by-memory/0x0058cfa0-0x0058cfdb.PhoneBookSelectedEntryHelper.md) | unclassified |  |  | no |  | `by-memory/0x0058cfa0-0x0058cfdb.PhoneBookSelectedEntryHelper.md` |  |
 | [UID:0001JG][0x0058d750-0x0058dc5b.DialDialog](by-memory/0x0058d750-0x0058dc5b.DialDialog.md) | unclassified |  |  | no |  | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |  |
 | [UID:0001JH][0x0058da20-0x0058db94.DialDialogModemResponseParser](by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md) | unclassified |  |  | no |  | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |  |
