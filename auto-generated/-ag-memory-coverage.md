@@ -3,18 +3,20 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1152
+Total_Reconstructable: 1154
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 606
+Total_Reconstructed_Assigned: 608
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 546
-Total_Unclassified: 974
+Total_Unclassified: 972
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md` |  |
+| [UID:0002D6][0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw](by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md) | assigned | `000054` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md` |  |
 | [UID:0002DN][0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent](by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md` |  |
+| [UID:0002DT][0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers](by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |  |
 | [UID:0002DU][0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers](by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |  |
 | [UID:0002SC][0x00424020-0x004242e4.FittingRoomTextButtonControlPane](by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md) | assigned | `000055` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md` |  |
 | [UID:0000XZ][0x00458610-0x0045f9f5.RankingDialog](by-memory/0x00458610-0x0045f9f5.RankingDialog.md) | assigned | `0000MZ` | 1 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x00458610-0x0045f9f5.RankingDialog.md` |  |
@@ -1239,7 +1241,6 @@ Total_Error: 0
 | [UID:0002D2][0x0041d870-0x0041da51.FittingRoomScrollPaneOnMouseEvent](by-memory/0x0041d870-0x0041da51.FittingRoomScrollPaneOnMouseEvent.md) | unclassified |  |  | no |  | `by-memory/0x0041d870-0x0041da51.FittingRoomScrollPaneOnMouseEvent.md` |  |
 | [UID:0002D3][0x0041da60-0x0041da65.FittingRoomScrollPaneDefaultFalseVirtual](by-memory/0x0041da60-0x0041da65.FittingRoomScrollPaneDefaultFalseVirtual.md) | unclassified |  |  | no |  | `by-memory/0x0041da60-0x0041da65.FittingRoomScrollPaneDefaultFalseVirtual.md` |  |
 | [UID:0002D4][0x0041da70-0x0041daa3.FittingRoomScrollPaneOnTimer](by-memory/0x0041da70-0x0041daa3.FittingRoomScrollPaneOnTimer.md) | unclassified |  |  | no |  | `by-memory/0x0041da70-0x0041daa3.FittingRoomScrollPaneOnTimer.md` |  |
-| [UID:0002D6][0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw](by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md) | unclassified |  |  | no |  | `by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md` |  |
 | [UID:0002D8][0x0041e1d0-0x0041e4ed.FittingRoomScrollPaneHitTestPart](by-memory/0x0041e1d0-0x0041e4ed.FittingRoomScrollPaneHitTestPart.md) | unclassified |  |  | no |  | `by-memory/0x0041e1d0-0x0041e4ed.FittingRoomScrollPaneHitTestPart.md` |  |
 | [UID:0002D7][0x0041e4f0-0x0041e777.FittingRoomScrollPaneGetPartRect](by-memory/0x0041e4f0-0x0041e777.FittingRoomScrollPaneGetPartRect.md) | unclassified |  |  | no |  | `by-memory/0x0041e4f0-0x0041e777.FittingRoomScrollPaneGetPartRect.md` |  |
 | [UID:0002DA][0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers](by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |  |
@@ -1259,7 +1260,6 @@ Total_Error: 0
 | [UID:0002DM][0x0041fba0-0x0041fcc5.FittingRoomListPaneOnKeyScroll](by-memory/0x0041fba0-0x0041fcc5.FittingRoomListPaneOnKeyScroll.md) | unclassified |  |  | no |  | `by-memory/0x0041fba0-0x0041fcc5.FittingRoomListPaneOnKeyScroll.md` |  |
 | [UID:0002DO][0x004207ce-0x00420840.FittingRoomListPaneOnInputEventJumpTables](by-memory/0x004207ce-0x00420840.FittingRoomListPaneOnInputEventJumpTables.md) | unclassified |  |  | no |  | `by-memory/0x004207ce-0x00420840.FittingRoomListPaneOnInputEventJumpTables.md` |  |
 | [UID:0002DS][0x00420840-0x00420949.FittingRoomListPaneOnScrollStep](by-memory/0x00420840-0x00420949.FittingRoomListPaneOnScrollStep.md) | unclassified |  |  | no |  | `by-memory/0x00420840-0x00420949.FittingRoomListPaneOnScrollStep.md` |  |
-| [UID:0002DT][0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers](by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |  |
 | [UID:0002DP][0x00420b60-0x00420cf9.FittingRoomListPaneHitTestSlot](by-memory/0x00420b60-0x00420cf9.FittingRoomListPaneHitTestSlot.md) | unclassified |  |  | no |  | `by-memory/0x00420b60-0x00420cf9.FittingRoomListPaneHitTestSlot.md` |  |
 | [UID:0002DQ][0x00420d00-0x00420d50.ValidateFittingSelectionIndex](by-memory/0x00420d00-0x00420d50.ValidateFittingSelectionIndex.md) | unclassified |  |  | no |  | `by-memory/0x00420d00-0x00420d50.ValidateFittingSelectionIndex.md` |  |
 | [UID:0002DV][0x00421310-0x00421362.SimpleUStringClear](by-memory/0x00421310-0x00421362.SimpleUStringClear.md) | unclassified |  |  | no |  | `by-memory/0x00421310-0x00421362.SimpleUStringClear.md` |  |

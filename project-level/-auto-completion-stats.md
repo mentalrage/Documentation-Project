@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 12:00:08
+Generated: 2026-06-02 12:06:52
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -136,11 +136,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000052` | 62 | 76 | 69.0 | `by-class/FittingRoomDownloadControlPane.md` |
 | `00006Y` | 62 | 76 | 69.0 | `by-class/ItemWhoInputPaneState.md` |
-| `0002DT` | 62 | 76 | 69.0 | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |
 | `0000D9` | 62 | 78 | 70.0 | `by-class/SimpleUString.md` |
-| `0002D6` | 62 | 78 | 70.0 | `by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md` |
 | `0002E4` | 62 | 78 | 70.0 | `by-memory/0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson.md` |
 | `0002EA` | 62 | 78 | 70.0 | `by-memory/0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw.md` |
 | `0002PD` | 62 | 78 | 70.0 | `by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md` |
@@ -161,6 +158,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00020M` | 62 | 86 | 74.0 | `by-memory/0x004618a0-0x004619b8.AesCbcDecryptRaw.md` |
 | `0001Z7` | 62 | 88 | 75.0 | `by-memory/0x0060d670-0x0066d000.ReadOnlyDataSection.md` |
 | `0001Z8` | 62 | 88 | 75.0 | `by-memory/0x0066d000-0x0069d000.DataSection.md` |
+| `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
+| `00003W` | 64 | 74 | 69.0 | `by-class/DIError.md` |
+| `000045` | 64 | 74 | 69.0 | `by-class/DSError.md` |
 
 ## Low_Confidence
 
@@ -215,12 +215,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002AV` | 70 | 65 | 67.5 | `by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md` |
 | `0002AW` | 70 | 65 | 67.5 | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |
 | `00029K` | 70 | 65 | 67.5 | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |
-| `000052` | 62 | 76 | 69.0 | `by-class/FittingRoomDownloadControlPane.md` |
 | `00006Y` | 62 | 76 | 69.0 | `by-class/ItemWhoInputPaneState.md` |
-| `0002DT` | 62 | 76 | 69.0 | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |
 | `00003W` | 64 | 74 | 69.0 | `by-class/DIError.md` |
 | `000045` | 64 | 74 | 69.0 | `by-class/DSError.md` |
 | `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
+| `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
+| `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
 
 ## By Folder
 
@@ -230,7 +230,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
-| `000052` | 62 | 76 | 69.0 | `by-class/FittingRoomDownloadControlPane.md` |
 | `00006Y` | 62 | 76 | 69.0 | `by-class/ItemWhoInputPaneState.md` |
 | `00003W` | 64 | 74 | 69.0 | `by-class/DIError.md` |
 | `000045` | 64 | 74 | 69.0 | `by-class/DSError.md` |
@@ -253,6 +252,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
 | `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
 | `00006S` | 68 | 76 | 72.0 | `by-class/InventoryPane2.md` |
+| `00009H` | 68 | 76 | 72.0 | `by-class/NexonclubProxyDialog.md` |
 
 ### by-external-research
 
@@ -370,9 +370,7 @@ _No scored files._
 | `0002AV` | 70 | 65 | 67.5 | `by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md` |
 | `0002AW` | 70 | 65 | 67.5 | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |
 | `00029K` | 70 | 65 | 67.5 | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |
-| `0002DT` | 62 | 76 | 69.0 | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |
 | `0002DA` | 65 | 74 | 69.5 | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |
-| `0002D6` | 62 | 78 | 70.0 | `by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md` |
 | `0002E4` | 62 | 78 | 70.0 | `by-memory/0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson.md` |
 | `0002EA` | 62 | 78 | 70.0 | `by-memory/0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw.md` |
 | `0002PD` | 62 | 78 | 70.0 | `by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md` |
@@ -381,6 +379,8 @@ _No scored files._
 | `00013R` | 62 | 78 | 70.0 | `by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md` |
 | `00017N` | 62 | 78 | 70.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
 | `0002R4` | 62 | 78 | 70.0 | `by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md` |
+| `0002RU` | 62 | 78 | 70.0 | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |
+| `0002G0` | 64 | 76 | 70.0 | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |
 
 ### by-meta
 
