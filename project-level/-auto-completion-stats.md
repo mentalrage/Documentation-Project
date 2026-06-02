@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 17:08:49
+Generated: 2026-06-02 17:15:04
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -124,8 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00022A` | 65 | 85 | 75.0 | `by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md` |
-| `00024M` | 65 | 85 | 75.0 | `by-memory/0x0060d798-0x0060e174.CashShopFittingRoomReadOnlyData.md` |
 | `000251` | 65 | 85 | 75.0 | `by-memory/0x006168d0-0x00617a38.ConfigChannelReadOnlyData.md` |
 | `00025M` | 65 | 85 | 75.0 | `by-memory/0x0061c9c8-0x0061ca48.KeySpeedStringResourceReadOnlyData.md` |
 | `00025T` | 65 | 85 | 75.0 | `by-memory/0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData.md` |
@@ -149,6 +147,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 | `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
 | `00011B` | 66 | 78 | 72.0 | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |
+| `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
+| `0001AT` | 66 | 78 | 72.0 | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |
 
 ## Low_Confidence
 

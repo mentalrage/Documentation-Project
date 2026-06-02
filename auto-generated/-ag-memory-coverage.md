@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1195
+Total_Reconstructable: 1198
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 664
+Total_Reconstructed_Assigned: 666
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 531
-Total_Unclassified: 934
+Total_Reconstructable_Unassigned: 532
+Total_Unclassified: 931
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -164,6 +164,8 @@ Total_Error: 0
 | [UID:000141][0x004a6a80-0x004a82a9.EventDispatcher](by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md` |  |
 | [UID:000142][0x004a6c40-0x004a6cda.ApplicationIdleWorkScheduler](by-memory/0x004a6c40-0x004a6cda.ApplicationIdleWorkScheduler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a6c40-0x004a6cda.ApplicationIdleWorkScheduler.md` |  |
 | [UID:000143][0x004a7120-0x004a712b.ApplicationIdleTickBaseline](by-memory/0x004a7120-0x004a712b.ApplicationIdleTickBaseline.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a7120-0x004a712b.ApplicationIdleTickBaseline.md` |  |
+| [UID:00022A][0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers](by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md` |  |
+| [UID:00022B][0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers](by-memory/0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers.md` |  |
 | [UID:00014A][0x004a8970-0x004a8a84.EventHandlerBase](by-memory/0x004a8970-0x004a8a84.EventHandlerBase.md) | assigned | `00004N` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a8970-0x004a8a84.EventHandlerBase.md` |  |
 | [UID:00014E][0x004ab740-0x004ab804.CrashDiagnosticTextSender](by-memory/0x004ab740-0x004ab804.CrashDiagnosticTextSender.md) | assigned | `00004P` |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-memory/0x004ab740-0x004ab804.CrashDiagnosticTextSender.md` |  |
 | [UID:00014H][0x004abd10-0x004abe4a.ExceptionCodeStringHelper](by-memory/0x004abd10-0x004abe4a.ExceptionCodeStringHelper.md) | assigned | `00004P` |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-memory/0x004abd10-0x004abe4a.ExceptionCodeStringHelper.md` |  |
@@ -1093,6 +1095,7 @@ Total_Error: 0
 | [UID:0002L8][0x005c1120-0x005c1167.WaitableTimerStartMultimediaTimer](by-memory/0x005c1120-0x005c1167.WaitableTimerStartMultimediaTimer.md) | unassigned |  |  | no |  | `by-memory/0x005c1120-0x005c1167.WaitableTimerStartMultimediaTimer.md` |  |
 | [UID:0001NY][0x005c1120-0x005c11b4.WaitableTimerRawStartStop](by-memory/0x005c1120-0x005c11b4.WaitableTimerRawStartStop.md) | unassigned |  |  | no |  | `by-memory/0x005c1120-0x005c11b4.WaitableTimerRawStartStop.md` |  |
 | [UID:0002L9][0x005c1170-0x005c11b4.WaitableTimerCancelMultimediaTimer](by-memory/0x005c1170-0x005c11b4.WaitableTimerCancelMultimediaTimer.md) | unassigned |  |  | no |  | `by-memory/0x005c1170-0x005c11b4.WaitableTimerCancelMultimediaTimer.md` |  |
+| [UID:00024M][0x0060d798-0x0060e174.CashShopFittingRoomReadOnlyData](by-memory/0x0060d798-0x0060e174.CashShopFittingRoomReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0060d798-0x0060e174.CashShopFittingRoomReadOnlyData.md` |  |
 | [UID:00024R][0x006104f4-0x00610ed8.MiniMapRankingReadOnlyData](by-memory/0x006104f4-0x00610ed8.MiniMapRankingReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x006104f4-0x00610ed8.MiniMapRankingReadOnlyData.md` |  |
 | [UID:0002ON][0x00610980-0x00610e38.RankingDialogReadOnlyData](by-memory/0x00610980-0x00610e38.RankingDialogReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00610980-0x00610e38.RankingDialogReadOnlyData.md` |  |
 | [UID:0002OO][0x00610e38-0x00610ed8.SoftwareBlend16ReadOnlyConstants](by-memory/0x00610e38-0x00610ed8.SoftwareBlend16ReadOnlyConstants.md) | unassigned |  |  | no |  | `by-memory/0x00610e38-0x00610ed8.SoftwareBlend16ReadOnlyConstants.md` |  |
@@ -1573,8 +1576,6 @@ Total_Error: 0
 | [UID:00013K][0x004a55e0-0x004a5621.EncoderFinalize](by-memory/0x004a55e0-0x004a5621.EncoderFinalize.md) | unclassified |  |  | no |  | `by-memory/0x004a55e0-0x004a5621.EncoderFinalize.md` |  |
 | [UID:00013W][0x004a5e60-0x004a609f.ParseEntries](by-memory/0x004a5e60-0x004a609f.ParseEntries.md) | unclassified |  |  | no |  | `by-memory/0x004a5e60-0x004a609f.ParseEntries.md` |  |
 | [UID:000229][0x004a60a0-0x004a60cb.MsvcInt64RuntimeHelpers](by-memory/0x004a60a0-0x004a60cb.MsvcInt64RuntimeHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004a60a0-0x004a60cb.MsvcInt64RuntimeHelpers.md` |  |
-| [UID:00022A][0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers](by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md` |  |
-| [UID:00022B][0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers](by-memory/0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers.md` |  |
 | [UID:00014B][0x004a8a90-0x004ab434.EventObjects](by-memory/0x004a8a90-0x004ab434.EventObjects.md) | unclassified |  |  | no |  | `by-memory/0x004a8a90-0x004ab434.EventObjects.md` |  |
 | [UID:00014C][0x004a8b40-0x004ab476.EventMan](by-memory/0x004a8b40-0x004ab476.EventMan.md) | unclassified |  |  | no |  | `by-memory/0x004a8b40-0x004ab476.EventMan.md` |  |
 | [UID:00014D][0x004ab480-0x004ac89a.ExceptionHandler](by-memory/0x004ab480-0x004ac89a.ExceptionHandler.md) | unclassified |  |  | no |  | `by-memory/0x004ab480-0x004ac89a.ExceptionHandler.md` |  |
@@ -1937,7 +1938,6 @@ Total_Error: 0
 | [UID:0001Z6][0x0060d000-0x0060d670.ImportDataSection](by-memory/0x0060d000-0x0060d670.ImportDataSection.md) | unclassified |  |  | no |  | `by-memory/0x0060d000-0x0060d670.ImportDataSection.md` |  |
 | [UID:00024L][0x0060d670-0x0060d798.MsvcRdataStartupTables](by-memory/0x0060d670-0x0060d798.MsvcRdataStartupTables.md) | unclassified |  |  | no |  | `by-memory/0x0060d670-0x0060d798.MsvcRdataStartupTables.md` |  |
 | [UID:0001Z7][0x0060d670-0x0066d000.ReadOnlyDataSection](by-memory/0x0060d670-0x0066d000.ReadOnlyDataSection.md) | unclassified |  |  | no |  | `by-memory/0x0060d670-0x0066d000.ReadOnlyDataSection.md` |  |
-| [UID:00024M][0x0060d798-0x0060e174.CashShopFittingRoomReadOnlyData](by-memory/0x0060d798-0x0060e174.CashShopFittingRoomReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0060d798-0x0060e174.CashShopFittingRoomReadOnlyData.md` |  |
 | [UID:00024N][0x0060e174-0x0060e2b0.MsvcStlLocaleIostreamRdata](by-memory/0x0060e174-0x0060e2b0.MsvcStlLocaleIostreamRdata.md) | unclassified |  |  | no |  | `by-memory/0x0060e174-0x0060e2b0.MsvcStlLocaleIostreamRdata.md` |  |
 | [UID:00024O][0x0060e2b0-0x0060f038.JsonCppReadOnlyData](by-memory/0x0060e2b0-0x0060f038.JsonCppReadOnlyData.md) | unclassified |  |  | no |  | `by-memory/0x0060e2b0-0x0060f038.JsonCppReadOnlyData.md` |  |
 | [UID:00024P][0x0060f038-0x0060f4c0.MsvcStlNumericRdata](by-memory/0x0060f038-0x0060f4c0.MsvcStlNumericRdata.md) | unclassified |  |  | no |  | `by-memory/0x0060f038-0x0060f4c0.MsvcStlNumericRdata.md` |  |
