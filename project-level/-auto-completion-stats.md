@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 07:39:51
+Generated: 2026-06-02 07:47:11
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -150,10 +150,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
-| `000237` | 50 | 85 | 67.5 | `by-memory/0x00515f50-0x00515ff2.MD5EndianEncodeDecodeHelpers.md` |
-| `00023A` | 50 | 85 | 67.5 | `by-memory/0x00524590-0x005245b1.MetaManNodeDestroyHelper.md` |
-| `00023K` | 50 | 85 | 67.5 | `by-memory/0x005426e0-0x00542ab5.DialogPaneScalarDeletingDestructorIsland.md` |
-| `00024A` | 50 | 85 | 67.5 | `by-memory/0x005b83a0-0x005b83a7.UserPaneVirtualDword1340F8Accessor.md` |
 | `000210` | 55 | 65 | 60.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
 | `000214` | 55 | 65 | 60.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00021D` | 55 | 65 | 60.0 | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |
@@ -173,6 +169,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000279` | 55 | 65 | 60.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
 | `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
 | `0002AZ` | 55 | 65 | 60.0 | `by-memory/0x0069b4f8-0x0069b4fc.MapPaneRenderScratchFlag.md` |
+| `0000CU` | 55 | 70 | 62.5 | `by-class/SelfLookPane.md` |
+| `0000NY` | 55 | 70 | 62.5 | `by-file/SpecializedButtonPanes.md` |
+| `0001KJ` | 55 | 70 | 62.5 | `by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md` |
+| `00001H` | 55 | 72 | 63.5 | `by-class/CashShopRequest.md` |
 
 ## Low_Confidence
 
