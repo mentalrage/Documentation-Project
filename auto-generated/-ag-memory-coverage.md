@@ -2,13 +2,13 @@
 
 # ag-memory-coverage
 
-Total_Type: 2125
-Total_Reconstructable: 986
+Total_Type: 2129
+Total_Reconstructable: 994
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 459
+Total_Reconstructed_Assigned: 467
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 527
-Total_Unclassified: 1128
+Total_Unclassified: 1124
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -433,6 +433,13 @@ Total_Error: 0
 | [UID:0001L1][0x005ae730-0x005aea53.SpellWhoInputPanePointerSelectionInput](by-memory/0x005ae730-0x005aea53.SpellWhoInputPanePointerSelectionInput.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005ae730-0x005aea53.SpellWhoInputPanePointerSelectionInput.md` |  |
 | [UID:0001L2][0x005aea60-0x005aeaf3.SpellWhoInputPaneObjectListVirtual](by-memory/0x005aea60-0x005aeaf3.SpellWhoInputPaneObjectListVirtual.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005aea60-0x005aeaf3.SpellWhoInputPaneObjectListVirtual.md` |  |
 | [UID:0001L3][0x005aeb00-0x005aeb1f.DeactivateSavedSpellWhoTarget](by-memory/0x005aeb00-0x005aeb1f.DeactivateSavedSpellWhoTarget.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005aeb00-0x005aeb1f.DeactivateSavedSpellWhoTarget.md` |  |
+| [UID:0002S1][0x005aec60-0x005aed3d.ItemWhoInputPaneConstructor](by-memory/0x005aec60-0x005aed3d.ItemWhoInputPaneConstructor.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005aec60-0x005aed3d.ItemWhoInputPaneConstructor.md` |  |
+| [UID:0001L4][0x005aec60-0x005af2e7.ItemWhoInputPane](by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md` |  |
+| [UID:0001L5][0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor](by-memory/0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor.md` |  |
+| [UID:0002S2][0x005aedd0-0x005aefaf.ItemWhoInputPaneKeyInput](by-memory/0x005aedd0-0x005aefaf.ItemWhoInputPaneKeyInput.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005aedd0-0x005aefaf.ItemWhoInputPaneKeyInput.md` |  |
+| [UID:0002S3][0x005af050-0x005af2e7.ItemWhoInputPaneMouseInput](by-memory/0x005af050-0x005af2e7.ItemWhoInputPaneMouseInput.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005af050-0x005af2e7.ItemWhoInputPaneMouseInput.md` |  |
+| [UID:0001L6][0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual](by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md` |  |
+| [UID:0001L7][0x005af390-0x005af3af.ClearItemWhoTarget](by-memory/0x005af390-0x005af3af.ClearItemWhoTarget.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005af390-0x005af3af.ClearItemWhoTarget.md` |  |
 | [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md` |  |
 | [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md` |  |
 | [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |  |
@@ -445,6 +452,7 @@ Total_Error: 0
 | [UID:0001N1][0x005b7100-0x005b7140.DeleteFromBlockListenInputPaneConstructor](by-memory/0x005b7100-0x005b7140.DeleteFromBlockListenInputPaneConstructor.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b7100-0x005b7140.DeleteFromBlockListenInputPaneConstructor.md` |  |
 | [UID:0001N2][0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm](by-memory/0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b7140-0x005b7354.DeleteFromBlockListenInputPaneOnConfirm.md` |  |
 | [UID:0002RZ][0x005b7360-0x005b7447.SendDeleteBlockListenPacket](by-memory/0x005b7360-0x005b7447.SendDeleteBlockListenPacket.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b7360-0x005b7447.SendDeleteBlockListenPacket.md` |  |
+| [UID:0002S4][0x005b7a20-0x005b7aec.ItemWhoInputPaneScalarDeletingDestructor](by-memory/0x005b7a20-0x005b7aec.ItemWhoInputPaneScalarDeletingDestructor.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x005b7a20-0x005b7aec.ItemWhoInputPaneScalarDeletingDestructor.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -1775,10 +1783,6 @@ Total_Error: 0
 | [UID:0001KU][0x005adf40-0x005adfcd.SpellStringInputPaneConstructor](by-memory/0x005adf40-0x005adfcd.SpellStringInputPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005adf40-0x005adfcd.SpellStringInputPaneConstructor.md` |  |
 | [UID:0001KV][0x005adf40-0x005ae1a4.SpellStringInputPane](by-memory/0x005adf40-0x005ae1a4.SpellStringInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005adf40-0x005ae1a4.SpellStringInputPane.md` |  |
 | [UID:0001KW][0x005ae060-0x005ae1a4.SpellStringInputPaneConfirmInput](by-memory/0x005ae060-0x005ae1a4.SpellStringInputPaneConfirmInput.md) | unclassified |  |  | no |  | `by-memory/0x005ae060-0x005ae1a4.SpellStringInputPaneConfirmInput.md` |  |
-| [UID:0001L4][0x005aec60-0x005af2e7.ItemWhoInputPane](by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md` |  |
-| [UID:0001L5][0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor](by-memory/0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor.md` |  |
-| [UID:0001L6][0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual](by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md) | unclassified |  |  | no |  | `by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md` |  |
-| [UID:0001L7][0x005af390-0x005af3af.ClearItemWhoTarget](by-memory/0x005af390-0x005af3af.ClearItemWhoTarget.md) | unclassified |  |  | no |  | `by-memory/0x005af390-0x005af3af.ClearItemWhoTarget.md` |  |
 | [UID:0001L8][0x005af390-0x005b050d.TargetSelectionInputPanes](by-memory/0x005af390-0x005b050d.TargetSelectionInputPanes.md) | unclassified |  |  | no |  | `by-memory/0x005af390-0x005b050d.TargetSelectionInputPanes.md` |  |
 | [UID:0001L9][0x005af4f0-0x005af57b.SendTargetedActionPacket](by-memory/0x005af4f0-0x005af57b.SendTargetedActionPacket.md) | unclassified |  |  | no |  | `by-memory/0x005af4f0-0x005af57b.SendTargetedActionPacket.md` |  |
 | [UID:0001LA][0x005af580-0x005af5ea.SendObjectActionPacket](by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md) | unclassified |  |  | no |  | `by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md` |  |

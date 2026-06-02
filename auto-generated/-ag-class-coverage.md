@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 126
+Total_Reconstructable: 127
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 39
+Total_Reconstructed_Assigned: 40
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 459
+Total_Unclassified: 458
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -30,6 +30,7 @@ Total_Error: 0
 | [UID:000058][FlyingParcelPane](by-class/FlyingParcelPane.md) | assigned | `0000MF` | 30 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/FlyingParcelPane.md` |  |
 | [UID:00005F][FpsPane](by-class/FpsPane.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-class/FpsPane.md` |  |
 | [UID:00005V][GrafPort](by-class/GrafPort.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-class/GrafPort.md` |  |
+| [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
 | [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPlayerPane.md` |  |
 | [UID:000083][MerchantDialogPane](by-class/MerchantDialogPane.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-class/MerchantDialogPane.md` |  |
@@ -310,7 +311,6 @@ Total_Error: 0
 | [UID:00006T][ItemCatalog](by-class/ItemCatalog.md) | unclassified |  |  | no |  | `by-class/ItemCatalog.md` |  |
 | [UID:00006U][ItemHelpPane](by-class/ItemHelpPane.md) | unclassified |  |  | no |  | `by-class/ItemHelpPane.md` |  |
 | [UID:00006V][ItemObjectPane](by-class/ItemObjectPane.md) | unclassified |  |  | no |  | `by-class/ItemObjectPane.md` |  |
-| [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | unclassified |  |  | no |  | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | unclassified |  |  | no |  | `by-class/ItemWhoInputPaneState.md` |  |
 | [UID:00007D][LObject](by-class/LObject.md) | unclassified |  |  | no |  | `by-class/LObject.md` |  |
 | [UID:000070][LakeEffecter](by-class/LakeEffecter.md) | unclassified |  |  | no |  | `by-class/LakeEffecter.md` |  |

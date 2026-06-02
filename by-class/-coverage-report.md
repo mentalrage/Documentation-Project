@@ -258,7 +258,7 @@
 - [UID:00006U][ItemHelpPane](by-class/ItemHelpPane.md) : reconstructable : 86% : strong : - Confidence: strong for behavior; medium for exact source-file split.
 - [UID:00006V][ItemObjectPane](by-class/ItemObjectPane.md) : reconstructable : 74% : strong : - Confidence: strong for role and anchors.
 - [UID:00006W][ItemObjImageLib](by-class/ItemObjImageLib.md) : reconstructable : 86% : strong : Item sprite image-library singleton with IDA-confirmed method bounds, layout, vtable/global anchors, `ItemInfo` row usage, resource inputs, and unresolved exact child-page split documented.
-- [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) : reconstructable : 80% : strong : - Confidence: strong for target-selection behavior; medium for final file placement.
+- [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) : reconstructable : 80% : strong : Target-selection input pane attached to `TargetSelectionInputPanes.cpp`; exact constructor/destructor/key/mouse/object-list/clear/scalar-destructor pages, saved-target global refs, and boundary evidence documented.
 - [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) : reconstructable : 62% : medium : - Confidence: strong for helper behavior; medium for final owner source file.
 - [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md) : reconstructable : 86% : strong : Keyboard repeat singleton with IDA-confirmed object layout, vtable, singleton global, exact method/helper split, raw unreferenced setter caveat, and input-file placement.
 - [UID:000070][LakeEffecter](by-class/LakeEffecter.md) : reconstructable : 72% : medium : - Confidence: strong for role, medium for constructor boundary because IDA does not currently model `0x0055b810` as a function object.

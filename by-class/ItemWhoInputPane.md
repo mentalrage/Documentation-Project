@@ -1,8 +1,8 @@
 *** UID:00006X | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OH | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -13,7 +13,7 @@
 ## Status
 
 - Confidence: strong for target-selection behavior; medium for final file placement.
-- Likely source file: [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md) or [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md)
+- Likely source file: [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md), with item-action cross-references through [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md)
 - Address range: [UID:0001L4][0x005aec60-0x005af2e7.ItemWhoInputPane](by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md), destructor [UID:0001L5][0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor](by-memory/0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor.md), object-list virtual [UID:0001L6][0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual](by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md)
 - Current recovered file: `source-3/simroot_v2/class_ItemWhoInputPane.cpp`
 
@@ -34,10 +34,11 @@
 
 ## Evidence Notes
 
-- Wave3 generated source shows calls to `MapPane::FindObjectAtPoint`, `MapPane::FindObjectById`, target-id globals, and `Packet_SendUseSpellOrItem`.
-- IDA MCP confirms the constructor, key handler, mouse handler, thunks at `0x005b780a`/`0x005b7815`, and scalar deleting destructor.
+- Existing generated source shows calls to map hit-test/lookup helpers, target-id globals, and item/action packet dispatch; use it only as context, not authority.
+- IDA MCP confirms the constructor, key handler, mouse handler, thunks at `0x005b780a`/`0x005b7815`, object-list virtual, clear helper, and scalar deleting destructor.
 - IDA recheck on 2026-05-26 confirms `0x005aed40` as the non-deleting destructor and `0x005af2f0` as a vtable-dispatched object-list helper. Wave3 active output still lacks stable owners for those two functions.
 - The 2026-05-24 target-selection pass identifies `0x005af390` as the saved-item-target clear helper.
+- The 2026-06-02 IDA MCP refresh verifies exact function sizes, vtable/data refs, `dword_69BF24` refs across constructor/destructor/key/mouse/object-list/clear/scalar-dtor code, callee maps, and padding/switch-table bytes. This raises source placement to the [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md) attachment threshold.
 
 ## Cross-References
 
@@ -46,6 +47,7 @@
 - [UID:0001L4][0x005aec60-0x005af2e7.ItemWhoInputPane](by-memory/0x005aec60-0x005af2e7.ItemWhoInputPane.md)
 - [UID:0001L5][0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor](by-memory/0x005aed40-0x005aedcb.ItemWhoInputPaneDestructor.md)
 - [UID:0001L6][0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual](by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md)
+- [UID:0001L7][0x005af390-0x005af3af.ClearItemWhoTarget](by-memory/0x005af390-0x005af3af.ClearItemWhoTarget.md)
 - [UID:0001L8][0x005af390-0x005b050d.TargetSelectionInputPanes](by-memory/0x005af390-0x005b050d.TargetSelectionInputPanes.md)
 - [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md)
 - [UID:0000CT][SelectObjectWithKeyboardPane](by-class/SelectObjectWithKeyboardPane.md)
@@ -55,3 +57,7 @@
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `80/80`. Summary: target-selection input role, constructor/destructor/key/mouse/object-list/scalar-destructor methods, target-state helper relationship, packet dispatch, and Wave3 owner gaps are documented; confidence remains limited by final source-file placement between target-selection and item-action modules. Evidence: `ItemWhoInputPane`, `ItemWhoInputPaneDestructor`, `ItemWhoInputPaneObjectListVirtual`, `TargetSelectionInputPanes`, `ItemActionInputPanes`, and related target-input classes.
+- 2026-06-02 source attachment update:
+  - Before: reconstructable/autogen metadata was blank and the likely source file was left split between target-selection and item-action modules.
+  - After: marked reconstructable and attached to [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md), while retaining [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md) as a cross-reference.
+  - Evidence: IDA MCP confirms the same target-selection map/highlight/object-list/global-state patterns as `SpellWhoInputPane`, with item-action behavior isolated to the packet dispatch arguments.
