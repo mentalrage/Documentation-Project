@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 08:07:09
+Generated: 2026-06-02 08:14:54
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -147,9 +147,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
-| `00022C` | 55 | 65 | 60.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
-| `0002HY` | 55 | 65 | 60.0 | `by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md` |
-| `00023F` | 55 | 65 | 60.0 | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |
 | `000272` | 55 | 65 | 60.0 | `by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md` |
 | `000279` | 55 | 65 | 60.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
 | `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
@@ -170,6 +167,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00020T` | 55 | 85 | 70.0 | `by-memory/0x0046a3d0-0x0046a505.BrowserWindowDocHostUiHandlerStubs.md` |
 | `00020V` | 55 | 85 | 70.0 | `by-memory/0x0046a630-0x0046a6ea.BrowserWindowHostWndProc.md` |
 | `00020X` | 55 | 85 | 70.0 | `by-memory/0x0046ad10-0x0046b51d.BrowserDialogPaneVirtuals.md` |
+| `00020Y` | 55 | 85 | 70.0 | `by-memory/0x0046d330-0x0046d475.WebBoardDialogVirtualCompanions.md` |
+| `000212` | 55 | 85 | 70.0 | `by-memory/0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks.md` |
+| `000216` | 55 | 85 | 70.0 | `by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md` |
 
 ## Low_Confidence
 
@@ -180,9 +180,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `00022C` | 55 | 65 | 60.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
-| `0002HY` | 55 | 65 | 60.0 | `by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md` |
-| `00023F` | 55 | 65 | 60.0 | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |
 | `000272` | 55 | 65 | 60.0 | `by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md` |
 | `000279` | 55 | 65 | 60.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
 | `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
@@ -200,14 +197,14 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000TA` | 65 | 65 | 65.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 65 | 65 | 65.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
 | `0000TE` | 65 | 65 | 65.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
+| `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
+| `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
+| `00019Q` | 65 | 65 | 65.0 | `by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00022C` | 55 | 65 | 60.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
-| `0002HY` | 55 | 65 | 60.0 | `by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md` |
-| `00023F` | 55 | 65 | 60.0 | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |
 | `000272` | 55 | 65 | 60.0 | `by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md` |
 | `000279` | 55 | 65 | 60.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
 | `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
@@ -230,6 +227,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
 | `00001H` | 55 | 72 | 63.5 | `by-class/CashShopRequest.md` |
 | `0000I0` | 55 | 72 | 63.5 | `by-file/CashShopRequest.md` |
+| `0002KT` | 55 | 72 | 63.5 | `by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md` |
+| `0002I3` | 55 | 72 | 63.5 | `by-memory/0x00503ed0-0x00503eef.MapPaneResetEffectListFields.md` |
+| `0001HC` | 55 | 72 | 63.5 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
 
 ## By Folder
 
@@ -365,9 +365,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00022C` | 55 | 65 | 60.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
-| `0002HY` | 55 | 65 | 60.0 | `by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md` |
-| `00023F` | 55 | 65 | 60.0 | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |
 | `000272` | 55 | 65 | 60.0 | `by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md` |
 | `000279` | 55 | 65 | 60.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
 | `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
@@ -390,6 +387,9 @@ _No scored files._
 | `0002G4` | 58 | 70 | 64.0 | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |
 | `0002KQ` | 58 | 70 | 64.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
 | `0001CP` | 58 | 70 | 64.0 | `by-memory/0x00528e60-0x0052a535.MusicControlDialog.md` |
+| `0002KD` | 58 | 70 | 64.0 | `by-memory/0x005465e0-0x0054660a.ParcelPaneOnKeyDown.md` |
+| `0002EE` | 55 | 75 | 65.0 | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |
+| `0002BG` | 58 | 72 | 65.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
 
 ### by-meta
 

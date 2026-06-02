@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1078
+Total_Reconstructable: 1080
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 544
+Total_Reconstructed_Assigned: 545
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 534
-Total_Unclassified: 1047
+Total_Reconstructable_Unassigned: 535
+Total_Unclassified: 1045
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -292,6 +292,7 @@ Total_Error: 0
 | [UID:0001D0][0x00530c90-0x00530cf7.NumberInputDialogScalarDeletingDestructor](by-memory/0x00530c90-0x00530cf7.NumberInputDialogScalarDeletingDestructor.md) | assigned | `0000M1` |  | no | `auto-generated/NexusTK/ui/dialogs/NumberInputDialog.cpp` | `by-memory/0x00530c90-0x00530cf7.NumberInputDialogScalarDeletingDestructor.md` |  |
 | [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md` |  |
 | [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md` |  |
+| [UID:00023F][0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers](by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |  |
 | [UID:0001D9][0x005387b0-0x00538baa.EffectObjectPaneCore](by-memory/0x005387b0-0x00538baa.EffectObjectPaneCore.md) | assigned | `000049` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-memory/0x005387b0-0x00538baa.EffectObjectPaneCore.md` |  |
 | [UID:0002QV][0x00538880-0x0053889f.EffectObjectPaneNonDeletingDestructor](by-memory/0x00538880-0x0053889f.EffectObjectPaneNonDeletingDestructor.md) | assigned | `000049` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-memory/0x00538880-0x0053889f.EffectObjectPaneNonDeletingDestructor.md` |  |
 | [UID:0001DA][0x005388a0-0x005388b4.EffectObjectPaneStartIdleTimer](by-memory/0x005388a0-0x005388b4.EffectObjectPaneStartIdleTimer.md) | assigned | `000049` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-memory/0x005388a0-0x005388b4.EffectObjectPaneStartIdleTimer.md` |  |
@@ -699,6 +700,7 @@ Total_Error: 0
 | [UID:00014U][0x004aeb30-0x004af031.MyItemListPane](by-memory/0x004aeb30-0x004af031.MyItemListPane.md) | unassigned |  |  | no |  | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |  |
 | [UID:0002JP][0x004aec80-0x004aec8e.MyItemListPaneGetSelectedSlotIndex](by-memory/0x004aec80-0x004aec8e.MyItemListPaneGetSelectedSlotIndex.md) | unassigned |  |  | no |  | `by-memory/0x004aec80-0x004aec8e.MyItemListPaneGetSelectedSlotIndex.md` |  |
 | [UID:0002JQ][0x004aec90-0x004af031.MyItemListPaneDrawListEntry](by-memory/0x004aec90-0x004af031.MyItemListPaneDrawListEntry.md) | unassigned |  |  | no |  | `by-memory/0x004aec90-0x004af031.MyItemListPaneDrawListEntry.md` |  |
+| [UID:00022C][0x004b12a0-0x004b13ce.VirtualReadableStringHelpers](by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md) | unassigned |  |  | no |  | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |  |
 | [UID:000157][0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers](by-memory/0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers.md) | unassigned |  |  | no |  | `by-memory/0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers.md` |  |
 | [UID:0002MV][0x004b3d50-0x004b3fa4.FolderTreeStorageInsertAt](by-memory/0x004b3d50-0x004b3fa4.FolderTreeStorageInsertAt.md) | unassigned |  |  | no |  | `by-memory/0x004b3d50-0x004b3fa4.FolderTreeStorageInsertAt.md` |  |
 | [UID:0002MW][0x004b55e0-0x004b564d.FolderTreeElemCopyConstruct](by-memory/0x004b55e0-0x004b564d.FolderTreeElemCopyConstruct.md) | unassigned |  |  | no |  | `by-memory/0x004b55e0-0x004b564d.FolderTreeElemCopyConstruct.md` |  |
@@ -1535,7 +1537,6 @@ Total_Error: 0
 | [UID:00014V][0x004b0490-0x004b0ba5.ExchangeDialogTail](by-memory/0x004b0490-0x004b0ba5.ExchangeDialogTail.md) | unclassified |  |  | no |  | `by-memory/0x004b0490-0x004b0ba5.ExchangeDialogTail.md` |  |
 | [UID:00014X][0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks](by-memory/0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks.md` |  |
 | [UID:00014Y][0x004b0ab5-0x004b0acb.ExchangeMoneyEditControlPaneAdjustorThunks](by-memory/0x004b0ab5-0x004b0acb.ExchangeMoneyEditControlPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b0ab5-0x004b0acb.ExchangeMoneyEditControlPaneAdjustorThunks.md` |  |
-| [UID:00022C][0x004b12a0-0x004b13ce.VirtualReadableStringHelpers](by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |  |
 | [UID:00022D][0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper](by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md) | unclassified |  |  | no |  | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |  |
 | [UID:000159][0x004b59d5-0x004b59eb.FolderTreePaneAdjustorThunks](by-memory/0x004b59d5-0x004b59eb.FolderTreePaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b59d5-0x004b59eb.FolderTreePaneAdjustorThunks.md` |  |
 | [UID:00022E][0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers](by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |  |
@@ -1698,7 +1699,6 @@ Total_Error: 0
 | [UID:0002CC][0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch](by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md) | unclassified |  |  | no |  | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |  |
 | [UID:0002CD][0x00532370-0x00532443.ObjectListFindByObjectId](by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md) | unclassified |  |  | no |  | `by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md` |  |
 | [UID:0002CE][0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper](by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md) | unclassified |  |  | no |  | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |  |
-| [UID:00023F][0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers](by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |  |
 | [UID:0002BA][0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers](by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |  |
 | [UID:0002BB][0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers](by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |  |
 | [UID:0002BC][0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers](by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md` |  |
