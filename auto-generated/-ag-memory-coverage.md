@@ -2,12 +2,12 @@
 
 # ag-memory-coverage
 
-Total_Type: 2144
-Total_Reconstructable: 1227
+Total_Type: 2149
+Total_Reconstructable: 1232
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 698
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 529
+Total_Reconstructable_Unassigned: 534
 Total_Unclassified: 906
 Total_Error: 0
 
@@ -1184,6 +1184,11 @@ Total_Error: 0
 | [UID:00025Z][0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData](by-memory/0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData.md` |  |
 | [UID:0002OF][0x00620284-0x00620294.ObjectListVtableData](by-memory/0x00620284-0x00620294.ObjectListVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00620284-0x00620294.ObjectListVtableData.md` |  |
 | [UID:000260][0x00620284-0x00620c74.ObjectPaneReadOnlyData](by-memory/0x00620284-0x00620c74.ObjectPaneReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00620284-0x00620c74.ObjectPaneReadOnlyData.md` |  |
+| [UID:0002SK][0x00620294-0x00620338.ObjectPaneVtableData](by-memory/0x00620294-0x00620338.ObjectPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00620294-0x00620338.ObjectPaneVtableData.md` |  |
+| [UID:0002SL][0x00620344-0x006205f0.StaticItemFlyingAttachedObjectPaneVtableData](by-memory/0x00620344-0x006205f0.StaticItemFlyingAttachedObjectPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00620344-0x006205f0.StaticItemFlyingAttachedObjectPaneVtableData.md` |  |
+| [UID:0002SM][0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData](by-memory/0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData.md` |  |
+| [UID:0002SN][0x00620954-0x00620b88.MotionLivingLightSoundObjectPaneVtableData](by-memory/0x00620954-0x00620b88.MotionLivingLightSoundObjectPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00620954-0x00620b88.MotionLivingLightSoundObjectPaneVtableData.md` |  |
+| [UID:0002SO][0x00620b90-0x00620bf8.ObjectPaneResourceStrings](by-memory/0x00620b90-0x00620bf8.ObjectPaneResourceStrings.md) | unassigned |  |  | no |  | `by-memory/0x00620b90-0x00620bf8.ObjectPaneResourceStrings.md` |  |
 | [UID:000261][0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData](by-memory/0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData.md` |  |
 | [UID:000263][0x006219e8-0x00621db8.PaneParcelReadOnlyData](by-memory/0x006219e8-0x00621db8.PaneParcelReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x006219e8-0x00621db8.PaneParcelReadOnlyData.md` |  |
 | [UID:0002OG][0x00621a6c-0x00621af8.PanelPaneVtableData](by-memory/0x00621a6c-0x00621af8.PanelPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00621a6c-0x00621af8.PanelPaneVtableData.md` |  |
