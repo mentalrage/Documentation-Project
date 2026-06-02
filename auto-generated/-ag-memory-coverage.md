@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1108
+Total_Reconstructable: 1110
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 568
+Total_Reconstructed_Assigned: 570
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 540
-Total_Unclassified: 1018
+Total_Unclassified: 1016
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -133,6 +133,7 @@ Total_Error: 0
 | [UID:000156][0x004b3210-0x004b32c9.FolderTreePaneSetSelection](by-memory/0x004b3210-0x004b32c9.FolderTreePaneSetSelection.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-memory/0x004b3210-0x004b32c9.FolderTreePaneSetSelection.md` |  |
 | [UID:00022D][0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper](by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md) | assigned | `0000AA` | 55 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |  |
 | [UID:000158][0x004b5650-0x004b5668.FolderTreePaneTreeDestructorCleanup](by-memory/0x004b5650-0x004b5668.FolderTreePaneTreeDestructorCleanup.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-memory/0x004b5650-0x004b5668.FolderTreePaneTreeDestructorCleanup.md` |  |
+| [UID:00022E][0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers](by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md) | assigned | `0000JG` | 55 | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |  |
 | [UID:00015C][0x004b6410-0x004b646b.FpsPaneConstructorRaw](by-memory/0x004b6410-0x004b646b.FpsPaneConstructorRaw.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-memory/0x004b6410-0x004b646b.FpsPaneConstructorRaw.md` |  |
 | [UID:00015D][0x004b6410-0x004b6caf.FpsPaneDiagnostics](by-memory/0x004b6410-0x004b6caf.FpsPaneDiagnostics.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-memory/0x004b6410-0x004b6caf.FpsPaneDiagnostics.md` |  |
 | [UID:00015E][0x004b6470-0x004b6499.FpsPaneDestructor](by-memory/0x004b6470-0x004b6499.FpsPaneDestructor.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-memory/0x004b6470-0x004b6499.FpsPaneDestructor.md` |  |
@@ -151,6 +152,7 @@ Total_Error: 0
 | [UID:00022H][0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md` |  |
 | [UID:00015S][0x004b7c30-0x004b7f87.RectGeometryHelpers](by-memory/0x004b7c30-0x004b7f87.RectGeometryHelpers.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-memory/0x004b7c30-0x004b7f87.RectGeometryHelpers.md` |  |
 | [UID:00015T][0x004b7ca0-0x004b7cb6.RectArea](by-memory/0x004b7ca0-0x004b7cb6.RectArea.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-memory/0x004b7ca0-0x004b7cb6.RectArea.md` |  |
+| [UID:00022I][0x004b7f90-0x004b8198.RectAnchorTransformHelpers](by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md) | assigned | `0000N2` | 45 | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md` |  |
 | [UID:00015U][0x004b8220-0x004b8284.BuildFieldMapPath](by-memory/0x004b8220-0x004b8284.BuildFieldMapPath.md) | assigned | `0000JA` |  | no | `auto-generated/NexusTK/map/FieldMapPane.cpp` | `by-memory/0x004b8220-0x004b8284.BuildFieldMapPath.md` |  |
 | [UID:000160][0x004b8bf0-0x004bb8c4.GrafPort](by-memory/0x004b8bf0-0x004bb8c4.GrafPort.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-memory/0x004b8bf0-0x004bb8c4.GrafPort.md` |  |
 | [UID:000162][0x004b95e0-0x004b969f.GrafPortDrawStateAccessors](by-memory/0x004b95e0-0x004b969f.GrafPortDrawStateAccessors.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-memory/0x004b95e0-0x004b969f.GrafPortDrawStateAccessors.md` |  |
@@ -1551,11 +1553,9 @@ Total_Error: 0
 | [UID:00014X][0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks](by-memory/0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks.md` |  |
 | [UID:00014Y][0x004b0ab5-0x004b0acb.ExchangeMoneyEditControlPaneAdjustorThunks](by-memory/0x004b0ab5-0x004b0acb.ExchangeMoneyEditControlPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b0ab5-0x004b0acb.ExchangeMoneyEditControlPaneAdjustorThunks.md` |  |
 | [UID:000159][0x004b59d5-0x004b59eb.FolderTreePaneAdjustorThunks](by-memory/0x004b59d5-0x004b59eb.FolderTreePaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b59d5-0x004b59eb.FolderTreePaneAdjustorThunks.md` |  |
-| [UID:00022E][0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers](by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |  |
 | [UID:00015K][0x004b6c2b-0x004b6c41.FpsPaneAdjustorThunks](by-memory/0x004b6c2b-0x004b6c41.FpsPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b6c2b-0x004b6c41.FpsPaneAdjustorThunks.md` |  |
 | [UID:00015M][0x004b6cb0-0x004b7112.FrameScheduler](by-memory/0x004b6cb0-0x004b7112.FrameScheduler.md) | unclassified |  |  | no |  | `by-memory/0x004b6cb0-0x004b7112.FrameScheduler.md` |  |
 | [UID:00015P][0x004b7590-0x004b75a6.FramePartPaneAdjustorThunks](by-memory/0x004b7590-0x004b75a6.FramePartPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b7590-0x004b75a6.FramePartPaneAdjustorThunks.md` |  |
-| [UID:00022I][0x004b7f90-0x004b8198.RectAnchorTransformHelpers](by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md` |  |
 | [UID:00022K][0x004b81f0-0x004b821e.FileExists](by-memory/0x004b81f0-0x004b821e.FileExists.md) | unclassified |  |  | no |  | `by-memory/0x004b81f0-0x004b821e.FileExists.md` |  |
 | [UID:00022L][0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper](by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md) | unclassified |  |  | no |  | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |  |
 | [UID:00015V][0x004b83d0-0x004b8bd3.GeneralPurposePanel](by-memory/0x004b83d0-0x004b8bd3.GeneralPurposePanel.md) | unclassified |  |  | no |  | `by-memory/0x004b83d0-0x004b8bd3.GeneralPurposePanel.md` |  |
