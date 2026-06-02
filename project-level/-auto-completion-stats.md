@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 17:44:35
+Generated: 2026-06-02 17:49:36
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -23,7 +23,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000HK` | blank | `(blank)` | `by-file/AttachedObjectPaneHelper_53AEC0.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HL` | blank | `(blank)` | `by-file/AttachmentAnchorResolver.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HN` | blank | `(blank)` | `by-file/AutoInit.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000HO` | blank | `(blank)` | `by-file/BackPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HQ` | blank | `(blank)` | `by-file/BinaryCodec.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HU` | blank | `(blank)` | `by-file/BowGaugeObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -123,8 +122,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00029J` | 65 | 85 | 75.0 | `by-memory/0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag.md` |
-| `0001R7` | 65 | 85 | 75.0 | `by-resource/backpane-background-resources.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
@@ -148,6 +145,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002C5` | 66 | 80 | 73.0 | `by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md` |
 | `00005M` | 66 | 82 | 74.0 | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |
 | `00009J` | 66 | 82 | 74.0 | `by-class/NumberArgsInputPane.md` |
+| `00009L` | 66 | 82 | 74.0 | `by-class/NumberInputPane.md` |
+| `0002NP` | 66 | 82 | 74.0 | `by-memory/0x00488630-0x00488674.ClanStringListPaneRawConstructor.md` |
 
 ## Low_Confidence
 
@@ -381,7 +380,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001R7` | 65 | 85 | 75.0 | `by-resource/backpane-background-resources.md` |
 | `0001RN` | 68 | 84 | 76.0 | `by-resource/startup-logo-media.md` |
 | `0001R8` | 70 | 85 | 77.5 | `by-resource/collection-ui-resources.md` |
 | `0001RC` | 70 | 85 | 77.5 | `by-resource/hourpane-time-resources.md` |
@@ -394,6 +392,7 @@ _No scored files._
 | `0001RB` | 70 | 88 | 79.0 | `by-resource/forced-inform-message-resources.md` |
 | `0001RR` | 70 | 88 | 79.0 | `by-resource/totem-frame-resources.md` |
 | `0001RH` | 72 | 86 | 79.0 | `by-resource/meta-dat-metadata-cache.md` |
+| `0001R7` | 72 | 88 | 80.0 | `by-resource/backpane-background-resources.md` |
 | `0001R9` | 72 | 88 | 80.0 | `by-resource/employee-dialog-resources.md` |
 | `0001RI` | 72 | 88 | 80.0 | `by-resource/new-human-motion-tables.md` |
 | `0001RQ` | 72 | 88 | 80.0 | `by-resource/timerpane-number-resources.md` |

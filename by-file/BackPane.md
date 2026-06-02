@@ -1,7 +1,7 @@
 *** UID:0000HO | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # BackPane
 
@@ -78,3 +78,7 @@ Keep [UID:00004I][EPFTileContext](by-class/EPFTileContext.md) and [UID:0000N5][R
 - What existed before: the page documented the root back-pane module, scattered helper exclusions, and evidence but remained scored as unevaluated.
 - What it was changed to: scores were set to `76/82`.
 - Summary and evidence: core `BackPane`/`BackGroundPane` ownership is well supported by contiguous ranges and constructor/paint evidence; confidence is held below higher levels by help-helper reachability and generated-owner caveats.
+- 2026-06-02 projected path update:
+  - Before: the page proposed `map/BackPane.cpp` in prose but left `PROPOSED_RECONSTRUCTION_PATH` blank.
+  - After: metadata now uses `NexusTK/map/`.
+  - Evidence: this page's Proposed Contents and Ownership Notes already identify `map/BackPane.cpp` as the provisional source home for the root backdrop/container and adjacent `BackGroundPane`.

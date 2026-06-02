@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1210
+Total_Reconstructable: 1211
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 670
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 540
-Total_Unclassified: 919
+Total_Reconstructable_Unassigned: 541
+Total_Unclassified: 918
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -1229,6 +1229,7 @@ Total_Error: 0
 | [UID:00029T][0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString](by-memory/0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString.md) | unassigned |  |  | no |  | `by-memory/0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString.md` |  |
 | [UID:00029U][0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags](by-memory/0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags.md) | unassigned |  |  | no |  | `by-memory/0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags.md` |  |
 | [UID:0001PI][0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable](by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md) | unassigned |  |  | no |  | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |  |
+| [UID:00029J][0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag](by-memory/0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag.md) | unassigned |  |  | no |  | `by-memory/0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag.md` |  |
 | [UID:00029K][0x0069b424-0x0069b430.ImageLibraryFallbackRecord](by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md) | unassigned |  |  | no |  | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |  |
 | [UID:0001PL][0x0069b430-0x0069b43c.RidingDefinitionGlobalTable](by-memory/0x0069b430-0x0069b43c.RidingDefinitionGlobalTable.md) | unassigned |  |  | no |  | `by-memory/0x0069b430-0x0069b43c.RidingDefinitionGlobalTable.md` |  |
 | [UID:0001PR][0x0069b450-0x0069b454.g_pLightObjImageLib](by-memory/0x0069b450-0x0069b454.g_pLightObjImageLib.md) | unassigned |  |  | no |  | `by-memory/0x0069b450-0x0069b454.g_pLightObjImageLib.md` |  |
@@ -2103,7 +2104,6 @@ Total_Error: 0
 | [UID:0001PJ][0x0069b410-0x0069b414.g_pMetaMan](by-memory/0x0069b410-0x0069b414.g_pMetaMan.md) | unclassified |  |  | no |  | `by-memory/0x0069b410-0x0069b414.g_pMetaMan.md` |  |
 | [UID:0001PK][0x0069b414-0x0069b418.g_pWillBeChangedItemPane](by-memory/0x0069b414-0x0069b418.g_pWillBeChangedItemPane.md) | unclassified |  |  | no |  | `by-memory/0x0069b414-0x0069b418.g_pWillBeChangedItemPane.md` |  |
 | [UID:00029I][0x0069b418-0x0069b420.HourIconsPaneSingletons](by-memory/0x0069b418-0x0069b420.HourIconsPaneSingletons.md) | unclassified |  |  | no |  | `by-memory/0x0069b418-0x0069b420.HourIconsPaneSingletons.md` |  |
-| [UID:00029J][0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag](by-memory/0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag.md) | unclassified |  |  | no |  | `by-memory/0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag.md` |  |
 | [UID:0001PM][0x0069b43c-0x0069b440.g_pHumanImageLib](by-memory/0x0069b43c-0x0069b440.g_pHumanImageLib.md) | unclassified |  |  | no |  | `by-memory/0x0069b43c-0x0069b440.g_pHumanImageLib.md` |  |
 | [UID:0001PN][0x0069b440-0x0069b444.g_pMonsterImageLib](by-memory/0x0069b440-0x0069b444.g_pMonsterImageLib.md) | unclassified |  |  | no |  | `by-memory/0x0069b440-0x0069b444.g_pMonsterImageLib.md` |  |
 | [UID:0001PO][0x0069b444-0x0069b448.g_pRidingImageLib](by-memory/0x0069b444-0x0069b448.g_pRidingImageLib.md) | unclassified |  |  | no |  | `by-memory/0x0069b444-0x0069b448.g_pRidingImageLib.md` |  |
