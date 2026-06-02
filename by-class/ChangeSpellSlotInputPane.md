@@ -29,6 +29,7 @@
 | constructor | [UID:0001M7][0x005b3220-0x005b3260.ChangeSpellSlotInputPaneRawConstructor](by-memory/0x005b3220-0x005b3260.ChangeSpellSlotInputPaneRawConstructor.md) | Raw constructor-shaped body; builds [UID:00001O][CharArgsInputPane](by-class/CharArgsInputPane.md), installs vtables, and uses `'-'` prompt text. IDA has no function object, inbound xrefs, or raw pointer hits at the start. |
 | `OnKeyInput` | [UID:0001M9][0x005b3260-0x005b32cc.ChangeSpellSlotInputPaneKeyInput](by-memory/0x005b3260-0x005b32cc.ChangeSpellSlotInputPaneKeyInput.md) | Handles the special help/panel shortcut (`do_narrow(...) == '?'`, event byte `4`, key/state byte `8`), switches the general-purpose panel to child `3`, plays sound `0x198`, and otherwise forwards to the char-args input base; vtable data ref at `0x0062fb28`. |
 | `SubmitSpellSlotChange` | [UID:0001MA][0x005b32d0-0x005b340e.ChangeSpellSlotInputPaneSubmitSlotChange](by-memory/0x005b32d0-0x005b340e.ChangeSpellSlotInputPaneSubmitSlotChange.md) | Parses `from,to` slot letters, validates spell records, clears the spell-panel dirty/cache byte when either slot is active, and sends the four-byte reorder packet; vtable data ref at `0x0062fb18`. |
+| raw packet sender | [UID:0002S6][0x005b3410-0x005b3483.ChangeSpellSlotPacketRawSender](by-memory/0x005b3410-0x005b3483.ChangeSpellSlotPacketRawSender.md) | Raw helper-shaped body immediately after submit tail padding; writes opcode `0x30`, subcommand `1`, source slot, destination slot, and sends four bytes. No inbound xrefs found. |
 
 ## Evidence Notes
 
@@ -36,6 +37,7 @@
 - IDA confirms `0x005b3260` and `0x005b32d0` as real functions.
 - No destructor thunk island is currently attached in `simroot_v2` metadata for this class during this pass.
 - 2026-06-02 IDA MCP `lookup_funcs` confirms `0x005b3260-0x005b32cc` and `0x005b32d0-0x005b340e` as the two real handler functions, while `0x005b3220`, `0x005b32cc`, `0x005b340e`, and `0x005b3410` are not IDA function starts.
+- 2026-06-02 raw byte/disassembly review identifies [UID:0002S6][0x005b3410-0x005b3483.ChangeSpellSlotPacketRawSender](by-memory/0x005b3410-0x005b3483.ChangeSpellSlotPacketRawSender.md) as a complete helper-shaped body after the submit handler. It has no direct xrefs to its raw start, but emits the same slot-reorder packet shape as the submit handler.
 - 2026-06-02 IDA byte reads confirm `0x005b32cc-0x005b32d0` is four `0xcc` bytes between key and submit handlers and `0x005b340e-0x005b3410` is two `0xcc` bytes before the following raw `SayInputPane` constructor-shaped bytes.
 - 2026-06-02 IDA `xrefs_to` / `search data_ref` reports no xrefs or raw data-reference hits to `0x005b3220`; `0x005b3260` has the single data hit `0x0062fb28`, and `0x005b32d0` has the single data hit `0x0062fb18`.
 - 2026-06-02 IDA `xrefs_to` reports `ChangeSpellSlotInputPane` vtable stores from `0x005a61d7/0x005a61df/0x005a61e9`, `0x005a9486/0x005a948c/0x005a9496`, and raw constructor stores `0x005b323f/0x005b3247/0x005b3251`.
@@ -53,6 +55,7 @@ This class is confirmed NexusTK-owned source and is now attached to [UID:0000O0]
 
 - [UID:0000O0][SpellInputPanes](by-file/SpellInputPanes.md)
 - [UID:0001M8][0x005b3220-0x005b340e.ChangeSpellSlotInputPane](by-memory/0x005b3220-0x005b340e.ChangeSpellSlotInputPane.md)
+- [UID:0002S6][0x005b3410-0x005b3483.ChangeSpellSlotPacketRawSender](by-memory/0x005b3410-0x005b3483.ChangeSpellSlotPacketRawSender.md)
 - [UID:0000DS][SpellSlotInputPane](by-class/SpellSlotInputPane.md)
 - [UID:00001O][CharArgsInputPane](by-class/CharArgsInputPane.md)
 - [UID:0001XA][CommandInputPaneVtableFamily](by-type/by-vtable/CommandInputPaneVtableFamily.md)

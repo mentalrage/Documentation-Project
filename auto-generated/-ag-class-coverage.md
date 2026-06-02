@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 132
+Total_Reconstructable: 133
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 45
+Total_Reconstructed_Assigned: 46
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 453
+Total_Unclassified: 452
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -49,6 +49,7 @@ Total_Error: 0
 | [UID:0000BL][RankingCategoryRecord](by-class/RankingCategoryRecord.md) | assigned | `0000MZ` | 50 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingCategoryRecord.md` |  |
 | [UID:0000BO][RankingEventScrollPane](by-class/RankingEventScrollPane.md) | assigned | `0000MZ` | 20 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingEventScrollPane.md` |  |
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-class/RectBounds.md` |  |
+| [UID:0000C3][SayInputPane](by-class/SayInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayInputPane.md` |  |
 | [UID:0000C4][SayToGroupMessageInputPane](by-class/SayToGroupMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToGroupMessageInputPane.md` |  |
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
 | [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-class/SelfSaveInputPane.md` |  |
@@ -464,7 +465,6 @@ Total_Error: 0
 | [UID:0000C0][RightButtonMenuPane](by-class/RightButtonMenuPane.md) | unclassified |  |  | no |  | `by-class/RightButtonMenuPane.md` |  |
 | [UID:0000C1][RingBuffer](by-class/RingBuffer.md) | unclassified |  |  | no |  | `by-class/RingBuffer.md` |  |
 | [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md) | unclassified |  |  | no |  | `by-class/RingBufferIterator.md` |  |
-| [UID:0000C3][SayInputPane](by-class/SayInputPane.md) | unclassified |  |  | no |  | `by-class/SayInputPane.md` |  |
 | [UID:0000C5][SayToPlanMessageInputPane](by-class/SayToPlanMessageInputPane.md) | unclassified |  |  | no |  | `by-class/SayToPlanMessageInputPane.md` |  |
 | [UID:0000C6][SayToUserMessageInputPane](by-class/SayToUserMessageInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserMessageInputPane.md` |  |
 | [UID:0000C7][SayToUserNameInputPane](by-class/SayToUserNameInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserNameInputPane.md` |  |
