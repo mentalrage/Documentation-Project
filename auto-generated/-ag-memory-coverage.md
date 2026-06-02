@@ -2,12 +2,12 @@
 
 # ag-memory-coverage
 
-Total_Type: 2137
-Total_Reconstructable: 1173
+Total_Type: 2138
+Total_Reconstructable: 1174
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 623
+Total_Reconstructed_Assigned: 625
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 550
+Total_Reconstructable_Unassigned: 549
 Total_Unclassified: 953
 Total_Error: 0
 
@@ -215,6 +215,8 @@ Total_Error: 0
 | [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md) | assigned | `0000K1` | 30 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md` |  |
 | [UID:00017D][0x004db010-0x004db0f7.MonsterImageLibDestructor](by-memory/0x004db010-0x004db0f7.MonsterImageLibDestructor.md) | assigned | `0000LJ` |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-memory/0x004db010-0x004db0f7.MonsterImageLibDestructor.md` |  |
 | [UID:00017J][0x004dd2c0-0x004dd84a.StaticObjImageLibRenderStaticObject](by-memory/0x004dd2c0-0x004dd84a.StaticObjImageLibRenderStaticObject.md) | assigned | `0000O7` |  | no | `auto-generated/NexusTK/render/StaticObjImageLib.cpp` | `by-memory/0x004dd2c0-0x004dd84a.StaticObjImageLibRenderStaticObject.md` |  |
+| [UID:0002SD][0x004dec30-0x004dee1b.ItemObjImageLibConstructor](by-memory/0x004dec30-0x004dee1b.ItemObjImageLibConstructor.md) | assigned | `0000KH` |  | no | `auto-generated/NexusTK/render/ItemObjImageLib.cpp` | `by-memory/0x004dec30-0x004dee1b.ItemObjImageLibConstructor.md` |  |
+| [UID:00017N][0x004dec30-0x004e65dc.ItemObjImageLib](by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md) | assigned | `0000KH` |  | no | `auto-generated/NexusTK/render/ItemObjImageLib.cpp` | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |  |
 | [UID:0002JR][0x004dfd10-0x004e024a.NewHumanImageLibConstructor](by-memory/0x004dfd10-0x004e024a.NewHumanImageLibConstructor.md) | assigned | `000092` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004dfd10-0x004e024a.NewHumanImageLibConstructor.md` |  |
 | [UID:00017R][0x004dfd10-0x004e68a7.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md` |  |
 | [UID:00017S][0x004e0250-0x004e05c4.NewHumanImageLibDestructor](by-memory/0x004e0250-0x004e05c4.NewHumanImageLibDestructor.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004e0250-0x004e05c4.NewHumanImageLibDestructor.md` |  |
@@ -865,7 +867,6 @@ Total_Error: 0
 | [UID:00017M][0x004de190-0x004de29f.EffectObjImageLibRenderEffectFrame](by-memory/0x004de190-0x004de29f.EffectObjImageLibRenderEffectFrame.md) | unassigned |  |  | no |  | `by-memory/0x004de190-0x004de29f.EffectObjImageLibRenderEffectFrame.md` |  |
 | [UID:0002HA][0x004de3e0-0x004de420.EffectObjImageLibGetEffectInfo](by-memory/0x004de3e0-0x004de420.EffectObjImageLibGetEffectInfo.md) | unassigned |  |  | no |  | `by-memory/0x004de3e0-0x004de420.EffectObjImageLibGetEffectInfo.md` |  |
 | [UID:0002HB][0x004de7d0-0x004dec23.EffectObjImageLibLoadEffectTables](by-memory/0x004de7d0-0x004dec23.EffectObjImageLibLoadEffectTables.md) | unassigned |  |  | no |  | `by-memory/0x004de7d0-0x004dec23.EffectObjImageLibLoadEffectTables.md` |  |
-| [UID:00017N][0x004dec30-0x004e65dc.ItemObjImageLib](by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md) | unassigned |  |  | no |  | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |  |
 | [UID:00017O][0x004dee20-0x004dee4d.ItemObjImageLibDestructor](by-memory/0x004dee20-0x004dee4d.ItemObjImageLibDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004dee20-0x004dee4d.ItemObjImageLibDestructor.md` |  |
 | [UID:0002IU][0x004df7e0-0x004dfaa6.LightObjImageLibConstructor](by-memory/0x004df7e0-0x004dfaa6.LightObjImageLibConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004df7e0-0x004dfaa6.LightObjImageLibConstructor.md` |  |
 | [UID:00017P][0x004df7e0-0x004e669c.LightObjImageLib](by-memory/0x004df7e0-0x004e669c.LightObjImageLib.md) | unassigned |  |  | no |  | `by-memory/0x004df7e0-0x004e669c.LightObjImageLib.md` |  |
