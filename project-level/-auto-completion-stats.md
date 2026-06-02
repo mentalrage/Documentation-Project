@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 17:32:11
+Generated: 2026-06-02 17:36:52
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -20,7 +20,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | --- | --- | --- | --- |
 | `0000HH` | blank | `(blank)` | `by-file/ArgumentedItemInputDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HI` | blank | `(blank)` | `by-file/ArgumentedMenuDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000HJ` | blank | `(blank)` | `by-file/AttachedObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HK` | blank | `(blank)` | `by-file/AttachedObjectPaneHelper_53AEC0.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HL` | blank | `(blank)` | `by-file/AttachmentAnchorResolver.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HN` | blank | `(blank)` | `by-file/AutoInit.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -124,8 +123,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000276` | 65 | 85 | 75.0 | `by-memory/0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks.md` |
-| `000278` | 65 | 85 | 75.0 | `by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md` |
 | `00027M` | 65 | 85 | 75.0 | `by-memory/0x0066db44-0x0066db4c.UiResourceStringPointers.md` |
 | `00027O` | 65 | 85 | 75.0 | `by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md` |
 | `00029U` | 65 | 85 | 75.0 | `by-memory/0x0069b3d4-0x0069b3d8.SurfacePixelFormatFlags.md` |
@@ -149,6 +146,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BN` | 66 | 80 | 73.0 | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |
 | `0002BS` | 66 | 80 | 73.0 | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |
 | `0002BT` | 66 | 80 | 73.0 | `by-memory/0x005266b0-0x00526784.MidiTrackBufferedByteReader.md` |
+| `0002BW` | 66 | 80 | 73.0 | `by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md` |
+| `0002C2` | 66 | 80 | 73.0 | `by-memory/0x00527000-0x00527039.MidiSourceRawReadHelper.md` |
 
 ## Low_Confidence
 

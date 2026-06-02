@@ -1,7 +1,7 @@
 *** UID:0000HJ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # AttachedObjectPane
 
@@ -84,3 +84,7 @@ Constructor xrefs observed:
 - What existed before: the page had a strong attached-overlay source hypothesis and detailed boundary notes but remained scored as unevaluated.
 - What it was changed to: scores were set to `78/84`.
 - Summary and evidence: class grouping, MapPane construction paths, shared teardown, registry helper, and static-pool evidence support the module; completion/confidence are limited by one IDA boundary caveat and final folding of anchor/helper pages.
+- 2026-06-02 projected path assignment:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank despite the page proposing `map/AttachedObjectPane.cpp`.
+  - Changed to: `NexusTK/map/`.
+  - Summary/evidence: the documented file role and proposed module place attached map-object overlays under `map/`, and the parent confidence is high enough for reviewed child data such as `BalloonObjectPane` static masks to attach without path errors.
