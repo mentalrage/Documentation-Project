@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 18:15:47
+Generated: 2026-06-02 18:23:48
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -121,9 +121,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
-| `0001AT` | 66 | 78 | 72.0 | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |
-| `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
 | `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
 | `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
 | `0002BJ` | 66 | 80 | 73.0 | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |
@@ -146,6 +143,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00021W` | 66 | 82 | 74.0 | `by-memory/0x00489f80-0x00489fb5.ClanEnlistInputDialogRawConstructor.md` |
 | `0002O4` | 66 | 82 | 74.0 | `by-memory/0x00489ff0-0x0048a025.ClanChangeInputDialogRawConstructor.md` |
 | `0002O6` | 66 | 82 | 74.0 | `by-memory/0x0048a060-0x0048a09e.ClanLeaveConfirmDialogRawConstructor.md` |
+| `00021X` | 66 | 82 | 74.0 | `by-memory/0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor.md` |
+| `000111` | 66 | 82 | 74.0 | `by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md` |
+| `0002P8` | 66 | 82 | 74.0 | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |
 
 ## Low_Confidence
 
@@ -182,9 +182,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
-| `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
-| `0001AT` | 66 | 78 | 72.0 | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |
-| `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
 | `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
 | `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
 | `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
@@ -206,6 +203,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002C0` | 68 | 76 | 72.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
 | `0002C1` | 68 | 76 | 72.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
 | `0002C3` | 68 | 76 | 72.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
+| `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
+| `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
+| `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
 
 ## By Folder
 
@@ -341,9 +341,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
-| `0001AT` | 66 | 78 | 72.0 | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |
-| `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
 | `0002CB` | 66 | 78 | 72.0 | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |
 | `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
 | `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
@@ -366,6 +363,9 @@ _No scored files._
 | `0002BW` | 66 | 80 | 73.0 | `by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md` |
 | `0002C2` | 66 | 80 | 73.0 | `by-memory/0x00527000-0x00527039.MidiSourceRawReadHelper.md` |
 | `0002C5` | 66 | 80 | 73.0 | `by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md` |
+| `0002JW` | 68 | 78 | 73.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
+| `0002FP` | 68 | 78 | 73.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
+| `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
 
 ### by-meta
 
