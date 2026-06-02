@@ -1,6 +1,6 @@
 *** UID:0000LI | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Monitor
@@ -48,6 +48,13 @@ The active `class_CriticalSectionLock.cpp` duplicates local struct declarations 
 
 Use one `util/Monitor.cpp` module for these synchronization primitives. A later split into `CriticalSectionLock.cpp` is possible if original import/source evidence appears, but the current codebase benefits from documenting it as the same synchronization family.
 
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `82` | The page records the synchronization primitive family, valid projected path, exact monitor/condition/gate aggregate, critical-section companion helpers, consumer boundaries, generated-output caveats, and source-structure decision. Completion remains capped because final original split between Monitor and CriticalSectionLock is still not proven. |
+| Confidence `82` | Confidence is strong enough for child attachment because IDA-backed docs tie `Monitor`, `MonitorCondition`, and `RequestSyncGate` into one exact Win32 synchronization cluster under `util/Monitor.cpp`. It is not higher because `CriticalSectionLock` may later split into a companion file. |
+
 ## Cross-References
 
 - [UID:00008L][Monitor](by-class/Monitor.md)
@@ -63,6 +70,10 @@ Use one `util/Monitor.cpp` module for these synchronization primitives. A later 
 
 ## Changes
 
+- 2026-06-02:
+  - Before: scored `80/78`.
+  - After: scored `82/82`.
+  - Why: the exact monitor/condition/gate cluster, valid `NexusTK/util/` path, generated-output caveats, and lower-level synchronization role are now sufficient for child attachment; the only remaining uncertainty is final split from `CriticalSectionLock`.
 - Before: this file only mentioned `CriticalSectionLock` at `0x0049bcf0-0x0049bd19` as the low-address synchronization helper.
 - Changed to: include the adjacent critical-section API wrapper family at `0x0049bcb0-0x0049bce8`.
 - Summary/evidence: IDA MCP/raw disassembly shows wrappers for `InitializeCriticalSection`, `DeleteCriticalSection`, `EnterCriticalSection`, and `LeaveCriticalSection` immediately before the RAII lock constructor/destructor.

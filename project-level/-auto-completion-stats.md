@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 12:53:35
+Generated: 2026-06-02 13:02:21
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -157,10 +157,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00008R` | 78 | 70 | 74.0 | `by-class/Motion.md` |
-| `0000AE` | 68 | 72 | 70.0 | `by-class/PhoneBookListPane.md` |
-| `0000BX` | 68 | 72 | 70.0 | `by-class/RequestSyncGate.md` |
-| `0000AC` | 70 | 72 | 71.0 | `by-class/PatchPane__PatchFileSlice.md` |
 | `0000FD` | 70 | 72 | 71.0 | `by-class/UInt32Vector.md` |
 | `0000FA` | 72 | 72 | 72.0 | `by-class/TreeItor_near_class_EventHandler___.md` |
 | `0000F8` | 72 | 72 | 72.0 | `by-class/Tree_near_class_EventHandler___.md` |
@@ -182,6 +178,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
 | `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
 | `000074` | 72 | 74 | 73.0 | `by-class/LegendPane.md` |
+| `00007C` | 72 | 74 | 73.0 | `by-class/LivingObjectPane__BoxRotator.md` |
+| `00007J` | 72 | 74 | 73.0 | `by-class/MailDeleteReplyAlert.md` |
+| `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
+| `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 
 ## Low_Both
 
@@ -208,10 +208,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `0000AE` | 68 | 72 | 70.0 | `by-class/PhoneBookListPane.md` |
-| `0000BX` | 68 | 72 | 70.0 | `by-class/RequestSyncGate.md` |
 | `0002P9` | 62 | 80 | 71.0 | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |
 | `0002HV` | 62 | 80 | 71.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
+| `0002JJ` | 62 | 80 | 71.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
+| `0002JK` | 62 | 80 | 71.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
 
 ## By Folder
 
@@ -225,11 +225,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000060` | 64 | 76 | 70.0 | `by-class/HandlerFindFunc.md` |
 | `00000E` | 65 | 75 | 70.0 | `by-class/ApplicationHelper_4A6C40.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
-| `0000AE` | 68 | 72 | 70.0 | `by-class/PhoneBookListPane.md` |
-| `0000BX` | 68 | 72 | 70.0 | `by-class/RequestSyncGate.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
-| `0000AC` | 70 | 72 | 71.0 | `by-class/PatchPane__PatchFileSlice.md` |
 | `0000FD` | 70 | 72 | 71.0 | `by-class/UInt32Vector.md` |
 | `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
 | `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
@@ -244,6 +241,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
 | `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
 | `0000FA` | 72 | 72 | 72.0 | `by-class/TreeItor_near_class_EventHandler___.md` |
+| `0000F8` | 72 | 72 | 72.0 | `by-class/Tree_near_class_EventHandler___.md` |
+| `00000V` | 65 | 80 | 72.5 | `by-class/BaramApp.md` |
+| `00004W` | 65 | 80 | 72.5 | `by-class/FileDownloader.md` |
 
 ### by-external-research
 

@@ -1,7 +1,7 @@
 *** UID:00008R | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -16,7 +16,7 @@
 - Current recovered file: `source-3/simroot_v2/class_Motion.cpp`
 - Core animation range: [UID:0001DD][0x00539bc0-0x0053d614.MotionAnimation](by-memory/0x00539bc0-0x0053d614.MotionAnimation.md)
 - Region/dirty-rectangle range: [UID:0001FW][0x00554680-0x00554b38.RegionAndMotionRect](by-memory/0x00554680-0x00554b38.RegionAndMotionRect.md)
-- Confidence: strong that current `class_Motion.cpp` is a mixed ownership container, medium for final class/file names.
+- Confidence: strong for the generated split diagnosis, animation behavior, rectangle-helper relocation, and explicit exclusions; medium-high for final animation class/file names.
 
 ## Class Purpose
 
@@ -25,7 +25,7 @@
 - a timer-driven animation/motion controller around `0x00539bc0-0x0053d614`, with frame progression, optional sound trigger, map/object refresh, timer rescheduling, and pool-backed scalar deleting cleanup;
 - a rectangle/dirty-region helper family around `0x005546f0-0x00554ae0`, adjacent to [UID:0000BV][Region](by-class/Region.md), used heavily by panes, layers, GrafPort, dirty-region accumulation, and clipping.
 
-These may be two original source concepts that share the historical `Motion` name, or a generated merge caused by common rectangle state and broad vtable/base use. Treat final naming as open until struct/vtable ownership is rechecked.
+These are now best treated as split source concepts. The timer-driven animation object remains the actual `Motion` class candidate, while the rectangle/dirty-region helper family is already attached to [UID:0000N3][Region](by-file/Region.md). Treat final animation folder/name as open, but do not merge the Region rectangle helpers back into the animation source.
 
 ## Method Families
 
@@ -51,6 +51,19 @@ These may be two original source concepts that share the historical `Motion` nam
 - `0x0054c200` callers are message/menu dialog packet paths; its callees instantiate message and menu-question dialog classes.
 - `0x004e5240` is called only by `NewHumanImageLib::LoadMotionTable`; `0x004e5dd0` is called only from `NewHumanImageLib` destruction/cleanup.
 - 2026-05-26 IDA static-pool review identifies the animation-object [UID:0000TI][PoolAllocatorStaticInstances](by-global/PoolAllocatorStaticInstances.md) at `0x0069b984`, constructed by `0x0041a120` with block size `28` and `16` blocks per chunk. The related constructor-failure cleanup wrapper is [UID:0001DK][0x0053ce50-0x0053ce8e.MotionPoolFreeUnwindWrapper](by-memory/0x0053ce50-0x0053ce8e.MotionPoolFreeUnwindWrapper.md).
+- [UID:0001DD][0x00539bc0-0x0053d614.MotionAnimation](by-memory/0x00539bc0-0x0053d614.MotionAnimation.md) now carries exact child pages, touched-state evidence, vtable/static-pool evidence, corrected endpoints, and overlap notes for the non-Motion LivingObjectPane island between timer and scalar deleting destructor.
+- [UID:0001FW][0x00554680-0x00554b38.RegionAndMotionRect](by-memory/0x00554680-0x00554b38.RegionAndMotionRect.md) is reconstructable but attached to [UID:0000N3][Region](by-file/Region.md), with all modeled rectangle helper endpoints, raw helper pocket, layout, caller/callee evidence, and lower-level geometry primitive references documented.
+
+## Autogen Status
+
+Mark this class reconstructable as split-owner documentation, but leave `AUTOGEN_PARENT_UID` and C++ blank. The animation half is reconstructable and source-authored, but the current generated `class_Motion.cpp` still crosses into Region rectangle helpers, MessageDialogs, NewHumanImageLib `Motion.tbl` helpers, and LivingObjectPane adjacency. Final emitted source should wait until the actual animation file path and class declaration are stable.
+
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `82` | The page records the animation/rectangle split, exact animation child pages, Region relocation, static-pool evidence, explicit non-Motion exclusions, generated-owner pollution, and no-code autogen handling. Completion remains capped because final animation file path and field/member names are unresolved. |
+| Confidence `82` | Confidence is strong that the timer-driven object is the real Motion candidate and that rectangle helpers belong with Region, supported by exact memory pages and caller/owner evidence. It is not higher because current generated ownership is still mixed and the original source split has not been fully recovered. |
 
 ## Cross-References
 
@@ -67,4 +80,8 @@ These may be two original source concepts that share the historical `Motion` nam
 
 ## Changes
 
+- 2026-06-02:
+  - Before: scored `78/70`, reconstructability blank.
+  - After: scored `82/82`, marked reconstructable, and kept autogen parent/C++ blank.
+  - Why: exact MotionAnimation and RegionAndMotionRect pages now provide enough evidence to classify the generated Motion page as a reconstructable split-owner record, while the final animation source path and declaration remain unresolved.
 - Completion/confidence score update: existed before as `0/0`; changed to `78/70`. Summary: the page now clearly separates timer-driven animation motion from rectangle/dirty-region helper behavior and documents explicit generated-owner exclusions, but confidence stays capped because current generated ownership is mixed and final class/file names remain unresolved. Evidence: linked animation and region/motion ranges, caller-cluster separation, exclusions for `LObject`, message dialogs, and NewHumanImageLib vector helpers, IDA static-pool review, and pool-free unwind wrapper reference.

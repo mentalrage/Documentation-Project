@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 170
+Total_Reconstructable: 174
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 82
+Total_Reconstructed_Assigned: 85
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 88
-Total_Unclassified: 415
+Total_Reconstructable_Unassigned: 89
+Total_Unclassified: 411
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -69,6 +69,8 @@ Total_Error: 0
 | [UID:0000A9][PatchPane](by-class/PatchPane.md) | assigned | `0000MH` | 10 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane.md` |  |
 | [UID:0000AA][PatchPane2](by-class/PatchPane2.md) | assigned | `0000MH` | 20 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane2.md` |  |
 | [UID:0000AB][PatchPane__PatchFileData](by-class/PatchPane__PatchFileData.md) | assigned | `0000MH` | 15 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane__PatchFileData.md` |  |
+| [UID:0000AC][PatchPane__PatchFileSlice](by-class/PatchPane__PatchFileSlice.md) | assigned | `0000MH` |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane__PatchFileSlice.md` |  |
+| [UID:0000AE][PhoneBookListPane](by-class/PhoneBookListPane.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-class/PhoneBookListPane.md` |  |
 | [UID:0000AI][PixelEffecter](by-class/PixelEffecter.md) | assigned | `0000IZ` | 20 | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/PixelEffecter.md` |  |
 | [UID:0000AU][ProfileDialog](by-class/ProfileDialog.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-class/ProfileDialog.md` |  |
 | [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md) | assigned | `0000MT` | 10 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-class/ProgressBarControlPane.md` |  |
@@ -77,6 +79,7 @@ Total_Error: 0
 | [UID:0000BL][RankingCategoryRecord](by-class/RankingCategoryRecord.md) | assigned | `0000MZ` | 50 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingCategoryRecord.md` |  |
 | [UID:0000BO][RankingEventScrollPane](by-class/RankingEventScrollPane.md) | assigned | `0000MZ` | 20 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingEventScrollPane.md` |  |
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-class/RectBounds.md` |  |
+| [UID:0000BX][RequestSyncGate](by-class/RequestSyncGate.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/RequestSyncGate.md` |  |
 | [UID:0000C3][SayInputPane](by-class/SayInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayInputPane.md` |  |
 | [UID:0000C4][SayToGroupMessageInputPane](by-class/SayToGroupMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToGroupMessageInputPane.md` |  |
 | [UID:0000CU][SelfLookPane](by-class/SelfLookPane.md) | assigned | `0000NL` |  | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane.md` |  |
@@ -158,6 +161,7 @@ Total_Error: 0
 | [UID:00008H][MiniMapVersionManager](by-class/MiniMapVersionManager.md) | unassigned |  |  | no |  | `by-class/MiniMapVersionManager.md` |  |
 | [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md) | unassigned |  |  | no |  | `by-class/ModelessDialogPane.md` |  |
 | [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md) | unassigned |  |  | no |  | `by-class/MonsterImageLib.md` |  |
+| [UID:00008R][Motion](by-class/Motion.md) | unassigned |  |  | no |  | `by-class/Motion.md` |  |
 | [UID:00008W][MyItemListPane](by-class/MyItemListPane.md) | unassigned |  |  | no |  | `by-class/MyItemListPane.md` |  |
 | [UID:000090][NewGroupPane](by-class/NewGroupPane.md) | unassigned |  |  | no |  | `by-class/NewGroupPane.md` |  |
 | [UID:00009Q][ObjectList](by-class/ObjectList.md) | unassigned |  |  | no |  | `by-class/ObjectList.md` |  |
@@ -382,7 +386,6 @@ Total_Error: 0
 | [UID:00008O][MonsterImageLibTable_5289D0](by-class/MonsterImageLibTable_5289D0.md) | unclassified |  |  | no |  | `by-class/MonsterImageLibTable_5289D0.md` |  |
 | [UID:00008P][MonsterImageLibTable_528BE0](by-class/MonsterImageLibTable_528BE0.md) | unclassified |  |  | no |  | `by-class/MonsterImageLibTable_528BE0.md` |  |
 | [UID:00008Q][MoreInfoPane](by-class/MoreInfoPane.md) | unclassified |  |  | no |  | `by-class/MoreInfoPane.md` |  |
-| [UID:00008R][Motion](by-class/Motion.md) | unclassified |  |  | no |  | `by-class/Motion.md` |  |
 | [UID:00008T][MultiLineInputPane](by-class/MultiLineInputPane.md) | unclassified |  |  | no |  | `by-class/MultiLineInputPane.md` |  |
 | [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md) | unclassified |  |  | no |  | `by-class/MusicControlDialog.md` |  |
 | [UID:00008V][MyError](by-class/MyError.md) | unclassified |  |  | no |  | `by-class/MyError.md` |  |
@@ -421,9 +424,7 @@ Total_Error: 0
 | [UID:0000A3][PaneChildRegistry](by-class/PaneChildRegistry.md) | unclassified |  |  | no |  | `by-class/PaneChildRegistry.md` |  |
 | [UID:0000A4][PanelPane](by-class/PanelPane.md) | unclassified |  |  | no |  | `by-class/PanelPane.md` |  |
 | [UID:0000A7][PartySearchEditPane](by-class/PartySearchEditPane.md) | unclassified |  |  | no |  | `by-class/PartySearchEditPane.md` |  |
-| [UID:0000AC][PatchPane__PatchFileSlice](by-class/PatchPane__PatchFileSlice.md) | unclassified |  |  | no |  | `by-class/PatchPane__PatchFileSlice.md` |  |
 | [UID:0000AD][PhoneBookDialog](by-class/PhoneBookDialog.md) | unclassified |  |  | no |  | `by-class/PhoneBookDialog.md` |  |
-| [UID:0000AE][PhoneBookListPane](by-class/PhoneBookListPane.md) | unclassified |  |  | no |  | `by-class/PhoneBookListPane.md` |  |
 | [UID:0000AF][PhoneEntryDialog](by-class/PhoneEntryDialog.md) | unclassified |  |  | no |  | `by-class/PhoneEntryDialog.md` |  |
 | [UID:0000AG][PhotoPane](by-class/PhotoPane.md) | unclassified |  |  | no |  | `by-class/PhotoPane.md` |  |
 | [UID:0000AH][PictureViewPane](by-class/PictureViewPane.md) | unclassified |  |  | no |  | `by-class/PictureViewPane.md` |  |
@@ -469,7 +470,6 @@ Total_Error: 0
 | [UID:0000BT][RectangleControlPane](by-class/RectangleControlPane.md) | unclassified |  |  | no |  | `by-class/RectangleControlPane.md` |  |
 | [UID:0000BV][Region](by-class/Region.md) | unclassified |  |  | no |  | `by-class/Region.md` |  |
 | [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md) | unclassified |  |  | no |  | `by-class/RegistryConfig.md` |  |
-| [UID:0000BX][RequestSyncGate](by-class/RequestSyncGate.md) | unclassified |  |  | no |  | `by-class/RequestSyncGate.md` |  |
 | [UID:0000C0][RightButtonMenuPane](by-class/RightButtonMenuPane.md) | unclassified |  |  | no |  | `by-class/RightButtonMenuPane.md` |  |
 | [UID:0000C1][RingBuffer](by-class/RingBuffer.md) | unclassified |  |  | no |  | `by-class/RingBuffer.md` |  |
 | [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md) | unclassified |  |  | no |  | `by-class/RingBufferIterator.md` |  |
