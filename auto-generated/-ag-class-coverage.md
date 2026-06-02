@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 159
+Total_Reconstructable: 161
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 71
+Total_Reconstructed_Assigned: 73
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 88
-Total_Unclassified: 426
+Total_Unclassified: 424
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -34,6 +34,7 @@ Total_Error: 0
 | [UID:00004B][EmotionInputPane](by-class/EmotionInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/EmotionInputPane.md` |  |
 | [UID:00004N][EventHandler](by-class/EventHandler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/EventHandler.md` |  |
 | [UID:00004P][ExceptionHandler](by-class/ExceptionHandler.md) | assigned | `0000J8` |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-class/ExceptionHandler.md` |  |
+| [UID:000051][FittingRoomDialogItemState](by-class/FittingRoomDialogItemState.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomDialogItemState.md` |  |
 | [UID:000052][FittingRoomDownloadControlPane](by-class/FittingRoomDownloadControlPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomDownloadControlPane.md` |  |
 | [UID:000053][FittingRoomListPane](by-class/FittingRoomListPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomListPane.md` |  |
 | [UID:000054][FittingRoomScrollPane](by-class/FittingRoomScrollPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomScrollPane.md` |  |
@@ -45,6 +46,7 @@ Total_Error: 0
 | [UID:00005V][GrafPort](by-class/GrafPort.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-class/GrafPort.md` |  |
 | [UID:00005W][GroupInputPane](by-class/GroupInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/GroupInputPane.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
+| [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPaneState.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
 | [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPlayerPane.md` |  |
 | [UID:00007Q][MapPane](by-class/MapPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-class/MapPane.md` |  |
@@ -281,7 +283,6 @@ Total_Error: 0
 | [UID:00004Y][FilterEffecter](by-class/FilterEffecter.md) | unclassified |  |  | no |  | `by-class/FilterEffecter.md` |  |
 | [UID:00004Z][FittingEquipmentState](by-class/FittingEquipmentState.md) | unclassified |  |  | no |  | `by-class/FittingEquipmentState.md` |  |
 | [UID:000050][FittingRoomDialog](by-class/FittingRoomDialog.md) | unclassified |  |  | no |  | `by-class/FittingRoomDialog.md` |  |
-| [UID:000051][FittingRoomDialogItemState](by-class/FittingRoomDialogItemState.md) | unclassified |  |  | no |  | `by-class/FittingRoomDialogItemState.md` |  |
 | [UID:000056][FittingRoomUserImageControlPane](by-class/FittingRoomUserImageControlPane.md) | unclassified |  |  | no |  | `by-class/FittingRoomUserImageControlPane.md` |  |
 | [UID:000057][FlyingObjectPane](by-class/FlyingObjectPane.md) | unclassified |  |  | no |  | `by-class/FlyingObjectPane.md` |  |
 | [UID:000059][FolderSelectDialog](by-class/FolderSelectDialog.md) | unclassified |  |  | no |  | `by-class/FolderSelectDialog.md` |  |
@@ -327,7 +328,6 @@ Total_Error: 0
 | [UID:00006T][ItemCatalog](by-class/ItemCatalog.md) | unclassified |  |  | no |  | `by-class/ItemCatalog.md` |  |
 | [UID:00006U][ItemHelpPane](by-class/ItemHelpPane.md) | unclassified |  |  | no |  | `by-class/ItemHelpPane.md` |  |
 | [UID:00006V][ItemObjectPane](by-class/ItemObjectPane.md) | unclassified |  |  | no |  | `by-class/ItemObjectPane.md` |  |
-| [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | unclassified |  |  | no |  | `by-class/ItemWhoInputPaneState.md` |  |
 | [UID:00007D][LObject](by-class/LObject.md) | unclassified |  |  | no |  | `by-class/LObject.md` |  |
 | [UID:000070][LakeEffecter](by-class/LakeEffecter.md) | unclassified |  |  | no |  | `by-class/LakeEffecter.md` |  |
 | [UID:000071][LanguageMan](by-class/LanguageMan.md) | unclassified |  |  | no |  | `by-class/LanguageMan.md` |  |

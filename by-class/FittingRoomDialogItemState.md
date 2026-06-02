@@ -1,8 +1,8 @@
 *** UID:000051 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Confidence: strong.
 - Current Wave3 file: `class_FittingRoomDialogItemState.cpp`
 - Proposed source module: [UID:0000JE][FittingRoom](by-file/FittingRoom.md)
+- Autogen status: reconstructable class attached to [UID:0000JE][FittingRoom](by-file/FittingRoom.md); C++ is intentionally blank because category-entry fields, helper names, and JsonCpp-facing source shape are not final-source quality.
 - Evidence basis: Wave3 inspection, generated source, and IDA MCP checks on 2026-05-23.
 
 ## Role
@@ -41,6 +42,13 @@ Embedded fitting-room state object for cached item-shop catalog data. It owns `I
 - The embedded equipment-entry vector is reset by [UID:0000WS][0x0041d5e0-0x0041d671.FittingEquipmentStateResetEntries](by-memory/0x0041d5e0-0x0041d671.FittingEquipmentStateResetEntries.md). IDA shows the vector at item-state offsets `+0x240/+0x244/+0x248` and `0xb4` byte entries with a trailing buffer triple at `+0xa8/+0xac/+0xb0`; see [UID:0001UH][FittingEquipmentStateLayout](by-type/by-struct/FittingEquipmentStateLayout.md).
 - `LoadEncodedStateBuffer` calls JsonCpp document/parse helpers at `0x004298f0` and `0x00429b30`, then uses `version` and the category keys documented in [UID:0000WU][0x00421a40-0x00422e91.FittingRoomItemShopCatalogState](by-memory/0x00421a40-0x00422e91.FittingRoomItemShopCatalogState.md).
 
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `82` | The class role, cache path, encode/decode keys, major methods, category loader, embedded catalog state, and linked exact memory pages are documented. Completion remains capped by unresolved category-entry field names, final helper names, and absent final C++ declaration. |
+| Confidence `86` | The fitting-room ownership, cache behavior, JsonCpp consumer boundary, and method inventory are supported by exact memory pages and string/caller evidence. Confidence is not higher because the final source split between `FittingRoom.cpp` and a possible `ItemCatalog` helper remains open. |
+
 ## Cross-References
 
 - [UID:0000JE][FittingRoom](by-file/FittingRoom.md)
@@ -53,4 +61,5 @@ Embedded fitting-room state object for cached item-shop catalog data. It owns `I
 
 ## Changes
 
+- 2026-06-02: Raised completion from `80` to `82`, marked the class reconstructable, and attached it to [UID:0000JE][FittingRoom](by-file/FittingRoom.md). C++ remains blank because final category-entry fields and JsonCpp-facing source names are not source-quality.
 - Completion/confidence score update: existed before as `0/0`; changed to `80/86`. Summary: role, cache file, encode/decode strings, category loading, major methods, and related layout evidence are documented with strong confidence; remaining work is deeper field-by-field naming and final C++ reconstruction. Evidence: method address table from `0x00422020-0x00422e90`, JsonCpp parser notes, `FittingEquipmentStateLayout`, and fitting-room memory cluster references.

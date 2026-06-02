@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1154
+Total_Reconstructable: 1156
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 608
+Total_Reconstructed_Assigned: 610
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 546
-Total_Unclassified: 972
+Total_Unclassified: 970
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -18,6 +18,8 @@ Total_Error: 0
 | [UID:0002DN][0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent](by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md` |  |
 | [UID:0002DT][0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers](by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |  |
 | [UID:0002DU][0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers](by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |  |
+| [UID:0002E4][0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson](by-memory/0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson.md) | assigned | `000051` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson.md` |  |
+| [UID:0002EA][0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw](by-memory/0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw.md) | assigned | `000051` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw.md` |  |
 | [UID:0002SC][0x00424020-0x004242e4.FittingRoomTextButtonControlPane](by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md) | assigned | `000055` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md` |  |
 | [UID:0000XZ][0x00458610-0x0045f9f5.RankingDialog](by-memory/0x00458610-0x0045f9f5.RankingDialog.md) | assigned | `0000MZ` | 1 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x00458610-0x0045f9f5.RankingDialog.md` |  |
 | [UID:0000Y2][0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters](by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md) | assigned | `0000BO` | 10 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |  |
@@ -1272,7 +1274,6 @@ Total_Error: 0
 | [UID:0002E1][0x00421500-0x0042151a.MsvcVectorThrowHelpers](by-memory/0x00421500-0x0042151a.MsvcVectorThrowHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00421500-0x0042151a.MsvcVectorThrowHelpers.md` |  |
 | [UID:0002E2][0x00421520-0x00421584.AllocateAlignedDwordArray](by-memory/0x00421520-0x00421584.AllocateAlignedDwordArray.md) | unclassified |  |  | no |  | `by-memory/0x00421520-0x00421584.AllocateAlignedDwordArray.md` |  |
 | [UID:0002E3][0x00421590-0x004216cb.SimpleUStringAssignWideCount](by-memory/0x00421590-0x004216cb.SimpleUStringAssignWideCount.md) | unclassified |  |  | no |  | `by-memory/0x00421590-0x004216cb.SimpleUStringAssignWideCount.md` |  |
-| [UID:0002E4][0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson](by-memory/0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson.md) | unclassified |  |  | no |  | `by-memory/0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson.md` |  |
 | [UID:0000WU][0x00421a40-0x00422e91.FittingRoomItemShopCatalogState](by-memory/0x00421a40-0x00422e91.FittingRoomItemShopCatalogState.md) | unclassified |  |  | no |  | `by-memory/0x00421a40-0x00422e91.FittingRoomItemShopCatalogState.md` |  |
 | [UID:0002E5][0x00421fe0-0x0042201c.FittingRoomCatalogEntryPartLookup](by-memory/0x00421fe0-0x0042201c.FittingRoomCatalogEntryPartLookup.md) | unclassified |  |  | no |  | `by-memory/0x00421fe0-0x0042201c.FittingRoomCatalogEntryPartLookup.md` |  |
 | [UID:0002E7][0x00422020-0x0042232a.FittingRoomDialogItemStateConstructor](by-memory/0x00422020-0x0042232a.FittingRoomDialogItemStateConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00422020-0x0042232a.FittingRoomDialogItemStateConstructor.md` |  |
@@ -1281,7 +1282,6 @@ Total_Error: 0
 | [UID:0002EF][0x004225a0-0x0042268f.FittingRoomDialogItemStateSaveEncodedStateBuffer](by-memory/0x004225a0-0x0042268f.FittingRoomDialogItemStateSaveEncodedStateBuffer.md) | unclassified |  |  | no |  | `by-memory/0x004225a0-0x0042268f.FittingRoomDialogItemStateSaveEncodedStateBuffer.md` |  |
 | [UID:0000WV][0x00422690-0x0042273e.ItemCatalogLookup](by-memory/0x00422690-0x0042273e.ItemCatalogLookup.md) | unclassified |  |  | no |  | `by-memory/0x00422690-0x0042273e.ItemCatalogLookup.md` |  |
 | [UID:0002E9][0x00422740-0x00422919.FittingRoomDialogItemStateLoadEncodedStateBuffer](by-memory/0x00422740-0x00422919.FittingRoomDialogItemStateLoadEncodedStateBuffer.md) | unclassified |  |  | no |  | `by-memory/0x00422740-0x00422919.FittingRoomDialogItemStateLoadEncodedStateBuffer.md` |  |
-| [UID:0002EA][0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw](by-memory/0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw.md) | unclassified |  |  | no |  | `by-memory/0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw.md` |  |
 | [UID:0002EG][0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile](by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md) | unclassified |  |  | no |  | `by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md` |  |
 | [UID:0002E8][0x00422b30-0x00422b93.FittingRoomCatalogTransformPersistedBuffer](by-memory/0x00422b30-0x00422b93.FittingRoomCatalogTransformPersistedBuffer.md) | unclassified |  |  | no |  | `by-memory/0x00422b30-0x00422b93.FittingRoomCatalogTransformPersistedBuffer.md` |  |
 | [UID:0002E6][0x00422ba0-0x00422e91.FittingRoomDialogItemStateLoadCategoryFromJson](by-memory/0x00422ba0-0x00422e91.FittingRoomDialogItemStateLoadCategoryFromJson.md) | unclassified |  |  | no |  | `by-memory/0x00422ba0-0x00422e91.FittingRoomDialogItemStateLoadCategoryFromJson.md` |  |
