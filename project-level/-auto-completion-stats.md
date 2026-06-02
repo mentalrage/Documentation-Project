@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 00:37:57
+Generated: 2026-06-02 00:41:37
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -169,7 +169,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 | `0001K2` | 50 | 65 | 57.5 | `by-memory/0x00596e10-0x005970df.ThreadManWorkerLoop.md` |
 | `0001K3` | 50 | 65 | 57.5 | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |
 | `0001K7` | 50 | 65 | 57.5 | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |
@@ -194,6 +193,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001M0` | 50 | 65 | 57.5 | `by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md` |
 | `0001M1` | 50 | 65 | 57.5 | `by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md` |
 | `0001M3` | 50 | 65 | 57.5 | `by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md` |
+| `0001M4` | 50 | 65 | 57.5 | `by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md` |
 
 ## Low_Confidence
 
@@ -204,7 +204,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 | `0001K2` | 50 | 65 | 57.5 | `by-memory/0x00596e10-0x005970df.ThreadManWorkerLoop.md` |
 | `0001K3` | 50 | 65 | 57.5 | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |
 | `0001K7` | 50 | 65 | 57.5 | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |
@@ -224,12 +223,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001L6` | 50 | 65 | 57.5 | `by-memory/0x005af2f0-0x005af383.ItemWhoInputPaneObjectListVirtual.md` |
 | `0001L8` | 50 | 65 | 57.5 | `by-memory/0x005af390-0x005b050d.TargetSelectionInputPanes.md` |
 | `0001L9` | 50 | 65 | 57.5 | `by-memory/0x005af4f0-0x005af57b.SendTargetedActionPacket.md` |
+| `0001LA` | 50 | 65 | 57.5 | `by-memory/0x005af580-0x005af5ea.SendObjectActionPacket.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 | `0001K2` | 50 | 65 | 57.5 | `by-memory/0x00596e10-0x005970df.ThreadManWorkerLoop.md` |
 | `0001K3` | 50 | 65 | 57.5 | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |
 | `0001K7` | 50 | 65 | 57.5 | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |
@@ -254,6 +253,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001M0` | 50 | 65 | 57.5 | `by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md` |
 | `0001M1` | 50 | 65 | 57.5 | `by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md` |
 | `0001M3` | 50 | 65 | 57.5 | `by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md` |
+| `0001M4` | 50 | 65 | 57.5 | `by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md` |
 
 ## By Folder
 
@@ -389,7 +389,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001K1` | 50 | 65 | 57.5 | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |
 | `0001K2` | 50 | 65 | 57.5 | `by-memory/0x00596e10-0x005970df.ThreadManWorkerLoop.md` |
 | `0001K3` | 50 | 65 | 57.5 | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |
 | `0001K7` | 50 | 65 | 57.5 | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |
@@ -414,6 +413,7 @@ _No scored files._
 | `0001M0` | 50 | 65 | 57.5 | `by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md` |
 | `0001M1` | 50 | 65 | 57.5 | `by-memory/0x005b2720-0x005b296b.TakeOffInputPane.md` |
 | `0001M3` | 50 | 65 | 57.5 | `by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md` |
+| `0001M4` | 50 | 65 | 57.5 | `by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md` |
 
 ### by-meta
 
