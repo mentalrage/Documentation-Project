@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1190
+Total_Reconstructable: 1193
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 662
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 528
-Total_Unclassified: 939
+Total_Reconstructable_Unassigned: 531
+Total_Unclassified: 936
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -743,6 +743,9 @@ Total_Error: 0
 | [UID:00021C][0x00484f70-0x0048540b.ClanStatusPacketDispatcher](by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md) | unassigned |  |  | no |  | `by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md` |  |
 | [UID:00010F][0x00486330-0x0048652d.SubmitClanChangeHelper](by-memory/0x00486330-0x0048652d.SubmitClanChangeHelper.md) | unassigned |  |  | no |  | `by-memory/0x00486330-0x0048652d.SubmitClanChangeHelper.md` |  |
 | [UID:00021O][0x00487370-0x004873b5.ClanStatusPaneRefreshChildPanes](by-memory/0x00487370-0x004873b5.ClanStatusPaneRefreshChildPanes.md) | unassigned |  |  | no |  | `by-memory/0x00487370-0x004873b5.ClanStatusPaneRefreshChildPanes.md` |  |
+| [UID:00021P][0x004873c0-0x00487475.ClanStatusPaneShowInfoList](by-memory/0x004873c0-0x00487475.ClanStatusPaneShowInfoList.md) | unassigned |  |  | no |  | `by-memory/0x004873c0-0x00487475.ClanStatusPaneShowInfoList.md` |  |
+| [UID:00021Q][0x00487480-0x00487535.ClanStatusPaneShowJoinList](by-memory/0x00487480-0x00487535.ClanStatusPaneShowJoinList.md) | unassigned |  |  | no |  | `by-memory/0x00487480-0x00487535.ClanStatusPaneShowJoinList.md` |  |
+| [UID:00021R][0x00487540-0x004875f5.ClanStatusPaneShowEnlistList](by-memory/0x00487540-0x004875f5.ClanStatusPaneShowEnlistList.md) | unassigned |  |  | no |  | `by-memory/0x00487540-0x004875f5.ClanStatusPaneShowEnlistList.md` |  |
 | [UID:00010H][0x00487600-0x0048779f.ClanStatusRowActionPacket](by-memory/0x00487600-0x0048779f.ClanStatusRowActionPacket.md) | unassigned |  |  | no |  | `by-memory/0x00487600-0x0048779f.ClanStatusRowActionPacket.md` |  |
 | [UID:0002NN][0x00488610-0x00488615.ClanInfoListPaneFalseActionVirtual](by-memory/0x00488610-0x00488615.ClanInfoListPaneFalseActionVirtual.md) | unassigned |  |  | no |  | `by-memory/0x00488610-0x00488615.ClanInfoListPaneFalseActionVirtual.md` |  |
 | [UID:0002NO][0x00488620-0x00488625.ClanInfoListPaneFalseAlternateVirtual](by-memory/0x00488620-0x00488625.ClanInfoListPaneFalseAlternateVirtual.md) | unassigned |  |  | no |  | `by-memory/0x00488620-0x00488625.ClanInfoListPaneFalseAlternateVirtual.md` |  |
@@ -1495,9 +1498,6 @@ Total_Error: 0
 | [UID:00010D][0x00485700-0x00485778.SendClanLeaveResponse](by-memory/0x00485700-0x00485778.SendClanLeaveResponse.md) | unclassified |  |  | no |  | `by-memory/0x00485700-0x00485778.SendClanLeaveResponse.md` |  |
 | [UID:00010E][0x00485ac0-0x00485cbd.SendClanAttributePacket](by-memory/0x00485ac0-0x00485cbd.SendClanAttributePacket.md) | unclassified |  |  | no |  | `by-memory/0x00485ac0-0x00485cbd.SendClanAttributePacket.md` |  |
 | [UID:00010G][0x00486800-0x00487291.ClanStatusPaneRows](by-memory/0x00486800-0x00487291.ClanStatusPaneRows.md) | unclassified |  |  | no |  | `by-memory/0x00486800-0x00487291.ClanStatusPaneRows.md` |  |
-| [UID:00021P][0x004873c0-0x00487475.ClanStatusPaneShowInfoList](by-memory/0x004873c0-0x00487475.ClanStatusPaneShowInfoList.md) | unclassified |  |  | no |  | `by-memory/0x004873c0-0x00487475.ClanStatusPaneShowInfoList.md` |  |
-| [UID:00021Q][0x00487480-0x00487535.ClanStatusPaneShowJoinList](by-memory/0x00487480-0x00487535.ClanStatusPaneShowJoinList.md) | unclassified |  |  | no |  | `by-memory/0x00487480-0x00487535.ClanStatusPaneShowJoinList.md` |  |
-| [UID:00021R][0x00487540-0x004875f5.ClanStatusPaneShowEnlistList](by-memory/0x00487540-0x004875f5.ClanStatusPaneShowEnlistList.md) | unclassified |  |  | no |  | `by-memory/0x00487540-0x004875f5.ClanStatusPaneShowEnlistList.md` |  |
 | [UID:00021S][0x004877d0-0x00488594.ClanStatusPacketDialogHandlers](by-memory/0x004877d0-0x00488594.ClanStatusPacketDialogHandlers.md) | unclassified |  |  | no |  | `by-memory/0x004877d0-0x00488594.ClanStatusPacketDialogHandlers.md` |  |
 | [UID:00021U][0x00488900-0x00488b3d.ClanListPaneInputHandlers](by-memory/0x00488900-0x00488b3d.ClanListPaneInputHandlers.md) | unclassified |  |  | no |  | `by-memory/0x00488900-0x00488b3d.ClanListPaneInputHandlers.md` |  |
 | [UID:00010J][0x00488b40-0x00488fa0.ClanNameInputDialogCore](by-memory/0x00488b40-0x00488fa0.ClanNameInputDialogCore.md) | unclassified |  |  | no |  | `by-memory/0x00488b40-0x00488fa0.ClanNameInputDialogCore.md` |  |

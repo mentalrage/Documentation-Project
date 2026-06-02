@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 15:33:42
+Generated: 2026-06-02 17:06:01
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -124,9 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00021P` | 65 | 85 | 75.0 | `by-memory/0x004873c0-0x00487475.ClanStatusPaneShowInfoList.md` |
-| `00021Q` | 65 | 85 | 75.0 | `by-memory/0x00487480-0x00487535.ClanStatusPaneShowJoinList.md` |
-| `00021R` | 65 | 85 | 75.0 | `by-memory/0x00487540-0x004875f5.ClanStatusPaneShowEnlistList.md` |
 | `000226` | 65 | 85 | 75.0 | `by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md` |
 | `000227` | 65 | 85 | 75.0 | `by-memory/0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder.md` |
 | `00022A` | 65 | 85 | 75.0 | `by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md` |
@@ -149,6 +146,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
+| `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
+| `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
+| `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 
 ## Low_Confidence
 
