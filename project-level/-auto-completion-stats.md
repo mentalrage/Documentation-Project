@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 04:01:24
+Generated: 2026-06-02 04:06:39
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -159,8 +159,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001M5` | 50 | 65 | 57.5 | `by-memory/0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor.md` |
-| `0001M6` | 50 | 65 | 57.5 | `by-memory/0x005b3010-0x005b3196.ChangeItemSlotInputPane.md` |
 | `0001M7` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b3260.ChangeSpellSlotInputPaneRawConstructor.md` |
 | `0001M8` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b340e.ChangeSpellSlotInputPane.md` |
 | `0001MB` | 50 | 65 | 57.5 | `by-memory/0x005b34d0-0x005b37ea.SayInputPane.md` |
@@ -184,6 +182,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001OL` | 50 | 65 | 57.5 | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |
 | `00027U` | 50 | 65 | 57.5 | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |
 | `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
+| `0001OR` | 50 | 65 | 57.5 | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |
+| `0001P0` | 50 | 65 | 57.5 | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |
 
 ## Low_Confidence
 
@@ -194,8 +194,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000055` | 58 | 64 | 61.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `0001M5` | 50 | 65 | 57.5 | `by-memory/0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor.md` |
-| `0001M6` | 50 | 65 | 57.5 | `by-memory/0x005b3010-0x005b3196.ChangeItemSlotInputPane.md` |
 | `0001M7` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b3260.ChangeSpellSlotInputPaneRawConstructor.md` |
 | `0001M8` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b340e.ChangeSpellSlotInputPane.md` |
 | `0001MB` | 50 | 65 | 57.5 | `by-memory/0x005b34d0-0x005b37ea.SayInputPane.md` |
@@ -214,13 +212,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001O1` | 50 | 65 | 57.5 | `by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md` |
 | `0001O3` | 50 | 65 | 57.5 | `by-memory/0x005c2760-0x005c292e.SwallowLayerPaneRawFlightHelpers.md` |
 | `0001OB` | 50 | 65 | 57.5 | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |
+| `0001OD` | 50 | 65 | 57.5 | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |
+| `00027B` | 50 | 65 | 57.5 | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001M5` | 50 | 65 | 57.5 | `by-memory/0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor.md` |
-| `0001M6` | 50 | 65 | 57.5 | `by-memory/0x005b3010-0x005b3196.ChangeItemSlotInputPane.md` |
 | `0001M7` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b3260.ChangeSpellSlotInputPaneRawConstructor.md` |
 | `0001M8` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b340e.ChangeSpellSlotInputPane.md` |
 | `0001MB` | 50 | 65 | 57.5 | `by-memory/0x005b34d0-0x005b37ea.SayInputPane.md` |
@@ -244,6 +242,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001OL` | 50 | 65 | 57.5 | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |
 | `00027U` | 50 | 65 | 57.5 | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |
 | `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
+| `0001OR` | 50 | 65 | 57.5 | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |
+| `0001P0` | 50 | 65 | 57.5 | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |
 
 ## By Folder
 
@@ -379,8 +379,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001M5` | 50 | 65 | 57.5 | `by-memory/0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor.md` |
-| `0001M6` | 50 | 65 | 57.5 | `by-memory/0x005b3010-0x005b3196.ChangeItemSlotInputPane.md` |
 | `0001M7` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b3260.ChangeSpellSlotInputPaneRawConstructor.md` |
 | `0001M8` | 50 | 65 | 57.5 | `by-memory/0x005b3220-0x005b340e.ChangeSpellSlotInputPane.md` |
 | `0001MB` | 50 | 65 | 57.5 | `by-memory/0x005b34d0-0x005b37ea.SayInputPane.md` |
@@ -404,6 +402,8 @@ _No scored files._
 | `0001OL` | 50 | 65 | 57.5 | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |
 | `00027U` | 50 | 65 | 57.5 | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |
 | `0001OP` | 50 | 65 | 57.5 | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |
+| `0001OR` | 50 | 65 | 57.5 | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |
+| `0001P0` | 50 | 65 | 57.5 | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |
 
 ### by-meta
 

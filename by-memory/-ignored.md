@@ -3001,6 +3001,12 @@ For each ignored range, include:
   - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
   - Owner docs: [UID:0001M3][0x005b29c0-0x005b2f68.EmotionInputPane](by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md), [UID:0001M4][0x005b2f70-0x005b2fcb.SendEmotionPacket](by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md), and [UID:00004B][EmotionInputPane](by-class/EmotionInputPane.md).
 
+- `0x005b307c-0x005b3080` and `0x005b3196-0x005b31a0` - ChangeItemSlotInputPane internal alignment padding.
+  - Why ignored: confirmed `0xcc` compiler/linker alignment bytes between `ChangeItemSlotInputPane` virtual handler/submit functions and after the submit handler before the next neighborhood.
+  - Evidence: 2026-06-02 IDA MCP `lookup_funcs` confirms `sub_5B3010` ends at `0x005b307c`, `sub_5B3080` starts at `0x005b3080` and ends at `0x005b3196`; raw byte reads show four and ten `0xcc` bytes respectively.
+  - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
+  - Owner docs: [UID:0001M6][0x005b3010-0x005b3196.ChangeItemSlotInputPane](by-memory/0x005b3010-0x005b3196.ChangeItemSlotInputPane.md), [UID:0001M5][0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor](by-memory/0x005b2fd0-0x005b3010.ChangeItemSlotInputPaneRawConstructor.md), and [UID:00001J][ChangeItemSlotInputPane](by-class/ChangeItemSlotInputPane.md).
+
 - `0x005b6c00-0x005b6c30` - switch/jump table bytes for `BlockListenInputPane` command dispatch.
   - Why ignored: compiler-generated switch data supporting the `A/a` and `D/d` command dispatcher, not a standalone source function.
   - Evidence: 2026-06-02 IDA MCP disassembly at `0x005b6c00` labels the bytes as a jump table and indirect table for the switch in [UID:0001MY][0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher](by-memory/0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher.md); raw byte read reports 48 bytes from `0x005b6c00-0x005b6c30`.
