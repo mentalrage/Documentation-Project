@@ -5,9 +5,9 @@
 Total_Type: 2138
 Total_Reconstructable: 1174
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 626
+Total_Reconstructed_Assigned: 627
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 548
+Total_Reconstructable_Unassigned: 547
 Total_Unclassified: 953
 Total_Error: 0
 
@@ -111,6 +111,7 @@ Total_Error: 0
 | [UID:0002BP][0x00491450-0x0049178d.KwgLauncherParser](by-memory/0x00491450-0x0049178d.KwgLauncherParser.md) | assigned | `0000N4` | 57 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491450-0x0049178d.KwgLauncherParser.md` |  |
 | [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md) | assigned | `0000N4` | 60 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |  |
 | [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md) | assigned | `0000N4` | 70 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |  |
+| [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |  |
 | [UID:0002PB][0x004949e0-0x00494a81.ControlPaneConstructor](by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md) | assigned | `0000IG` | 10 | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md` |  |
 | [UID:000115][0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter](by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md) | assigned | `0000AW` | 20 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |  |
 | [UID:000117][0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter](by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md) | assigned | `0000AW` | 30 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md` |  |
@@ -736,7 +737,6 @@ Total_Error: 0
 | [UID:0002BQ][0x00491790-0x004918dc.GameBillLauncherGate](by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md) | unassigned |  |  | no |  | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |  |
 | [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md) | unassigned |  |  | no |  | `by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md` |  |
 | [UID:000112][0x00493f10-0x00493f79.SimpleUStringVectorDestructor](by-memory/0x00493f10-0x00493f79.SimpleUStringVectorDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00493f10-0x00493f79.SimpleUStringVectorDestructor.md` |  |
-| [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |  |
 | [UID:0002PA][0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md) | unassigned |  |  | no |  | `by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md` |  |
 | [UID:000114][0x004949e0-0x00494bf6.ControlPane](by-memory/0x004949e0-0x00494bf6.ControlPane.md) | unassigned |  |  | no |  | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |  |
 | [UID:000116][0x00494a90-0x00494b4b.ProgressBarRangeSetters](by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md) | unassigned |  |  | no |  | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |  |

@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 13:30:25
+Generated: 2026-06-02 13:35:37
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -127,8 +127,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002P9` | 62 | 80 | 71.0 | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |
-| `0002HV` | 62 | 80 | 71.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
 | `0002JJ` | 62 | 80 | 71.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
 | `0002JK` | 62 | 80 | 71.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
 | `00014U` | 62 | 82 | 72.0 | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |
@@ -152,6 +150,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002IB` | 64 | 78 | 71.0 | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |
 | `000172` | 64 | 78 | 71.0 | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |
 | `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
+| `0001TZ` | 64 | 78 | 71.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
+| `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
 
 ## Low_Confidence
 
@@ -198,8 +198,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `0002P9` | 62 | 80 | 71.0 | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |
-| `0002HV` | 62 | 80 | 71.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
 | `0002JJ` | 62 | 80 | 71.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
 | `0002JK` | 62 | 80 | 71.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
 | `0000HM` | 64 | 78 | 71.0 | `by-file/AUTOBUF.md` |
@@ -212,6 +210,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001TZ` | 64 | 78 | 71.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
+| `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
+| `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 
 ## By Folder
 
@@ -353,8 +353,6 @@ _No scored files._
 | `00011A` | 64 | 76 | 70.0 | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `0002P9` | 62 | 80 | 71.0 | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |
-| `0002HV` | 62 | 80 | 71.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
 | `0002JJ` | 62 | 80 | 71.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
 | `0002JK` | 62 | 80 | 71.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
 | `00013X` | 64 | 78 | 71.0 | `by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md` |
@@ -372,6 +370,8 @@ _No scored files._
 | `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
 | `00011B` | 66 | 78 | 72.0 | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |
 | `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
+| `0001AT` | 66 | 78 | 72.0 | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |
+| `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
 
 ### by-meta
 

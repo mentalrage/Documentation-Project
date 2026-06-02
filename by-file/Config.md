@@ -32,7 +32,7 @@ config/RegistryConfig.h
 
 | Entity | Current range | Current file | Proposed ownership |
 | --- | --- | --- | --- |
-| `Config` | `0x0048e550-0x0048e779`, `0x00494020-0x00494125` | `class_Config.cpp` | Base config object and deleting destructor in `config/Config.cpp`. |
+| `Config` | `0x0048e550-0x0048e779`, `0x00494020-0x00494126` | `class_Config.cpp` | Base config object and deleting destructor in `config/Config.cpp`. |
 | `ConfigEntryBlock` | `0x00494130-0x004941d6` | `class_ConfigEntryBlock.cpp` | Private/shared config-entry cleanup helper near `Config`. |
 | `ConfigRawTableHelpers` | `0x0048e310-0x0048e479` | omitted/raw helper gap | Large fixed-table lookup/append and reset helpers near `Config`. |
 | `InitializeConfigEntry` | `0x0048e480-0x0048e4a8` | `recovered/InitializeConfigEntry_0048E480.cpp` | Config-entry element constructor. |
@@ -108,3 +108,5 @@ profile/ProfileStorage.cpp
   - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though the status, hypothesis, and source-layout sections place `Config.cpp` under `config/`.
   - After: projected path is `NexusTK/config/`, matching [UID:0000N4][RegistryConfig](by-file/RegistryConfig.md) and the proposed `config/Config.cpp` / `config/RegistryConfig.cpp` split.
   - Evidence: the page's proposed contents keep `Config`, `ConfigEntryBlock`, raw config-table helpers, and config-entry construction/destruction in the lower-level configuration module.
+- 2026-06-02: Corrected the proposed contents display range for `Config::DeletingDestructor` from `0x00494020-0x00494125` to `0x00494020-0x00494126`.
+  - Evidence: IDA MCP `lookup_funcs` reports `sub_494020` size `0x106`, and [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md) records the following `0x00494126-0x00494130` alignment gap.
