@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1106
+Total_Reconstructable: 1108
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 567
+Total_Reconstructed_Assigned: 568
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 539
-Total_Unclassified: 1020
+Total_Reconstructable_Unassigned: 540
+Total_Unclassified: 1018
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -131,6 +131,7 @@ Total_Error: 0
 | [UID:000154][0x004b1590-0x004b1b87.FolderSelectDialog](by-memory/0x004b1590-0x004b1b87.FolderSelectDialog.md) | assigned | `0000JF` |  | no | `auto-generated/NexusTK/ui/dialogs/FolderSelectDialog.cpp` | `by-memory/0x004b1590-0x004b1b87.FolderSelectDialog.md` |  |
 | [UID:000155][0x004b1b90-0x004b32c9.FolderTreePaneCore](by-memory/0x004b1b90-0x004b32c9.FolderTreePaneCore.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-memory/0x004b1b90-0x004b32c9.FolderTreePaneCore.md` |  |
 | [UID:000156][0x004b3210-0x004b32c9.FolderTreePaneSetSelection](by-memory/0x004b3210-0x004b32c9.FolderTreePaneSetSelection.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-memory/0x004b3210-0x004b32c9.FolderTreePaneSetSelection.md` |  |
+| [UID:00022D][0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper](by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md) | assigned | `0000AA` | 55 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |  |
 | [UID:000158][0x004b5650-0x004b5668.FolderTreePaneTreeDestructorCleanup](by-memory/0x004b5650-0x004b5668.FolderTreePaneTreeDestructorCleanup.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-memory/0x004b5650-0x004b5668.FolderTreePaneTreeDestructorCleanup.md` |  |
 | [UID:00015C][0x004b6410-0x004b646b.FpsPaneConstructorRaw](by-memory/0x004b6410-0x004b646b.FpsPaneConstructorRaw.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-memory/0x004b6410-0x004b646b.FpsPaneConstructorRaw.md` |  |
 | [UID:00015D][0x004b6410-0x004b6caf.FpsPaneDiagnostics](by-memory/0x004b6410-0x004b6caf.FpsPaneDiagnostics.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-memory/0x004b6410-0x004b6caf.FpsPaneDiagnostics.md` |  |
@@ -665,6 +666,7 @@ Total_Error: 0
 | [UID:00021X][0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor](by-memory/0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor.md) | unassigned |  |  | no |  | `by-memory/0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor.md` |  |
 | [UID:0002OC][0x0048a100-0x0048a11f.ClanItemDialogVtableResetDestructorTail](by-memory/0x0048a100-0x0048a11f.ClanItemDialogVtableResetDestructorTail.md) | unassigned |  |  | no |  | `by-memory/0x0048a100-0x0048a11f.ClanItemDialogVtableResetDestructorTail.md` |  |
 | [UID:0002OB][0x0048a120-0x0048a1be.ClanItemDialogConfirmValidation](by-memory/0x0048a120-0x0048a1be.ClanItemDialogConfirmValidation.md) | unassigned |  |  | no |  | `by-memory/0x0048a120-0x0048a1be.ClanItemDialogConfirmValidation.md` |  |
+| [UID:00010T][0x0048c260-0x0048c63f.ClanDestructorBand](by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md) | unassigned |  |  | no |  | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |  |
 | [UID:00010W][0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor](by-memory/0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor.md` |  |
 | [UID:0002BG][0x0048f400-0x0048f4cf.CommandLineArgumentCounter](by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md) | unassigned |  |  | no |  | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |  |
 | [UID:0002BQ][0x00491790-0x004918dc.GameBillLauncherGate](by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md) | unassigned |  |  | no |  | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |  |
@@ -1460,7 +1462,6 @@ Total_Error: 0
 | [UID:00010Q][0x0048ae70-0x0048b1b1.ClanItemListPane](by-memory/0x0048ae70-0x0048b1b1.ClanItemListPane.md) | unclassified |  |  | no |  | `by-memory/0x0048ae70-0x0048b1b1.ClanItemListPane.md` |  |
 | [UID:00010R][0x0048b1c0-0x0048b7dc.ClanBankPane](by-memory/0x0048b1c0-0x0048b7dc.ClanBankPane.md) | unclassified |  |  | no |  | `by-memory/0x0048b1c0-0x0048b7dc.ClanBankPane.md` |  |
 | [UID:00010S][0x0048b8c0-0x0048c251.ClanBankItemListPane](by-memory/0x0048b8c0-0x0048c251.ClanBankItemListPane.md) | unclassified |  |  | no |  | `by-memory/0x0048b8c0-0x0048c251.ClanBankItemListPane.md` |  |
-| [UID:00010T][0x0048c260-0x0048c63f.ClanDestructorBand](by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md) | unclassified |  |  | no |  | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |  |
 | [UID:00010U][0x0048c27b-0x0048c290.DialogPaneAdjustorThunks](by-memory/0x0048c27b-0x0048c290.DialogPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0048c27b-0x0048c290.DialogPaneAdjustorThunks.md` |  |
 | [UID:00010V][0x0048c315-0x0048c32b.AlertPaneAdjustorThunks](by-memory/0x0048c315-0x0048c32b.AlertPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0048c315-0x0048c32b.AlertPaneAdjustorThunks.md` |  |
 | [UID:00010X][0x0048c640-0x0048e305.CollectionDialogControls](by-memory/0x0048c640-0x0048e305.CollectionDialogControls.md) | unclassified |  |  | no |  | `by-memory/0x0048c640-0x0048e305.CollectionDialogControls.md` |  |
@@ -1549,7 +1550,6 @@ Total_Error: 0
 | [UID:00014V][0x004b0490-0x004b0ba5.ExchangeDialogTail](by-memory/0x004b0490-0x004b0ba5.ExchangeDialogTail.md) | unclassified |  |  | no |  | `by-memory/0x004b0490-0x004b0ba5.ExchangeDialogTail.md` |  |
 | [UID:00014X][0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks](by-memory/0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks.md` |  |
 | [UID:00014Y][0x004b0ab5-0x004b0acb.ExchangeMoneyEditControlPaneAdjustorThunks](by-memory/0x004b0ab5-0x004b0acb.ExchangeMoneyEditControlPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b0ab5-0x004b0acb.ExchangeMoneyEditControlPaneAdjustorThunks.md` |  |
-| [UID:00022D][0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper](by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md) | unclassified |  |  | no |  | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |  |
 | [UID:000159][0x004b59d5-0x004b59eb.FolderTreePaneAdjustorThunks](by-memory/0x004b59d5-0x004b59eb.FolderTreePaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b59d5-0x004b59eb.FolderTreePaneAdjustorThunks.md` |  |
 | [UID:00022E][0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers](by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |  |
 | [UID:00015K][0x004b6c2b-0x004b6c41.FpsPaneAdjustorThunks](by-memory/0x004b6c2b-0x004b6c41.FpsPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004b6c2b-0x004b6c41.FpsPaneAdjustorThunks.md` |  |

@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 09:54:47
+Generated: 2026-06-02 10:02:40
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -142,8 +142,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001Z5` | 58 | 88 | 73.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
-| `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
-| `00022D` | 60 | 65 | 62.5 | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |
 | `00022E` | 60 | 65 | 62.5 | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |
 | `00022I` | 60 | 65 | 62.5 | `by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md` |
 | `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
@@ -166,6 +164,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000ZK` | 60 | 78 | 69.0 | `by-memory/0x00472070-0x00477790.BoardArticleDialogs.md` |
 | `00013Q` | 60 | 78 | 69.0 | `by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md` |
 | `0001R5` | 60 | 80 | 70.0 | `by-resource/alert-dialog-resources.md` |
+| `0001ZD` | 60 | 85 | 72.5 | `by-memory/0x0045d530-0x0045d740.RankingCategoryVectorStorageHelpers.md` |
+| `0001ZE` | 60 | 85 | 72.5 | `by-memory/0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper.md` |
 
 ## Low_Confidence
 
@@ -175,8 +175,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000MV` | 76 | 62 | 69.0 | `by-file/ProtocolSend.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00005P` | 70 | 64 | 67.0 | `by-class/GenderButtonControlPane.md` |
-| `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
-| `00022D` | 60 | 65 | 62.5 | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |
 | `00022E` | 60 | 65 | 62.5 | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |
 | `00022I` | 60 | 65 | 62.5 | `by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md` |
 | `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
@@ -196,13 +194,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000292` | 65 | 65 | 65.0 | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |
 | `0002B7` | 65 | 65 | 65.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
 | `000201` | 70 | 65 | 67.5 | `by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md` |
+| `0002AV` | 70 | 65 | 67.5 | `by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md` |
+| `0002AW` | 70 | 65 | 67.5 | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
-| `00022D` | 60 | 65 | 62.5 | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |
 | `00022E` | 60 | 65 | 62.5 | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |
 | `00022I` | 60 | 65 | 62.5 | `by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md` |
 | `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
@@ -226,6 +224,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000292` | 65 | 65 | 65.0 | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |
 | `0002B7` | 65 | 65 | 65.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
 | `0000LX` | 68 | 62 | 65.0 | `by-file/NewUserMiscDialogPane.md` |
+| `0002G3` | 60 | 72 | 66.0 | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |
+| `0002BM` | 60 | 72 | 66.0 | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |
 
 ## By Folder
 
@@ -361,8 +361,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00010T` | 60 | 65 | 62.5 | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |
-| `00022D` | 60 | 65 | 62.5 | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |
 | `00022E` | 60 | 65 | 62.5 | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |
 | `00022I` | 60 | 65 | 62.5 | `by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md` |
 | `00022L` | 60 | 65 | 62.5 | `by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md` |
@@ -386,6 +384,8 @@ _No scored files._
 | `0002DU` | 60 | 74 | 67.0 | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |
 | `0002FP` | 62 | 72 | 67.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 | `0002FQ` | 62 | 72 | 67.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
+| `0000YS` | 60 | 75 | 67.5 | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |
+| `0002BL` | 62 | 73 | 67.5 | `by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md` |
 
 ### by-meta
 
