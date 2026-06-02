@@ -1,13 +1,13 @@
 *** UID:0000MV | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:62 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/network/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ProtocolSend
 
 ## Status
 
-- Confidence: low for existence as an original file; strong that current evidence does not justify migrating code here yet.
+- Confidence: strong for the current non-promotion decision, low for existence as a proven original file.
 - Proposed module: `network/ProtocolSend.cpp` only if later cross-feature send-helper clustering supports it.
 - Current recovered source: none as a clean source unit; `simroot_v2` has no `ProtocolSend` generated file.
 - Primary notes: [UID:0001QH][client_network](by-meta/client_network.md)
@@ -46,6 +46,13 @@ Promote this placeholder to a real source module only if a future pass finds at 
 - import/source provenance or historical project evidence naming a protocol send source/header;
 - an interface/base-class cleanup that moves `QueueAndSendPacket` and related dispatch helpers out of [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md).
 
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `80` | The page records current negative evidence, network placement if promotion happens, boundary rules, promotion criteria, and cross-references to the send queue, socket transport, packet buffer, packet transform, and `g_packetSender` lifetime owner. Completion remains capped because no real source unit or shared protocol-send API has been proven. |
+| Confidence `80` | The documented decision to keep this as a placeholder is well supported by existing Socket, PacketBuffer, PacketTransform, CashShopRequest, and client-network pages. Confidence is not higher because the existence of an original `ProtocolSend.cpp` remains unproven and future helper clustering could change the owner model. |
+
 ## Cross-References
 
 - [UID:0001QH][client_network](by-meta/client_network.md)
@@ -65,6 +72,7 @@ Promote this placeholder to a real source module only if a future pass finds at 
 
 ## Changes
 
+- 2026-06-02: Raised completion/confidence from `76/62` to `80/80` and filled the candidate projected path as `NexusTK/network/`. This does not promote `ProtocolSend.cpp` to a proven source unit; it records that the current documented non-promotion decision is well supported while preserving the network placement to use only if future evidence proves a shared protocol-send module.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `76`, confidence `62`.
 - Summary/evidence: the page clearly records negative evidence, boundary rules, promotion criteria, and cross-references for a possible future protocol-send owner; confidence remains low because the page itself states no clean original source unit is currently proven.

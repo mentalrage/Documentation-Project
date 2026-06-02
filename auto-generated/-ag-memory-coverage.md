@@ -5,9 +5,9 @@
 Total_Type: 2137
 Total_Reconstructable: 1156
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 610
+Total_Reconstructed_Assigned: 611
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 546
+Total_Reconstructable_Unassigned: 545
 Total_Unclassified: 970
 Total_Error: 0
 
@@ -131,6 +131,7 @@ Total_Error: 0
 | [UID:00012V][0x0049ec80-0x0049ee41.ClanDialogSlideAnimation](by-memory/0x0049ec80-0x0049ee41.ClanDialogSlideAnimation.md) | assigned | `0000IT` |  | no | `auto-generated/NexusTK/ui/core/DialogPane.cpp` | `by-memory/0x0049ec80-0x0049ee41.ClanDialogSlideAnimation.md` |  |
 | [UID:00012Y][0x004a06e0-0x004a0714.VersatileAlertPaneRawCleanup](by-memory/0x004a06e0-0x004a0714.VersatileAlertPaneRawCleanup.md) | assigned | `0000FU` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-memory/0x004a06e0-0x004a0714.VersatileAlertPaneRawCleanup.md` |  |
 | [UID:000130][0x004a0cb0-0x004a0d37.VersatileAlertPaneDestructor](by-memory/0x004a0cb0-0x004a0d37.VersatileAlertPaneDestructor.md) | assigned | `0000FU` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-memory/0x004a0cb0-0x004a0d37.VersatileAlertPaneDestructor.md` |  |
+| [UID:000138][0x004a1d70-0x004a4e6b.EmployeeDialogPanes](by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md` |  |
 | [UID:000139][0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor](by-memory/0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor.md) | assigned | `000006` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-memory/0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor.md` |  |
 | [UID:00013A][0x004a4b20-0x004a4d3b.AddEmployeeItemDialog](by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md) | assigned | `000006` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md` |  |
 | [UID:000141][0x004a6a80-0x004a82a9.EventDispatcher](by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md` |  |
@@ -745,7 +746,6 @@ Total_Error: 0
 | [UID:00012W][0x0049feb0-0x004a0686.AlertPaneCore](by-memory/0x0049feb0-0x004a0686.AlertPaneCore.md) | unassigned |  |  | no |  | `by-memory/0x0049feb0-0x004a0686.AlertPaneCore.md` |  |
 | [UID:00012Z][0x004a0760-0x004a0c8e.ModelessDialogPane](by-memory/0x004a0760-0x004a0c8e.ModelessDialogPane.md) | unassigned |  |  | no |  | `by-memory/0x004a0760-0x004a0c8e.ModelessDialogPane.md` |  |
 | [UID:000131][0x004a0d80-0x004a15f8.DialogSessionCore](by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md) | unassigned |  |  | no |  | `by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md` |  |
-| [UID:000138][0x004a1d70-0x004a4e6b.EmployeeDialogPanes](by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md) | unassigned |  |  | no |  | `by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md` |  |
 | [UID:0002HD][0x004a34d0-0x004a3644.DeserializeEmployeeRecord](by-memory/0x004a34d0-0x004a3644.DeserializeEmployeeRecord.md) | unassigned |  |  | no |  | `by-memory/0x004a34d0-0x004a3644.DeserializeEmployeeRecord.md` |  |
 | [UID:0002HE][0x004a41c0-0x004a456b.EmployeeItemPropertyDialogPaneConstructor](by-memory/0x004a41c0-0x004a456b.EmployeeItemPropertyDialogPaneConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004a41c0-0x004a456b.EmployeeItemPropertyDialogPaneConstructor.md` |  |
 | [UID:0002HF][0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint](by-memory/0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint.md) | unassigned |  |  | no |  | `by-memory/0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint.md` |  |

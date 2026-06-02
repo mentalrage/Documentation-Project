@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 12:11:40
+Generated: 2026-06-02 12:16:04
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -103,7 +103,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000MI` | blank | `(blank)` | `by-file/PathUtil.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MP` | blank | `(blank)` | `by-file/PrettyButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MU` | blank | `(blank)` | `by-file/ProtectedArray.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000MV` | blank | `(blank)` | `by-file/ProtocolSend.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MY` | blank | `(blank)` | `by-file/RainingLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000N1` | blank | `(blank)` | `by-file/RectangleControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000N5` | blank | `(blank)` | `by-file/ResourceLayoutTable.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -137,8 +136,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000D9` | 62 | 78 | 70.0 | `by-class/SimpleUString.md` |
-| `0002PD` | 62 | 78 | 70.0 | `by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md` |
-| `000138` | 62 | 78 | 70.0 | `by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md` |
 | `00013P` | 62 | 78 | 70.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
 | `00013R` | 62 | 78 | 70.0 | `by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md` |
 | `00017N` | 62 | 78 | 70.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
@@ -161,12 +158,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
 | `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
 | `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
+| `000033` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteAlert.md` |
+| `000034` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteMailAlert.md` |
 
 ## Low_Confidence
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000MV` | 76 | 62 | 69.0 | `by-file/ProtocolSend.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `0000TA` | 65 | 65 | 65.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 65 | 65 | 65.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
@@ -191,6 +189,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000QD` | 74 | 68 | 71.0 | `by-global/g_pBrowserOverlayLayer.md` |
 | `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
 | `0002BC` | 65 | 70 | 67.5 | `by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md` |
+| `0000E7` | 74 | 70 | 72.0 | `by-class/StringIter.md` |
 
 ## Low_Both
 
@@ -262,7 +261,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000MV` | 76 | 62 | 69.0 | `by-file/ProtocolSend.md` |
 | `0000LP` | 72 | 68 | 70.0 | `by-file/NewCreateUserDialogPane.md` |
 | `0000HM` | 64 | 78 | 71.0 | `by-file/AUTOBUF.md` |
 | `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
@@ -287,6 +285,7 @@ _No scored files._
 | `0000NP` | 80 | 72 | 76.0 | `by-file/Session.md` |
 | `0000I1` | 70 | 84 | 77.0 | `by-file/CashShopVersionRequest.md` |
 | `0000HH` | 72 | 82 | 77.0 | `by-file/ArgumentedItemInputDialogs.md` |
+| `0000NL` | 72 | 82 | 77.0 | `by-file/SelfLookPane.md` |
 
 ### by-function
 
@@ -371,8 +370,6 @@ _No scored files._
 | `0002AW` | 70 | 65 | 67.5 | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |
 | `00029K` | 70 | 65 | 67.5 | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |
 | `0002DA` | 65 | 74 | 69.5 | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |
-| `0002PD` | 62 | 78 | 70.0 | `by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md` |
-| `000138` | 62 | 78 | 70.0 | `by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md` |
 | `00013P` | 62 | 78 | 70.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
 | `00013R` | 62 | 78 | 70.0 | `by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md` |
 | `00017N` | 62 | 78 | 70.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
@@ -381,6 +378,8 @@ _No scored files._
 | `0002G0` | 64 | 76 | 70.0 | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |
 | `000115` | 64 | 76 | 70.0 | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |
 | `000117` | 64 | 76 | 70.0 | `by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md` |
+| `00011A` | 64 | 76 | 70.0 | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |
+| `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 
 ### by-meta
 
