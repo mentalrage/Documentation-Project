@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 153
+Total_Reconstructed_Assigned: 154
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 135
+Total_Error: 134
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -23,6 +23,7 @@ Total_Error: 135
 | [UID:0000HZ][CachedHashTable](by-file/CachedHashTable.md) | assigned |  |  | no | `auto-generated/NexusTK/util/CachedHashTable.cpp` | `by-file/CachedHashTable.md` | by-file generated root |
 | [UID:0000I2][ChangeMan](by-file/ChangeMan.md) | assigned |  |  | no | `auto-generated/NexusTK/app/ChangeMan.cpp` | `by-file/ChangeMan.md` | by-file generated root |
 | [UID:0000I3][ChangePasswordDialogPane](by-file/ChangePasswordDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-file/ChangePasswordDialogPane.md` | by-file generated root |
+| [UID:0000I5][Chatting](by-file/Chatting.md) | assigned |  |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-file/Chatting.md` | by-file generated root |
 | [UID:0000I7][CheckBoxControlPane](by-file/CheckBoxControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/CheckBoxControlPane.cpp` | `by-file/CheckBoxControlPane.md` | by-file generated root |
 | [UID:0000I8][Clan](by-file/Clan.md) | assigned |  |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-file/Clan.md` | by-file generated root |
 | [UID:0000IC][CollectionPane](by-file/CollectionPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-file/CollectionPane.md` | by-file generated root |
@@ -183,7 +184,6 @@ Total_Error: 135
 | [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md) | error |  |  | no |  | `by-file/CashShopRequest.md` | by-file generated root |
 | [UID:0000I1][CashShopVersionRequest](by-file/CashShopVersionRequest.md) | error |  |  | no |  | `by-file/CashShopVersionRequest.md` | by-file generated root |
 | [UID:0000I4][CharacterSummaryRecord](by-file/CharacterSummaryRecord.md) | error |  |  | no |  | `by-file/CharacterSummaryRecord.md` | by-file generated root |
-| [UID:0000I5][Chatting](by-file/Chatting.md) | error |  |  | no |  | `by-file/Chatting.md` | by-file generated root |
 | [UID:0000I6][CheatDetector](by-file/CheatDetector.md) | error |  |  | no |  | `by-file/CheatDetector.md` | by-file generated root |
 | [UID:0000I9][ClanBank](by-file/ClanBank.md) | error |  |  | no |  | `by-file/ClanBank.md` | by-file generated root |
 | [UID:0000IA][ClanDialogs](by-file/ClanDialogs.md) | error |  |  | no |  | `by-file/ClanDialogs.md` | by-file generated root |

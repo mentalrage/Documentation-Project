@@ -71,7 +71,7 @@
 - [UID:00001N][CharacterSummaryRecord](by-class/CharacterSummaryRecord.md) : reconstructable : 82% : strong : generated pseudo-class over UserStatusPane summary accessors; should not become a separate original class.
 - [UID:00001O][CharArgsInputPane](by-class/CharArgsInputPane.md) : reconstructable : 70% : strong : class role and IDA boundaries are strong; detailed layout and edge cases remain light.
 - [UID:00001P][CharInputPane](by-class/CharInputPane.md) : reconstructable : 72% : strong : class role and IDA boundaries are strong; detailed layout and owner-notification naming remain light.
-- [UID:00001Q][ChatInputPane](by-class/ChatInputPane.md) : reconstructable : 68% : medium : submit/history behavior is documented; constructor boundary remains projected.
+- [UID:00001Q][ChatInputPane](by-class/ChatInputPane.md) : reconstructable : 82% : strong : Chat input pane attached to `Chatting`; raw packet helper, raw constructor, vtable identity, history navigation, submit packet behavior, destructor/singleton cleanup, and padding evidence are documented.
 - [UID:00001R][ChattingBackPane](by-class/ChattingBackPane.md) : reconstructable : 70% : strong : chat background behavior and globals are documented; field/layout detail remains light.
 - [UID:00001S][ChattingColorListPane](by-class/ChattingColorListPane.md) : reconstructable : 86% : strong : exact local color-list child pages through `0x00483490` are documented; later generated attachments remain polluted.
 - [UID:00001T][ChattingColorPane](by-class/ChattingColorPane.md) : reconstructable : 78% : medium : exact constructor, destructor body, button response, raw selector refresh helper, and raw list sync helper are documented; generated file ownership remains polluted.

@@ -48,6 +48,12 @@ For each ignored range, include:
   - Replacement/procurement: none; compiler/linker alignment.
   - Owner docs: [UID:0000C3][SayInputPane](by-class/SayInputPane.md), [UID:0001MB][0x005b34d0-0x005b37ea.SayInputPane](by-memory/0x005b34d0-0x005b37ea.SayInputPane.md), and [UID:0002S7][0x005b3490-0x005b34d0.SayInputPaneRawConstructor](by-memory/0x005b3490-0x005b34d0.SayInputPaneRawConstructor.md).
 
+- `0x005b38d5-0x005b38e0`, `0x005b3935-0x005b3940`, and `0x005b3bba-0x005b3bc0` - ChatInputPane neighborhood alignment padding.
+  - Why ignored: confirmed `0xcc` alignment spans around exact raw/confirmed `ChatInputPane` bodies; not standalone project logic.
+  - Evidence: IDA MCP byte/disassembly audit on 2026-06-02 confirms [UID:0002S8][0x005b37f0-0x005b38d5.ChatPacketRawSender](by-memory/0x005b37f0-0x005b38d5.ChatPacketRawSender.md) ends at `0x005b38d5`, [UID:0002S9][0x005b38e0-0x005b3940.ChatInputPaneRawConstructor](by-memory/0x005b38e0-0x005b3940.ChatInputPaneRawConstructor.md) has tail alignment at `0x005b3935-0x005b3940`, and `sub_5B3A40` ends at `0x005b3bba` before the adjacent raw helper at `0x005b3bc0`.
+  - Replacement/procurement: none; compiler/linker alignment.
+  - Owner docs: [UID:00001Q][ChatInputPane](by-class/ChatInputPane.md), [UID:0001MC][0x005b3940-0x005b3bba.ChatInputPane](by-memory/0x005b3940-0x005b3bba.ChatInputPane.md), and [UID:0002S9][0x005b38e0-0x005b3940.ChatInputPaneRawConstructor](by-memory/0x005b38e0-0x005b3940.ChatInputPaneRawConstructor.md).
+
 - `0x004d02e5-0x004d02f0`, `0x004d039e-0x004d03a0`, `0x004d0522-0x004d0530`, `0x004d059b-0x004d05a0`, `0x004d05e6-0x004d05f0`, `0x004d1773-0x004d1780`, and `0x004d17b3-0x004d17c0` - ResourceLayoutTable helper alignment padding.
   - Why ignored: confirmed `0xcc` alignment spans between exact ResourceLayoutTable/helper functions; not standalone project logic.
   - Evidence: IDA MCP `py_eval` byte audit on 2026-05-31 confirmed each listed span consists only of `0xcc` bytes while enumerating the child functions under [UID:000174][0x004d0120-0x004d182e.ResourceLayoutTable](by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md).

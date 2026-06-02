@@ -1,7 +1,7 @@
 *** UID:0000I5 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:83 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Chatting
 
@@ -37,7 +37,7 @@ The current `FolderTreePane` owner for `AddChattingMessage`, `AddIncomingMessage
 | `ChattingColorSelectPane` | exact child pages through `0x00482fb0`, destructor at `0x0047e9d0` | `class_ChattingColorSelectPane.cpp` | Selects and draws chat color categories: Talk/Shout/Whisper/Group/Clan/System. |
 | `ChattingColorListPane` | exact child pages through `0x00483490`, destructor at `0x00483b00` | `class_ChattingColorListPane.cpp` | Displays selectable color swatches and writes selected colors into the color owner object. |
 | `ColorStringChattingMessage` | exact child pages through `0x004839c0`, scalar destructor in glue through `0x00483ef7` | `class_ColorStringChattingMessage.cpp` | Chat message object storing wide text and palette/custom RGB state, with low-res and high-res drawing paths. |
-| `ChatInputPane` | confirmed submit/history block `0x005b3940-0x005b3bba`, projected constructor `0x005b38e0` | `class_ChatInputPane.cpp` | Multi-line chat input with history navigation, text normalization, packet send, and history save. |
+| `ChatInputPane` | raw packet helper [UID:0002S8][0x005b37f0-0x005b38d5.ChatPacketRawSender](by-memory/0x005b37f0-0x005b38d5.ChatPacketRawSender.md), raw constructor [UID:0002S9][0x005b38e0-0x005b3940.ChatInputPaneRawConstructor](by-memory/0x005b38e0-0x005b3940.ChatInputPaneRawConstructor.md), confirmed submit/history block [UID:0001MC][0x005b3940-0x005b3bba.ChatInputPane](by-memory/0x005b3940-0x005b3bba.ChatInputPane.md) | `class_ChatInputPane.cpp` | Multi-line chat input with history navigation, text normalization, packet send, and history save. |
 
 ## Boundary And Data Notes
 
@@ -45,7 +45,8 @@ The current `FolderTreePane` owner for `AddChattingMessage`, `AddIncomingMessage
 - IDA reports no function at Wave3's `ChattingVarietySelectPane::ChattingVarietySelectPane` start `0x004810f0`; the next real function is `0x00481150`, followed by the confirmed `OnMouseEvent` at `0x004811c0`.
 - IDA MCP on 2026-05-26 resolves `0x00481ad0-0x00481b5b` as the `ChattingVarietySelectPane` six-row hit-test helper, with both callers inside `OnMouseEvent`.
 - IDA MCP on 2026-05-26 resolves generated `BackPane::SetScrollViewport` at `0x004806d0` as a chat-height layout helper: its only direct caller is `ChattingModifyHeightPane::OnMouseEvent` at `0x0048093e`.
-- IDA reports no function at Wave3's `ChatInputPane::ChatInputPane` start `0x005b38e0`; the next real function is `0x005b3940`.
+- IDA reports no function at the recovered `ChatInputPane::ChatInputPane` start `0x005b38e0`; 2026-06-02 raw byte/disassembly review confirms [UID:0002S9][0x005b38e0-0x005b3940.ChatInputPaneRawConstructor](by-memory/0x005b38e0-0x005b3940.ChatInputPaneRawConstructor.md) as a constructor-shaped body and confirms the method cluster at `0x005b3940-0x005b3bba`.
+- 2026-06-02 IDA raw byte/disassembly review also confirms adjacent file-level chat packet helper [UID:0002S8][0x005b37f0-0x005b38d5.ChatPacketRawSender](by-memory/0x005b37f0-0x005b38d5.ChatPacketRawSender.md), which sends opcode `0x0e`, subtype `0` from a wide string argument.
 - `class_ChattingColorPane.cpp` currently contains unrelated `SpellInventoryPane`, history viewing, music control, and localized alert methods. Treat only the exact `0x004824e0-0x00482ca0` local core and local destructor/thunk ranges as strong chat-color evidence until the polluted generated owner is repaired.
 - `class_ChattingColorListPane.cpp` includes a strong local color-list core, but many later methods are owner pollution from list/menu/user-list domains. `0x00574510`, currently emitted as `ChattingColorListPane::ApplySelectedColor`, is now documented as a [UID:0000VG][ServerSelectHelpers_574510_5745b0](by-item/ServerSelectHelpers_574510_5745b0.md).
 - 2026-05-26 IDA recheck resolves the `GetChatButtonAtPoint` signature mismatch: [UID:000107][0x00482400-0x004824e0.GetChatButtonAtPoint](by-memory/0x00482400-0x004824e0.GetChatButtonAtPoint.md) takes `mouseX, mouseY`; the generated `ChattingHandlePane` call-site spelling `GetChatButtonAtPoint(this, eventData)` is wrong because the binary pushes `eventData + 0x08` and `eventData + 0x0c` coordinate fields before the call.
@@ -116,6 +117,8 @@ Keep `ChattingColorPane`, `ChattingColorSelectPane`, and `ChattingColorListPane`
 - [UID:000104][0x0047efb0-0x00483ef7.ChattingUI](by-memory/0x0047efb0-0x00483ef7.ChattingUI.md)
 - [UID:000107][0x00482400-0x004824e0.GetChatButtonAtPoint](by-memory/0x00482400-0x004824e0.GetChatButtonAtPoint.md)
 - [UID:0001MC][0x005b3940-0x005b3bba.ChatInputPane](by-memory/0x005b3940-0x005b3bba.ChatInputPane.md)
+- [UID:0002S8][0x005b37f0-0x005b38d5.ChatPacketRawSender](by-memory/0x005b37f0-0x005b38d5.ChatPacketRawSender.md)
+- [UID:0002S9][0x005b38e0-0x005b3940.ChatInputPaneRawConstructor](by-memory/0x005b38e0-0x005b3940.ChatInputPaneRawConstructor.md)
 - [UID:0000UO][FolderTreePaneOwnerPollution_47f280_58a8e0](by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md)
 
 ## Changes
@@ -140,3 +143,7 @@ Keep `ChattingColorPane`, `ChattingColorSelectPane`, and `ChattingColorListPane`
   - Before: `ColorStringChattingMessage` remained a broad `0x00483490-0x00483ef7` block.
   - After: the page records exact child pages for the message constructor/destructor/clone/line-count/draw methods and the trailing compiler-generated destructor glue family.
   - Evidence: IDA MCP confirms method bounds, vtable slots, draw tail-table xrefs, scalar deleting destructor wrappers, adjustor thunks, singleton-clear helpers, and `0xcc` alignment.
+- 2026-06-02 `ChatInputPane` constructor/helper split:
+  - Before: the proposed contents only described `0x005b38e0` as a projected constructor start.
+  - After: linked exact raw packet helper [UID:0002S8][0x005b37f0-0x005b38d5.ChatPacketRawSender](by-memory/0x005b37f0-0x005b38d5.ChatPacketRawSender.md), raw constructor child [UID:0002S9][0x005b38e0-0x005b3940.ChatInputPaneRawConstructor](by-memory/0x005b38e0-0x005b3940.ChatInputPaneRawConstructor.md), and confirmed method cluster [UID:0001MC][0x005b3940-0x005b3bba.ChatInputPane](by-memory/0x005b3940-0x005b3bba.ChatInputPane.md).
+  - Evidence: IDA raw bytes, vtable stores, decompilation, and callee maps confirm the helper/constructor/method boundaries.

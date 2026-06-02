@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 133
+Total_Reconstructable: 134
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 46
+Total_Reconstructed_Assigned: 47
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 452
+Total_Unclassified: 451
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -20,6 +20,7 @@ Total_Error: 0
 | [UID:00003D][CScrollBarBackPane](by-class/CScrollBarBackPane.md) | assigned | `0000NF` |  | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/CScrollBarBackPane.md` |  |
 | [UID:00001J][ChangeItemSlotInputPane](by-class/ChangeItemSlotInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ChangeItemSlotInputPane.md` |  |
 | [UID:00001M][ChangeSpellSlotInputPane](by-class/ChangeSpellSlotInputPane.md) | assigned | `0000O0` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-class/ChangeSpellSlotInputPane.md` |  |
+| [UID:00001Q][ChatInputPane](by-class/ChatInputPane.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChatInputPane.md` |  |
 | [UID:00003A][Crasher](by-class/Crasher.md) | assigned | `0000II` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-class/Crasher.md` |  |
 | [UID:00003C][CriticalSectionLock](by-class/CriticalSectionLock.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/CriticalSectionLock.md` |  |
 | [UID:00003J][DATFileResolver](by-class/DATFileResolver.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-class/DATFileResolver.md` |  |
@@ -184,7 +185,6 @@ Total_Error: 0
 | [UID:00001O][CharArgsInputPane](by-class/CharArgsInputPane.md) | unclassified |  |  | no |  | `by-class/CharArgsInputPane.md` |  |
 | [UID:00001P][CharInputPane](by-class/CharInputPane.md) | unclassified |  |  | no |  | `by-class/CharInputPane.md` |  |
 | [UID:00001N][CharacterSummaryRecord](by-class/CharacterSummaryRecord.md) | unclassified |  |  | no |  | `by-class/CharacterSummaryRecord.md` |  |
-| [UID:00001Q][ChatInputPane](by-class/ChatInputPane.md) | unclassified |  |  | no |  | `by-class/ChatInputPane.md` |  |
 | [UID:00001R][ChattingBackPane](by-class/ChattingBackPane.md) | unclassified |  |  | no |  | `by-class/ChattingBackPane.md` |  |
 | [UID:00001S][ChattingColorListPane](by-class/ChattingColorListPane.md) | unclassified |  |  | no |  | `by-class/ChattingColorListPane.md` |  |
 | [UID:00001T][ChattingColorPane](by-class/ChattingColorPane.md) | unclassified |  |  | no |  | `by-class/ChattingColorPane.md` |  |
