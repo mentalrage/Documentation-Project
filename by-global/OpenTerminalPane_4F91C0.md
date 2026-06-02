@@ -1,8 +1,8 @@
 *** UID:0000TF | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:64 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -46,6 +46,18 @@ IDA reports no direct caller/xref to the helper start in the current database. T
 
 Keep this as a retained private helper in `login/MainMenuPane.cpp` or an adjacent pre-login launch-helper section. The `TerminalPane` implementation should remain in [UID:0000OI][TerminalPane](by-file/TerminalPane.md).
 
+## Autogen Status
+
+- Reconstructable: true as a retained source-owned launcher/helper.
+- Parent: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md). The parent is scored `88/82`, has the valid proposed path `NexusTK/login/`, and explicitly keeps this helper in `MainMenuPane.cpp`.
+- Code: intentionally blank. The exact by-memory page documents the body, but final source names and live callback reachability are not strong enough for 95+/95+ C++ reconstruction.
+
+## Score Rationale
+
+- Completion is raised to 72 to match the exact memory page because boundary, cleanup/reset path, constructor target, exit branch, sound call, owner, padding, and retained-helper caveat are documented.
+- Confidence is raised to 82 because [UID:00019S][0x004f91c0-0x004f927d.OpenTerminalPane](by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md) records IDA-backed lookup/callers/xrefs/callees/decompile/disasm/raw-byte evidence, and [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) records the same source placement.
+- Remaining uncertainty is live reachability: current IDA caller/xref checks still find no direct reference to the helper start.
+
 ## Cross-References
 
 - [UID:00019S][0x004f91c0-0x004f927d.OpenTerminalPane](by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md)
@@ -61,3 +73,4 @@ Keep this as a retained private helper in `login/MainMenuPane.cpp` or an adjacen
   - Before: page documented retained terminal launcher behavior, constructor target, no-caller result, and source placement but remained unevaluated.
   - After: score reflects documented behavior and owner hypothesis, with lower confidence because current IDA data has no direct caller/xref to the helper start.
   - Evidence: IDA notes confirm function size, no direct callers, cleanup/reset/login-close/BlackHole/exit/TerminalPane/sound callees, and constructor caller inside this helper.
+- 2026-06-02: Raised to `72/82`, marked reconstructable, attached to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md), and added autogen/scoring rationale based on the exact memory page [UID:00019S][0x004f91c0-0x004f927d.OpenTerminalPane](by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md). C++ remains blank.

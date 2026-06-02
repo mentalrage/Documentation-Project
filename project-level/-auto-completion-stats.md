@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 13:07:59
+Generated: 2026-06-02 13:15:44
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -144,29 +144,25 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00020M` | 62 | 86 | 74.0 | `by-memory/0x004618a0-0x004619b8.AesCbcDecryptRaw.md` |
 | `0001Z7` | 62 | 88 | 75.0 | `by-memory/0x0060d670-0x0066d000.ReadOnlyDataSection.md` |
 | `0001Z8` | 62 | 88 | 75.0 | `by-memory/0x0066d000-0x0069d000.DataSection.md` |
-| `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
-| `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
-| `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
 | `000033` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteAlert.md` |
 | `000034` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteMailAlert.md` |
 | `000060` | 64 | 76 | 70.0 | `by-class/HandlerFindFunc.md` |
 | `0002G0` | 64 | 76 | 70.0 | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |
 | `000115` | 64 | 76 | 70.0 | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |
+| `000117` | 64 | 76 | 70.0 | `by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md` |
+| `00011A` | 64 | 76 | 70.0 | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |
+| `0000HM` | 64 | 78 | 71.0 | `by-file/AUTOBUF.md` |
 
 ## Low_Confidence
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000GD` | 74 | 72 | 73.0 | `by-class/YFlipEffecter.md` |
 | `0000LY` | 76 | 72 | 74.0 | `by-file/NewUserShapeSelectControlPane.md` |
 | `0000MP` | 76 | 72 | 74.0 | `by-file/PrettyButtonControlPane.md` |
 | `0000Q6` | 76 | 72 | 74.0 | `by-global/g_pActiveBrowserWindow.md` |
 | `0000PP` | 78 | 72 | 75.0 | `by-global/g_activeBrowserPane.md` |
 | `0000IQ` | 79 | 72 | 75.5 | `by-file/Decoder.md` |
 | `0000NP` | 80 | 72 | 76.0 | `by-file/Session.md` |
-| `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
-| `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
-| `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
 | `0002DA` | 65 | 74 | 69.5 | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
@@ -182,14 +178,15 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000BE` | 76 | 74 | 75.0 | `by-class/PursuitMessageDialogPane.md` |
 | `0000DO` | 76 | 74 | 75.0 | `by-class/SpellInventoryPane2.md` |
 | `0000QC` | 76 | 74 | 75.0 | `by-global/g_pBrowserFileLoadText.md` |
+| `0000QF` | 76 | 74 | 75.0 | `by-global/g_pBrowserTimeoutText.md` |
+| `0000C5` | 78 | 74 | 76.0 | `by-class/SayToPlanMessageInputPane.md` |
+| `0000LS` | 78 | 74 | 76.0 | `by-file/NewInventoryPane.md` |
+| `0000LZ` | 78 | 74 | 76.0 | `by-file/NexonclubProxyDialog.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
-| `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
-| `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
 | `0002DA` | 65 | 74 | 69.5 | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |
 | `0000D9` | 62 | 78 | 70.0 | `by-class/SimpleUString.md` |
 | `00013P` | 62 | 78 | 70.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
@@ -212,6 +209,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002HV` | 62 | 80 | 71.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
 | `0002JJ` | 62 | 80 | 71.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
 | `0002JK` | 62 | 80 | 71.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
+| `0000HM` | 64 | 78 | 71.0 | `by-file/AUTOBUF.md` |
+| `00013X` | 64 | 78 | 71.0 | `by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md` |
+| `0002PH` | 64 | 78 | 71.0 | `by-memory/0x004bc090-0x004bd3e8.SoftwareRenderCompatSpriteBlitCallback.md` |
 
 ## By Folder
 
@@ -287,9 +287,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000T2` | 64 | 74 | 69.0 | `by-global/IID_BrowserEventSink.md` |
-| `0000TB` | 64 | 74 | 69.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
-| `0000TF` | 64 | 74 | 69.0 | `by-global/OpenTerminalPane_4F91C0.md` |
 | `0000Q6` | 76 | 72 | 74.0 | `by-global/g_pActiveBrowserWindow.md` |
 | `0000QC` | 76 | 74 | 75.0 | `by-global/g_pBrowserFileLoadText.md` |
 | `0000QF` | 76 | 74 | 75.0 | `by-global/g_pBrowserTimeoutText.md` |
@@ -305,10 +302,13 @@ _No scored files._
 | `0000ST` | 70 | 84 | 77.0 | `by-global/g_screenHeight.md` |
 | `0000SU` | 70 | 84 | 77.0 | `by-global/g_screenWidth.md` |
 | `0000T6` | 72 | 82 | 77.0 | `by-global/MainUiLayerSlots.md` |
+| `0000TB` | 72 | 82 | 77.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
+| `0000TF` | 72 | 82 | 77.0 | `by-global/OpenTerminalPane_4F91C0.md` |
 | `0000SJ` | 72 | 84 | 78.0 | `by-global/g_pTimerPane.md` |
 | `0000SN` | 72 | 84 | 78.0 | `by-global/g_pUserStatusPane2.md` |
 | `0000QW` | 72 | 84 | 78.0 | `by-global/g_pfnLockSurface.md` |
 | `0000SZ` | 74 | 82 | 78.0 | `by-global/HandleLegacyMainMenuPacket_4F8D00.md` |
+| `0000T2` | 74 | 82 | 78.0 | `by-global/IID_BrowserEventSink.md` |
 | `0000SH` | 74 | 82 | 78.0 | `by-global/g_pThreadMan.md` |
 | `0000SO` | 74 | 82 | 78.0 | `by-global/g_pVirusChecker.md` |
 | `0000QO` | 78 | 78 | 78.0 | `by-global/g_pCurrentBrowserHost.md` |

@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 178
+Total_Reconstructable: 179
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 88
+Total_Reconstructed_Assigned: 89
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 90
-Total_Unclassified: 407
+Total_Unclassified: 406
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -98,6 +98,7 @@ Total_Error: 0
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
 | [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md) | assigned | `0000P4` |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-class/VideoPlayerPane.md` |  |
 | [UID:0000G1][WeatherLayerPane](by-class/WeatherLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/WeatherLayerPane.md` |  |
+| [UID:0000GD][YFlipEffecter](by-class/YFlipEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/YFlipEffecter.md` |  |
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
 | [UID:00008S][MSGHandler](by-class/MSGHandler.md) | coded | `0000LM` | 10 | yes | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-class/MSGHandler.md` |  |
@@ -594,7 +595,6 @@ Total_Error: 0
 | [UID:0000G9][WorldMapPane](by-class/WorldMapPane.md) | unclassified |  |  | no |  | `by-class/WorldMapPane.md` |  |
 | [UID:0000GA][WorldMapReachabilityBitSet](by-class/WorldMapReachabilityBitSet.md) | unclassified |  |  | no |  | `by-class/WorldMapReachabilityBitSet.md` |  |
 | [UID:0000GC][XWaveEffecter](by-class/XWaveEffecter.md) | unclassified |  |  | no |  | `by-class/XWaveEffecter.md` |  |
-| [UID:0000GD][YFlipEffecter](by-class/YFlipEffecter.md) | unclassified |  |  | no |  | `by-class/YFlipEffecter.md` |  |
 | [UID:000012][brdir__Notification](by-class/brdir__Notification.md) | unclassified |  |  | no |  | `by-class/brdir__Notification.md` |  |
 | [UID:000014][browser__Notification](by-class/browser__Notification.md) | unclassified |  |  | no |  | `by-class/browser__Notification.md` |  |
 | [UID:000069][httpget__Notification](by-class/httpget__Notification.md) | unclassified |  |  | no |  | `by-class/httpget__Notification.md` |  |
