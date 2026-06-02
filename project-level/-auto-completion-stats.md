@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 18:04:37
+Generated: 2026-06-02 18:12:41
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -121,8 +121,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
-| `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 | `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
 | `00011B` | 66 | 78 | 72.0 | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |
 | `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
@@ -146,6 +144,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002NV` | 66 | 82 | 74.0 | `by-memory/0x00489140-0x00489175.ClanExpelNameInputDialogRawConstructor.md` |
 | `0002NX` | 66 | 82 | 74.0 | `by-memory/0x00489270-0x004892a5.ClanSummonNameInputDialogRawConstructor.md` |
 | `0002NZ` | 66 | 82 | 74.0 | `by-memory/0x004893a0-0x004893d5.ClanAppearNameInputDialogRawConstructor.md` |
+| `0002O1` | 66 | 82 | 74.0 | `by-memory/0x004894d0-0x00489505.ClanChangeNameInputDialogRawConstructor.md` |
+| `00021W` | 66 | 82 | 74.0 | `by-memory/0x00489f80-0x00489fb5.ClanEnlistInputDialogRawConstructor.md` |
 
 ## Low_Confidence
 
@@ -182,8 +182,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
-| `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
-| `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 | `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
 | `00011B` | 66 | 78 | 72.0 | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |
 | `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
@@ -206,6 +204,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BQ` | 68 | 76 | 72.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
 | `00016Z` | 68 | 76 | 72.0 | `by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md` |
 | `0002BX` | 68 | 76 | 72.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
+| `0002BZ` | 68 | 76 | 72.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
+| `0002C0` | 68 | 76 | 72.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
 
 ## By Folder
 
@@ -214,8 +214,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
-| `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
-| `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 | `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
 | `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
 | `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
@@ -238,6 +236,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `00005M` | 66 | 82 | 74.0 | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |
+| `00009J` | 66 | 82 | 74.0 | `by-class/NumberArgsInputPane.md` |
+| `00009L` | 66 | 82 | 74.0 | `by-class/NumberInputPane.md` |
 
 ### by-external-research
 
