@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1060
+Total_Reconstructable: 1062
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 527
+Total_Reconstructed_Assigned: 529
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 533
-Total_Unclassified: 1065
+Total_Unclassified: 1063
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -66,6 +66,7 @@ Total_Error: 0
 | [UID:0002GQ][0x00465310-0x00465318.ApplicationGetVersionMinor](by-memory/0x00465310-0x00465318.ApplicationGetVersionMinor.md) | assigned | `00000D` | 70 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465310-0x00465318.ApplicationGetVersionMinor.md` |  |
 | [UID:0002H6][0x00465430-0x0046564c.ApplicationValidateLicense](by-memory/0x00465430-0x0046564c.ApplicationValidateLicense.md) | assigned | `00000D` | 75 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465430-0x0046564c.ApplicationValidateLicense.md` |  |
 | [UID:0000YT][0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat](by-memory/0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md) | assigned | `0000HG` | 50 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md` |  |
+| [UID:000215][0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor](by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md` |  |
 | [UID:0002P3][0x0046ff50-0x00470159.BrowserControlPaneOldConstructor](by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md) | assigned | `000016` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md` |  |
 | [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md) | assigned | `0000N4` | 60 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |  |
 | [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md) | assigned | `0000N4` | 70 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |  |
@@ -197,6 +198,7 @@ Total_Error: 0
 | [UID:0002PW][0x004f5620-0x004f5634.LogoPlayerPaneOnClose](by-memory/0x004f5620-0x004f5634.LogoPlayerPaneOnClose.md) | assigned | `00007H` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-memory/0x004f5620-0x004f5634.LogoPlayerPaneOnClose.md` |  |
 | [UID:0002PX][0x004f566a-0x004f5680.LogoPlayerPaneDeletingDestructorThunks](by-memory/0x004f566a-0x004f5680.LogoPlayerPaneDeletingDestructorThunks.md) | assigned | `00007H` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-memory/0x004f566a-0x004f5680.LogoPlayerPaneDeletingDestructorThunks.md` |  |
 | [UID:0002PY][0x004f5680-0x004f570c.LogoPlayerPaneScalarDeletingDestructor](by-memory/0x004f5680-0x004f570c.LogoPlayerPaneScalarDeletingDestructor.md) | assigned | `00007H` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-memory/0x004f5680-0x004f570c.LogoPlayerPaneScalarDeletingDestructor.md` |  |
+| [UID:00022V][0x004f5b20-0x004f5c73.MapiSendMailHelper](by-memory/0x004f5b20-0x004f5c73.MapiSendMailHelper.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x004f5b20-0x004f5c73.MapiSendMailHelper.md` |  |
 | [UID:00019G][0x004f5c80-0x004f5f17.WinMain](by-memory/0x004f5c80-0x004f5f17.WinMain.md) | assigned | `0000PA` |  | no | `auto-generated/NexusTK/app/WinMain.cpp` | `by-memory/0x004f5c80-0x004f5f17.WinMain.md` |  |
 | [UID:0002PZ][0x004f5f20-0x004f5f4e.BaramAppConstructorRaw](by-memory/0x004f5f20-0x004f5f4e.BaramAppConstructorRaw.md) | assigned | `00000V` |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f5f20-0x004f5f4e.BaramAppConstructorRaw.md` |  |
 | [UID:00019H][0x004f5f20-0x004f66fb.BaramAppAndApplicationStartup](by-memory/0x004f5f20-0x004f66fb.BaramAppAndApplicationStartup.md) | assigned | `0000HG` |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f5f20-0x004f66fb.BaramAppAndApplicationStartup.md` |  |
@@ -1306,7 +1308,6 @@ Total_Error: 0
 | [UID:000213][0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper](by-memory/0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper.md) | unclassified |  |  | no |  | `by-memory/0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper.md` |  |
 | [UID:0000ZD][0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse](by-memory/0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse.md) | unclassified |  |  | no |  | `by-memory/0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse.md` |  |
 | [UID:000214][0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper](by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md) | unclassified |  |  | no |  | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |  |
-| [UID:000215][0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor](by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md` |  |
 | [UID:0000ZF][0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers.md` |  |
 | [UID:000216][0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks](by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md) | unclassified |  |  | no |  | `by-memory/0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks.md` |  |
 | [UID:000217][0x004710d0-0x004710df.BrowserPanePlaySound](by-memory/0x004710d0-0x004710df.BrowserPanePlaySound.md) | unclassified |  |  | no |  | `by-memory/0x004710d0-0x004710df.BrowserPanePlaySound.md` |  |
@@ -1590,7 +1591,6 @@ Total_Error: 0
 | [UID:000197][0x004f4ac0-0x004f4b00.OperatorDeleteWrapper](by-memory/0x004f4ac0-0x004f4b00.OperatorDeleteWrapper.md) | unclassified |  |  | no |  | `by-memory/0x004f4ac0-0x004f4b00.OperatorDeleteWrapper.md` |  |
 | [UID:00022T][0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop](by-memory/0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop.md) | unclassified |  |  | no |  | `by-memory/0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop.md` |  |
 | [UID:00022U][0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart](by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md) | unclassified |  |  | no |  | `by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md` |  |
-| [UID:00022V][0x004f5b20-0x004f5c73.MapiSendMailHelper](by-memory/0x004f5b20-0x004f5c73.MapiSendMailHelper.md) | unclassified |  |  | no |  | `by-memory/0x004f5b20-0x004f5c73.MapiSendMailHelper.md` |  |
 | [UID:00019J][0x004f69a0-0x004f6a31.CloseMainMenuDialogSingletons](by-memory/0x004f69a0-0x004f6a31.CloseMainMenuDialogSingletons.md) | unclassified |  |  | no |  | `by-memory/0x004f69a0-0x004f6a31.CloseMainMenuDialogSingletons.md` |  |
 | [UID:00019K][0x004f7d10-0x004f8b2a.InitializeMainUiGraph](by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md) | unclassified |  |  | no |  | `by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md` |  |
 | [UID:00019L][0x004f8b30-0x004f8b8d.EnsureLoginDialogPane](by-memory/0x004f8b30-0x004f8b8d.EnsureLoginDialogPane.md) | unclassified |  |  | no |  | `by-memory/0x004f8b30-0x004f8b8d.EnsureLoginDialogPane.md` |  |

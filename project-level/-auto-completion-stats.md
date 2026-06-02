@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 07:35:16
+Generated: 2026-06-02 07:39:51
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -150,8 +150,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 50 | 75 | 62.5 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000VI` | 50 | 75 | 62.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
-| `000215` | 50 | 85 | 67.5 | `by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md` |
-| `00022V` | 50 | 85 | 67.5 | `by-memory/0x004f5b20-0x004f5c73.MapiSendMailHelper.md` |
 | `000237` | 50 | 85 | 67.5 | `by-memory/0x00515f50-0x00515ff2.MD5EndianEncodeDecodeHelpers.md` |
 | `00023A` | 50 | 85 | 67.5 | `by-memory/0x00524590-0x005245b1.MetaManNodeDestroyHelper.md` |
 | `00023K` | 50 | 85 | 67.5 | `by-memory/0x005426e0-0x00542ab5.DialogPaneScalarDeletingDestructorIsland.md` |
@@ -173,6 +171,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00023F` | 55 | 65 | 60.0 | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |
 | `000272` | 55 | 65 | 60.0 | `by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md` |
 | `000279` | 55 | 65 | 60.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
+| `00027I` | 55 | 65 | 60.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
+| `0002AZ` | 55 | 65 | 60.0 | `by-memory/0x0069b4f8-0x0069b4fc.MapPaneRenderScratchFlag.md` |
 
 ## Low_Confidence
 
