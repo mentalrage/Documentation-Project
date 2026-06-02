@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 154
+Total_Reconstructable: 155
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 67
+Total_Reconstructed_Assigned: 68
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 431
+Total_Unclassified: 430
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -22,6 +22,7 @@ Total_Error: 0
 | [UID:00001J][ChangeItemSlotInputPane](by-class/ChangeItemSlotInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ChangeItemSlotInputPane.md` |  |
 | [UID:00001M][ChangeSpellSlotInputPane](by-class/ChangeSpellSlotInputPane.md) | assigned | `0000O0` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-class/ChangeSpellSlotInputPane.md` |  |
 | [UID:00001Q][ChatInputPane](by-class/ChatInputPane.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChatInputPane.md` |  |
+| [UID:00002T][CloudFilterEffecter](by-class/CloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/CloudFilterEffecter.md` |  |
 | [UID:00003A][Crasher](by-class/Crasher.md) | assigned | `0000II` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-class/Crasher.md` |  |
 | [UID:00003C][CriticalSectionLock](by-class/CriticalSectionLock.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/CriticalSectionLock.md` |  |
 | [UID:00003J][DATFileResolver](by-class/DATFileResolver.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-class/DATFileResolver.md` |  |
@@ -230,7 +231,6 @@ Total_Error: 0
 | [UID:00002Q][ClientItemMenuItemList](by-class/ClientItemMenuItemList.md) | unclassified |  |  | no |  | `by-class/ClientItemMenuItemList.md` |  |
 | [UID:00002R][ClientSpellMenuDialog](by-class/ClientSpellMenuDialog.md) | unclassified |  |  | no |  | `by-class/ClientSpellMenuDialog.md` |  |
 | [UID:00002S][ClientSpellMenuItemList](by-class/ClientSpellMenuItemList.md) | unclassified |  |  | no |  | `by-class/ClientSpellMenuItemList.md` |  |
-| [UID:00002T][CloudFilterEffecter](by-class/CloudFilterEffecter.md) | unclassified |  |  | no |  | `by-class/CloudFilterEffecter.md` |  |
 | [UID:00002U][CollectionBarControlPane](by-class/CollectionBarControlPane.md) | unclassified |  |  | no |  | `by-class/CollectionBarControlPane.md` |  |
 | [UID:00002V][CollectionDialogPane](by-class/CollectionDialogPane.md) | unclassified |  |  | no |  | `by-class/CollectionDialogPane.md` |  |
 | [UID:00002W][CollectionEntryControlPane](by-class/CollectionEntryControlPane.md) | unclassified |  |  | no |  | `by-class/CollectionEntryControlPane.md` |  |

@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 170
+Total_Reconstructed_Assigned: 171
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 118
+Total_Error: 117
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -107,6 +107,7 @@ Total_Error: 118
 | [UID:0000M9][PacketTransform](by-file/PacketTransform.md) | assigned |  |  | no | `auto-generated/NexusTK/network/PacketTransform.cpp` | `by-file/PacketTransform.md` | by-file generated root |
 | [UID:0000MA][Palette](by-file/Palette.md) | assigned |  |  | no | `auto-generated/NexusTK/render/Palette.cpp` | `by-file/Palette.md` | by-file generated root |
 | [UID:0000MF][ParcelPane](by-file/ParcelPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-file/ParcelPane.md` | by-file generated root |
+| [UID:0000MG][PasswordGuard](by-file/PasswordGuard.md) | assigned |  |  | no | `auto-generated/NexusTK/auth/PasswordGuard.cpp` | `by-file/PasswordGuard.md` | by-file generated root |
 | [UID:0000MH][PatchPane](by-file/PatchPane.md) | assigned |  |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-file/PatchPane.md` | by-file generated root |
 | [UID:0000MJ][PhoneBookDialog](by-file/PhoneBookDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-file/PhoneBookDialog.md` | by-file generated root |
 | [UID:0000MK][PhotoPane](by-file/PhotoPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/PhotoPane.cpp` | `by-file/PhotoPane.md` | by-file generated root |
@@ -269,7 +270,6 @@ Total_Error: 118
 | [UID:0000MC][Pane](by-file/Pane.md) | error |  |  | no |  | `by-file/Pane.md` | by-file generated root |
 | [UID:0000MD][PaneChildRegistry](by-file/PaneChildRegistry.md) | error |  |  | no |  | `by-file/PaneChildRegistry.md` | by-file generated root |
 | [UID:0000ME][PanelPane](by-file/PanelPane.md) | error |  |  | no |  | `by-file/PanelPane.md` | by-file generated root |
-| [UID:0000MG][PasswordGuard](by-file/PasswordGuard.md) | error |  |  | no |  | `by-file/PasswordGuard.md` | by-file generated root |
 | [UID:0000MI][PathUtil](by-file/PathUtil.md) | error |  |  | no |  | `by-file/PathUtil.md` | by-file generated root |
 | [UID:0000MP][PrettyButtonControlPane](by-file/PrettyButtonControlPane.md) | error |  |  | no |  | `by-file/PrettyButtonControlPane.md` | by-file generated root |
 | [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md) | error |  |  | no |  | `by-file/ProtectedArray.md` | by-file generated root |

@@ -3,18 +3,19 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1118
+Total_Reconstructable: 1121
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 577
+Total_Reconstructed_Assigned: 579
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 541
-Total_Unclassified: 1008
+Total_Reconstructable_Unassigned: 542
+Total_Unclassified: 1005
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md` |  |
 | [UID:0002DN][0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent](by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md` |  |
+| [UID:0002DU][0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers](by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |  |
 | [UID:0002SC][0x00424020-0x004242e4.FittingRoomTextButtonControlPane](by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md) | assigned | `000055` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md` |  |
 | [UID:0000XZ][0x00458610-0x0045f9f5.RankingDialog](by-memory/0x00458610-0x0045f9f5.RankingDialog.md) | assigned | `0000MZ` | 1 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x00458610-0x0045f9f5.RankingDialog.md` |  |
 | [UID:0000Y2][0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters](by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md) | assigned | `0000BO` | 10 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |  |
@@ -184,6 +185,7 @@ Total_Error: 0
 | [UID:00022O][0x004c77e0-0x004c78db.SimpleHelpPane2FactoryHelpers](by-memory/0x004c77e0-0x004c78db.SimpleHelpPane2FactoryHelpers.md) | assigned | `0000JU` |  | no | `auto-generated/NexusTK/ui/controls/HelpPanes.cpp` | `by-memory/0x004c77e0-0x004c78db.SimpleHelpPane2FactoryHelpers.md` |  |
 | [UID:00022P][0x004ce160-0x004ce34b.HelpTooltipSupportHelpers](by-memory/0x004ce160-0x004ce34b.HelpTooltipSupportHelpers.md) | assigned | `0000JU` |  | no | `auto-generated/NexusTK/ui/controls/HelpPanes.cpp` | `by-memory/0x004ce160-0x004ce34b.HelpTooltipSupportHelpers.md` |  |
 | [UID:00016W][0x004ce34b-0x004ce725.HelpTooltipDestructorThunks](by-memory/0x004ce34b-0x004ce725.HelpTooltipDestructorThunks.md) | assigned | `0000JU` |  | no | `auto-generated/NexusTK/ui/controls/HelpPanes.cpp` | `by-memory/0x004ce34b-0x004ce725.HelpTooltipDestructorThunks.md` |  |
+| [UID:0002IA][0x004ce7e0-0x004ce839.HierListTailInsertWrapper](by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md) | assigned | `0000JV` |  | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |  |
 | [UID:0002P4][0x004d0f50-0x004d15c5.LoadImageFrameTable](by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md) | assigned | `0000K1` | 10 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md` |  |
 | [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md) | assigned | `0000K1` | 30 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md` |  |
 | [UID:00017D][0x004db010-0x004db0f7.MonsterImageLibDestructor](by-memory/0x004db010-0x004db0f7.MonsterImageLibDestructor.md) | assigned | `0000LJ` |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-memory/0x004db010-0x004db0f7.MonsterImageLibDestructor.md` |  |
@@ -620,6 +622,7 @@ Total_Error: 0
 | [UID:0000YP][0x00463270-0x004632b1.IntAlphaSurface](by-memory/0x00463270-0x004632b1.IntAlphaSurface.md) | unassigned |  |  | no |  | `by-memory/0x00463270-0x004632b1.IntAlphaSurface.md` |  |
 | [UID:0002JX][0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo](by-memory/0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo.md) | unassigned |  |  | no |  | `by-memory/0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo.md` |  |
 | [UID:0002JZ][0x00465320-0x00465424.GetExecutableVersionLowWord](by-memory/0x00465320-0x00465424.GetExecutableVersionLowWord.md) | unassigned |  |  | no |  | `by-memory/0x00465320-0x00465424.GetExecutableVersionLowWord.md` |  |
+| [UID:0000YS][0x004657d0-0x00467406.PasswordGuardAndFatalError](by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md) | unassigned |  |  | no |  | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |  |
 | [UID:0002M0][0x004690b0-0x004690f6.BlackHoleConstructor](by-memory/0x004690b0-0x004690f6.BlackHoleConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004690b0-0x004690f6.BlackHoleConstructor.md` |  |
 | [UID:0000Z0][0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue](by-memory/0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue.md) | unassigned |  |  | no |  | `by-memory/0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue.md` |  |
 | [UID:0002M1][0x00469100-0x00469115.BlackHoleDestructor](by-memory/0x00469100-0x00469115.BlackHoleDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00469100-0x00469115.BlackHoleDestructor.md` |  |
@@ -768,7 +771,6 @@ Total_Error: 0
 | [UID:0002I8][0x004ce730-0x004ce760.HierListConstructor](by-memory/0x004ce730-0x004ce760.HierListConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce730-0x004ce760.HierListConstructor.md` |  |
 | [UID:00016X][0x004ce730-0x004cee52.HierList](by-memory/0x004ce730-0x004cee52.HierList.md) | unassigned |  |  | no |  | `by-memory/0x004ce730-0x004cee52.HierList.md` |  |
 | [UID:0002I9][0x004ce760-0x004ce7d1.HierListNonDeletingDestructor](by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md` |  |
-| [UID:0002IA][0x004ce7e0-0x004ce839.HierListTailInsertWrapper](by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md) | unassigned |  |  | no |  | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |  |
 | [UID:0002IB][0x004ce840-0x004ce854.HierListDefaultInsertWrapper](by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md) | unassigned |  |  | no |  | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |  |
 | [UID:0002IC][0x004ce860-0x004ce9ad.HierListInsertBefore](by-memory/0x004ce860-0x004ce9ad.HierListInsertBefore.md) | unassigned |  |  | no |  | `by-memory/0x004ce860-0x004ce9ad.HierListInsertBefore.md` |  |
 | [UID:0002ID][0x004ce9b0-0x004ceafc.HierListInsertAfter](by-memory/0x004ce9b0-0x004ceafc.HierListInsertAfter.md) | unassigned |  |  | no |  | `by-memory/0x004ce9b0-0x004ceafc.HierListInsertAfter.md` |  |
@@ -907,6 +909,7 @@ Total_Error: 0
 | [UID:0002JS][0x00530ee0-0x0053125d.ObjectListConstructor](by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md` |  |
 | [UID:0001D1][0x00530ee0-0x00531473.ObjectListLifecycle](by-memory/0x00530ee0-0x00531473.ObjectListLifecycle.md) | unassigned |  |  | no |  | `by-memory/0x00530ee0-0x00531473.ObjectListLifecycle.md` |  |
 | [UID:0002JT][0x00531260-0x00531473.ObjectListDestructor](by-memory/0x00531260-0x00531473.ObjectListDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00531260-0x00531473.ObjectListDestructor.md` |  |
+| [UID:0002CE][0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper](by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md) | unassigned |  |  | no |  | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |  |
 | [UID:0002QW][0x00539bc0-0x00539d43.MotionAnimationConstructor](by-memory/0x00539bc0-0x00539d43.MotionAnimationConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00539bc0-0x00539d43.MotionAnimationConstructor.md` |  |
 | [UID:0001DD][0x00539bc0-0x0053d614.MotionAnimation](by-memory/0x00539bc0-0x0053d614.MotionAnimation.md) | unassigned |  |  | no |  | `by-memory/0x00539bc0-0x0053d614.MotionAnimation.md` |  |
 | [UID:0002QX][0x00539de0-0x00539f52.MotionAnimationAlternateConstructor](by-memory/0x00539de0-0x00539f52.MotionAnimationAlternateConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00539de0-0x00539f52.MotionAnimationAlternateConstructor.md` |  |
@@ -1228,7 +1231,6 @@ Total_Error: 0
 | [UID:0002DT][0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers](by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |  |
 | [UID:0002DP][0x00420b60-0x00420cf9.FittingRoomListPaneHitTestSlot](by-memory/0x00420b60-0x00420cf9.FittingRoomListPaneHitTestSlot.md) | unclassified |  |  | no |  | `by-memory/0x00420b60-0x00420cf9.FittingRoomListPaneHitTestSlot.md` |  |
 | [UID:0002DQ][0x00420d00-0x00420d50.ValidateFittingSelectionIndex](by-memory/0x00420d00-0x00420d50.ValidateFittingSelectionIndex.md) | unclassified |  |  | no |  | `by-memory/0x00420d00-0x00420d50.ValidateFittingSelectionIndex.md` |  |
-| [UID:0002DU][0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers](by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |  |
 | [UID:0002DV][0x00421310-0x00421362.SimpleUStringClear](by-memory/0x00421310-0x00421362.SimpleUStringClear.md) | unclassified |  |  | no |  | `by-memory/0x00421310-0x00421362.SimpleUStringClear.md` |  |
 | [UID:0000WT][0x00421310-0x004216cb.SimpleUStringSso7](by-memory/0x00421310-0x004216cb.SimpleUStringSso7.md) | unclassified |  |  | no |  | `by-memory/0x00421310-0x004216cb.SimpleUStringSso7.md` |  |
 | [UID:0002DW][0x00421380-0x004213e1.FittingRoomDialogItemEntryRelease](by-memory/0x00421380-0x004213e1.FittingRoomDialogItemEntryRelease.md) | unclassified |  |  | no |  | `by-memory/0x00421380-0x004213e1.FittingRoomDialogItemEntryRelease.md` |  |
@@ -1329,7 +1331,6 @@ Total_Error: 0
 | [UID:0000YN][0x00462e10-0x00462f1e.DrawFrameWithBlendMode](by-memory/0x00462e10-0x00462f1e.DrawFrameWithBlendMode.md) | unclassified |  |  | no |  | `by-memory/0x00462e10-0x00462f1e.DrawFrameWithBlendMode.md` |  |
 | [UID:0000YO][0x00462f20-0x00463252.DrawEncodedAlphaFrame](by-memory/0x00462f20-0x00463252.DrawEncodedAlphaFrame.md) | unclassified |  |  | no |  | `by-memory/0x00462f20-0x00463252.DrawEncodedAlphaFrame.md` |  |
 | [UID:0000YQ][0x004632c0-0x0046330b.ApplicationErrorStateCleanup](by-memory/0x004632c0-0x0046330b.ApplicationErrorStateCleanup.md) | unclassified |  |  | no |  | `by-memory/0x004632c0-0x0046330b.ApplicationErrorStateCleanup.md` |  |
-| [UID:0000YS][0x004657d0-0x00467406.PasswordGuardAndFatalError](by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md) | unclassified |  |  | no |  | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |  |
 | [UID:0000YU][0x004671a0-0x004673f6.ApplicationFunctionObject0Callbacks](by-memory/0x004671a0-0x004673f6.ApplicationFunctionObject0Callbacks.md) | unclassified |  |  | no |  | `by-memory/0x004671a0-0x004673f6.ApplicationFunctionObject0Callbacks.md` |  |
 | [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md) | unclassified |  |  | no |  | `by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md` |  |
 | [UID:0000YW][0x004673a0-0x004673b1.DestroyExceptionHandler](by-memory/0x004673a0-0x004673b1.DestroyExceptionHandler.md) | unclassified |  |  | no |  | `by-memory/0x004673a0-0x004673b1.DestroyExceptionHandler.md` |  |
@@ -1705,7 +1706,6 @@ Total_Error: 0
 | [UID:0002CB][0x00532180-0x005322d0.ObjectListEncodedKeyResolve](by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md) | unclassified |  |  | no |  | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |  |
 | [UID:0002CC][0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch](by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md) | unclassified |  |  | no |  | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |  |
 | [UID:0002CD][0x00532370-0x00532443.ObjectListFindByObjectId](by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md) | unclassified |  |  | no |  | `by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md` |  |
-| [UID:0002CE][0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper](by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md) | unclassified |  |  | no |  | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |  |
 | [UID:0002BA][0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers](by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |  |
 | [UID:0002BB][0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers](by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |  |
 | [UID:0002BC][0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers](by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md` |  |

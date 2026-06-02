@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 10:32:06
+Generated: 2026-06-02 10:53:23
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -104,7 +104,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000MC` | blank | `(blank)` | `by-file/Pane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MD` | blank | `(blank)` | `by-file/PaneChildRegistry.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000ME` | blank | `(blank)` | `by-file/PanelPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000MG` | blank | `(blank)` | `by-file/PasswordGuard.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MI` | blank | `(blank)` | `by-file/PathUtil.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MP` | blank | `(blank)` | `by-file/PrettyButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MU` | blank | `(blank)` | `by-file/ProtectedArray.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -142,12 +141,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001Z5` | 58 | 88 | 73.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
-| `0002CE` | 60 | 72 | 66.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
-| `0002DU` | 60 | 74 | 67.0 | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |
-| `0000MG` | 60 | 75 | 67.5 | `by-file/PasswordGuard.md` |
-| `0000YS` | 60 | 75 | 67.5 | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |
-| `00002T` | 60 | 76 | 68.0 | `by-class/CloudFilterEffecter.md` |
-| `0002IA` | 60 | 76 | 68.0 | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |
 | `000022` | 60 | 78 | 69.0 | `by-class/CheckBoxTextControlPane.md` |
 | `0000UO` | 60 | 78 | 69.0 | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |
 | `0000ZK` | 60 | 78 | 69.0 | `by-memory/0x00472070-0x00477790.BoardArticleDialogs.md` |
@@ -166,6 +159,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00021L` | 60 | 85 | 72.5 | `by-memory/0x00485cc0-0x0048632e.ClanNameActionPacketHelpers.md` |
 | `00021M` | 60 | 85 | 72.5 | `by-memory/0x00486530-0x004867f2.ClanWithdrawAndNoticePacketHelpers.md` |
 | `00022S` | 60 | 85 | 72.5 | `by-memory/0x004f3140-0x004f35fd.ListCoreMethods.md` |
+| `00022T` | 60 | 85 | 72.5 | `by-memory/0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop.md` |
+| `00022U` | 60 | 85 | 72.5 | `by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md` |
+| `000233` | 60 | 85 | 72.5 | `by-memory/0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck.md` |
+| `000238` | 60 | 85 | 72.5 | `by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md` |
+| `000243` | 60 | 85 | 72.5 | `by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md` |
+| `000244` | 60 | 85 | 72.5 | `by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md` |
 
 ## Low_Confidence
 
@@ -214,18 +213,18 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000292` | 65 | 65 | 65.0 | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |
 | `0002B7` | 65 | 65 | 65.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
 | `0000LX` | 68 | 62 | 65.0 | `by-file/NewUserMiscDialogPane.md` |
-| `0002CE` | 60 | 72 | 66.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
-| `0002DU` | 60 | 74 | 67.0 | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |
 | `0002FP` | 62 | 72 | 67.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 | `0002FQ` | 62 | 72 | 67.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
 | `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
-| `0000MG` | 60 | 75 | 67.5 | `by-file/PasswordGuard.md` |
-| `0000YS` | 60 | 75 | 67.5 | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |
 | `0002BL` | 62 | 73 | 67.5 | `by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md` |
 | `0002BC` | 65 | 70 | 67.5 | `by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md` |
 | `000201` | 70 | 65 | 67.5 | `by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md` |
 | `0002AV` | 70 | 65 | 67.5 | `by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md` |
+| `0002AW` | 70 | 65 | 67.5 | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |
+| `00029K` | 70 | 65 | 67.5 | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |
+| `0002G9` | 62 | 74 | 68.0 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
+| `0002BH` | 62 | 74 | 68.0 | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |
 
 ## By Folder
 
@@ -235,7 +234,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `00009D` | 68 | 64 | 66.0 | `by-class/NewUserDialogPane.md` |
 | `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
-| `00002T` | 60 | 76 | 68.0 | `by-class/CloudFilterEffecter.md` |
 | `000022` | 60 | 78 | 69.0 | `by-class/CheckBoxTextControlPane.md` |
 | `000052` | 62 | 76 | 69.0 | `by-class/FittingRoomDownloadControlPane.md` |
 | `00006Y` | 62 | 76 | 69.0 | `by-class/ItemWhoInputPaneState.md` |
@@ -258,6 +256,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
 | `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 | `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
+| `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
 
 ### by-external-research
 
@@ -268,7 +267,6 @@ _No scored files._
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000LX` | 68 | 62 | 65.0 | `by-file/NewUserMiscDialogPane.md` |
-| `0000MG` | 60 | 75 | 67.5 | `by-file/PasswordGuard.md` |
 | `0000MV` | 76 | 62 | 69.0 | `by-file/ProtocolSend.md` |
 | `0000LP` | 72 | 68 | 70.0 | `by-file/NewCreateUserDialogPane.md` |
 | `0000HM` | 64 | 78 | 71.0 | `by-file/AUTOBUF.md` |
@@ -292,6 +290,7 @@ _No scored files._
 | `0000LZ` | 78 | 74 | 76.0 | `by-file/NexonclubProxyDialog.md` |
 | `0000P3` | 78 | 74 | 76.0 | `by-file/VectorHelpers.md` |
 | `0000NP` | 80 | 72 | 76.0 | `by-file/Session.md` |
+| `0000I1` | 70 | 84 | 77.0 | `by-file/CashShopVersionRequest.md` |
 
 ### by-function
 
@@ -370,22 +369,22 @@ _No scored files._
 | `00028Z` | 65 | 65 | 65.0 | `by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md` |
 | `000292` | 65 | 65 | 65.0 | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |
 | `0002B7` | 65 | 65 | 65.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
-| `0002CE` | 60 | 72 | 66.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
-| `0002DU` | 60 | 74 | 67.0 | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |
 | `0002FP` | 62 | 72 | 67.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 | `0002FQ` | 62 | 72 | 67.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
-| `0000YS` | 60 | 75 | 67.5 | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |
 | `0002BL` | 62 | 73 | 67.5 | `by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md` |
 | `0002BC` | 65 | 70 | 67.5 | `by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md` |
 | `000201` | 70 | 65 | 67.5 | `by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md` |
 | `0002AV` | 70 | 65 | 67.5 | `by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md` |
 | `0002AW` | 70 | 65 | 67.5 | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |
 | `00029K` | 70 | 65 | 67.5 | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |
-| `0002IA` | 60 | 76 | 68.0 | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |
 | `0002G9` | 62 | 74 | 68.0 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
 | `0002BH` | 62 | 74 | 68.0 | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |
 | `0002BP` | 62 | 74 | 68.0 | `by-memory/0x00491450-0x0049178d.KwgLauncherParser.md` |
 | `0000ZK` | 60 | 78 | 69.0 | `by-memory/0x00472070-0x00477790.BoardArticleDialogs.md` |
+| `00013Q` | 60 | 78 | 69.0 | `by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md` |
+| `0002DT` | 62 | 76 | 69.0 | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |
+| `0002DA` | 65 | 74 | 69.5 | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |
+| `0002D6` | 62 | 78 | 70.0 | `by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md` |
 
 ### by-meta
 

@@ -110,7 +110,7 @@
 - [UID:00002Q][ClientItemMenuItemList](by-class/ClientItemMenuItemList.md) : reconstructable : 76% : strong : item-menu list behavior, packet helpers, draw path, and shared destructor caveat are documented.
 - [UID:00002R][ClientSpellMenuDialog](by-class/ClientSpellMenuDialog.md) : reconstructable : 82% : strong : client spell menu construction, command handling, action state, and owner-pollution caveat are documented.
 - [UID:00002S][ClientSpellMenuItemList](by-class/ClientSpellMenuItemList.md) : reconstructable : 80% : strong : client spell row list construction, activation, drawing, and shared destructor thunks are documented.
-- [UID:00002T][CloudFilterEffecter](by-class/CloudFilterEffecter.md) : reconstructable : 60% : medium : constructor-only cloud filter effecter; IDA does not model the constructor start as a function object.
+- [UID:00002T][CloudFilterEffecter](by-class/CloudFilterEffecter.md) : reconstructable : 72% : strong : constructor-only cloud filter effecter; vtable store bases, raw constructor span, runtime module owner, and C++ gating notes documented.
 - [UID:00002U][CollectionBarControlPane](by-class/CollectionBarControlPane.md) : reconstructable : 78% : strong : collection progress bar, label drawing, resources, and collection-data reads are documented.
 - [UID:00002V][CollectionDialogPane](by-class/CollectionDialogPane.md) : reconstructable : 82% : strong : collection detail dialog construction, navigation, singleton handling, and child controls are documented.
 - [UID:00002W][CollectionEntryControlPane](by-class/CollectionEntryControlPane.md) : reconstructable : 76% : medium : entry-slot draw states, collection data offsets, and shared GrafPort helper caveats are documented.
