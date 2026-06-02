@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1162
+Total_Reconstructable: 1169
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 616
+Total_Reconstructed_Assigned: 619
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 546
-Total_Unclassified: 964
+Total_Reconstructable_Unassigned: 550
+Total_Unclassified: 957
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -21,6 +21,7 @@ Total_Error: 0
 | [UID:0002E4][0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson](by-memory/0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson.md) | assigned | `000051` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00421a40-0x00421fd8.FittingRoomCatalogEntryFromJson.md` |  |
 | [UID:0002EA][0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw](by-memory/0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw.md) | assigned | `000051` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00422920-0x004229ef.FittingRoomDialogItemStateBuildCacheFilePathRaw.md` |  |
 | [UID:0002SC][0x00424020-0x004242e4.FittingRoomTextButtonControlPane](by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md) | assigned | `000055` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md` |  |
+| [UID:000201][0x00458590-0x00458610.EPFTileContextPixelRangeTest](by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md) | assigned | `00004I` |  | no | `auto-generated/NexusTK/render/EPFTileContext.cpp` | `by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md` |  |
 | [UID:0000XZ][0x00458610-0x0045f9f5.RankingDialog](by-memory/0x00458610-0x0045f9f5.RankingDialog.md) | assigned | `0000MZ` | 1 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x00458610-0x0045f9f5.RankingDialog.md` |  |
 | [UID:0000Y2][0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters](by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md) | assigned | `0000BO` | 10 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |  |
 | [UID:0000Y3][0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent](by-memory/0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent.md) | assigned | `0000BO` | 20 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent.md` |  |
@@ -599,7 +600,9 @@ Total_Error: 0
 | [UID:0001OR][0x0067a748-0x0067a74c.g_pCollectionData](by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |  |
 | [UID:0001P0][0x0067a7ec-0x0067a7f0.g_packetSender](by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md) | assigned | `0000NS` |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-memory/0x0067a7ec-0x0067a7f0.g_packetSender.md` |  |
 | [UID:00028Y][0x0067a878-0x0067a934.AesMutableStateAndKeySchedule](by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md) | assigned | `00020J` | 70 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md` |  |
+| [UID:00028Z][0x0067a938-0x0067a940.ApplicationLifecycleFlags](by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md) | assigned | `0000HG` |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md` |  |
 | [UID:000291][0x0067a980-0x0067a998.ApplicationTimingBaselines](by-memory/0x0067a980-0x0067a998.ApplicationTimingBaselines.md) | assigned | `0000HG` | 110 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a980-0x0067a998.ApplicationTimingBaselines.md` |  |
+| [UID:000292][0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics](by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md) | assigned | `0000HG` |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |  |
 | [UID:000293][0x0067a9c0-0x0067ab18.ApplicationOsVersionState](by-memory/0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md) | assigned | `0000HG` | 120 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md` |  |
 | [UID:0001P3][0x0067ab28-0x0067ab2c.g_activeBrowserControlPane](by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md` |  |
 | [UID:0001P4][0x0067ab2c-0x0067ab30.g_pChangeMan](by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md) | assigned | `0000I2` |  | no | `auto-generated/NexusTK/app/ChangeMan.cpp` | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |  |
@@ -1179,9 +1182,13 @@ Total_Error: 0
 | [UID:0001OP][0x0067a738-0x0067a73c.g_pCashShopRequest](by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md) | unassigned |  |  | no |  | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |  |
 | [UID:0001P7][0x0067ab48-0x0067ab4c.g_pKeySpeedMgr](by-memory/0x0067ab48-0x0067ab4c.g_pKeySpeedMgr.md) | unassigned |  |  | no |  | `by-memory/0x0067ab48-0x0067ab4c.g_pKeySpeedMgr.md` |  |
 | [UID:0002B5][0x0067adc4-0x0067adec.UiChatClanSingletonSlots](by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md) | unassigned |  |  | no |  | `by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md` |  |
+| [UID:0002B7][0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer](by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md) | unassigned |  |  | no |  | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |  |
+| [UID:0002AV][0x0069ae18-0x0069af20.KeyboardStateGlobals](by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md) | unassigned |  |  | no |  | `by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md` |  |
+| [UID:0002AW][0x0069af20-0x0069af21.KeyboardChordGateFlag](by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md) | unassigned |  |  | no |  | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |  |
 | [UID:00029Q][0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C](by-memory/0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C.md) | unassigned |  |  | no |  | `by-memory/0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C.md` |  |
 | [UID:00029T][0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString](by-memory/0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString.md) | unassigned |  |  | no |  | `by-memory/0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString.md` |  |
 | [UID:0001PI][0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable](by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md) | unassigned |  |  | no |  | `by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md` |  |
+| [UID:00029K][0x0069b424-0x0069b430.ImageLibraryFallbackRecord](by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md) | unassigned |  |  | no |  | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |  |
 | [UID:0001PL][0x0069b430-0x0069b43c.RidingDefinitionGlobalTable](by-memory/0x0069b430-0x0069b43c.RidingDefinitionGlobalTable.md) | unassigned |  |  | no |  | `by-memory/0x0069b430-0x0069b43c.RidingDefinitionGlobalTable.md` |  |
 | [UID:0001PR][0x0069b450-0x0069b454.g_pLightObjImageLib](by-memory/0x0069b450-0x0069b454.g_pLightObjImageLib.md) | unassigned |  |  | no |  | `by-memory/0x0069b450-0x0069b454.g_pLightObjImageLib.md` |  |
 | [UID:0001PX][0x0069b4f4-0x0069b4f8.g_pMessageShowPane](by-memory/0x0069b4f4-0x0069b4f8.g_pMessageShowPane.md) | unassigned |  |  | no |  | `by-memory/0x0069b4f4-0x0069b4f8.g_pMessageShowPane.md` |  |
@@ -1333,7 +1340,6 @@ Total_Error: 0
 | [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md) | unclassified |  |  | no |  | `by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md` |  |
 | [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md) | unclassified |  |  | no |  | `by-memory/0x00457a60-0x00458610.EPFTileContext.md` |  |
 | [UID:000200][0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels](by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md) | unclassified |  |  | no |  | `by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md` |  |
-| [UID:000201][0x00458590-0x00458610.EPFTileContextPixelRangeTest](by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md) | unclassified |  |  | no |  | `by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md` |  |
 | [UID:0000Y0][0x00459810-0x0045981a.RankingDialogClearSingletonHelper](by-memory/0x00459810-0x0045981a.RankingDialogClearSingletonHelper.md) | unclassified |  |  | no |  | `by-memory/0x00459810-0x0045981a.RankingDialogClearSingletonHelper.md` |  |
 | [UID:0000Y1][0x0045981b-0x00459830.RankingDialogAdjustorThunks](by-memory/0x0045981b-0x00459830.RankingDialogAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0045981b-0x00459830.RankingDialogAdjustorThunks.md` |  |
 | [UID:0000Y8][0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks](by-memory/0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks.md` |  |
@@ -2048,9 +2054,7 @@ Total_Error: 0
 | [UID:00028W][0x0067a7f0-0x0067a830.MmxBlendWeightScratchData](by-memory/0x0067a7f0-0x0067a830.MmxBlendWeightScratchData.md) | unclassified |  |  | no |  | `by-memory/0x0067a7f0-0x0067a830.MmxBlendWeightScratchData.md` |  |
 | [UID:0001P1][0x0067a834-0x0067a874.AboveFrameSlots](by-memory/0x0067a834-0x0067a874.AboveFrameSlots.md) | unclassified |  |  | no |  | `by-memory/0x0067a834-0x0067a874.AboveFrameSlots.md` |  |
 | [UID:00028X][0x0067a874-0x0067a878.g_pGeneralPurposePanel](by-memory/0x0067a874-0x0067a878.g_pGeneralPurposePanel.md) | unclassified |  |  | no |  | `by-memory/0x0067a874-0x0067a878.g_pGeneralPurposePanel.md` |  |
-| [UID:00028Z][0x0067a938-0x0067a940.ApplicationLifecycleFlags](by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md) | unclassified |  |  | no |  | `by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md` |  |
 | [UID:000290][0x0067a940-0x0067a980.PasswordGuardProtectedToken](by-memory/0x0067a940-0x0067a980.PasswordGuardProtectedToken.md) | unclassified |  |  | no |  | `by-memory/0x0067a940-0x0067a980.PasswordGuardProtectedToken.md` |  |
-| [UID:000292][0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics](by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md) | unclassified |  |  | no |  | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |  |
 | [UID:000295][0x0067ab20-0x0067ab24.g_pDirectX](by-memory/0x0067ab20-0x0067ab24.g_pDirectX.md) | unclassified |  |  | no |  | `by-memory/0x0067ab20-0x0067ab24.g_pDirectX.md` |  |
 | [UID:0001P2][0x0067ab24-0x0067ab28.g_pFontImageLib](by-memory/0x0067ab24-0x0067ab28.g_pFontImageLib.md) | unclassified |  |  | no |  | `by-memory/0x0067ab24-0x0067ab28.g_pFontImageLib.md` |  |
 | [UID:000296][0x0067ab30-0x0067ab34.g_pEventDispatcher](by-memory/0x0067ab30-0x0067ab34.g_pEventDispatcher.md) | unclassified |  |  | no |  | `by-memory/0x0067ab30-0x0067ab34.g_pEventDispatcher.md` |  |
@@ -2070,7 +2074,6 @@ Total_Error: 0
 | [UID:0002AI][0x0067adb8-0x0067adc0.BoardMailDeleteReplyAlertSingletons](by-memory/0x0067adb8-0x0067adc0.BoardMailDeleteReplyAlertSingletons.md) | unclassified |  |  | no |  | `by-memory/0x0067adb8-0x0067adc0.BoardMailDeleteReplyAlertSingletons.md` |  |
 | [UID:0001PA][0x0067adc0-0x0067adc4.g_pBulletinSession](by-memory/0x0067adc0-0x0067adc4.g_pBulletinSession.md) | unclassified |  |  | no |  | `by-memory/0x0067adc0-0x0067adc4.g_pBulletinSession.md` |  |
 | [UID:0002B6][0x0067adec-0x0067adf0.UnreferencedInitializedDword_67ADEC](by-memory/0x0067adec-0x0067adf0.UnreferencedInitializedDword_67ADEC.md) | unclassified |  |  | no |  | `by-memory/0x0067adec-0x0067adf0.UnreferencedInitializedDword_67ADEC.md` |  |
-| [UID:0002B7][0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer](by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md) | unclassified |  |  | no |  | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |  |
 | [UID:0002B8][0x0069adf0-0x0069adf4.g_pCollectionDialogPane](by-memory/0x0069adf0-0x0069adf4.g_pCollectionDialogPane.md) | unclassified |  |  | no |  | `by-memory/0x0069adf0-0x0069adf4.g_pCollectionDialogPane.md` |  |
 | [UID:0002B9][0x0069adf4-0x0069adf8.g_pConnStatusPane](by-memory/0x0069adf4-0x0069adf8.g_pConnStatusPane.md) | unclassified |  |  | no |  | `by-memory/0x0069adf4-0x0069adf8.g_pConnStatusPane.md` |  |
 | [UID:0001PB][0x0069adf8-0x0069adfc.g_pDescPane](by-memory/0x0069adf8-0x0069adfc.g_pDescPane.md) | unclassified |  |  | no |  | `by-memory/0x0069adf8-0x0069adfc.g_pDescPane.md` |  |
@@ -2080,8 +2083,6 @@ Total_Error: 0
 | [UID:00029D][0x0069ae08-0x0069ae0c.g_pScreenDimmer](by-memory/0x0069ae08-0x0069ae0c.g_pScreenDimmer.md) | unclassified |  |  | no |  | `by-memory/0x0069ae08-0x0069ae0c.g_pScreenDimmer.md` |  |
 | [UID:0002AT][0x0069ae10-0x0069ae14.g_frameRegistry](by-memory/0x0069ae10-0x0069ae14.g_frameRegistry.md) | unclassified |  |  | no |  | `by-memory/0x0069ae10-0x0069ae14.g_frameRegistry.md` |  |
 | [UID:0002AU][0x0069ae14-0x0069ae18.UnreferencedInitializedDword_69AE14](by-memory/0x0069ae14-0x0069ae18.UnreferencedInitializedDword_69AE14.md) | unclassified |  |  | no |  | `by-memory/0x0069ae14-0x0069ae18.UnreferencedInitializedDword_69AE14.md` |  |
-| [UID:0002AV][0x0069ae18-0x0069af20.KeyboardStateGlobals](by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md` |  |
-| [UID:0002AW][0x0069af20-0x0069af21.KeyboardChordGateFlag](by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md) | unclassified |  |  | no |  | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |  |
 | [UID:0002AX][0x0069af21-0x0069b328.UnreferencedInitializedBytes_69AF21](by-memory/0x0069af21-0x0069b328.UnreferencedInitializedBytes_69AF21.md) | unclassified |  |  | no |  | `by-memory/0x0069af21-0x0069b328.UnreferencedInitializedBytes_69AF21.md` |  |
 | [UID:0002AY][0x0069b328-0x0069b33c.ItemExchangeAndFpsSingletonGlobals](by-memory/0x0069b328-0x0069b33c.ItemExchangeAndFpsSingletonGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0069b328-0x0069b33c.ItemExchangeAndFpsSingletonGlobals.md` |  |
 | [UID:0001PF][0x0069b33c-0x0069b350.FramePartPaneSlots](by-memory/0x0069b33c-0x0069b350.FramePartPaneSlots.md) | unclassified |  |  | no |  | `by-memory/0x0069b33c-0x0069b350.FramePartPaneSlots.md` |  |
@@ -2098,7 +2099,6 @@ Total_Error: 0
 | [UID:0001PK][0x0069b414-0x0069b418.g_pWillBeChangedItemPane](by-memory/0x0069b414-0x0069b418.g_pWillBeChangedItemPane.md) | unclassified |  |  | no |  | `by-memory/0x0069b414-0x0069b418.g_pWillBeChangedItemPane.md` |  |
 | [UID:00029I][0x0069b418-0x0069b420.HourIconsPaneSingletons](by-memory/0x0069b418-0x0069b420.HourIconsPaneSingletons.md) | unclassified |  |  | no |  | `by-memory/0x0069b418-0x0069b420.HourIconsPaneSingletons.md` |  |
 | [UID:00029J][0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag](by-memory/0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag.md) | unclassified |  |  | no |  | `by-memory/0x0069b420-0x0069b424.ImageLibraryLoadErrorFlag.md` |  |
-| [UID:00029K][0x0069b424-0x0069b430.ImageLibraryFallbackRecord](by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md) | unclassified |  |  | no |  | `by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md` |  |
 | [UID:0001PM][0x0069b43c-0x0069b440.g_pHumanImageLib](by-memory/0x0069b43c-0x0069b440.g_pHumanImageLib.md) | unclassified |  |  | no |  | `by-memory/0x0069b43c-0x0069b440.g_pHumanImageLib.md` |  |
 | [UID:0001PN][0x0069b440-0x0069b444.g_pMonsterImageLib](by-memory/0x0069b440-0x0069b444.g_pMonsterImageLib.md) | unclassified |  |  | no |  | `by-memory/0x0069b440-0x0069b444.g_pMonsterImageLib.md` |  |
 | [UID:0001PO][0x0069b444-0x0069b448.g_pRidingImageLib](by-memory/0x0069b444-0x0069b448.g_pRidingImageLib.md) | unclassified |  |  | no |  | `by-memory/0x0069b444-0x0069b448.g_pRidingImageLib.md` |  |

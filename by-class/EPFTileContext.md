@@ -1,8 +1,8 @@
 *** UID:00004I | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000J4 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -78,6 +78,11 @@ This implies a 0x28-byte context. Field names are working names until the class 
 - [UID:0001QC][client_dat_specifications](by-meta/client_dat_specifications.md)
 
 ## Changes
+
+- 2026-06-02:
+  - Before: reconstructability and parent were blank despite `80/82` scoring and a high-confidence source-file page.
+  - After: marked reconstructable and attached to [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md) with C++ blank.
+  - Summary/evidence: existing docs establish the render-support file owner and seven-method context shape, but final field names and source-quality declarations remain below the C++ emission threshold.
 
 ### 2026-05-27 - Added IDA-confirmed tail helpers
 

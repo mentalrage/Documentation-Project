@@ -1,7 +1,7 @@
 *** UID:0000J4 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # EPFTileContext
 
@@ -90,6 +90,12 @@ Current generated code consistently uses a 0x28-byte layout:
 - [UID:0001QC][client_dat_specifications](by-meta/client_dat_specifications.md)
 
 ## Changes
+
+### 2026-06-02 - Projected render path
+
+- Before: the page text proposed `render/EPFTileContext.cpp`, but `PROPOSED_RECONSTRUCTION_PATH` was blank.
+- Changed to: set `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/"`.
+- Summary/evidence: the file role and dependencies already place `EPFTileContext` as render/image support, downstream of EPF/EPD payload lookup and upstream of pane/image-library drawing.
 
 ### 2026-05-27 - Added EPFTileContext tail helpers
 

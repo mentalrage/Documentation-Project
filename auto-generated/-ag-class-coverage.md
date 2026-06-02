@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 165
+Total_Reconstructable: 166
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 77
+Total_Reconstructed_Assigned: 78
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 88
-Total_Unclassified: 420
+Total_Unclassified: 419
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -30,6 +30,7 @@ Total_Error: 0
 | [UID:00003N][DeleteFromBlockListenInputPane](by-class/DeleteFromBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/DeleteFromBlockListenInputPane.md` |  |
 | [UID:00003Q][DescPane](by-class/DescPane.md) | assigned | `0000IS` |  | no | `auto-generated/NexusTK/ui/controls/DescPane.cpp` | `by-class/DescPane.md` |  |
 | [UID:000043][DropGoldInputPane](by-class/DropGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/DropGoldInputPane.md` |  |
+| [UID:00004I][EPFTileContext](by-class/EPFTileContext.md) | assigned | `0000J4` |  | no | `auto-generated/NexusTK/render/EPFTileContext.cpp` | `by-class/EPFTileContext.md` |  |
 | [UID:000049][EffectObjectPane](by-class/EffectObjectPane.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/EffectObjectPane.md` |  |
 | [UID:00004B][EmotionInputPane](by-class/EmotionInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/EmotionInputPane.md` |  |
 | [UID:00004N][EventHandler](by-class/EventHandler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/EventHandler.md` |  |
@@ -271,7 +272,6 @@ Total_Error: 0
 | [UID:000044][DropInputPane](by-class/DropInputPane.md) | unclassified |  |  | no |  | `by-class/DropInputPane.md` |  |
 | [UID:00004G][EPFImageControlPane](by-class/EPFImageControlPane.md) | unclassified |  |  | no |  | `by-class/EPFImageControlPane.md` |  |
 | [UID:00004H][EPFTextEditObject](by-class/EPFTextEditObject.md) | unclassified |  |  | no |  | `by-class/EPFTextEditObject.md` |  |
-| [UID:00004I][EPFTileContext](by-class/EPFTileContext.md) | unclassified |  |  | no |  | `by-class/EPFTileContext.md` |  |
 | [UID:000046][EarthquakeEffecter](by-class/EarthquakeEffecter.md) | unclassified |  |  | no |  | `by-class/EarthquakeEffecter.md` |  |
 | [UID:000047][EatInputPane](by-class/EatInputPane.md) | unclassified |  |  | no |  | `by-class/EatInputPane.md` |  |
 | [UID:000048][EditablePaperPane](by-class/EditablePaperPane.md) | unclassified |  |  | no |  | `by-class/EditablePaperPane.md` |  |
