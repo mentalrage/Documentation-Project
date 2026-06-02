@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 12:20:35
+Generated: 2026-06-02 12:23:18
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -85,10 +85,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LK` | blank | `(blank)` | `by-file/MonsterImageLibTables.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LL` | blank | `(blank)` | `by-file/Motion.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LN` | blank | `(blank)` | `by-file/MusicControlDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LP` | blank | `(blank)` | `by-file/NewCreateUserDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LQ` | blank | `(blank)` | `by-file/NewHistoryDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LS` | blank | `(blank)` | `by-file/NewInventoryPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LW` | blank | `(blank)` | `by-file/NewUserDialogPane2.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LY` | blank | `(blank)` | `by-file/NewUserShapeSelectControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LZ` | blank | `(blank)` | `by-file/NexonclubProxyDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M0` | blank | `(blank)` | `by-file/NexonclubRegistrationDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -181,7 +179,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002A8` | 75 | 65 | 70.0 | `by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md` |
 | `0002A9` | 75 | 65 | 70.0 | `by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md` |
 | `00003E` | 70 | 68 | 69.0 | `by-class/CursorManager.md` |
-| `0000LP` | 72 | 68 | 70.0 | `by-file/NewCreateUserDialogPane.md` |
 | `0000QD` | 74 | 68 | 71.0 | `by-global/g_pBrowserOverlayLayer.md` |
 | `00004K` | 64 | 70 | 67.0 | `by-class/ErrorMessage.md` |
 | `0002BC` | 65 | 70 | 67.5 | `by-memory/0x00536270-0x0053728e.ObjectListTierInsertRemoveHelpers.md` |
@@ -189,6 +186,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000KQ` | 76 | 70 | 73.0 | `by-file/LineIterator.md` |
 | `00008R` | 78 | 70 | 74.0 | `by-class/Motion.md` |
 | `0000AE` | 68 | 72 | 70.0 | `by-class/PhoneBookListPane.md` |
+| `0000BX` | 68 | 72 | 70.0 | `by-class/RequestSyncGate.md` |
 
 ## Low_Both
 
@@ -260,12 +258,10 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000LP` | 72 | 68 | 70.0 | `by-file/NewCreateUserDialogPane.md` |
 | `0000HM` | 64 | 78 | 71.0 | `by-file/AUTOBUF.md` |
 | `0000OB` | 64 | 80 | 72.0 | `by-file/StringUtil.md` |
 | `0000JC` | 65 | 80 | 72.5 | `by-file/FileDownloader.md` |
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
-| `0000LW` | 74 | 72 | 73.0 | `by-file/NewUserDialogPane2.md` |
 | `0000KQ` | 76 | 70 | 73.0 | `by-file/LineIterator.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
@@ -285,6 +281,8 @@ _No scored files._
 | `0000HH` | 72 | 82 | 77.0 | `by-file/ArgumentedItemInputDialogs.md` |
 | `0000NL` | 72 | 82 | 77.0 | `by-file/SelfLookPane.md` |
 | `0000LX` | 74 | 80 | 77.0 | `by-file/NewUserMiscDialogPane.md` |
+| `0000KD` | 76 | 78 | 77.0 | `by-file/ItemCatalog.md` |
+| `0000MY` | 78 | 76 | 77.0 | `by-file/RainingLayerPane.md` |
 
 ### by-function
 
