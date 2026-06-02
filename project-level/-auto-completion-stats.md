@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 11:30:41
+Generated: 2026-06-02 11:37:46
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -97,7 +97,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000M2` | blank | `(blank)` | `by-file/NumericStringControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M5` | blank | `(blank)` | `by-file/ObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M6` | blank | `(blank)` | `by-file/ObjectStatusBlob.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000M8` | blank | `(blank)` | `by-file/PacketBuffer.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MB` | blank | `(blank)` | `by-file/PaletteLib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MC` | blank | `(blank)` | `by-file/Pane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MD` | blank | `(blank)` | `by-file/PaneChildRegistry.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -138,10 +137,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000233` | 60 | 85 | 72.5 | `by-memory/0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck.md` |
-| `000238` | 60 | 85 | 72.5 | `by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md` |
-| `000243` | 60 | 85 | 72.5 | `by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md` |
-| `000244` | 60 | 85 | 72.5 | `by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md` |
 | `00026H` | 60 | 85 | 72.5 | `by-memory/0x00625008-0x0062ce60.ServerPacketNameTable.md` |
 | `00027N` | 60 | 85 | 72.5 | `by-memory/0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable.md` |
 | `00027Z` | 60 | 85 | 72.5 | `by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md` |
@@ -163,6 +158,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002PD` | 62 | 78 | 70.0 | `by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md` |
 | `000138` | 62 | 78 | 70.0 | `by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md` |
 | `00013P` | 62 | 78 | 70.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
+| `00013R` | 62 | 78 | 70.0 | `by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md` |
+| `00017N` | 62 | 78 | 70.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
+| `0002R4` | 62 | 78 | 70.0 | `by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md` |
+| `0002RU` | 62 | 78 | 70.0 | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |
 
 ## Low_Confidence
 

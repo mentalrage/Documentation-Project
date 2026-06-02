@@ -1,7 +1,7 @@
 *** UID:0000M8 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/network/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PacketBuffer
 
@@ -35,6 +35,7 @@ Likely source-level contents:
 ## Evidence
 
 - IDA MCP confirms exact helper function starts from `0x00575380` through `0x00575a90`.
+- IDA MCP split evidence extends the scalar packet-buffer family through [UID:000243][0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers](by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md), with padding at `0x00575abb-0x00575ac0` separating it from the preceding helper group and padding at `0x00575b8c-0x00575b90` separating it from packet-transform key setup.
 - IDA xrefs show broad helper use across the binary:
   - `WriteByteZ_575380`: 1114 code refs from 662 unique calling functions.
   - `WriteUInt16BEZ_5753A0`: 222 refs from 163 unique functions.
@@ -43,6 +44,7 @@ Likely source-level contents:
   - `ReadUInt32BE_5754C0`: 226 refs from 98 unique functions.
 - The helper bodies are stateless scalar formatting/parsing routines, while `Socket` is stateful transport/framing code.
 - `PacketWriteWideString_575850` has only six code refs, but it follows the same length-prefixed packet string contract and calls string conversion/destruction helpers.
+- [UID:0000M9][PacketTransform](by-file/PacketTransform.md) is now separately documented at `NexusTK/network/`, so packet key/nonce/table helpers can stay out of this scalar packet-buffer source without leaving an ownership gap.
 
 ## Proposed Placement
 
@@ -75,6 +77,8 @@ This module should expose small inline or free helper functions used by feature 
 
 ## Changes
 
+- 2026-06-02: Set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/network/` and raised confidence from `78` to `82`.
+  - Evidence: the page already proposes `network/PacketBuffer.cpp`; the adjacent length-prefixed read helper page and ignored padding ledger confirm the scalar packet-buffer range boundary before packet-transform setup; PacketTransform now has a separate network owner for nonce/key-table helpers.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `84`, confidence `78`.
 - Summary/evidence: the page documents the utility-module hypothesis, helper families, IDA xref scale, socket/transform boundaries, placement, open questions, and cross-references; confidence remains capped by original helper names and exact filename uncertainty.

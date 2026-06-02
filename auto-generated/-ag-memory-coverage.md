@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1137
+Total_Reconstructable: 1141
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 594
+Total_Reconstructed_Assigned: 598
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 543
-Total_Unclassified: 989
+Total_Unclassified: 985
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -288,6 +288,7 @@ Total_Error: 0
 | [UID:000232][0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch](by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md) | assigned | `0000L3` | 36 | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |  |
 | [UID:0001AY][0x00513800-0x00513920.SelfSaveOKPaneFactory](by-memory/0x00513800-0x00513920.SelfSaveOKPaneFactory.md) | assigned | `0000NN` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveOKPane.cpp` | `by-memory/0x00513800-0x00513920.SelfSaveOKPaneFactory.md` |  |
 | [UID:0001B0][0x005147d0-0x00514914.SelfSaveOKPane](by-memory/0x005147d0-0x00514914.SelfSaveOKPane.md) | assigned | `0000NN` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveOKPane.cpp` | `by-memory/0x005147d0-0x00514914.SelfSaveOKPane.md` |  |
+| [UID:000233][0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck](by-memory/0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck.md` |  |
 | [UID:0001B6][0x005151f0-0x00515f48.MD5HashHelpers](by-memory/0x005151f0-0x00515f48.MD5HashHelpers.md) | assigned | `0000L6` |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-memory/0x005151f0-0x00515f48.MD5HashHelpers.md` |  |
 | [UID:0001B7][0x00515310-0x00515375.Md5BytesHex](by-memory/0x00515310-0x00515375.Md5BytesHex.md) | assigned | `0000L6` |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-memory/0x00515310-0x00515375.Md5BytesHex.md` |  |
 | [UID:0001B8][0x00515450-0x00515568.Md5FilePathHex](by-memory/0x00515450-0x00515568.Md5FilePathHex.md) | assigned | `0000L6` |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-memory/0x00515450-0x00515568.Md5FilePathHex.md` |  |
@@ -307,6 +308,7 @@ Total_Error: 0
 | [UID:0002JH][0x00516f80-0x00516f8d.MenuItemSetStateFlag0](by-memory/0x00516f80-0x00516f8d.MenuItemSetStateFlag0.md) | assigned | `00007V` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-memory/0x00516f80-0x00516f8d.MenuItemSetStateFlag0.md` |  |
 | [UID:0002J5][0x00516f90-0x00516f94.MenuItemStateFlag1Accessor](by-memory/0x00516f90-0x00516f94.MenuItemStateFlag1Accessor.md) | assigned | `00007V` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-memory/0x00516f90-0x00516f94.MenuItemStateFlag1Accessor.md` |  |
 | [UID:0002JI][0x00516fa0-0x00516fad.MenuItemSetStateFlag1](by-memory/0x00516fa0-0x00516fad.MenuItemSetStateFlag1.md) | assigned | `00007V` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-memory/0x00516fa0-0x00516fad.MenuItemSetStateFlag1.md` |  |
+| [UID:000238][0x00517450-0x00517d23.MenuDialogFactoryHelpers](by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md) | assigned | `0000OP` |  | no | `auto-generated/NexusTK/ui/dialogs/TextMenuDialogs.cpp` | `by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md` |  |
 | [UID:0001BL][0x00517d30-0x00517ebf.MerchantDialogPaneBase](by-memory/0x00517d30-0x00517ebf.MerchantDialogPaneBase.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-memory/0x00517d30-0x00517ebf.MerchantDialogPaneBase.md` |  |
 | [UID:0001BM][0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual](by-memory/0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-memory/0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual.md` |  |
 | [UID:000239][0x0051a420-0x0051a51c.TextInputMenuDialogReplyPacketHelper](by-memory/0x0051a420-0x0051a51c.TextInputMenuDialogReplyPacketHelper.md) | assigned | `0000OP` |  | no | `auto-generated/NexusTK/ui/dialogs/TextMenuDialogs.cpp` | `by-memory/0x0051a420-0x0051a51c.TextInputMenuDialogReplyPacketHelper.md` |  |
@@ -436,6 +438,8 @@ Total_Error: 0
 | [UID:0001HJ][0x0056fe70-0x0056fe75.CollectionPane2FalseStub](by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md) | assigned | `0000IC` | 70 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md` |  |
 | [UID:0001HK][0x0056fe80-0x005729c3.SelfLookPane2](by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md) | assigned | `0000NL` | 20 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md` |  |
 | [UID:0001HR][0x00573d20-0x005747df.ServerSelectPane](by-memory/0x00573d20-0x005747df.ServerSelectPane.md) | assigned | `0000NO` | 10 | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |  |
+| [UID:000243][0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers](by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md) | assigned | `0000M8` |  | no | `auto-generated/NexusTK/network/PacketBuffer.cpp` | `by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md` |  |
+| [UID:000244][0x00575b90-0x00575caa.PacketTransformStringKeyHelpers](by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md) | assigned | `0000M9` |  | no | `auto-generated/NexusTK/network/PacketTransform.cpp` | `by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md` |  |
 | [UID:0001I3][0x00578b20-0x00578c40.SocketTransformFramePayload](by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md) | assigned | `0000NS` |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md` |  |
 | [UID:0001I4][0x00578c40-0x00578df1.SocketBuildEncryptedPacket](by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md) | assigned | `0000NS` |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md` |  |
 | [UID:0001I6][0x005794c0-0x005794cb.ClearPacketSenderGlobal](by-memory/0x005794c0-0x005794cb.ClearPacketSenderGlobal.md) | assigned | `0000NS` |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-memory/0x005794c0-0x005794cb.ClearPacketSenderGlobal.md` |  |
@@ -1656,10 +1660,8 @@ Total_Error: 0
 | [UID:0001B2][0x00514a10-0x00514ab6.UInt32VectorConstructor](by-memory/0x00514a10-0x00514ab6.UInt32VectorConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00514a10-0x00514ab6.UInt32VectorConstructor.md` |  |
 | [UID:0001B3][0x00514ae0-0x00514d1e.ObjectPanePoolFreeUnwindWrappers](by-memory/0x00514ae0-0x00514d1e.ObjectPanePoolFreeUnwindWrappers.md) | unclassified |  |  | no |  | `by-memory/0x00514ae0-0x00514d1e.ObjectPanePoolFreeUnwindWrappers.md` |  |
 | [UID:0001B5][0x00514e60-0x00514e98.SystemMessageMarkerScalarDeletingDestructor](by-memory/0x00514e60-0x00514e98.SystemMessageMarkerScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00514e60-0x00514e98.SystemMessageMarkerScalarDeletingDestructor.md` |  |
-| [UID:000233][0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck](by-memory/0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck.md) | unclassified |  |  | no |  | `by-memory/0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck.md` |  |
 | [UID:000235][0x00514f70-0x005151a9.MapPathDequeSupport](by-memory/0x00514f70-0x005151a9.MapPathDequeSupport.md) | unclassified |  |  | no |  | `by-memory/0x00514f70-0x005151a9.MapPathDequeSupport.md` |  |
 | [UID:000236][0x005151b0-0x005151ef.DefaultCodepageConversionWrappers](by-memory/0x005151b0-0x005151ef.DefaultCodepageConversionWrappers.md) | unclassified |  |  | no |  | `by-memory/0x005151b0-0x005151ef.DefaultCodepageConversionWrappers.md` |  |
-| [UID:000238][0x00517450-0x00517d23.MenuDialogFactoryHelpers](by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md` |  |
 | [UID:0001BN][0x00517ec0-0x0051a417.TextMenuDialogs](by-memory/0x00517ec0-0x0051a417.TextMenuDialogs.md) | unclassified |  |  | no |  | `by-memory/0x00517ec0-0x0051a417.TextMenuDialogs.md` |  |
 | [UID:0001BO][0x0051a520-0x0051c46d.ItemMenuDialogs](by-memory/0x0051a520-0x0051c46d.ItemMenuDialogs.md) | unclassified |  |  | no |  | `by-memory/0x0051a520-0x0051c46d.ItemMenuDialogs.md` |  |
 | [UID:0001BR][0x0051ca40-0x0051e998.SpellMenuDialogs](by-memory/0x0051ca40-0x0051e998.SpellMenuDialogs.md) | unclassified |  |  | no |  | `by-memory/0x0051ca40-0x0051e998.SpellMenuDialogs.md` |  |
@@ -1801,8 +1803,6 @@ Total_Error: 0
 | [UID:0001HV][0x00574d00-0x00574d3f.SendRawDataRaw](by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md) | unclassified |  |  | no |  | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |  |
 | [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md) | unclassified |  |  | no |  | `by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md` |  |
 | [UID:0001HZ][0x00575380-0x00575abb.PacketBufferHelpers](by-memory/0x00575380-0x00575abb.PacketBufferHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575380-0x00575abb.PacketBufferHelpers.md` |  |
-| [UID:000243][0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers](by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575ac0-0x00575b8c.PacketBufferLengthPrefixedReadHelpers.md` |  |
-| [UID:000244][0x00575b90-0x00575caa.PacketTransformStringKeyHelpers](by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md` |  |
 | [UID:0001I5][0x00578e00-0x00578e94.XorTransformBuffer](by-memory/0x00578e00-0x00578e94.XorTransformBuffer.md) | unclassified |  |  | no |  | `by-memory/0x00578e00-0x00578e94.XorTransformBuffer.md` |  |
 | [UID:000245][0x00578f70-0x005797ae.StlTreeStringMapSupport](by-memory/0x00578f70-0x005797ae.StlTreeStringMapSupport.md) | unclassified |  |  | no |  | `by-memory/0x00578f70-0x005797ae.StlTreeStringMapSupport.md` |  |
 | [UID:0001I7][0x005797b0-0x0057a25c.SoundManagerMusicSelection](by-memory/0x005797b0-0x0057a25c.SoundManagerMusicSelection.md) | unclassified |  |  | no |  | `by-memory/0x005797b0-0x0057a25c.SoundManagerMusicSelection.md` |  |
