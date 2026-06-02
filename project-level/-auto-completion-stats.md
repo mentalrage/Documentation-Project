@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 14:11:04
+Generated: 2026-06-02 14:13:49
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -126,9 +126,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000115` | 64 | 76 | 70.0 | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |
-| `000117` | 64 | 76 | 70.0 | `by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md` |
-| `00011A` | 64 | 76 | 70.0 | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |
 | `0000HM` | 64 | 78 | 71.0 | `by-file/AUTOBUF.md` |
 | `00013X` | 64 | 78 | 71.0 | `by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md` |
 | `0002PH` | 64 | 78 | 71.0 | `by-memory/0x004bc090-0x004bd3e8.SoftwareRenderCompatSpriteBlitCallback.md` |
@@ -151,6 +148,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002H3` | 65 | 80 | 72.5 | `by-memory/0x00464e40-0x00464f34.ApplicationRequestExit.md` |
 | `00022Z` | 65 | 80 | 72.5 | `by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md` |
 | `0002C8` | 65 | 80 | 72.5 | `by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md` |
+| `0001AO` | 65 | 82 | 73.5 | `by-memory/0x005039f0-0x00504521.GameServerNationAndMapInit.md` |
+| `0001RH` | 65 | 82 | 73.5 | `by-resource/meta-dat-metadata-cache.md` |
+| `0002GO` | 65 | 85 | 75.0 | `by-memory/0x004651e0-0x004651e7.ApplicationIsRunning.md` |
 
 ## Low_Confidence
 
@@ -186,9 +186,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000115` | 64 | 76 | 70.0 | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |
-| `000117` | 64 | 76 | 70.0 | `by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md` |
-| `00011A` | 64 | 76 | 70.0 | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |
 | `00000E` | 65 | 75 | 70.0 | `by-class/ApplicationHelper_4A6C40.md` |
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
@@ -211,6 +208,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 | `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
 | `00011B` | 66 | 78 | 72.0 | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |
+| `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
+| `0001AT` | 66 | 78 | 72.0 | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |
+| `0002C4` | 66 | 78 | 72.0 | `by-memory/0x00527080-0x005270b5.MidiReaderConstructorInit.md` |
 
 ## By Folder
 
@@ -346,9 +346,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000115` | 64 | 76 | 70.0 | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |
-| `000117` | 64 | 76 | 70.0 | `by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md` |
-| `00011A` | 64 | 76 | 70.0 | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `00013X` | 64 | 78 | 71.0 | `by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md` |
@@ -371,6 +368,9 @@ _No scored files._
 | `0002FF` | 68 | 76 | 72.0 | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |
 | `0002FG` | 68 | 76 | 72.0 | `by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md` |
 | `0002BG` | 68 | 76 | 72.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
+| `0002BQ` | 68 | 76 | 72.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
+| `00016Z` | 68 | 76 | 72.0 | `by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md` |
+| `0002BX` | 68 | 76 | 72.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
 
 ### by-meta
 
