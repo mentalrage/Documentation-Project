@@ -189,6 +189,10 @@ Do not add change entries for pure additions to a page. Recording every new sect
 
 Hard rule: do not guess UIDs. Every new `.md` file created under a scanned `by-*` folder must be registered with the validator so it receives a stable UID header and `validator.ini` mapping. Do not guess, reserve, hand-write, or copy/paste placeholder UIDs for new documents.
 
+### Git Backup Workflow
+
+Git is used here as a general backup and sync tool for documentation work. Commit and push periodically so progress is preserved, but do not spend documentation time trying to keep the worktree cosmetically tidy, hand-clean validator output, or optimize diffs for review polish. Treat validator-produced updates as normal generated state. The priority is accurate documentation progress backed up to the remote repository.
+
 For ordinary single-file work, create the target document first, run the validator on that exact file so it receives its real UID, then add references to that UID from other documents. For batch work where a parent page needs to reference new child pages before their UIDs are known, use the temporary TMP reference workflow instead of guessing. Write the target path in this form:
 
 ```text
