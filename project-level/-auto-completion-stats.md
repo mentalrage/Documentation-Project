@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 09:18:40
+Generated: 2026-06-02 09:22:29
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -144,11 +144,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BX` | 58 | 72 | 65.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
-| `0002BZ` | 58 | 72 | 65.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
-| `0002C0` | 58 | 72 | 65.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
-| `0002C1` | 58 | 72 | 65.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
-| `0002C3` | 58 | 72 | 65.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 | `0002DN` | 58 | 76 | 67.0 | `by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md` |
 | `0000ZL` | 58 | 76 | 67.0 | `by-memory/0x004777a0-0x00478f8d.NewPredefinedFormArticleDialog.md` |
 | `00017R` | 58 | 78 | 68.0 | `by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md` |
@@ -169,6 +164,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
 | `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
 | `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
+| `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
+| `0002G3` | 60 | 72 | 66.0 | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |
+| `0002BM` | 60 | 72 | 66.0 | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |
+| `0002BO` | 60 | 72 | 66.0 | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |
+| `0002CE` | 60 | 72 | 66.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
 
 ## Low_Confidence
 
@@ -216,11 +216,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
 | `0000AI` | 60 | 68 | 64.0 | `by-class/PixelEffecter.md` |
 | `00003X` | 62 | 66 | 64.0 | `by-class/DirectionButtonControlPane.md` |
-| `0002BX` | 58 | 72 | 65.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
-| `0002BZ` | 58 | 72 | 65.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
-| `0002C0` | 58 | 72 | 65.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
-| `0002C1` | 58 | 72 | 65.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
-| `0002C3` | 58 | 72 | 65.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 | `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `0000AB` | 62 | 68 | 65.0 | `by-class/PatchPane__PatchFileData.md` |
 | `0000TA` | 65 | 65 | 65.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
@@ -229,6 +224,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
 | `00019Q` | 65 | 65 | 65.0 | `by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md` |
+| `00019R` | 65 | 65 | 65.0 | `by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md` |
+| `0001AZ` | 65 | 65 | 65.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
+| `0001HV` | 65 | 65 | 65.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
+| `00028Z` | 65 | 65 | 65.0 | `by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md` |
+| `000292` | 65 | 65 | 65.0 | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |
 
 ## By Folder
 
@@ -374,11 +374,6 @@ _No scored files._
 | `00022M` | 60 | 65 | 62.5 | `by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md` |
 | `000231` | 60 | 65 | 62.5 | `by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md` |
 | `000232` | 60 | 65 | 62.5 | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |
-| `0002BX` | 58 | 72 | 65.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
-| `0002BZ` | 58 | 72 | 65.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
-| `0002C0` | 58 | 72 | 65.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
-| `0002C1` | 58 | 72 | 65.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
-| `0002C3` | 58 | 72 | 65.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 | `0002BI` | 60 | 70 | 65.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `00020W` | 65 | 65 | 65.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
@@ -389,6 +384,11 @@ _No scored files._
 | `00028Z` | 65 | 65 | 65.0 | `by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md` |
 | `000292` | 65 | 65 | 65.0 | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |
 | `0002B7` | 65 | 65 | 65.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
+| `0002G3` | 60 | 72 | 66.0 | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |
+| `0002BM` | 60 | 72 | 66.0 | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |
+| `0002BO` | 60 | 72 | 66.0 | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |
+| `0002CE` | 60 | 72 | 66.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
+| `0002DN` | 58 | 76 | 67.0 | `by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md` |
 
 ### by-meta
 
