@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 14:41:20
+Generated: 2026-06-02 14:48:42
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -125,10 +125,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002PA` | 64 | 82 | 73.0 | `by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md` |
-| `0001Z5` | 64 | 88 | 76.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
-| `00000E` | 65 | 75 | 70.0 | `by-class/ApplicationHelper_4A6C40.md` |
-| `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
 | `00000V` | 65 | 80 | 72.5 | `by-class/BaramApp.md` |
 | `00004W` | 65 | 80 | 72.5 | `by-class/FileDownloader.md` |
@@ -150,6 +146,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00021P` | 65 | 85 | 75.0 | `by-memory/0x004873c0-0x00487475.ClanStatusPaneShowInfoList.md` |
 | `00021Q` | 65 | 85 | 75.0 | `by-memory/0x00487480-0x00487535.ClanStatusPaneShowJoinList.md` |
 | `00021R` | 65 | 85 | 75.0 | `by-memory/0x00487540-0x004875f5.ClanStatusPaneShowEnlistList.md` |
+| `000226` | 65 | 85 | 75.0 | `by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md` |
+| `000227` | 65 | 85 | 75.0 | `by-memory/0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder.md` |
+| `00022A` | 65 | 85 | 75.0 | `by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md` |
+| `00024M` | 65 | 85 | 75.0 | `by-memory/0x0060d798-0x0060e174.CashShopFittingRoomReadOnlyData.md` |
 
 ## Low_Confidence
 
@@ -185,8 +185,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00000E` | 65 | 75 | 70.0 | `by-class/ApplicationHelper_4A6C40.md` |
-| `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
@@ -210,6 +208,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009H` | 68 | 76 | 72.0 | `by-class/NexonclubProxyDialog.md` |
 | `0000BS` | 68 | 76 | 72.0 | `by-class/RecordVector_4E57C0.md` |
 | `0000CR` | 68 | 76 | 72.0 | `by-class/SelectionControlPane.md` |
+| `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
+| `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
 
 ## By Folder
 
@@ -217,7 +217,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00000E` | 65 | 75 | 70.0 | `by-class/ApplicationHelper_4A6C40.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00001E` | 66 | 76 | 71.0 | `by-class/ButtonControlPane.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
@@ -242,6 +241,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 | `000074` | 72 | 74 | 73.0 | `by-class/LegendPane.md` |
+| `00007C` | 72 | 74 | 73.0 | `by-class/LivingObjectPane__BoxRotator.md` |
 
 ### by-external-research
 
@@ -345,7 +345,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
@@ -370,6 +369,7 @@ _No scored files._
 | `0002C3` | 68 | 76 | 72.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 | `0000WH` | 65 | 80 | 72.5 | `by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md` |
 | `0002H3` | 65 | 80 | 72.5 | `by-memory/0x00464e40-0x00464f34.ApplicationRequestExit.md` |
+| `00022Z` | 65 | 80 | 72.5 | `by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md` |
 
 ### by-meta
 

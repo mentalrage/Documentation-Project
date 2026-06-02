@@ -123,14 +123,6 @@ BOOL Application::DestroyLoadingDialog()
     return ::DestroyWindow(m_hLoadingDlg);
 }
 
-// UID:0002GX | by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md
-void Application::SendShutdownMessage()
-{
-    ChangeMessage message(reinterpret_cast<void*>(0x676f6f67));
-    message.SetDword(0);
-    ForwardMessage(&message);
-}
-
 // UID:00000V | by-class/BaramApp.md
 class BaramApp : public Application
 {

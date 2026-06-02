@@ -5,9 +5,9 @@
 Total_Type: 2140
 Total_Reconstructable: 1179
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 657
-Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 522
+Total_Reconstructed_Assigned: 658
+Total_Reconstructed_Coded: 19
+Total_Reconstructable_Unassigned: 521
 Total_Unclassified: 950
 Total_Error: 0
 
@@ -82,6 +82,7 @@ Total_Error: 0
 | [UID:0002GQ][0x00465310-0x00465318.ApplicationGetVersionMinor](by-memory/0x00465310-0x00465318.ApplicationGetVersionMinor.md) | assigned | `00000D` | 70 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465310-0x00465318.ApplicationGetVersionMinor.md` |  |
 | [UID:0002H6][0x00465430-0x0046564c.ApplicationValidateLicense](by-memory/0x00465430-0x0046564c.ApplicationValidateLicense.md) | assigned | `00000D` | 75 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00465430-0x0046564c.ApplicationValidateLicense.md` |  |
 | [UID:0000YT][0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat](by-memory/0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md) | assigned | `0000HG` | 50 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md` |  |
+| [UID:0002GX][0x00467960-0x004679bf.ApplicationSendShutdownMessage](by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md) | assigned | `00000D` | 140 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |  |
 | [UID:00020V][0x0046a630-0x0046a6ea.BrowserWindowHostWndProc](by-memory/0x0046a630-0x0046a6ea.BrowserWindowHostWndProc.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046a630-0x0046a6ea.BrowserWindowHostWndProc.md` |  |
 | [UID:00020W][0x0046a760-0x0046a855.BrowserRawWindowProcClone](by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |  |
 | [UID:000210][0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers](by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md) | assigned | `0000P9` |  | no | `auto-generated/NexusTK/ui/dialogs/WebBoardDialog.cpp` | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |  |
@@ -117,6 +118,7 @@ Total_Error: 0
 | [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md) | assigned | `0000N4` | 60 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |  |
 | [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md) | assigned | `0000N4` | 70 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |  |
 | [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |  |
+| [UID:0002PA][0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md) | assigned | `0000IE` | 65 | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md` |  |
 | [UID:0002PB][0x004949e0-0x00494a81.ControlPaneConstructor](by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md) | assigned | `0000IG` | 10 | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md` |  |
 | [UID:000115][0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter](by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md) | assigned | `0000AW` | 20 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |  |
 | [UID:000117][0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter](by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md) | assigned | `0000AW` | 30 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md` |  |
@@ -664,7 +666,6 @@ Total_Error: 0
 | [UID:0002GJ][0x004669c0-0x00466a69.BaramAppOnActivate](by-memory/0x004669c0-0x00466a69.BaramAppOnActivate.md) | coded | `00000V` | 10 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004669c0-0x00466a69.BaramAppOnActivate.md` |  |
 | [UID:0002GK][0x00466a70-0x00466b23.BaramAppOnDeactivate](by-memory/0x00466a70-0x00466b23.BaramAppOnDeactivate.md) | coded | `00000V` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00466a70-0x00466b23.BaramAppOnDeactivate.md` |  |
 | [UID:0000YX][0x00467410-0x004674ed.LoadIndexedDATSeries](by-memory/0x00467410-0x004674ed.LoadIndexedDATSeries.md) | coded | `0000HG` | 40 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00467410-0x004674ed.LoadIndexedDATSeries.md` |  |
-| [UID:0002GX][0x00467960-0x004679bf.ApplicationSendShutdownMessage](by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md) | coded | `00000D` | 140 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |  |
 | [UID:000199][0x004f4b30-0x004f4b6c.ApplicationChangeManRegisterWrappers](by-memory/0x004f4b30-0x004f4b6c.ApplicationChangeManRegisterWrappers.md) | coded | `00000D` | 10 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f4b30-0x004f4b6c.ApplicationChangeManRegisterWrappers.md` |  |
 | [UID:00019B][0x004f4b70-0x004f4b86.ApplicationForwardMessage](by-memory/0x004f4b70-0x004f4b86.ApplicationForwardMessage.md) | coded | `00000D` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f4b70-0x004f4b86.ApplicationForwardMessage.md` |  |
 | [UID:0001CN][0x00528d60-0x00528e55.MSGHandler](by-memory/0x00528d60-0x00528e55.MSGHandler.md) | coded | `00008S` | 10 | yes | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-memory/0x00528d60-0x00528e55.MSGHandler.md` |  |
@@ -767,7 +768,6 @@ Total_Error: 0
 | [UID:0002BQ][0x00491790-0x004918dc.GameBillLauncherGate](by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md) | unassigned |  |  | no |  | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |  |
 | [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md) | unassigned |  |  | no |  | `by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md` |  |
 | [UID:000112][0x00493f10-0x00493f79.SimpleUStringVectorDestructor](by-memory/0x00493f10-0x00493f79.SimpleUStringVectorDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00493f10-0x00493f79.SimpleUStringVectorDestructor.md` |  |
-| [UID:0002PA][0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md) | unassigned |  |  | no |  | `by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md` |  |
 | [UID:000114][0x004949e0-0x00494bf6.ControlPane](by-memory/0x004949e0-0x00494bf6.ControlPane.md) | unassigned |  |  | no |  | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |  |
 | [UID:000116][0x00494a90-0x00494b4b.ProgressBarRangeSetters](by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md) | unassigned |  |  | no |  | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |  |
 | [UID:0002PD][0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers](by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md` |  |
