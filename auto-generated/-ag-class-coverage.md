@@ -5,9 +5,9 @@
 Total_Type: 586
 Total_Reconstructable: 179
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 89
+Total_Reconstructed_Assigned: 90
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 90
+Total_Reconstructable_Unassigned: 89
 Total_Unclassified: 406
 Total_Error: 0
 
@@ -86,6 +86,7 @@ Total_Error: 0
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
 | [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-class/SelfSaveInputPane.md` |  |
 | [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/ShoutInputPane.md` |  |
+| [UID:0000D9][SimpleUString](by-class/SimpleUString.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/SimpleUString.md` |  |
 | [UID:0000DC][SnowingLayerPane](by-class/SnowingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SnowingLayerPane.md` |  |
 | [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
 | [UID:0000E7][StringIter](by-class/StringIter.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/StringIter.md` |  |
@@ -181,7 +182,6 @@ Total_Error: 0
 | [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md) | unassigned |  |  | no |  | `by-class/ScrollVolumePane.md` |  |
 | [UID:0000CY][SeparatorMenuItem](by-class/SeparatorMenuItem.md) | unassigned |  |  | no |  | `by-class/SeparatorMenuItem.md` |  |
 | [UID:0000D8][SimpleListPane](by-class/SimpleListPane.md) | unassigned |  |  | no |  | `by-class/SimpleListPane.md` |  |
-| [UID:0000D9][SimpleUString](by-class/SimpleUString.md) | unassigned |  |  | no |  | `by-class/SimpleUString.md` |  |
 | [UID:0000DA][SimpleUStringVector](by-class/SimpleUStringVector.md) | unassigned |  |  | no |  | `by-class/SimpleUStringVector.md` |  |
 | [UID:0000E6][StdioFile](by-class/StdioFile.md) | unassigned |  |  | no |  | `by-class/StdioFile.md` |  |
 | [UID:0000E8][StringMenuItem](by-class/StringMenuItem.md) | unassigned |  |  | no |  | `by-class/StringMenuItem.md` |  |

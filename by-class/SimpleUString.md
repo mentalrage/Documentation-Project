@@ -1,14 +1,21 @@
 *** UID:0000D9 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:62 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OB | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
 
 # SimpleUString
+
+## Status
+
+- Rebuild handling: reconstructable shared string utility class/facade.
+- Autogen status: attached to [UID:0000OB][StringUtil](by-file/StringUtil.md) as the broad `util/StringUtil.cpp` owner; final C++ remains blank because the public API, representation split, and relationship to [UID:0000OA][StringBase](by-file/StringBase.md) are not final-source quality.
+- Confidence: strong for project-owned shared string infrastructure, medium-high for the current `SimpleUString` class boundary.
+- Important owner caveat: pointer-backed helpers around `0x00583210+` should continue to be reviewed through [UID:0000OA][StringBase](by-file/StringBase.md) / [UID:0001WS][StringBaseTemplate](by-type/by-template/StringBaseTemplate.md), even though disabled generated names still use `SimpleUString`.
 
 ## Summary
 
@@ -18,6 +25,14 @@
 - a pointer-backed formatted-string family around `0x00583210`, `0x00583280`, and `0x005845b0`.
 
 The relationship between those two representations still needs a layout pass. Both are currently documented under `SimpleUString` because Wave2/Wave3 metadata and caller evidence point there, but source migration should preserve the distinction. The pointer-backed family now has a preferred neighboring owner candidate in [UID:0000OA][StringBase](by-file/StringBase.md), because callback-template metadata preserves `mystr::StringBase<wchar_t, mystr::mychar_traits<wchar_t>>`.
+
+## Representation Map
+
+| Representation | Evidence anchor | Current owner decision | Remaining risk |
+| --- | --- | --- | --- |
+| SSO-7 UTF-16 string object | [UID:0001W5][SimpleUStringSso7Layout](by-type/by-struct/SimpleUStringSso7Layout.md), [UID:0002DV][0x00421310-0x00421362.SimpleUStringClear](by-memory/0x00421310-0x00421362.SimpleUStringClear.md), [UID:0002E3][0x00421590-0x004216cb.SimpleUStringAssignWideCount](by-memory/0x00421590-0x004216cb.SimpleUStringAssignWideCount.md) | Keep under `SimpleUString` / [UID:0000OB][StringUtil](by-file/StringUtil.md). | Need final class/API names and proof whether this is the same public type as the pointer-backed family. |
+| Pointer-backed ref-counted string facade | [UID:0001W4][SimpleUStringPointerBackedLayout](by-type/by-struct/SimpleUStringPointerBackedLayout.md), [UID:0001WS][StringBaseTemplate](by-type/by-template/StringBaseTemplate.md), [UID:0001J2][0x00583210-0x005845eb.SimpleUStringPointerBacked](by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md) | Treat generated `SimpleUString` names as aliases/leads; prefer [UID:0000OA][StringBase](by-file/StringBase.md) for source migration until the API split is audited. | Final name may be `mystr::StringBase<wchar_t>` rather than `SimpleUString`. |
+| Static/global empty string objects | [UID:0000PW][g_emptySimpleUString](by-global/g_emptySimpleUString.md), [UID:00027J][0x0066daec-0x0066db04.g_emptySimpleUString](by-memory/0x0066daec-0x0066db04.g_emptySimpleUString.md), [UID:0000TM][StringBufferSentinelsAndPools](by-global/StringBufferSentinelsAndPools.md) | Cross-link from `SimpleUString`, but keep owning module with the specific consumer/global page until source placement is stronger. | Static lifetime wrapper code should not be hand-authored from the cleanup thunks. |
 
 ## Likely Original Placement
 
@@ -55,6 +70,13 @@ The relationship between those two representations still needs a layout pass. Bo
 - Names for formatting workers at `0x00583720` and `0x00583840`.
 - Whether the release/format/mutation continuation at `0x005832f0-0x00584d7e` belongs under this class name or a neighboring string-base type.
 
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `70` | The page now records the two known representations, exact SSO endpoint helpers, exact pointer-backed formatting/compare children, layout/type docs, owner caveats, and utility placement. Completion remains capped because the class boundary, final public API, remaining `0x005832f0-0x00584d7e` continuation, and original header split still need a focused string-family audit. |
+| Confidence `82` | Confidence is strong that this is project-owned shared string infrastructure and that `StringUtil` is the broad coordination owner. It is only medium-high for the `SimpleUString` class name because compiler metadata also preserves `mystr::StringBase<wchar_t,...>` and the SSO-7 versus pointer-backed relationship is unresolved. |
+
 ## Cross-References
 
 - File: [UID:0000OB][StringUtil](by-file/StringUtil.md)
@@ -64,6 +86,8 @@ The relationship between those two representations still needs a layout pass. Bo
 - Layouts: [UID:0001W5][SimpleUStringSso7Layout](by-type/by-struct/SimpleUStringSso7Layout.md), [UID:0001W4][SimpleUStringPointerBackedLayout](by-type/by-struct/SimpleUStringPointerBackedLayout.md), [UID:0001WS][StringBaseTemplate](by-type/by-template/StringBaseTemplate.md)
 
 ## Changes
+
+- 2026-06-02: Raised the class page to `70/82`, attached it to [UID:0000OB][StringUtil](by-file/StringUtil.md), and added status, representation map, autogen rationale, and score rationale. Final C++ remains blank because the `SimpleUString` versus `StringBase` API split is unresolved.
 
 - 2026-05-30: Existing class summary treated `0x00421310-0x004216cb` as one early `SimpleUString` helper neighborhood. Changed this to endpoint-only `SimpleUString` ownership and linked the exact child pages, while retaining the historical aggregate as a mixed-island map. Evidence: IDA MCP function inventory/decompilation/byte audit for `0x00421310-0x004216cb`; `simroot_v2/class_SimpleUString.cpp` emits only the `0x00421310` and `0x00421590` helpers from that island.
 

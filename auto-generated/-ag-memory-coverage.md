@@ -3,18 +3,19 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1172
+Total_Reconstructable: 1173
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 622
+Total_Reconstructed_Assigned: 623
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 550
-Total_Unclassified: 954
+Total_Unclassified: 953
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md` |  |
 | [UID:0002D6][0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw](by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md) | assigned | `000054` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md` |  |
+| [UID:0002DA][0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers](by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md) | assigned | `000054` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |  |
 | [UID:0002DN][0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent](by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041fcd0-0x004207ce.FittingRoomListPaneOnInputEvent.md` |  |
 | [UID:0002DT][0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers](by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00420950-0x00420b60.FittingRoomListPaneSlotRectRawHelpers.md` |  |
 | [UID:0002DU][0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers](by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00420d50-0x00420dd5.FittingRoomListPaneSlotLayoutRawHelpers.md` |  |
@@ -1261,7 +1262,6 @@ Total_Error: 0
 | [UID:0002D4][0x0041da70-0x0041daa3.FittingRoomScrollPaneOnTimer](by-memory/0x0041da70-0x0041daa3.FittingRoomScrollPaneOnTimer.md) | unclassified |  |  | no |  | `by-memory/0x0041da70-0x0041daa3.FittingRoomScrollPaneOnTimer.md` |  |
 | [UID:0002D8][0x0041e1d0-0x0041e4ed.FittingRoomScrollPaneHitTestPart](by-memory/0x0041e1d0-0x0041e4ed.FittingRoomScrollPaneHitTestPart.md) | unclassified |  |  | no |  | `by-memory/0x0041e1d0-0x0041e4ed.FittingRoomScrollPaneHitTestPart.md` |  |
 | [UID:0002D7][0x0041e4f0-0x0041e777.FittingRoomScrollPaneGetPartRect](by-memory/0x0041e4f0-0x0041e777.FittingRoomScrollPaneGetPartRect.md) | unclassified |  |  | no |  | `by-memory/0x0041e4f0-0x0041e777.FittingRoomScrollPaneGetPartRect.md` |  |
-| [UID:0002DA][0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers](by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |  |
 | [UID:0002D5][0x0041e8b0-0x0041e970.FittingRoomScrollPaneProcessActivePart](by-memory/0x0041e8b0-0x0041e970.FittingRoomScrollPaneProcessActivePart.md) | unclassified |  |  | no |  | `by-memory/0x0041e8b0-0x0041e970.FittingRoomScrollPaneProcessActivePart.md` |  |
 | [UID:0002D9][0x0041e970-0x0041eb24.FittingRoomScrollPaneUpdateThumbDragScroll](by-memory/0x0041e970-0x0041eb24.FittingRoomScrollPaneUpdateThumbDragScroll.md) | unclassified |  |  | no |  | `by-memory/0x0041e970-0x0041eb24.FittingRoomScrollPaneUpdateThumbDragScroll.md` |  |
 | [UID:0002DB][0x0041eb30-0x0041eb8c.FittingRoomScrollPaneResetScrollStateRaw](by-memory/0x0041eb30-0x0041eb8c.FittingRoomScrollPaneResetScrollStateRaw.md) | unclassified |  |  | no |  | `by-memory/0x0041eb30-0x0041eb8c.FittingRoomScrollPaneResetScrollStateRaw.md` |  |
