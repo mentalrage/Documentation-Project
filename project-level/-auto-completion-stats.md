@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 18:28:51
+Generated: 2026-06-02 18:32:38
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -121,8 +121,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BJ` | 66 | 80 | 73.0 | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |
-| `0002BN` | 66 | 80 | 73.0 | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |
 | `0002BS` | 66 | 80 | 73.0 | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |
 | `0002BT` | 66 | 80 | 73.0 | `by-memory/0x005266b0-0x00526784.MidiTrackBufferedByteReader.md` |
 | `0002BW` | 66 | 80 | 73.0 | `by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md` |
@@ -146,6 +144,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002P8` | 66 | 82 | 74.0 | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |
 | `0002PC` | 66 | 82 | 74.0 | `by-memory/0x00494bf0-0x00494bf7.ControlPaneIgnoresHitTesting.md` |
 | `000176` | 66 | 82 | 74.0 | `by-memory/0x004d0f50-0x004d165d.ImageFrameTable.md` |
+| `000008` | 66 | 84 | 75.0 | `by-class/AddItemWithCountDialog.md` |
+| `0002KU` | 66 | 84 | 75.0 | `by-memory/0x004d1730-0x004d1772.ResourceLayoutTableGetFrameSize.md` |
 
 ## Low_Confidence
 
@@ -205,7 +205,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
 | `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
 | `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
-| `0002BJ` | 66 | 80 | 73.0 | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |
+| `0002BS` | 66 | 80 | 73.0 | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |
 
 ## By Folder
 
@@ -354,8 +354,6 @@ _No scored files._
 | `0002C3` | 68 | 76 | 72.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 | `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
 | `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
-| `0002BJ` | 66 | 80 | 73.0 | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |
-| `0002BN` | 66 | 80 | 73.0 | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |
 | `0002BS` | 66 | 80 | 73.0 | `by-memory/0x00526650-0x005266a1.MidiExactReadHelper.md` |
 | `0002BT` | 66 | 80 | 73.0 | `by-memory/0x005266b0-0x00526784.MidiTrackBufferedByteReader.md` |
 | `0002BW` | 66 | 80 | 73.0 | `by-memory/0x00526bb0-0x00526cd9.MidiVariableLengthQuantityReader.md` |
@@ -366,6 +364,8 @@ _No scored files._
 | `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
 | `00016O` | 68 | 78 | 73.0 | `by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md` |
 | `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
+| `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
+| `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
 
 ### by-meta
 

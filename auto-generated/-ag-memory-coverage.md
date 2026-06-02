@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1216
+Total_Reconstructable: 1218
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 676
+Total_Reconstructed_Assigned: 678
 Total_Reconstructed_Coded: 18
 Total_Reconstructable_Unassigned: 540
-Total_Unclassified: 913
+Total_Unclassified: 911
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -115,9 +115,11 @@ Total_Error: 0
 | [UID:00021Z][0x0048e310-0x0048e479.ConfigRawTableHelpers](by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |  |
 | [UID:0002BH][0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser](by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md) | assigned | `0000N4` | 35 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |  |
 | [UID:0002BI][0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser](by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md) | assigned | `0000N4` | 36 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |  |
+| [UID:0002BJ][0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser](by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md) | assigned | `0000N4` |  | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |  |
 | [UID:0002BK][0x00490200-0x0049050a.LgInternetSessionLauncherParser](by-memory/0x00490200-0x0049050a.LgInternetSessionLauncherParser.md) | assigned | `0000N4` | 46 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00490200-0x0049050a.LgInternetSessionLauncherParser.md` |  |
 | [UID:0002BL][0x00490510-0x00490809.LauncherHostPortPayloadParser](by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md) | assigned | `0000N4` | 47 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md` |  |
 | [UID:0002BM][0x00490810-0x00490b01.MihosoftLauncherParser](by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md) | assigned | `0000N4` | 48 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |  |
+| [UID:0002BN][0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser](by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md) | assigned | `0000N4` |  | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |  |
 | [UID:0002BO][0x004910d0-0x00491445.BixelLauncherParser](by-memory/0x004910d0-0x00491445.BixelLauncherParser.md) | assigned | `0000N4` | 56 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |  |
 | [UID:0002BP][0x00491450-0x0049178d.KwgLauncherParser](by-memory/0x00491450-0x0049178d.KwgLauncherParser.md) | assigned | `0000N4` | 57 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491450-0x0049178d.KwgLauncherParser.md` |  |
 | [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md) | assigned | `0000N4` | 60 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |  |
@@ -1536,8 +1538,6 @@ Total_Error: 0
 | [UID:00010Z][0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton](by-memory/0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton.md) | unclassified |  |  | no |  | `by-memory/0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton.md` |  |
 | [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md) | unclassified |  |  | no |  | `by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md` |  |
 | [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md) | unclassified |  |  | no |  | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |  |
-| [UID:0002BJ][0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser](by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md) | unclassified |  |  | no |  | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |  |
-| [UID:0002BN][0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser](by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md) | unclassified |  |  | no |  | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |  |
 | [UID:0002BR][0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser](by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md) | unclassified |  |  | no |  | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |  |
 | [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md` |  |
 | [UID:000113][0x00494520-0x004949df.ConnStatusPane](by-memory/0x00494520-0x004949df.ConnStatusPane.md) | unclassified |  |  | no |  | `by-memory/0x00494520-0x004949df.ConnStatusPane.md` |  |
