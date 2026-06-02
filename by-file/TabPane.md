@@ -1,13 +1,13 @@
 *** UID:0000OF | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # TabPane
 
 ## Status
 
-- Confidence: strong for local behavior and range, medium for final source grouping with `IconsPane`.
+- Confidence: strong for local behavior, range, and `ui/panels/` placement; medium-high for final source grouping with `IconsPane`.
 - Proposed module: `ui/panels/TabPane.cpp`
 - Current generated source: `class_TabPane.cpp`
 - Main class: [UID:0000EB][TabPane](by-class/TabPane.md)
@@ -20,6 +20,10 @@
 `TabPane.cpp` owns a compact old-layout tab/action input pane. It maps mouse coordinates in six fixed rectangular regions to shared UI action helpers, while `IconsPane` maps eight icon slots to similar actions.
 
 The class should sit near [UID:0000JZ][IconsPane](by-file/IconsPane.md) under `ui/panels/`. Current evidence supports separate class docs, but the final original source may have grouped both small old-HUD control panes in one `.cpp`.
+
+## Score Rationale
+
+The projected path is now `NexusTK/ui/panels/` because [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) places `TabPane.cpp` beside `IconsPane.cpp`, and existing IDA-backed memory/global/class docs show it is an old-layout UI panel rather than a generic tab control. Confidence is raised to `80` for placement, but remains capped by the open question of whether the original source kept `TabPane` and `IconsPane` separate or grouped in one old-HUD controls file.
 
 ## Proposed Contents
 
@@ -55,3 +59,7 @@ The `0x004cf980-0x004cfe5f` memory area includes both `TabPane` functions and in
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `82` and confidence to `78`.
   - Evidence: document captures old-layout tab pane role, proposed contents, singleton/vtable anchors, input/action behavior, destructor thunk notes, IconsPane interleave caveat, and cross-references; confidence remains capped by final source grouping with `IconsPane`.
+- 2026-06-02 projected path update:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and confidence was `78`.
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/"` and confidence `80`.
+  - Summary/evidence: proposed source tree and existing memory/global/class docs place `TabPane.cpp` in the old-layout UI panels folder.

@@ -1,13 +1,13 @@
 *** UID:0000JZ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # IconsPane
 
 ## Status
 
-- Confidence: strong for class role and core range, medium for final source grouping with `TabPane`.
+- Confidence: strong for class role, core range, and `ui/panels/` placement; medium-high for final source grouping with `TabPane`.
 - Proposed module: `ui/panels/IconsPane.cpp`
 - Current generated source: `class_IconsPane.cpp`
 - Main class: [UID:00006B][IconsPane](by-class/IconsPane.md)
@@ -23,6 +23,10 @@
 `IconsPane.cpp` owns the old-layout bottom icon strip: icon visibility mode, icon hit testing, pressed/highlight invalidation, painting `ICONS.EPD`, localized hover tooltips, and click dispatch into inventory/options/exchange/mail/community/help/quest actions.
 
 This should stay in `ui/panels/`, likely adjacent to [UID:0000OF][TabPane](by-file/TabPane.md). `TabPane` is nearby and shares some action helpers, but it owns a different input surface with six horizontal tab regions rather than the eight-icon strip.
+
+## Score Rationale
+
+The projected path is now `NexusTK/ui/panels/` because [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) has a dedicated `ui/panels/IconsPane.cpp` entry and the IDA-backed file, class, memory, global, and resource pages all identify this as an old-layout HUD panel. Confidence is raised slightly for placement, but remains below final-audit range because the raw action dispatcher at `0x004cf8e0` and final source grouping with [UID:0000OF][TabPane](by-file/TabPane.md) remain open.
 
 ## Proposed Contents
 
@@ -70,3 +74,7 @@ The `IconsPane` destructor glue is physically interleaved with [UID:0000OF][TabP
   - What existed before: The data caveat said active output omitted cleanup, hit-test, highlight, destructor adjustor, and destructor guard details.
   - Changed to: The caveat now records current active emission of cleanup/hit-test/highlight/scalar deleting destructor and narrows the remaining active-output issue to the raw action-dispatch candidate plus compiler-generated adjustor thunk handling.
   - Summary/evidence: Current `simroot_v2/class_IconsPane.cpp` contains scoped installs for `0x004cf260`, `0x004cf7d0`, `0x004cf870`, and `0x004cfda0`, and the destructor body contains `(flags & 4) == 0`.
+- 2026-06-02 projected path update:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and confidence was `80`.
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/"` and confidence `82`.
+  - Summary/evidence: the proposed source tree and existing IDA-backed memory/class/global/resource docs place `IconsPane.cpp` in the old-layout UI panels folder.

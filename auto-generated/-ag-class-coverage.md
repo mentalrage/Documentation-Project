@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 164
+Total_Reconstructable: 165
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 76
+Total_Reconstructed_Assigned: 77
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 88
-Total_Unclassified: 421
+Total_Unclassified: 420
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -45,6 +45,7 @@ Total_Error: 0
 | [UID:00005T][GiveGoldInputPane](by-class/GiveGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/GiveGoldInputPane.md` |  |
 | [UID:00005V][GrafPort](by-class/GrafPort.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-class/GrafPort.md` |  |
 | [UID:00005W][GroupInputPane](by-class/GroupInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/GroupInputPane.md` |  |
+| [UID:00006B][IconsPane](by-class/IconsPane.md) | assigned | `0000JZ` |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-class/IconsPane.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPaneState.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
@@ -316,7 +317,6 @@ Total_Error: 0
 | [UID:00006G][IMECompositionPane](by-class/IMECompositionPane.md) | unclassified |  |  | no |  | `by-class/IMECompositionPane.md` |  |
 | [UID:00006H][IMEPane](by-class/IMEPane.md) | unclassified |  |  | no |  | `by-class/IMEPane.md` |  |
 | [UID:00006I][IMEStatusPane](by-class/IMEStatusPane.md) | unclassified |  |  | no |  | `by-class/IMEStatusPane.md` |  |
-| [UID:00006B][IconsPane](by-class/IconsPane.md) | unclassified |  |  | no |  | `by-class/IconsPane.md` |  |
 | [UID:00006C][IdleWatcher](by-class/IdleWatcher.md) | unclassified |  |  | no |  | `by-class/IdleWatcher.md` |  |
 | [UID:00006D][ImageButtonControlPane](by-class/ImageButtonControlPane.md) | unclassified |  |  | no |  | `by-class/ImageButtonControlPane.md` |  |
 | [UID:00006J][InputMan](by-class/InputMan.md) | unclassified |  |  | no |  | `by-class/InputMan.md` |  |

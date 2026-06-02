@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 12:27:35
+Generated: 2026-06-02 12:35:18
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -54,7 +54,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000JW` | blank | `(blank)` | `by-file/HistoryViewingPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JX` | blank | `(blank)` | `by-file/HourPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K5` | blank | `(blank)` | `by-file/IMEPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JZ` | blank | `(blank)` | `by-file/IconsPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K0` | blank | `(blank)` | `by-file/IdleWatcher.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K4` | blank | `(blank)` | `by-file/ImageWriters.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K6` | blank | `(blank)` | `by-file/InputMan.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -118,7 +117,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000O3` | blank | `(blank)` | `by-file/StaffsDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O6` | blank | `(blank)` | `by-file/StaticObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O8` | blank | `(blank)` | `by-file/StaticTextControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000OF` | blank | `(blank)` | `by-file/TabPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OG` | blank | `(blank)` | `by-file/TargetOptionDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OK` | blank | `(blank)` | `by-file/TextButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OM` | blank | `(blank)` | `by-file/TextEditControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -127,6 +125,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000P3` | blank | `(blank)` | `by-file/VectorHelpers.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
+
 ## Low_Completion
 
 | UID | Completion | Confidence | Combined | Path |
@@ -161,9 +160,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
-| `0001AZ` | 65 | 65 | 65.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
-| `0001HV` | 65 | 65 | 65.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
 | `00028Z` | 65 | 65 | 65.0 | `by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md` |
 | `000292` | 65 | 65 | 65.0 | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |
 | `0002B7` | 65 | 65 | 65.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
@@ -186,14 +182,14 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000FD` | 70 | 72 | 71.0 | `by-class/UInt32Vector.md` |
 | `0000FA` | 72 | 72 | 72.0 | `by-class/TreeItor_near_class_EventHandler___.md` |
 | `0000F8` | 72 | 72 | 72.0 | `by-class/Tree_near_class_EventHandler___.md` |
+| `0000F6` | 74 | 72 | 73.0 | `by-class/TransferReplyPredefinedAlert.md` |
+| `0000GD` | 74 | 72 | 73.0 | `by-class/YFlipEffecter.md` |
+| `0000LY` | 76 | 72 | 74.0 | `by-file/NewUserShapeSelectControlPane.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
-| `0001AZ` | 65 | 65 | 65.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
-| `0001HV` | 65 | 65 | 65.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
 | `00028Z` | 65 | 65 | 65.0 | `by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md` |
 | `000292` | 65 | 65 | 65.0 | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |
 | `0002B7` | 65 | 65 | 65.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
@@ -216,6 +212,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00017N` | 62 | 78 | 70.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
 | `0002R4` | 62 | 78 | 70.0 | `by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md` |
 | `0002RU` | 62 | 78 | 70.0 | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |
+| `000033` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteAlert.md` |
+| `000034` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteMailAlert.md` |
+| `000060` | 64 | 76 | 70.0 | `by-class/HandlerFindFunc.md` |
 
 ## By Folder
 
@@ -351,9 +350,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00022Q` | 65 | 65 | 65.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
-| `0001AZ` | 65 | 65 | 65.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
-| `0001HV` | 65 | 65 | 65.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
 | `00028Z` | 65 | 65 | 65.0 | `by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md` |
 | `000292` | 65 | 65 | 65.0 | `by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md` |
 | `0002B7` | 65 | 65 | 65.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
@@ -376,6 +372,9 @@ _No scored files._
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `0002A8` | 75 | 65 | 70.0 | `by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md` |
 | `0002A9` | 75 | 65 | 70.0 | `by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md` |
+| `0002P9` | 62 | 80 | 71.0 | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |
+| `0002HV` | 62 | 80 | 71.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
+| `0002JJ` | 62 | 80 | 71.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
 
 ### by-meta
 

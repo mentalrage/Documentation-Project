@@ -1,8 +1,8 @@
 *** UID:00006B | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for behavior and core range, medium for final grouping with `TabPane`.
+- Confidence: strong for behavior, core range, and file ownership; medium-high for final grouping with `TabPane`.
 - Current generated file: `class_IconsPane.cpp`
 - Likely source module: [UID:0000JZ][IconsPane](by-file/IconsPane.md)
 - Core range: [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md)
@@ -67,6 +67,12 @@
 - Decide whether [UID:00022Q][0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md) is live unmodeled code or an unreferenced duplicate emitted near the icon-pane class block.
 - Decide whether original source kept `IconsPane` and [UID:0000EB][TabPane](by-class/TabPane.md) in separate `.cpp` files or a single old-HUD controls file. Current evidence supports separate class docs but adjacent file placement.
 
+## Autogen Status
+
+- Reconstructable: true, as an old-layout HUD panel class with IDA-backed constructor, methods, singleton, resources, and destructor evidence.
+- Parent: [UID:0000JZ][IconsPane](by-file/IconsPane.md).
+- C++: intentionally blank because helper naming, the raw dispatch body, and final grouping with `TabPane` are not final-audit quality.
+
 ## Cross-References
 
 - [UID:0000JZ][IconsPane](by-file/IconsPane.md)
@@ -84,3 +90,7 @@
   - Before: The method table described the `0x004cf260-0x004cf289` cleanup helper as omitted from active generated output.
   - After: The method table records that current active `class_IconsPane.cpp` emits the helper as `IconsPane::Cleanup`.
   - Evidence: Current `simroot_v2/class_IconsPane.cpp` contains `NTK_ScopedInstall(Cleanup, 0x004cf260)` and `void IconsPane::Cleanup()`.
+- 2026-06-02 autogen attachment:
+  - What existed before: the class was scored `82/80` with no reconstructable flag or parent attachment.
+  - Changed to: confidence `82`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000JZ`.
+  - Summary/evidence: the file parent now has a validated `NexusTK/ui/panels/` projected path; reconstructed C++ remains blank under the 95+ gate.

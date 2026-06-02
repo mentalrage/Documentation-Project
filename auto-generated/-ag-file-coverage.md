@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 179
+Total_Reconstructed_Assigned: 181
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 109
+Total_Error: 107
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -71,6 +71,7 @@ Total_Error: 109
 | [UID:0000JU][HelpPanes](by-file/HelpPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/HelpPanes.cpp` | `by-file/HelpPanes.md` | by-file generated root |
 | [UID:0000JV][HierList](by-file/HierList.md) | assigned |  |  | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-file/HierList.md` | by-file generated root |
 | [UID:0000JY][HumanImageLib](by-file/HumanImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/HumanImageLib.cpp` | `by-file/HumanImageLib.md` | by-file generated root |
+| [UID:0000JZ][IconsPane](by-file/IconsPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-file/IconsPane.md` | by-file generated root |
 | [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-file/ImageFrameTable.md` | by-file generated root |
 | [UID:0000K2][ImageLib](by-file/ImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-file/ImageLib.md` | by-file generated root |
 | [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-file/ImageLoaders.md` | by-file generated root |
@@ -164,6 +165,7 @@ Total_Error: 109
 | [UID:0000OC][Surface](by-file/Surface.md) | assigned |  |  | no | `auto-generated/NexusTK/render/Surface.cpp` | `by-file/Surface.md` | by-file generated root |
 | [UID:0000OD][SwallowLayerPane](by-file/SwallowLayerPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/SwallowLayerPane.cpp` | `by-file/SwallowLayerPane.md` | by-file generated root |
 | [UID:0000OE][SystemMessagePanes](by-file/SystemMessagePanes.md) | assigned |  |  | no | `auto-generated/NexusTK/social/SystemMessagePanes.cpp` | `by-file/SystemMessagePanes.md` | by-file generated root |
+| [UID:0000OF][TabPane](by-file/TabPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/TabPane.cpp` | `by-file/TabPane.md` | by-file generated root |
 | [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-file/TargetSelectionInputPanes.md` | by-file generated root |
 | [UID:0000OI][TerminalPane](by-file/TerminalPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-file/TerminalPane.md` | by-file generated root |
 | [UID:0000OJ][TextBoxPane](by-file/TextBoxPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-file/TextBoxPane.md` | by-file generated root |
@@ -228,7 +230,6 @@ Total_Error: 109
 | [UID:0000JW][HistoryViewingPane](by-file/HistoryViewingPane.md) | error |  |  | no |  | `by-file/HistoryViewingPane.md` | by-file generated root |
 | [UID:0000JX][HourPane](by-file/HourPane.md) | error |  |  | no |  | `by-file/HourPane.md` | by-file generated root |
 | [UID:0000K5][IMEPanes](by-file/IMEPanes.md) | error |  |  | no |  | `by-file/IMEPanes.md` | by-file generated root |
-| [UID:0000JZ][IconsPane](by-file/IconsPane.md) | error |  |  | no |  | `by-file/IconsPane.md` | by-file generated root |
 | [UID:0000K0][IdleWatcher](by-file/IdleWatcher.md) | error |  |  | no |  | `by-file/IdleWatcher.md` | by-file generated root |
 | [UID:0000K4][ImageWriters](by-file/ImageWriters.md) | error |  |  | no |  | `by-file/ImageWriters.md` | by-file generated root |
 | [UID:0000K6][InputMan](by-file/InputMan.md) | error |  |  | no |  | `by-file/InputMan.md` | by-file generated root |
@@ -292,7 +293,6 @@ Total_Error: 109
 | [UID:0000O3][StaffsDialogPane](by-file/StaffsDialogPane.md) | error |  |  | no |  | `by-file/StaffsDialogPane.md` | by-file generated root |
 | [UID:0000O6][StaticObjectPane](by-file/StaticObjectPane.md) | error |  |  | no |  | `by-file/StaticObjectPane.md` | by-file generated root |
 | [UID:0000O8][StaticTextControlPane](by-file/StaticTextControlPane.md) | error |  |  | no |  | `by-file/StaticTextControlPane.md` | by-file generated root |
-| [UID:0000OF][TabPane](by-file/TabPane.md) | error |  |  | no |  | `by-file/TabPane.md` | by-file generated root |
 | [UID:0000OG][TargetOptionDialog](by-file/TargetOptionDialog.md) | error |  |  | no |  | `by-file/TargetOptionDialog.md` | by-file generated root |
 | [UID:0000OK][TextButtonControlPane](by-file/TextButtonControlPane.md) | error |  |  | no |  | `by-file/TextButtonControlPane.md` | by-file generated root |
 | [UID:0000OM][TextEditControlPane](by-file/TextEditControlPane.md) | error |  |  | no |  | `by-file/TextEditControlPane.md` | by-file generated root |
