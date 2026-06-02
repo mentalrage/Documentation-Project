@@ -2,8 +2,8 @@
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:20 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -62,6 +62,10 @@ Wave3 active output currently omits real HierList-local code: `0x004ce760`, `0x0
 
 The non-deleting destructor body at `0x004ce760` currently has no direct IDA caller. The scalar deleting wrapper at `0x004cedb0` duplicates the child-list teardown and handles the delete flag, while active `simroot_v2/class_HierList.cpp` emits a no-argument destructor body that still references a missing `deletionFlags` variable. Use the IDA wrapper shape before rewriting C++.
 
+## Autogen Status
+
+Attach this class to [UID:0000JV][HierList](by-file/HierList.md) as reconstructable metadata for `util/HierList.cpp`. C++ remains blank because the final overload/source-name shape for the raw wrappers and destructor variants is not at the `95+` final-code gate.
+
 ## Cross-References
 
 - [UID:0000JV][HierList](by-file/HierList.md)
@@ -79,3 +83,9 @@ The non-deleting destructor body at `0x004ce760` currently has no direct IDA cal
 - What existed before: method coverage was summarized through one aggregate memory page and omitted the raw wrapper bodies in the former `0x004ce7d1-0x004ce85f` gap.
 - Changed to: score raised to `86/90`, `RECONSTRUCTABLE:TRUE`, and the method map now links exact child range pages including `0x004ce7e0` and `0x004ce840`.
 - Summary/evidence: IDA MCP function enumeration, disassembly, xrefs, and byte review confirmed all function/wrapper/padding boundaries. The page remains below 95 because final source names, overload shape, and C++ declaration form are not exhaustively audited.
+
+### 2026-06-02 - Parent attachment
+
+- What existed before: class metadata was reconstructable but had no autogen parent.
+- Changed to: attached to [UID:0000JV][HierList](by-file/HierList.md) with C++ blank.
+- Summary/evidence: the file page is `82/85`, this class is `86/90`, and both pages identify `util/HierList.cpp` as the correct owner while preserving final-code caveats.

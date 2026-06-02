@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 14:26:39
+Generated: 2026-06-02 14:29:58
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -125,7 +125,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002IB` | 64 | 78 | 71.0 | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |
 | `000172` | 64 | 78 | 71.0 | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |
 | `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
 | `0001TZ` | 64 | 78 | 71.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
@@ -150,6 +149,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00020S` | 65 | 85 | 75.0 | `by-memory/0x00469080-0x004690a5.ObjectPaneGetEmptyRect.md` |
 | `000217` | 65 | 85 | 75.0 | `by-memory/0x004710d0-0x004710df.BrowserPanePlaySound.md` |
 | `000218` | 65 | 85 | 75.0 | `by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md` |
+| `00021C` | 65 | 85 | 75.0 | `by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md` |
 
 ## Low_Confidence
 
@@ -189,7 +189,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00006C` | 66 | 74 | 70.0 | `by-class/IdleWatcher.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `0002IB` | 64 | 78 | 71.0 | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |
 | `000172` | 64 | 78 | 71.0 | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |
 | `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
 | `0001TZ` | 64 | 78 | 71.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
@@ -210,6 +209,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002CC` | 66 | 78 | 72.0 | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |
 | `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
 | `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
+| `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
 
 ## By Folder
 
@@ -347,7 +347,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
-| `0002IB` | 64 | 78 | 71.0 | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |
 | `000172` | 64 | 78 | 71.0 | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |
 | `0002QB` | 64 | 78 | 71.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
@@ -370,6 +369,7 @@ _No scored files._
 | `0002BZ` | 68 | 76 | 72.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
 | `0002C0` | 68 | 76 | 72.0 | `by-memory/0x00526f60-0x00526f97.MidiSourceCloseHelper.md` |
 | `0002C1` | 68 | 76 | 72.0 | `by-memory/0x00526fa0-0x00526ff6.MidiSourceSeekHelper.md` |
+| `0002C3` | 68 | 76 | 72.0 | `by-memory/0x00527040-0x00527078.MidiSourceSizeReadyHelper.md` |
 
 ### by-meta
 

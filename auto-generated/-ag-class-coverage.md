@@ -5,9 +5,9 @@
 Total_Type: 586
 Total_Reconstructable: 189
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 101
+Total_Reconstructed_Assigned: 102
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 88
+Total_Reconstructable_Unassigned: 87
 Total_Unclassified: 396
 Total_Error: 0
 
@@ -56,6 +56,7 @@ Total_Error: 0
 | [UID:00005V][GrafPort](by-class/GrafPort.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-class/GrafPort.md` |  |
 | [UID:00005W][GroupInputPane](by-class/GroupInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/GroupInputPane.md` |  |
 | [UID:000060][HandlerFindFunc](by-class/HandlerFindFunc.md) | assigned | `0000J7` | 80 | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/HandlerFindFunc.md` |  |
+| [UID:000065][HierList](by-class/HierList.md) | assigned | `0000JV` | 20 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-class/HierList.md` |  |
 | [UID:00006B][IconsPane](by-class/IconsPane.md) | assigned | `0000JZ` |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-class/IconsPane.md` |  |
 | [UID:00006Q][InternetError](by-class/InternetError.md) | assigned | `0000J5` | 180 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/InternetError.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
@@ -162,7 +163,6 @@ Total_Error: 0
 | [UID:00005X][GroupListPane](by-class/GroupListPane.md) | unassigned |  |  | no |  | `by-class/GroupListPane.md` |  |
 | [UID:00005Y][GroupPane](by-class/GroupPane.md) | unassigned |  |  | no |  | `by-class/GroupPane.md` |  |
 | [UID:00005Z][GroupPane2](by-class/GroupPane2.md) | unassigned |  |  | no |  | `by-class/GroupPane2.md` |  |
-| [UID:000065][HierList](by-class/HierList.md) | unassigned |  |  | no |  | `by-class/HierList.md` |  |
 | [UID:00006A][HumanImageLib](by-class/HumanImageLib.md) | unassigned |  |  | no |  | `by-class/HumanImageLib.md` |  |
 | [UID:00006E][ImageLib](by-class/ImageLib.md) | unassigned |  |  | no |  | `by-class/ImageLib.md` |  |
 | [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md) | unassigned |  |  | no |  | `by-class/IntAlphaSurface.md` |  |

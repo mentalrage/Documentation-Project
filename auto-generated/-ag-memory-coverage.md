@@ -5,9 +5,9 @@
 Total_Type: 2140
 Total_Reconstructable: 1179
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 650
+Total_Reconstructed_Assigned: 652
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 529
+Total_Reconstructable_Unassigned: 527
 Total_Unclassified: 950
 Total_Error: 0
 
@@ -229,7 +229,9 @@ Total_Error: 0
 | [UID:00022O][0x004c77e0-0x004c78db.SimpleHelpPane2FactoryHelpers](by-memory/0x004c77e0-0x004c78db.SimpleHelpPane2FactoryHelpers.md) | assigned | `0000JU` |  | no | `auto-generated/NexusTK/ui/controls/HelpPanes.cpp` | `by-memory/0x004c77e0-0x004c78db.SimpleHelpPane2FactoryHelpers.md` |  |
 | [UID:00022P][0x004ce160-0x004ce34b.HelpTooltipSupportHelpers](by-memory/0x004ce160-0x004ce34b.HelpTooltipSupportHelpers.md) | assigned | `0000JU` |  | no | `auto-generated/NexusTK/ui/controls/HelpPanes.cpp` | `by-memory/0x004ce160-0x004ce34b.HelpTooltipSupportHelpers.md` |  |
 | [UID:00016W][0x004ce34b-0x004ce725.HelpTooltipDestructorThunks](by-memory/0x004ce34b-0x004ce725.HelpTooltipDestructorThunks.md) | assigned | `0000JU` |  | no | `auto-generated/NexusTK/ui/controls/HelpPanes.cpp` | `by-memory/0x004ce34b-0x004ce725.HelpTooltipDestructorThunks.md` |  |
+| [UID:00016X][0x004ce730-0x004cee52.HierList](by-memory/0x004ce730-0x004cee52.HierList.md) | assigned | `0000JV` | 30 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ce730-0x004cee52.HierList.md` |  |
 | [UID:0002IA][0x004ce7e0-0x004ce839.HierListTailInsertWrapper](by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md) | assigned | `0000JV` |  | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |  |
+| [UID:0002IB][0x004ce840-0x004ce854.HierListDefaultInsertWrapper](by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md) | assigned | `000065` | 30 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |  |
 | [UID:00022Q][0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md) | assigned | `0000JZ` |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |  |
 | [UID:0002P4][0x004d0f50-0x004d15c5.LoadImageFrameTable](by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md) | assigned | `0000K1` | 10 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md` |  |
 | [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md) | assigned | `0000K1` | 30 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md` |  |
@@ -828,9 +830,7 @@ Total_Error: 0
 | [UID:00016N][0x004c60d0-0x004c6151.BlendRgb565Pair](by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md) | unassigned |  |  | no |  | `by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md` |  |
 | [UID:00016O][0x004c6160-0x004c659c.CachedHashTableLifecycle](by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md) | unassigned |  |  | no |  | `by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md` |  |
 | [UID:0002I8][0x004ce730-0x004ce760.HierListConstructor](by-memory/0x004ce730-0x004ce760.HierListConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce730-0x004ce760.HierListConstructor.md` |  |
-| [UID:00016X][0x004ce730-0x004cee52.HierList](by-memory/0x004ce730-0x004cee52.HierList.md) | unassigned |  |  | no |  | `by-memory/0x004ce730-0x004cee52.HierList.md` |  |
 | [UID:0002I9][0x004ce760-0x004ce7d1.HierListNonDeletingDestructor](by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md` |  |
-| [UID:0002IB][0x004ce840-0x004ce854.HierListDefaultInsertWrapper](by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md) | unassigned |  |  | no |  | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |  |
 | [UID:0002IC][0x004ce860-0x004ce9ad.HierListInsertBefore](by-memory/0x004ce860-0x004ce9ad.HierListInsertBefore.md) | unassigned |  |  | no |  | `by-memory/0x004ce860-0x004ce9ad.HierListInsertBefore.md` |  |
 | [UID:0002ID][0x004ce9b0-0x004ceafc.HierListInsertAfter](by-memory/0x004ce9b0-0x004ceafc.HierListInsertAfter.md) | unassigned |  |  | no |  | `by-memory/0x004ce9b0-0x004ceafc.HierListInsertAfter.md` |  |
 | [UID:0002IE][0x004ceb00-0x004ceb45.HierListRemoveNode](by-memory/0x004ceb00-0x004ceb45.HierListRemoveNode.md) | unassigned |  |  | no |  | `by-memory/0x004ceb00-0x004ceb45.HierListRemoveNode.md` |  |
