@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1035
+Total_Reconstructable: 1037
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 506
+Total_Reconstructed_Assigned: 507
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 529
-Total_Unclassified: 1090
+Total_Reconstructable_Unassigned: 530
+Total_Unclassified: 1088
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -496,6 +496,7 @@ Total_Error: 0
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
 | [UID:0002GL][0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData](by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md) | assigned | `00008S` | 100 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md` |  |
 | [UID:00027B][0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag](by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |  |
+| [UID:0001OL][0x0066de18-0x0066de30.g_metaAliasTableName](by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md) | assigned | `0000LC` |  | no | `auto-generated/NexusTK/metadata/MetaMan.cpp` | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |  |
 | [UID:00028Y][0x0067a878-0x0067a934.AesMutableStateAndKeySchedule](by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md) | assigned | `00020J` | 70 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x0067a878-0x0067a934.AesMutableStateAndKeySchedule.md` |  |
 | [UID:000291][0x0067a980-0x0067a998.ApplicationTimingBaselines](by-memory/0x0067a980-0x0067a998.ApplicationTimingBaselines.md) | assigned | `0000HG` | 110 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a980-0x0067a998.ApplicationTimingBaselines.md` |  |
 | [UID:000293][0x0067a9c0-0x0067ab18.ApplicationOsVersionState](by-memory/0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md) | assigned | `0000HG` | 120 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md` |  |
@@ -1050,6 +1051,7 @@ Total_Error: 0
 | [UID:0002P2][0x00631184-0x0063118c.WaitableTimerVtableData](by-memory/0x00631184-0x0063118c.WaitableTimerVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00631184-0x0063118c.WaitableTimerVtableData.md` |  |
 | [UID:000270][0x00631184-0x00631400.WaitableWeatherReadOnlyData](by-memory/0x00631184-0x00631400.WaitableWeatherReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00631184-0x00631400.WaitableWeatherReadOnlyData.md` |  |
 | [UID:000277][0x0066d42c-0x0066d430.AutoInitStaticObjectVptr](by-memory/0x0066d42c-0x0066d430.AutoInitStaticObjectVptr.md) | unassigned |  |  | no |  | `by-memory/0x0066d42c-0x0066d430.AutoInitStaticObjectVptr.md` |  |
+| [UID:00027U][0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord](by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md) | unassigned |  |  | no |  | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |  |
 | [UID:0001ON][0x006702c8-0x00670784.RainCoordinateTables](by-memory/0x006702c8-0x00670784.RainCoordinateTables.md) | unassigned |  |  | no |  | `by-memory/0x006702c8-0x00670784.RainCoordinateTables.md` |  |
 | [UID:0001OO][0x00670784-0x006707d0.SnowPatternByteTables](by-memory/0x00670784-0x006707d0.SnowPatternByteTables.md) | unassigned |  |  | no |  | `by-memory/0x00670784-0x006707d0.SnowPatternByteTables.md` |  |
 | [UID:0001P7][0x0067ab48-0x0067ab4c.g_pKeySpeedMgr](by-memory/0x0067ab48-0x0067ab4c.g_pKeySpeedMgr.md) | unassigned |  |  | no |  | `by-memory/0x0067ab48-0x0067ab4c.g_pKeySpeedMgr.md` |  |
@@ -1980,10 +1982,8 @@ Total_Error: 0
 | [UID:00027O][0x0066dd50-0x0066dd60.MapObjectDirectionMasks](by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md) | unclassified |  |  | no |  | `by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md` |  |
 | [UID:00027P][0x0066dd60-0x0066dd78.ImageExtensionPointerTable](by-memory/0x0066dd60-0x0066dd78.ImageExtensionPointerTable.md) | unclassified |  |  | no |  | `by-memory/0x0066dd60-0x0066dd78.ImageExtensionPointerTable.md` |  |
 | [UID:00027Q][0x0066dd78-0x0066ddd8.MapPaneDayNightFloatTable](by-memory/0x0066dd78-0x0066ddd8.MapPaneDayNightFloatTable.md) | unclassified |  |  | no |  | `by-memory/0x0066dd78-0x0066ddd8.MapPaneDayNightFloatTable.md` |  |
-| [UID:0001OL][0x0066de18-0x0066de30.g_metaAliasTableName](by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md) | unclassified |  |  | no |  | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |  |
 | [UID:00027S][0x0066de30-0x0066de6c.NcauthConfirmUserUrlObfuscated](by-memory/0x0066de30-0x0066de6c.NcauthConfirmUserUrlObfuscated.md) | unclassified |  |  | no |  | `by-memory/0x0066de30-0x0066de6c.NcauthConfirmUserUrlObfuscated.md` |  |
 | [UID:00027T][0x0066de6c-0x0066deb0.NcauthUrlToTableSentinelPadding](by-memory/0x0066de6c-0x0066deb0.NcauthUrlToTableSentinelPadding.md) | unclassified |  |  | no |  | `by-memory/0x0066de6c-0x0066deb0.NcauthUrlToTableSentinelPadding.md` |  |
-| [UID:00027U][0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord](by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md) | unclassified |  |  | no |  | `by-memory/0x0066deb0-0x0066debc.MonsterImageLibDefaultFrameRecord.md` |  |
 | [UID:00027V][0x0066debc-0x0066decc.MusicControlDriveRootBuffers](by-memory/0x0066debc-0x0066decc.MusicControlDriveRootBuffers.md) | unclassified |  |  | no |  | `by-memory/0x0066debc-0x0066decc.MusicControlDriveRootBuffers.md` |  |
 | [UID:00027W][0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC](by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md) | unclassified |  |  | no |  | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |  |
 | [UID:0001OM][0x0066dee0-0x0066dee1.FriendNameListSyncEnabled](by-memory/0x0066dee0-0x0066dee1.FriendNameListSyncEnabled.md) | unclassified |  |  | no |  | `by-memory/0x0066dee0-0x0066dee1.FriendNameListSyncEnabled.md` |  |
