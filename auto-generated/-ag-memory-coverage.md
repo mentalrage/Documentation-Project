@@ -3,16 +3,17 @@
 # ag-memory-coverage
 
 Total_Type: 2136
-Total_Reconstructable: 1047
+Total_Reconstructable: 1049
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 515
+Total_Reconstructed_Assigned: 517
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 532
-Total_Unclassified: 1078
+Total_Unclassified: 1076
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md` |  |
 | [UID:0000XZ][0x00458610-0x0045f9f5.RankingDialog](by-memory/0x00458610-0x0045f9f5.RankingDialog.md) | assigned | `0000MZ` | 1 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x00458610-0x0045f9f5.RankingDialog.md` |  |
 | [UID:0000Y2][0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters](by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md) | assigned | `0000BO` | 10 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |  |
 | [UID:0000Y3][0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent](by-memory/0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent.md) | assigned | `0000BO` | 20 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent.md` |  |
@@ -508,6 +509,7 @@ Total_Error: 0
 | [UID:0001PE][0x0069ae0c-0x0069ae10.g_activeUserStatusPane](by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md) | assigned | `0000P2` |  | no | `auto-generated/NexusTK/ui/panels/UserStatusPane.cpp` | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |  |
 | [UID:0001PG][0x0069b374-0x0069b378.g_layoutContext_69B374](by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md) | assigned | `0000L1` |  | no | `auto-generated/NexusTK/ui/MainUiGraph.cpp` | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |  |
 | [UID:0001PH][0x0069b380-0x0069b381.g_activeDialogCount](by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md) | assigned | `0000IT` |  | no | `auto-generated/NexusTK/ui/core/DialogPane.cpp` | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |  |
+| [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |  |
 | [UID:0002GZ][0x00463970-0x004639c4.ApplicationDestructor](by-memory/0x00463970-0x004639c4.ApplicationDestructor.md) | coded | `00000D` | 2 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00463970-0x004639c4.ApplicationDestructor.md` |  |
 | [UID:0002H4][0x00464f40-0x00464f47.ApplicationIsExitRequested](by-memory/0x00464f40-0x00464f47.ApplicationIsExitRequested.md) | coded | `00000D` | 7 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00464f40-0x00464f47.ApplicationIsExitRequested.md` |  |
 | [UID:0002GM][0x004651c0-0x004651c4.ApplicationGetInstanceHandle](by-memory/0x004651c0-0x004651c4.ApplicationGetInstanceHandle.md) | coded | `00000D` | 30 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004651c0-0x004651c4.ApplicationGetInstanceHandle.md` |  |
@@ -1095,7 +1097,6 @@ Total_Error: 0
 | [UID:0000WA][0x00419f70-0x00419f86.MemoryManStaticInitializer](by-memory/0x00419f70-0x00419f86.MemoryManStaticInitializer.md) | unclassified |  |  | no |  | `by-memory/0x00419f70-0x00419f86.MemoryManStaticInitializer.md` |  |
 | [UID:0000WB][0x00419f86-0x0041a040.StaticInitializerWrappersBeforePoolAllocators](by-memory/0x00419f86-0x0041a040.StaticInitializerWrappersBeforePoolAllocators.md) | unclassified |  |  | no |  | `by-memory/0x00419f86-0x0041a040.StaticInitializerWrappersBeforePoolAllocators.md` |  |
 | [UID:0000WC][0x0041a040-0x0041a27d.PoolAllocatorStaticConstructorWrappers](by-memory/0x0041a040-0x0041a27d.PoolAllocatorStaticConstructorWrappers.md) | unclassified |  |  | no |  | `by-memory/0x0041a040-0x0041a27d.PoolAllocatorStaticConstructorWrappers.md` |  |
-| [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) | unclassified |  |  | no |  | `by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md` |  |
 | [UID:0000WE][0x0041a4b0-0x0041a4cd.UserPanePoolStaticConstructorWrapper](by-memory/0x0041a4b0-0x0041a4cd.UserPanePoolStaticConstructorWrapper.md) | unclassified |  |  | no |  | `by-memory/0x0041a4b0-0x0041a4cd.UserPanePoolStaticConstructorWrapper.md` |  |
 | [UID:0000WF][0x0041a4cd-0x0041a550.StaticRuntimeInitializerWrappersAfterUserPanePool](by-memory/0x0041a4cd-0x0041a550.StaticRuntimeInitializerWrappersAfterUserPanePool.md) | unclassified |  |  | no |  | `by-memory/0x0041a4cd-0x0041a550.StaticRuntimeInitializerWrappersAfterUserPanePool.md` |  |
 | [UID:0002CH][0x0041a5d0-0x0041a607.CashShopRequestConstructorRaw](by-memory/0x0041a5d0-0x0041a607.CashShopRequestConstructorRaw.md) | unclassified |  |  | no |  | `by-memory/0x0041a5d0-0x0041a607.CashShopRequestConstructorRaw.md` |  |
@@ -2134,7 +2135,6 @@ Total_Error: 0
 | [UID:0002AQ][0x0069bdf8-0x0069be08.TerminalAndTextEditGlobals](by-memory/0x0069bdf8-0x0069be08.TerminalAndTextEditGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0069bdf8-0x0069be08.TerminalAndTextEditGlobals.md` |  |
 | [UID:0002AR][0x0069be08-0x0069be14.ThreadTimerSingletonAndTickGlobals](by-memory/0x0069be08-0x0069be14.ThreadTimerSingletonAndTickGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0069be08-0x0069be14.ThreadTimerSingletonAndTickGlobals.md` |  |
 | [UID:0002AS][0x0069be14-0x0069bec4.WideApiDispatchPointerTable](by-memory/0x0069be14-0x0069bec4.WideApiDispatchPointerTable.md) | unclassified |  |  | no |  | `by-memory/0x0069be14-0x0069bec4.WideApiDispatchPointerTable.md` |  |
-| [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md) | unclassified |  |  | no |  | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |  |
 | [UID:0002A6][0x0069bec8-0x0069bed0.WideApiDispatchTailPointers](by-memory/0x0069bec8-0x0069bed0.WideApiDispatchTailPointers.md) | unclassified |  |  | no |  | `by-memory/0x0069bec8-0x0069bed0.WideApiDispatchTailPointers.md` |  |
 | [UID:0002A7][0x0069bed0-0x0069bed4.UserListDialogShowHiddenFlag](by-memory/0x0069bed0-0x0069bed4.UserListDialogShowHiddenFlag.md) | unclassified |  |  | no |  | `by-memory/0x0069bed0-0x0069bed4.UserListDialogShowHiddenFlag.md` |  |
 | [UID:0002A8][0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot](by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md) | unclassified |  |  | no |  | `by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md` |  |
