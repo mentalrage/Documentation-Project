@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2120
-Total_Reconstructable: 957
+Total_Reconstructable: 958
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 431
+Total_Reconstructed_Assigned: 432
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 526
-Total_Unclassified: 1152
+Total_Unclassified: 1151
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -417,6 +417,7 @@ Total_Error: 0
 | [UID:0001K8][0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers](by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md) | assigned | `0000OT` |  | no | `auto-generated/NexusTK/util/TimerMgr.cpp` | `by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md` |  |
 | [UID:0001K9][0x00597610-0x00597645.TimerHandlerWrappers](by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md) | assigned | `0000OT` |  | no | `auto-generated/NexusTK/util/TimerMgr.cpp` | `by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md` |  |
 | [UID:0001KD][0x00598ed0-0x0059943f.TransferServerDialogPane](by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md) | assigned | `0000OW` |  | no | `auto-generated/NexusTK/ui/dialogs/TransferServerDialogPane.cpp` | `by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md` |  |
+| [UID:0001KE][0x005995b0-0x00599a34.UniAPIInit](by-memory/0x005995b0-0x00599a34.UniAPIInit.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x005995b0-0x00599a34.UniAPIInit.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -1735,7 +1736,6 @@ Total_Error: 0
 | [UID:0001K5][0x005974f0-0x0059756e.ThreadManScalarDeletingDestructor](by-memory/0x005974f0-0x0059756e.ThreadManScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x005974f0-0x0059756e.ThreadManScalarDeletingDestructor.md` |  |
 | [UID:0001KC][0x00598cc0-0x00598ecf.TotemFrame](by-memory/0x00598cc0-0x00598ecf.TotemFrame.md) | unclassified |  |  | no |  | `by-memory/0x00598cc0-0x00598ecf.TotemFrame.md` |  |
 | [UID:000249][0x00599440-0x005995a7.PlatformStringConversionHelpers](by-memory/0x00599440-0x005995a7.PlatformStringConversionHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00599440-0x005995a7.PlatformStringConversionHelpers.md` |  |
-| [UID:0001KE][0x005995b0-0x00599a34.UniAPIInit](by-memory/0x005995b0-0x00599a34.UniAPIInit.md) | unclassified |  |  | no |  | `by-memory/0x005995b0-0x00599a34.UniAPIInit.md` |  |
 | [UID:0001KF][0x00599a40-0x00599cb3.UrlAlertPane](by-memory/0x00599a40-0x00599cb3.UrlAlertPane.md) | unclassified |  |  | no |  | `by-memory/0x00599a40-0x00599cb3.UrlAlertPane.md` |  |
 | [UID:0001KG][0x00599cc0-0x0059bc8b.UserInfoDialogPane](by-memory/0x00599cc0-0x0059bc8b.UserInfoDialogPane.md) | unclassified |  |  | no |  | `by-memory/0x00599cc0-0x0059bc8b.UserInfoDialogPane.md` |  |
 | [UID:0001KH][0x0059bc2d-0x0059bc43.UserInfoDialogPaneAdjustorThunks](by-memory/0x0059bc2d-0x0059bc43.UserInfoDialogPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0059bc2d-0x0059bc43.UserInfoDialogPaneAdjustorThunks.md` |  |

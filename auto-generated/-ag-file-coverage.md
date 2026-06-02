@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 142
+Total_Reconstructed_Assigned: 143
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 146
+Total_Error: 145
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -96,6 +96,7 @@ Total_Error: 146
 | [UID:0000MH][PatchPane](by-file/PatchPane.md) | assigned |  |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-file/PatchPane.md` | by-file generated root |
 | [UID:0000MJ][PhoneBookDialog](by-file/PhoneBookDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-file/PhoneBookDialog.md` | by-file generated root |
 | [UID:0000MK][PhotoPane](by-file/PhotoPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/PhotoPane.cpp` | `by-file/PhotoPane.md` | by-file generated root |
+| [UID:0000ML][PlatformApi](by-file/PlatformApi.md) | assigned |  |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-file/PlatformApi.md` | by-file generated root |
 | [UID:0000MM][PoolAllocator](by-file/PoolAllocator.md) | assigned |  |  | no | `auto-generated/NexusTK/util/PoolAllocator.cpp` | `by-file/PoolAllocator.md` | by-file generated root |
 | [UID:0000MO][PowerDialogPane](by-file/PowerDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/PowerDialogPane.cpp` | `by-file/PowerDialogPane.md` | by-file generated root |
 | [UID:0000MQ][PrimeNumberGenerator](by-file/PrimeNumberGenerator.md) | assigned |  |  | no | `auto-generated/NexusTK/util/PrimeNumberGenerator.cpp` | `by-file/PrimeNumberGenerator.md` | by-file generated root |
@@ -257,7 +258,6 @@ Total_Error: 146
 | [UID:0000ME][PanelPane](by-file/PanelPane.md) | error |  |  | no |  | `by-file/PanelPane.md` | by-file generated root |
 | [UID:0000MG][PasswordGuard](by-file/PasswordGuard.md) | error |  |  | no |  | `by-file/PasswordGuard.md` | by-file generated root |
 | [UID:0000MI][PathUtil](by-file/PathUtil.md) | error |  |  | no |  | `by-file/PathUtil.md` | by-file generated root |
-| [UID:0000ML][PlatformApi](by-file/PlatformApi.md) | error |  |  | no |  | `by-file/PlatformApi.md` | by-file generated root |
 | [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md) | error |  |  | no |  | `by-file/PopupMenuControls.md` | by-file generated root |
 | [UID:0000MP][PrettyButtonControlPane](by-file/PrettyButtonControlPane.md) | error |  |  | no |  | `by-file/PrettyButtonControlPane.md` | by-file generated root |
 | [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md) | error |  |  | no |  | `by-file/ProtectedArray.md` | by-file generated root |

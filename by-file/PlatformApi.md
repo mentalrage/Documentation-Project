@@ -1,7 +1,7 @@
 *** UID:0000ML | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/platform/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PlatformApi
 
@@ -79,3 +79,8 @@ The exact IDA-backed initializer for the wide API dispatch table is [UID:0000WD]
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `88`, confidence `80`.
 - Summary/evidence: the page documents platform/OLE responsibilities, wide API dispatch ownership, likely contents, IDA evidence, migration notes, range splits, and cross-references; confidence remains capped by generated `UniAPIInit` boundary/name issues and possible browser/OLE source grouping.
+
+- 2026-06-02 reconstruction path assignment:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though the proposed tree already placed `PlatformApi.cpp` under `platform/`.
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/platform/"`.
+  - Summary/evidence: [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) already includes `platform/PlatformApi.cpp`, and this page's evidence anchors the module as platform/OLE compatibility code rather than an app/UI source file.
