@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 13:51:30
+Generated: 2026-06-02 13:56:07
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -126,8 +126,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001Z7` | 62 | 88 | 75.0 | `by-memory/0x0060d670-0x0066d000.ReadOnlyDataSection.md` |
-| `0001Z8` | 62 | 88 | 75.0 | `by-memory/0x0066d000-0x0069d000.DataSection.md` |
 | `000033` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteAlert.md` |
 | `000034` | 64 | 76 | 70.0 | `by-class/ConfirmDeleteMailAlert.md` |
 | `000060` | 64 | 76 | 70.0 | `by-class/HandlerFindFunc.md` |
@@ -151,6 +149,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00000E` | 65 | 75 | 70.0 | `by-class/ApplicationHelper_4A6C40.md` |
 | `0002GX` | 65 | 75 | 70.0 | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |
 | `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
+| `00000V` | 65 | 80 | 72.5 | `by-class/BaramApp.md` |
+| `00004W` | 65 | 80 | 72.5 | `by-class/FileDownloader.md` |
 
 ## Low_Confidence
 
