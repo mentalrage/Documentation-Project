@@ -1,14 +1,15 @@
 *** UID:0000HU | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # BowGaugeObjectPane
 
 ## Status
 
-- Confidence: strong for class behavior and anchors; medium for final source-file placement.
+- Confidence: strong for class behavior, anchors, singleton lifecycle, and source folder; medium-high for final standalone-vs-private-companion source split.
 - Proposed module: `ui/panels/BowGaugeObjectPane.cpp`, or a private companion in [UID:0000P1][UserPane](by-file/UserPane.md) if original source grouped local-player HUD children together.
+- Proposed reconstruction path: `NexusTK/ui/panels/`
 - Current generated source: `class_BowGaugeObjectPane.cpp`
 - Primary class doc: [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md)
 - Main address doc: [UID:0001DB][0x00538bc0-0x00539bb2.ObjectOverlayPanes](by-memory/0x00538bc0-0x00539bb2.ObjectOverlayPanes.md)
@@ -18,6 +19,10 @@
 `BowGaugeObjectPane` is not part of the attached map-object hierarchy despite its generated name. It constructs through `Pane`, is allocated by `UserPane::UserPane`, stores a global active pointer, draws `BGAUGE.EPF`, and schedules timer-driven repaint/update work.
 
 The current generated source has helper-owner pollution from fitting-room class names in drawing calls. Those helper labels should not move the class into `cashshop/FittingRoom.cpp` without stronger caller evidence.
+
+[UID:0001PY][0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane](by-memory/0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane.md) and [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md) confirm the active-pane pointer belongs to this local-player HUD feature: constructor write at `0x00538be4`, destructor clear at `0x0053cfe6`, and `UserPane` show/hide/destructor consumers.
+
+[UID:0002SM][0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData](by-memory/0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData.md) ties the mixed object-pane vtable child back to the BowGauge executable anchors, while [UID:0002SO][0x00620b90-0x00620bf8.ObjectPaneResourceStrings](by-memory/0x00620b90-0x00620bf8.ObjectPaneResourceStrings.md) records resource-string consumers including the bow-gauge paint path.
 
 ## Proposed Contents
 
@@ -35,6 +40,7 @@ The current generated source has helper-owner pollution from fitting-room class 
 - IDA MCP caller checks on 2026-05-25 show `0x004ba540` also called from [UID:0000ON][TextEditPane](by-file/TextEditPane.md) draw and invalidation functions. That makes the current `BowGaugeObjectPane::CompositePixels` ownership a generated-owner artifact.
 - IDA MCP caller checks on 2026-05-26 show `0x00538c40` only reached from `UserPane` cleanup/hide paths through [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md); keep it here instead of `BulletinSession`.
 - Keep this class out of [UID:0000HJ][AttachedObjectPane](by-file/AttachedObjectPane.md); it does not use the attached-object base constructor/destructor path.
+- `by-project-structure/proposed-source-tree.md` already lists `ui/panels/BowGaugeObjectPane.cpp` beside `UserPane.cpp`; the valid projected path records that current preferred placement while preserving the private-companion caveat.
 
 ## IDA MCP Evidence
 
@@ -52,13 +58,20 @@ Targeted checks on 2026-05-23 confirmed:
 - [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md)
 - [UID:0000P1][UserPane](by-file/UserPane.md)
 - [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md)
+- [UID:0001PY][0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane](by-memory/0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane.md)
 - [UID:0001DC][0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers](by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md)
 - [UID:000169][0x004ba540-0x004ba6ad.CompositePixels16](by-memory/0x004ba540-0x004ba6ad.CompositePixels16.md)
 - [UID:0001DB][0x00538bc0-0x00539bb2.ObjectOverlayPanes](by-memory/0x00538bc0-0x00539bb2.ObjectOverlayPanes.md)
 - [UID:0001DL][0x0053cfa0-0x0053d65b.ObjectPaneCompanionDestructors](by-memory/0x0053cfa0-0x0053d65b.ObjectPaneCompanionDestructors.md)
+- [UID:0002SM][0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData](by-memory/0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData.md)
+- [UID:0002SO][0x00620b90-0x00620bf8.ObjectPaneResourceStrings](by-memory/0x00620b90-0x00620bf8.ObjectPaneResourceStrings.md)
 
 ## Changes
 
+- 2026-06-02:
+  - Before: scored `70/82` with blank `PROPOSED_RECONSTRUCTION_PATH`, leaving the source root listed in projected-path errors despite already being represented in the proposed source tree.
+  - After: scored `74/84` and set `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/"`.
+  - Summary/evidence: added global-memory, vtable-data, resource-string, and proposed-source-tree evidence. The page still keeps the standalone-vs-private-UserPane companion caveat, so confidence stays below final-source quality.
 - What existed before: the page documented class behavior, owner pollution, anchors, and UserPane relationship but had unevaluated scores.
 - What it was changed to: scores were set to `70/82`.
 - Summary and evidence: behavior and anchors are strong; final source placement is still medium because it may live as a `UserPane` companion rather than a standalone file.

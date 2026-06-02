@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 191
+Total_Reconstructed_Assigned: 192
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 97
+Total_Error: 96
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -23,6 +23,7 @@ Total_Error: 97
 | [UID:0000HR][BlackHole](by-file/BlackHole.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/BlackHole.cpp` | `by-file/BlackHole.md` | by-file generated root |
 | [UID:0000HS][BlockListenInputPanes](by-file/BlockListenInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-file/BlockListenInputPanes.md` | by-file generated root |
 | [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-file/BoardDialogs.md` | by-file generated root |
+| [UID:0000HU][BowGaugeObjectPane](by-file/BowGaugeObjectPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/BowGaugeObjectPane.cpp` | `by-file/BowGaugeObjectPane.md` | by-file generated root |
 | [UID:0000HV][Browser](by-file/Browser.md) | assigned |  |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-file/Browser.md` | by-file generated root |
 | [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-file/BulletinReplyAlerts.md` | by-file generated root |
 | [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-file/ButtonControlPane.md` | by-file generated root |
@@ -210,7 +211,6 @@ Total_Error: 97
 | [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md) | error |  |  | no |  | `by-file/AttachmentAnchorResolver.md` | by-file generated root |
 | [UID:0000HN][AutoInit](by-file/AutoInit.md) | error |  |  | no |  | `by-file/AutoInit.md` | by-file generated root |
 | [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) | error |  |  | no |  | `by-file/BinaryCodec.md` | by-file generated root |
-| [UID:0000HU][BowGaugeObjectPane](by-file/BowGaugeObjectPane.md) | error |  |  | no |  | `by-file/BowGaugeObjectPane.md` | by-file generated root |
 | [UID:0000HX][BulletinSession](by-file/BulletinSession.md) | error |  |  | no |  | `by-file/BulletinSession.md` | by-file generated root |
 | [UID:0000I1][CashShopVersionRequest](by-file/CashShopVersionRequest.md) | error |  |  | no |  | `by-file/CashShopVersionRequest.md` | by-file generated root |
 | [UID:0000I4][CharacterSummaryRecord](by-file/CharacterSummaryRecord.md) | error |  |  | no |  | `by-file/CharacterSummaryRecord.md` | by-file generated root |

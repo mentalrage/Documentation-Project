@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 194
+Total_Reconstructable: 196
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 107
+Total_Reconstructed_Assigned: 109
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 391
+Total_Unclassified: 389
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -17,6 +17,7 @@ Total_Error: 0
 | [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-class/AddEmployeeItemDialog.md` |  |
 | [UID:00000A][AddToBlockListenInputPane](by-class/AddToBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/AddToBlockListenInputPane.md` |  |
 | [UID:00000X][BlockListenInputPane](by-class/BlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/BlockListenInputPane.md` |  |
+| [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md) | assigned | `0000HU` |  | no | `auto-generated/NexusTK/ui/panels/BowGaugeObjectPane.cpp` | `by-class/BowGaugeObjectPane.md` |  |
 | [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserControlPaneOld.md` |  |
 | [UID:00003D][CScrollBarBackPane](by-class/CScrollBarBackPane.md) | assigned | `0000NF` |  | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/CScrollBarBackPane.md` |  |
 | [UID:00001H][CashShopRequest](by-class/CashShopRequest.md) | assigned | `0000I0` |  | no | `auto-generated/NexusTK/cashshop/CashShopRequest.cpp` | `by-class/CashShopRequest.md` |  |
@@ -38,6 +39,7 @@ Total_Error: 0
 | [UID:00003Q][DescPane](by-class/DescPane.md) | assigned | `0000IS` |  | no | `auto-generated/NexusTK/ui/controls/DescPane.cpp` | `by-class/DescPane.md` |  |
 | [UID:000043][DropGoldInputPane](by-class/DropGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/DropGoldInputPane.md` |  |
 | [UID:00004I][EPFTileContext](by-class/EPFTileContext.md) | assigned | `0000J4` |  | no | `auto-generated/NexusTK/render/EPFTileContext.cpp` | `by-class/EPFTileContext.md` |  |
+| [UID:000046][EarthquakeEffecter](by-class/EarthquakeEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/EarthquakeEffecter.md` |  |
 | [UID:000049][EffectObjectPane](by-class/EffectObjectPane.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/EffectObjectPane.md` |  |
 | [UID:00004B][EmotionInputPane](by-class/EmotionInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/EmotionInputPane.md` |  |
 | [UID:00004K][ErrorMessage](by-class/ErrorMessage.md) | assigned | `0000J5` |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/ErrorMessage.md` |  |
@@ -229,7 +231,6 @@ Total_Error: 0
 | [UID:00000U][BalloonObjectPane](by-class/BalloonObjectPane.md) | unclassified |  |  | no |  | `by-class/BalloonObjectPane.md` |  |
 | [UID:00000Z][BoardListDialog](by-class/BoardListDialog.md) | unclassified |  |  | no |  | `by-class/BoardListDialog.md` |  |
 | [UID:000010][BoardListPane](by-class/BoardListPane.md) | unclassified |  |  | no |  | `by-class/BoardListPane.md` |  |
-| [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md) | unclassified |  |  | no |  | `by-class/BowGaugeObjectPane.md` |  |
 | [UID:000013][Browser](by-class/Browser.md) | unclassified |  |  | no |  | `by-class/Browser.md` |  |
 | [UID:000015][BrowserControlPane](by-class/BrowserControlPane.md) | unclassified |  |  | no |  | `by-class/BrowserControlPane.md` |  |
 | [UID:000017][BrowserDialog](by-class/BrowserDialog.md) | unclassified |  |  | no |  | `by-class/BrowserDialog.md` |  |
@@ -294,7 +295,6 @@ Total_Error: 0
 | [UID:000044][DropInputPane](by-class/DropInputPane.md) | unclassified |  |  | no |  | `by-class/DropInputPane.md` |  |
 | [UID:00004G][EPFImageControlPane](by-class/EPFImageControlPane.md) | unclassified |  |  | no |  | `by-class/EPFImageControlPane.md` |  |
 | [UID:00004H][EPFTextEditObject](by-class/EPFTextEditObject.md) | unclassified |  |  | no |  | `by-class/EPFTextEditObject.md` |  |
-| [UID:000046][EarthquakeEffecter](by-class/EarthquakeEffecter.md) | unclassified |  |  | no |  | `by-class/EarthquakeEffecter.md` |  |
 | [UID:000047][EatInputPane](by-class/EatInputPane.md) | unclassified |  |  | no |  | `by-class/EatInputPane.md` |  |
 | [UID:000048][EditablePaperPane](by-class/EditablePaperPane.md) | unclassified |  |  | no |  | `by-class/EditablePaperPane.md` |  |
 | [UID:00004L][Event](by-class/Event.md) | unclassified |  |  | no |  | `by-class/Event.md` |  |

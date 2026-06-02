@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 19:51:23
+Generated: 2026-06-02 19:58:32
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -24,7 +24,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000HL` | blank | `(blank)` | `by-file/AttachmentAnchorResolver.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HN` | blank | `(blank)` | `by-file/AutoInit.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HQ` | blank | `(blank)` | `by-file/BinaryCodec.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000HU` | blank | `(blank)` | `by-file/BowGaugeObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I1` | blank | `(blank)` | `by-file/CashShopVersionRequest.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -120,8 +119,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
-| `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
 | `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
 | `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
 | `00006S` | 68 | 76 | 72.0 | `by-class/InventoryPane2.md` |
@@ -145,6 +142,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
+| `0002JW` | 68 | 78 | 73.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
+| `0002FP` | 68 | 78 | 73.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 
 ## Low_Confidence
 
@@ -156,7 +155,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000PP` | 78 | 72 | 75.0 | `by-global/g_activeBrowserPane.md` |
 | `0000IQ` | 79 | 72 | 75.5 | `by-file/Decoder.md` |
 | `0000NP` | 80 | 72 | 76.0 | `by-file/Session.md` |
-| `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 | `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
 | `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
 | `000074` | 72 | 74 | 73.0 | `by-class/LegendPane.md` |
@@ -175,13 +173,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000P3` | 78 | 74 | 76.0 | `by-file/VectorHelpers.md` |
 | `0000PQ` | 78 | 74 | 76.0 | `by-global/g_activeDialogCount.md` |
 | `0000PY` | 78 | 74 | 76.0 | `by-global/g_fpsDebugActive.md` |
+| `0000PZ` | 78 | 74 | 76.0 | `by-global/g_fpsLogEnabled.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
-| `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
 | `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
 | `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
 | `00006S` | 68 | 76 | 72.0 | `by-class/InventoryPane2.md` |
@@ -205,6 +202,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
 | `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
 | `000018` | 68 | 78 | 73.0 | `by-class/BrowserDialogOld.md` |
+| `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
+| `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 
 ## By Folder
 
@@ -212,8 +211,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
-| `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
 | `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
 | `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
 | `00006S` | 68 | 76 | 72.0 | `by-class/InventoryPane2.md` |
@@ -237,6 +234,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00000Y` | 68 | 80 | 74.0 | `by-class/BlueAlertPane.md` |
 | `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
+| `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
+| `000061` | 70 | 78 | 74.0 | `by-class/HeaderSystemMessage.md` |
 
 ### by-external-research
 
@@ -254,7 +253,6 @@ _No scored files._
 | `0000HL` | 68 | 82 | 75.0 | `by-file/AttachmentAnchorResolver.md` |
 | `0000IQ` | 79 | 72 | 75.5 | `by-file/Decoder.md` |
 | `0000HI` | 70 | 82 | 76.0 | `by-file/ArgumentedMenuDialogs.md` |
-| `0000HU` | 70 | 82 | 76.0 | `by-file/BowGaugeObjectPane.md` |
 | `0000HZ` | 72 | 80 | 76.0 | `by-file/CachedHashTable.md` |
 | `0000I0` | 72 | 80 | 76.0 | `by-file/CashShopRequest.md` |
 | `0000LS` | 78 | 74 | 76.0 | `by-file/NewInventoryPane.md` |
@@ -271,6 +269,7 @@ _No scored files._
 | `00020J` | 68 | 88 | 78.0 | `by-file/AesBlockCipher.md` |
 | `0000JC` | 72 | 84 | 78.0 | `by-file/FileDownloader.md` |
 | `0000OB` | 72 | 84 | 78.0 | `by-file/StringUtil.md` |
+| `0000HW` | 74 | 82 | 78.0 | `by-file/BulletinReplyAlerts.md` |
 
 ### by-function
 
