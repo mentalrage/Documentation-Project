@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 189
+Total_Reconstructable: 190
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 103
+Total_Reconstructed_Assigned: 104
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 86
-Total_Unclassified: 396
+Total_Unclassified: 395
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -43,6 +43,7 @@ Total_Error: 0
 | [UID:00004K][ErrorMessage](by-class/ErrorMessage.md) | assigned | `0000J5` |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/ErrorMessage.md` |  |
 | [UID:00004N][EventHandler](by-class/EventHandler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/EventHandler.md` |  |
 | [UID:00004P][ExceptionHandler](by-class/ExceptionHandler.md) | assigned | `0000J8` |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-class/ExceptionHandler.md` |  |
+| [UID:00004W][FileDownloader](by-class/FileDownloader.md) | assigned | `0000JC` |  | no | `auto-generated/NexusTK/network/FileDownloader.cpp` | `by-class/FileDownloader.md` |  |
 | [UID:00004X][FileError](by-class/FileError.md) | assigned | `0000J5` | 140 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/FileError.md` |  |
 | [UID:000051][FittingRoomDialogItemState](by-class/FittingRoomDialogItemState.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomDialogItemState.md` |  |
 | [UID:000052][FittingRoomDownloadControlPane](by-class/FittingRoomDownloadControlPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomDownloadControlPane.md` |  |
@@ -114,7 +115,7 @@ Total_Error: 0
 | [UID:0000G7][Win32Error](by-class/Win32Error.md) | assigned | `0000J5` | 20 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/Win32Error.md` |  |
 | [UID:0000GD][YFlipEffecter](by-class/YFlipEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/YFlipEffecter.md` |  |
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
-| [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
+| [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
 | [UID:00008S][MSGHandler](by-class/MSGHandler.md) | coded | `0000LM` | 10 | yes | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-class/MSGHandler.md` |  |
 | [UID:00001G][CandidateStringQueue](by-class/CandidateStringQueue.md) | not_reconstructable |  |  | no |  | `by-class/CandidateStringQueue.md` |  |
 | [UID:000005][AboveFrame](by-class/AboveFrame.md) | unassigned |  |  | no |  | `by-class/AboveFrame.md` |  |
@@ -298,7 +299,6 @@ Total_Error: 0
 | [UID:00004S][ExchangeItemListPane](by-class/ExchangeItemListPane.md) | unclassified |  |  | no |  | `by-class/ExchangeItemListPane.md` |  |
 | [UID:00004T][ExchangeMoneyEditControlPane](by-class/ExchangeMoneyEditControlPane.md) | unclassified |  |  | no |  | `by-class/ExchangeMoneyEditControlPane.md` |  |
 | [UID:00004U][FieldMapPane](by-class/FieldMapPane.md) | unclassified |  |  | no |  | `by-class/FieldMapPane.md` |  |
-| [UID:00004W][FileDownloader](by-class/FileDownloader.md) | unclassified |  |  | no |  | `by-class/FileDownloader.md` |  |
 | [UID:00004Y][FilterEffecter](by-class/FilterEffecter.md) | unclassified |  |  | no |  | `by-class/FilterEffecter.md` |  |
 | [UID:00004Z][FittingEquipmentState](by-class/FittingEquipmentState.md) | unclassified |  |  | no |  | `by-class/FittingEquipmentState.md` |  |
 | [UID:000050][FittingRoomDialog](by-class/FittingRoomDialog.md) | unclassified |  |  | no |  | `by-class/FittingRoomDialog.md` |  |

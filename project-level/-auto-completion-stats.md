@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 14:48:42
+Generated: 2026-06-02 14:53:10
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -41,7 +41,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000J3` | blank | `(blank)` | `by-file/EPFImageResources.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IX` | blank | `(blank)` | `by-file/EditablePaperPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000J6` | blank | `(blank)` | `by-file/Event.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JC` | blank | `(blank)` | `by-file/FileDownloader.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JD` | blank | `(blank)` | `by-file/FileIO.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JH` | blank | `(blank)` | `by-file/FontImageLib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JI` | blank | `(blank)` | `by-file/FontStyle.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -125,10 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
-| `00000V` | 65 | 80 | 72.5 | `by-class/BaramApp.md` |
-| `00004W` | 65 | 80 | 72.5 | `by-class/FileDownloader.md` |
-| `0000JC` | 65 | 80 | 72.5 | `by-file/FileDownloader.md` |
 | `0000WH` | 65 | 80 | 72.5 | `by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md` |
 | `0002H3` | 65 | 80 | 72.5 | `by-memory/0x00464e40-0x00464f34.ApplicationRequestExit.md` |
 | `00022Z` | 65 | 80 | 72.5 | `by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md` |
@@ -150,6 +145,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000227` | 65 | 85 | 75.0 | `by-memory/0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder.md` |
 | `00022A` | 65 | 85 | 75.0 | `by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md` |
 | `00024M` | 65 | 85 | 75.0 | `by-memory/0x0060d798-0x0060e174.CashShopFittingRoomReadOnlyData.md` |
+| `000251` | 65 | 85 | 75.0 | `by-memory/0x006168d0-0x00617a38.ConfigChannelReadOnlyData.md` |
+| `00025M` | 65 | 85 | 75.0 | `by-memory/0x0061c9c8-0x0061ca48.KeySpeedStringResourceReadOnlyData.md` |
+| `00025T` | 65 | 85 | 75.0 | `by-memory/0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData.md` |
+| `00025U` | 65 | 85 | 75.0 | `by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md` |
 
 ## Low_Confidence
 
@@ -191,7 +190,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
-| `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
 | `00000T` | 66 | 78 | 72.0 | `by-class/BackStoryDialogPane.md` |
 | `00008A` | 66 | 78 | 72.0 | `by-class/MidiPlayer.md` |
 | `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
@@ -210,6 +208,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000CR` | 68 | 76 | 72.0 | `by-class/SelectionControlPane.md` |
 | `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
 | `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
+| `0002FF` | 68 | 76 | 72.0 | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |
 
 ## By Folder
 
@@ -232,8 +231,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
 | `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
 | `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
-| `00000V` | 65 | 80 | 72.5 | `by-class/BaramApp.md` |
-| `00004W` | 65 | 80 | 72.5 | `by-class/FileDownloader.md` |
 | `000018` | 68 | 78 | 73.0 | `by-class/BrowserDialogOld.md` |
 | `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
@@ -242,6 +239,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 | `000074` | 72 | 74 | 73.0 | `by-class/LegendPane.md` |
 | `00007C` | 72 | 74 | 73.0 | `by-class/LivingObjectPane__BoxRotator.md` |
+| `00007J` | 72 | 74 | 73.0 | `by-class/MailDeleteReplyAlert.md` |
+| `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 
 ### by-external-research
 
@@ -251,7 +250,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000JC` | 65 | 80 | 72.5 | `by-file/FileDownloader.md` |
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
@@ -275,6 +273,7 @@ _No scored files._
 | `0000MY` | 78 | 76 | 77.0 | `by-file/RainingLayerPane.md` |
 | `0000HN` | 70 | 85 | 77.5 | `by-file/AutoInit.md` |
 | `00020J` | 68 | 88 | 78.0 | `by-file/AesBlockCipher.md` |
+| `0000JC` | 72 | 84 | 78.0 | `by-file/FileDownloader.md` |
 | `0000OB` | 72 | 84 | 78.0 | `by-file/StringUtil.md` |
 
 ### by-function
@@ -348,7 +347,6 @@ _No scored files._
 | `00018T` | 66 | 74 | 70.0 | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |
 | `0002FW` | 66 | 76 | 71.0 | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |
 | `000118` | 66 | 76 | 71.0 | `by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md` |
-| `00027W` | 65 | 78 | 71.5 | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |
 | `000116` | 66 | 78 | 72.0 | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |
 | `00011B` | 66 | 78 | 72.0 | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |
 | `00018J` | 66 | 78 | 72.0 | `by-memory/0x004ea130-0x004efbb7.InventoryPanes.md` |
@@ -370,6 +368,7 @@ _No scored files._
 | `0000WH` | 65 | 80 | 72.5 | `by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md` |
 | `0002H3` | 65 | 80 | 72.5 | `by-memory/0x00464e40-0x00464f34.ApplicationRequestExit.md` |
 | `00022Z` | 65 | 80 | 72.5 | `by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md` |
+| `0002C8` | 65 | 80 | 72.5 | `by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md` |
 
 ### by-meta
 

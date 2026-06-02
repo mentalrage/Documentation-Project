@@ -1,7 +1,7 @@
 *** UID:0000JC | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:65 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/network/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # FileDownloader
 
@@ -9,6 +9,7 @@
 
 - Confidence: strong for dispatcher behavior, medium for final original file name.
 - Proposed module: `network/FileDownloader.cpp`
+- Projected reconstruction path: `NexusTK/network/`
 - Current Wave3 file: `class_FileDownloader.cpp`
 - Main class: [UID:00004W][FileDownloader](by-class/FileDownloader.md)
 - Related constants: [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md)
@@ -47,6 +48,16 @@ An alternate old-project layout could have used `util/FileDownloader.cpp` if the
 
 The message IDs are currently documented at [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md). Do not reuse them as socket opcodes.
 
+## Ownership Evidence Matrix
+
+| Evidence | Meaning |
+| --- | --- |
+| `FileDownloader::OnMessage` at `0x0041b110-0x0041b180` | Dispatches downloader messages `10000`, `10001`, and `10002` to WinINet helper families. |
+| `dword_67A738` / [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) | All direct writes are FileDownloader constructor/destructor-family writes; consumers pass the singleton into downloader request submit helpers. |
+| [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md) | Message IDs are documented as worker-thread/download messages, not socket opcodes. |
+| [UID:00008D][MiniMapDownloader](by-class/MiniMapDownloader.md) contrast | Confirms the generic FileDownloader path and minimap-specific downloader path are related but not interchangeable. |
+| [UID:0001QH][client_network](by-meta/client_network.md) and proposed source tree | Both place FileDownloader with network/download infrastructure rather than encrypted game transport or pure cash-shop UI. |
+
 ## Evidence
 
 - Generated `class_FileDownloader.cpp` constructs a `Thread(5)`, assigns `g_pCashShopRequest = this`, installs the `FileDownloader` vtable, and starts the worker.
@@ -75,6 +86,12 @@ network/
 
 Feature-specific payload/request definitions may stay in cash-shop or map headers if later source reconstruction needs narrower type ownership. The dispatcher itself should remain outside [UID:0000NS][Socket](by-file/Socket.md), because it is HTTP/WinINet download work, not encrypted game transport.
 
+## Score Rationale
+
+- Completion is raised because the projected reconstruction path, ownership evidence, message dispatch map, singleton lifetime, submit-helper caveats, and network/source-tree placement are now all recorded on the file page.
+- Confidence is raised because the IDA-backed dispatcher, callee, caller, and global-lifetime evidence consistently place the dispatcher in downloader/network infrastructure.
+- Confidence remains below final-source level because `StartThread` may belong to `Thread`, and the request submission helpers still straddle FileDownloader versus cash-shop payload ownership.
+
 ## Cross-References
 
 - [UID:00004W][FileDownloader](by-class/FileDownloader.md)
@@ -95,6 +112,10 @@ Feature-specific payload/request definitions may stay in cash-shop or map header
 
 ## Changes
 
+- 2026-06-02 documentation pass:
+  - What existed before: the page documented the dispatcher but still had a blank projected reconstruction path and no explicit score rationale.
+  - What it was changed to: raised `65/80` to `72/84`, set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/network/`, and added ownership evidence and score rationale.
+  - Summary/evidence: IDA-backed `OnMessage` dispatch, downloader message constants, `dword_67A738` FileDownloader lifetime writes, and proposed-source-tree network placement support this module assignment while helper ownership caveats remain open.
 - Before: likely contents named the scalar deleting destructor and request submission helpers only as class/address concepts.
 - After: likely contents and cross-references link exact `by-memory` pages for the submit helpers and FileDownloader scalar deleting destructor.
 - Summary/evidence: IDA MCP and xref checks tied the helpers to the downloader queue and `dword_67A738`; destructor decompilation confirms the global clear and thread cleanup sequence.

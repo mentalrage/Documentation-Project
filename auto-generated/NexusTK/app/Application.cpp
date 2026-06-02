@@ -124,16 +124,6 @@ BOOL Application::DestroyLoadingDialog()
 }
 
 // UID:00000V | by-class/BaramApp.md
-class BaramApp : public Application
-{
-public:
-    BaramApp();
-    virtual ~BaramApp();
-
-    virtual void OnActivate();
-    virtual void OnDeactivate();
-};
-
 // UID:0002GJ | by-memory/0x004669c0-0x00466a69.BaramAppOnActivate.md
 void BaramApp::OnActivate()
 {

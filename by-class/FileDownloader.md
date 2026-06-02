@@ -1,8 +1,8 @@
 *** UID:00004W | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:65 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Confidence: strong for methods and message dispatch, medium for inherited `StartThread` ownership.
 - Current Wave3 file: `class_FileDownloader.cpp`
 - Proposed source module: [UID:0000JC][FileDownloader](by-file/FileDownloader.md)
+- Autogen parent: [UID:0000JC][FileDownloader](by-file/FileDownloader.md)
 - Evidence basis: `simroot_v2`, prior Wave2 report notes, and live IDA MCP checks through 2026-05-25.
 
 ## Role
@@ -45,6 +46,23 @@ Thread-backed WinINet download dispatcher for small file/update requests. It is 
 
 See [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md).
 
+## Child Evidence Matrix
+
+| Child / address | Evidence status |
+| --- | --- |
+| `0x0041a670-0x0041a6e5` constructor | Constructs worker thread state, writes `dword_67A738`, installs the FileDownloader vtable, and starts the worker. |
+| `0x0041a6f0-0x0041a741` destructor | Stops the worker, clears `dword_67A738`, and destroys base thread state. |
+| `0x0041b110-0x0041b180` `OnMessage` | Exact dispatcher for messages `10000`, `10001`, and `10002`, with default fallback to the base thread message path. |
+| [UID:0002CJ][0x0041b180-0x0041b1f5.FileDownloaderSubmitMinimapRequest](by-memory/0x0041b180-0x0041b1f5.FileDownloaderSubmitMinimapRequest.md) | Enqueues downloader message `10000`; final helper owner remains provisional. |
+| [UID:0002CK][0x0041b200-0x0041b26d.FileDownloaderSubmitCashShopCatalogRequest](by-memory/0x0041b200-0x0041b26d.FileDownloaderSubmitCashShopCatalogRequest.md) | Enqueues downloader message `10001`; final helper owner remains provisional. |
+| [UID:0002CL][0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest](by-memory/0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest.md) | Enqueues downloader message `10002`; final helper owner remains provisional. |
+| [UID:0000WK][0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal](by-memory/0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal.md) | Constructor-unwind helper clearing `dword_67A738`. |
+| [UID:0002CO][0x0041b610-0x0041b69f.FileDownloaderScalarDeletingDestructor](by-memory/0x0041b610-0x0041b69f.FileDownloaderScalarDeletingDestructor.md) | Destructor wrapper with global clear, base thread destruction, and optional delete. |
+
+## Source-Structure Decision
+
+Keep this class with [UID:0000JC][FileDownloader](by-file/FileDownloader.md) under `NexusTK/network/`. The class owns HTTP/WinINet download dispatch and the `dword_67A738` downloader/request singleton lifetime. It should stay separate from [UID:0000NS][Socket](by-file/Socket.md), because socket transport owns encrypted game protocol framing rather than worker-thread HTTP requests.
+
 ## IDA MCP Evidence
 
 - `lookup_funcs` confirms `0x0041b110` size `0x70` and `0x005965e0` size `0x13`.
@@ -59,6 +77,12 @@ See [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.
 - Some generated files use `g_pCashShopRequest` for packet-send paths that IDA proves read [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / `dword_67A7EC`. Do not conflate those globals during source ownership cleanup.
 - The `0x0041b180`, `0x0041b200`, and `0x0041b270` request submission helpers may belong with this dispatcher or with cash-shop request payload support; keep their final owner provisional.
 - `StartThread` should not be used as proof that browser or misc worker thread construction belongs in `FileDownloader.cpp`; it is a shared worker launch helper in the current model.
+
+## Score Rationale
+
+- Completion is raised because the class now has a file parent, reconstructable disposition, child evidence matrix, source-structure decision, and score rationale.
+- Confidence is raised because constructor/destructor/global lifetime, `OnMessage` dispatch, message constants, and request submit helpers all agree on FileDownloader as the dispatcher owner.
+- Confidence remains below final-source level because `StartThread` is likely a shared `Thread` helper and the submit-helper payload ownership still needs final separation from cash-shop request structures.
 
 ## Cross-References
 
@@ -75,6 +99,10 @@ See [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.
 
 ## Changes
 
+- 2026-06-02 documentation pass:
+  - What existed before: the page had method inventory and IDA evidence but remained unparented and unmarked for reconstruction.
+  - What it was changed to: raised `65/80` to `72/84`, marked reconstructable, parented to [UID:0000JC][FileDownloader](by-file/FileDownloader.md), and added child evidence/source-structure rationale.
+  - Summary/evidence: constructor/destructor writes to `dword_67A738`, exact `OnMessage` dispatch, downloader message constants, submit helpers, and scalar deleting destructor support the class role; shared-thread and request-payload ownership caveats remain open.
 - Before: several FileDownloader-adjacent helpers were listed by address only or only through the aggregate dispatch page.
 - After: the class method inventory links exact pages for the constructor-unwind global clear helper, submit helpers, and scalar deleting destructor.
 - Summary/evidence: IDA MCP confirmed the destructor boundary on 2026-05-30 and previous decompilation/xref evidence tied the submit helpers and `dword_67A738` lifetime to the FileDownloader dispatch path.

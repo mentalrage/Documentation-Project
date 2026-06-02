@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2140
-Total_Reconstructable: 1179
+Total_Reconstructable: 1180
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 658
+Total_Reconstructed_Assigned: 659
 Total_Reconstructed_Coded: 19
 Total_Reconstructable_Unassigned: 521
-Total_Unclassified: 950
+Total_Unclassified: 949
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -633,6 +633,7 @@ Total_Error: 0
 | [UID:00027I][0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants](by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |  |
 | [UID:00027N][0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable](by-memory/0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable.md` |  |
 | [UID:0001OL][0x0066de18-0x0066de30.g_metaAliasTableName](by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md) | assigned | `0000LC` |  | no | `auto-generated/NexusTK/metadata/MetaMan.cpp` | `by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md` |  |
+| [UID:00027W][0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC](by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |  |
 | [UID:00027Z][0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary](by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md) | assigned | `0000JT` |  | no | `auto-generated/NexusTK/ui/dialogs/HeadSelectDialog.cpp` | `by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md` |  |
 | [UID:000281][0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary](by-memory/0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary.md) | assigned | `0000JT` |  | no | `auto-generated/NexusTK/ui/dialogs/HeadSelectDialog.cpp` | `by-memory/0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary.md` |  |
 | [UID:0001OR][0x0067a748-0x0067a74c.g_pCollectionData](by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-memory/0x0067a748-0x0067a74c.g_pCollectionData.md` |  |
@@ -2012,7 +2013,6 @@ Total_Error: 0
 | [UID:00027S][0x0066de30-0x0066de6c.NcauthConfirmUserUrlObfuscated](by-memory/0x0066de30-0x0066de6c.NcauthConfirmUserUrlObfuscated.md) | unclassified |  |  | no |  | `by-memory/0x0066de30-0x0066de6c.NcauthConfirmUserUrlObfuscated.md` |  |
 | [UID:00027T][0x0066de6c-0x0066deb0.NcauthUrlToTableSentinelPadding](by-memory/0x0066de6c-0x0066deb0.NcauthUrlToTableSentinelPadding.md) | unclassified |  |  | no |  | `by-memory/0x0066de6c-0x0066deb0.NcauthUrlToTableSentinelPadding.md` |  |
 | [UID:00027V][0x0066debc-0x0066decc.MusicControlDriveRootBuffers](by-memory/0x0066debc-0x0066decc.MusicControlDriveRootBuffers.md) | unclassified |  |  | no |  | `by-memory/0x0066debc-0x0066decc.MusicControlDriveRootBuffers.md` |  |
-| [UID:00027W][0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC](by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md) | unclassified |  |  | no |  | `by-memory/0x0066decc-0x0066dee0.LivingObjectPaneWordSlots_66DECC.md` |  |
 | [UID:0001OM][0x0066dee0-0x0066dee1.FriendNameListSyncEnabled](by-memory/0x0066dee0-0x0066dee1.FriendNameListSyncEnabled.md) | unclassified |  |  | no |  | `by-memory/0x0066dee0-0x0066dee1.FriendNameListSyncEnabled.md` |  |
 | [UID:00027X][0x0066dee1-0x0066dee4.FriendNameOptionPalettePadding](by-memory/0x0066dee1-0x0066dee4.FriendNameOptionPalettePadding.md) | unclassified |  |  | no |  | `by-memory/0x0066dee1-0x0066dee4.FriendNameOptionPalettePadding.md` |  |
 | [UID:00027Y][0x0066dee4-0x0066df00.OptionPaletteStaticResourceData](by-memory/0x0066dee4-0x0066df00.OptionPaletteStaticResourceData.md) | unclassified |  |  | no |  | `by-memory/0x0066dee4-0x0066df00.OptionPaletteStaticResourceData.md` |  |
