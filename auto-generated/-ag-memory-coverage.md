@@ -2,12 +2,12 @@
 
 # ag-memory-coverage
 
-Total_Type: 2149
-Total_Reconstructable: 1232
+Total_Type: 2154
+Total_Reconstructable: 1237
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 698
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 534
+Total_Reconstructable_Unassigned: 539
 Total_Unclassified: 906
 Total_Error: 0
 
@@ -1177,8 +1177,13 @@ Total_Error: 0
 | [UID:0002OV][0x0061db8c-0x0061dc30.GenderButtonControlPaneVtableData](by-memory/0x0061db8c-0x0061dc30.GenderButtonControlPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061db8c-0x0061dc30.GenderButtonControlPaneVtableData.md` |  |
 | [UID:0002OW][0x0061dc30-0x0061dcd4.DirectionButtonControlPaneVtableData](by-memory/0x0061dc30-0x0061dcd4.DirectionButtonControlPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061dc30-0x0061dcd4.DirectionButtonControlPaneVtableData.md` |  |
 | [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md` |  |
+| [UID:0002SP][0x0061e704-0x0061e71c.GameServerConfigVtableData](by-memory/0x0061e704-0x0061e71c.GameServerConfigVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e704-0x0061e71c.GameServerConfigVtableData.md` |  |
 | [UID:00025S][0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData](by-memory/0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData.md` |  |
+| [UID:0002SQ][0x0061e71c-0x0061e7a0.MapPaneVtableData](by-memory/0x0061e71c-0x0061e7a0.MapPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e71c-0x0061e7a0.MapPaneVtableData.md` |  |
 | [UID:0002OU][0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData](by-memory/0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData.md` |  |
+| [UID:0002SR][0x0061e854-0x0061e8dc.MapRefreshDimmerVtableData](by-memory/0x0061e854-0x0061e8dc.MapRefreshDimmerVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e854-0x0061e8dc.MapRefreshDimmerVtableData.md` |  |
+| [UID:0002SS][0x0061e8e0-0x0061e8f0.DialogCreatorVtableData](by-memory/0x0061e8e0-0x0061e8f0.DialogCreatorVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e8e0-0x0061e8f0.DialogCreatorVtableData.md` |  |
+| [UID:0002ST][0x0061e908-0x0061eadc.MapPaneResourceStrings](by-memory/0x0061e908-0x0061eadc.MapPaneResourceStrings.md) | unassigned |  |  | no |  | `by-memory/0x0061e908-0x0061eadc.MapPaneResourceStrings.md` |  |
 | [UID:00025T][0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData](by-memory/0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData.md` |  |
 | [UID:00025U][0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData](by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md` |  |
 | [UID:00025Z][0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData](by-memory/0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061fd04-0x00620284.CreateUserRegistrationReadOnlyData.md` |  |

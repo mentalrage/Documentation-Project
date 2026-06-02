@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 19:33:13
+Generated: 2026-06-02 19:51:23
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3624
-- Scored files: 3457
+- Tracked files: 3629
+- Scored files: 3462
 - Ignored files: 167
 
 ## projected_path_completion
@@ -120,7 +120,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00025S` | 67 | 88 | 77.5 | `by-memory/0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData.md` |
 | `000046` | 68 | 74 | 71.0 | `by-class/EarthquakeEffecter.md` |
 | `000011` | 68 | 76 | 72.0 | `by-class/BowGaugeObjectPane.md` |
 | `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
@@ -145,6 +144,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
+| `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 
 ## Low_Confidence
 
