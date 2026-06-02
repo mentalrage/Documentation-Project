@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 152
+Total_Reconstructed_Assigned: 153
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 136
+Total_Error: 135
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -130,6 +130,7 @@ Total_Error: 136
 | [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/SimpleListPane.cpp` | `by-file/SimpleListPane.md` | by-file generated root |
 | [UID:0000NS][Socket](by-file/Socket.md) | assigned |  |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-file/Socket.md` | by-file generated root |
 | [UID:0000NV][SoundManager](by-file/SoundManager.md) | assigned |  |  | no | `auto-generated/NexusTK/audio/SoundManager.cpp` | `by-file/SoundManager.md` | by-file generated root |
+| [UID:0000O0][SpellInputPanes](by-file/SpellInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-file/SpellInputPanes.md` | by-file generated root |
 | [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-file/SpellInventoryPane.md` | by-file generated root |
 | [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-file/StartupLogoPanes.md` | by-file generated root |
 | [UID:0000O5][StartupWindow](by-file/StartupWindow.md) | assigned |  |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-file/StartupWindow.md` | by-file generated root |
@@ -283,7 +284,6 @@ Total_Error: 136
 | [UID:0000NW][SoundObjectPane](by-file/SoundObjectPane.md) | error |  |  | no |  | `by-file/SoundObjectPane.md` | by-file generated root |
 | [UID:0000NX][SoundStatusPane](by-file/SoundStatusPane.md) | error |  |  | no |  | `by-file/SoundStatusPane.md` | by-file generated root |
 | [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) | error |  |  | no |  | `by-file/SpecializedButtonPanes.md` | by-file generated root |
-| [UID:0000O0][SpellInputPanes](by-file/SpellInputPanes.md) | error |  |  | no |  | `by-file/SpellInputPanes.md` | by-file generated root |
 | [UID:0000O2][SpellMenuDialogs](by-file/SpellMenuDialogs.md) | error |  |  | no |  | `by-file/SpellMenuDialogs.md` | by-file generated root |
 | [UID:0000NZ][SpelledPane](by-file/SpelledPane.md) | error |  |  | no |  | `by-file/SpelledPane.md` | by-file generated root |
 | [UID:0000O3][StaffsDialogPane](by-file/StaffsDialogPane.md) | error |  |  | no |  | `by-file/StaffsDialogPane.md` | by-file generated root |

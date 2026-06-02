@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 131
+Total_Reconstructable: 132
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 44
+Total_Reconstructed_Assigned: 45
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 454
+Total_Unclassified: 453
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -19,6 +19,7 @@ Total_Error: 0
 | [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserControlPaneOld.md` |  |
 | [UID:00003D][CScrollBarBackPane](by-class/CScrollBarBackPane.md) | assigned | `0000NF` |  | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/CScrollBarBackPane.md` |  |
 | [UID:00001J][ChangeItemSlotInputPane](by-class/ChangeItemSlotInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ChangeItemSlotInputPane.md` |  |
+| [UID:00001M][ChangeSpellSlotInputPane](by-class/ChangeSpellSlotInputPane.md) | assigned | `0000O0` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-class/ChangeSpellSlotInputPane.md` |  |
 | [UID:00003A][Crasher](by-class/Crasher.md) | assigned | `0000II` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-class/Crasher.md` |  |
 | [UID:00003C][CriticalSectionLock](by-class/CriticalSectionLock.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/CriticalSectionLock.md` |  |
 | [UID:00003J][DATFileResolver](by-class/DATFileResolver.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-class/DATFileResolver.md` |  |
@@ -179,7 +180,6 @@ Total_Error: 0
 | [UID:00001H][CashShopRequest](by-class/CashShopRequest.md) | unclassified |  |  | no |  | `by-class/CashShopRequest.md` |  |
 | [UID:00001I][CashShopVersionRequest](by-class/CashShopVersionRequest.md) | unclassified |  |  | no |  | `by-class/CashShopVersionRequest.md` |  |
 | [UID:00001L][ChangePasswordDialogPane](by-class/ChangePasswordDialogPane.md) | unclassified |  |  | no |  | `by-class/ChangePasswordDialogPane.md` |  |
-| [UID:00001M][ChangeSpellSlotInputPane](by-class/ChangeSpellSlotInputPane.md) | unclassified |  |  | no |  | `by-class/ChangeSpellSlotInputPane.md` |  |
 | [UID:00001O][CharArgsInputPane](by-class/CharArgsInputPane.md) | unclassified |  |  | no |  | `by-class/CharArgsInputPane.md` |  |
 | [UID:00001P][CharInputPane](by-class/CharInputPane.md) | unclassified |  |  | no |  | `by-class/CharInputPane.md` |  |
 | [UID:00001N][CharacterSummaryRecord](by-class/CharacterSummaryRecord.md) | unclassified |  |  | no |  | `by-class/CharacterSummaryRecord.md` |  |
