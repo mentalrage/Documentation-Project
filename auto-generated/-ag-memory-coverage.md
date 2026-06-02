@@ -5,9 +5,9 @@
 Total_Type: 2140
 Total_Reconstructable: 1179
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 640
+Total_Reconstructed_Assigned: 650
 Total_Reconstructed_Coded: 20
-Total_Reconstructable_Unassigned: 539
+Total_Reconstructable_Unassigned: 529
 Total_Unclassified: 950
 Total_Error: 0
 
@@ -143,6 +143,16 @@ Total_Error: 0
 | [UID:000138][0x004a1d70-0x004a4e6b.EmployeeDialogPanes](by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md` |  |
 | [UID:000139][0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor](by-memory/0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor.md) | assigned | `000006` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-memory/0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor.md` |  |
 | [UID:00013A][0x004a4b20-0x004a4d3b.AddEmployeeItemDialog](by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md) | assigned | `000006` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md` |  |
+| [UID:0002HJ][0x004a60d0-0x004a60f5.Win32ErrorConstructor](by-memory/0x004a60d0-0x004a60f5.Win32ErrorConstructor.md) | assigned | `0000G7` | 10 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a60d0-0x004a60f5.Win32ErrorConstructor.md` |  |
+| [UID:00013X][0x004a60d0-0x004a6a76.ErrorWrappers](by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md) | assigned | `0000J5` | 20 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md` |  |
+| [UID:0002HK][0x004a6260-0x004a6284.DDErrorConstructor](by-memory/0x004a6260-0x004a6284.DDErrorConstructor.md) | assigned | `00003L` | 10 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a6260-0x004a6284.DDErrorConstructor.md` |  |
+| [UID:00013Y][0x004a6400-0x004a640b.ErrorBaseCleanupHelper](by-memory/0x004a6400-0x004a640b.ErrorBaseCleanupHelper.md) | assigned | `0000J5` | 260 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a6400-0x004a640b.ErrorBaseCleanupHelper.md` |  |
+| [UID:00013Z][0x004a6410-0x004a6429.ErrorMessageCopyMessage](by-memory/0x004a6410-0x004a6429.ErrorMessageCopyMessage.md) | assigned | `00004K` | 20 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a6410-0x004a6429.ErrorMessageCopyMessage.md` |  |
+| [UID:0002HL][0x004a6430-0x004a646f.FileErrorConstructor](by-memory/0x004a6430-0x004a646f.FileErrorConstructor.md) | assigned | `00004X` | 10 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a6430-0x004a646f.FileErrorConstructor.md` |  |
+| [UID:000140][0x004a6480-0x004a6499.FileErrorCopyMessage](by-memory/0x004a6480-0x004a6499.FileErrorCopyMessage.md) | assigned | `00004X` | 20 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a6480-0x004a6499.FileErrorCopyMessage.md` |  |
+| [UID:0002HM][0x004a64a0-0x004a64c5.WSAErrorConstructor](by-memory/0x004a64a0-0x004a64c5.WSAErrorConstructor.md) | assigned | `0000GB` | 10 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a64a0-0x004a64c5.WSAErrorConstructor.md` |  |
+| [UID:0002HN][0x004a6550-0x004a666a.InternetErrorConstructor](by-memory/0x004a6550-0x004a666a.InternetErrorConstructor.md) | assigned | `00006Q` | 10 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a6550-0x004a666a.InternetErrorConstructor.md` |  |
+| [UID:0002HO][0x004a67a0-0x004a683d.MyErrorConstructor](by-memory/0x004a67a0-0x004a683d.MyErrorConstructor.md) | assigned | `00008V` | 10 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a67a0-0x004a683d.MyErrorConstructor.md` |  |
 | [UID:000141][0x004a6a80-0x004a82a9.EventDispatcher](by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md` |  |
 | [UID:000142][0x004a6c40-0x004a6cda.ApplicationIdleWorkScheduler](by-memory/0x004a6c40-0x004a6cda.ApplicationIdleWorkScheduler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a6c40-0x004a6cda.ApplicationIdleWorkScheduler.md` |  |
 | [UID:000143][0x004a7120-0x004a712b.ApplicationIdleTickBaseline](by-memory/0x004a7120-0x004a712b.ApplicationIdleTickBaseline.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x004a7120-0x004a712b.ApplicationIdleTickBaseline.md` |  |
@@ -791,16 +801,6 @@ Total_Error: 0
 | [UID:00013T][0x004a5df0-0x004a5df1.DecoderNoopVirtual](by-memory/0x004a5df0-0x004a5df1.DecoderNoopVirtual.md) | unassigned |  |  | no |  | `by-memory/0x004a5df0-0x004a5df1.DecoderNoopVirtual.md` |  |
 | [UID:00013U][0x004a5e00-0x004a5e24.DecoderScalarDeletingDestructor](by-memory/0x004a5e00-0x004a5e24.DecoderScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004a5e00-0x004a5e24.DecoderScalarDeletingDestructor.md` |  |
 | [UID:00013V][0x004a5e30-0x004a5e54.EncoderScalarDeletingDestructor](by-memory/0x004a5e30-0x004a5e54.EncoderScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004a5e30-0x004a5e54.EncoderScalarDeletingDestructor.md` |  |
-| [UID:0002HJ][0x004a60d0-0x004a60f5.Win32ErrorConstructor](by-memory/0x004a60d0-0x004a60f5.Win32ErrorConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004a60d0-0x004a60f5.Win32ErrorConstructor.md` |  |
-| [UID:00013X][0x004a60d0-0x004a6a76.ErrorWrappers](by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md) | unassigned |  |  | no |  | `by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md` |  |
-| [UID:0002HK][0x004a6260-0x004a6284.DDErrorConstructor](by-memory/0x004a6260-0x004a6284.DDErrorConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004a6260-0x004a6284.DDErrorConstructor.md` |  |
-| [UID:00013Y][0x004a6400-0x004a640b.ErrorBaseCleanupHelper](by-memory/0x004a6400-0x004a640b.ErrorBaseCleanupHelper.md) | unassigned |  |  | no |  | `by-memory/0x004a6400-0x004a640b.ErrorBaseCleanupHelper.md` |  |
-| [UID:00013Z][0x004a6410-0x004a6429.ErrorMessageCopyMessage](by-memory/0x004a6410-0x004a6429.ErrorMessageCopyMessage.md) | unassigned |  |  | no |  | `by-memory/0x004a6410-0x004a6429.ErrorMessageCopyMessage.md` |  |
-| [UID:0002HL][0x004a6430-0x004a646f.FileErrorConstructor](by-memory/0x004a6430-0x004a646f.FileErrorConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004a6430-0x004a646f.FileErrorConstructor.md` |  |
-| [UID:000140][0x004a6480-0x004a6499.FileErrorCopyMessage](by-memory/0x004a6480-0x004a6499.FileErrorCopyMessage.md) | unassigned |  |  | no |  | `by-memory/0x004a6480-0x004a6499.FileErrorCopyMessage.md` |  |
-| [UID:0002HM][0x004a64a0-0x004a64c5.WSAErrorConstructor](by-memory/0x004a64a0-0x004a64c5.WSAErrorConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004a64a0-0x004a64c5.WSAErrorConstructor.md` |  |
-| [UID:0002HN][0x004a6550-0x004a666a.InternetErrorConstructor](by-memory/0x004a6550-0x004a666a.InternetErrorConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004a6550-0x004a666a.InternetErrorConstructor.md` |  |
-| [UID:0002HO][0x004a67a0-0x004a683d.MyErrorConstructor](by-memory/0x004a67a0-0x004a683d.MyErrorConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004a67a0-0x004a683d.MyErrorConstructor.md` |  |
 | [UID:000144][0x004a78f0-0x004a7978.EventDispatcherFindHandlerIterator](by-memory/0x004a78f0-0x004a7978.EventDispatcherFindHandlerIterator.md) | unassigned |  |  | no |  | `by-memory/0x004a78f0-0x004a7978.EventDispatcherFindHandlerIterator.md` |  |
 | [UID:000145][0x004a7b10-0x004a7c29.EventDispatcherHandlerRecordVectorInsert](by-memory/0x004a7b10-0x004a7c29.EventDispatcherHandlerRecordVectorInsert.md) | unassigned |  |  | no |  | `by-memory/0x004a7b10-0x004a7c29.EventDispatcherHandlerRecordVectorInsert.md` |  |
 | [UID:000146][0x004a7cd0-0x004a7df3.EventDispatcherHandlerTreeSupport](by-memory/0x004a7cd0-0x004a7df3.EventDispatcherHandlerTreeSupport.md) | unassigned |  |  | no |  | `by-memory/0x004a7cd0-0x004a7df3.EventDispatcherHandlerTreeSupport.md` |  |

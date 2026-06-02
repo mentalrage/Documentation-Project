@@ -1,9 +1,9 @@
 *** UID:00004X | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000J5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:140 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -34,6 +34,10 @@
 
 Keep the class in `util/Error.cpp`; file/archive loaders should construct it but should not own the wrapper implementation. IDA xrefs place [UID:000140][0x004a6480-0x004a6499.FileErrorCopyMessage](by-memory/0x004a6480-0x004a6499.FileErrorCopyMessage.md) in the `FileError` vtable message slot at `0x006193e0`, and the constructor writes the `FileError` vtable at `0x004a6445`.
 
+## Autogen Status
+
+Attach this class to [UID:0000J5][Error](by-file/Error.md) as reconstructable error-hierarchy metadata. C++ stays blank until the inline buffer declaration and constructor signature are final-source quality.
+
 ## Cross-References
 
 - [UID:0000J5][Error](by-file/Error.md)
@@ -46,3 +50,7 @@ Keep the class in `util/Error.cpp`; file/archive loaders should construct it but
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `74/86`. Summary: class responsibility, constructor/copy/destructor evidence, vtable slot placement, and file-module ownership are documented; remaining gaps are mostly final source reconstruction and broader error-hierarchy details. Evidence: IDA-confirmed constructor at `0x004a6430`, copy helper `0x004a6480-0x004a6499`, vtable slot note at `0x006193e0`, and `ErrorWrappers` memory page.
+- 2026-06-02 autogen ownership:
+  - Before: reconstructable and parent metadata were blank.
+  - After: marked reconstructable and attached to [UID:0000J5][Error](by-file/Error.md), leaving C++ blank.
+  - Summary/evidence: constructor/copy-helper/vtable evidence supports shared `Error.cpp` ownership; archive/file docs remain caller-side evidence only.

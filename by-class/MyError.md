@@ -1,9 +1,9 @@
 *** UID:00008V | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000J5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:220 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -36,6 +36,10 @@ This is shared application error infrastructure. Keep it with [UID:0000J5][Error
 
 The object layout is the heap-message storage family: vtable at `+0x00`, owned `wchar_t*` at `+0x04`. [UID:0000A8][PasswordError](by-class/PasswordError.md) reuses the same message-copy slot and installs a separate vtable.
 
+## Autogen Status
+
+Attach this class to [UID:0000J5][Error](by-file/Error.md) as reconstructable error-hierarchy metadata, with C++ blank until allocator naming and the `PasswordError` subclass split are final-source quality.
+
 ## Cross-References
 
 - [UID:0000J5][Error](by-file/Error.md)
@@ -47,3 +51,7 @@ The object layout is the heap-message storage family: vtable at `+0x00`, owned `
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `74/86`. Summary: the application error class has clear responsibility, module placement, constructor/destructor/deleting-destructor addresses, layout family, and `PasswordError` relationship documented, but the page is intentionally concise and does not expand every caller path. Evidence: linked `ErrorWrappers` memory range, error hierarchy vtable/layout docs, shared `Error` module, and owned wide-message slot.
+- 2026-06-02 autogen ownership:
+  - Before: reconstructable and parent metadata were blank.
+  - After: marked reconstructable and attached to [UID:0000J5][Error](by-file/Error.md), leaving C++ blank.
+  - Summary/evidence: constructor/destructor/layout evidence supports shared `Error.cpp` ownership; password/fatal helpers remain separate ownership caveats.

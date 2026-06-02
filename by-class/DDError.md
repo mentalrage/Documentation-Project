@@ -1,9 +1,9 @@
 *** UID:00003L | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000J5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -36,6 +36,10 @@ Although callers are render/DirectDraw-heavy, implementation belongs with [UID:0
 
 2026-05-26 IDA MCP recheck reports `DDError::DDError` at `0x004a6260` as a real `0x24`-byte function, `FormatErrorMessage` at `0x004a6290` as a real `0xa0`-byte function, and the vtable write/xref to `0x0061938c` at `0x004a6277`.
 
+## Autogen Status
+
+Attach this class to [UID:0000J5][Error](by-file/Error.md) as reconstructable error-hierarchy metadata. C++ stays blank because formatter naming and the shared declaration are not final-source quality yet.
+
 ## Cross-References
 
 - [UID:0000J5][Error](by-file/Error.md)
@@ -49,3 +53,7 @@ Although callers are render/DirectDraw-heavy, implementation belongs with [UID:0
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `74/86`.
   - Summary/evidence: DirectDraw wrapper responsibility, constructor/formatter addresses, vtable anchor, source placement, and IDA recheck evidence are documented; remaining work is mostly final emitted-source detail.
+- 2026-06-02 autogen ownership:
+  - Before: reconstructable and parent metadata were blank.
+  - After: marked reconstructable and attached to [UID:0000J5][Error](by-file/Error.md), leaving C++ blank.
+  - Summary/evidence: strong DirectDraw wrapper evidence supports shared `Error.cpp` ownership while preserving render code as caller-only.

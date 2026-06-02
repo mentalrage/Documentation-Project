@@ -1,9 +1,9 @@
 *** UID:0000GB | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000J5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:160 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -36,6 +36,10 @@ The constructor is called from socket/transport code, but implementation belongs
 
 2026-05-26 IDA MCP recheck reports `WSAError::WSAError` at `0x004a64a0` as a real `0x25`-byte function, `FormatErrorMessage` at `0x004a64d0` as a real `0x79`-byte function, and the vtable write/xref to `0x006193ec` at `0x004a64af`.
 
+## Autogen Status
+
+Attach this class to [UID:0000J5][Error](by-file/Error.md) as reconstructable error-hierarchy metadata, with C++ blank until shared formatter naming is final.
+
 ## Cross-References
 
 - [UID:0000J5][Error](by-file/Error.md)
@@ -49,3 +53,7 @@ The constructor is called from socket/transport code, but implementation belongs
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:78` and `CONFIDENCE:84`.
   - Summary/evidence: scored from the focused constructor/format-method documentation, shared `Error` module placement, socket caller ownership note, and IDA-confirmed method/vtable evidence; completion is moderate because the page is intentionally small and does not yet spell out the full formatting internals.
+- 2026-06-02 autogen ownership:
+  - What existed before: reconstructable and parent metadata were blank.
+  - Changed to: marked reconstructable and attached to [UID:0000J5][Error](by-file/Error.md), leaving C++ blank.
+  - Summary/evidence: strong Winsock wrapper evidence supports `util/Error.cpp`; socket/transport code remains a caller.

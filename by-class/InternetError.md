@@ -1,9 +1,9 @@
 *** UID:00006Q | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000J5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:180 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -36,6 +36,10 @@ Keep this wrapper in `util/Error.cpp`. HTTP/download modules should construct it
 
 2026-05-26 IDA MCP recheck reports `InternetError::InternetError` at `0x004a6550` as a real `0x11a`-byte function, `GetErrorText` at `0x004a6670` as a real `0x1e`-byte function, and the vtable write/xref to `0x00619404` at `0x004a65a2`.
 
+## Autogen Status
+
+Attach this class to [UID:0000J5][Error](by-file/Error.md) as reconstructable error-hierarchy metadata. C++ stays blank because the WinINet formatting locals and string-wrapper declaration are not final-source quality.
+
 ## Cross-References
 
 - [UID:0000J5][Error](by-file/Error.md)
@@ -46,3 +50,7 @@ Keep this wrapper in `util/Error.cpp`. HTTP/download modules should construct it
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `74/86`. Summary: WinINet/system-error wrapper responsibility, constructor/text-copy methods, vtable anchor, module placement, and IDA recheck evidence are documented with strong confidence; remaining work is final C++ body reconstruction and full error-hierarchy integration. Evidence: `ErrorWrappers`, `ErrorHierarchyVtables`, `InternetConnectionError`, function starts `0x004a6550`/`0x004a6670`, and vtable `0x00619404`.
+- 2026-06-02 autogen ownership:
+  - Before: reconstructable and parent metadata were blank.
+  - After: marked reconstructable and attached to [UID:0000J5][Error](by-file/Error.md), leaving C++ blank.
+  - Summary/evidence: strong constructor/text-copy/vtable evidence supports shared `Error.cpp` ownership; downloader/cash-shop code remains caller-side.

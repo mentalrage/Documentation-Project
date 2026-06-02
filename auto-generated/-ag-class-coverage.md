@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 183
+Total_Reconstructable: 189
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 95
+Total_Reconstructed_Assigned: 101
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 88
-Total_Unclassified: 402
+Total_Unclassified: 396
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -30,6 +30,7 @@ Total_Error: 0
 | [UID:00003A][Crasher](by-class/Crasher.md) | assigned | `0000II` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-class/Crasher.md` |  |
 | [UID:00003C][CriticalSectionLock](by-class/CriticalSectionLock.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/CriticalSectionLock.md` |  |
 | [UID:00003J][DATFileResolver](by-class/DATFileResolver.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-class/DATFileResolver.md` |  |
+| [UID:00003L][DDError](by-class/DDError.md) | assigned | `0000J5` | 80 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/DDError.md` |  |
 | [UID:00003W][DIError](by-class/DIError.md) | assigned | `0000J5` |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/DIError.md` |  |
 | [UID:00003Z][DLPalette](by-class/DLPalette.md) | assigned | `0000MA` |  | no | `auto-generated/NexusTK/render/Palette.cpp` | `by-class/DLPalette.md` |  |
 | [UID:000045][DSError](by-class/DSError.md) | assigned | `0000J5` |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/DSError.md` |  |
@@ -42,6 +43,7 @@ Total_Error: 0
 | [UID:00004K][ErrorMessage](by-class/ErrorMessage.md) | assigned | `0000J5` |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/ErrorMessage.md` |  |
 | [UID:00004N][EventHandler](by-class/EventHandler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/EventHandler.md` |  |
 | [UID:00004P][ExceptionHandler](by-class/ExceptionHandler.md) | assigned | `0000J8` |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-class/ExceptionHandler.md` |  |
+| [UID:00004X][FileError](by-class/FileError.md) | assigned | `0000J5` | 140 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/FileError.md` |  |
 | [UID:000051][FittingRoomDialogItemState](by-class/FittingRoomDialogItemState.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomDialogItemState.md` |  |
 | [UID:000052][FittingRoomDownloadControlPane](by-class/FittingRoomDownloadControlPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomDownloadControlPane.md` |  |
 | [UID:000053][FittingRoomListPane](by-class/FittingRoomListPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomListPane.md` |  |
@@ -55,6 +57,7 @@ Total_Error: 0
 | [UID:00005W][GroupInputPane](by-class/GroupInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/GroupInputPane.md` |  |
 | [UID:000060][HandlerFindFunc](by-class/HandlerFindFunc.md) | assigned | `0000J7` | 80 | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/HandlerFindFunc.md` |  |
 | [UID:00006B][IconsPane](by-class/IconsPane.md) | assigned | `0000JZ` |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-class/IconsPane.md` |  |
+| [UID:00006Q][InternetError](by-class/InternetError.md) | assigned | `0000J5` | 180 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/InternetError.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPaneState.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
@@ -62,6 +65,7 @@ Total_Error: 0
 | [UID:00007Q][MapPane](by-class/MapPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-class/MapPane.md` |  |
 | [UID:00007V][MenuItem](by-class/MenuItem.md) | assigned | `0000MN` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-class/MenuItem.md` |  |
 | [UID:000083][MerchantDialogPane](by-class/MerchantDialogPane.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-class/MerchantDialogPane.md` |  |
+| [UID:00008V][MyError](by-class/MyError.md) | assigned | `0000J5` | 220 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/MyError.md` |  |
 | [UID:00008Z][NewCreateUserDialogPane](by-class/NewCreateUserDialogPane.md) | assigned | `0000LP` |  | no | `auto-generated/NexusTK/login/NewCreateUserDialogPane.cpp` | `by-class/NewCreateUserDialogPane.md` |  |
 | [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-class/NewHumanImageLib.md` |  |
 | [UID:000097][NewOptionPane](by-class/NewOptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-class/NewOptionPane.md` |  |
@@ -103,7 +107,9 @@ Total_Error: 0
 | [UID:0000F8][Tree_near_class_EventHandler___](by-class/Tree_near_class_EventHandler___.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/Tree_near_class_EventHandler___.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
 | [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md) | assigned | `0000P4` |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-class/VideoPlayerPane.md` |  |
+| [UID:0000GB][WSAError](by-class/WSAError.md) | assigned | `0000J5` | 160 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/WSAError.md` |  |
 | [UID:0000G1][WeatherLayerPane](by-class/WeatherLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/WeatherLayerPane.md` |  |
+| [UID:0000G7][Win32Error](by-class/Win32Error.md) | assigned | `0000J5` | 20 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/Win32Error.md` |  |
 | [UID:0000GD][YFlipEffecter](by-class/YFlipEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/YFlipEffecter.md` |  |
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
@@ -274,7 +280,6 @@ Total_Error: 0
 | [UID:00003E][CursorManager](by-class/CursorManager.md) | unclassified |  |  | no |  | `by-class/CursorManager.md` |  |
 | [UID:00003H][DATFileContainer](by-class/DATFileContainer.md) | unclassified |  |  | no |  | `by-class/DATFileContainer.md` |  |
 | [UID:00003K][DATIndexVector](by-class/DATIndexVector.md) | unclassified |  |  | no |  | `by-class/DATIndexVector.md` |  |
-| [UID:00003L][DDError](by-class/DDError.md) | unclassified |  |  | no |  | `by-class/DDError.md` |  |
 | [UID:00003F][DamageNumberObjectPane](by-class/DamageNumberObjectPane.md) | unclassified |  |  | no |  | `by-class/DamageNumberObjectPane.md` |  |
 | [UID:00003O][DeleteReplyAlert](by-class/DeleteReplyAlert.md) | unclassified |  |  | no |  | `by-class/DeleteReplyAlert.md` |  |
 | [UID:00003R][DialDialog](by-class/DialDialog.md) | unclassified |  |  | no |  | `by-class/DialDialog.md` |  |
@@ -294,7 +299,6 @@ Total_Error: 0
 | [UID:00004T][ExchangeMoneyEditControlPane](by-class/ExchangeMoneyEditControlPane.md) | unclassified |  |  | no |  | `by-class/ExchangeMoneyEditControlPane.md` |  |
 | [UID:00004U][FieldMapPane](by-class/FieldMapPane.md) | unclassified |  |  | no |  | `by-class/FieldMapPane.md` |  |
 | [UID:00004W][FileDownloader](by-class/FileDownloader.md) | unclassified |  |  | no |  | `by-class/FileDownloader.md` |  |
-| [UID:00004X][FileError](by-class/FileError.md) | unclassified |  |  | no |  | `by-class/FileError.md` |  |
 | [UID:00004Y][FilterEffecter](by-class/FilterEffecter.md) | unclassified |  |  | no |  | `by-class/FilterEffecter.md` |  |
 | [UID:00004Z][FittingEquipmentState](by-class/FittingEquipmentState.md) | unclassified |  |  | no |  | `by-class/FittingEquipmentState.md` |  |
 | [UID:000050][FittingRoomDialog](by-class/FittingRoomDialog.md) | unclassified |  |  | no |  | `by-class/FittingRoomDialog.md` |  |
@@ -335,7 +339,6 @@ Total_Error: 0
 | [UID:00006N][InterfaceEfx](by-class/InterfaceEfx.md) | unclassified |  |  | no |  | `by-class/InterfaceEfx.md` |  |
 | [UID:00006O][InterfaceEfxMgr](by-class/InterfaceEfxMgr.md) | unclassified |  |  | no |  | `by-class/InterfaceEfxMgr.md` |  |
 | [UID:00006P][InternetConnectionError](by-class/InternetConnectionError.md) | unclassified |  |  | no |  | `by-class/InternetConnectionError.md` |  |
-| [UID:00006Q][InternetError](by-class/InternetError.md) | unclassified |  |  | no |  | `by-class/InternetError.md` |  |
 | [UID:00006R][InventoryPane](by-class/InventoryPane.md) | unclassified |  |  | no |  | `by-class/InventoryPane.md` |  |
 | [UID:00006S][InventoryPane2](by-class/InventoryPane2.md) | unclassified |  |  | no |  | `by-class/InventoryPane2.md` |  |
 | [UID:00006T][ItemCatalog](by-class/ItemCatalog.md) | unclassified |  |  | no |  | `by-class/ItemCatalog.md` |  |
@@ -393,7 +396,6 @@ Total_Error: 0
 | [UID:00008Q][MoreInfoPane](by-class/MoreInfoPane.md) | unclassified |  |  | no |  | `by-class/MoreInfoPane.md` |  |
 | [UID:00008T][MultiLineInputPane](by-class/MultiLineInputPane.md) | unclassified |  |  | no |  | `by-class/MultiLineInputPane.md` |  |
 | [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md) | unclassified |  |  | no |  | `by-class/MusicControlDialog.md` |  |
-| [UID:00008V][MyError](by-class/MyError.md) | unclassified |  |  | no |  | `by-class/MyError.md` |  |
 | [UID:00008Y][NewArticleDialog](by-class/NewArticleDialog.md) | unclassified |  |  | no |  | `by-class/NewArticleDialog.md` |  |
 | [UID:000091][NewHistoryDialogPane](by-class/NewHistoryDialogPane.md) | unclassified |  |  | no |  | `by-class/NewHistoryDialogPane.md` |  |
 | [UID:000093][NewInventoryPane](by-class/NewInventoryPane.md) | unclassified |  |  | no |  | `by-class/NewInventoryPane.md` |  |
@@ -582,7 +584,6 @@ Total_Error: 0
 | [UID:0000FQ][UserPane](by-class/UserPane.md) | unclassified |  |  | no |  | `by-class/UserPane.md` |  |
 | [UID:0000FR][UserShapeSelectControlPane](by-class/UserShapeSelectControlPane.md) | unclassified |  |  | no |  | `by-class/UserShapeSelectControlPane.md` |  |
 | [UID:0000FT][UserStatusPane2](by-class/UserStatusPane2.md) | unclassified |  |  | no |  | `by-class/UserStatusPane2.md` |  |
-| [UID:0000GB][WSAError](by-class/WSAError.md) | unclassified |  |  | no |  | `by-class/WSAError.md` |  |
 | [UID:0000FZ][WaterFilterEffecter](by-class/WaterFilterEffecter.md) | unclassified |  |  | no |  | `by-class/WaterFilterEffecter.md` |  |
 | [UID:0000G0][WearInputPane](by-class/WearInputPane.md) | unclassified |  |  | no |  | `by-class/WearInputPane.md` |  |
 | [UID:0000G2][WebBoardDialog](by-class/WebBoardDialog.md) | unclassified |  |  | no |  | `by-class/WebBoardDialog.md` |  |
@@ -590,7 +591,6 @@ Total_Error: 0
 | [UID:0000G4][WieldInputPane](by-class/WieldInputPane.md) | unclassified |  |  | no |  | `by-class/WieldInputPane.md` |  |
 | [UID:0000G5][WillBeChangedItemPane](by-class/WillBeChangedItemPane.md) | unclassified |  |  | no |  | `by-class/WillBeChangedItemPane.md` |  |
 | [UID:0000G6][WillBeChangedSpellPane](by-class/WillBeChangedSpellPane.md) | unclassified |  |  | no |  | `by-class/WillBeChangedSpellPane.md` |  |
-| [UID:0000G7][Win32Error](by-class/Win32Error.md) | unclassified |  |  | no |  | `by-class/Win32Error.md` |  |
 | [UID:0000G8][WorldMapNodeEntryVector](by-class/WorldMapNodeEntryVector.md) | unclassified |  |  | no |  | `by-class/WorldMapNodeEntryVector.md` |  |
 | [UID:0000G9][WorldMapPane](by-class/WorldMapPane.md) | unclassified |  |  | no |  | `by-class/WorldMapPane.md` |  |
 | [UID:0000GA][WorldMapReachabilityBitSet](by-class/WorldMapReachabilityBitSet.md) | unclassified |  |  | no |  | `by-class/WorldMapReachabilityBitSet.md` |  |
