@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2120
-Total_Reconstructable: 952
+Total_Reconstructable: 953
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 426
+Total_Reconstructed_Assigned: 427
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 526
-Total_Unclassified: 1157
+Total_Unclassified: 1156
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -412,6 +412,7 @@ Total_Error: 0
 | [UID:0001K0][0x00596bf0-0x00596d13.ThreadManConstructor](by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md) | assigned | `0000OR` |  | no | `auto-generated/NexusTK/util/Thread.cpp` | `by-memory/0x00596bf0-0x00596d13.ThreadManConstructor.md` |  |
 | [UID:0001K1][0x00596d20-0x00596e0b.ThreadManRawMessageWrappers](by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md) | assigned | `0000OR` |  | no | `auto-generated/NexusTK/util/Thread.cpp` | `by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md` |  |
 | [UID:0001K2][0x00596e10-0x005970df.ThreadManWorkerLoop](by-memory/0x00596e10-0x005970df.ThreadManWorkerLoop.md) | assigned | `0000OR` |  | no | `auto-generated/NexusTK/util/Thread.cpp` | `by-memory/0x00596e10-0x005970df.ThreadManWorkerLoop.md` |  |
+| [UID:0001K3][0x00597100-0x005971ad.ThreadManWorkerEntry](by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md) | assigned | `0000OR` |  | no | `auto-generated/NexusTK/util/Thread.cpp` | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |  |
 | [UID:0002JU][0x00610fe8-0x006112e8.AesReadOnlyTables](by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md) | assigned | `00020J` | 5 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-memory/0x00610fe8-0x006112e8.AesReadOnlyTables.md` |  |
 | [UID:00024T][0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData](by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md) | assigned | `0000HG` | 300 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x006125a8-0x00612f3c.ApplicationStartupReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
@@ -1726,7 +1727,6 @@ Total_Error: 0
 | [UID:0001JP][0x00591d60-0x00593a10.TextEditPaneFormattingRuns](by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md) | unclassified |  |  | no |  | `by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md` |  |
 | [UID:0001JR][0x00593db0-0x00593ef5.DrawTextRunCallback](by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md) | unclassified |  |  | no |  | `by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md` |  |
 | [UID:0001JS][0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap](by-memory/0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap.md) | unclassified |  |  | no |  | `by-memory/0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap.md` |  |
-| [UID:0001K3][0x00597100-0x005971ad.ThreadManWorkerEntry](by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md) | unclassified |  |  | no |  | `by-memory/0x00597100-0x005971ad.ThreadManWorkerEntry.md` |  |
 | [UID:0001K4][0x005974e0-0x005974eb.ClearThreadManSingleton](by-memory/0x005974e0-0x005974eb.ClearThreadManSingleton.md) | unclassified |  |  | no |  | `by-memory/0x005974e0-0x005974eb.ClearThreadManSingleton.md` |  |
 | [UID:0001K5][0x005974f0-0x0059756e.ThreadManScalarDeletingDestructor](by-memory/0x005974f0-0x0059756e.ThreadManScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x005974f0-0x0059756e.ThreadManScalarDeletingDestructor.md` |  |
 | [UID:0001K7][0x00597580-0x005975c3.TimerHandlerDestructor](by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md` |  |
