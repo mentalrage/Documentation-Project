@@ -1,7 +1,7 @@
 *** UID:0000P0 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # UserLookPane
 
@@ -70,4 +70,5 @@ The emitted Wave3 source splits `MoreInfoPane`, `ProfilePane`, and `LegendPane` 
 
 ## Changes
 
+- 2026-06-02: Set `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/"` to match the documented `ui/panels/UserLookPane.cpp` placement. The page already records strong UserLookPane/MoreInfoPane/ProfilePane grouping, with the final LegendPane ownership still called out as the remaining caveat.
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `88/80`. Summary/evidence: the page gives detailed source grouping for `UserLookPane`, `MoreInfoPane`, `ProfilePane`, and shared `LegendPane`, with IDA/JPF evidence and memory/global refs; final ownership of shared legend behavior is still a caveat.

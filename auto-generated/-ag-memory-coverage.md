@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2137
-Total_Reconstructable: 1169
+Total_Reconstructable: 1171
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 619
+Total_Reconstructed_Assigned: 621
 Total_Reconstructed_Coded: 20
 Total_Reconstructable_Unassigned: 550
-Total_Unclassified: 957
+Total_Unclassified: 955
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -612,6 +612,8 @@ Total_Error: 0
 | [UID:0001PH][0x0069b380-0x0069b381.g_activeDialogCount](by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md) | assigned | `0000IT` |  | no | `auto-generated/NexusTK/ui/core/DialogPane.cpp` | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |  |
 | [UID:0002AZ][0x0069b4f8-0x0069b4fc.MapPaneRenderScratchFlag](by-memory/0x0069b4f8-0x0069b4fc.MapPaneRenderScratchFlag.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0069b4f8-0x0069b4fc.MapPaneRenderScratchFlag.md` |  |
 | [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |  |
+| [UID:0002A8][0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot](by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md) | assigned | `0000P0` |  | no | `auto-generated/NexusTK/ui/panels/UserLookPane.cpp` | `by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md` |  |
+| [UID:0002A9][0x0069bed8-0x0069bee0.TargetSelectionModeFlags](by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md` |  |
 | [UID:0002GZ][0x00463970-0x004639c4.ApplicationDestructor](by-memory/0x00463970-0x004639c4.ApplicationDestructor.md) | coded | `00000D` | 2 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00463970-0x004639c4.ApplicationDestructor.md` |  |
 | [UID:0002H4][0x00464f40-0x00464f47.ApplicationIsExitRequested](by-memory/0x00464f40-0x00464f47.ApplicationIsExitRequested.md) | coded | `00000D` | 7 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00464f40-0x00464f47.ApplicationIsExitRequested.md` |  |
 | [UID:0002GM][0x004651c0-0x004651c4.ApplicationGetInstanceHandle](by-memory/0x004651c0-0x004651c4.ApplicationGetInstanceHandle.md) | coded | `00000D` | 30 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004651c0-0x004651c4.ApplicationGetInstanceHandle.md` |  |
@@ -2138,8 +2140,6 @@ Total_Error: 0
 | [UID:0002AS][0x0069be14-0x0069bec4.WideApiDispatchPointerTable](by-memory/0x0069be14-0x0069bec4.WideApiDispatchPointerTable.md) | unclassified |  |  | no |  | `by-memory/0x0069be14-0x0069bec4.WideApiDispatchPointerTable.md` |  |
 | [UID:0002A6][0x0069bec8-0x0069bed0.WideApiDispatchTailPointers](by-memory/0x0069bec8-0x0069bed0.WideApiDispatchTailPointers.md) | unclassified |  |  | no |  | `by-memory/0x0069bec8-0x0069bed0.WideApiDispatchTailPointers.md` |  |
 | [UID:0002A7][0x0069bed0-0x0069bed4.UserListDialogShowHiddenFlag](by-memory/0x0069bed0-0x0069bed4.UserListDialogShowHiddenFlag.md) | unclassified |  |  | no |  | `by-memory/0x0069bed0-0x0069bed4.UserListDialogShowHiddenFlag.md` |  |
-| [UID:0002A8][0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot](by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md) | unclassified |  |  | no |  | `by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md` |  |
-| [UID:0002A9][0x0069bed8-0x0069bee0.TargetSelectionModeFlags](by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md) | unclassified |  |  | no |  | `by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md` |  |
 | [UID:0002AA][0x0069bee0-0x0069bf20.LocalPlayerNameWideBuffer](by-memory/0x0069bee0-0x0069bf20.LocalPlayerNameWideBuffer.md) | unclassified |  |  | no |  | `by-memory/0x0069bee0-0x0069bf20.LocalPlayerNameWideBuffer.md` |  |
 | [UID:0002AB][0x0069bf20-0x0069bf34.TargetSelectionSavedTargetGlobals](by-memory/0x0069bf20-0x0069bf34.TargetSelectionSavedTargetGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0069bf20-0x0069bf34.TargetSelectionSavedTargetGlobals.md` |  |
 | [UID:0002AC][0x0069bf34-0x0069bf5c.UserPanePoolStaticStorage](by-memory/0x0069bf34-0x0069bf5c.UserPanePoolStaticStorage.md) | unclassified |  |  | no |  | `by-memory/0x0069bf34-0x0069bf5c.UserPanePoolStaticStorage.md` |  |

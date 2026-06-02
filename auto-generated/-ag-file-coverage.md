@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 182
+Total_Reconstructed_Assigned: 183
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 106
+Total_Error: 105
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -183,6 +183,7 @@ Total_Error: 106
 | [UID:0000OX][UserCreateAppearanceControls](by-file/UserCreateAppearanceControls.md) | assigned |  |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-file/UserCreateAppearanceControls.md` | by-file generated root |
 | [UID:0000OY][UserInfoDialogPane](by-file/UserInfoDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/UserInfoDialogPane.cpp` | `by-file/UserInfoDialogPane.md` | by-file generated root |
 | [UID:0000OZ][UserListDialogPane](by-file/UserListDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/social/UserListDialogPane.cpp` | `by-file/UserListDialogPane.md` | by-file generated root |
+| [UID:0000P0][UserLookPane](by-file/UserLookPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/UserLookPane.cpp` | `by-file/UserLookPane.md` | by-file generated root |
 | [UID:0000P1][UserPane](by-file/UserPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-file/UserPane.md` | by-file generated root |
 | [UID:0000P2][UserStatusPane](by-file/UserStatusPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/UserStatusPane.cpp` | `by-file/UserStatusPane.md` | by-file generated root |
 | [UID:0000P4][VideoPlayerPane](by-file/VideoPlayerPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-file/VideoPlayerPane.md` | by-file generated root |
@@ -297,7 +298,6 @@ Total_Error: 106
 | [UID:0000OK][TextButtonControlPane](by-file/TextButtonControlPane.md) | error |  |  | no |  | `by-file/TextButtonControlPane.md` | by-file generated root |
 | [UID:0000OM][TextEditControlPane](by-file/TextEditControlPane.md) | error |  |  | no |  | `by-file/TextEditControlPane.md` | by-file generated root |
 | [UID:0000OS][ThreadSafeNodeList](by-file/ThreadSafeNodeList.md) | error |  |  | no |  | `by-file/ThreadSafeNodeList.md` | by-file generated root |
-| [UID:0000P0][UserLookPane](by-file/UserLookPane.md) | error |  |  | no |  | `by-file/UserLookPane.md` | by-file generated root |
 | [UID:0000P3][VectorHelpers](by-file/VectorHelpers.md) | error |  |  | no |  | `by-file/VectorHelpers.md` | by-file generated root |
 | [UID:0000PB][WorldMapPane](by-file/WorldMapPane.md) | error |  |  | no |  | `by-file/WorldMapPane.md` | by-file generated root |
 | [UID:0000PC][Zlib](by-file/Zlib.md) | error |  |  | no |  | `by-file/Zlib.md` | by-file generated root |

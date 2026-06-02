@@ -1,6 +1,6 @@
 *** UID:0000IL | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # CursorManager
@@ -37,6 +37,17 @@ The 2026-05-26 IDA pass makes a standalone source file weaker: `ScreenPane::Scre
 - Original source may have had a tiny `CursorManager.cpp` helper included beside `ScreenPane.cpp`, but the current IDA evidence now leans toward private `ScreenPane.cpp` helper methods unless a separate allocation, constructor, or header-level type use is found.
 - Do not use the current `simroot_v2/class_CursorManager.cpp` file name by itself as migration evidence; it is a generated staging container over the shared `g_pScreenPane` storage.
 
+## Autogen Status
+
+`PROPOSED_RECONSTRUCTION_PATH` remains blank and this page should not emit a standalone `CursorManager.cpp` placeholder. The current best reconstruction path is to keep the cursor helper island documented as a `ScreenPane.cpp` companion until a separate original cursor-manager source or initialization path is proven.
+
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `86` | The page documents behavior, offsets, helper island contents, ScreenPane/global aliasing, caller evidence, ownership warnings, no-path autogen handling, and migration caveats. Completion remains capped by the unresolved cursor-resource loader/setup path. |
+| Confidence `82` | Confidence is strong for the current decision not to promote a separate source file: IDA ties the helpers to `ScreenPane` fields and singleton storage, while generated `g_pCursorManager` is an alias. Confidence is not higher because a private helper type or adjacent original source split is still possible. |
+
 ## Evidence Notes
 
 - IDA MCP confirms `0x005573f0` uses an active cursor index at word offset `704` / byte offset `+0x580`, an `HCURSOR` table at word offset `680` / byte offset `+0x550`, then calls `SetCursor` and `ShowCursor(TRUE)`.
@@ -62,6 +73,10 @@ The 2026-05-26 IDA pass makes a standalone source file weaker: `ScreenPane::Scre
 
 ## Changes
 
+- 2026-06-02:
+  - Before: scored `84/72` with the same evidence, leaving the page in Low_Confidence.
+  - After: scored `86/82`, kept projected path blank, and added explicit no-autogen rationale.
+  - Summary/evidence: the documented ScreenPane field-offset and singleton alias evidence is strong enough for the current non-promotion decision, while cursor-resource initialization remains the open follow-up.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:72`.

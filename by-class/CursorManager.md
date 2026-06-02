@@ -1,6 +1,6 @@
 *** UID:00003E | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:68 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -47,6 +47,17 @@ The 2026-05-26 IDA check found no constructor, destructor, allocation site, or s
 - `ScreenPane::ScreenPane` initializes the singleton, root layer list at dword offset `67` / byte offset `+0x10c`, dimensions, and frame/fade fields, but not the cursor handle table at `+0x550`.
 - 2026-05-26 recheck: IDA MCP still reports no separate cursor-manager constructor/lifetime. Current active simroot output still emits these methods in `class_CursorManager.cpp`, but all observed lifetime evidence belongs to `ScreenPane` / [UID:0000S7][g_pScreenPane](by-global/g_pScreenPane.md).
 
+## Autogen Status
+
+This page remains unattached and does not emit class C++. Current evidence supports a useful generated typed view over root `ScreenPane` storage, not a separately allocated original class with its own source file or singleton lifetime.
+
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `74` | The page records helper behavior, root-screen object offsets, lack of separate constructor/destructor/allocation evidence, `g_pScreenPane` aliasing, and the no-autogen decision. Completion remains capped because cursor-handle table initialization is still unresolved. |
+| Confidence `82` | Confidence is strong for the current non-promotion decision: helpers operate on fields initialized by `ScreenPane`, `g_pCursorManager` aliases `g_pScreenPane`, and no separate cursor-manager lifetime has been found. Confidence is not higher because an original helper type or cursor-resource setup path could still exist. |
+
 ## Cross-References
 
 - [UID:0000IL][CursorManager](by-file/CursorManager.md)
@@ -57,6 +68,10 @@ The 2026-05-26 IDA check found no constructor, destructor, allocation site, or s
 
 ## Changes
 
+- 2026-06-02:
+  - Before: scored `70/68`, making the typed-view page look weak even though the negative lifetime evidence is well documented.
+  - After: scored `74/82`, kept reconstructability/parent/C++ blank, and added explicit no-autogen rationale.
+  - Why: existing ScreenPane/global/helper evidence strongly supports treating `CursorManager` as a generated typed view over `g_pScreenPane` rather than a standalone class.
 - 2026-05-30:
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `70/68`.
