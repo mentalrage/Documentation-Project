@@ -1328,7 +1328,7 @@ Total_Error: 5
 | [UID:0002SQ][0x0061e71c-0x0061e7a0.MapPaneVtableData](by-memory/0x0061e71c-0x0061e7a0.MapPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e71c-0x0061e7a0.MapPaneVtableData.md` |  |
 | [UID:0002OU][0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData](by-memory/0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData.md` |  |
 | [UID:0002SR][0x0061e854-0x0061e8dc.MapRefreshDimmerVtableData](by-memory/0x0061e854-0x0061e8dc.MapRefreshDimmerVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e854-0x0061e8dc.MapRefreshDimmerVtableData.md` |  |
-| [UID:0002SS][0x0061e8e0-0x0061e8f0.DialogCreatorVtableData](by-memory/0x0061e8e0-0x0061e8f0.DialogCreatorVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e8e0-0x0061e8f0.DialogCreatorVtableData.md` |  |
+| [UID:0002SS][0x0061e8dc-0x0061e8fc.DialogCreatorVtableData](by-memory/0x0061e8dc-0x0061e8fc.DialogCreatorVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e8dc-0x0061e8fc.DialogCreatorVtableData.md` |  |
 | [UID:0002ST][0x0061e908-0x0061eadc.MapPaneResourceStrings](by-memory/0x0061e908-0x0061eadc.MapPaneResourceStrings.md) | unassigned |  |  | no |  | `by-memory/0x0061e908-0x0061eadc.MapPaneResourceStrings.md` |  |
 | [UID:00025T][0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData](by-memory/0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061eb08-0x0061ec10.MemoryMenuReadOnlyData.md` |  |
 | [UID:00025U][0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData](by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061ec10-0x0061fa3c.MerchantMenuDialogReadOnlyData.md` |  |

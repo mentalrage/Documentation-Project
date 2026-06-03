@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 18:42:20
+Generated: 2026-06-03 19:08:15
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -101,9 +101,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0001NY` | 70 | 84 | 77.0 | `by-memory/0x005c1120-0x005c11b4.WaitableTimerRawStartStop.md` |
-| `0002SS` | 70 | 84 | 77.0 | `by-memory/0x0061e8e0-0x0061e8f0.DialogCreatorVtableData.md` |
-| `0002B5` | 70 | 84 | 77.0 | `by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md` |
 | `0001UA` | 70 | 84 | 77.0 | `by-type/by-struct/EffectPixMapInfo.md` |
 | `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
 | `00000Q` | 70 | 85 | 77.5 | `by-class/AutoInit.md` |
@@ -125,6 +122,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000VE` | 70 | 85 | 77.5 | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |
 | `0000VF` | 70 | 85 | 77.5 | `by-item/ScreenshotProofPacket_00558240.md` |
 | `0000VG` | 70 | 85 | 77.5 | `by-item/ServerSelectHelpers_574510_5745b0.md` |
+| `0000VH` | 70 | 85 | 77.5 | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |
+| `0000VJ` | 70 | 85 | 77.5 | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |
+| `0000VK` | 70 | 85 | 77.5 | `by-item/VectorGrowArchiveIndex_004E5990.md` |
 
 ## Low_Confidence
 
