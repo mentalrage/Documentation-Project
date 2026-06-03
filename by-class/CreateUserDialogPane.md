@@ -1,8 +1,8 @@
 *** UID:00003B | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:68 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IJ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -13,9 +13,10 @@
 ## Status
 
 - Confidence: strong for behavior; medium for current emitted-body completeness.
-- Likely source file: [UID:0000IK][CreateUserDialogs](by-file/CreateUserDialogs.md)
+- Likely source file: [UID:0000IJ][CreateUserDialogPane](by-file/CreateUserDialogPane.md), under [UID:0000IK][CreateUserDialogs](by-file/CreateUserDialogs.md)
 - Address range: [UID:0001CR][0x0052a540-0x0052f94c.CreateUserDialogVariants](by-memory/0x0052a540-0x0052f94c.CreateUserDialogVariants.md)
 - Current recovered file: `source-3/simroot_v2/class_CreateUserDialogPane.cpp`
+- Autogen parent: [UID:0000IJ][CreateUserDialogPane](by-file/CreateUserDialogPane.md). C++ remains blank because field names, helper names, and final source shape remain below the 95+ reconstruction gate.
 
 ## Class Purpose
 
@@ -28,7 +29,7 @@
 | `CreateUserDialogPane` | `0x0052dd30` | Builds `DLGNEW3` dialog, text edits, gender/body buttons, hair/face selectors, color lists, and preview. |
 | `SelectBodyShape` | `0x0052e770` | Updates selected body shape and description text. |
 | `SelectMale` / `SelectFemale` | `0x0052e850`, `0x0052e8c0` | Toggles gender state and resets selectors. |
-| `SetHairColorIndex` / `SetFaceColorIndex` | `0x0052e930`, `0x0052e950` | Listed by Wave3, but missing from the current emitted file. |
+| `SetHairColorIndex` / `SetFaceColorIndex` | `0x0052e930`, `0x0052e950` | IDA MCP confirms these as 0x1f-byte color setter helpers. They are missing from the active emitted file but are called from the hair/face color-list controls. |
 | `OnDialogAction` | `0x0052ea80` | Handles gender, body, scroll, submit, cancel, and preview-direction commands. |
 | `OnKeyEvent` / `OnDialogShow` | `0x0052ecc0`, `0x0052ed00` | Listed by Wave3, but missing from the current emitted file. |
 | `SubmitCreateUser` | `0x0052ed80` | Validates password digit/match rules, shows alerts, and sends create-account request. |
@@ -38,6 +39,12 @@
 
 - IDA confirms the constructor and submit method starts.
 - Wave3 class inspection lists 13 methods, but the generated file currently omits several listed methods. This is recorded as a Wave3 data/materialization issue.
+- 2026-06-03 IDA MCP recheck confirms method boundaries for the core old-dialog methods: constructor `0x0052dd30` size `0x9bb`, `SelectBodyShape` `0x0052e770` size `0xc2`, color setters `0x0052e930`/`0x0052e950` size `0x1f` each, command dispatcher `0x0052ea80` size `0x200`, submit validator `0x0052ed80` size `0x1cc`, packet helpers `0x0052ef50` size `0x205`, `0x0052f160` size `0x22d`, response handler `0x0052f390` size `0x355`, singleton clear helper `0x0052f710` size `0xb`, adjustor thunks `0x0052f73b`/`0x0052f746` size `0xb`, and scalar deleting destructor `0x0052f800` size `0x6c`.
+- 2026-06-03 IDA MCP caller checks show the constructor called from `0x004f7a82` and `0x004f8ff8`, the command dispatcher calling `0x0052ed80`, the submit validator calling `0x0052ef50`, and the appearance payload helper `0x0052f160` called from local helpers and the response handler.
+- 2026-06-03 IDA MCP xrefs tie vtable data `0x0061fe3c` to constructor/destructor references at `0x0052dda2`, `0x0052e6f9`, and `0x0052f80c`, and singleton slot `0x0069b890` to constructor writes/reads plus cleanup at `0x0052f710` and `0x0052f82d`.
+- 2026-06-03 IDA MCP decompilation confirms `0x0052e930` looks up control id 6 and writes the selected byte to offset `269`; `0x0052e950` does the same for control id 7. Xrefs to the setters come from the hair/face color-list controls at `0x00501eee`, `0x005020b9`, `0x005021ae`, and `0x00502379`.
+- 2026-06-03 IDA MCP decompilation of `0x0052ed80` confirms the submit path reads three text-edit controls, requires at least one digit in the password, compares password confirmation with `wcscmp`, shows alert panes on validation failure, and calls `0x0052ef50` after a successful validation.
+- 2026-06-03 IDA MCP disassembly confirms the two 0xb-byte adjustor thunks subtract `0xa0` or `0xa4` from `ecx` before jumping to `0x0052f800`, and the scalar deleting destructor restores three `CreateUserDialogPane` vtables, destroys the description text, clears `dword_69B890`, runs the base destructor, and conditionally frees `this`.
 
 ## Cross-References
 
@@ -57,3 +64,7 @@
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `68/78`.
   - Summary/evidence: major UI responsibility, constructor/action/submit/destructor roles, companion appearance controls, and missing emitted-method caveat are documented; remaining work is detailed body reconstruction and resolving Wave3 materialization gaps.
+- 2026-06-03 MCP verification and parent attachment:
+  - What existed before: the class remained unassigned at `68/78`, with some behavior documented but no fresh verification for the omitted setter methods or destructor-thunk details.
+  - Changed to: `COMPLETION:76`, `CONFIDENCE:82`, `RECONSTRUCTABLE:TRUE`, and parent [UID:0000IJ][CreateUserDialogPane](by-file/CreateUserDialogPane.md).
+  - Summary/evidence: live IDA MCP lookup/caller/callee/xref/decompile/disassembly checks confirmed the old dialog method boundaries, constructor callers, color setter behavior, submit validation flow, vtable/singleton xrefs, and destructor adjustor thunks. C++ remains blank because the final field layout, helper names, and exact original source shape are not 95+ verified.

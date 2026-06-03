@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 00:49:18
+Generated: 2026-06-03 00:57:21
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -31,7 +31,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000IA` | blank | `(blank)` | `by-file/ClanDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IB` | blank | `(blank)` | `by-file/CollectionDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IF` | blank | `(blank)` | `by-file/ConnStatusPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000IJ` | blank | `(blank)` | `by-file/CreateUserDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IL` | blank | `(blank)` | `by-file/CursorManager.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IM` | blank | `(blank)` | `by-file/DATArchive.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000J2` | blank | `(blank)` | `by-file/EPFImageControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -112,7 +111,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
@@ -137,6 +135,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000114` | 68 | 82 | 75.0 | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |
 | `0002HF` | 68 | 82 | 75.0 | `by-memory/0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint.md` |
 | `00013M` | 68 | 82 | 75.0 | `by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md` |
+| `00016D` | 68 | 82 | 75.0 | `by-memory/0x004bad70-0x004baf92.DrawTextInRect.md` |
 
 ## Low_Confidence
 
@@ -172,7 +171,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
@@ -197,6 +195,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002KE` | 70 | 78 | 74.0 | `by-memory/0x00546610-0x00546807.ParcelPaneOnMouseEvent.md` |
 | `0001GO` | 70 | 78 | 74.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
 | `0001H1` | 70 | 78 | 74.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
+| `0002LB` | 70 | 78 | 74.0 | `by-memory/0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw.md` |
 
 ## By Folder
 
@@ -204,7 +203,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
@@ -229,6 +227,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009Y` | 72 | 78 | 75.0 | `by-class/OverlayImageEffecter.md` |
 | `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |
 | `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
+| `000014` | 72 | 78 | 75.0 | `by-class/browser__Notification.md` |
 
 ### by-external-research
 
@@ -259,10 +258,10 @@ _No scored files._
 | `0000J2` | 78 | 78 | 78.0 | `by-file/EPFImageControlPane.md` |
 | `0000KO` | 78 | 78 | 78.0 | `by-file/LightingObjectPane.md` |
 | `0000KQ` | 78 | 78 | 78.0 | `by-file/LineIterator.md` |
-| `0000IJ` | 80 | 76 | 78.0 | `by-file/CreateUserDialogPane.md` |
 | `0000KV` | 80 | 76 | 78.0 | `by-file/LObject.md` |
 | `0000HM` | 72 | 86 | 79.0 | `by-file/AUTOBUF.md` |
 | `0000HU` | 74 | 84 | 79.0 | `by-file/BowGaugeObjectPane.md` |
+| `0000K8` | 74 | 84 | 79.0 | `by-file/IntAlphaSurface.md` |
 
 ### by-function
 

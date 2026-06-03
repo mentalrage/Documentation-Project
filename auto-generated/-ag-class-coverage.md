@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 224
+Total_Reconstructable: 225
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 140
+Total_Reconstructed_Assigned: 141
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 361
+Total_Unclassified: 360
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -34,6 +34,7 @@ Total_Error: 0
 | [UID:000033][ConfirmDeleteAlert](by-class/ConfirmDeleteAlert.md) | assigned | `0000HW` | 40 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteAlert.md` |  |
 | [UID:000034][ConfirmDeleteMailAlert](by-class/ConfirmDeleteMailAlert.md) | assigned | `0000HW` | 60 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteMailAlert.md` |  |
 | [UID:00003A][Crasher](by-class/Crasher.md) | assigned | `0000II` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-class/Crasher.md` |  |
+| [UID:00003B][CreateUserDialogPane](by-class/CreateUserDialogPane.md) | assigned | `0000IJ` |  | no | `auto-generated/NexusTK/login/CreateUserDialogPane.cpp` | `by-class/CreateUserDialogPane.md` |  |
 | [UID:00003C][CriticalSectionLock](by-class/CriticalSectionLock.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/CriticalSectionLock.md` |  |
 | [UID:00003J][DATFileResolver](by-class/DATFileResolver.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-class/DATFileResolver.md` |  |
 | [UID:00003L][DDError](by-class/DDError.md) | assigned | `0000J5` | 80 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/DDError.md` |  |
@@ -306,7 +307,6 @@ Total_Error: 0
 | [UID:000037][ConnStatusPane](by-class/ConnStatusPane.md) | unclassified |  |  | no |  | `by-class/ConnStatusPane.md` |  |
 | [UID:000036][ConnectionClosedDialog](by-class/ConnectionClosedDialog.md) | unclassified |  |  | no |  | `by-class/ConnectionClosedDialog.md` |  |
 | [UID:000039][CopyWindow](by-class/CopyWindow.md) | unclassified |  |  | no |  | `by-class/CopyWindow.md` |  |
-| [UID:00003B][CreateUserDialogPane](by-class/CreateUserDialogPane.md) | unclassified |  |  | no |  | `by-class/CreateUserDialogPane.md` |  |
 | [UID:00003E][CursorManager](by-class/CursorManager.md) | unclassified |  |  | no |  | `by-class/CursorManager.md` |  |
 | [UID:00003H][DATFileContainer](by-class/DATFileContainer.md) | unclassified |  |  | no |  | `by-class/DATFileContainer.md` |  |
 | [UID:00003K][DATIndexVector](by-class/DATIndexVector.md) | unclassified |  |  | no |  | `by-class/DATIndexVector.md` |  |

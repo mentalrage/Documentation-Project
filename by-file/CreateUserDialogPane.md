@@ -1,7 +1,7 @@
 *** UID:0000IJ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # CreateUserDialogPane
 
@@ -11,7 +11,7 @@
 - Proposed module: `login/CreateUserDialogPane.cpp`
 - Umbrella doc: [UID:0000IK][CreateUserDialogs](by-file/CreateUserDialogs.md)
 - Current recovered source: `source-3/simroot_v2/class_CreateUserDialogPane.cpp`
-- Evidence basis: `simroot_v2` method anchors plus IDA MCP lookup/caller checks through 2026-05-24.
+- Evidence basis: `simroot_v2` method anchors plus IDA MCP lookup/caller/callee/xref/decompile/disassembly checks through 2026-06-03.
 
 ## File Role
 
@@ -36,6 +36,9 @@ Keep [UID:0000LV][NewUserDialogPane](by-file/NewUserDialogPane.md) separate desp
 - IDA MCP confirms `0x0052dd30` as a `0x9bb`-byte constructor and `0x0052ed80` as a `0x1cc`-byte submit helper.
 - IDA MCP caller checks show constructor calls from `0x004f7a82` and [UID:00019P][0x004f8fa0-0x004f9055.OpenCreateUserDialog](by-memory/0x004f8fa0-0x004f9055.OpenCreateUserDialog.md) at `0x004f8ff8`.
 - Active generated output omits some methods listed by class metadata (`SetHairColorIndex`, `SetFaceColorIndex`, `OnKeyEvent`, and `OnDialogShow`), so use the class/memory docs during migration rather than the active `.cpp` alone.
+- 2026-06-03 IDA MCP recheck confirms the old-dialog method island used by this source page: constructor `0x0052dd30`, body/gender helpers `0x0052e770`, `0x0052e850`, and `0x0052e8c0`, color setters `0x0052e930` and `0x0052e950`, command dispatcher `0x0052ea80`, submit validator `0x0052ed80`, packet/payload helpers `0x0052ef50`, `0x0052f160`, response handler `0x0052f390`, singleton clear `0x0052f710`, adjustor thunks `0x0052f73b`/`0x0052f746`, and scalar deleting destructor `0x0052f800`.
+- 2026-06-03 IDA MCP xrefs confirm `0x0061fe3c` vtable references from constructor/destructor code and `0x0069b890` singleton references from the constructor, cleanup helper, and scalar deleting destructor. This ties the class, vtable data, and singleton slot to the same source module.
+- 2026-06-03 IDA MCP decompilation confirms the omitted color setters are real source-level methods called by the older hair/face color-list controls, and confirms the submit validator reads the name/password/confirmation controls, enforces the password digit rule, compares confirmation with `wcscmp`, reports failures through alert panes, and calls `0x0052ef50` on success.
 
 ## Cross-References
 
@@ -52,3 +55,7 @@ Keep [UID:0000LV][NewUserDialogPane](by-file/NewUserDialogPane.md) separate desp
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:80` and `CONFIDENCE:76`.
   - Summary/evidence: old create-user dialog role, method-family ranges, construction callers, active generated-output omissions, umbrella relationships, and helper-control split caveats are documented; confidence is capped by the unresolved split from appearance controls and newer dialog variants.
+- 2026-06-03 MCP verification and projected path:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and the page was scored `80/76`, leaving it in projected-path cleanup and below the 80-confidence parent-attachment threshold.
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/"`, `COMPLETION:82`, and `CONFIDENCE:80`.
+  - Summary/evidence: fresh IDA MCP lookup, caller/callee, xref, decompile, and disassembly checks confirmed the method island, constructor callers, vtable/singleton ownership, omitted color setters, submit validation, packet handoff, and destructor thunk shape. Confidence remains capped at 80 because exact source split from appearance controls and final field/helper naming still need reconstruction-grade review.

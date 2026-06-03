@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 199
+Total_Reconstructed_Assigned: 200
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 89
+Total_Error: 88
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -41,6 +41,7 @@ Total_Error: 89
 | [UID:0000IG][ControlPane](by-file/ControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-file/ControlPane.md` | by-file generated root |
 | [UID:0000IH][CopyWindow](by-file/CopyWindow.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/CopyWindow.cpp` | `by-file/CopyWindow.md` | by-file generated root |
 | [UID:0000II][Crasher](by-file/Crasher.md) | assigned |  |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-file/Crasher.md` | by-file generated root |
+| [UID:0000IJ][CreateUserDialogPane](by-file/CreateUserDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/CreateUserDialogPane.cpp` | `by-file/CreateUserDialogPane.md` | by-file generated root |
 | [UID:0000IK][CreateUserDialogs](by-file/CreateUserDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-file/CreateUserDialogs.md` | by-file generated root |
 | [UID:0000IN][DATFile](by-file/DATFile.md) | assigned |  |  | no | `auto-generated/NexusTK/archive/DATFile.cpp` | `by-file/DATFile.md` | by-file generated root |
 | [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md) | assigned |  |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-file/DATFileMgr.md` | by-file generated root |
@@ -225,7 +226,6 @@ Total_Error: 89
 | [UID:0000IA][ClanDialogs](by-file/ClanDialogs.md) | error |  |  | no |  | `by-file/ClanDialogs.md` | by-file generated root |
 | [UID:0000IB][CollectionDialogPane](by-file/CollectionDialogPane.md) | error |  |  | no |  | `by-file/CollectionDialogPane.md` | by-file generated root |
 | [UID:0000IF][ConnStatusPane](by-file/ConnStatusPane.md) | error |  |  | no |  | `by-file/ConnStatusPane.md` | by-file generated root |
-| [UID:0000IJ][CreateUserDialogPane](by-file/CreateUserDialogPane.md) | error |  |  | no |  | `by-file/CreateUserDialogPane.md` | by-file generated root |
 | [UID:0000IL][CursorManager](by-file/CursorManager.md) | error |  |  | no |  | `by-file/CursorManager.md` | by-file generated root |
 | [UID:0000IM][DATArchive](by-file/DATArchive.md) | error |  |  | no |  | `by-file/DATArchive.md` | by-file generated root |
 | [UID:0000J2][EPFImageControlPane](by-file/EPFImageControlPane.md) | error |  |  | no |  | `by-file/EPFImageControlPane.md` | by-file generated root |
