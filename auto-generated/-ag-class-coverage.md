@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 225
+Total_Reconstructable: 226
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 141
+Total_Reconstructed_Assigned: 142
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 360
+Total_Unclassified: 359
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -62,6 +62,7 @@ Total_Error: 0
 | [UID:000055][FittingRoomTextButtonControlPane](by-class/FittingRoomTextButtonControlPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomTextButtonControlPane.md` |  |
 | [UID:000056][FittingRoomUserImageControlPane](by-class/FittingRoomUserImageControlPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomUserImageControlPane.md` |  |
 | [UID:000058][FlyingParcelPane](by-class/FlyingParcelPane.md) | assigned | `0000MF` | 30 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/FlyingParcelPane.md` |  |
+| [UID:000059][FolderSelectDialog](by-class/FolderSelectDialog.md) | assigned | `0000JF` |  | no | `auto-generated/NexusTK/ui/dialogs/FolderSelectDialog.cpp` | `by-class/FolderSelectDialog.md` |  |
 | [UID:00005F][FpsPane](by-class/FpsPane.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-class/FpsPane.md` |  |
 | [UID:00005M][FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____](by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |  |
 | [UID:00005O][GameServerConfig](by-class/GameServerConfig.md) | assigned | `0000JP` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-class/GameServerConfig.md` |  |
@@ -330,7 +331,6 @@ Total_Error: 0
 | [UID:00004Z][FittingEquipmentState](by-class/FittingEquipmentState.md) | unclassified |  |  | no |  | `by-class/FittingEquipmentState.md` |  |
 | [UID:000050][FittingRoomDialog](by-class/FittingRoomDialog.md) | unclassified |  |  | no |  | `by-class/FittingRoomDialog.md` |  |
 | [UID:000057][FlyingObjectPane](by-class/FlyingObjectPane.md) | unclassified |  |  | no |  | `by-class/FlyingObjectPane.md` |  |
-| [UID:000059][FolderSelectDialog](by-class/FolderSelectDialog.md) | unclassified |  |  | no |  | `by-class/FolderSelectDialog.md` |  |
 | [UID:00005A][FolderTreePane](by-class/FolderTreePane.md) | unclassified |  |  | no |  | `by-class/FolderTreePane.md` |  |
 | [UID:00005C][FontStyle](by-class/FontStyle.md) | unclassified |  |  | no |  | `by-class/FontStyle.md` |  |
 | [UID:00005D][FooterSystemMessage](by-class/FooterSystemMessage.md) | unclassified |  |  | no |  | `by-class/FooterSystemMessage.md` |  |

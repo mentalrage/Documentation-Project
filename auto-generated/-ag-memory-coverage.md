@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2171
-Total_Reconstructable: 1273
+Total_Reconstructable: 1274
 Total_Not_Reconstructable: 13
-Total_Reconstructed_Assigned: 755
+Total_Reconstructed_Assigned: 756
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 518
-Total_Unclassified: 885
+Total_Unclassified: 884
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -726,6 +726,7 @@ Total_Error: 0
 | [UID:000278][0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets](by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md) | assigned | `0000P9` |  | no | `auto-generated/NexusTK/ui/dialogs/WebBoardDialog.cpp` | `by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md` |  |
 | [UID:000279][0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers](by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md) | assigned | `0000N4` |  | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |  |
 | [UID:00027B][0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag](by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-memory/0x0066d880-0x0066d888.ApplicationIdleSchedulerStaticFlag.md` |  |
+| [UID:00027D][0x0066da88-0x0066da90.FolderSelectDriveRootBuffer](by-memory/0x0066da88-0x0066da90.FolderSelectDriveRootBuffer.md) | assigned | `0000JF` |  | no | `auto-generated/NexusTK/ui/dialogs/FolderSelectDialog.cpp` | `by-memory/0x0066da88-0x0066da90.FolderSelectDriveRootBuffer.md` |  |
 | [UID:00027I][0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants](by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |  |
 | [UID:00027N][0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable](by-memory/0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0066db4c-0x0066dd50.MapPaneChecksumLookupTable.md` |  |
 | [UID:00027O][0x0066dd50-0x0066dd60.MapObjectDirectionMasks](by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0066dd50-0x0066dd60.MapObjectDirectionMasks.md` |  |
@@ -2029,7 +2030,6 @@ Total_Error: 0
 | [UID:000275][0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals](by-memory/0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals.md` |  |
 | [UID:00027A][0x0066d47c-0x0066d880.ChecksumLookupTablesData](by-memory/0x0066d47c-0x0066d880.ChecksumLookupTablesData.md) | unclassified |  |  | no |  | `by-memory/0x0066d47c-0x0066d880.ChecksumLookupTablesData.md` |  |
 | [UID:00027C][0x0066d888-0x0066da88.EventManKeyTranslationTables](by-memory/0x0066d888-0x0066da88.EventManKeyTranslationTables.md) | unclassified |  |  | no |  | `by-memory/0x0066d888-0x0066da88.EventManKeyTranslationTables.md` |  |
-| [UID:00027D][0x0066da88-0x0066da90.FolderSelectDriveRootBuffer](by-memory/0x0066da88-0x0066da90.FolderSelectDriveRootBuffer.md) | unclassified |  |  | no |  | `by-memory/0x0066da88-0x0066da90.FolderSelectDriveRootBuffer.md` |  |
 | [UID:00027E][0x0066da90-0x0066da94.g_fpsDebugActive](by-memory/0x0066da90-0x0066da94.g_fpsDebugActive.md) | unclassified |  |  | no |  | `by-memory/0x0066da90-0x0066da94.g_fpsDebugActive.md` |  |
 | [UID:0001OG][0x0066da94-0x0066da96.g_screenWidth](by-memory/0x0066da94-0x0066da96.g_screenWidth.md) | unclassified |  |  | no |  | `by-memory/0x0066da94-0x0066da96.g_screenWidth.md` |  |
 | [UID:00027F][0x0066da96-0x0066da97.g_movementSubstepScale](by-memory/0x0066da96-0x0066da97.g_movementSubstepScale.md) | unclassified |  |  | no |  | `by-memory/0x0066da96-0x0066da97.g_movementSubstepScale.md` |  |

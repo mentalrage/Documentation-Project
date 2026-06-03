@@ -198,7 +198,7 @@
 - [UID:000056][FittingRoomUserImageControlPane](by-class/FittingRoomUserImageControlPane.md) : reconstructable : 68% : medium : - Confidence: strong for local preview-pane methods, medium for all currently attached methods.
 - [UID:000057][FlyingObjectPane](by-class/FlyingObjectPane.md) : reconstructable : 76% : strong : - Confidence: strong for role and anchors.
 - [UID:000058][FlyingParcelPane](by-class/FlyingParcelPane.md) : reconstructable : 78% : strong : - Confidence: strong for parcel animation helper role, medium for final exposure.
-- [UID:000059][FolderSelectDialog](by-class/FolderSelectDialog.md) : reconstructable : 68% : medium : - Confidence: strong for class responsibility; medium for field names.
+- [UID:000059][FolderSelectDialog](by-class/FolderSelectDialog.md) : reconstructable : 74% : strong : modal folder picker attached to FolderSelectDialog source; IDA MCP rechecked method boundaries, MusicControl caller, callback flow, drive helper, vtable/drive-buffer xrefs, and destructor thunks; final field/helper names remain open.
 - [UID:00005A][FolderTreePane](by-class/FolderTreePane.md) : reconstructable : 82% : strong : - Confidence: strong for filesystem-tree control core; medium for final source split and field names.
 - [UID:00005B][FontImageLib](by-class/FontImageLib.md) : reconstructable : 86% : strong : - Confidence: strong for class role, medium for exact private field names.
 - [UID:00005C][FontStyle](by-class/FontStyle.md) : reconstructable : 72% : strong : Compact text-style descriptor with documented 0x20-byte layout, constructor/configure/cleanup methods, rule-vector storage, and cross-feature caller evidence.

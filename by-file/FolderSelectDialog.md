@@ -1,6 +1,6 @@
 *** UID:0000JF | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # FolderSelectDialog
@@ -14,7 +14,7 @@
 - Main class: [UID:000059][FolderSelectDialog](by-class/FolderSelectDialog.md)
 - Related control: [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md)
 - Main address doc: [UID:000154][0x004b1590-0x004b1b87.FolderSelectDialog](by-memory/0x004b1590-0x004b1b87.FolderSelectDialog.md)
-- Evidence basis: Wave3 generated source and IDA MCP boundary/decompilation/xref checks on 2026-05-24.
+- Evidence basis: Wave3 generated source as a lead plus IDA MCP boundary/decompilation/xref checks through 2026-06-03.
 
 ## File Role
 
@@ -38,6 +38,10 @@ This should stay in `ui/dialogs/`. The folder tree itself is a reusable control 
 - `OnCommand` at `0x004b1920` handles drive-list notifications, confirm, and cancel. Confirm calls the selected-path helper at `0x004b3090` against the folder tree iterator at `tree + 0x170`.
 - `0x004b1a00` is a real IDA function duplicating the constructor's drive-list population logic. It currently has no direct IDA code xref and is not emitted as an active Wave3 method; keep it with this source until proven dead or compiler-only.
 - The scalar deleting destructor at `0x004b1b20` destroys the callback object when present and chains to a base-dialog teardown currently mislabeled in generated source as `TransferReplyAlert::~DialogPane`.
+- 2026-06-03 IDA MCP recheck reconfirmed the source island function starts/sizes, the constructor caller at `0x0052986d`, the no-direct-caller caveat for `0x004b1a00`, and the selected-path helper caller at `0x004b197f`.
+- 2026-06-03 IDA MCP xrefs tie the three `FolderSelectDialog` vtables (`0x0061a45c`, `0x0061a4bc`, `0x0061a4ec`) to constructor, unwind/cleanup, and destructor stores, while xrefs to [UID:00027D][0x0066da88-0x0066da90.FolderSelectDriveRootBuffer](by-memory/0x0066da88-0x0066da90.FolderSelectDriveRootBuffer.md) come only from the constructor and drive-list helper.
+- 2026-06-03 IDA MCP decompilation confirms `OnCommand` dispatches OK/cancel through the callback at offset `0x270`, builds the selected folder path from the tree iterator at `tree + 0x170`, and handles drive-list notification by resetting the `FolderTreePane` root. The drive helper separately enumerates `GetLogicalDrives`, compares against `GetCurrentDirectoryA`, rewrites the wide `X:\` buffer, and selects the current drive entry.
+- 2026-06-03 IDA MCP disassembly confirms the two secondary destructor thunks and the scalar deleting destructor restore all three vtable views, release the callback function object, call the base dialog teardown, and conditionally free the object.
 
 ## Ownership Notes
 
@@ -64,3 +68,7 @@ This should stay in `ui/dialogs/`. The folder tree itself is a reusable control 
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:82` and `CONFIDENCE:78`.
   - Summary/evidence: modal folder picker role, proposed contents, drive-list helper, MusicControl callback boundary, FolderTreePane split caveat, constructor/command/destructor evidence, and cross-references are documented; confidence remains medium-high because control co-location versus separate file remains unresolved.
+- 2026-06-03 MCP verification and attachment support:
+  - What existed before: the page had a valid `NexusTK/ui/dialogs/` path and strong role documentation, but confidence remained `78`, below the parent-attachment threshold for the class.
+  - Changed to: `COMPLETION:84` and `CONFIDENCE:82`.
+  - Summary/evidence: fresh IDA MCP lookup, caller/callee, xref, decompile, and disassembly checks reconfirmed function boundaries, MusicControlDialog caller ownership, selected-path callback flow, drive-list helper behavior, vtable xrefs, drive-root buffer ownership, and destructor thunk shape. Confidence remains below final-audit quality because the `FolderTreePane` co-location question and final callback/control helper names remain unresolved.
