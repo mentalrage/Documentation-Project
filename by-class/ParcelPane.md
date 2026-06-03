@@ -1,6 +1,6 @@
 *** UID:0000A6 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000MF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for parcel notification pane behavior, medium for all helper ownership.
+- Confidence: strong for parcel notification pane behavior, vtables, layout, singleton ownership, and source-file placement; medium for final input helper semantics and whether helper classes were public or private original declarations.
 - Likely source file: [UID:0000MF][ParcelPane](by-file/ParcelPane.md)
 - Current recovered file: `source-3/simroot_v2/class_ParcelPane.cpp`
 - Memory range: [UID:0001EH][0x00545e40-0x005470ac.ParcelNotificationPanes](by-memory/0x00545e40-0x005470ac.ParcelNotificationPanes.md)
@@ -35,7 +35,7 @@
 | `0x00546290-0x00546435` | `ParcelPane::ParcelPane` | Initializes pane base, installs three vtable views, sets `g_pParcelPane`, initializes slot state/rectangles, positions the HUD pane, and starts a 100 ms timer. |
 | `0x00546440-0x005464ac` | non-deleting destructor | Resets vtables, performs pane cleanup, clears `g_pParcelPane`, and destroys the base pane. Not emitted in active `class_ParcelPane.cpp`. |
 | `0x005464b0-0x00546574` | `SetParcelSlotData` | Updates slot state/id bytes, resets dirty/animation state, positions the pane, and invalidates display. |
-| `0x005465e0-0x00546609` | `OnKeyDown` | IDA-confirmed tiny virtual; current generated body only has local structure setup. |
+| `0x005465e0-0x00546609` | `OnKeyDown` | IDA-confirmed secondary key-event virtual at vtable slot `0x00621c98`; current behavior is tiny and still below final-source naming quality. |
 | `0x00546610-0x00546806` | `OnMouseEvent` | Handles slot hit tests and dispatch/action behavior for parcel buttons. |
 | `0x00546810-0x00546887` | `ProcessSlotAnimations` | Advances slot animation state and schedules another timer. |
 | `0x00546890-0x0054696e` | `OnPaint` | Draws left and right parcel buttons from `ALERTBTN.EPF` / `ALERTBTN.PAL`. |
@@ -52,6 +52,7 @@
 - `ParcelIconPane` constructor at `0x00545e40` allocates a `ParcelPane` child and initializes the same fields as the standalone constructor, so the pane family should be documented together.
 - IDA MCP xrefs place the packet/update callback at `0x005461c0` in `ParcelIconPane`'s secondary vtable, not in the `ParcelPane` vtables. It still forwards to `ParcelPane::SetParcelSlotData` through the child pointer.
 - IDA MCP vtable dump places `ParcelPane::OnMouseEvent` at secondary slot `+0x04`, `OnKeyDown` at secondary slot `+0x08`, and `ProcessSlotAnimations` at tertiary slot `+0x04`; the tertiary table ends before the `FlyingParcelPane` RTTI at `0x00621cc8`.
+- [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md) records the exact `ParcelPane` secondary vtable slot `0x00621c98 -> 0x005465e0`, and [UID:0001VI][ParcelNotificationPaneLayouts](by-type/by-struct/ParcelNotificationPaneLayouts.md) records the `+0xa0` secondary callback offset normalization used by `OnKeyDown` and `OnMouseEvent`.
 - IDA MCP confirms generated `0x00544c50` is the shared `Pane` layer-membership helper and generated `0x005051c0` draws visible tiles from a cached surface at `this + 0x428`; neither belongs to the 0x124-byte `ParcelPane` child.
 - `FlyingParcelPane` is tightly coupled through `g_pParcelPane` and parcel delivery animation state.
 
@@ -82,3 +83,7 @@
 - Before: completion/confidence metadata were `0/0` despite detailed layout, method, vtable, global, pollution, and open-question notes.
 - Changed to: `COMPLETION:84` and `CONFIDENCE:76`.
 - Evidence: constructor/destructor, slot updates, mouse/key/timer/paint helpers, animation counters, frame mapping, scalar deleting destructor, singleton xrefs, parcel-icon ownership, and known stale FPS pollution are documented; confidence remains medium because helper ownership and full input semantics still need review.
+- 2026-06-03 confidence update:
+  - What existed before: `CONFIDENCE:76` and the `OnKeyDown` row only described the tiny generated body.
+  - Changed to: `CONFIDENCE:80`, with the key-event row tied to exact vtable-data and layout evidence.
+  - Evidence: [UID:0000MF][ParcelPane](by-file/ParcelPane.md) is a validated `NexusTK/ui/panels/` parent at 80 confidence, [UID:0001YE][ParcelNotificationVtableFamily](by-type/by-vtable/ParcelNotificationVtableFamily.md) and [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md) document the `ParcelPane` secondary key-event slot, and [UID:0001VI][ParcelNotificationPaneLayouts](by-type/by-struct/ParcelNotificationPaneLayouts.md) documents the parcel callback subobject offsets. C++ remains blank because final field names and input semantics are still not at the 95+ gate.
