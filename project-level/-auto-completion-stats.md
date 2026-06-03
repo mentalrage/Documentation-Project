@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 23:54:45
+Generated: 2026-06-03 00:00:17
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -74,7 +74,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LL` | blank | `(blank)` | `by-file/Motion.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LN` | blank | `(blank)` | `by-file/MusicControlDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LQ` | blank | `(blank)` | `by-file/NewHistoryDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LS` | blank | `(blank)` | `by-file/NewInventoryPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M0` | blank | `(blank)` | `by-file/NexonclubRegistrationDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M2` | blank | `(blank)` | `by-file/NumericStringControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M5` | blank | `(blank)` | `by-file/ObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -144,7 +143,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
 | `0000BE` | 76 | 74 | 75.0 | `by-class/PursuitMessageDialogPane.md` |
@@ -152,7 +150,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000QC` | 76 | 74 | 75.0 | `by-global/g_pBrowserFileLoadText.md` |
 | `0000QF` | 76 | 74 | 75.0 | `by-global/g_pBrowserTimeoutText.md` |
 | `0000C5` | 78 | 74 | 76.0 | `by-class/SayToPlanMessageInputPane.md` |
-| `0000LS` | 78 | 74 | 76.0 | `by-file/NewInventoryPane.md` |
 | `0000PQ` | 78 | 74 | 76.0 | `by-global/g_activeDialogCount.md` |
 | `0000PY` | 78 | 74 | 76.0 | `by-global/g_fpsDebugActive.md` |
 | `0000PZ` | 78 | 74 | 76.0 | `by-global/g_fpsLogEnabled.md` |
@@ -169,6 +166,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00008P` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_528BE0.md` |
 | `000099` | 74 | 76 | 75.0 | `by-class/NewSayToUserMessageInputPane.md` |
 | `0000A7` | 74 | 76 | 75.0 | `by-class/PartySearchEditPane.md` |
+| `0000B4` | 74 | 76 | 75.0 | `by-class/ProtectedArray_struct_GameServerConfig__NationEntry_.md` |
+| `0000G8` | 74 | 76 | 75.0 | `by-class/WorldMapNodeEntryVector.md` |
 
 ## Low_Both
 
@@ -181,7 +180,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
-| `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
@@ -199,6 +197,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
 | `0002EN` | 70 | 78 | 74.0 | `by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md` |
 | `00015I` | 70 | 78 | 74.0 | `by-memory/0x004b69b0-0x004b6adc.FpsPaneStartLogSessionRaw.md` |
+| `00015J` | 70 | 78 | 74.0 | `by-memory/0x004b6ae0-0x004b6c2b.FpsPaneWriteLogSummaryRaw.md` |
 
 ## By Folder
 
@@ -212,7 +211,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
-| `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
@@ -231,6 +229,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000034` | 70 | 80 | 75.0 | `by-class/ConfirmDeleteMailAlert.md` |
 | `0000AK` | 70 | 80 | 75.0 | `by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md` |
 | `000013` | 72 | 78 | 75.0 | `by-class/Browser.md` |
+| `000020` | 72 | 78 | 75.0 | `by-class/CheatDetector.md` |
 
 ### by-external-research
 
@@ -247,7 +246,6 @@ _No scored files._
 | `0000HI` | 70 | 82 | 76.0 | `by-file/ArgumentedMenuDialogs.md` |
 | `0000HZ` | 72 | 80 | 76.0 | `by-file/CachedHashTable.md` |
 | `0000I0` | 72 | 80 | 76.0 | `by-file/CashShopRequest.md` |
-| `0000LS` | 78 | 74 | 76.0 | `by-file/NewInventoryPane.md` |
 | `0000I1` | 70 | 84 | 77.0 | `by-file/CashShopVersionRequest.md` |
 | `0000HH` | 72 | 82 | 77.0 | `by-file/ArgumentedItemInputDialogs.md` |
 | `0000NL` | 72 | 82 | 77.0 | `by-file/SelfLookPane.md` |
@@ -265,6 +263,7 @@ _No scored files._
 | `0000KQ` | 78 | 78 | 78.0 | `by-file/LineIterator.md` |
 | `0000IJ` | 80 | 76 | 78.0 | `by-file/CreateUserDialogPane.md` |
 | `0000KV` | 80 | 76 | 78.0 | `by-file/LObject.md` |
+| `0000HM` | 72 | 86 | 79.0 | `by-file/AUTOBUF.md` |
 
 ### by-function
 

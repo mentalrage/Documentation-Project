@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 211
+Total_Reconstructable: 212
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 127
+Total_Reconstructed_Assigned: 128
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 374
+Total_Unclassified: 373
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -86,6 +86,7 @@ Total_Error: 0
 | [UID:00008V][MyError](by-class/MyError.md) | assigned | `0000J5` | 220 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/MyError.md` |  |
 | [UID:00008Z][NewCreateUserDialogPane](by-class/NewCreateUserDialogPane.md) | assigned | `0000LP` |  | no | `auto-generated/NexusTK/login/NewCreateUserDialogPane.cpp` | `by-class/NewCreateUserDialogPane.md` |  |
 | [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-class/NewHumanImageLib.md` |  |
+| [UID:000093][NewInventoryPane](by-class/NewInventoryPane.md) | assigned | `0000LS` |  | no | `auto-generated/NexusTK/ui/inventory/NewInventoryPane.cpp` | `by-class/NewInventoryPane.md` |  |
 | [UID:000097][NewOptionPane](by-class/NewOptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-class/NewOptionPane.md` |  |
 | [UID:00009D][NewUserDialogPane](by-class/NewUserDialogPane.md) | assigned | `0000LV` |  | no | `auto-generated/NexusTK/login/NewUserDialogPane.cpp` | `by-class/NewUserDialogPane.md` |  |
 | [UID:00009E][NewUserDialogPane2](by-class/NewUserDialogPane2.md) | assigned | `0000LW` |  | no | `auto-generated/NexusTK/login/NewUserDialogPane2.cpp` | `by-class/NewUserDialogPane2.md` |  |
@@ -407,7 +408,6 @@ Total_Error: 0
 | [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md) | unclassified |  |  | no |  | `by-class/MusicControlDialog.md` |  |
 | [UID:00008Y][NewArticleDialog](by-class/NewArticleDialog.md) | unclassified |  |  | no |  | `by-class/NewArticleDialog.md` |  |
 | [UID:000091][NewHistoryDialogPane](by-class/NewHistoryDialogPane.md) | unclassified |  |  | no |  | `by-class/NewHistoryDialogPane.md` |  |
-| [UID:000093][NewInventoryPane](by-class/NewInventoryPane.md) | unclassified |  |  | no |  | `by-class/NewInventoryPane.md` |  |
 | [UID:000094][NewMacroDialog](by-class/NewMacroDialog.md) | unclassified |  |  | no |  | `by-class/NewMacroDialog.md` |  |
 | [UID:000095][NewMacroEditControlPane](by-class/NewMacroEditControlPane.md) | unclassified |  |  | no |  | `by-class/NewMacroEditControlPane.md` |  |
 | [UID:000096][NewMailDialog](by-class/NewMailDialog.md) | unclassified |  |  | no |  | `by-class/NewMailDialog.md` |  |

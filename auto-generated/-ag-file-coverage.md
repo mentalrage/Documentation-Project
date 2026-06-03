@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 197
+Total_Reconstructed_Assigned: 198
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 91
+Total_Error: 90
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -114,6 +114,7 @@ Total_Error: 91
 | [UID:0000LO][MyItemListPane](by-file/MyItemListPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/MyItemListPane.cpp` | `by-file/MyItemListPane.md` | by-file generated root |
 | [UID:0000LP][NewCreateUserDialogPane](by-file/NewCreateUserDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/NewCreateUserDialogPane.cpp` | `by-file/NewCreateUserDialogPane.md` | by-file generated root |
 | [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-file/NewHumanImageLib.md` | by-file generated root |
+| [UID:0000LS][NewInventoryPane](by-file/NewInventoryPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/inventory/NewInventoryPane.cpp` | `by-file/NewInventoryPane.md` | by-file generated root |
 | [UID:0000LT][NewPredefinedFormArticleDialog](by-file/NewPredefinedFormArticleDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/NewPredefinedFormArticleDialog.cpp` | `by-file/NewPredefinedFormArticleDialog.md` | by-file generated root |
 | [UID:0000LU][NewSpellInventoryPane](by-file/NewSpellInventoryPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/inventory/NewSpellInventoryPane.cpp` | `by-file/NewSpellInventoryPane.md` | by-file generated root |
 | [UID:0000LV][NewUserDialogPane](by-file/NewUserDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/NewUserDialogPane.cpp` | `by-file/NewUserDialogPane.md` | by-file generated root |
@@ -266,7 +267,6 @@ Total_Error: 91
 | [UID:0000LL][Motion](by-file/Motion.md) | error |  |  | no |  | `by-file/Motion.md` | by-file generated root |
 | [UID:0000LN][MusicControlDialog](by-file/MusicControlDialog.md) | error |  |  | no |  | `by-file/MusicControlDialog.md` | by-file generated root |
 | [UID:0000LQ][NewHistoryDialogPane](by-file/NewHistoryDialogPane.md) | error |  |  | no |  | `by-file/NewHistoryDialogPane.md` | by-file generated root |
-| [UID:0000LS][NewInventoryPane](by-file/NewInventoryPane.md) | error |  |  | no |  | `by-file/NewInventoryPane.md` | by-file generated root |
 | [UID:0000M0][NexonclubRegistrationDialog](by-file/NexonclubRegistrationDialog.md) | error |  |  | no |  | `by-file/NexonclubRegistrationDialog.md` | by-file generated root |
 | [UID:0000M2][NumericStringControlPane](by-file/NumericStringControlPane.md) | error |  |  | no |  | `by-file/NumericStringControlPane.md` | by-file generated root |
 | [UID:0000M5][ObjectPane](by-file/ObjectPane.md) | error |  |  | no |  | `by-file/ObjectPane.md` | by-file generated root |
