@@ -1922,6 +1922,12 @@ For each ignored range, include:
   - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
   - Owner docs: [UID:0002FD][0x00480e80-0x00480ff1.ChattingVarietyPaneOnPaint](by-memory/0x00480e80-0x00480ff1.ChattingVarietyPaneOnPaint.md), [UID:0002FE][0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder](by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md).
 
+- `0x00481000-0x0048100a` - ChattingVarietyPane compiler-generated secondary forwarder.
+  - Why ignored: tiny secondary-subobject virtual forwarder with no standalone handwritten chat-mode behavior.
+  - Evidence: [UID:0002FE][0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder](by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md) records the exact IDA boundary, slot `+0x20` dispatch through `this + 0x44`, vtable xref at `0x00614ee8`, imported Wave2/Wave3 exclusion metadata, and disabled generated overlay.
+  - Replacement/procurement: regenerate through the `ChattingVarietyPane` class declaration, subobject layout, and vtables; do not hand-port the forwarding body.
+  - Owner docs: [UID:00001Y][ChattingVarietyPane](by-class/ChattingVarietyPane.md), [UID:000104][0x0047efb0-0x00483ef7.ChattingUI](by-memory/0x0047efb0-0x00483ef7.ChattingUI.md).
+
 - `0x0048100a-0x00481010` - ChattingVarietyPane forwarder/raw selector helper alignment padding.
   - Why ignored: confirmed alignment bytes after the tiny refresh forwarder and before the raw selector rectangle helper.
   - Evidence: 2026-05-31 IDA MCP raw decode reports `sub_481000` ending at `0x0048100a`, raw code beginning at `0x00481010`, and six `0xcc` bytes between them.
@@ -1963,6 +1969,12 @@ For each ignored range, include:
   - Evidence: 2026-05-31 IDA MCP function/raw-body review reports exact code bodies at [UID:0002FR][0x00481c10-0x00481d2a.ChattingHandlePaneConstructor](by-memory/0x00481c10-0x00481d2a.ChattingHandlePaneConstructor.md), [UID:0002FS][0x00481d30-0x00481d59.ChattingHandlePaneDestructor](by-memory/0x00481d30-0x00481d59.ChattingHandlePaneDestructor.md), [UID:0002FT][0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent](by-memory/0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent.md), [UID:0002FU][0x00482150-0x004822f6.ChattingHandlePaneOnPaint](by-memory/0x00482150-0x004822f6.ChattingHandlePaneOnPaint.md), [UID:0002FV][0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder](by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md), and [UID:0002FW][0x00482310-0x00482400.ChatButtonRectHelperRaw](by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md), with only `0xcc` bytes in the listed gaps.
   - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
   - Owner docs: [UID:000104][0x0047efb0-0x00483ef7.ChattingUI](by-memory/0x0047efb0-0x00483ef7.ChattingUI.md), [UID:00001V][ChattingHandlePane](by-class/ChattingHandlePane.md).
+
+- `0x00482300-0x0048230a` - ChattingHandlePane compiler-generated secondary forwarder.
+  - Why ignored: tiny secondary-subobject virtual forwarder with no standalone handwritten chat-handle behavior.
+  - Evidence: [UID:0002FV][0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder](by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md) records the exact IDA boundary, slot `+0x20` dispatch through `this + 0x44`, vtable xref at `0x00615004`, imported Wave2/Wave3 exclusion metadata, and disabled generated overlay.
+  - Replacement/procurement: regenerate through the `ChattingHandlePane` class declaration, subobject layout, and vtables; do not hand-port the forwarding body.
+  - Owner docs: [UID:00001V][ChattingHandlePane](by-class/ChattingHandlePane.md), [UID:000104][0x0047efb0-0x00483ef7.ChattingUI](by-memory/0x0047efb0-0x00483ef7.ChattingUI.md).
 
 - `0x00483ef7-0x00483f00` - ChattingUI/CheatDetector alignment padding.
   - Why ignored: confirmed `0xcc` alignment bytes after the chat UI cluster and before `CheatDetector` constructor code.

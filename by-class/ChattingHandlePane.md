@@ -29,7 +29,7 @@
 | destructor body | [UID:0002FS][0x00481d30-0x00481d59.ChattingHandlePaneDestructor](by-memory/0x00481d30-0x00481d59.ChattingHandlePaneDestructor.md) | Clears `g_pChattingHandlePane` and calls base teardown. |
 | `OnMouseEvent` | [UID:0002FT][0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent](by-memory/0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent.md) | Handles hover, mouse-down hit-test, mouse-up toggles, config writes, and invalidation. |
 | `OnPaint` | [UID:0002FU][0x00482150-0x004822f6.ChattingHandlePaneOnPaint](by-memory/0x00482150-0x004822f6.ChattingHandlePaneOnPaint.md) | Draws the three visible handle button regions from `CHATBUTT.EPF`. |
-| virtual forwarder | [UID:0002FV][0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder](by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md) | Small secondary-subobject refresh/invalidation helper. |
+| virtual forwarder | [UID:0002FV][0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder](by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md) | Compiler-generated secondary-subobject forwarder retained as vtable/layout evidence, not handwritten source. |
 | rectangle helper | [UID:0002FW][0x00482310-0x00482400.ChatButtonRectHelperRaw](by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md) | Raw IDA-unmodeled helper that writes chat handle button rectangles. |
 | [UID:000107][0x00482400-0x004824e0.GetChatButtonAtPoint](by-memory/0x00482400-0x004824e0.GetChatButtonAtPoint.md) | `0x00482400-0x004824e0` | File-local helper for hit-testing chat handle regions; includes its switch jump table tail and takes mouse coordinates, not the pane/event object. |
 | `ScalarDeletingDestructor` | `0x00483ba0` | Clears `g_pChattingHandlePane`. |
@@ -62,3 +62,4 @@
 - What it was changed to: scores were set to `78/86`.
 - Summary and evidence: mouse, paint, config, helper, destructor, and generated-signature caveat are covered; field layout and final header form remain incomplete.
 - 2026-05-31: Updated completion/confidence from `78/86` to `86/90` after splitting the exact handle cluster through `0x004824e0`, including constructor, destructor body, mouse, paint, forwarder, raw rectangle helper, and hit-test helper switch table tail. Evidence: IDA MCP function iteration, decompilation, vtable xrefs, raw head review, and padding audit.
+- 2026-06-03: Reclassified the `0x00482300` secondary forwarder as compiler-generated layout/vtable glue rather than handwritten source. Evidence: [UID:0002FV][0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder](by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md) records the IDA boundary, slot dispatch body, Wave2/Wave3 exclusion metadata, and disabled generated overlay.

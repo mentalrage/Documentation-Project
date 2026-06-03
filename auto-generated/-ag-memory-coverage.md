@@ -4,11 +4,11 @@
 
 Total_Type: 2171
 Total_Reconstructable: 1271
-Total_Not_Reconstructable: 11
+Total_Not_Reconstructable: 13
 Total_Reconstructed_Assigned: 752
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 519
-Total_Unclassified: 889
+Total_Unclassified: 887
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -767,6 +767,8 @@ Total_Error: 0
 | [UID:000294][0x0067ab1c-0x0067ab20.g_pApplication](by-memory/0x0067ab1c-0x0067ab20.g_pApplication.md) | coded | `0000HG` | 30 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067ab1c-0x0067ab20.g_pApplication.md` |  |
 | [UID:0000Z2][0x00469180-0x004691fa.PaneChildRegistry](by-memory/0x00469180-0x004691fa.PaneChildRegistry.md) | not_reconstructable |  |  | no |  | `by-memory/0x00469180-0x004691fa.PaneChildRegistry.md` |  |
 | [UID:0000ZV][0x0047ed20-0x0047ed50.ChangeManConstructorCleanup](by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md) | not_reconstructable |  |  | no |  | `by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md` |  |
+| [UID:0002FE][0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder](by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md) | not_reconstructable |  |  | no |  | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |  |
+| [UID:0002FV][0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder](by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md) | not_reconstructable |  |  | no |  | `by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md` |  |
 | [UID:00010I][0x00488610-0x004888f0.ClanListPaneVirtuals](by-memory/0x00488610-0x004888f0.ClanListPaneVirtuals.md) | not_reconstructable |  |  | no |  | `by-memory/0x00488610-0x004888f0.ClanListPaneVirtuals.md` |  |
 | [UID:00010K][0x00488fe0-0x004895fe.ClanNameDialogSubmitters](by-memory/0x00488fe0-0x004895fe.ClanNameDialogSubmitters.md) | not_reconstructable |  |  | no |  | `by-memory/0x00488fe0-0x004895fe.ClanNameDialogSubmitters.md` |  |
 | [UID:00010M][0x00489fc0-0x0048a0be.ClanEnlistChangeLeaveSubmitters](by-memory/0x00489fc0-0x0048a0be.ClanEnlistChangeLeaveSubmitters.md) | not_reconstructable |  |  | no |  | `by-memory/0x00489fc0-0x0048a0be.ClanEnlistChangeLeaveSubmitters.md` |  |
@@ -1529,7 +1531,6 @@ Total_Error: 0
 | [UID:0002FB][0x00480ca0-0x00480cc9.ChattingVarietyPaneDestructor](by-memory/0x00480ca0-0x00480cc9.ChattingVarietyPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00480ca0-0x00480cc9.ChattingVarietyPaneDestructor.md` |  |
 | [UID:0002FC][0x00480cd0-0x00480e80.ChattingVarietyPaneOnMouseEvent](by-memory/0x00480cd0-0x00480e80.ChattingVarietyPaneOnMouseEvent.md) | unclassified |  |  | no |  | `by-memory/0x00480cd0-0x00480e80.ChattingVarietyPaneOnMouseEvent.md` |  |
 | [UID:0002FD][0x00480e80-0x00480ff1.ChattingVarietyPaneOnPaint](by-memory/0x00480e80-0x00480ff1.ChattingVarietyPaneOnPaint.md) | unclassified |  |  | no |  | `by-memory/0x00480e80-0x00480ff1.ChattingVarietyPaneOnPaint.md` |  |
-| [UID:0002FE][0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder](by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md) | unclassified |  |  | no |  | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |  |
 | [UID:0002FH][0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw](by-memory/0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw.md) | unclassified |  |  | no |  | `by-memory/0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw.md` |  |
 | [UID:0002FI][0x00481150-0x004811bc.ChattingVarietySelectPaneDestructor](by-memory/0x00481150-0x004811bc.ChattingVarietySelectPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00481150-0x004811bc.ChattingVarietySelectPaneDestructor.md` |  |
 | [UID:0002FJ][0x004811c0-0x00481461.ChattingVarietySelectPaneOnMouseEvent](by-memory/0x004811c0-0x00481461.ChattingVarietySelectPaneOnMouseEvent.md) | unclassified |  |  | no |  | `by-memory/0x004811c0-0x00481461.ChattingVarietySelectPaneOnMouseEvent.md` |  |
@@ -1543,7 +1544,6 @@ Total_Error: 0
 | [UID:0002FS][0x00481d30-0x00481d59.ChattingHandlePaneDestructor](by-memory/0x00481d30-0x00481d59.ChattingHandlePaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00481d30-0x00481d59.ChattingHandlePaneDestructor.md` |  |
 | [UID:0002FT][0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent](by-memory/0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent.md) | unclassified |  |  | no |  | `by-memory/0x00481d60-0x0048214f.ChattingHandlePaneOnMouseEvent.md` |  |
 | [UID:0002FU][0x00482150-0x004822f6.ChattingHandlePaneOnPaint](by-memory/0x00482150-0x004822f6.ChattingHandlePaneOnPaint.md) | unclassified |  |  | no |  | `by-memory/0x00482150-0x004822f6.ChattingHandlePaneOnPaint.md` |  |
-| [UID:0002FV][0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder](by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md) | unclassified |  |  | no |  | `by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md` |  |
 | [UID:000107][0x00482400-0x004824e0.GetChatButtonAtPoint](by-memory/0x00482400-0x004824e0.GetChatButtonAtPoint.md) | unclassified |  |  | no |  | `by-memory/0x00482400-0x004824e0.GetChatButtonAtPoint.md` |  |
 | [UID:0002FX][0x004824e0-0x00482b01.ChattingColorPaneConstructor](by-memory/0x004824e0-0x00482b01.ChattingColorPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x004824e0-0x00482b01.ChattingColorPaneConstructor.md` |  |
 | [UID:0002FY][0x00482b10-0x00482b2f.ChattingColorPaneDestructor](by-memory/0x00482b10-0x00482b2f.ChattingColorPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00482b10-0x00482b2f.ChattingColorPaneDestructor.md` |  |

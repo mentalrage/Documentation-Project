@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 23:37:29
+Generated: 2026-06-02 23:42:08
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -109,7 +109,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000OS` | blank | `(blank)` | `by-file/ThreadSafeNodeList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-
 ## Low_Completion
 
 | UID | Completion | Confidence | Combined | Path |
@@ -121,7 +120,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
-| `0002FE` | 68 | 80 | 74.0 | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
@@ -138,7 +136,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000WJ` | 68 | 82 | 75.0 | `by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md` |
 | `0002DL` | 68 | 82 | 75.0 | `by-memory/0x0041f2b0-0x0041fb9b.FittingRoomListPaneOnPaint.md` |
 | `0002EG` | 68 | 82 | 75.0 | `by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md` |
-| `0002FV` | 68 | 82 | 75.0 | `by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md` |
+| `0002BR` | 68 | 82 | 75.0 | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |
+| `000114` | 68 | 82 | 75.0 | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |
 
 ## Low_Confidence
 
@@ -187,7 +186,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
-| `0002FE` | 68 | 80 | 74.0 | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
@@ -199,6 +197,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
 | `000061` | 70 | 78 | 74.0 | `by-class/HeaderSystemMessage.md` |
 | `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
+| `0002F7` | 70 | 78 | 74.0 | `by-memory/0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys.md` |
 
 ## By Folder
 
@@ -335,7 +334,6 @@ _No scored files._
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
-| `0002FE` | 68 | 80 | 74.0 | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
@@ -359,6 +357,7 @@ _No scored files._
 | `0000WI` | 68 | 82 | 75.0 | `by-memory/0x0041a670-0x0041b69f.FileDownloaderDispatch.md` |
 | `0000WJ` | 68 | 82 | 75.0 | `by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md` |
 | `0002DL` | 68 | 82 | 75.0 | `by-memory/0x0041f2b0-0x0041fb9b.FittingRoomListPaneOnPaint.md` |
+| `0002EG` | 68 | 82 | 75.0 | `by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md` |
 
 ### by-meta
 
