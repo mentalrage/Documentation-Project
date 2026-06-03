@@ -37,17 +37,17 @@
 
 ## Important Methods
 
-| Address | Current name | Notes |
+| Range doc | Current name | Notes |
 | --- | --- | --- |
-| `0x004cf1f0-0x004cf25d` | constructor | Registers singleton, reads config byte `+0x28de32`, initializes show/selected/pressed state. |
-| `0x004cf260-0x004cf289` | cleanup helper | Reinstalls vtables, clears singleton, calls shared pane cleanup. Current active output emits it as `IconsPane::Cleanup`. |
-| `0x004cf290-0x004cf297` | `IsShowingAllIcons` | Returns `showAllIcons`. |
-| `0x004cf2a0-0x004cf2c6` | `ShowAllIcons` | Sets config byte `+0x28de32` to `0`, flips `showAllIcons`, invalidates bounds. |
-| `0x004cf2d0-0x004cf2f6` | `ShowReducedIcons` | Sets config byte `+0x28de32` to `1`, clears `showAllIcons`, invalidates bounds. |
-| `0x004cf300-0x004cf3d3` | `OnPaint` | Draws `ICONS.EPD` frames through `NPAL7.PAL`; pressed icon uses frame `index + 8`. |
-| `0x004cf3e0-0x004cf74b` | `OnMouseEvent` | Handles capture, pressed state, click actions, and tooltips. |
-| `0x004cf7d0-0x004cf862` | `HitTestIcon` | Converts coordinates to icon index; reduced mode starts at icon `6`. |
-| `0x004cf870-0x004cf8d5` | `SetIconHighlight` | Invalidates the selected icon rectangle when highlight state changes. |
+| [UID:0002SW][0x004cf1f0-0x004cf25d.IconsPaneConstructor](by-memory/0x004cf1f0-0x004cf25d.IconsPaneConstructor.md) | constructor | Registers singleton, reads config byte `+0x28de32`, initializes show/selected/pressed state. |
+| [UID:0002SX][0x004cf260-0x004cf289.IconsPaneCleanupHelper](by-memory/0x004cf260-0x004cf289.IconsPaneCleanupHelper.md) | cleanup helper | Reinstalls vtables, clears singleton, calls shared pane cleanup. Current active output emits it as `IconsPane::Cleanup`. |
+| [UID:0002SY][0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons](by-memory/0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons.md) | `IsShowingAllIcons` | Returns `showAllIcons`. |
+| [UID:0002SZ][0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons](by-memory/0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons.md) | `ShowAllIcons` | Sets config byte `+0x28de32` to `0`, flips `showAllIcons`, invalidates bounds. |
+| [UID:0002T0][0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons](by-memory/0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons.md) | `ShowReducedIcons` | Sets config byte `+0x28de32` to `1`, clears `showAllIcons`, invalidates bounds. |
+| [UID:0002T1][0x004cf300-0x004cf3d3.IconsPaneOnPaint](by-memory/0x004cf300-0x004cf3d3.IconsPaneOnPaint.md) | `OnPaint` | Draws `ICONS.EPD` frames through `NPAL7.PAL`; pressed icon uses frame `index + 8`. |
+| [UID:0002T2][0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent](by-memory/0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent.md) | `OnMouseEvent` | Handles capture, pressed state, click actions, and tooltips. |
+| [UID:0002T3][0x004cf7d0-0x004cf862.IconsPaneHitTestIcon](by-memory/0x004cf7d0-0x004cf862.IconsPaneHitTestIcon.md) | `HitTestIcon` | Converts coordinates to icon index; reduced mode starts at icon `6`. |
+| [UID:0002T4][0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight](by-memory/0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight.md) | `SetIconHighlight` | Invalidates the selected icon rectangle when highlight state changes. |
 | `0x004cf8e0-0x004cf975` | raw action dispatch candidate | Function-shaped duplicate/candidate of the click-action switch, with local jump table and no IDA function object/direct external xrefs. |
 | `0x004cfd6c-0x004cfd81` | adjustor thunks | Subtract `0xa0`/`0xa4` and forward to scalar deleting destructor. |
 | `0x004cfda0-0x004cfdff` | scalar deleting destructor | Clears singleton, calls shared pane cleanup, optionally frees `this` unless `flags & 4` is set. |
@@ -82,6 +82,15 @@
 - [UID:0000R6][g_pIconsPane](by-global/g_pIconsPane.md)
 - [UID:0001RD][iconspane-icon-resources](by-resource/iconspane-icon-resources.md)
 - [UID:0000EB][TabPane](by-class/TabPane.md)
+- [UID:0002SW][0x004cf1f0-0x004cf25d.IconsPaneConstructor](by-memory/0x004cf1f0-0x004cf25d.IconsPaneConstructor.md)
+- [UID:0002SX][0x004cf260-0x004cf289.IconsPaneCleanupHelper](by-memory/0x004cf260-0x004cf289.IconsPaneCleanupHelper.md)
+- [UID:0002SY][0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons](by-memory/0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons.md)
+- [UID:0002SZ][0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons](by-memory/0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons.md)
+- [UID:0002T0][0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons](by-memory/0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons.md)
+- [UID:0002T1][0x004cf300-0x004cf3d3.IconsPaneOnPaint](by-memory/0x004cf300-0x004cf3d3.IconsPaneOnPaint.md)
+- [UID:0002T2][0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent](by-memory/0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent.md)
+- [UID:0002T3][0x004cf7d0-0x004cf862.IconsPaneHitTestIcon](by-memory/0x004cf7d0-0x004cf862.IconsPaneHitTestIcon.md)
+- [UID:0002T4][0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight](by-memory/0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight.md)
 
 ## Changes
 
@@ -94,3 +103,7 @@
   - What existed before: the class was scored `82/80` with no reconstructable flag or parent attachment.
   - Changed to: confidence `82`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000JZ`.
   - Summary/evidence: the file parent now has a validated `NexusTK/ui/panels/` projected path; reconstructed C++ remains blank under the 95+ gate.
+- 2026-06-03 exact memory split:
+  - What existed before: the important-method table listed bare addresses under the broad [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md) aggregate.
+  - Changed to: the table now links exact child pages [UID:0002SW][0x004cf1f0-0x004cf25d.IconsPaneConstructor](by-memory/0x004cf1f0-0x004cf25d.IconsPaneConstructor.md) through [UID:0002T4][0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight](by-memory/0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight.md) for constructor, cleanup, state, paint, mouse, hit-test, and highlight helpers.
+  - Summary/evidence: the child pages are reconstructable source-owned `IconsPane` methods/helpers with blank C++ under the 95+ gate.

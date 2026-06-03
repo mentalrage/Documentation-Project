@@ -32,7 +32,7 @@ The projected path is now `NexusTK/ui/panels/` because [UID:0001R1][proposed-sou
 
 | Entity | Address evidence | Role |
 | --- | --- | --- |
-| `IconsPane` core | `0x004cf1f0-0x004cf8d5` | Constructor, cleanup helper, show-all/reduced state methods, paint, mouse handling, hit test, pressed-state invalidation. |
+| `IconsPane` core | [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md), split into [UID:0002SW][0x004cf1f0-0x004cf25d.IconsPaneConstructor](by-memory/0x004cf1f0-0x004cf25d.IconsPaneConstructor.md), [UID:0002SX][0x004cf260-0x004cf289.IconsPaneCleanupHelper](by-memory/0x004cf260-0x004cf289.IconsPaneCleanupHelper.md), [UID:0002SY][0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons](by-memory/0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons.md), [UID:0002SZ][0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons](by-memory/0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons.md), [UID:0002T0][0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons](by-memory/0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons.md), [UID:0002T1][0x004cf300-0x004cf3d3.IconsPaneOnPaint](by-memory/0x004cf300-0x004cf3d3.IconsPaneOnPaint.md), [UID:0002T2][0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent](by-memory/0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent.md), [UID:0002T3][0x004cf7d0-0x004cf862.IconsPaneHitTestIcon](by-memory/0x004cf7d0-0x004cf862.IconsPaneHitTestIcon.md), and [UID:0002T4][0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight](by-memory/0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight.md) | Constructor, cleanup helper, show-all/reduced state methods, paint, mouse handling, hit test, pressed-state invalidation. |
 | `IconsPane` raw action dispatch candidate | `0x004cf8e0-0x004cf975` | Function-shaped duplicate/candidate of the click-action switch, with local jump table and no IDA function object/direct external xrefs. |
 | `IconsPane` destructor glue | `0x004cfd6c-0x004cfd81`, `0x004cfda0-0x004cfdff` | Adjustor thunks and scalar deleting destructor interleaved after `TabPane` core code. |
 | `g_pIconsPane` | `0x0069b41c` | Singleton pointer registered by constructor, cleared by cleanup/destructor paths, and read during main UI shutdown plus option UI paths. |
@@ -63,6 +63,15 @@ The `IconsPane` destructor glue is physically interleaved with [UID:0000OF][TabP
 - [UID:0001RD][iconspane-icon-resources](by-resource/iconspane-icon-resources.md)
 - [UID:0000OF][TabPane](by-file/TabPane.md)
 - [UID:0000M7][OptionPane](by-file/OptionPane.md)
+- [UID:0002SW][0x004cf1f0-0x004cf25d.IconsPaneConstructor](by-memory/0x004cf1f0-0x004cf25d.IconsPaneConstructor.md)
+- [UID:0002SX][0x004cf260-0x004cf289.IconsPaneCleanupHelper](by-memory/0x004cf260-0x004cf289.IconsPaneCleanupHelper.md)
+- [UID:0002SY][0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons](by-memory/0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons.md)
+- [UID:0002SZ][0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons](by-memory/0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons.md)
+- [UID:0002T0][0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons](by-memory/0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons.md)
+- [UID:0002T1][0x004cf300-0x004cf3d3.IconsPaneOnPaint](by-memory/0x004cf300-0x004cf3d3.IconsPaneOnPaint.md)
+- [UID:0002T2][0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent](by-memory/0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent.md)
+- [UID:0002T3][0x004cf7d0-0x004cf862.IconsPaneHitTestIcon](by-memory/0x004cf7d0-0x004cf862.IconsPaneHitTestIcon.md)
+- [UID:0002T4][0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight](by-memory/0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight.md)
 
 ## Changes
 
@@ -78,3 +87,7 @@ The `IconsPane` destructor glue is physically interleaved with [UID:0000OF][TabP
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and confidence was `80`.
   - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/"` and confidence `82`.
   - Summary/evidence: the proposed source tree and existing IDA-backed memory/class/global/resource docs place `IconsPane.cpp` in the old-layout UI panels folder.
+- 2026-06-03 exact memory split:
+  - What existed before: the proposed-contents table listed the core as one broad address aggregate.
+  - Changed to: the core row now links [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md) plus exact child pages [UID:0002SW][0x004cf1f0-0x004cf25d.IconsPaneConstructor](by-memory/0x004cf1f0-0x004cf25d.IconsPaneConstructor.md) through [UID:0002T4][0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight](by-memory/0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight.md).
+  - Summary/evidence: the split preserves the same file ownership while documenting the individual reconstructable source-owned methods/helpers; reconstructed C++ remains blank under the 95+ gate.
