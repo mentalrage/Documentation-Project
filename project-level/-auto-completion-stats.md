@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 18:16:35
+Generated: 2026-06-03 18:42:20
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -101,12 +101,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0002HV` | 70 | 84 | 77.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
-| `0002I1` | 70 | 84 | 77.0 | `by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md` |
-| `0002J4` | 70 | 84 | 77.0 | `by-memory/0x00516f70-0x00516f74.MenuItemStateFlag0Accessor.md` |
-| `0002J5` | 70 | 84 | 77.0 | `by-memory/0x00516f90-0x00516f94.MenuItemStateFlag1Accessor.md` |
-| `0002JJ` | 70 | 84 | 77.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
-| `0002JK` | 70 | 84 | 77.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
 | `0001NY` | 70 | 84 | 77.0 | `by-memory/0x005c1120-0x005c11b4.WaitableTimerRawStartStop.md` |
 | `0002SS` | 70 | 84 | 77.0 | `by-memory/0x0061e8e0-0x0061e8f0.DialogCreatorVtableData.md` |
 | `0002B5` | 70 | 84 | 77.0 | `by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md` |
@@ -125,6 +119,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000V5` | 70 | 85 | 77.5 | `by-item/ParseEntries_004A5E60.md` |
 | `0000V7` | 70 | 85 | 77.5 | `by-item/PhoneBookListHelpers_58cfa0_58dcb0.md` |
 | `0000V8` | 70 | 85 | 77.5 | `by-item/PopupMenuSelectionCallback_0049AF00.md` |
+| `0000VA` | 70 | 85 | 77.5 | `by-item/ResolveSpritePartPath_004E19D0.md` |
+| `0000VB` | 70 | 85 | 77.5 | `by-item/ResourceLayoutEntry.md` |
+| `0000VC` | 70 | 85 | 77.5 | `by-item/ScaleDirectionOffsetToPixels_00505100.md` |
+| `0000VE` | 70 | 85 | 77.5 | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |
+| `0000VF` | 70 | 85 | 77.5 | `by-item/ScreenshotProofPacket_00558240.md` |
+| `0000VG` | 70 | 85 | 77.5 | `by-item/ServerSelectHelpers_574510_5745b0.md` |
 
 ## Low_Confidence
 
