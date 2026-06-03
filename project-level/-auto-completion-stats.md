@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 20:13:42
+Generated: 2026-06-02 20:25:47
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -76,7 +76,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LQ` | blank | `(blank)` | `by-file/NewHistoryDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LS` | blank | `(blank)` | `by-file/NewInventoryPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LY` | blank | `(blank)` | `by-file/NewUserShapeSelectControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LZ` | blank | `(blank)` | `by-file/NexonclubProxyDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M0` | blank | `(blank)` | `by-file/NexonclubRegistrationDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M2` | blank | `(blank)` | `by-file/NumericStringControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M5` | blank | `(blank)` | `by-file/ObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -110,7 +109,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000OK` | blank | `(blank)` | `by-file/TextButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OM` | blank | `(blank)` | `by-file/TextEditControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OS` | blank | `(blank)` | `by-file/ThreadSafeNodeList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000P3` | blank | `(blank)` | `by-file/VectorHelpers.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 
@@ -118,8 +116,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00009H` | 68 | 76 | 72.0 | `by-class/NexonclubProxyDialog.md` |
-| `0000BS` | 68 | 76 | 72.0 | `by-class/RecordVector_4E57C0.md` |
 | `0000CR` | 68 | 76 | 72.0 | `by-class/SelectionControlPane.md` |
 | `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
 | `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
@@ -143,6 +139,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
 | `00016O` | 68 | 78 | 73.0 | `by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md` |
 | `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
+| `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
+| `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
 
 ## Low_Confidence
 
@@ -168,18 +166,16 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000QF` | 76 | 74 | 75.0 | `by-global/g_pBrowserTimeoutText.md` |
 | `0000C5` | 78 | 74 | 76.0 | `by-class/SayToPlanMessageInputPane.md` |
 | `0000LS` | 78 | 74 | 76.0 | `by-file/NewInventoryPane.md` |
-| `0000LZ` | 78 | 74 | 76.0 | `by-file/NexonclubProxyDialog.md` |
-| `0000P3` | 78 | 74 | 76.0 | `by-file/VectorHelpers.md` |
 | `0000PQ` | 78 | 74 | 76.0 | `by-global/g_activeDialogCount.md` |
 | `0000PY` | 78 | 74 | 76.0 | `by-global/g_fpsDebugActive.md` |
 | `0000PZ` | 78 | 74 | 76.0 | `by-global/g_fpsLogEnabled.md` |
+| `0000FI` | 80 | 74 | 77.0 | `by-class/UserFaceColorSelectListPane.md` |
+| `0000FK` | 80 | 74 | 77.0 | `by-class/UserHairColorSelectListPane.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00009H` | 68 | 76 | 72.0 | `by-class/NexonclubProxyDialog.md` |
-| `0000BS` | 68 | 76 | 72.0 | `by-class/RecordVector_4E57C0.md` |
 | `0000CR` | 68 | 76 | 72.0 | `by-class/SelectionControlPane.md` |
 | `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
 | `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
@@ -203,6 +199,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `0002JW` | 68 | 78 | 73.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
+| `0002FP` | 68 | 78 | 73.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
+| `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
 
 ## By Folder
 
@@ -210,8 +208,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00009H` | 68 | 76 | 72.0 | `by-class/NexonclubProxyDialog.md` |
-| `0000BS` | 68 | 76 | 72.0 | `by-class/RecordVector_4E57C0.md` |
 | `0000CR` | 68 | 76 | 72.0 | `by-class/SelectionControlPane.md` |
 | `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
 | `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
@@ -235,6 +231,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
 | `000070` | 72 | 76 | 74.0 | `by-class/LakeEffecter.md` |
 | `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
+| `0000C9` | 72 | 76 | 74.0 | `by-class/ScreenEffecter.md` |
+| `0000CP` | 72 | 76 | 74.0 | `by-class/ScrollWidget.md` |
 
 ### by-external-research
 
@@ -255,8 +253,6 @@ _No scored files._
 | `0000HZ` | 72 | 80 | 76.0 | `by-file/CachedHashTable.md` |
 | `0000I0` | 72 | 80 | 76.0 | `by-file/CashShopRequest.md` |
 | `0000LS` | 78 | 74 | 76.0 | `by-file/NewInventoryPane.md` |
-| `0000LZ` | 78 | 74 | 76.0 | `by-file/NexonclubProxyDialog.md` |
-| `0000P3` | 78 | 74 | 76.0 | `by-file/VectorHelpers.md` |
 | `0000NP` | 80 | 72 | 76.0 | `by-file/Session.md` |
 | `0000I1` | 70 | 84 | 77.0 | `by-file/CashShopVersionRequest.md` |
 | `0000HH` | 72 | 82 | 77.0 | `by-file/ArgumentedItemInputDialogs.md` |
@@ -269,6 +265,8 @@ _No scored files._
 | `0000JC` | 72 | 84 | 78.0 | `by-file/FileDownloader.md` |
 | `0000OB` | 72 | 84 | 78.0 | `by-file/StringUtil.md` |
 | `0000HW` | 74 | 82 | 78.0 | `by-file/BulletinReplyAlerts.md` |
+| `0000LP` | 76 | 80 | 78.0 | `by-file/NewCreateUserDialogPane.md` |
+| `0000J2` | 78 | 78 | 78.0 | `by-file/EPFImageControlPane.md` |
 
 ### by-function
 

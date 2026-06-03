@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 199
+Total_Reconstructable: 201
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 112
+Total_Reconstructed_Assigned: 115
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 386
+Total_Reconstructable_Unassigned: 86
+Total_Unclassified: 384
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -81,6 +81,7 @@ Total_Error: 0
 | [UID:00009D][NewUserDialogPane](by-class/NewUserDialogPane.md) | assigned | `0000LV` |  | no | `auto-generated/NexusTK/login/NewUserDialogPane.cpp` | `by-class/NewUserDialogPane.md` |  |
 | [UID:00009E][NewUserDialogPane2](by-class/NewUserDialogPane2.md) | assigned | `0000LW` |  | no | `auto-generated/NexusTK/login/NewUserDialogPane2.cpp` | `by-class/NewUserDialogPane2.md` |  |
 | [UID:00009F][NewUserMiscDialogPane](by-class/NewUserMiscDialogPane.md) | assigned | `0000LX` |  | no | `auto-generated/NexusTK/login/NewUserMiscDialogPane.cpp` | `by-class/NewUserMiscDialogPane.md` |  |
+| [UID:00009H][NexonclubProxyDialog](by-class/NexonclubProxyDialog.md) | assigned | `0000LZ` |  | no | `auto-generated/NexusTK/ui/dialogs/NexonclubProxyDialog.cpp` | `by-class/NexonclubProxyDialog.md` |  |
 | [UID:00009J][NumberArgsInputPane](by-class/NumberArgsInputPane.md) | assigned | `0000K7` |  | no | `auto-generated/NexusTK/ui/dialogs/InputPanes.cpp` | `by-class/NumberArgsInputPane.md` |  |
 | [UID:00009L][NumberInputPane](by-class/NumberInputPane.md) | assigned | `0000K7` |  | no | `auto-generated/NexusTK/ui/dialogs/InputPanes.cpp` | `by-class/NumberInputPane.md` |  |
 | [UID:00009V][OptionPane](by-class/OptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-class/OptionPane.md` |  |
@@ -98,6 +99,7 @@ Total_Error: 0
 | [UID:0000BJ][RainingLayerPane](by-class/RainingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/RainingLayerPane.md` |  |
 | [UID:0000BL][RankingCategoryRecord](by-class/RankingCategoryRecord.md) | assigned | `0000MZ` | 50 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingCategoryRecord.md` |  |
 | [UID:0000BO][RankingEventScrollPane](by-class/RankingEventScrollPane.md) | assigned | `0000MZ` | 20 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingEventScrollPane.md` |  |
+| [UID:0000BS][RecordVector_4E57C0](by-class/RecordVector_4E57C0.md) | assigned | `0000P3` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-class/RecordVector_4E57C0.md` |  |
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-class/RectBounds.md` |  |
 | [UID:0000BX][RequestSyncGate](by-class/RequestSyncGate.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/RequestSyncGate.md` |  |
 | [UID:0000C3][SayInputPane](by-class/SayInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayInputPane.md` |  |
@@ -116,6 +118,7 @@ Total_Error: 0
 | [UID:0000F6][TransferReplyPredefinedAlert](by-class/TransferReplyPredefinedAlert.md) | assigned | `0000HW` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/TransferReplyPredefinedAlert.md` |  |
 | [UID:0000FA][TreeItor_near_class_EventHandler___](by-class/TreeItor_near_class_EventHandler___.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/TreeItor_near_class_EventHandler___.md` |  |
 | [UID:0000F8][Tree_near_class_EventHandler___](by-class/Tree_near_class_EventHandler___.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/Tree_near_class_EventHandler___.md` |  |
+| [UID:0000FD][UInt32Vector](by-class/UInt32Vector.md) | assigned | `0000P3` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-class/UInt32Vector.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
 | [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md) | assigned | `0000P4` |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-class/VideoPlayerPane.md` |  |
 | [UID:0000GB][WSAError](by-class/WSAError.md) | assigned | `0000J5` | 160 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/WSAError.md` |  |
@@ -207,7 +210,6 @@ Total_Error: 0
 | [UID:0000E8][StringMenuItem](by-class/StringMenuItem.md) | unassigned |  |  | no |  | `by-class/StringMenuItem.md` |  |
 | [UID:0000EW][ThreadMan](by-class/ThreadMan.md) | unassigned |  |  | no |  | `by-class/ThreadMan.md` |  |
 | [UID:0000F3][TimerPane](by-class/TimerPane.md) | unassigned |  |  | no |  | `by-class/TimerPane.md` |  |
-| [UID:0000FD][UInt32Vector](by-class/UInt32Vector.md) | unassigned |  |  | no |  | `by-class/UInt32Vector.md` |  |
 | [UID:0000FS][UserStatusPane](by-class/UserStatusPane.md) | unassigned |  |  | no |  | `by-class/UserStatusPane.md` |  |
 | [UID:0000FW][VirusChecker](by-class/VirusChecker.md) | unassigned |  |  | no |  | `by-class/VirusChecker.md` |  |
 | [UID:0000FX][VoteMenuPane](by-class/VoteMenuPane.md) | unassigned |  |  | no |  | `by-class/VoteMenuPane.md` |  |
@@ -411,7 +413,6 @@ Total_Error: 0
 | [UID:00009B][NewSystemMessageModifyHeightPane](by-class/NewSystemMessageModifyHeightPane.md) | unclassified |  |  | no |  | `by-class/NewSystemMessageModifyHeightPane.md` |  |
 | [UID:00009C][NewSystemMessagePane](by-class/NewSystemMessagePane.md) | unclassified |  |  | no |  | `by-class/NewSystemMessagePane.md` |  |
 | [UID:00009G][NewUserShapeSelectControlPane](by-class/NewUserShapeSelectControlPane.md) | unclassified |  |  | no |  | `by-class/NewUserShapeSelectControlPane.md` |  |
-| [UID:00009H][NexonclubProxyDialog](by-class/NexonclubProxyDialog.md) | unclassified |  |  | no |  | `by-class/NexonclubProxyDialog.md` |  |
 | [UID:00009I][NexonclubRegistrationDialog](by-class/NexonclubRegistrationDialog.md) | unclassified |  |  | no |  | `by-class/NexonclubRegistrationDialog.md` |  |
 | [UID:00009K][NumberInputDialog](by-class/NumberInputDialog.md) | unclassified |  |  | no |  | `by-class/NumberInputDialog.md` |  |
 | [UID:00009M][NumericStringControlPane](by-class/NumericStringControlPane.md) | unclassified |  |  | no |  | `by-class/NumericStringControlPane.md` |  |
@@ -473,7 +474,6 @@ Total_Error: 0
 | [UID:0000BP][RankingRewardInfoDialog](by-class/RankingRewardInfoDialog.md) | unclassified |  |  | no |  | `by-class/RankingRewardInfoDialog.md` |  |
 | [UID:0000BQ][RankingUserListPane](by-class/RankingUserListPane.md) | unclassified |  |  | no |  | `by-class/RankingUserListPane.md` |  |
 | [UID:0000BR][ReconnectDialog](by-class/ReconnectDialog.md) | unclassified |  |  | no |  | `by-class/ReconnectDialog.md` |  |
-| [UID:0000BS][RecordVector_4E57C0](by-class/RecordVector_4E57C0.md) | unclassified |  |  | no |  | `by-class/RecordVector_4E57C0.md` |  |
 | [UID:0000BT][RectangleControlPane](by-class/RectangleControlPane.md) | unclassified |  |  | no |  | `by-class/RectangleControlPane.md` |  |
 | [UID:0000BV][Region](by-class/Region.md) | unclassified |  |  | no |  | `by-class/Region.md` |  |
 | [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md) | unclassified |  |  | no |  | `by-class/RegistryConfig.md` |  |

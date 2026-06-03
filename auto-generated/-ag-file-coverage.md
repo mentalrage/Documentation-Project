@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 193
+Total_Reconstructed_Assigned: 195
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 95
+Total_Error: 93
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -118,6 +118,7 @@ Total_Error: 95
 | [UID:0000LV][NewUserDialogPane](by-file/NewUserDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/NewUserDialogPane.cpp` | `by-file/NewUserDialogPane.md` | by-file generated root |
 | [UID:0000LW][NewUserDialogPane2](by-file/NewUserDialogPane2.md) | assigned |  |  | no | `auto-generated/NexusTK/login/NewUserDialogPane2.cpp` | `by-file/NewUserDialogPane2.md` | by-file generated root |
 | [UID:0000LX][NewUserMiscDialogPane](by-file/NewUserMiscDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/NewUserMiscDialogPane.cpp` | `by-file/NewUserMiscDialogPane.md` | by-file generated root |
+| [UID:0000LZ][NexonclubProxyDialog](by-file/NexonclubProxyDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/NexonclubProxyDialog.cpp` | `by-file/NexonclubProxyDialog.md` | by-file generated root |
 | [UID:0000M1][NumberInputDialog](by-file/NumberInputDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/NumberInputDialog.cpp` | `by-file/NumberInputDialog.md` | by-file generated root |
 | [UID:0000M3][ObjectImageControlPane](by-file/ObjectImageControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ObjectImageControlPane.cpp` | `by-file/ObjectImageControlPane.md` | by-file generated root |
 | [UID:0000M4][ObjectList](by-file/ObjectList.md) | assigned |  |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-file/ObjectList.md` | by-file generated root |
@@ -196,6 +197,7 @@ Total_Error: 95
 | [UID:0000P0][UserLookPane](by-file/UserLookPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/UserLookPane.cpp` | `by-file/UserLookPane.md` | by-file generated root |
 | [UID:0000P1][UserPane](by-file/UserPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-file/UserPane.md` | by-file generated root |
 | [UID:0000P2][UserStatusPane](by-file/UserStatusPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/UserStatusPane.cpp` | `by-file/UserStatusPane.md` | by-file generated root |
+| [UID:0000P3][VectorHelpers](by-file/VectorHelpers.md) | assigned |  |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-file/VectorHelpers.md` | by-file generated root |
 | [UID:0000P4][VideoPlayerPane](by-file/VideoPlayerPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-file/VideoPlayerPane.md` | by-file generated root |
 | [UID:0000P5][VirusChecker](by-file/VirusChecker.md) | assigned |  |  | no | `auto-generated/NexusTK/security/VirusChecker.cpp` | `by-file/VirusChecker.md` | by-file generated root |
 | [UID:0000P6][VoteMenuPane](by-file/VoteMenuPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/menu/VoteMenuPane.cpp` | `by-file/VoteMenuPane.md` | by-file generated root |
@@ -264,7 +266,6 @@ Total_Error: 95
 | [UID:0000LQ][NewHistoryDialogPane](by-file/NewHistoryDialogPane.md) | error |  |  | no |  | `by-file/NewHistoryDialogPane.md` | by-file generated root |
 | [UID:0000LS][NewInventoryPane](by-file/NewInventoryPane.md) | error |  |  | no |  | `by-file/NewInventoryPane.md` | by-file generated root |
 | [UID:0000LY][NewUserShapeSelectControlPane](by-file/NewUserShapeSelectControlPane.md) | error |  |  | no |  | `by-file/NewUserShapeSelectControlPane.md` | by-file generated root |
-| [UID:0000LZ][NexonclubProxyDialog](by-file/NexonclubProxyDialog.md) | error |  |  | no |  | `by-file/NexonclubProxyDialog.md` | by-file generated root |
 | [UID:0000M0][NexonclubRegistrationDialog](by-file/NexonclubRegistrationDialog.md) | error |  |  | no |  | `by-file/NexonclubRegistrationDialog.md` | by-file generated root |
 | [UID:0000M2][NumericStringControlPane](by-file/NumericStringControlPane.md) | error |  |  | no |  | `by-file/NumericStringControlPane.md` | by-file generated root |
 | [UID:0000M5][ObjectPane](by-file/ObjectPane.md) | error |  |  | no |  | `by-file/ObjectPane.md` | by-file generated root |
@@ -298,6 +299,5 @@ Total_Error: 95
 | [UID:0000OK][TextButtonControlPane](by-file/TextButtonControlPane.md) | error |  |  | no |  | `by-file/TextButtonControlPane.md` | by-file generated root |
 | [UID:0000OM][TextEditControlPane](by-file/TextEditControlPane.md) | error |  |  | no |  | `by-file/TextEditControlPane.md` | by-file generated root |
 | [UID:0000OS][ThreadSafeNodeList](by-file/ThreadSafeNodeList.md) | error |  |  | no |  | `by-file/ThreadSafeNodeList.md` | by-file generated root |
-| [UID:0000P3][VectorHelpers](by-file/VectorHelpers.md) | error |  |  | no |  | `by-file/VectorHelpers.md` | by-file generated root |
 | [UID:0000PB][WorldMapPane](by-file/WorldMapPane.md) | error |  |  | no |  | `by-file/WorldMapPane.md` | by-file generated root |
 | [UID:0000PC][Zlib](by-file/Zlib.md) | error |  |  | no |  | `by-file/Zlib.md` | by-file generated root |

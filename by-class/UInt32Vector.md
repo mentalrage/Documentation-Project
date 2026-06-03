@@ -2,7 +2,7 @@
 *** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P3 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -34,7 +34,7 @@
 
 IDA caller checks for the fill constructor show calls from `MapPane::HandleObjectCreatePacket` and `WorldMapPane::BuildReachabilityData`. Keep this as shared vector support; the feature files own the algorithms that consume the temporary bitsets.
 
-[UID:0000P3][VectorHelpers](by-file/VectorHelpers.md) and [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) both model this as reusable `util/VectorHelpers.h`-style support rather than a feature-owned `MapPane` or `WorldMapPane` class. Do not set an autogen parent yet: the proposed owner page is still below the >=80 confidence threshold and its final path remains deliberately provisional.
+[UID:0000P3][VectorHelpers](by-file/VectorHelpers.md) and [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) both model this as reusable `util/VectorHelpers.h`-style support rather than a feature-owned `MapPane` or `WorldMapPane` class. This page now attaches to `VectorHelpers` because the parent file has a validated `NexusTK/util/` projection and confidence above 80; final generated code remains blank.
 
 ## Evidence Notes
 
@@ -46,7 +46,7 @@ IDA caller checks for the fill constructor show calls from `MapPane::HandleObjec
 ## Autogen Status
 
 - Reconstructable: true for the constructor and generic vector-support role.
-- Parent: intentionally blank. `VectorHelpers` is the best current source artifact, but it is provisional and below the documented child-attachment threshold.
+- Parent: [UID:0000P3][VectorHelpers](by-file/VectorHelpers.md), now above the documented child-attachment threshold.
 - Code: intentionally blank. The constructor behavior is clear, but final source likely came from a template/header instantiation, and emitting handwritten C++ would overstate the recovered artifact.
 
 ## Score Rationale
@@ -72,3 +72,4 @@ IDA caller checks for the fill constructor show calls from `MapPane::HandleObjec
   - Changed to: `COMPLETION:70` and `CONFIDENCE:72`.
   - Summary/evidence: scored from the fill-constructor behavior, documented helper addresses, caller checks, and shared vector-support placement; score remains limited because only the constructor is strongly detailed here while the helper family still relies on earlier by-memory classification.
 - 2026-06-02: Raised to `76/82`, marked reconstructable, and added source-structure, helper-island, and scoring rationale evidence. Parent remains blank because `VectorHelpers` is still provisional and below the child-attachment confidence threshold.
+- 2026-06-02: Attached parent [UID:0000P3][VectorHelpers](by-file/VectorHelpers.md) after that file reached `82` confidence and a valid `NexusTK/util/` projection. C++ remains blank because final template/header shape is unresolved.
