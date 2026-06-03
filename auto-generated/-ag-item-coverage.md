@@ -5,9 +5,9 @@
 Total_Type: 64
 Total_Reconstructable: 27
 Total_Not_Reconstructable: 2
-Total_Reconstructed_Assigned: 5
+Total_Reconstructed_Assigned: 6
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 22
+Total_Reconstructable_Unassigned: 21
 Total_Unclassified: 35
 Total_Error: 0
 
@@ -16,6 +16,7 @@ Total_Error: 0
 | [UID:0000UZ][LoadPcxImage_004A17B0](by-item/LoadPcxImage_004A17B0.md) | assigned | `0000K3` |  | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-item/LoadPcxImage_004A17B0.md` |  |
 | [UID:0000V2][PacketDigest_00515380](by-item/PacketDigest_00515380.md) | assigned | `0000L6` |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-item/PacketDigest_00515380.md` |  |
 | [UID:0000V3][PacketTransformHelpers](by-item/PacketTransformHelpers.md) | assigned | `0000M9` |  | no | `auto-generated/NexusTK/network/PacketTransform.cpp` | `by-item/PacketTransformHelpers.md` |  |
+| [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md) | assigned | `0000MI` |  | no | `auto-generated/NexusTK/util/PathUtil.cpp` | `by-item/PathExistsViaStat_00582460.md` |  |
 | [UID:0000V9][ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90](by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md` |  |
 | [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |  |
 | [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md) | not_reconstructable |  |  | no |  | `by-item/InitAlphaSurfaceView_004623C0.md` |  |
@@ -30,7 +31,6 @@ Total_Error: 0
 | [UID:0000V1][PacketBufferHelpers](by-item/PacketBufferHelpers.md) | unassigned |  |  | no |  | `by-item/PacketBufferHelpers.md` |  |
 | [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md) | unassigned |  |  | no |  | `by-item/PaletteSlotTable.md` |  |
 | [UID:0000V5][ParseEntries_004A5E60](by-item/ParseEntries_004A5E60.md) | unassigned |  |  | no |  | `by-item/ParseEntries_004A5E60.md` |  |
-| [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md) | unassigned |  |  | no |  | `by-item/PathExistsViaStat_00582460.md` |  |
 | [UID:0000V7][PhoneBookListHelpers_58cfa0_58dcb0](by-item/PhoneBookListHelpers_58cfa0_58dcb0.md) | unassigned |  |  | no |  | `by-item/PhoneBookListHelpers_58cfa0_58dcb0.md` |  |
 | [UID:0000V8][PopupMenuSelectionCallback_0049AF00](by-item/PopupMenuSelectionCallback_0049AF00.md) | unassigned |  |  | no |  | `by-item/PopupMenuSelectionCallback_0049AF00.md` |  |
 | [UID:0000VA][ResolveSpritePartPath_004E19D0](by-item/ResolveSpritePartPath_004E19D0.md) | unassigned |  |  | no |  | `by-item/ResolveSpritePartPath_004E19D0.md` |  |

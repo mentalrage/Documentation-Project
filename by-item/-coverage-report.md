@@ -63,7 +63,7 @@
 - [UID:0000V3][PacketTransformHelpers](by-item/PacketTransformHelpers.md) : reconstructable : 50% : medium : - Confidence: strong for behavior, medium for exact original filenames.
 - [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md) : reconstructable : 70% : strong : - Confidence: strong for slot numbers and filenames loaded by `PaletteLib::PaletteLib`.
 - [UID:0000V5][ParseEntries_004A5E60](by-item/ParseEntries_004A5E60.md) : reconstructable : 70% : strong : - Confidence: strong
-- [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md) : reconstructable : 70% : strong : - Confidence: strong
+- [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md) : reconstructable : 74% : strong : Shared wide-path `_wstat64i32` existence helper now attached to [UID:0000MI][PathUtil](by-file/PathUtil.md) for autogen tracking; final C++ remains blank pending dispatch-pointer/source-split cleanup.
 - [UID:0000V7][PhoneBookListHelpers_58cfa0_58dcb0](by-item/PhoneBookListHelpers_58cfa0_58dcb0.md) : reconstructable : 50% : medium : - Confidence: strong for phone-book ownership of `0x0058cfa0`; medium for final name of `0x0058dcb0`.
 - [UID:0000V8][PopupMenuSelectionCallback_0049AF00](by-item/PopupMenuSelectionCallback_0049AF00.md) : reconstructable : 50% : medium : - Address range: `0x0049af00-0x0049af11`
 - [UID:0000V9][ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90](by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md) : reconstructable : 72% : strong : - Confidence: strong for helper behavior, medium for final emitted-source modeling policy.

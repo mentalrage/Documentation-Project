@@ -5,9 +5,9 @@
 Total_Type: 2171
 Total_Reconstructable: 1272
 Total_Not_Reconstructable: 13
-Total_Reconstructed_Assigned: 752
+Total_Reconstructed_Assigned: 753
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 520
+Total_Reconstructable_Unassigned: 519
 Total_Unclassified: 886
 Total_Error: 0
 
@@ -593,6 +593,7 @@ Total_Error: 0
 | [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md` |  |
 | [UID:0001IR][0x00582070-0x005824f6.StdioFile](by-memory/0x00582070-0x005824f6.StdioFile.md) | assigned | `0000O9` |  | no | `auto-generated/NexusTK/util/StdioFile.cpp` | `by-memory/0x00582070-0x005824f6.StdioFile.md` |  |
 | [UID:0002RH][0x00582380-0x00582405.StdioFileReadLineWideHelper](by-memory/0x00582380-0x00582405.StdioFileReadLineWideHelper.md) | assigned | `0000O9` |  | no | `auto-generated/NexusTK/util/StdioFile.cpp` | `by-memory/0x00582380-0x00582405.StdioFileReadLineWideHelper.md` |  |
+| [UID:0001IZ][0x00582460-0x00582495.PathExistsViaStat](by-memory/0x00582460-0x00582495.PathExistsViaStat.md) | assigned | `0000MI` |  | no | `auto-generated/NexusTK/util/PathUtil.cpp` | `by-memory/0x00582460-0x00582495.PathExistsViaStat.md` |  |
 | [UID:0002RM][0x00582500-0x005829b6.StringBaseConversionConstructors](by-memory/0x00582500-0x005829b6.StringBaseConversionConstructors.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x00582500-0x005829b6.StringBaseConversionConstructors.md` |  |
 | [UID:0001J1][0x00582500-0x00583206.LObjectStringConstructionAndCow](by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md` |  |
 | [UID:0002RN][0x005829f0-0x00582d80.StringBaseShareAssignAndAccess](by-memory/0x005829f0-0x00582d80.StringBaseShareAssignAndAccess.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x005829f0-0x00582d80.StringBaseShareAssignAndAccess.md` |  |
@@ -1114,7 +1115,6 @@ Total_Error: 0
 | [UID:0001IW][0x00582250-0x005822c1.StdioFileReadLineChars](by-memory/0x00582250-0x005822c1.StdioFileReadLineChars.md) | unassigned |  |  | no |  | `by-memory/0x00582250-0x005822c1.StdioFileReadLineChars.md` |  |
 | [UID:0001IX][0x005822d0-0x00582379.StdioFileReadLine](by-memory/0x005822d0-0x00582379.StdioFileReadLine.md) | unassigned |  |  | no |  | `by-memory/0x005822d0-0x00582379.StdioFileReadLine.md` |  |
 | [UID:0001IY][0x00582410-0x00582459.StdioFileReadRemaining](by-memory/0x00582410-0x00582459.StdioFileReadRemaining.md) | unassigned |  |  | no |  | `by-memory/0x00582410-0x00582459.StdioFileReadRemaining.md` |  |
-| [UID:0001IZ][0x00582460-0x00582495.PathExistsViaStat](by-memory/0x00582460-0x00582495.PathExistsViaStat.md) | unassigned |  |  | no |  | `by-memory/0x00582460-0x00582495.PathExistsViaStat.md` |  |
 | [UID:0001J0][0x005824a0-0x005824f6.StdioFileScalarDeletingDestructor](by-memory/0x005824a0-0x005824f6.StdioFileScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x005824a0-0x005824f6.StdioFileScalarDeletingDestructor.md` |  |
 | [UID:0002LJ][0x00583210-0x00583272.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md) | unassigned |  |  | no |  | `by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md` |  |
 | [UID:0002LK][0x00583280-0x005832e2.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md) | unassigned |  |  | no |  | `by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md` |  |
