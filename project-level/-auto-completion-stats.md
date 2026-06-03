@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 23:26:54
+Generated: 2026-06-02 23:31:20
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -119,7 +119,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
-| `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `0002FE` | 68 | 80 | 74.0 | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |
@@ -139,6 +138,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000WJ` | 68 | 82 | 75.0 | `by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md` |
 | `0002DL` | 68 | 82 | 75.0 | `by-memory/0x0041f2b0-0x0041fb9b.FittingRoomListPaneOnPaint.md` |
 | `0002EG` | 68 | 82 | 75.0 | `by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md` |
+| `0002FV` | 68 | 82 | 75.0 | `by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md` |
 
 ## Low_Confidence
 
@@ -179,7 +179,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
-| `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 | `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
@@ -199,6 +198,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
 | `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
+| `000061` | 70 | 78 | 74.0 | `by-class/HeaderSystemMessage.md` |
 
 ## By Folder
 
@@ -334,7 +334,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
 | `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
 | `0002KD` | 70 | 76 | 73.0 | `by-memory/0x005465e0-0x0054660a.ParcelPaneOnKeyDown.md` |
 | `0002FE` | 68 | 80 | 74.0 | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |
@@ -359,6 +358,7 @@ _No scored files._
 | `0002LC` | 70 | 78 | 74.0 | `by-memory/0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw.md` |
 | `0002LD` | 70 | 78 | 74.0 | `by-memory/0x00565490-0x005654ec.ScrollVolumePaneResetInteractionStateRaw.md` |
 | `0000WI` | 68 | 82 | 75.0 | `by-memory/0x0041a670-0x0041b69f.FileDownloaderDispatch.md` |
+| `0000WJ` | 68 | 82 | 75.0 | `by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md` |
 
 ### by-meta
 

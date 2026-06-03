@@ -5,9 +5,9 @@
 Total_Type: 2171
 Total_Reconstructable: 1271
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 751
+Total_Reconstructed_Assigned: 752
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 520
+Total_Reconstructable_Unassigned: 519
 Total_Unclassified: 889
 Total_Error: 0
 
@@ -388,6 +388,7 @@ Total_Error: 0
 | [UID:0001AS][0x005063e0-0x00506962.ProfileSidecarRefresh](by-memory/0x005063e0-0x00506962.ProfileSidecarRefresh.md) | assigned | `0000MS` |  | no | `auto-generated/NexusTK/profile/ProfileStorage.cpp` | `by-memory/0x005063e0-0x00506962.ProfileSidecarRefresh.md` |  |
 | [UID:0001AU][0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane](by-memory/0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane.md` |  |
 | [UID:000232][0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch](by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md) | assigned | `0000L3` | 36 | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md` |  |
+| [UID:0001AW][0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete](by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |  |
 | [UID:0001AY][0x00513800-0x00513920.SelfSaveOKPaneFactory](by-memory/0x00513800-0x00513920.SelfSaveOKPaneFactory.md) | assigned | `0000NN` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveOKPane.cpp` | `by-memory/0x00513800-0x00513920.SelfSaveOKPaneFactory.md` |  |
 | [UID:0001AZ][0x00514380-0x005143b7.FriendNameListSyncRawHandler](by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |  |
 | [UID:0001B0][0x005147d0-0x00514914.SelfSaveOKPane](by-memory/0x005147d0-0x00514914.SelfSaveOKPane.md) | assigned | `0000NN` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveOKPane.cpp` | `by-memory/0x005147d0-0x00514914.SelfSaveOKPane.md` |  |
@@ -1012,7 +1013,6 @@ Total_Error: 0
 | [UID:0002I7][0x00504110-0x00504521.MapPaneInitialize](by-memory/0x00504110-0x00504521.MapPaneInitialize.md) | unassigned |  |  | no |  | `by-memory/0x00504110-0x00504521.MapPaneInitialize.md` |  |
 | [UID:0001AT][0x00506970-0x0050e320.MapPaneInputPacketRenderCore](by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md) | unassigned |  |  | no |  | `by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md` |  |
 | [UID:0001AV][0x0050aba0-0x0050b078.SaveUserSettings](by-memory/0x0050aba0-0x0050b078.SaveUserSettings.md) | unassigned |  |  | no |  | `by-memory/0x0050aba0-0x0050b078.SaveUserSettings.md` |  |
-| [UID:0001AW][0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete](by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md) | unassigned |  |  | no |  | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |  |
 | [UID:0001B4][0x00514d50-0x00514ddc.GameServerNationTableDelete](by-memory/0x00514d50-0x00514ddc.GameServerNationTableDelete.md) | unassigned |  |  | no |  | `by-memory/0x00514d50-0x00514ddc.GameServerNationTableDelete.md` |  |
 | [UID:000234][0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize](by-memory/0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize.md) | unassigned |  |  | no |  | `by-memory/0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize.md` |  |
 | [UID:0001BK][0x00516290-0x00517441.MenuPaneAndItems](by-memory/0x00516290-0x00517441.MenuPaneAndItems.md) | unassigned |  |  | no |  | `by-memory/0x00516290-0x00517441.MenuPaneAndItems.md` |  |
