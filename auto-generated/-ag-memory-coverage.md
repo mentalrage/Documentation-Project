@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2242
-Total_Reconstructable: 1380
+Total_Reconstructable: 1381
 Total_Not_Reconstructable: 15
-Total_Reconstructed_Assigned: 853
+Total_Reconstructed_Assigned: 854
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 522
-Total_Unclassified: 847
+Total_Unclassified: 846
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -23,6 +23,7 @@ Total_Error: 5
 | [UID:0000WJ][0x0041aa00-0x0041b2c9.CashShopVersionAndCatalogDownload](by-memory/0x0041aa00-0x0041b2c9.CashShopVersionAndCatalogDownload.md) | assigned | `0000JC` |  | no | `auto-generated/NexusTK/network/FileDownloader.cpp` | `by-memory/0x0041aa00-0x0041b2c9.CashShopVersionAndCatalogDownload.md` |  |
 | [UID:0002TT][0x0041ae20-0x0041b10c.DownloadCashShopCatalog](by-memory/0x0041ae20-0x0041b10c.DownloadCashShopCatalog.md) | assigned | `0000JC` |  | no | `auto-generated/NexusTK/network/FileDownloader.cpp` | `by-memory/0x0041ae20-0x0041b10c.DownloadCashShopCatalog.md` |  |
 | [UID:0002TU][0x0041b110-0x0041b180.FileDownloaderOnMessage](by-memory/0x0041b110-0x0041b180.FileDownloaderOnMessage.md) | assigned | `0000JC` |  | no | `auto-generated/NexusTK/network/FileDownloader.cpp` | `by-memory/0x0041b110-0x0041b180.FileDownloaderOnMessage.md` |  |
+| [UID:0002CN][0x0041b5e0-0x0041b604.CashShopVersionRequestScalarDeletingDestructor](by-memory/0x0041b5e0-0x0041b604.CashShopVersionRequestScalarDeletingDestructor.md) | assigned | `00001I` | 20 | no | `auto-generated/NexusTK/cashshop/CashShopVersionRequest.cpp` | `by-memory/0x0041b5e0-0x0041b604.CashShopVersionRequestScalarDeletingDestructor.md` |  |
 | [UID:0002D6][0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw](by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md) | assigned | `000054` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041dab0-0x0041e1c6.FittingRoomScrollPaneOnDraw.md` |  |
 | [UID:0002DA][0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers](by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md) | assigned | `000054` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041e780-0x0041e8af.FittingRoomScrollPaneRawPartStateHelpers.md` |  |
 | [UID:0002DF][0x0041ee10-0x0041f0b0.FittingRoomListPaneUpdateScrollBar](by-memory/0x0041ee10-0x0041f0b0.FittingRoomListPaneUpdateScrollBar.md) | assigned | `000053` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x0041ee10-0x0041f0b0.FittingRoomListPaneUpdateScrollBar.md` |  |
@@ -1441,7 +1442,6 @@ Total_Error: 5
 | [UID:0002CL][0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest](by-memory/0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest.md) | unclassified |  |  | no |  | `by-memory/0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest.md` |  |
 | [UID:0000WK][0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal](by-memory/0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal.md) | unclassified |  |  | no |  | `by-memory/0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal.md` |  |
 | [UID:0002CM][0x0041b570-0x0041b5db.CashShopRequestScalarDeletingDestructor](by-memory/0x0041b570-0x0041b5db.CashShopRequestScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0041b570-0x0041b5db.CashShopRequestScalarDeletingDestructor.md` |  |
-| [UID:0002CN][0x0041b5e0-0x0041b604.CashShopVersionRequestScalarDeletingDestructor](by-memory/0x0041b5e0-0x0041b604.CashShopVersionRequestScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0041b5e0-0x0041b604.CashShopVersionRequestScalarDeletingDestructor.md` |  |
 | [UID:0002CO][0x0041b610-0x0041b69f.FileDownloaderScalarDeletingDestructor](by-memory/0x0041b610-0x0041b69f.FileDownloaderScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0041b610-0x0041b69f.FileDownloaderScalarDeletingDestructor.md` |  |
 | [UID:0000WL][0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual](by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md) | unclassified |  |  | no |  | `by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md` |  |
 | [UID:0000WM][0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual](by-memory/0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual.md) | unclassified |  |  | no |  | `by-memory/0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual.md` |  |

@@ -63,7 +63,7 @@
 - [UID:00001E][ButtonControlPane](by-class/ButtonControlPane.md) : reconstructable : 66% : medium : base button role is clear; generated helper names and full event/layout semantics remain incomplete.
 - [UID:00001F][CachedHashTable](by-class/CachedHashTable.md) : reconstructable : 82% : strong : Utility hash/cache table layout, lifecycle methods, raw helper island, exact vtable-data child range, and no-caller caveat are documented; live construction remains unresolved.
 - [UID:00001H][CashShopRequest](by-class/CashShopRequest.md) : reconstructable : 50% : medium : - Confidence: strong for class ownership, medium for final original module split.
-- [UID:00001I][CashShopVersionRequest](by-class/CashShopVersionRequest.md) : reconstructable : 70% : strong : - Confidence: strong for method behavior.
+- [UID:00001I][CashShopVersionRequest](by-class/CashShopVersionRequest.md) : reconstructable : 78% : strong : - Confidence: strong for vtable/destructor and request-payload behavior; medium for final submit-helper owner.
 - [UID:00001J][ChangeItemSlotInputPane](by-class/ChangeItemSlotInputPane.md) : reconstructable : 82% : strong : Change-slot prompt with raw constructor, `?` help shortcut, comma-split submit parser, slot-letter mapping, opcode `0x30` packet layout, vtable identity, and padding boundaries documented.
 - [UID:00001K][ChangeMan](by-class/ChangeMan.md) : reconstructable : 84% : strong : application-wide change/message subscription router with layout, exact vtable-data child, singleton, method map, and wrapper evidence.
 - [UID:00001L][ChangePasswordDialogPane](by-class/ChangePasswordDialogPane.md) : reconstructable : 82% : strong : password-change dialog and packet-helper cluster are documented; final login/account file fold remains open.

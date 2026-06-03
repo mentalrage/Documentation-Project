@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 15:30:26
+Generated: 2026-06-03 15:43:18
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -22,7 +22,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000HK` | blank | `(blank)` | `by-file/AttachedObjectPaneHelper_53AEC0.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HN` | blank | `(blank)` | `by-file/AutoInit.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000I1` | blank | `(blank)` | `by-file/CashShopVersionRequest.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IA` | blank | `(blank)` | `by-file/ClanDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IB` | blank | `(blank)` | `by-file/CollectionDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -102,8 +101,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `00001I` | 70 | 84 | 77.0 | `by-class/CashShopVersionRequest.md` |
-| `0000I1` | 70 | 84 | 77.0 | `by-file/CashShopVersionRequest.md` |
 | `0000SM` | 70 | 84 | 77.0 | `by-global/g_pUrlAlertPane.md` |
 | `0000ST` | 70 | 84 | 77.0 | `by-global/g_screenHeight.md` |
 | `0000SU` | 70 | 84 | 77.0 | `by-global/g_screenWidth.md` |
@@ -126,6 +123,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002I1` | 70 | 84 | 77.0 | `by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md` |
 | `0002J4` | 70 | 84 | 77.0 | `by-memory/0x00516f70-0x00516f74.MenuItemStateFlag0Accessor.md` |
 | `0002J5` | 70 | 84 | 77.0 | `by-memory/0x00516f90-0x00516f94.MenuItemStateFlag1Accessor.md` |
+| `0002JJ` | 70 | 84 | 77.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
+| `0002JK` | 70 | 84 | 77.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
 
 ## Low_Confidence
 
@@ -229,7 +228,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `0000HZ` | 72 | 80 | 76.0 | `by-file/CachedHashTable.md` |
 | `0000I0` | 72 | 80 | 76.0 | `by-file/CashShopRequest.md` |
-| `0000I1` | 70 | 84 | 77.0 | `by-file/CashShopVersionRequest.md` |
 | `0000HH` | 72 | 82 | 77.0 | `by-file/ArgumentedItemInputDialogs.md` |
 | `0000HQ` | 72 | 82 | 77.0 | `by-file/BinaryCodec.md` |
 | `0000NL` | 72 | 82 | 77.0 | `by-file/SelfLookPane.md` |
@@ -252,6 +250,7 @@ _No scored files._
 | `0000HO` | 76 | 82 | 79.0 | `by-file/BackPane.md` |
 | `0000NY` | 76 | 82 | 79.0 | `by-file/SpecializedButtonPanes.md` |
 | `0000L4` | 78 | 80 | 79.0 | `by-file/MapRefreshDimmer.md` |
+| `0000MI` | 78 | 80 | 79.0 | `by-file/PathUtil.md` |
 
 ### by-function
 
