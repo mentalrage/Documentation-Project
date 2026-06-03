@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2171
-Total_Reconstructable: 1271
+Total_Reconstructable: 1272
 Total_Not_Reconstructable: 13
 Total_Reconstructed_Assigned: 752
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 519
-Total_Unclassified: 887
+Total_Reconstructable_Unassigned: 520
+Total_Unclassified: 886
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -826,6 +826,7 @@ Total_Error: 0
 | [UID:000101][0x0047ef20-0x0047ef3f.CompareChangeEntries](by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md) | unassigned |  |  | no |  | `by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md` |  |
 | [UID:000102][0x0047ef40-0x0047ef4b.ClearChangeManSingleton](by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md) | unassigned |  |  | no |  | `by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md` |  |
 | [UID:000103][0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor](by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md` |  |
+| [UID:0002F7][0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys](by-memory/0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys.md) | unassigned |  |  | no |  | `by-memory/0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys.md` |  |
 | [UID:0002G3][0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw](by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md) | unassigned |  |  | no |  | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |  |
 | [UID:0002G4][0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw](by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md) | unassigned |  |  | no |  | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |  |
 | [UID:00010A][0x00484030-0x00484221.ClanStatusPaneConstructor](by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md` |  |
@@ -1524,7 +1525,6 @@ Total_Error: 0
 | [UID:0002F4][0x004807b0-0x0048085e.ChattingModifyHeightPaneConstructor](by-memory/0x004807b0-0x0048085e.ChattingModifyHeightPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x004807b0-0x0048085e.ChattingModifyHeightPaneConstructor.md` |  |
 | [UID:0002F5][0x00480860-0x00480889.ChattingModifyHeightPaneDestructor](by-memory/0x00480860-0x00480889.ChattingModifyHeightPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00480860-0x00480889.ChattingModifyHeightPaneDestructor.md` |  |
 | [UID:0002F6][0x00480890-0x00480a7b.ChattingModifyHeightPaneOnMouseEvent](by-memory/0x00480890-0x00480a7b.ChattingModifyHeightPaneOnMouseEvent.md) | unclassified |  |  | no |  | `by-memory/0x00480890-0x00480a7b.ChattingModifyHeightPaneOnMouseEvent.md` |  |
-| [UID:0002F7][0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys](by-memory/0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys.md) | unclassified |  |  | no |  | `by-memory/0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys.md` |  |
 | [UID:0002F8][0x00480ad0-0x00480ba3.ChattingModifyHeightPaneSetLineCount](by-memory/0x00480ad0-0x00480ba3.ChattingModifyHeightPaneSetLineCount.md) | unclassified |  |  | no |  | `by-memory/0x00480ad0-0x00480ba3.ChattingModifyHeightPaneSetLineCount.md` |  |
 | [UID:0002F9][0x00480bb0-0x00480c45.ChattingModifyHeightPaneOnPaint](by-memory/0x00480bb0-0x00480c45.ChattingModifyHeightPaneOnPaint.md) | unclassified |  |  | no |  | `by-memory/0x00480bb0-0x00480c45.ChattingModifyHeightPaneOnPaint.md` |  |
 | [UID:0002FA][0x00480c50-0x00480c9f.ChattingVarietyPaneConstructor](by-memory/0x00480c50-0x00480c9f.ChattingVarietyPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00480c50-0x00480c9f.ChattingVarietyPaneConstructor.md` |  |
