@@ -259,7 +259,7 @@
 - [UID:00006V][ItemObjectPane](by-class/ItemObjectPane.md) : reconstructable : 74% : strong : - Confidence: strong for role and anchors.
 - [UID:00006W][ItemObjImageLib](by-class/ItemObjImageLib.md) : reconstructable : 86% : strong : Item sprite image-library singleton with IDA-confirmed method bounds, layout, vtable/global anchors, `ItemInfo` row usage, resource inputs, and unresolved exact child-page split documented.
 - [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) : reconstructable : 80% : strong : Target-selection input pane attached to `TargetSelectionInputPanes.cpp`; exact constructor/destructor/key/mouse/object-list/clear/scalar-destructor pages, saved-target global refs, and boundary evidence documented.
-- [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) : reconstructable : 62% : medium : - Confidence: strong for helper behavior; medium for final owner source file.
+- [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) : reconstructable : 70% : strong : Target-selection state helper attached to `TargetSelectionInputPanes`, with exact setter evidence, sibling spell helper context, and no-code blocker documented.
 - [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md) : reconstructable : 86% : strong : Keyboard repeat singleton with IDA-confirmed object layout, vtable, singleton global, exact method/helper split, raw unreferenced setter caveat, and input-file placement.
 - [UID:000070][LakeEffecter](by-class/LakeEffecter.md) : reconstructable : 72% : medium : - Confidence: strong for role, medium for constructor boundary because IDA does not currently model `0x0055b810` as a function object.
 - [UID:000071][LanguageMan](by-class/LanguageMan.md) : reconstructable : 86% : strong : - Confidence: strong for layout, lifecycle, lookup helper ownership, singleton, and RTTI/name evidence.
@@ -495,7 +495,7 @@
 - [UID:0000DJ][SoundStatusPane](by-class/SoundStatusPane.md) : reconstructable : 84% : medium-high : - Confidence: strong for behavior and range, medium for exact inherited base names.
 - [UID:0000DK][SpelledPane](by-class/SpelledPane.md) : reconstructable : 86% : medium-high : - Confidence: strong for constructor and methods; medium for final file ownership.
 - [UID:0000DL][SpellFourArgsInputPane](by-class/SpellFourArgsInputPane.md) : reconstructable : 86% : strong : - Confidence: strong for behavior and IDA boundaries.
-- [UID:0000DM][SpellInputPaneState](by-class/SpellInputPaneState.md) : reconstructable : 68% : medium-high : - Confidence: strong for helper behavior; medium for final owner source file.
+- [UID:0000DM][SpellInputPaneState](by-class/SpellInputPaneState.md) : reconstructable : 70% : strong : Target-selection state helper attached to `TargetSelectionInputPanes`, with exact setter evidence, sibling item helper context, and no-code blocker documented.
 - [UID:0000DN][SpellInventoryPane](by-class/SpellInventoryPane.md) : reconstructable : 84% : strong : - Confidence: strong for behavior and inventory-module placement.
 - [UID:0000DO][SpellInventoryPane2](by-class/SpellInventoryPane2.md) : reconstructable : 76% : medium-high : - Confidence: strong for alternate spell-pane behavior, medium for constructor boundary.
 - [UID:0000DP][SpellMacroDialog](by-class/SpellMacroDialog.md) : reconstructable : 80% : strong : - Confidence: strong.

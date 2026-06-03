@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 20:31:01
+Generated: 2026-06-02 20:35:03
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -116,7 +116,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
 | `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
 | `0002FF` | 68 | 76 | 72.0 | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |
 | `0002FG` | 68 | 76 | 72.0 | `by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md` |
@@ -141,6 +140,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
 | `0002C9` | 68 | 78 | 73.0 | `by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md` |
+| `0002CA` | 68 | 78 | 73.0 | `by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md` |
 
 ## Low_Confidence
 
@@ -176,7 +176,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
 | `0002EY` | 68 | 76 | 72.0 | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |
 | `0002FF` | 68 | 76 | 72.0 | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |
 | `0002FG` | 68 | 76 | 72.0 | `by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md` |
@@ -201,6 +200,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002FP` | 68 | 78 | 73.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 | `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
 | `00016O` | 68 | 78 | 73.0 | `by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md` |
+| `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 
 ## By Folder
 
@@ -208,7 +208,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000DM` | 68 | 76 | 72.0 | `by-class/SpellInputPaneState.md` |
 | `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
 | `00007N` | 70 | 74 | 72.0 | `by-class/MailTransferReplyAlert.md` |
 | `000018` | 68 | 78 | 73.0 | `by-class/BrowserDialogOld.md` |
@@ -233,6 +232,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000C9` | 72 | 76 | 74.0 | `by-class/ScreenEffecter.md` |
 | `0000CP` | 72 | 76 | 74.0 | `by-class/ScrollWidget.md` |
 | `00000P` | 68 | 82 | 75.0 | `by-class/AUTOBUF_unsigned_char.md` |
+| `00000H` | 68 | 82 | 75.0 | `by-class/ArgumentedMenuMenuDialog.md` |
 
 ### by-external-research
 
