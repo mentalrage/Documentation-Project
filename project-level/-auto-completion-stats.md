@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 00:10:01
+Generated: 2026-06-03 00:17:01
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -142,7 +142,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000BE` | 76 | 74 | 75.0 | `by-class/PursuitMessageDialogPane.md` |
 | `0000DO` | 76 | 74 | 75.0 | `by-class/SpellInventoryPane2.md` |
 | `0000QC` | 76 | 74 | 75.0 | `by-global/g_pBrowserFileLoadText.md` |
 | `0000QF` | 76 | 74 | 75.0 | `by-global/g_pBrowserTimeoutText.md` |
@@ -167,6 +166,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000G8` | 74 | 76 | 75.0 | `by-class/WorldMapNodeEntryVector.md` |
 | `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
 | `0000CC` | 76 | 76 | 76.0 | `by-class/ScreenPanePaletteState_543D30.md` |
+| `0000CH` | 76 | 76 | 76.0 | `by-class/ScrolledPictureControlPane.md` |
 
 ## Low_Both
 

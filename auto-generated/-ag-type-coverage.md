@@ -5,9 +5,9 @@
 Total_Type: 198
 Total_Reconstructable: 190
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 12
+Total_Reconstructed_Assigned: 13
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 178
+Total_Reconstructable_Unassigned: 177
 Total_Unclassified: 5
 Total_Error: 0
 
@@ -24,6 +24,7 @@ Total_Error: 0
 | [UID:0001VP][RectBoundsLayout](by-type/by-struct/RectBoundsLayout.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-type/by-struct/RectBoundsLayout.md` |  |
 | [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md) | assigned | `0000HM` | 20 | no | `auto-generated/NexusTK/util/AUTOBUF.cpp` | `by-type/by-template/AUTOBUF_unsigned_char.md` |  |
 | [UID:0001X4][BoardArticleDialogVtableFamily](by-type/by-vtable/BoardArticleDialogVtableFamily.md) | assigned | `0000HT` |  | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |  |
+| [UID:0001YI][PursuitMessageDialogPaneVtables](by-type/by-vtable/PursuitMessageDialogPaneVtables.md) | assigned | `0000LA` |  | no | `auto-generated/NexusTK/ui/dialogs/MessageDialogs.cpp` | `by-type/by-vtable/PursuitMessageDialogPaneVtables.md` |  |
 | [UID:0001YK][RankingEventScrollPaneVtables](by-type/by-vtable/RankingEventScrollPaneVtables.md) | assigned | `0000BO` | 6 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-vtable/RankingEventScrollPaneVtables.md` |  |
 | [UID:0001VS][ResourceLayoutBucket](by-type/by-struct/ResourceLayoutBucket.md) | not_reconstructable |  |  | no |  | `by-type/by-struct/ResourceLayoutBucket.md` |  |
 | [UID:0001VU][ResourceLayoutStore](by-type/by-struct/ResourceLayoutStore.md) | not_reconstructable |  |  | no |  | `by-type/by-struct/ResourceLayoutStore.md` |  |
@@ -186,7 +187,6 @@ Total_Error: 0
 | [UID:0001YF][PatchPaneVtableFamily](by-type/by-vtable/PatchPaneVtableFamily.md) | unassigned |  |  | no |  | `by-type/by-vtable/PatchPaneVtableFamily.md` |  |
 | [UID:0001YG][PrimeNumberGeneratorVtable](by-type/by-vtable/PrimeNumberGeneratorVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/PrimeNumberGeneratorVtable.md` |  |
 | [UID:0001YH][ProgressBarControlPaneVtables](by-type/by-vtable/ProgressBarControlPaneVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/ProgressBarControlPaneVtables.md` |  |
-| [UID:0001YI][PursuitMessageDialogPaneVtables](by-type/by-vtable/PursuitMessageDialogPaneVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/PursuitMessageDialogPaneVtables.md` |  |
 | [UID:0001YJ][RankingDialogVtableFamily](by-type/by-vtable/RankingDialogVtableFamily.md) | unassigned |  |  | no |  | `by-type/by-vtable/RankingDialogVtableFamily.md` |  |
 | [UID:0001YL][RegionVtable](by-type/by-vtable/RegionVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/RegionVtable.md` |  |
 | [UID:0001YM][RidingImageLibVtable](by-type/by-vtable/RidingImageLibVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/RidingImageLibVtable.md` |  |

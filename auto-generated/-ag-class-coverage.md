@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 213
+Total_Reconstructable: 214
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 129
+Total_Reconstructed_Assigned: 130
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 372
+Total_Unclassified: 371
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -107,6 +107,7 @@ Total_Error: 0
 | [UID:0000AS][PrettyButtonControlPane2](by-class/PrettyButtonControlPane2.md) | assigned | `0000MP` |  | no | `auto-generated/NexusTK/ui/controls/PrettyButtonControlPane.cpp` | `by-class/PrettyButtonControlPane2.md` |  |
 | [UID:0000AU][ProfileDialog](by-class/ProfileDialog.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-class/ProfileDialog.md` |  |
 | [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md) | assigned | `0000MT` | 10 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-class/ProgressBarControlPane.md` |  |
+| [UID:0000BE][PursuitMessageDialogPane](by-class/PursuitMessageDialogPane.md) | assigned | `0000LA` |  | no | `auto-generated/NexusTK/ui/dialogs/MessageDialogs.cpp` | `by-class/PursuitMessageDialogPane.md` |  |
 | [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md) | assigned | `0000MX` |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-class/QuitInputPane.md` |  |
 | [UID:0000BJ][RainingLayerPane](by-class/RainingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/RainingLayerPane.md` |  |
 | [UID:0000BL][RankingCategoryRecord](by-class/RankingCategoryRecord.md) | assigned | `0000MZ` | 50 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingCategoryRecord.md` |  |
@@ -467,7 +468,6 @@ Total_Error: 0
 | [UID:0000BB][ProtectedArray_struct_NecklaceInfo_](by-class/ProtectedArray_struct_NecklaceInfo_.md) | unclassified |  |  | no |  | `by-class/ProtectedArray_struct_NecklaceInfo_.md` |  |
 | [UID:0000BC][ProtectedArray_struct_ShoeInfo_](by-class/ProtectedArray_struct_ShoeInfo_.md) | unclassified |  |  | no |  | `by-class/ProtectedArray_struct_ShoeInfo_.md` |  |
 | [UID:0000BD][ProtectedArray_struct_WeaponInfo_](by-class/ProtectedArray_struct_WeaponInfo_.md) | unclassified |  |  | no |  | `by-class/ProtectedArray_struct_WeaponInfo_.md` |  |
-| [UID:0000BE][PursuitMessageDialogPane](by-class/PursuitMessageDialogPane.md) | unclassified |  |  | no |  | `by-class/PursuitMessageDialogPane.md` |  |
 | [UID:0000BF][Queue](by-class/Queue.md) | unclassified |  |  | no |  | `by-class/Queue.md` |  |
 | [UID:0000BG][QuitDialog](by-class/QuitDialog.md) | unclassified |  |  | no |  | `by-class/QuitDialog.md` |  |
 | [UID:0000BI][RadioGroupControlPane](by-class/RadioGroupControlPane.md) | unclassified |  |  | no |  | `by-class/RadioGroupControlPane.md` |  |

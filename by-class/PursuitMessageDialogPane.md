@@ -1,8 +1,8 @@
 *** UID:0000BE | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LA | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,8 +12,9 @@
 
 ## Status
 
-- Confidence: medium for class role, strong for constructor bytes and shared destructor caveats.
+- Confidence: strong for constructor bytes, vtable ownership, and source family; medium for final source-level naming of the shared response virtual.
 - Likely source: [UID:0000LA][MessageDialogs](by-file/MessageDialogs.md)
+- Autogen parent: [UID:0000LA][MessageDialogs](by-file/MessageDialogs.md); leave reconstructed C++ blank until final-source confidence.
 - Current recovered source: `source-3/simroot_v2/class_PursuitMessageDialogPane.cpp`
 - Constructor memory: [UID:0001FE][0x0054cab0-0x0054cae9.PursuitMessageDialogPaneConstructor](by-memory/0x0054cab0-0x0054cae9.PursuitMessageDialogPaneConstructor.md)
 - Vtables: [UID:0001YI][PursuitMessageDialogPaneVtables](by-type/by-vtable/PursuitMessageDialogPaneVtables.md)
@@ -59,3 +60,7 @@ This should be treated as part of [UID:0000LA][MessageDialogs](by-file/MessageDi
   - Before: The page was unevaluated despite documenting raw constructor bytes, shared message-dialog virtual behavior, vtables, and destructor-glue caveats.
   - After: Scored as moderate-high completion with medium-high confidence because the exact "Pursuit" semantic and raw-constructor function promotion remain unresolved.
   - Evidence: Existing method/glue map, unresolved notes, IDA recheck notes, and message-dialog cross-references explain both the known behavior and uncertainty.
+- 2026-06-03 autogen attachment pass:
+  - Before: the class remained unparented at `76/74` even though the parent [UID:0000LA][MessageDialogs](by-file/MessageDialogs.md) was at `88/80` and the constructor/vtable child pages carried strong IDA-backed evidence.
+  - Changed to: completion/confidence `80/82`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000LA`.
+  - Evidence: [UID:0001FE][0x0054cab0-0x0054cae9.PursuitMessageDialogPaneConstructor](by-memory/0x0054cab0-0x0054cae9.PursuitMessageDialogPaneConstructor.md) documents the exact raw constructor and vtable stores at `82/86`; [UID:0002OM][0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData](by-memory/0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData.md) documents the exact three-view vtable data at `84/89`; [UID:0001YI][PursuitMessageDialogPaneVtables](by-type/by-vtable/PursuitMessageDialogPaneVtables.md) ties those views to this message-dialog base/companion. Scores stay below `95` because the raw constructor is still not an IDA function object and the shared response virtual's final source-level name is not settled.

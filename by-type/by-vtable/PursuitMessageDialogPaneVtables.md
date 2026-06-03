@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LA | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Entity kind: vtable cluster.
 - Covered class: [UID:0000BE][PursuitMessageDialogPane](by-class/PursuitMessageDialogPane.md).
 - Likely source file: [UID:0000LA][MessageDialogs](by-file/MessageDialogs.md).
+- Autogen parent: [UID:0000LA][MessageDialogs](by-file/MessageDialogs.md), as source-declared/generated-binary class-layout evidence.
 - Exact vtable-data range: [UID:0002OM][0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData](by-memory/0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData.md).
 - Confidence: strong for vtable bases and raw-constructor stores; medium for final source-level naming of the shared action virtual.
 
@@ -77,3 +78,7 @@ Model `PursuitMessageDialogPane` as a tiny `DialogPane`-derived message-dialog b
   - Before: the page had useful vtable notes, but no exact by-memory vtable-data child and no validator-visible score.
   - After: [UID:0002OM][0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData](by-memory/0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData.md) records the exact primary/secondary/tertiary RTTI/vtable-data range while this page remains the type-level inventory.
   - Evidence: IDA MCP `py_eval` on 2026-06-01 verified the dword layout, neighboring `PrimeNumberGenerator`/`MessageDialog` boundaries, raw constructor vptr-store xrefs, shared response handler refs, and key slot function boundaries. Completion/confidence remain below `95` because the raw constructor has no IDA function object and final source-level shared virtual names are not audited to final-source confidence.
+- 2026-06-03 autogen attachment pass:
+  - Before: the vtable inventory was reconstructable at `82/88` but unparented.
+  - Changed to: `AUTOGEN_PARENT_UID:0000LA`.
+  - Evidence: the parent [UID:0000LA][MessageDialogs](by-file/MessageDialogs.md) is `88/80` and already owns the `PursuitMessageDialogPane` constructor, the exact [UID:0002OM][0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData](by-memory/0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData.md) child, and the shared message-dialog response virtual.
