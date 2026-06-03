@@ -261,7 +261,7 @@
 - [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) : reconstructable : 80% : strong : Target-selection input pane attached to `TargetSelectionInputPanes.cpp`; exact constructor/destructor/key/mouse/object-list/clear/scalar-destructor pages, saved-target global refs, and boundary evidence documented.
 - [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) : reconstructable : 70% : strong : Target-selection state helper attached to `TargetSelectionInputPanes`, with exact setter evidence, sibling spell helper context, and no-code blocker documented.
 - [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md) : reconstructable : 86% : strong : Keyboard repeat singleton with IDA-confirmed object layout, vtable, singleton global, exact method/helper split, raw unreferenced setter caveat, and input-file placement.
-- [UID:000070][LakeEffecter](by-class/LakeEffecter.md) : reconstructable : 72% : medium : - Confidence: strong for role, medium for constructor boundary because IDA does not currently model `0x0055b810` as a function object.
+- [UID:000070][LakeEffecter](by-class/LakeEffecter.md) : reconstructable : 76% : strong : waterline/reflection pixel effect attached to Effects; raw constructor boundary and final field/local names remain open.
 - [UID:000071][LanguageMan](by-class/LanguageMan.md) : reconstructable : 86% : strong : - Confidence: strong for layout, lifecycle, lookup helper ownership, singleton, and RTTI/name evidence.
 - [UID:000073][Layer](by-class/Layer.md) : reconstructable : 78% : strong : - Confidence: strong for class behavior, pane-tree ownership, and HierList method evidence.
 - [UID:000074][LegendPane](by-class/LegendPane.md) : reconstructable : 82% : strong : Shared look/status legend child pane with exact constructor bounds, caller/callee set, touched state, vtable-family evidence, source bucket, and 95+ C++ gate documented.
@@ -447,7 +447,7 @@
 - [UID:0000C6][SayToUserMessageInputPane](by-class/SayToUserMessageInputPane.md) : reconstructable : 74% : medium : - Confidence: strong for behavior; medium for legacy-vs-modern final placement.
 - [UID:0000C7][SayToUserNameInputPane](by-class/SayToUserNameInputPane.md) : reconstructable : 80% : strong : - Confidence: strong for behavior and IDA boundaries.
 - [UID:0000C8][ScreenDimmer](by-class/ScreenDimmer.md) : reconstructable : 86% : strong : - Confidence: strong for behavior and layout; medium for final source split.
-- [UID:0000C9][ScreenEffecter](by-class/ScreenEffecter.md) : reconstructable : 72% : medium : - Confidence: strong for role, medium for final header split.
+- [UID:0000C9][ScreenEffecter](by-class/ScreenEffecter.md) : reconstructable : 76% : strong : base runtime effect interface attached to Effects; final virtual names, layout, and header split remain open.
 - [UID:0000CA][ScreenFadeOut](by-class/ScreenFadeOut.md) : reconstructable : 84% : strong : - Confidence: strong for behavior and layout; medium for final source split.
 - [UID:0000CB][ScreenPane](by-class/ScreenPane.md) : reconstructable : 82% : strong : - Confidence: strong for class role.
 - [UID:0000CC][ScreenPanePaletteState_543D30](by-class/ScreenPanePaletteState_543D30.md) : reconstructable : 76% : medium : - Confidence: strong for the two imported methods and `PaletteLib`-resident ownership, medium for final class/facet naming.
@@ -592,7 +592,7 @@
 - [UID:0000G9][WorldMapPane](by-class/WorldMapPane.md) : reconstructable : 84% : strong : world-map travel pane; lifecycle, viewport, navigation, drawing, input, animation, reachability, helper links, and frame-handler ownership correction documented.
 - [UID:0000GA][WorldMapReachabilityBitSet](by-class/WorldMapReachabilityBitSet.md) : reconstructable : 74% : medium : private world-map reachability bitset; insert/move helper behavior, route-state use, storage note, caller evidence, and final-name caveat documented.
 - [UID:0000GB][WSAError](by-class/WSAError.md) : reconstructable : 78% : strong : Winsock error wrapper; constructor, format method, shared error-module placement, socket ownership boundary, and IDA-confirmed vtable evidence documented.
-- [UID:0000GC][XWaveEffecter](by-class/XWaveEffecter.md) : reconstructable : 76% : medium : horizontal sine-wave pixel effect; constructor, apply method, deleting destructor, render/timer links, and source-field-name caveat documented.
+- [UID:0000GC][XWaveEffecter](by-class/XWaveEffecter.md) : reconstructable : 80% : strong : horizontal sine-wave pixel effect attached to Effects; modeled constructor/apply/destructor and render/timer links documented, final field/local names remain open.
 - [UID:0000GD][YFlipEffecter](by-class/YFlipEffecter.md) : reconstructable : 74% : medium : vertical flip pixel effect; raw constructor, apply method, render links, and unresolved IDA function-object boundary documented.
 
 ## Covered Items To Ignore

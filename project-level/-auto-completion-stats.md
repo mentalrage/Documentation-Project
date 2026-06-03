@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 00:42:05
+Generated: 2026-06-03 00:46:01
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -143,9 +143,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
-| `000070` | 72 | 76 | 74.0 | `by-class/LakeEffecter.md` |
 | `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
-| `0000C9` | 72 | 76 | 74.0 | `by-class/ScreenEffecter.md` |
 | `0000CP` | 72 | 76 | 74.0 | `by-class/ScrollWidget.md` |
 | `00008O` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_5289D0.md` |
 | `00008P` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_528BE0.md` |
@@ -156,7 +154,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
 | `0000CC` | 76 | 76 | 76.0 | `by-class/ScreenPanePaletteState_543D30.md` |
 | `0000CH` | 76 | 76 | 76.0 | `by-class/ScrolledPictureControlPane.md` |
-| `0000GC` | 76 | 76 | 76.0 | `by-class/XWaveEffecter.md` |
 | `000012` | 76 | 76 | 76.0 | `by-class/brdir__Notification.md` |
 | `00007D` | 78 | 76 | 77.0 | `by-class/LObject.md` |
 | `000091` | 78 | 76 | 77.0 | `by-class/NewHistoryDialogPane.md` |
@@ -167,6 +164,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000CZ` | 78 | 76 | 77.0 | `by-class/ServerItemMenuDialog.md` |
 | `0000D1` | 78 | 76 | 77.0 | `by-class/ServerSelectMenuItemList.md` |
 | `0000E3` | 78 | 76 | 77.0 | `by-class/StaticTextControlPane.md` |
+| `0000EI` | 78 | 76 | 77.0 | `by-class/TextBoxPane.md` |
+| `0000EQ` | 78 | 76 | 77.0 | `by-class/TextFilter.md` |
+| `0000F0` | 78 | 76 | 77.0 | `by-class/TimerHandler.md` |
 
 ## Low_Both
 
@@ -213,9 +213,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
 | `000061` | 70 | 78 | 74.0 | `by-class/HeaderSystemMessage.md` |
 | `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
-| `000070` | 72 | 76 | 74.0 | `by-class/LakeEffecter.md` |
 | `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
-| `0000C9` | 72 | 76 | 74.0 | `by-class/ScreenEffecter.md` |
 | `0000CP` | 72 | 76 | 74.0 | `by-class/ScrollWidget.md` |
 | `00000P` | 68 | 82 | 75.0 | `by-class/AUTOBUF_unsigned_char.md` |
 | `00000H` | 68 | 82 | 75.0 | `by-class/ArgumentedMenuMenuDialog.md` |
@@ -229,6 +227,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00002Y` | 72 | 78 | 75.0 | `by-class/CollectionPane2.md` |
 | `00004U` | 72 | 78 | 75.0 | `by-class/FieldMapPane.md` |
 | `00005G` | 72 | 78 | 75.0 | `by-class/FrameHandler.md` |
+| `00005R` | 72 | 78 | 75.0 | `by-class/GeneralPurposePanel2.md` |
+| `00009Y` | 72 | 78 | 75.0 | `by-class/OverlayImageEffecter.md` |
 
 ### by-external-research
 

@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 220
+Total_Reconstructable: 223
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 136
+Total_Reconstructed_Assigned: 139
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 365
+Total_Unclassified: 362
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -74,6 +74,7 @@ Total_Error: 0
 | [UID:00006S][InventoryPane2](by-class/InventoryPane2.md) | assigned | `0000KA` |  | no | `auto-generated/NexusTK/ui/inventory/InventoryPane.cpp` | `by-class/InventoryPane2.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPaneState.md` |  |
+| [UID:000070][LakeEffecter](by-class/LakeEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/LakeEffecter.md` |  |
 | [UID:000074][LegendPane](by-class/LegendPane.md) | assigned | `0000KM` | 5 | no | `auto-generated/NexusTK/ui/panels/LegendPane.cpp` | `by-class/LegendPane.md` |  |
 | [UID:00007C][LivingObjectPane__BoxRotator](by-class/LivingObjectPane__BoxRotator.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-class/LivingObjectPane__BoxRotator.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
@@ -120,6 +121,7 @@ Total_Error: 0
 | [UID:0000C3][SayInputPane](by-class/SayInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayInputPane.md` |  |
 | [UID:0000C4][SayToGroupMessageInputPane](by-class/SayToGroupMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToGroupMessageInputPane.md` |  |
 | [UID:0000C5][SayToPlanMessageInputPane](by-class/SayToPlanMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToPlanMessageInputPane.md` |  |
+| [UID:0000C9][ScreenEffecter](by-class/ScreenEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/ScreenEffecter.md` |  |
 | [UID:0000CR][SelectionControlPane](by-class/SelectionControlPane.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-class/SelectionControlPane.md` |  |
 | [UID:0000CU][SelfLookPane](by-class/SelfLookPane.md) | assigned | `0000NL` |  | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane.md` |  |
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
@@ -146,6 +148,7 @@ Total_Error: 0
 | [UID:0000GB][WSAError](by-class/WSAError.md) | assigned | `0000J5` | 160 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/WSAError.md` |  |
 | [UID:0000G1][WeatherLayerPane](by-class/WeatherLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/WeatherLayerPane.md` |  |
 | [UID:0000G7][Win32Error](by-class/Win32Error.md) | assigned | `0000J5` | 20 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/Win32Error.md` |  |
+| [UID:0000GC][XWaveEffecter](by-class/XWaveEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/XWaveEffecter.md` |  |
 | [UID:0000GD][YFlipEffecter](by-class/YFlipEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/YFlipEffecter.md` |  |
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
@@ -366,7 +369,6 @@ Total_Error: 0
 | [UID:00006U][ItemHelpPane](by-class/ItemHelpPane.md) | unclassified |  |  | no |  | `by-class/ItemHelpPane.md` |  |
 | [UID:00006V][ItemObjectPane](by-class/ItemObjectPane.md) | unclassified |  |  | no |  | `by-class/ItemObjectPane.md` |  |
 | [UID:00007D][LObject](by-class/LObject.md) | unclassified |  |  | no |  | `by-class/LObject.md` |  |
-| [UID:000070][LakeEffecter](by-class/LakeEffecter.md) | unclassified |  |  | no |  | `by-class/LakeEffecter.md` |  |
 | [UID:000071][LanguageMan](by-class/LanguageMan.md) | unclassified |  |  | no |  | `by-class/LanguageMan.md` |  |
 | [UID:000072][LanguageManager](by-class/LanguageManager.md) | unclassified |  |  | no |  | `by-class/LanguageManager.md` |  |
 | [UID:000073][Layer](by-class/Layer.md) | unclassified |  |  | no |  | `by-class/Layer.md` |  |
@@ -489,7 +491,6 @@ Total_Error: 0
 | [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md) | unclassified |  |  | no |  | `by-class/RingBufferIterator.md` |  |
 | [UID:0000C6][SayToUserMessageInputPane](by-class/SayToUserMessageInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserMessageInputPane.md` |  |
 | [UID:0000C7][SayToUserNameInputPane](by-class/SayToUserNameInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserNameInputPane.md` |  |
-| [UID:0000C9][ScreenEffecter](by-class/ScreenEffecter.md) | unclassified |  |  | no |  | `by-class/ScreenEffecter.md` |  |
 | [UID:0000CB][ScreenPane](by-class/ScreenPane.md) | unclassified |  |  | no |  | `by-class/ScreenPane.md` |  |
 | [UID:0000CC][ScreenPanePaletteState_543D30](by-class/ScreenPanePaletteState_543D30.md) | unclassified |  |  | no |  | `by-class/ScreenPanePaletteState_543D30.md` |  |
 | [UID:0000CD][ScreenshotCapture](by-class/ScreenshotCapture.md) | unclassified |  |  | no |  | `by-class/ScreenshotCapture.md` |  |
@@ -594,7 +595,6 @@ Total_Error: 0
 | [UID:0000G8][WorldMapNodeEntryVector](by-class/WorldMapNodeEntryVector.md) | unclassified |  |  | no |  | `by-class/WorldMapNodeEntryVector.md` |  |
 | [UID:0000G9][WorldMapPane](by-class/WorldMapPane.md) | unclassified |  |  | no |  | `by-class/WorldMapPane.md` |  |
 | [UID:0000GA][WorldMapReachabilityBitSet](by-class/WorldMapReachabilityBitSet.md) | unclassified |  |  | no |  | `by-class/WorldMapReachabilityBitSet.md` |  |
-| [UID:0000GC][XWaveEffecter](by-class/XWaveEffecter.md) | unclassified |  |  | no |  | `by-class/XWaveEffecter.md` |  |
 | [UID:000012][brdir__Notification](by-class/brdir__Notification.md) | unclassified |  |  | no |  | `by-class/brdir__Notification.md` |  |
 | [UID:000014][browser__Notification](by-class/browser__Notification.md) | unclassified |  |  | no |  | `by-class/browser__Notification.md` |  |
 | [UID:000069][httpget__Notification](by-class/httpget__Notification.md) | unclassified |  |  | no |  | `by-class/httpget__Notification.md` |  |
