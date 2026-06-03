@@ -3,12 +3,12 @@
 # ag-global-coverage
 
 Total_Type: 158
-Total_Reconstructable: 32
+Total_Reconstructable: 33
 Total_Not_Reconstructable: 2
-Total_Reconstructed_Assigned: 23
+Total_Reconstructed_Assigned: 24
 Total_Reconstructed_Coded: 0
 Total_Reconstructable_Unassigned: 9
-Total_Unclassified: 124
+Total_Unclassified: 123
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -21,6 +21,7 @@ Total_Error: 0
 | [UID:0000TE][OpenStoryViewingPane_4F90C0](by-global/OpenStoryViewingPane_4F90C0.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-global/OpenStoryViewingPane_4F90C0.md` |  |
 | [UID:0000TF][OpenTerminalPane_4F91C0](by-global/OpenTerminalPane_4F91C0.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-global/OpenTerminalPane_4F91C0.md` |  |
 | [UID:0000TL][SendOptionPacket11B_540E50](by-global/SendOptionPacket11B_540E50.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-global/SendOptionPacket11B_540E50.md` |  |
+| [UID:0000Q6][g_pActiveBrowserWindow](by-global/g_pActiveBrowserWindow.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_pActiveBrowserWindow.md` |  |
 | [UID:0000SF][g_pTerminalPane](by-global/g_pTerminalPane.md) | assigned | `0000OI` |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-global/g_pTerminalPane.md` |  |
 | [UID:0000SG][g_pTextFilter](by-global/g_pTextFilter.md) | assigned | `0000OO` |  | no | `auto-generated/NexusTK/ui/controls/TextFilter.cpp` | `by-global/g_pTextFilter.md` |  |
 | [UID:0000SH][g_pThreadMan](by-global/g_pThreadMan.md) | assigned | `0000OR` |  | no | `auto-generated/NexusTK/util/Thread.cpp` | `by-global/g_pThreadMan.md` |  |
@@ -93,7 +94,6 @@ Total_Error: 0
 | [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md) | unclassified |  |  | no |  | `by-global/g_movementSubstepScale.md` |  |
 | [UID:0000Q3][g_objectNationMap](by-global/g_objectNationMap.md) | unclassified |  |  | no |  | `by-global/g_objectNationMap.md` |  |
 | [UID:0000Q4][g_objectRecordCount](by-global/g_objectRecordCount.md) | unclassified |  |  | no |  | `by-global/g_objectRecordCount.md` |  |
-| [UID:0000Q6][g_pActiveBrowserWindow](by-global/g_pActiveBrowserWindow.md) | unclassified |  |  | no |  | `by-global/g_pActiveBrowserWindow.md` |  |
 | [UID:0000Q7][g_pActiveTextEditPane](by-global/g_pActiveTextEditPane.md) | unclassified |  |  | no |  | `by-global/g_pActiveTextEditPane.md` |  |
 | [UID:0000Q8][g_pApplicationCleanupQueue](by-global/g_pApplicationCleanupQueue.md) | unclassified |  |  | no |  | `by-global/g_pApplicationCleanupQueue.md` |  |
 | [UID:0000Q9][g_pBackStoryDialogPane](by-global/g_pBackStoryDialogPane.md) | unclassified |  |  | no |  | `by-global/g_pBackStoryDialogPane.md` |  |

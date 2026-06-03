@@ -2,13 +2,13 @@
 
 # ag-memory-coverage
 
-Total_Type: 2165
-Total_Reconstructable: 1258
+Total_Type: 2166
+Total_Reconstructable: 1260
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 728
+Total_Reconstructed_Assigned: 729
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 530
-Total_Unclassified: 896
+Total_Reconstructable_Unassigned: 531
+Total_Unclassified: 895
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -716,6 +716,7 @@ Total_Error: 0
 | [UID:0001P3][0x0067ab28-0x0067ab2c.g_activeBrowserControlPane](by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0067ab28-0x0067ab2c.g_activeBrowserControlPane.md` |  |
 | [UID:0001P4][0x0067ab2c-0x0067ab30.g_pChangeMan](by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md) | assigned | `0000I2` |  | no | `auto-generated/NexusTK/app/ChangeMan.cpp` | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |  |
 | [UID:0001P9][0x0067ab84-0x0067ab88.g_activeBrowserPane](by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md` |  |
+| [UID:0002T5][0x0067ab94-0x0067ab98.g_pActiveBrowserWindow](by-memory/0x0067ab94-0x0067ab98.g_pActiveBrowserWindow.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0067ab94-0x0067ab98.g_pActiveBrowserWindow.md` |  |
 | [UID:0001PE][0x0069ae0c-0x0069ae10.g_activeUserStatusPane](by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md) | assigned | `0000P2` |  | no | `auto-generated/NexusTK/ui/panels/UserStatusPane.cpp` | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |  |
 | [UID:0001PG][0x0069b374-0x0069b378.g_layoutContext_69B374](by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md) | assigned | `0000L1` |  | no | `auto-generated/NexusTK/ui/MainUiGraph.cpp` | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |  |
 | [UID:0001PH][0x0069b380-0x0069b381.g_activeDialogCount](by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md) | assigned | `0000IT` |  | no | `auto-generated/NexusTK/ui/core/DialogPane.cpp` | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |  |
@@ -1268,6 +1269,7 @@ Total_Error: 0
 | [UID:0001OO][0x00670784-0x006707d0.SnowPatternByteTables](by-memory/0x00670784-0x006707d0.SnowPatternByteTables.md) | unassigned |  |  | no |  | `by-memory/0x00670784-0x006707d0.SnowPatternByteTables.md` |  |
 | [UID:0001OP][0x0067a738-0x0067a73c.g_pCashShopRequest](by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md) | unassigned |  |  | no |  | `by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md` |  |
 | [UID:0001P7][0x0067ab48-0x0067ab4c.g_pKeySpeedMgr](by-memory/0x0067ab48-0x0067ab4c.g_pKeySpeedMgr.md) | unassigned |  |  | no |  | `by-memory/0x0067ab48-0x0067ab4c.g_pKeySpeedMgr.md` |  |
+| [UID:0002AE][0x0067ab90-0x0067aba4.BrowserAndWebBoardDialogSingletons](by-memory/0x0067ab90-0x0067aba4.BrowserAndWebBoardDialogSingletons.md) | unassigned |  |  | no |  | `by-memory/0x0067ab90-0x0067aba4.BrowserAndWebBoardDialogSingletons.md` |  |
 | [UID:0002B5][0x0067adc4-0x0067adec.UiChatClanSingletonSlots](by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md) | unassigned |  |  | no |  | `by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md` |  |
 | [UID:0002B7][0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer](by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md) | unassigned |  |  | no |  | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |  |
 | [UID:0002AV][0x0069ae18-0x0069af20.KeyboardStateGlobals](by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md) | unassigned |  |  | no |  | `by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md` |  |
@@ -2099,7 +2101,6 @@ Total_Error: 0
 | [UID:0001P8][0x0067ab50-0x0067ab54.g_pMiscWorkThread](by-memory/0x0067ab50-0x0067ab54.g_pMiscWorkThread.md) | unclassified |  |  | no |  | `by-memory/0x0067ab50-0x0067ab54.g_pMiscWorkThread.md` |  |
 | [UID:00029B][0x0067ab54-0x0067ab84.ApplicationDialogTimerAndBackgroundGlobals](by-memory/0x0067ab54-0x0067ab84.ApplicationDialogTimerAndBackgroundGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0067ab54-0x0067ab84.ApplicationDialogTimerAndBackgroundGlobals.md` |  |
 | [UID:0002AD][0x0067ab88-0x0067ab90.BrowserThreadHostGlobals](by-memory/0x0067ab88-0x0067ab90.BrowserThreadHostGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0067ab88-0x0067ab90.BrowserThreadHostGlobals.md` |  |
-| [UID:0002AE][0x0067ab90-0x0067aba4.BrowserAndWebBoardDialogSingletons](by-memory/0x0067ab90-0x0067aba4.BrowserAndWebBoardDialogSingletons.md) | unclassified |  |  | no |  | `by-memory/0x0067ab90-0x0067aba4.BrowserAndWebBoardDialogSingletons.md` |  |
 | [UID:0002AF][0x0067aba4-0x0067aba8.g_pMainUiGraph](by-memory/0x0067aba4-0x0067aba8.g_pMainUiGraph.md) | unclassified |  |  | no |  | `by-memory/0x0067aba4-0x0067aba8.g_pMainUiGraph.md` |  |
 | [UID:0002AG][0x0067aba8-0x0067acb0.WebBoardDialogUrlEscapeState](by-memory/0x0067aba8-0x0067acb0.WebBoardDialogUrlEscapeState.md) | unclassified |  |  | no |  | `by-memory/0x0067aba8-0x0067acb0.WebBoardDialogUrlEscapeState.md` |  |
 | [UID:0002AH][0x0067acb0-0x0067adb8.WebBoardDialogOldUrlEscapeState](by-memory/0x0067acb0-0x0067adb8.WebBoardDialogOldUrlEscapeState.md) | unclassified |  |  | no |  | `by-memory/0x0067acb0-0x0067adb8.WebBoardDialogOldUrlEscapeState.md` |  |
