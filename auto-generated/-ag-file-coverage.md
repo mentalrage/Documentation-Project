@@ -6,7 +6,7 @@ Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
 Total_Reconstructed_Assigned: 197
-Total_Reconstructed_Coded: 3
+Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
 Total_Error: 91
@@ -96,6 +96,7 @@ Total_Error: 91
 | [UID:0000KR][LinkedList](by-file/LinkedList.md) | assigned |  |  | no | `auto-generated/NexusTK/util/LinkedList.cpp` | `by-file/LinkedList.md` | by-file generated root |
 | [UID:0000KS][List](by-file/List.md) | assigned |  |  | no | `auto-generated/NexusTK/util/List.cpp` | `by-file/List.md` | by-file generated root |
 | [UID:0000KU][LivingObjectPane](by-file/LivingObjectPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-file/LivingObjectPane.md` | by-file generated root |
+| [UID:0000LM][MSGHandler](by-file/MSGHandler.md) | assigned |  |  | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-file/MSGHandler.md` | by-file generated root |
 | [UID:0000KY][MacroDialogs](by-file/MacroDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/MacroDialogs.cpp` | `by-file/MacroDialogs.md` | by-file generated root |
 | [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-file/MainMenuPane.md` | by-file generated root |
 | [UID:0000L1][MainUiGraph](by-file/MainUiGraph.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/MainUiGraph.cpp` | `by-file/MainUiGraph.md` | by-file generated root |
@@ -209,7 +210,6 @@ Total_Error: 91
 | [UID:0000PA][WinMain](by-file/WinMain.md) | assigned |  |  | no | `auto-generated/NexusTK/app/WinMain.cpp` | `by-file/WinMain.md` | by-file generated root |
 | [UID:0000HG][Application](by-file/Application.md) | coded |  |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-file/Application.md` | by-file generated root |
 | [UID:0000L6][MD5](by-file/MD5.md) | coded |  |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-file/MD5.md` | by-file generated root |
-| [UID:0000LM][MSGHandler](by-file/MSGHandler.md) | coded |  |  | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-file/MSGHandler.md` | by-file generated root |
 | [UID:0000HH][ArgumentedItemInputDialogs](by-file/ArgumentedItemInputDialogs.md) | error |  |  | no |  | `by-file/ArgumentedItemInputDialogs.md` | by-file generated root |
 | [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) | error |  |  | no |  | `by-file/ArgumentedMenuDialogs.md` | by-file generated root |
 | [UID:0000HK][AttachedObjectPaneHelper_53AEC0](by-file/AttachedObjectPaneHelper_53AEC0.md) | error |  |  | no |  | `by-file/AttachedObjectPaneHelper_53AEC0.md` | by-file generated root |

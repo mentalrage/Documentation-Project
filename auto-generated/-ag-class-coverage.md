@@ -6,7 +6,7 @@ Total_Type: 586
 Total_Reconstructable: 207
 Total_Not_Reconstructable: 1
 Total_Reconstructed_Assigned: 122
-Total_Reconstructed_Coded: 3
+Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 85
 Total_Unclassified: 378
 Total_Error: 0
@@ -74,6 +74,7 @@ Total_Error: 0
 | [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPaneState.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
 | [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPlayerPane.md` |  |
+| [UID:00008S][MSGHandler](by-class/MSGHandler.md) | assigned | `0000LM` | 10 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-class/MSGHandler.md` |  |
 | [UID:00007Q][MapPane](by-class/MapPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-class/MapPane.md` |  |
 | [UID:00007V][MenuItem](by-class/MenuItem.md) | assigned | `0000MN` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-class/MenuItem.md` |  |
 | [UID:000083][MerchantDialogPane](by-class/MerchantDialogPane.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-class/MerchantDialogPane.md` |  |
@@ -134,7 +135,6 @@ Total_Error: 0
 | [UID:0000GD][YFlipEffecter](by-class/YFlipEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/YFlipEffecter.md` |  |
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
-| [UID:00008S][MSGHandler](by-class/MSGHandler.md) | coded | `0000LM` | 10 | yes | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-class/MSGHandler.md` |  |
 | [UID:00001G][CandidateStringQueue](by-class/CandidateStringQueue.md) | not_reconstructable |  |  | no |  | `by-class/CandidateStringQueue.md` |  |
 | [UID:000005][AboveFrame](by-class/AboveFrame.md) | unassigned |  |  | no |  | `by-class/AboveFrame.md` |  |
 | [UID:00000B][AlertPane](by-class/AlertPane.md) | unassigned |  |  | no |  | `by-class/AlertPane.md` |  |

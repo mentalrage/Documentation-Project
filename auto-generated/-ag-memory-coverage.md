@@ -6,7 +6,7 @@ Total_Type: 2166
 Total_Reconstructable: 1260
 Total_Not_Reconstructable: 11
 Total_Reconstructed_Assigned: 729
-Total_Reconstructed_Coded: 18
+Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 531
 Total_Unclassified: 895
 Total_Error: 0
@@ -435,6 +435,7 @@ Total_Error: 0
 | [UID:0002C5][0x005270c0-0x005270d5.MidiParseSuccessWrapper](by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md` |  |
 | [UID:0001CI][0x005270e0-0x005271a3.MidiDocumentRelease](by-memory/0x005270e0-0x005271a3.MidiDocumentRelease.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x005270e0-0x005271a3.MidiDocumentRelease.md` |  |
 | [UID:0001CJ][0x005277c0-0x005285dd.MiscWorkThreadAndNotifications](by-memory/0x005277c0-0x005285dd.MiscWorkThreadAndNotifications.md) | assigned | `0000LG` |  | no | `auto-generated/NexusTK/app/MiscWorkThread.cpp` | `by-memory/0x005277c0-0x005285dd.MiscWorkThreadAndNotifications.md` |  |
+| [UID:0001CN][0x00528d60-0x00528e55.MSGHandler](by-memory/0x00528d60-0x00528e55.MSGHandler.md) | assigned | `00008S` | 10 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-memory/0x00528d60-0x00528e55.MSGHandler.md` |  |
 | [UID:0002QR][0x0052a540-0x0052c325.NewUserDialogPane2CreateUserVariant](by-memory/0x0052a540-0x0052c325.NewUserDialogPane2CreateUserVariant.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0052a540-0x0052c325.NewUserDialogPane2CreateUserVariant.md` |  |
 | [UID:0001CR][0x0052a540-0x0052f94c.CreateUserDialogVariants](by-memory/0x0052a540-0x0052f94c.CreateUserDialogVariants.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0052a540-0x0052f94c.CreateUserDialogVariants.md` |  |
 | [UID:0002QS][0x0052c360-0x0052dcf5.NewCreateUserDialogPaneCore](by-memory/0x0052c360-0x0052dcf5.NewCreateUserDialogPaneCore.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0052c360-0x0052dcf5.NewCreateUserDialogPaneCore.md` |  |
@@ -739,7 +740,6 @@ Total_Error: 0
 | [UID:0000YX][0x00467410-0x004674ed.LoadIndexedDATSeries](by-memory/0x00467410-0x004674ed.LoadIndexedDATSeries.md) | coded | `0000HG` | 40 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00467410-0x004674ed.LoadIndexedDATSeries.md` |  |
 | [UID:000199][0x004f4b30-0x004f4b6c.ApplicationChangeManRegisterWrappers](by-memory/0x004f4b30-0x004f4b6c.ApplicationChangeManRegisterWrappers.md) | coded | `00000D` | 10 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f4b30-0x004f4b6c.ApplicationChangeManRegisterWrappers.md` |  |
 | [UID:00019B][0x004f4b70-0x004f4b86.ApplicationForwardMessage](by-memory/0x004f4b70-0x004f4b86.ApplicationForwardMessage.md) | coded | `00000D` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f4b70-0x004f4b86.ApplicationForwardMessage.md` |  |
-| [UID:0001CN][0x00528d60-0x00528e55.MSGHandler](by-memory/0x00528d60-0x00528e55.MSGHandler.md) | coded | `00008S` | 10 | yes | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-memory/0x00528d60-0x00528e55.MSGHandler.md` |  |
 | [UID:00027R][0x0066ddd8-0x0066de18.Md5PaddingBlock](by-memory/0x0066ddd8-0x0066de18.Md5PaddingBlock.md) | coded | `0000L6` | 5 | yes | `auto-generated/NexusTK/util/MD5.cpp` | `by-memory/0x0066ddd8-0x0066de18.Md5PaddingBlock.md` |  |
 | [UID:000294][0x0067ab1c-0x0067ab20.g_pApplication](by-memory/0x0067ab1c-0x0067ab20.g_pApplication.md) | coded | `0000HG` | 30 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067ab1c-0x0067ab20.g_pApplication.md` |  |
 | [UID:0000Z2][0x00469180-0x004691fa.PaneChildRegistry](by-memory/0x00469180-0x004691fa.PaneChildRegistry.md) | not_reconstructable |  |  | no |  | `by-memory/0x00469180-0x004691fa.PaneChildRegistry.md` |  |
