@@ -27,7 +27,7 @@ Current live xref evidence is asymmetric. IDA finds a direct `Encoder` consumer 
 | Entity | Address evidence | Proposed placement | Notes |
 | --- | --- | --- | --- |
 | `Encoder` | [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md), plus [UID:00013L][0x004a5630-0x004a5631.EncoderNoopVirtual](by-memory/0x004a5630-0x004a5631.EncoderNoopVirtual.md), [UID:00013V][0x004a5e30-0x004a5e54.EncoderScalarDeletingDestructor](by-memory/0x004a5e30-0x004a5e54.EncoderScalarDeletingDestructor.md), and vtable `0x006192cc` | `util/Encoder.cpp` | Writes byte, short, int, and raw byte spans; finalizes with a trailing NUL byte. |
-| `Decoder` | `0x004a5640-0x004a5e23`, including [UID:00013Q][0x004a5680-0x004a5dcf.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md) in `0x004a5680-0x004a5db0`, and vtable `0x006192d8` | `util/Decoder.cpp` | Reads byte, 16-bit, 24-bit, 32-bit, length-prefixed strings, NUL-terminated strings, and raw spans. |
+| `Decoder` | `0x004a5640-0x004a5e23`, including [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md) in `0x004a5680-0x004a5db0`, and vtable `0x006192d8` | `util/Decoder.cpp` | Reads byte, 16-bit, 24-bit, 32-bit, length-prefixed strings, NUL-terminated strings, and raw spans. |
 | `EncodeTextEditState` | `0x0058e490-0x0058e690` | [UID:0000ON][TextEditPane](by-file/TextEditPane.md) | Sole confirmed `Encoder` caller; serializes text-edit run tables into a heap buffer. |
 
 ## Evidence Notes
@@ -79,7 +79,7 @@ Do not merge this with [UID:0000IN][DATFile](by-file/DATFile.md). `DATFile` is a
 - [UID:00003M][Decoder](by-class/Decoder.md)
 - [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md)
 - [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md)
-- [UID:00013Q][0x004a5680-0x004a5dcf.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md)
+- [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md)
 - [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md)
 - [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md)
 - [UID:0000UM][EncodeTextEditState_0058E490](by-item/EncodeTextEditState_0058E490.md)

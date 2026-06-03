@@ -14,10 +14,10 @@
 
 - Confidence: medium; local constructor behavior is clear, full template contract is not.
 - Current entity kind: compiler-emitted template/support type
-- Known helper addresses: `0x004e6ab0-0x004e6adf`, `0x004f5640-0x004f5669`
+- Known helper addresses: `0x004e6ab0-0x004e6ad7`, `0x004f5640-0x004f566a`
 - Exact vtable data: [UID:0002MR][0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData](by-memory/0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData.md)
 - Likely source artifact: [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md)
-- Exact helper memory doc: [UID:00019E][0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor.md)
+- Exact helper memory doc: [UID:00019E][0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor.md)
 - Current physical neighborhood: [UID:00019D][0x004f53b0-0x004f570c.LogoPlayerPane](by-memory/0x004f53b0-0x004f570c.LogoPlayerPane.md)
 - Related class: [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md)
 
@@ -37,6 +37,8 @@ Likely fields from the local constructor:
 
 - IDA decompilation of `0x004f5640` calls `LObject` construction, writes the `_AUTOBUF<unsigned char>` vtable, clears fields `+0x04` and `+0x08`, and returns `this`.
 - IDA disassembly of `0x004e6ab0` frees the existing pointer at `+0x04`, allocates the requested byte count, stores the byte count at `+0x08`, and stores the new pointer at `+0x04`.
+- 2026-06-03 IDA MCP `py_eval` corrects the helper bounds to `0x004e6ab0-0x004e6ad7` for resize and `0x004f5640-0x004f566a` for the constructor. The resize helper is followed by nine `0xcc` alignment bytes before `sub_4E6AE0`.
+- 2026-06-03 IDA MCP reports 21 references/matches for `??_7?$_AUTOBUF@E@@6B@` across image decode, logo, main-menu, map load/save, profile refresh, and user-look paths, so this remains shared template support rather than feature-owned code.
 - IDA MCP callers on 2026-05-31 show `0x004e6ab0` called twice from `sub_59F610` at `0x0059ffc1` and `0x0059fffe`; the surrounding disassembly uses `UserLookPane`-sized offsets `+0xb88/+0xb90`, copies packet/profile bytes into the resized buffer, and then decodes or draws the look/profile payload.
 - 2026-05-26 IDA caller checks for `0x004f5640` show the direct code caller at `0x00504d49` inside `MapPane::LoadMapFromFile`, immediately before `StdioFile::ReadAll`-style compressed block loading and map-data decompression.
 - IDA MCP callers on 2026-05-31 reconfirm `0x004f5640` is called from `sub_504B90` at `0x00504d49`; disassembly shows it constructing a stack/local `_AUTOBUF<unsigned char>` object at `var_63C`, passing it to `sub_582410`, and later restoring the vtable/freeing its buffer during cleanup.
@@ -57,8 +59,8 @@ Do not migrate `0x004f5640` as a `LogoPlayerPane` member. It should become templ
 
 - [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md)
 - [UID:00019D][0x004f53b0-0x004f570c.LogoPlayerPane](by-memory/0x004f53b0-0x004f570c.LogoPlayerPane.md)
-- [UID:000188][0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize.md)
-- [UID:00019E][0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor.md)
+- [UID:000188][0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize.md)
+- [UID:00019E][0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor.md)
 - [UID:0002MR][0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData](by-memory/0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData.md)
 - [UID:0000L3][MapPane](by-file/MapPane.md)
 - [UID:0000FP][UserLookPane](by-class/UserLookPane.md)

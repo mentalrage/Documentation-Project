@@ -1,9 +1,9 @@
 *** UID:00000I | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HI | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:20 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for included methods and list role; one Wave3 listed method is not an IDA function.
+- Confidence: strong for included methods, vtable slots, constructor callers, and list role; one Wave3 listed method is not an IDA function.
 - Likely source file: [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md), or folded into [UID:0000OP][TextMenuDialogs](by-file/TextMenuDialogs.md)
 - Main address range: [UID:0001BS][0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs](by-memory/0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs.md)
 - Destructor/thunk range: [UID:0001BX][0x00520abb-0x00520e2b.MenuDialogDestructorThunks](by-memory/0x00520abb-0x00520e2b.MenuDialogDestructorThunks.md)
@@ -46,6 +46,8 @@
 
 - Wave3 summary: specialized list-pane implementation for argumented item dialogs, including selection text updates and contextual help-pane behavior.
 - IDA MCP confirms all included method starts and reports no function at `0x0051f310`.
+- 2026-06-03 restarted IDA MCP recheck confirms the constructor at `0x0051f290-0x0051f30b`, list methods at `0x0051f5b0`, `0x0051f710`, `0x0051f720`, and `0x0051f840`, and no function at `0x0051f310`.
+- The primary list vtable at `0x0061f4c4` points selection/draw slots to `0x0051f720` and `0x0051f840`, while secondary/tertiary vtable bases `0x0061f54c` and `0x0061f57c` share the constructor/destructor write sites.
 - Constructor callers are in the argumented confirm/input flow at `0x0051feec` and `0x00520347`, while the owning dialog builds an equivalent list object inline during packet construction.
 - `SendArgumentedItemQuantityPacket` at `0x0051f640` consumes this list's command type, owner id, selected item argument, and owner dialog pointer fields.
 - Current generated source omits some excluded helper/thunk bodies even though IDA confirms the thunk functions; this is tracked in [wave3_data_issues](../wave3_data_issues.md).
@@ -65,3 +67,7 @@
 - What existed before: the page had method and caveat evidence but remained scored as unevaluated.
 - What it was changed to: scores were set to `70/84`, and a class-shape section was added for base family, owned context offsets, UI role, and source placement.
 - Summary and evidence: IDA-confirmed method starts and packet-helper field consumption support strong confidence; the non-function Wave3 method at `0x0051f310` and generated thunk omissions keep completion below high.
+- 2026-06-03 parent/evidence update:
+  - Before: the class was not attached to a reconstructable file parent despite file/class confidence being above the 80 threshold.
+  - Changed to: `72/84`, `RECONSTRUCTABLE:TRUE`, parent [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) at position `20`, with fresh vtable and function-boundary evidence added.
+  - Evidence: restarted IDA MCP function checks for list methods, no-function check at `0x0051f310`, vtable slot dump, and constructor caller xrefs.

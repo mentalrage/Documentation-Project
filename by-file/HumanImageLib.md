@@ -23,6 +23,8 @@ This should remain a separate render/image source file. The class is tightly cou
 
 The concrete `ProtectedArray<...Info>` helper files for old-human parts are template instantiations, not separate original modules. Keep their reusable template support under [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md), while this file owns the human/equipment table loading and the embedded array fields. IDA confirms the adjacent old-human `ProtectedArray` vtables immediately before the class vtable at `0x0061b6d4`.
 
+The exact constructor page [UID:0002TO][0x004d2720-0x004d4aca.HumanImageLibConstructor](by-memory/0x004d2720-0x004d4aca.HumanImageLibConstructor.md) now carries the detailed IDA evidence for the table names, EPF validation path, singleton/vtable writes, and external helper calls. Keep final C++ out of this file until the constructor's field names and helper names reach final-audit quality.
+
 ## Resource Families
 
 The constructor calls the shared frame-table loader repeatedly for human/equipment archives. Observed merge prefixes from the shared loader include:
@@ -51,6 +53,7 @@ The old human library should not be collapsed into `ImageLib.cpp`. It is a consu
 - [UID:0000R5][g_pHumanImageLib](by-global/g_pHumanImageLib.md)
 - [UID:0001XQ][HumanImageLibVtable](by-type/by-vtable/HumanImageLibVtable.md)
 - [UID:0001UR][HumanImageLibLayout](by-type/by-struct/HumanImageLibLayout.md)
+- [UID:0002TO][0x004d2720-0x004d4aca.HumanImageLibConstructor](by-memory/0x004d2720-0x004d4aca.HumanImageLibConstructor.md)
 - [UID:00017B][0x004d4ad0-0x004d4f67.HumanImageLibDestructor](by-memory/0x004d4ad0-0x004d4f67.HumanImageLibDestructor.md)
 - [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md)
 - [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md)

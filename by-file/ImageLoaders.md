@@ -31,7 +31,7 @@ The `DIBitmap` wrapper class itself remains best documented as `render/DIBitmap.
 | [UID:0000U9][CreateDIBitmapFromPcxBuffer_004A18B0](by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md) | `0x004a18b0-0x004a1b0c` | `render/ImageLoaders.cpp` | Calls the PCX decoder, constructs `DIBitmap`, copies RGB565 rows, and frees temporary pixels. |
 | [UID:0000UD][DecodePcxToRgb565Buffer_00549410](by-item/DecodePcxToRgb565Buffer_00549410.md) | `0x00549410-0x00549616` | `render/ImageLoaders.cpp` or `render/PcxDecode.cpp` | Standalone 8-bit PCX/RLE/palette decoder with one confirmed caller. |
 | [UID:0002TJ][0x004d05f0-0x004d0723.DecodeZpfFpfToTileContext](by-memory/0x004d05f0-0x004d0723.DecodeZpfFpfToTileContext.md) | `0x004d05f0-0x004d0723` | `render/ImageLoaders.cpp` | Retained legacy compressed image wrapper: `ZPF` outer data inflates to `FPF` and is copied as 16-bit pixels. |
-| [UID:0002TK][0x004d0730-0x004d07a3.DecodeFpfToTileContext](by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md) | `0x004d0730-0x004d07a3` | `render/ImageLoaders.cpp` or adjacent retained helper | IDA-unmodeled direct `FPF` decoder with no known direct xrefs; behavior matches the same 16-bit tile-context copy/finalizer path. |
+| [UID:0002TK][0x004d0730-0x004d07a3.DecodeFpfToTileContext](by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md) | `0x004d0730-0x004d07a3` | `render/ImageLoaders.cpp` | IDA-unmodeled direct `FPF` decoder with no known direct xrefs; signature/source-family evidence is strong enough to attach, while reachability remains open. |
 | [UID:0002TL][0x004d07b0-0x004d09a7.DecodeJpfImageToTileContext](by-memory/0x004d07b0-0x004d09a7.DecodeJpfImageToTileContext.md) | `0x004d07b0-0x004d09a7` | `render/ImageLoaders.cpp` | Profile/look portrait wrapper: `JPF` header plus embedded JPEG decoded through [UID:0000KN][LibJPEG](by-file/LibJPEG.md), converted to RGB565. |
 | [UID:0002TM][0x004d09b0-0x004d0a8a.Decode8BitBmpToTileContext](by-memory/0x004d09b0-0x004d0a8a.Decode8BitBmpToTileContext.md) | `0x004d09b0-0x004d0a8a` | `render/ImageLoaders.cpp` | 8-bit BMP plus palette loader used by [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) for `LEVEL.BMP`. |
 | [UID:0002TN][0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext](by-memory/0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext.md) | `0x004d0a90-0x004d0c58` | `render/ImageLoaders.cpp` | Raw in-memory JPEG decoder used by [UID:0000LE][MiniMap](by-file/MiniMap.md) `.mnm` tile blobs. |
@@ -50,6 +50,7 @@ The `DIBitmap` wrapper class itself remains best documented as `render/DIBitmap.
 - IDA MCP decompilation on 2026-05-25 confirms [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) for `ZPF`/`FPF`, `JPF`, 8-bit `BM`, and raw JPEG.
 - IDA MCP lookup/disassembly/byte audit on 2026-06-03 corrects the wrapper family to five child ranges, including the previously omitted IDA-unmodeled raw `FPF` helper at `0x004d0730-0x004d07a3` and the raw JPEG half-open end at `0x004d0c58`.
 - IDA callers tie `DecodeJpfImageToTileContext` to [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md) and [UID:0000P0][UserLookPane](by-file/UserLookPane.md), `DecodeJpegBufferToTileContext` to [UID:0000LE][MiniMap](by-file/MiniMap.md), and `Decode8BitBmpToTileContext` to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md).
+- IDA MCP post-restart clean disassembly and xref/string sweep on 2026-06-03 maps the raw `FPF` helper signature to `(const unsigned char* fpfBuffer, EPFTileContext* destination)`, shows its decode body mirrors the ZPF wrapper's inner `FPF` branch, and confirms the `FPF` literal is referenced only by those two bodies.
 
 ## Ownership Decision
 
@@ -96,3 +97,8 @@ Do not put IJG internals in this module. The `JPF` and raw JPEG wrappers belong 
   - What existed before: the wrapper inventory listed four unlinked rows with return-address-style ends and omitted the raw direct `FPF` helper.
   - Changed to: replaced the wrapper rows with exact child UID links for `ZPF`/`FPF`, raw `FPF`, `JPF`, 8-bit BMP, and raw JPEG; kept the file score unchanged because this pass refines existing ownership rather than resolving the remaining source-file split questions.
   - Summary/evidence: IDA MCP `lookup_funcs`, `py_eval`, `disasm`, `decompile`, caller/callee checks, and byte audit on 2026-06-03.
+
+- 2026-06-03 raw FPF parent attachment:
+  - What existed before: the raw `FPF` child and aggregate wrapper page were linked but not attached to the file parent.
+  - Changed to: attached [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) and [UID:0002TK][0x004d0730-0x004d07a3.DecodeFpfToTileContext](by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md) to this file, with C++ still blank.
+  - Summary/evidence: IDA MCP clean disassembly confirms the raw helper stack map and ZPF-inner-branch equivalence, while non-flow xrefs still show no direct caller or function object for the raw helper.

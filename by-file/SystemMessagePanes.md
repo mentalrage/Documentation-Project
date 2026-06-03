@@ -1,6 +1,6 @@
 *** UID:0000OE | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SystemMessagePanes
@@ -35,8 +35,8 @@ social/Chatting.cpp
 | --- | --- | --- | --- |
 | `SystemMessagePane` | `0x00584ea0-0x0058af3b` | `class_SystemMessagePane.cpp` | Scrollable system-message viewport with high-resolution dynamic lines and normal-resolution EPF tile slots. |
 | `ColorStringSystemMessage` | `0x00587970-0x00587ba3`, `0x0058ab50-0x0058abe6`, plus tiny virtual `0x0055c1c0` | `class_ColorStringSystemMessage.cpp` | Heap-backed colored text message entry with clone, one-line-count helper shape, draw, and cleanup methods. |
-| `HeaderSystemMessage` | `0x00587890-0x005878fe`, plus `0x00514e60` and tiny boolean slots | `class_HeaderSystemMessage.cpp` | Tiny marker entry/factory for system-message list structure. |
-| `FooterSystemMessage` | `0x00587900-0x0058796e`, plus shared destructor/boolean slots | `class_FooterSystemMessage.cpp` | Tiny footer marker entry/factory for system-message list structure. |
+| `HeaderSystemMessage` | `0x00587890-0x005878ff`, plus `0x00514e60` and tiny boolean/default slots | `class_HeaderSystemMessage.cpp` | Tiny marker entry/factory for system-message list structure. |
+| `FooterSystemMessage` | `0x00587900-0x0058796f`, plus shared destructor/boolean/default slots | `class_FooterSystemMessage.cpp` | Tiny footer marker entry/factory for system-message list structure. |
 | `NewSystemMessageModifyHeightPane` | `0x005881f0-0x0058855b`, `0x0058aaa0`, `0x0058acc0-0x0058ad1e` | `class_NewSystemMessageModifyHeightPane.cpp` | Drag handle for resizing/persisting the newer system-message panel height. |
 | `NewSystemMessagePane` | `0x00588560-0x0058adab` | `class_NewSystemMessagePane.cpp` plus misfiled constructor in `class_NewSystemMessageModifyHeightPane.cpp` | New-client system-message panel wrapper that rebuilds child panes, refreshes world-map child state, and draws the tiled panel background. |
 | `OldSystemMessagePane` | `0x00588e30-0x0058af00` | `class_OldSystemMessagePane.cpp` | Legacy scrollable system-message pane with fixed 12-pixel rows, separators, clip-region drawing, and message collection destruction. |
@@ -53,6 +53,7 @@ Targeted checks on 2026-05-23 confirmed all listed function starts:
 - 2026-05-25 IDA MCP recheck: `ColorStringSystemMessage::GetLineCount` at `0x00587ae0` calls [UID:00016F][0x004bb070-0x004bb078.ConstantLineCountHelper](by-memory/0x004bb070-0x004bb078.ConstantLineCountHelper.md) with the entry text, text length, and width argument, then clamps the result to at least one line. `0x004bb070` itself currently returns constant `1`, so active `simroot_v2` is behaviorally equivalent but structurally simplified.
 - 2026-05-25 IDA MCP recheck: `NewSystemMessagePane::NewSystemMessagePane` at `0x00588560` is directly called from `GeneralPurposePanel2` construction at `0x004b88ae`, writes `g_pNewSystemMessagePane`, creates `NewSystemMessageModifyHeightPane`, `SpelledPane`, and child `SystemMessagePane`; current `simroot_v2` still emits this constructor in `class_NewSystemMessageModifyHeightPane.cpp`.
 - 2026-05-25 IDA MCP recheck: `OldSystemMessagePane::OldSystemMessagePane` at `0x00588e30` is directly called from the legacy main UI graph path at `0x004f8861`; current `simroot_v2/class_OldSystemMessagePane.cpp` still has only an omitted-body marker for the constructor.
+- 2026-06-03 IDA MCP recheck: `HeaderSystemMessage` factory is `0x00587890-0x005878ff` and `FooterSystemMessage` factory is `0x00587900-0x0058796f`; both allocate a four-byte `LObject` shell, install their class vtable, and return null only on allocation failure. Vtable data confirms the paired true/false boolean slots, the `0x0058af40-0x0058af48` default true helper, and the factory slot for each marker class. The shared scalar deleting destructor `0x00514e60` is also reused by `MerchantDialogCreator` and `PursuitMessageDialogCreator` vtables.
 
 ## Ownership Notes
 
@@ -90,3 +91,6 @@ Targeted checks on 2026-05-23 confirmed all listed function starts:
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `88` and confidence to `80`.
   - Evidence: document covers the full system-message pane family, proposed contents, IDA function-boundary evidence, constructor and vtable notes, generated mispartition caveats, social/chat split, and cross-references; confidence remains capped by final split from `social/Chatting.cpp`.
+- 2026-06-03: Raised confidence from `80` to `82` after fresh IDA MCP verification of the header/footer marker factories and vtable slot layout.
+  - Evidence: exact half-open factory endpoints, constructor-body disassembly, header/footer vtable word maps, and shared destructor reuse outside the marker pair are now recorded.
+  - Scope: documentation/attachment confidence only; reconstructed C++ remains gated by child method-name quality.

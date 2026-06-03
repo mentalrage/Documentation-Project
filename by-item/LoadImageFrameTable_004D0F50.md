@@ -1,8 +1,8 @@
 *** UID:0000UY | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000K1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,10 +14,18 @@
 
 - Confidence: strong for behavior, medium for exact original function/type names.
 - Entity kind: shared global helper.
-- Current Wave3 owner file: `LoadImageFrameTable_004D0F50.cpp`
 - Likely source module: [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md)
 - Exact range: `0x004d0f50-0x004d15c5`
 - Canonical memory page: [UID:0002P4][0x004d0f50-0x004d15c5.LoadImageFrameTable](by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md)
+- Current IDA name: `sub_4D0F50`
+- Autogen parent: [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md); final C++ remains blank because table/header/record type names and allocator wrappers are still below the 95/95 source gate.
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 82 | Live IDA now confirms the exact boundary, adjacent function split, direct/merge paths, prefix literals, caller grouping, callee family, output table/header layout, and source owner attachment. |
+| Confidence | 86 | The behavior and owner are strongly supported by decompilation, xrefs, and `.rdata` string reads. Confidence remains below final-source level because original type names, exact field names, and cleanup/error wrapper spelling are still unresolved. |
 
 ## Behavior
 
@@ -30,24 +38,31 @@ Observed merge prefixes include `HEAD`, `HEADSP`, `BODY`, `SWORD`, `SPEAR`, `BOW
 
 For each source archive, the helper reads an 8-byte table header, reads a 4-byte record-table offset, gets the mapped payload base through `DATFile::GetDataPointer`, seeks to the record table, and reads 16-byte raw records into 24-byte in-memory records with absolute payload offsets. It appends a terminal zero-bounds sentinel.
 
-## Call Evidence
+## Live IDA Evidence
 
-Wave3 xrefs report 25 total call sites, grouped into eight caller functions/classes:
+IDA MCP on 2026-06-03 confirms:
 
-- [UID:0000JY][HumanImageLib](by-file/HumanImageLib.md) repeatedly calls this helper for old body/equipment part tables such as `HEAD`, `BODY`, `SWORD`, `FACE`, `HAIR`, `HELMET`, `MANTLE`, `SHOES`, and `COAT`.
-- [UID:0000N6][RidingImageLib](by-file/RidingImageLib.md) calls it for `RIDINGS.EPF` mount/riding sprites.
-- `StaticObjImageLib` calls it for static-object frame data.
-- `ScrolledPictureControlPane`, `OverlayFrameImageEffecter`, `OverlayImageOnPointEffecter`, `OverlayMovingImageEffecter`, and `WaterFilterEffecter` use it for UI/effect image resources.
+- `lookup_funcs` resolves `0x004d0f50` to `sub_4D0F50`, size `0x675`, ending half-open at `0x004d15c5`; `0x004d15c5` is not a function, while the adjacent helpers start at `0x004d15d0` and `0x004d1600`.
+- `decompile 0x004d0f50` shows direct mode opening the supplied path, allocating a 12-byte table header, reading `(count + 1) * 24` frame records, rebasing the two payload fields by the DAT data pointer, and appending the terminal sentinel.
+- The nonzero mode switch accepts mode values `1..18`, copies a fixed prefix, probes up to 100 numbered names using `"%s%d.EPF"` and [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md), then opens all present shards and merges their records into one output table.
+- IDA `.rdata` reads resolve the prefix strings directly: `HEAD`, `HEADSP`, `BODY`, `SWORD`, `SPEAR`, `BOW`, `FAN`, `SHIELD`, `ARROW`, `FACE`, `HAIR`, `ACE1`, `ACE2`, `HELMET`, `MANTLE`, `NECLACE`, `SHOES`, and `COAT`. The `NECLACE` spelling is the observed binary string at `0x0061b828`.
+- `callees 0x004d0f50` reports DAT file lifecycle/read/seek/data-pointer helpers, the DAT entry probe at `0x0049c700`, wide formatting/copy helper `0x0041b9b0`, rectangle initialization `0x004b7c50`, allocation/free helpers, and the security-cookie check.
 
-IDA/Wave3 callees include `DATFile`, `DATFile::Open`, `DATFile::Read`, `DATFile::Seek`, `DATFile::Close`, `DATFile::GetDataPointer`, and [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md).
+## Caller Evidence
 
-IDA MCP on 2026-05-23 confirmed eight caller functions and the exact `0x004d0f50-0x004d15c5` range. The companion [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) helper has ten caller functions across map tile, static/effect/item/new-human, and UI/effect draw paths, which supports a shared `render/ImageFrameTable.cpp` source owner.
+IDA MCP `xrefs_to 0x004d0f50` on 2026-06-03 reports 25 direct code refs grouped across eight modeled functions:
 
-IDA MCP recheck on 2026-05-31 confirms `sub_4D0F50` starts at `0x004d0f50`, ends half-open at `0x004d15c5`, has 25 direct call sites grouped around image/effect/resource consumers, and calls DATFile lifecycle helpers, [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md), allocation/free helpers, and rectangle/metadata helpers.
+- Eighteen calls inside [UID:0002TO][0x004d2720-0x004d4aca.HumanImageLibConstructor](by-memory/0x004d2720-0x004d4aca.HumanImageLibConstructor.md), covering the old human/equipment family load path.
+- `0x004dc707` in [UID:0000N6][RidingImageLib](by-file/RidingImageLib.md) constructor code.
+- `0x004dd109` in [UID:0000O7][StaticObjImageLib](by-file/StaticObjImageLib.md) constructor code.
+- `0x004ff859` in [UID:00019Y][0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore](by-memory/0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore.md).
+- `0x0055a694`, `0x0055a849`, `0x0055ab76`, and `0x0055b704` in overlay/filter effecter constructors.
+
+The companion [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) helper shares the same source owner but has a broader draw-side xref profile, including many raw references in IDA-unmodeled code islands. Together they support `ImageFrameTable` as a shared render-resource helper rather than ownership by any one image-library class.
 
 ## Ownership Decision
 
-This helper should be grouped with [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md), not with the raw DAT archive module. The current one-function file is a Wave3 staging file.
+This helper should be grouped with [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md), not with the raw DAT archive module. The exact memory child [UID:0002P4][0x004d0f50-0x004d15c5.LoadImageFrameTable](by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md) is already attached to that parent, and this by-item index is now assigned there for autogen coverage tracking.
 
 ## Cross-References
 
@@ -72,3 +87,8 @@ This helper should be grouped with [UID:0000K1][ImageFrameTable](by-file/ImageFr
   - Before: the page relied on the broad aggregate memory range for canonical details.
   - After: the page points to exact memory documentation for `0x004d0f50-0x004d15c5`.
   - Evidence: [UID:0002P4][0x004d0f50-0x004d15c5.LoadImageFrameTable](by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md) records IDA MCP function boundary, caller/callee inventory, direct and merge mode behavior, table layout observations, and remaining type-name questions.
+
+- 2026-06-03: Completion/confidence changed from `70/82` to `82/86`; `AUTOGEN_PARENT_UID` changed from blank to [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md).
+  - Before: the by-item page still contained stale staging/provenance wording and was unassigned even though the exact by-memory child was already attached to `ImageFrameTable`.
+  - After: the page records current live IDA boundary, decompile, prefix-string, caller, callee, ownership, and score rationale evidence; final C++ remains blank below the 95/95 bar.
+  - Evidence: IDA MCP `lookup_funcs`, `xrefs_to`, `callees`, `decompile`, and `py_eval` string reads on 2026-06-03 confirm `sub_4D0F50`, the adjacent function split, 25 direct call sites, the `1..18` merge-mode prefix table, direct-mode table loading, merge-mode shard scan/merge behavior, and the observed `NECLACE` string in `.rdata`.

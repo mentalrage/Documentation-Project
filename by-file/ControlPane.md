@@ -10,7 +10,7 @@
 - Confidence: strong for base control ownership.
 - Proposed module: `ui/core/ControlPane.cpp`
 - Current recovered source: `source-3/simroot_v2/class_ControlPane.cpp`
-- Main address ranges: `0x004949e0-0x00494a81`, `0x00494bf0-0x00494bf7`, `0x0049b170-0x0049b1aa`; the legacy [UID:000114][0x004949e0-0x00494bf6.ControlPane](by-memory/0x004949e0-0x00494bf6.ControlPane.md) page is now an aggregate/index because unrelated helpers are interleaved in the old span.
+- Main address ranges: `0x004949e0-0x00494a81`, `0x00494bf0-0x00494bf7`, `0x0049b170-0x0049b1aa`; the legacy [UID:000114][0x004949e0-0x00494bf7.ControlPane](by-memory/0x004949e0-0x00494bf7.ControlPane.md) page is now an aggregate/index because unrelated helpers are interleaved in the old span.
 - Type docs: [UID:0001YC][PaneCoreVtableFamily](by-type/by-vtable/PaneCoreVtableFamily.md)
 
 ## File Role
@@ -39,7 +39,7 @@ Derived controls such as browser controls, checkbox controls, image controls, mi
 ## Cross-References
 
 - [UID:000038][ControlPane](by-class/ControlPane.md)
-- [UID:000114][0x004949e0-0x00494bf6.ControlPane](by-memory/0x004949e0-0x00494bf6.ControlPane.md)
+- [UID:000114][0x004949e0-0x00494bf7.ControlPane](by-memory/0x004949e0-0x00494bf7.ControlPane.md)
 - [UID:0002PB][0x004949e0-0x00494a81.ControlPaneConstructor](by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md)
 - [UID:0002PC][0x00494bf0-0x00494bf7.ControlPaneIgnoresHitTesting](by-memory/0x00494bf0-0x00494bf7.ControlPaneIgnoresHitTesting.md)
 - [UID:0001YC][PaneCoreVtableFamily](by-type/by-vtable/PaneCoreVtableFamily.md)

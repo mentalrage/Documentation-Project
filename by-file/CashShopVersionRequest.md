@@ -33,7 +33,7 @@ Likely source-level contents:
 ## Evidence
 
 - Wave3 reports `CashShopVersionRequest` with two methods and owner file `class_CashShopVersionRequest.cpp`.
-- IDA MCP confirms `0x0041b270-0x0041b2c8` and `0x0041b5e0-0x0041b603` as real functions.
+- IDA MCP confirms `0x0041b270-0x0041b2c9` and `0x0041b5e0-0x0041b603` as real functions.
 - IDA MCP reports `0x0041b270` is called by `0x0041bdd0`, the fitting-room dialog constructor.
 - IDA MCP decompilation on 2026-05-25 shows the caller passes `dword_67A738` into `0x0041b270`, and the `0x0067a738` xref sweep found FileDownloader constructor/destructor-family lifetime writes.
 - Wave3 global summaries identify `DownloadCashShopVersion_41AA00` at `0x0041aa00` and `DownloadCashShopCatalog_41AE20` at `0x0041ae20`.
@@ -72,7 +72,7 @@ cashshop/
 - [UID:0000JC][FileDownloader](by-file/FileDownloader.md)
 - [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md)
 - [UID:0001OP][0x0067a738-0x0067a73c.g_pCashShopRequest](by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md)
-- [UID:0000WJ][0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload](by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md)
+- [UID:0000WJ][0x0041aa00-0x0041b2c9.CashShopVersionAndCatalogDownload](by-memory/0x0041aa00-0x0041b2c9.CashShopVersionAndCatalogDownload.md)
 - [UID:0002CL][0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest](by-memory/0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest.md)
 - [UID:0002CN][0x0041b5e0-0x0041b604.CashShopVersionRequestScalarDeletingDestructor](by-memory/0x0041b5e0-0x0041b604.CashShopVersionRequestScalarDeletingDestructor.md)
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md)

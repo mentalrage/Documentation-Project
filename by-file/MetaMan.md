@@ -28,10 +28,10 @@ This source should be reconstructed as a metadata/data-definition module, not as
 | [UID:0000RL][g_pMetaMan](by-global/g_pMetaMan.md) | `0x0069b410` | Process-wide singleton pointer. |
 | [UID:0000PW][g_emptySimpleUString](by-global/g_emptySimpleUString.md) | `0x0066daec` | Shared empty return value for failed metadata lookups. Final source owner may be shared string support rather than private metadata state. |
 | [UID:0000Q2][g_metaAliasTableName](by-global/g_metaAliasTableName.md) | [UID:0001OL][0x0066de18-0x0066de30.g_metaAliasTableName](by-memory/0x0066de18-0x0066de30.g_metaAliasTableName.md) | Static `SimpleUString` key used by alias-aware lookups before fallback lookups. |
-| `DestroyMetaTableTreeNodes_5258B0` | `0x005258b0-0x005258f0` | File-local row-tree cleanup helper for `MetaTable`. |
+| `DestroyMetaTableTreeNodes_5258B0` | `0x005258b0-0x005258f1` | File-local row-tree cleanup helper for `MetaTable`. |
 | [UID:0001C9][0x00523a00-0x00523c99.MetaManLookupHelpers](by-memory/0x00523a00-0x00523c99.MetaManLookupHelpers.md) | `0x00523a00-0x00523c99` | Lower helpers used by `FindEntry`, `LoadStatValues`, and metadata table materialization. |
 | [UID:0001CA][0x005245c0-0x0052462a.MetaTableRowFindByKey](by-memory/0x005245c0-0x0052462a.MetaTableRowFindByKey.md) | `0x005245c0-0x0052462a` | Source-local row-tree lookup helper in the gap before the `MetaTable` constructor. |
-| [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md) | `0x00524870-0x00524c54` | Parses decoded table payloads into row nodes and value vectors. |
+| [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md) | `0x00524870-0x00524c55` | Parses decoded table payloads into row nodes and value vectors. |
 | [UID:0001CD][0x00524d10-0x00525914.MetaTableRowTreeHelpers](by-memory/0x00524d10-0x00525914.MetaTableRowTreeHelpers.md) | `0x00524d10-0x00525914` | Row-node allocation, vector growth, tree insertion, string copy/assignment, and cleanup helpers. |
 | [UID:00023A][0x00524590-0x005245b1.MetaManNodeDestroyHelper](by-memory/0x00524590-0x005245b1.MetaManNodeDestroyHelper.md) | `0x00524590-0x005245b1` | Metadata tree-node payload cleanup and node free helper called from `MetaMan` cleanup paths. |
 
@@ -85,7 +85,7 @@ Known consumers should stay in their own modules and call into `MetaMan`:
 - [UID:0001C8][0x005227d0-0x00524581.MetaMan](by-memory/0x005227d0-0x00524581.MetaMan.md)
 - [UID:0001CB][0x00524630-0x005258f1.MetaTable](by-memory/0x00524630-0x005258f1.MetaTable.md)
 - [UID:0001C9][0x00523a00-0x00523c99.MetaManLookupHelpers](by-memory/0x00523a00-0x00523c99.MetaManLookupHelpers.md)
-- [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md)
+- [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md)
 - [UID:0001CD][0x00524d10-0x00525914.MetaTableRowTreeHelpers](by-memory/0x00524d10-0x00525914.MetaTableRowTreeHelpers.md)
 - [UID:00023A][0x00524590-0x005245b1.MetaManNodeDestroyHelper](by-memory/0x00524590-0x005245b1.MetaManNodeDestroyHelper.md)
 - [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md)
@@ -103,3 +103,5 @@ Known consumers should stay in their own modules and call into `MetaMan`:
 - Changed to: completion `88`, confidence `82`.
 - Summary/evidence: the page documents the manager/table split, globals, helper ranges, startup/sync flow, resource behavior, consumers, caveats, and related type/resource docs; confidence stays below very high because final folder name and some secondary `Meta.dat` field names remain open.
 - 2026-06-01: set projected reconstruction path to `NexusTK/metadata/` so validated MetaMan/MetaTable memory children can attach to this file root. The narrative still records that an original flat source tree may have used `MetaMan.cpp` at project root.
+- 2026-06-03: updated the `MetaTableMaterializeRows` child range to the live IDA half-open boundary `0x00524870-0x00524c55`; the child is now attached here after caller/callee and padding audits.
+- 2026-06-03: updated `MetaTableRowTreeHelpers` child evidence and attached it here; live IDA confirms exact helper endpoints, `0x00525830-0x00525849` tree-header allocation, and `DestroyMetaTableTreeNodes_5258B0` ending at `0x005258f1`.

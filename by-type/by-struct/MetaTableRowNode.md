@@ -15,7 +15,7 @@
 - Kind: metadata row tree node.
 - Owner: [UID:000089][MetaTable](by-class/MetaTable.md) inside [UID:0000LC][MetaMan](by-file/MetaMan.md)
 - Confidence: strong for size and major fields; medium for final field names.
-- Evidence basis: IDA MCP decompilation of [UID:0001CD][0x00524d10-0x00525914.MetaTableRowTreeHelpers](by-memory/0x00524d10-0x00525914.MetaTableRowTreeHelpers.md) on 2026-05-25. `wave3.py` was not executed for this pass.
+- Evidence basis: IDA MCP decompilation of [UID:0001CD][0x00524d10-0x00525914.MetaTableRowTreeHelpers](by-memory/0x00524d10-0x00525914.MetaTableRowTreeHelpers.md) on 2026-05-25 plus live helper-endpoint and sentinel-allocation audit on 2026-06-03. `wave3.py` was not executed for this pass.
 
 ## Purpose
 
@@ -41,7 +41,8 @@ MetaTableRowNode                         // size 0x34
 
 ## Evidence
 
-- `0x00525850` allocates exactly `0x34` bytes for each node.
+- `0x00525830` allocates exactly `0x34` bytes for the row-tree header/sentinel node, initializes the first three pointers back to itself, and writes word `0x0101` at `+0x0c`.
+- `0x00525850` allocates exactly `0x34` bytes for each normal row node.
 - `0x00524d10` initializes the first three dwords from the tree sentinel, clears the flags at `+0x0c`, copies the row key into `+0x10`, and clears the three value-vector pointers at `+0x28`, `+0x2c`, and `+0x30`.
 - `0x00524db0` grows the value vector using 24-byte elements, matching the local `SimpleUString` size.
 - `0x00525610` destroys the value vector at `+0x28` and then frees/reset the row key string at `+0x10`.
@@ -55,6 +56,12 @@ MetaTableRowNode                         // size 0x34
 - `0x00525610` destroys the value vector beginning at `+0x28`, frees/resets the key string at `+0x10`, and restores the empty-string state.
 - `0x005245c0` walks the tree using the byte at `+0x0d` as the sentinel/nil flag and compares keys at `+0x10`.
 
+2026-06-03 IDA MCP recheck:
+
+- `MetaTable::MetaTable` calls `sub_525830` at `0x00524656` to allocate the tree header/sentinel before clearing payload fields.
+- `sub_525830` writes self-links to `+0x00`, `+0x04`, and `+0x08` and sets the flag word at `+0x0c` to `0x0101`; normal node allocation remains at `sub_525850`.
+- `sub_5258B0` ends at `0x005258f1`, so the recursive cleanup helper includes the final `retn 4` instruction and the following `0x005258f1-0x00525900` bytes are padding.
+
 ## Open Questions
 
 - Exact naming and polarity of the red-black color byte.
@@ -64,7 +71,7 @@ MetaTableRowNode                         // size 0x34
 ## Cross-References
 
 - [UID:0001CD][0x00524d10-0x00525914.MetaTableRowTreeHelpers](by-memory/0x00524d10-0x00525914.MetaTableRowTreeHelpers.md)
-- [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md)
+- [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md)
 - [UID:0001CA][0x005245c0-0x0052462a.MetaTableRowFindByKey](by-memory/0x005245c0-0x0052462a.MetaTableRowFindByKey.md)
 - [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md)
 - [UID:000089][MetaTable](by-class/MetaTable.md)
@@ -74,3 +81,4 @@ MetaTableRowNode                         // size 0x34
 - Before: completion/confidence metadata was unevaluated at `0/0`; `RECONSTRUCTABLE` was blank.
 - Changed to: completion `80`, confidence `87`, `RECONSTRUCTABLE:TRUE`.
 - Summary/evidence: IDA MCP rechecked the row allocator, initializer, vector-grow helper, row payload destructor, and lookup walk on 2026-05-31. The node size, link fields, key location, value-vector span, and sentinel byte are now directly documented. Scores remain below `95` because final field names, red/black polarity, and original container spelling are still not fully proven.
+- 2026-06-03: added the separate `0x00525830-0x00525849` tree-header/sentinel allocator and corrected the cleanup-helper endpoint evidence from the live IDA helper-island audit. Scores were not raised in this pass; this page is already above the current low-score threshold and still needs final field names/red-black polarity.

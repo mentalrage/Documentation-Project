@@ -1,13 +1,13 @@
 *** UID:0000MT | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ProgressBarControlPane
 
 ## Status
 
-- Confidence: strong for class role and constructor/draw ownership, medium for private helper names.
+- Confidence: strong for class role, source placement, constructor/draw ownership, and vtable-backed class identity; medium for private helper names.
 - Proposed module: `NexusTK/ui/controls/ProgressBarControlPane.cpp`
 - Current recovered source: `source-3/simroot_v2/class_ProgressBarControlPane.cpp`
 - Main address ranges: `0x00494a90-0x00494b4b`, `0x00494c80-0x00494daa`, and `0x00494db0-0x00494eb0`
@@ -45,6 +45,7 @@ The private helpers at `0x00494a90`, `0x00494af0`, and `0x00494db0` should be gr
 - Current simroot output emits only the constructor and draw virtual, so helper names remain provisional.
 - 2026-05-26 recheck: IDA MCP still reports the three helper starts as `Not a function` and reports no direct xrefs to them. Keep them documented as projected private `ProgressBarControlPane` helper bytes; do not add them to ignored ranges because the bytes operate on progress-bar fields and remain plausible project code.
 - 2026-06-01 IDA MCP byte review confirms the corrected range-setter aggregate boundary: `0x00494a90-0x00494ae7` and `0x00494af0-0x00494b4b` are complete helper bodies, while `0x00494ae7-0x00494af0` and `0x00494b4b-0x00494b50` are `0xcc` alignment.
+- 2026-06-03 cross-documentation review confirms the file page is the stable source parent for the class and assigned helpers: [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md) is attached here, exact helper children are assigned through the class with no emitted C++ bodies, [UID:0002OL][0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData](by-memory/0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData.md) proves the vtable data range, and [UID:000119][0x00494c80-0x00494daa.ProgressBarControlPaneConstructor](by-memory/0x00494c80-0x00494daa.ProgressBarControlPaneConstructor.md) plus [UID:00011C][0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar](by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md) prove the modeled constructor/draw core.
 
 ## Cross-References
 
@@ -65,3 +66,7 @@ The private helpers at `0x00494a90`, `0x00494af0`, and `0x00494db0` should be gr
   - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank and UID `000116` still pointed at the stale `0x00494b48` filename.
   - After: projected path is `NexusTK/ui/controls/`, and UID `000116` points at `0x00494a90-0x00494b4b.ProgressBarRangeSetters`.
   - Evidence: proposed source placement already identified a reusable UI control module; IDA MCP byte review proved the aggregate end is `0x00494b4b`, not `0x00494b48`.
+- 2026-06-03 parent-threshold consistency pass:
+  - Before: confidence remained `76` even though the class and exact helper children were already attached into this file's autogen tree.
+  - After: completion/confidence are `84/80`, with the confidence raised only to the attachment threshold and final C++ still withheld.
+  - Evidence: the exact constructor, draw virtual, vtable data, range-setter aggregate, update/draw aggregate, child helper pages, class page, and autogen reports all agree on `NexusTK/ui/controls/ProgressBarControlPane.cpp` as the stable source parent. Live IDA MCP was unavailable during this pass, so projected helper names remain a cap.

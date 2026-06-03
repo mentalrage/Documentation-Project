@@ -27,6 +27,8 @@ The current best source-file interpretation is that these methods likely lived n
 
 `EPFImageControlPane`, `AboveFrame`, item glyph helpers, minimap/dialog panes, and image libraries are consumers of this registry. They should call it from their own modules rather than own the EPF record table.
 
+The raw helper [UID:0002KT][0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md) sits in this address neighborhood and consumes the same 24-byte record format, but its known modeled calls are from [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md), with additional orphan old/new human composition xrefs. Keep its final declaration/source ownership open until the shared helper boundary between `ImageLib`/`ResourceLayoutTable` and the human image modules is settled.
+
 ## Evidence
 
 - Wave3 class inspection summarizes this class as a shared layout-resource table that resolves named EPF/EPD records by index.
@@ -37,6 +39,7 @@ The current best source-file interpretation is that these methods likely lived n
 - Application shutdown deletes `DAT_0067a744`, which matches a process-wide image/resource registry lifetime.
 - IDA MCP xrefs to `0x0067a744` on 2026-05-24 show many consumers but the owner writes remain in the `ImageLib` constructor/destructor family.
 - IDA MCP vtable review on 2026-05-24 resolves the suspected `ResourceLayoutStore` vtable as the generic `List` vtable at `0x0061ce2c`; `LoadResourceIndex` uses `List::Append` and lookup paths use `List::GetElementAt`.
+- IDA MCP on 2026-06-03 confirms [UID:0002KT][0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md) as a no-callee raw record-rectangle helper, with two modeled `NewHumanImageLib::CalculateCompositionBounds` callsites and additional orphan human-image composition callsites.
 
 ## Public API Shape
 
@@ -70,6 +73,8 @@ Do not absorb the nearby [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers]
 - [UID:0000KS][List](by-file/List.md)
 - [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md)
 - [UID:000174][0x004d0120-0x004d182e.ResourceLayoutTable](by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md)
+- [UID:0002KT][0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md)
+- [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md)
 - [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md)
 - [UID:0000VB][ResourceLayoutEntry](by-item/ResourceLayoutEntry.md)
 - [UID:0001VU][ResourceLayoutStore](by-type/by-struct/ResourceLayoutStore.md)
@@ -87,3 +92,7 @@ Do not absorb the nearby [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers]
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `86` and confidence to `80`.
   - Evidence: document now captures role, proposed contents, public API shape, singleton/global ownership, IDA-backed evidence, ownership exclusions, and cross-references; confidence remains capped by unresolved original class/file boundary between `ImageLib` and a possible helper split.
+- 2026-06-03: Added the raw record-rectangle helper caller caveat.
+  - Before: the file page did not mention that the nearby `0x004d05a0` raw helper is consumed by human-image composition code.
+  - After: added [UID:0002KT][0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md) and [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md) cross-references, while keeping final source ownership open.
+  - Evidence: IDA MCP `callers`, `xrefs_to`, `decompile`, and `disasm` on 2026-06-03 confirm the helper's no-callee rectangle-copy body, modeled NewHuman callsites, and orphan old/new human composition xrefs.

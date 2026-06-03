@@ -42,7 +42,7 @@ The exact header record layout is still open. Do not commit final field names fo
 | Local cache parse | `0x00523470-0x005237c0` | Opens loose `Meta.dat`, reads table count and header byte count, builds per-table metadata, creates [UID:000089][MetaTable](by-class/MetaTable.md) objects, and reads compressed payload blocks. |
 | Server sync | opcode `123`, subtype `1` and subtype `0` | Table-list/checksum packets decide stale or missing tables; individual payload packets refresh table data. |
 | Payload validation | [UID:000089][MetaTable](by-class/MetaTable.md) | Incoming and cached payloads are decompressed and CRC32-validated before lookup/materialization. |
-| Row materialization | [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md) | Decoded bytes become row/key/value structures consumed by metadata lookup helpers. |
+| Row materialization | [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md) | Decoded bytes become row/key/value structures consumed by metadata lookup helpers. |
 | Dirty save | `0x005237d0-0x005239fb` | Writer serializes table count, header byte count, header block, payload blocks, and clears the dirty byte after close. |
 
 ## Source Ownership Evidence
@@ -72,7 +72,7 @@ The exact header record layout is still open. Do not commit final field names fo
 
 ## Decoded Table Payload
 
-After `MetaTable::DecompressAndValidateData` inflates one table payload, [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md) parses the decoded bytes into [UID:0001V7][MetaTableRowNode](by-type/by-struct/MetaTableRowNode.md) entries.
+After `MetaTable::DecompressAndValidateData` inflates one table payload, [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md) parses the decoded bytes into [UID:0001V7][MetaTableRowNode](by-type/by-struct/MetaTableRowNode.md) entries.
 
 Current evidence for the post-zlib payload format is tracked in [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md). The materializer reads a 16-bit row count, a one-byte row-key length, a multibyte row key, a 16-bit value count, and then 16-bit length-prefixed multibyte value strings. Keys and values are converted with `MultiByteToWideChar(0, 0, ...)`.
 
@@ -115,7 +115,7 @@ Consumers do not read `Meta.dat` directly. They call [UID:000088][MetaMan](by-cl
 - [UID:000089][MetaTable](by-class/MetaTable.md)
 - [UID:0001C8][0x005227d0-0x00524581.MetaMan](by-memory/0x005227d0-0x00524581.MetaMan.md)
 - [UID:0001CB][0x00524630-0x005258f1.MetaTable](by-memory/0x00524630-0x005258f1.MetaTable.md)
-- [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md)
+- [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md)
 - [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md)
 - [UID:0001QC][client_dat_specifications](by-meta/client_dat_specifications.md)
 

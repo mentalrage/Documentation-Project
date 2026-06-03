@@ -46,11 +46,11 @@ The generated field names are useful orientation, but offsets beyond the raw buf
 | `MetaTable::MetaTable` | `0x00524630-0x0052468b` | Constructs a table, initializes the row tree sentinel, and clears payload buffer fields. |
 | `MetaTable::~MetaTable` | `0x00524690-0x00524726` | Frees key/value buffers and destroys row-tree nodes through `DestroyMetaTableTreeNodes_5258B0`. |
 | `DecompressAndValidateData` | `0x00524730-0x0052486e` | Uncompresses `m_valueData` into `m_keyData`, computes CRC32 over decoded bytes, resets on mismatch, and compacts the buffer on success. |
-| [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md) provisional | `0x00524870-0x00524c54` | Parses decoded metadata rows, converts strings with `MultiByteToWideChar`, and populates the row tree. Current generated output leaves this as a helper, but callers pass a `MetaTable*`. |
-| `ResetData` | `0x00524c60-0x00524d0c` | Frees payload buffers, destroys row nodes, and resets the table for reuse after a fresh server payload arrives. |
+| [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md) provisional | `0x00524870-0x00524c55` | Parses decoded metadata rows, converts strings with `MultiByteToWideChar`, and populates the row tree. Current generated output leaves this as a helper, but callers pass a `MetaTable*`. |
+| `ResetData` | `0x00524c60-0x00524d0d` | Frees payload buffers, destroys row nodes, and resets the table for reuse after a fresh server payload arrives. |
 | [UID:0001CD][0x00524d10-0x00525914.MetaTableRowTreeHelpers](by-memory/0x00524d10-0x00525914.MetaTableRowTreeHelpers.md) provisional | `0x00524d10-0x00525914` | Local support helpers used by the row materializer and tree/list cleanup. Keep near `MetaTable` unless later evidence proves a shared container owner. |
-| `ScalarDeletingDestructor` | `0x00525780-0x0052582d` | Destructor wrapper that optionally frees `this`. |
-| `DestroyMetaTableTreeNodes_5258B0` | `0x005258b0-0x005258f0` | Recursive global/helper function that frees row-tree nodes and row payload strings. |
+| `ScalarDeletingDestructor` | `0x00525780-0x0052582e` | Destructor wrapper that optionally frees `this`. |
+| `DestroyMetaTableTreeNodes_5258B0` | `0x005258b0-0x005258f1` | Recursive global/helper function that frees row-tree nodes and row payload strings. |
 
 ## Decode And Lookup Flow
 
@@ -81,7 +81,7 @@ The inflate and checksum helpers are bundled [UID:0000PC][Zlib](by-file/Zlib.md)
 - [UID:0000LC][MetaMan](by-file/MetaMan.md)
 - [UID:000088][MetaMan](by-class/MetaMan.md)
 - [UID:0001CB][0x00524630-0x005258f1.MetaTable](by-memory/0x00524630-0x005258f1.MetaTable.md)
-- [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md)
+- [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md)
 - [UID:0001CD][0x00524d10-0x00525914.MetaTableRowTreeHelpers](by-memory/0x00524d10-0x00525914.MetaTableRowTreeHelpers.md)
 - [UID:0001CA][0x005245c0-0x0052462a.MetaTableRowFindByKey](by-memory/0x005245c0-0x0052462a.MetaTableRowFindByKey.md)
 - [UID:0001V7][MetaTableRowNode](by-type/by-struct/MetaTableRowNode.md)

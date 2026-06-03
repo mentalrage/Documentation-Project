@@ -1,9 +1,9 @@
 *** UID:0000CO | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NK | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -12,8 +12,9 @@
 
 ## Status
 
-- Confidence: strong for behavior and source ownership; medium-high for final folder after projected `ui/controls` placement.
+- Confidence: strong for behavior and source ownership; medium-high for final helper names and raw function-table gaps.
 - Likely source file: [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md)
+- Parent handling: attached to [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md) at autogen position `10`; both class and file are at or above the 80+ confidence attachment threshold. C++ remains blank below the 95+ reconstruction gate.
 - Address range: [UID:0001H2][0x00564710-0x005654ec.ScrollVolumePane](by-memory/0x00564710-0x005654ec.ScrollVolumePane.md)
 - Vtables: [UID:0001YT][ScrollVolumePaneVtables](by-type/by-vtable/ScrollVolumePaneVtables.md)
 - Current recovered file: `source-3/simroot_v2/ui/controls/class_ScrollVolumePane.cpp`
@@ -74,6 +75,7 @@ See [UID:0001W2][ScrollVolumePaneLayout](by-type/by-struct/ScrollVolumePaneLayou
 - 2026-05-26 IDA MCP recheck reconfirms the same helper chain: hit-test callers at `0x005649f1` and `0x0056530f`, commit callers at `0x00564a83` and `0x00564b28`, and notify callers at `0x005652fb` and `0x00565324`.
 - 2026-05-26 IDA MCP confirms the three `ScrollVolumePane` vtable bases at `0x006240b4`, `0x00624100`, and `0x00624130`, including paint, mouse, false-return, and focus/commit slots, despite current Wave3 metadata reporting `vtable_count: 0`.
 - The current active output emits the helper rows at `0x00564e30`, `0x005652a0`, and `0x00565360`, but all three are still surfaced with stale `TextEditPane::*` signatures even though the source map and IDA evidence attach them to `ScrollVolumePane`. It also includes raw projected starts, so use the memory page before migrating the class.
+- 2026-06-03 restarted IDA MCP recheck reconfirmed raw helper starts `0x00565170`, `0x005651e0`, and `0x00565490` as non-modeled function-table gaps with no xrefs or raw pointer hits. It also reconfirmed the modeled neighbor helpers at `0x00565010`, `0x005652a0`, and `0x00565360`, the `0x005654ec`/`0x005654f7` neighboring `ScrollablePane` thunks, and the raw helper calls into `GetPartRect`, commit, timer start/stop, and invalidation slots.
 
 ## Cross-References
 
@@ -105,3 +107,7 @@ See [UID:0001W2][ScrollVolumePaneLayout](by-type/by-struct/ScrollVolumePaneLayou
   - Before: The page listed `0x00565170`, `0x005651e0`, and `0x00565490` as inline projected raw spans only.
   - After: Those spans are first-class `by-memory` pages and the class page links to them without adding parent attachments or final C++.
   - Evidence: IDA MCP raw disassembly confirms the three helper-shaped ranges and their state effects, but confidence remains below the 95+ code/parent gate.
+- 2026-06-03 parent attachment update:
+  - Before: `AUTOGEN_PARENT_UID` was blank and confidence stayed at `80` despite the file parent already having a valid `NexusTK/ui/controls/` path.
+  - Changed to: confidence `82`, `AUTOGEN_PARENT_UID:0000NK`, and position `10`; reconstruction C++ remains blank.
+  - Evidence: the restarted IDA MCP recheck reconfirmed the raw helper gaps, modeled helper chain, and neighboring `ScrollablePane` thunk boundary, while [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md) is already a validated controls source root.

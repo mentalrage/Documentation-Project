@@ -55,7 +55,7 @@ Field names are generated/reconstructed and should be refined during a layout pa
 | `BuildCompositionDrawCommands` | `0x004e21d0` | Builds draw commands for a composed human sprite. |
 | `BuildPartDrawCommand` | `0x004e2eb0` | Builds one part draw command. |
 | `RenderPreparedComposition` | `0x004e2fe0` | Renders a prepared composition command list. |
-| `CalculateCompositionBounds` | `0x004e31f0` | Computes full composition bounds. |
+| [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md) | `0x004e31f0` | Computes full composition bounds, including overlay-resource rectangle lookup through [UID:0002KT][0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md). |
 | `RenderComposition` | `0x004e4280` | Full composition render path. |
 | [UID:0000BS][RecordVector_4E57C0](by-class/RecordVector_4E57C0.md) insert helper | `0x004e57c0` | Vector insert support called from `RenderComposition`; not a NewHumanImageLib method but source-adjacent support. |
 | [UID:00017T][0x004e5240-0x004e5415.VectorGrowMotion](by-memory/0x004e5240-0x004e5415.VectorGrowMotion.md) | `0x004e5240` | Source-adjacent `Motion.tbl` vector growth helper called only from `LoadMotionTable`. |
@@ -84,6 +84,7 @@ Disabled/excluded but still owner-relevant:
 - [UID:0000VA][ResolveSpritePartPath_004E19D0](by-item/ResolveSpritePartPath_004E19D0.md)
 - [UID:00017T][0x004e5240-0x004e5415.VectorGrowMotion](by-memory/0x004e5240-0x004e5415.VectorGrowMotion.md)
 - [UID:000185][0x004e5dd0-0x004e5e39.DestroyMotionVector](by-memory/0x004e5dd0-0x004e5e39.DestroyMotionVector.md)
+- [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md)
 - [UID:0000BS][RecordVector_4E57C0](by-class/RecordVector_4E57C0.md)
 - [UID:00006A][HumanImageLib](by-class/HumanImageLib.md)
 - [UID:0000J3][EPFImageResources](by-file/EPFImageResources.md)
@@ -99,3 +100,6 @@ Disabled/excluded but still owner-relevant:
 - Before: `AUTOGEN_PARENT_UID` was blank even though both the class page and file page had 80+ confidence and agreed on ownership.
 - Changed to: `AUTOGEN_PARENT_UID:0000LR`.
 - Evidence: [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) owns `NexusTK/render/NewHumanImageLib.cpp`, and this class page records the matching singleton, vtable, layout, method family, and resource-table evidence. The reconstruction C++ block stays blank because final field names and member declarations remain below the 95+ final-source threshold.
+- Before: `CalculateCompositionBounds` was listed only by address.
+- Changed to: the method-family table links [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md).
+- Evidence: IDA MCP on 2026-06-03 confirmed the method boundary, callers, callees, and two overlay-resource rectangle calls to [UID:0002KT][0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md).

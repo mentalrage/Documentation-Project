@@ -1,7 +1,7 @@
 *** UID:0000LK | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MonsterImageLib Table Helpers
 
@@ -58,3 +58,7 @@ Do not hard-attach these helpers only to `MonsterImageLib` just because of the c
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `82`, confidence `80`.
 - Summary/evidence: the page documents both helper classes, shared monster/riding caller evidence, global table tie-in, active range corrections, and cross-references; confidence remains below high because neutral final helper names and original filename are still provisional.
+
+- 2026-06-03 path consistency pass:
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/"`.
+  - Summary/evidence: this page already proposes `render/MonsterImageLibTables.cpp`, [UID:0001CM][0x00528930-0x00528d51.MonsterImageLibTables](by-memory/0x00528930-0x00528d51.MonsterImageLibTables.md) ties the helper bodies to monster/riding render table parsing, and `by-project-structure/proposed-source-tree.md` already lists `MonsterImageLibTables.cpp` under `NexusTK/render/`. The final helper type names remain provisional, so no reconstructed C++ was added.

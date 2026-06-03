@@ -1,7 +1,7 @@
 *** UID:0000MC | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/core/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Pane
 
@@ -28,6 +28,7 @@ The dirty/motion helper family inside the main `0x00544460-0x00545086` cluster i
 | Entity | Address | Role |
 | --- | --- | --- |
 | `Pane` | `0x00544460-0x00545086` plus `0x004b8d20` | Base pane construction, show/hide, repaint, invalidation, bounds, layer attach/remove, input/timer hooks, destruction. |
+| [UID:0002V7][0x005446b0-0x005446d4.PaneSetMode](by-memory/0x005446b0-0x005446d4.PaneSetMode.md) | `0x005446b0-0x005446d4` | Exact mode-byte setter child; stores `Pane +0xb5` when changed and dispatches vtable slot `+0x20` with `this + 0x44`. |
 | vtable family | `0x006219e8`, `0x00621a34`, `0x00621a64` | Primary pane view plus secondary/tertiary handler views at object offsets `+0xa0` and `+0xa4`. |
 | adjustor thunk helpers | `0x00544f2e`, `0x00544f39` | Compiler-generated secondary/tertiary destructor thunks; not handwritten pane behavior. |
 | dirty/motion helpers | `0x00544690-0x00544b7d` | Deferred deletion marker plus dirty-region, motion-region, and paint-state helpers used by layer traversal. |
@@ -49,6 +50,7 @@ Keep [UID:0000KL][Layer](by-file/Layer.md) as a neighboring file rather than mer
 - IDA layout review on 2026-05-26 confirms the direct `Pane` state through `+0xf7` and derived-field boundary at `+0xf8`; [UID:0000IT][DialogPane](by-file/DialogPane.md) and [UID:0000IU][DialogSession](by-file/DialogSession.md) both begin their own storage there.
 - IDA MCP reports `0x00469180` has broad direct call sites; IDA body checks show it is a `BlackHole` deferred-deletion queue helper rather than child registration.
 - IDA MCP caller checks for `0x005446e0`, `0x00544980`, `0x00544a40`, `0x00544ae0`, and `0x00544b50` point at layer recursion and surface/presentation traversal, not `MapPane` ownership.
+- 2026-06-03 IDA MCP confirms [UID:0002V7][0x005446b0-0x005446d4.PaneSetMode](by-memory/0x005446b0-0x005446d4.PaneSetMode.md) as the exact `0x24`-byte pane mode setter: it updates the `+0xb5` mode byte only when changed and dispatches the primary vtable slot `+0x20` with `this + 0x44`.
 - Generated source shows `Pane::AddToLayer`, `InsertInLayer`, and removal helpers calling the `Layer` API directly.
 
 ## Cross-References
@@ -70,6 +72,7 @@ Keep [UID:0000KL][Layer](by-file/Layer.md) as a neighboring file rather than mer
 - [UID:0000IG][ControlPane](by-file/ControlPane.md)
 - [UID:00004N][EventHandler](by-class/EventHandler.md)
 - [UID:0000J7][EventDispatcher](by-file/EventDispatcher.md)
+- [UID:0002V7][0x005446b0-0x005446d4.PaneSetMode](by-memory/0x005446b0-0x005446d4.PaneSetMode.md)
 
 ## Changes
 
@@ -80,3 +83,7 @@ Keep [UID:0000KL][Layer](by-file/Layer.md) as a neighboring file rather than mer
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `88`, confidence `84`.
 - Summary/evidence: the page documents base UI role, proposed contents, dirty/motion helper ownership, EventHandler and BlackHole relationships, ownership boundaries, IDA evidence, range correction, type/vtable refs, and broad cross-references; confidence remains below exhaustive because some generated owner pollution still needs cleanup.
+
+- Before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though the page and project tree identified `ui/core/Pane.cpp`.
+- Changed to: `NexusTK/ui/core/`.
+- Summary/evidence: `by-project-structure/proposed-source-tree.md` already lists `Pane.cpp` under `ui/core`, and this page records `ui/core/Pane.cpp` as the proposed module. The 2026-06-03 `PaneSetMode` split adds another exact child method under the same source owner.

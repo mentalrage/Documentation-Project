@@ -20,8 +20,8 @@ It is a synchronization-aware container and is tracked with the other reusable s
 
 ## Likely Contents
 
-- [UID:0000C1][RingBuffer](by-class/RingBuffer.md)
-- [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md), a small iterator-like companion type with raw constructor evidence and an IDA-confirmed vtable
+- [UID:0000C1][RingBuffer](by-class/RingBuffer.md), attached class root for the blocking queue object
+- [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md), a small iterator-like companion type with raw constructor evidence, IDA-confirmed RTTI/COL, and an IDA-confirmed vtable
 - ring-buffer and iterator local helper/accessor functions around `0x00556670-0x005567ae`
 - [UID:0001YN][RingBufferVtables](by-type/by-vtable/RingBufferVtables.md)
 
@@ -37,6 +37,8 @@ It is a synchronization-aware container and is tracked with the other reusable s
 - 2026-05-26 current `simroot_v2/util/RingBuffer.meta_wave3` now reports `vtable_count: 1` for both `RingBuffer` and `RingBufferIterator`, with reviewed vtable evidence at `0x006230cc` and `0x006230dc`.
 - 2026-05-26 IDA `py_eval` recheck found direct code xrefs from `Thread` methods to the constructor (`0x005962da`, `0x00596306`), enqueue (`0x0059657f`, `0x005966b0`, `0x00596997`, `0x005969e7`, `0x00596a86`), dequeue (`0x00596872`), and empty test (`0x0059684d`, `0x0059685e`).
 - 2026-06-01 IDA MCP recheck confirmed additional raw iterator helpers at `0x00556750`, `0x00556770`, `0x00556780`, and `0x005567a0`, plus `RingBuffer` vtable stores at `0x00556408`, `0x00556508`, and `0x005567df` and the `RingBufferIterator` vtable store at `0x005566d7`.
+- 2026-06-03 IDA MCP recheck confirmed `RingBufferIterator` RTTI/COL `??_R4RingBufferIterator@@6B@` at `0x006230d8`, vtable `??_7RingBufferIterator@@6B@` at `0x006230dc`, constructor vptr store at `0x005566d7`, and the compact iterator layout `(vptr, RingBuffer* owner, int currentIndex)`.
+- 2026-06-03 IDA MCP non-flow xref sweep still found no direct callers for the iterator constructor/helper starts, so the iterator class is attached to this file but remains below source-quality C++ emission.
 
 ## Generated Output Caveats
 
@@ -83,3 +85,7 @@ Use `util/RingBuffer.cpp`. Keep it separate from [UID:0000OR][Thread](by-file/Th
   - Evidence: this page's source-structure decision, [UID:0001YN][RingBufferVtables](by-type/by-vtable/RingBufferVtables.md), and `by-project-structure/proposed-source-tree.md` all place the utility ring-buffer module in the util/threading container group.
 - 2026-06-01: Added the expanded raw iterator-helper pocket from the memory-page rescore.
   - Evidence: IDA MCP disassembly found additional complete helper bodies at `0x00556750`, `0x00556770`, `0x00556780`, and `0x005567a0`, and corrected the raw iterator constructor endpoint to `0x005566eb`.
+- 2026-06-03: Attached RingBuffer class pages.
+  - Before: the file listed [UID:0000C1][RingBuffer](by-class/RingBuffer.md) and [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md), but both class pages were still unassigned in autogen metadata.
+  - After: attached `RingBuffer` at position `10` and `RingBufferIterator` at position `20`; C++ remains blank for both.
+  - Evidence: IDA MCP reconfirmed the shared code island, `RingBufferIterator` RTTI/COL and vtable, the raw constructor vptr store, and the unresolved direct-caller gap for iterator helper starts.

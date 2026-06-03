@@ -3,21 +3,27 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 227
+Total_Reconstructable: 250
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 143
+Total_Reconstructed_Assigned: 172
 Total_Reconstructed_Coded: 2
-Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 358
+Total_Reconstructable_Unassigned: 78
+Total_Unclassified: 335
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | [UID:00000P][AUTOBUF_unsigned_char](by-class/AUTOBUF_unsigned_char.md) | assigned | `0000HM` | 10 | no | `auto-generated/NexusTK/util/AUTOBUF.cpp` | `by-class/AUTOBUF_unsigned_char.md` |  |
 | [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-class/AddEmployeeItemDialog.md` |  |
+| [UID:000009][AddMixingItemDialog](by-class/AddMixingItemDialog.md) | assigned | `0000KE` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemDialogs.cpp` | `by-class/AddMixingItemDialog.md` |  |
 | [UID:00000A][AddToBlockListenInputPane](by-class/AddToBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/AddToBlockListenInputPane.md` |  |
+| [UID:00000H][ArgumentedMenuMenuDialog](by-class/ArgumentedMenuMenuDialog.md) | assigned | `0000HI` | 10 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-class/ArgumentedMenuMenuDialog.md` |  |
+| [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md) | assigned | `0000HI` | 20 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-class/ArgumentedMenuMenuItemList.md` |  |
+| [UID:00000O][AttachmentAnchorResolver](by-class/AttachmentAnchorResolver.md) | assigned | `0000HL` | 10 | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-class/AttachmentAnchorResolver.md` |  |
 | [UID:00000X][BlockListenInputPane](by-class/BlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/BlockListenInputPane.md` |  |
 | [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/BlueAlertPane.md` |  |
+| [UID:00000Z][BoardListDialog](by-class/BoardListDialog.md) | assigned | `0000HT` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-class/BoardListDialog.md` |  |
+| [UID:000010][BoardListPane](by-class/BoardListPane.md) | assigned | `0000HT` | 30 | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-class/BoardListPane.md` |  |
 | [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md) | assigned | `0000HU` |  | no | `auto-generated/NexusTK/ui/panels/BowGaugeObjectPane.cpp` | `by-class/BowGaugeObjectPane.md` |  |
 | [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserControlPaneOld.md` |  |
 | [UID:000018][BrowserDialogOld](by-class/BrowserDialogOld.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserDialogOld.md` |  |
@@ -30,6 +36,8 @@ Total_Error: 0
 | [UID:00001T][ChattingColorPane](by-class/ChattingColorPane.md) | assigned | `0000I5` | 80 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChattingColorPane.md` |  |
 | [UID:00001X][ChattingPane](by-class/ChattingPane.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChattingPane.md` |  |
 | [UID:00001Y][ChattingVarietyPane](by-class/ChattingVarietyPane.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChattingVarietyPane.md` |  |
+| [UID:000020][CheatDetector](by-class/CheatDetector.md) | assigned | `0000I6` |  | no | `auto-generated/NexusTK/security/CheatDetector.cpp` | `by-class/CheatDetector.md` |  |
+| [UID:000022][CheckBoxTextControlPane](by-class/CheckBoxTextControlPane.md) | assigned | `0000NY` | 30 | no | `auto-generated/NexusTK/ui/controls/SpecializedButtonPanes.cpp` | `by-class/CheckBoxTextControlPane.md` |  |
 | [UID:00002T][CloudFilterEffecter](by-class/CloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/CloudFilterEffecter.md` |  |
 | [UID:000033][ConfirmDeleteAlert](by-class/ConfirmDeleteAlert.md) | assigned | `0000HW` | 40 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteAlert.md` |  |
 | [UID:000034][ConfirmDeleteMailAlert](by-class/ConfirmDeleteMailAlert.md) | assigned | `0000HW` | 60 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteMailAlert.md` |  |
@@ -44,14 +52,18 @@ Total_Error: 0
 | [UID:00003M][Decoder](by-class/Decoder.md) | assigned | `0000IQ` |  | no | `auto-generated/NexusTK/util/Decoder.cpp` | `by-class/Decoder.md` |  |
 | [UID:00003N][DeleteFromBlockListenInputPane](by-class/DeleteFromBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/DeleteFromBlockListenInputPane.md` |  |
 | [UID:00003Q][DescPane](by-class/DescPane.md) | assigned | `0000IS` |  | no | `auto-generated/NexusTK/ui/controls/DescPane.cpp` | `by-class/DescPane.md` |  |
+| [UID:00003X][DirectionButtonControlPane](by-class/DirectionButtonControlPane.md) | assigned | `0000NY` | 10 | no | `auto-generated/NexusTK/ui/controls/SpecializedButtonPanes.cpp` | `by-class/DirectionButtonControlPane.md` |  |
 | [UID:000043][DropGoldInputPane](by-class/DropGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/DropGoldInputPane.md` |  |
 | [UID:00004I][EPFTileContext](by-class/EPFTileContext.md) | assigned | `0000J4` |  | no | `auto-generated/NexusTK/render/EPFTileContext.cpp` | `by-class/EPFTileContext.md` |  |
 | [UID:000046][EarthquakeEffecter](by-class/EarthquakeEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/EarthquakeEffecter.md` |  |
+| [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md) | assigned | `0000IY` | 10 | no | `auto-generated/NexusTK/render/EffectObjImageLib.cpp` | `by-class/EffectObjImageLib.md` |  |
 | [UID:000049][EffectObjectPane](by-class/EffectObjectPane.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/EffectObjectPane.md` |  |
 | [UID:00004B][EmotionInputPane](by-class/EmotionInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/EmotionInputPane.md` |  |
+| [UID:00004J][Error](by-class/Error.md) | assigned | `0000J5` | 10 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/Error.md` |  |
 | [UID:00004K][ErrorMessage](by-class/ErrorMessage.md) | assigned | `0000J5` |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/ErrorMessage.md` |  |
 | [UID:00004N][EventHandler](by-class/EventHandler.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/EventHandler.md` |  |
 | [UID:00004P][ExceptionHandler](by-class/ExceptionHandler.md) | assigned | `0000J8` |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-class/ExceptionHandler.md` |  |
+| [UID:00004S][ExchangeItemListPane](by-class/ExchangeItemListPane.md) | assigned | `0000J9` |  | no | `auto-generated/NexusTK/ui/dialogs/ExchangeDialog.cpp` | `by-class/ExchangeItemListPane.md` |  |
 | [UID:00004W][FileDownloader](by-class/FileDownloader.md) | assigned | `0000JC` |  | no | `auto-generated/NexusTK/network/FileDownloader.cpp` | `by-class/FileDownloader.md` |  |
 | [UID:00004X][FileError](by-class/FileError.md) | assigned | `0000J5` | 140 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/FileError.md` |  |
 | [UID:00004Y][FilterEffecter](by-class/FilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/FilterEffecter.md` |  |
@@ -63,14 +75,18 @@ Total_Error: 0
 | [UID:000056][FittingRoomUserImageControlPane](by-class/FittingRoomUserImageControlPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomUserImageControlPane.md` |  |
 | [UID:000058][FlyingParcelPane](by-class/FlyingParcelPane.md) | assigned | `0000MF` | 30 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/FlyingParcelPane.md` |  |
 | [UID:000059][FolderSelectDialog](by-class/FolderSelectDialog.md) | assigned | `0000JF` |  | no | `auto-generated/NexusTK/ui/dialogs/FolderSelectDialog.cpp` | `by-class/FolderSelectDialog.md` |  |
+| [UID:00005D][FooterSystemMessage](by-class/FooterSystemMessage.md) | assigned | `0000OE` | 40 | no | `auto-generated/NexusTK/social/SystemMessagePanes.cpp` | `by-class/FooterSystemMessage.md` |  |
 | [UID:00005F][FpsPane](by-class/FpsPane.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-class/FpsPane.md` |  |
 | [UID:00005K][FunctionObject](by-class/FunctionObject.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/FunctionObject.md` |  |
 | [UID:00005M][FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____](by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |  |
+| [UID:00005N][FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___](by-class/FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___.md` |  |
 | [UID:00005O][GameServerConfig](by-class/GameServerConfig.md) | assigned | `0000JP` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-class/GameServerConfig.md` |  |
+| [UID:00005P][GenderButtonControlPane](by-class/GenderButtonControlPane.md) | assigned | `0000NY` | 20 | no | `auto-generated/NexusTK/ui/controls/SpecializedButtonPanes.cpp` | `by-class/GenderButtonControlPane.md` |  |
 | [UID:00005T][GiveGoldInputPane](by-class/GiveGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/GiveGoldInputPane.md` |  |
 | [UID:00005V][GrafPort](by-class/GrafPort.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-class/GrafPort.md` |  |
 | [UID:00005W][GroupInputPane](by-class/GroupInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-class/GroupInputPane.md` |  |
 | [UID:000060][HandlerFindFunc](by-class/HandlerFindFunc.md) | assigned | `0000J7` | 80 | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/HandlerFindFunc.md` |  |
+| [UID:000061][HeaderSystemMessage](by-class/HeaderSystemMessage.md) | assigned | `0000OE` | 30 | no | `auto-generated/NexusTK/social/SystemMessagePanes.cpp` | `by-class/HeaderSystemMessage.md` |  |
 | [UID:000065][HierList](by-class/HierList.md) | assigned | `0000JV` | 20 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-class/HierList.md` |  |
 | [UID:00006B][IconsPane](by-class/IconsPane.md) | assigned | `0000JZ` |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-class/IconsPane.md` |  |
 | [UID:00006E][ImageLib](by-class/ImageLib.md) | assigned | `0000K2` | 20 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-class/ImageLib.md` |  |
@@ -89,6 +105,10 @@ Total_Error: 0
 | [UID:00007Q][MapPane](by-class/MapPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-class/MapPane.md` |  |
 | [UID:00007V][MenuItem](by-class/MenuItem.md) | assigned | `0000MN` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-class/MenuItem.md` |  |
 | [UID:000083][MerchantDialogPane](by-class/MerchantDialogPane.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-class/MerchantDialogPane.md` |  |
+| [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md) | assigned | `0000LJ` |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-class/MonsterImageLib.md` |  |
+| [UID:00008O][MonsterImageLibTable_5289D0](by-class/MonsterImageLibTable_5289D0.md) | assigned | `0000LK` |  | no | `auto-generated/NexusTK/render/MonsterImageLibTables.cpp` | `by-class/MonsterImageLibTable_5289D0.md` |  |
+| [UID:00008P][MonsterImageLibTable_528BE0](by-class/MonsterImageLibTable_528BE0.md) | assigned | `0000LK` |  | no | `auto-generated/NexusTK/render/MonsterImageLibTables.cpp` | `by-class/MonsterImageLibTable_528BE0.md` |  |
+| [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md) | assigned | `0000LN` |  | no | `auto-generated/NexusTK/ui/dialogs/MusicControlDialog.cpp` | `by-class/MusicControlDialog.md` |  |
 | [UID:00008V][MyError](by-class/MyError.md) | assigned | `0000J5` | 220 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/MyError.md` |  |
 | [UID:00008Z][NewCreateUserDialogPane](by-class/NewCreateUserDialogPane.md) | assigned | `0000LP` |  | no | `auto-generated/NexusTK/login/NewCreateUserDialogPane.cpp` | `by-class/NewCreateUserDialogPane.md` |  |
 | [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-class/NewHumanImageLib.md` |  |
@@ -110,10 +130,13 @@ Total_Error: 0
 | [UID:0000AC][PatchPane__PatchFileSlice](by-class/PatchPane__PatchFileSlice.md) | assigned | `0000MH` |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane__PatchFileSlice.md` |  |
 | [UID:0000AE][PhoneBookListPane](by-class/PhoneBookListPane.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-class/PhoneBookListPane.md` |  |
 | [UID:0000AI][PixelEffecter](by-class/PixelEffecter.md) | assigned | `0000IZ` | 20 | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/PixelEffecter.md` |  |
+| [UID:0000AJ][PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_](by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |  |
+| [UID:0000AK][PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_](by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md` |  |
 | [UID:0000AR][PrettyButtonControlPane](by-class/PrettyButtonControlPane.md) | assigned | `0000MP` |  | no | `auto-generated/NexusTK/ui/controls/PrettyButtonControlPane.cpp` | `by-class/PrettyButtonControlPane.md` |  |
 | [UID:0000AS][PrettyButtonControlPane2](by-class/PrettyButtonControlPane2.md) | assigned | `0000MP` |  | no | `auto-generated/NexusTK/ui/controls/PrettyButtonControlPane.cpp` | `by-class/PrettyButtonControlPane2.md` |  |
 | [UID:0000AU][ProfileDialog](by-class/ProfileDialog.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-class/ProfileDialog.md` |  |
 | [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md) | assigned | `0000MT` | 10 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-class/ProgressBarControlPane.md` |  |
+| [UID:0000BC][ProtectedArray_struct_ShoeInfo_](by-class/ProtectedArray_struct_ShoeInfo_.md) | assigned | `0000MU` |  | no | `auto-generated/NexusTK/util/ProtectedArray.cpp` | `by-class/ProtectedArray_struct_ShoeInfo_.md` |  |
 | [UID:0000BE][PursuitMessageDialogPane](by-class/PursuitMessageDialogPane.md) | assigned | `0000LA` |  | no | `auto-generated/NexusTK/ui/dialogs/MessageDialogs.cpp` | `by-class/PursuitMessageDialogPane.md` |  |
 | [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md) | assigned | `0000MX` |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-class/QuitInputPane.md` |  |
 | [UID:0000BJ][RainingLayerPane](by-class/RainingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/RainingLayerPane.md` |  |
@@ -122,10 +145,16 @@ Total_Error: 0
 | [UID:0000BS][RecordVector_4E57C0](by-class/RecordVector_4E57C0.md) | assigned | `0000P3` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-class/RecordVector_4E57C0.md` |  |
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-class/RectBounds.md` |  |
 | [UID:0000BX][RequestSyncGate](by-class/RequestSyncGate.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/RequestSyncGate.md` |  |
+| [UID:0000C1][RingBuffer](by-class/RingBuffer.md) | assigned | `0000N8` | 10 | no | `auto-generated/NexusTK/util/RingBuffer.cpp` | `by-class/RingBuffer.md` |  |
+| [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md) | assigned | `0000N8` | 20 | no | `auto-generated/NexusTK/util/RingBuffer.cpp` | `by-class/RingBufferIterator.md` |  |
 | [UID:0000C3][SayInputPane](by-class/SayInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayInputPane.md` |  |
 | [UID:0000C4][SayToGroupMessageInputPane](by-class/SayToGroupMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToGroupMessageInputPane.md` |  |
 | [UID:0000C5][SayToPlanMessageInputPane](by-class/SayToPlanMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToPlanMessageInputPane.md` |  |
 | [UID:0000C9][ScreenEffecter](by-class/ScreenEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/ScreenEffecter.md` |  |
+| [UID:0000CM][ScrollPane](by-class/ScrollPane.md) | assigned | `0000NF` | 10 | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/ScrollPane.md` |  |
+| [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md) | assigned | `0000NK` | 10 | no | `auto-generated/NexusTK/ui/controls/ScrollVolumePane.cpp` | `by-class/ScrollVolumePane.md` |  |
+| [UID:0000CP][ScrollWidget](by-class/ScrollWidget.md) | assigned | `0000NF` | 20 | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/ScrollWidget.md` |  |
+| [UID:0000CF][ScrollablePane](by-class/ScrollablePane.md) | assigned | `0000NF` | 30 | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/ScrollablePane.md` |  |
 | [UID:0000CR][SelectionControlPane](by-class/SelectionControlPane.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-class/SelectionControlPane.md` |  |
 | [UID:0000CU][SelfLookPane](by-class/SelfLookPane.md) | assigned | `0000NL` |  | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane.md` |  |
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
@@ -165,7 +194,6 @@ Total_Error: 0
 | [UID:00001F][CachedHashTable](by-class/CachedHashTable.md) | unassigned |  |  | no |  | `by-class/CachedHashTable.md` |  |
 | [UID:00001K][ChangeMan](by-class/ChangeMan.md) | unassigned |  |  | no |  | `by-class/ChangeMan.md` |  |
 | [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md) | unassigned |  |  | no |  | `by-class/CheckBoxControlPane.md` |  |
-| [UID:000022][CheckBoxTextControlPane](by-class/CheckBoxTextControlPane.md) | unassigned |  |  | no |  | `by-class/CheckBoxTextControlPane.md` |  |
 | [UID:000023][ClanAppearNameInputDialog](by-class/ClanAppearNameInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanAppearNameInputDialog.md` |  |
 | [UID:000027][ClanChangeInputDialog](by-class/ClanChangeInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanChangeInputDialog.md` |  |
 | [UID:000028][ClanChangeNameInputDialog](by-class/ClanChangeNameInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanChangeNameInputDialog.md` |  |
@@ -180,25 +208,22 @@ Total_Error: 0
 | [UID:000038][ControlPane](by-class/ControlPane.md) | unassigned |  |  | no |  | `by-class/ControlPane.md` |  |
 | [UID:00003G][DATFile](by-class/DATFile.md) | unassigned |  |  | no |  | `by-class/DATFile.md` |  |
 | [UID:00003I][DATFileMgr](by-class/DATFileMgr.md) | unassigned |  |  | no |  | `by-class/DATFileMgr.md` |  |
+| [UID:00003K][DATIndexVector](by-class/DATIndexVector.md) | unassigned |  |  | no |  | `by-class/DATIndexVector.md` |  |
 | [UID:00003V][DIBitmap](by-class/DIBitmap.md) | unassigned |  |  | no |  | `by-class/DIBitmap.md` |  |
 | [UID:00003P][Deque](by-class/Deque.md) | unassigned |  |  | no |  | `by-class/Deque.md` |  |
 | [UID:00003S][DialogInSession](by-class/DialogInSession.md) | unassigned |  |  | no |  | `by-class/DialogInSession.md` |  |
 | [UID:00003T][DialogPane](by-class/DialogPane.md) | unassigned |  |  | no |  | `by-class/DialogPane.md` |  |
 | [UID:00003U][DialogSession](by-class/DialogSession.md) | unassigned |  |  | no |  | `by-class/DialogSession.md` |  |
 | [UID:00003Y][DirectX](by-class/DirectX.md) | unassigned |  |  | no |  | `by-class/DirectX.md` |  |
-| [UID:00003X][DirectionButtonControlPane](by-class/DirectionButtonControlPane.md) | unassigned |  |  | no |  | `by-class/DirectionButtonControlPane.md` |  |
-| [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md) | unassigned |  |  | no |  | `by-class/EffectObjImageLib.md` |  |
 | [UID:00004C][EmployeeDialogPane](by-class/EmployeeDialogPane.md) | unassigned |  |  | no |  | `by-class/EmployeeDialogPane.md` |  |
 | [UID:00004D][EmployeeItemPropertyDialogPane](by-class/EmployeeItemPropertyDialogPane.md) | unassigned |  |  | no |  | `by-class/EmployeeItemPropertyDialogPane.md` |  |
 | [UID:00004E][EmployeeQuantityInputDialogPane](by-class/EmployeeQuantityInputDialogPane.md) | unassigned |  |  | no |  | `by-class/EmployeeQuantityInputDialogPane.md` |  |
 | [UID:00004F][Encoder](by-class/Encoder.md) | unassigned |  |  | no |  | `by-class/Encoder.md` |  |
-| [UID:00004J][Error](by-class/Error.md) | unassigned |  |  | no |  | `by-class/Error.md` |  |
 | [UID:00004M][EventDispatcher](by-class/EventDispatcher.md) | unassigned |  |  | no |  | `by-class/EventDispatcher.md` |  |
 | [UID:00004Q][ExchangeAlertPane](by-class/ExchangeAlertPane.md) | unassigned |  |  | no |  | `by-class/ExchangeAlertPane.md` |  |
 | [UID:00004V][File](by-class/File.md) | unassigned |  |  | no |  | `by-class/File.md` |  |
 | [UID:00005B][FontImageLib](by-class/FontImageLib.md) | unassigned |  |  | no |  | `by-class/FontImageLib.md` |  |
 | [UID:00005I][FramePartPane](by-class/FramePartPane.md) | unassigned |  |  | no |  | `by-class/FramePartPane.md` |  |
-| [UID:00005P][GenderButtonControlPane](by-class/GenderButtonControlPane.md) | unassigned |  |  | no |  | `by-class/GenderButtonControlPane.md` |  |
 | [UID:00005X][GroupListPane](by-class/GroupListPane.md) | unassigned |  |  | no |  | `by-class/GroupListPane.md` |  |
 | [UID:00005Y][GroupPane](by-class/GroupPane.md) | unassigned |  |  | no |  | `by-class/GroupPane.md` |  |
 | [UID:00005Z][GroupPane2](by-class/GroupPane2.md) | unassigned |  |  | no |  | `by-class/GroupPane2.md` |  |
@@ -213,7 +238,6 @@ Total_Error: 0
 | [UID:00008F][MiniMapRenderer](by-class/MiniMapRenderer.md) | unassigned |  |  | no |  | `by-class/MiniMapRenderer.md` |  |
 | [UID:00008H][MiniMapVersionManager](by-class/MiniMapVersionManager.md) | unassigned |  |  | no |  | `by-class/MiniMapVersionManager.md` |  |
 | [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md) | unassigned |  |  | no |  | `by-class/ModelessDialogPane.md` |  |
-| [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md) | unassigned |  |  | no |  | `by-class/MonsterImageLib.md` |  |
 | [UID:00008R][Motion](by-class/Motion.md) | unassigned |  |  | no |  | `by-class/Motion.md` |  |
 | [UID:00008W][MyItemListPane](by-class/MyItemListPane.md) | unassigned |  |  | no |  | `by-class/MyItemListPane.md` |  |
 | [UID:000090][NewGroupPane](by-class/NewGroupPane.md) | unassigned |  |  | no |  | `by-class/NewGroupPane.md` |  |
@@ -228,7 +252,6 @@ Total_Error: 0
 | [UID:0000CG][ScrollCollectionPane](by-class/ScrollCollectionPane.md) | unassigned |  |  | no |  | `by-class/ScrollCollectionPane.md` |  |
 | [UID:0000CK][ScrollInventoryPane](by-class/ScrollInventoryPane.md) | unassigned |  |  | no |  | `by-class/ScrollInventoryPane.md` |  |
 | [UID:0000CN][ScrollSpellInventoryPane](by-class/ScrollSpellInventoryPane.md) | unassigned |  |  | no |  | `by-class/ScrollSpellInventoryPane.md` |  |
-| [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md) | unassigned |  |  | no |  | `by-class/ScrollVolumePane.md` |  |
 | [UID:0000CY][SeparatorMenuItem](by-class/SeparatorMenuItem.md) | unassigned |  |  | no |  | `by-class/SeparatorMenuItem.md` |  |
 | [UID:0000D8][SimpleListPane](by-class/SimpleListPane.md) | unassigned |  |  | no |  | `by-class/SimpleListPane.md` |  |
 | [UID:0000DA][SimpleUStringVector](by-class/SimpleUStringVector.md) | unassigned |  |  | no |  | `by-class/SimpleUStringVector.md` |  |
@@ -243,25 +266,19 @@ Total_Error: 0
 | [UID:000004][_DATFileMgr](by-class/_DATFileMgr.md) | unassigned |  |  | no |  | `by-class/_DATFileMgr.md` |  |
 | [UID:000007][AddItemDialog](by-class/AddItemDialog.md) | unclassified |  |  | no |  | `by-class/AddItemDialog.md` |  |
 | [UID:000008][AddItemWithCountDialog](by-class/AddItemWithCountDialog.md) | unclassified |  |  | no |  | `by-class/AddItemWithCountDialog.md` |  |
-| [UID:000009][AddMixingItemDialog](by-class/AddMixingItemDialog.md) | unclassified |  |  | no |  | `by-class/AddMixingItemDialog.md` |  |
 | [UID:00000C][AlphaMaskSurface](by-class/AlphaMaskSurface.md) | unclassified |  |  | no |  | `by-class/AlphaMaskSurface.md` |  |
 | [UID:00000E][ApplicationHelper_4A6C40](by-class/ApplicationHelper_4A6C40.md) | unclassified |  |  | no |  | `by-class/ApplicationHelper_4A6C40.md` |  |
 | [UID:00000F][ArgumentedItemConfirmInputDialogPane](by-class/ArgumentedItemConfirmInputDialogPane.md) | unclassified |  |  | no |  | `by-class/ArgumentedItemConfirmInputDialogPane.md` |  |
 | [UID:00000G][ArgumentedItemQuantityInputDialogPane](by-class/ArgumentedItemQuantityInputDialogPane.md) | unclassified |  |  | no |  | `by-class/ArgumentedItemQuantityInputDialogPane.md` |  |
-| [UID:00000H][ArgumentedMenuMenuDialog](by-class/ArgumentedMenuMenuDialog.md) | unclassified |  |  | no |  | `by-class/ArgumentedMenuMenuDialog.md` |  |
-| [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md) | unclassified |  |  | no |  | `by-class/ArgumentedMenuMenuItemList.md` |  |
 | [UID:00000J][ArticleDialog](by-class/ArticleDialog.md) | unclassified |  |  | no |  | `by-class/ArticleDialog.md` |  |
 | [UID:00000K][ArticleListDialog](by-class/ArticleListDialog.md) | unclassified |  |  | no |  | `by-class/ArticleListDialog.md` |  |
 | [UID:00000L][ArticleListPane](by-class/ArticleListPane.md) | unclassified |  |  | no |  | `by-class/ArticleListPane.md` |  |
 | [UID:00000M][AttachedObjectPane](by-class/AttachedObjectPane.md) | unclassified |  |  | no |  | `by-class/AttachedObjectPane.md` |  |
 | [UID:00000N][AttachedObjectPaneHelper_53AEC0](by-class/AttachedObjectPaneHelper_53AEC0.md) | unclassified |  |  | no |  | `by-class/AttachedObjectPaneHelper_53AEC0.md` |  |
-| [UID:00000O][AttachmentAnchorResolver](by-class/AttachmentAnchorResolver.md) | unclassified |  |  | no |  | `by-class/AttachmentAnchorResolver.md` |  |
 | [UID:00000R][BackGroundPane](by-class/BackGroundPane.md) | unclassified |  |  | no |  | `by-class/BackGroundPane.md` |  |
 | [UID:00000S][BackPane](by-class/BackPane.md) | unclassified |  |  | no |  | `by-class/BackPane.md` |  |
 | [UID:00000T][BackStoryDialogPane](by-class/BackStoryDialogPane.md) | unclassified |  |  | no |  | `by-class/BackStoryDialogPane.md` |  |
 | [UID:00000U][BalloonObjectPane](by-class/BalloonObjectPane.md) | unclassified |  |  | no |  | `by-class/BalloonObjectPane.md` |  |
-| [UID:00000Z][BoardListDialog](by-class/BoardListDialog.md) | unclassified |  |  | no |  | `by-class/BoardListDialog.md` |  |
-| [UID:000010][BoardListPane](by-class/BoardListPane.md) | unclassified |  |  | no |  | `by-class/BoardListPane.md` |  |
 | [UID:000013][Browser](by-class/Browser.md) | unclassified |  |  | no |  | `by-class/Browser.md` |  |
 | [UID:000015][BrowserControlPane](by-class/BrowserControlPane.md) | unclassified |  |  | no |  | `by-class/BrowserControlPane.md` |  |
 | [UID:000017][BrowserDialog](by-class/BrowserDialog.md) | unclassified |  |  | no |  | `by-class/BrowserDialog.md` |  |
@@ -280,7 +297,6 @@ Total_Error: 0
 | [UID:00001V][ChattingHandlePane](by-class/ChattingHandlePane.md) | unclassified |  |  | no |  | `by-class/ChattingHandlePane.md` |  |
 | [UID:00001W][ChattingModifyHeightPane](by-class/ChattingModifyHeightPane.md) | unclassified |  |  | no |  | `by-class/ChattingModifyHeightPane.md` |  |
 | [UID:00001Z][ChattingVarietySelectPane](by-class/ChattingVarietySelectPane.md) | unclassified |  |  | no |  | `by-class/ChattingVarietySelectPane.md` |  |
-| [UID:000020][CheatDetector](by-class/CheatDetector.md) | unclassified |  |  | no |  | `by-class/CheatDetector.md` |  |
 | [UID:000024][ClanAttrInputDialog](by-class/ClanAttrInputDialog.md) | unclassified |  |  | no |  | `by-class/ClanAttrInputDialog.md` |  |
 | [UID:000025][ClanBankItemListPane](by-class/ClanBankItemListPane.md) | unclassified |  |  | no |  | `by-class/ClanBankItemListPane.md` |  |
 | [UID:000026][ClanBankPane](by-class/ClanBankPane.md) | unclassified |  |  | no |  | `by-class/ClanBankPane.md` |  |
@@ -311,7 +327,6 @@ Total_Error: 0
 | [UID:000039][CopyWindow](by-class/CopyWindow.md) | unclassified |  |  | no |  | `by-class/CopyWindow.md` |  |
 | [UID:00003E][CursorManager](by-class/CursorManager.md) | unclassified |  |  | no |  | `by-class/CursorManager.md` |  |
 | [UID:00003H][DATFileContainer](by-class/DATFileContainer.md) | unclassified |  |  | no |  | `by-class/DATFileContainer.md` |  |
-| [UID:00003K][DATIndexVector](by-class/DATIndexVector.md) | unclassified |  |  | no |  | `by-class/DATIndexVector.md` |  |
 | [UID:00003F][DamageNumberObjectPane](by-class/DamageNumberObjectPane.md) | unclassified |  |  | no |  | `by-class/DamageNumberObjectPane.md` |  |
 | [UID:00003O][DeleteReplyAlert](by-class/DeleteReplyAlert.md) | unclassified |  |  | no |  | `by-class/DeleteReplyAlert.md` |  |
 | [UID:00003R][DialDialog](by-class/DialDialog.md) | unclassified |  |  | no |  | `by-class/DialDialog.md` |  |
@@ -326,7 +341,6 @@ Total_Error: 0
 | [UID:00004L][Event](by-class/Event.md) | unclassified |  |  | no |  | `by-class/Event.md` |  |
 | [UID:00004O][EventMan](by-class/EventMan.md) | unclassified |  |  | no |  | `by-class/EventMan.md` |  |
 | [UID:00004R][ExchangeDialog](by-class/ExchangeDialog.md) | unclassified |  |  | no |  | `by-class/ExchangeDialog.md` |  |
-| [UID:00004S][ExchangeItemListPane](by-class/ExchangeItemListPane.md) | unclassified |  |  | no |  | `by-class/ExchangeItemListPane.md` |  |
 | [UID:00004T][ExchangeMoneyEditControlPane](by-class/ExchangeMoneyEditControlPane.md) | unclassified |  |  | no |  | `by-class/ExchangeMoneyEditControlPane.md` |  |
 | [UID:00004U][FieldMapPane](by-class/FieldMapPane.md) | unclassified |  |  | no |  | `by-class/FieldMapPane.md` |  |
 | [UID:00004Z][FittingEquipmentState](by-class/FittingEquipmentState.md) | unclassified |  |  | no |  | `by-class/FittingEquipmentState.md` |  |
@@ -334,19 +348,16 @@ Total_Error: 0
 | [UID:000057][FlyingObjectPane](by-class/FlyingObjectPane.md) | unclassified |  |  | no |  | `by-class/FlyingObjectPane.md` |  |
 | [UID:00005A][FolderTreePane](by-class/FolderTreePane.md) | unclassified |  |  | no |  | `by-class/FolderTreePane.md` |  |
 | [UID:00005C][FontStyle](by-class/FontStyle.md) | unclassified |  |  | no |  | `by-class/FontStyle.md` |  |
-| [UID:00005D][FooterSystemMessage](by-class/FooterSystemMessage.md) | unclassified |  |  | no |  | `by-class/FooterSystemMessage.md` |  |
 | [UID:00005E][ForcedInformMessageDialog](by-class/ForcedInformMessageDialog.md) | unclassified |  |  | no |  | `by-class/ForcedInformMessageDialog.md` |  |
 | [UID:00005G][FrameHandler](by-class/FrameHandler.md) | unclassified |  |  | no |  | `by-class/FrameHandler.md` |  |
 | [UID:00005H][FrameMgr](by-class/FrameMgr.md) | unclassified |  |  | no |  | `by-class/FrameMgr.md` |  |
 | [UID:00005J][FriendListDialog](by-class/FriendListDialog.md) | unclassified |  |  | no |  | `by-class/FriendListDialog.md` |  |
 | [UID:00005L][FunctionObject0](by-class/FunctionObject0.md) | unclassified |  |  | no |  | `by-class/FunctionObject0.md` |  |
-| [UID:00005N][FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___](by-class/FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___.md) | unclassified |  |  | no |  | `by-class/FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___.md` |  |
 | [UID:00005Q][GeneralPurposePanel](by-class/GeneralPurposePanel.md) | unclassified |  |  | no |  | `by-class/GeneralPurposePanel.md` |  |
 | [UID:00005R][GeneralPurposePanel2](by-class/GeneralPurposePanel2.md) | unclassified |  |  | no |  | `by-class/GeneralPurposePanel2.md` |  |
 | [UID:00005S][GiveAllInputPane](by-class/GiveAllInputPane.md) | unclassified |  |  | no |  | `by-class/GiveAllInputPane.md` |  |
 | [UID:00005U][GiveInputPane](by-class/GiveInputPane.md) | unclassified |  |  | no |  | `by-class/GiveInputPane.md` |  |
 | [UID:000062][HeadSelectDialog](by-class/HeadSelectDialog.md) | unclassified |  |  | no |  | `by-class/HeadSelectDialog.md` |  |
-| [UID:000061][HeaderSystemMessage](by-class/HeaderSystemMessage.md) | unclassified |  |  | no |  | `by-class/HeaderSystemMessage.md` |  |
 | [UID:000063][HelpPane](by-class/HelpPane.md) | unclassified |  |  | no |  | `by-class/HelpPane.md` |  |
 | [UID:000064][HelpPane__SimpleHelpTextPartPane](by-class/HelpPane__SimpleHelpTextPartPane.md) | unclassified |  |  | no |  | `by-class/HelpPane__SimpleHelpTextPartPane.md` |  |
 | [UID:000066][HistoryViewingPane](by-class/HistoryViewingPane.md) | unclassified |  |  | no |  | `by-class/HistoryViewingPane.md` |  |
@@ -410,11 +421,8 @@ Total_Error: 0
 | [UID:00008J][MixItemDialog](by-class/MixItemDialog.md) | unclassified |  |  | no |  | `by-class/MixItemDialog.md` |  |
 | [UID:00008L][Monitor](by-class/Monitor.md) | unclassified |  |  | no |  | `by-class/Monitor.md` |  |
 | [UID:00008M][MonitorCondition](by-class/MonitorCondition.md) | unclassified |  |  | no |  | `by-class/MonitorCondition.md` |  |
-| [UID:00008O][MonsterImageLibTable_5289D0](by-class/MonsterImageLibTable_5289D0.md) | unclassified |  |  | no |  | `by-class/MonsterImageLibTable_5289D0.md` |  |
-| [UID:00008P][MonsterImageLibTable_528BE0](by-class/MonsterImageLibTable_528BE0.md) | unclassified |  |  | no |  | `by-class/MonsterImageLibTable_528BE0.md` |  |
 | [UID:00008Q][MoreInfoPane](by-class/MoreInfoPane.md) | unclassified |  |  | no |  | `by-class/MoreInfoPane.md` |  |
 | [UID:00008T][MultiLineInputPane](by-class/MultiLineInputPane.md) | unclassified |  |  | no |  | `by-class/MultiLineInputPane.md` |  |
-| [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md) | unclassified |  |  | no |  | `by-class/MusicControlDialog.md` |  |
 | [UID:00008Y][NewArticleDialog](by-class/NewArticleDialog.md) | unclassified |  |  | no |  | `by-class/NewArticleDialog.md` |  |
 | [UID:000091][NewHistoryDialogPane](by-class/NewHistoryDialogPane.md) | unclassified |  |  | no |  | `by-class/NewHistoryDialogPane.md` |  |
 | [UID:000094][NewMacroDialog](by-class/NewMacroDialog.md) | unclassified |  |  | no |  | `by-class/NewMacroDialog.md` |  |
@@ -448,8 +456,6 @@ Total_Error: 0
 | [UID:0000AF][PhoneEntryDialog](by-class/PhoneEntryDialog.md) | unclassified |  |  | no |  | `by-class/PhoneEntryDialog.md` |  |
 | [UID:0000AG][PhotoPane](by-class/PhotoPane.md) | unclassified |  |  | no |  | `by-class/PhotoPane.md` |  |
 | [UID:0000AH][PictureViewPane](by-class/PictureViewPane.md) | unclassified |  |  | no |  | `by-class/PictureViewPane.md` |  |
-| [UID:0000AJ][PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_](by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md) | unclassified |  |  | no |  | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |  |
-| [UID:0000AK][PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_](by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md) | unclassified |  |  | no |  | `by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md` |  |
 | [UID:0000AM][PoolAllocator](by-class/PoolAllocator.md) | unclassified |  |  | no |  | `by-class/PoolAllocator.md` |  |
 | [UID:0000AN][PopupMenuControlPane](by-class/PopupMenuControlPane.md) | unclassified |  |  | no |  | `by-class/PopupMenuControlPane.md` |  |
 | [UID:0000AO][PostInputPane](by-class/PostInputPane.md) | unclassified |  |  | no |  | `by-class/PostInputPane.md` |  |
@@ -472,7 +478,6 @@ Total_Error: 0
 | [UID:0000B9][ProtectedArray_struct_LightInfo_](by-class/ProtectedArray_struct_LightInfo_.md) | unclassified |  |  | no |  | `by-class/ProtectedArray_struct_LightInfo_.md` |  |
 | [UID:0000BA][ProtectedArray_struct_MantleInfo_](by-class/ProtectedArray_struct_MantleInfo_.md) | unclassified |  |  | no |  | `by-class/ProtectedArray_struct_MantleInfo_.md` |  |
 | [UID:0000BB][ProtectedArray_struct_NecklaceInfo_](by-class/ProtectedArray_struct_NecklaceInfo_.md) | unclassified |  |  | no |  | `by-class/ProtectedArray_struct_NecklaceInfo_.md` |  |
-| [UID:0000BC][ProtectedArray_struct_ShoeInfo_](by-class/ProtectedArray_struct_ShoeInfo_.md) | unclassified |  |  | no |  | `by-class/ProtectedArray_struct_ShoeInfo_.md` |  |
 | [UID:0000BD][ProtectedArray_struct_WeaponInfo_](by-class/ProtectedArray_struct_WeaponInfo_.md) | unclassified |  |  | no |  | `by-class/ProtectedArray_struct_WeaponInfo_.md` |  |
 | [UID:0000BF][Queue](by-class/Queue.md) | unclassified |  |  | no |  | `by-class/Queue.md` |  |
 | [UID:0000BG][QuitDialog](by-class/QuitDialog.md) | unclassified |  |  | no |  | `by-class/QuitDialog.md` |  |
@@ -487,18 +492,13 @@ Total_Error: 0
 | [UID:0000BV][Region](by-class/Region.md) | unclassified |  |  | no |  | `by-class/Region.md` |  |
 | [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md) | unclassified |  |  | no |  | `by-class/RegistryConfig.md` |  |
 | [UID:0000C0][RightButtonMenuPane](by-class/RightButtonMenuPane.md) | unclassified |  |  | no |  | `by-class/RightButtonMenuPane.md` |  |
-| [UID:0000C1][RingBuffer](by-class/RingBuffer.md) | unclassified |  |  | no |  | `by-class/RingBuffer.md` |  |
-| [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md) | unclassified |  |  | no |  | `by-class/RingBufferIterator.md` |  |
 | [UID:0000C6][SayToUserMessageInputPane](by-class/SayToUserMessageInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserMessageInputPane.md` |  |
 | [UID:0000C7][SayToUserNameInputPane](by-class/SayToUserNameInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserNameInputPane.md` |  |
 | [UID:0000CB][ScreenPane](by-class/ScreenPane.md) | unclassified |  |  | no |  | `by-class/ScreenPane.md` |  |
 | [UID:0000CC][ScreenPanePaletteState_543D30](by-class/ScreenPanePaletteState_543D30.md) | unclassified |  |  | no |  | `by-class/ScreenPanePaletteState_543D30.md` |  |
 | [UID:0000CD][ScreenshotCapture](by-class/ScreenshotCapture.md) | unclassified |  |  | no |  | `by-class/ScreenshotCapture.md` |  |
 | [UID:0000CL][ScrollNewGroupPane](by-class/ScrollNewGroupPane.md) | unclassified |  |  | no |  | `by-class/ScrollNewGroupPane.md` |  |
-| [UID:0000CM][ScrollPane](by-class/ScrollPane.md) | unclassified |  |  | no |  | `by-class/ScrollPane.md` |  |
-| [UID:0000CP][ScrollWidget](by-class/ScrollWidget.md) | unclassified |  |  | no |  | `by-class/ScrollWidget.md` |  |
 | [UID:0000CE][ScrollableControlPane](by-class/ScrollableControlPane.md) | unclassified |  |  | no |  | `by-class/ScrollableControlPane.md` |  |
-| [UID:0000CF][ScrollablePane](by-class/ScrollablePane.md) | unclassified |  |  | no |  | `by-class/ScrollablePane.md` |  |
 | [UID:0000CH][ScrolledPictureControlPane](by-class/ScrolledPictureControlPane.md) | unclassified |  |  | no |  | `by-class/ScrolledPictureControlPane.md` |  |
 | [UID:0000CI][ScrolledTextControlPane](by-class/ScrolledTextControlPane.md) | unclassified |  |  | no |  | `by-class/ScrolledTextControlPane.md` |  |
 | [UID:0000CJ][ScrolledTextControlPaneForMadeBy](by-class/ScrolledTextControlPaneForMadeBy.md) | unclassified |  |  | no |  | `by-class/ScrolledTextControlPaneForMadeBy.md` |  |

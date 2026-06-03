@@ -37,7 +37,7 @@
 | `+0xa8` | attached `Layer*` | Constructor initializes zero; add/insert/remove helpers read and write the cached layer pointer. |
 | `+0xac` | pane origin point | Constructor initializes to `(0,0)`; `SetBounds` stores the top-left origin here. |
 | `+0xb4` | visible byte | Constructor initializes `1`; `Show` sets `1`, `Hide` sets `0`. |
-| `+0xb5` | pane mode byte | Constructor stores the incoming mode; `Show` skips redraw when mode is `4`. |
+| `+0xb5` | pane mode byte | Constructor stores the incoming mode; `Show` skips redraw when mode is `4`; [UID:0002V7][0x005446b0-0x005446d4.PaneSetMode](by-memory/0x005446b0-0x005446d4.PaneSetMode.md) updates it only on change and dispatches the pane vtable slot `+0x20`. |
 | `+0xb8` | auxiliary pane pointer/state | Constructor initializes zero; exact role remains open. |
 | `+0xc0` | auxiliary state byte | Constructor initializes zero; exact role remains open. |
 | `+0xc4` | pending/alternate motion region | Constructor initializes and empties this region; motion helpers compare/copy/subtract it. |
@@ -57,6 +57,7 @@ Checked on 2026-05-26 and representative methods rechecked through IDA MCP on 20
 - `Pane` non-deleting destructor at `0x00544580` and scalar deleting destructor at `0x00544f50` reinstall the three `Pane` vtables, clear active dispatcher/layer state through `+0xa0` and `+0xa8`, destroy the regions at `+0xdc` and `+0xc4`, tear down the handler subobjects, and call `GrafPort` teardown.
 - `MarkForDeletion` at `0x00544690` reads/writes byte `+0xf4`.
 - `Show` and `Hide` at `0x00544730` and `0x00544750` write visible byte `+0xb4`; `Show` also checks mode byte `+0xb5`.
+- `PaneSetMode` at `0x005446b0-0x005446d4` compares and writes mode byte `+0xb5`, then calls the primary vtable slot `+0x20` with `this + 0x44` when the mode changed; this was rechecked through IDA MCP on 2026-06-03.
 - `GetCurrentMotionRegion`, `HasPendingMotion`, `BeginMotionPaint`, and `EndMotionPaint` at `0x005446e0`, `0x00544a40`, `0x00544ae0`, and `0x00544b50` use `+0xc4`, `+0xd8`, `+0xdc`, and `+0xf5` for motion/dirty state.
 - `AddToLayer`, `InsertInLayer`, and `RemoveFromLayer` at `0x00544c70`, `0x00544cb0`, and `0x00544ce0` read and write the cached layer pointer at `+0xa8`.
 - `IsAttachedToLayer` / layer-membership test at `0x00544c50` reads the cached layer pointer at `+0xa8` and asks whether that layer contains the current pane.
@@ -76,6 +77,7 @@ Checked on 2026-05-26 and representative methods rechecked through IDA MCP on 20
 - [UID:0001EA][0x00544460-0x00545086.PaneCore](by-memory/0x00544460-0x00545086.PaneCore.md)
 - [UID:0001YC][PaneCoreVtableFamily](by-type/by-vtable/PaneCoreVtableFamily.md)
 - [UID:0001EB][0x00544f2e-0x00544f43.PaneAdjustorThunks](by-memory/0x00544f2e-0x00544f43.PaneAdjustorThunks.md)
+- [UID:0002V7][0x005446b0-0x005446d4.PaneSetMode](by-memory/0x005446b0-0x005446d4.PaneSetMode.md)
 - [UID:0000JR][GrafPort](by-file/GrafPort.md)
 - [UID:0001U4][DialogPaneLayout](by-type/by-struct/DialogPaneLayout.md)
 - [UID:0001V9][ModelessDialogPaneLayout](by-type/by-struct/ModelessDialogPaneLayout.md)

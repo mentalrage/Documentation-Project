@@ -1,12 +1,12 @@
 *** UID:0001RN | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:68 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # Startup Logo Media
 
 ## Status
 
-- Confidence: strong for `.LGO` static logo format and memory-backed segmented Bink payload handling; medium for final Bink helper ownership.
+- Confidence: strong for `.LGO` static logo format, `LOGO.PAK`/`LOGO.PAD` selection, and memory-backed segmented Bink payload handling; medium for final source asset packaging.
 - Owner modules: [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md), [UID:0000P4][VideoPlayerPane](by-file/VideoPlayerPane.md)
 - Related classes: [UID:00007G][LogoPane](by-class/LogoPane.md), [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md), [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md)
 
@@ -15,7 +15,9 @@
 | Resource | Loader | Format evidence |
 | --- | --- | --- |
 | `NEXON.LGO` or equivalent startup logo path | `LogoPane::LogoPane` at `0x004f4c10` | Dword compressed image size, compressed image bytes, dword palette size, palette bytes. |
-| startup Bink payload | `LogoPlayerPane::LogoPlayerPane` at `0x004f53b0` | File is read into `_AUTOBUF<unsigned char>`; first dword is treated as first segment size; Bink data starts immediately after that dword. |
+| `LOGO.PAK` | standalone startup Bink playback helper at `0x004f5710` | Selected when `byte_66DA97 == 1`; existence checked through [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md), read into `_AUTOBUF<unsigned char>`, first dword is the first segment size, and first Bink data starts at `buffer + 4`. |
+| `LOGO.PAD` | standalone startup Bink playback helper at `0x004f5710` | Selected when `byte_66DA97 != 1`; same existence check and memory-backed Bink payload handling as `LOGO.PAK`. |
+| caller-supplied startup Bink payload | `LogoPlayerPane::LogoPlayerPane` at `0x004f53b0` | File path is supplied by the caller; the file is read into `_AUTOBUF<unsigned char>`, first dword is treated as first segment size, and Bink data starts immediately after that dword. |
 
 ## Static Logo Format
 
@@ -38,12 +40,27 @@ IDA decompilation of `0x005c0110` shows `BinkOpen(segmentData, 67633152)`, and `
 
 The constructor and advance path both pass a segment size/remaining-size argument to `0x005c0110`, but the recovered helper does not consume it before calling `BinkOpen`. Keep that unused-size argument in the open questions for source rewrite rather than inventing a length-check side effect.
 
+2026-06-03 live IDA MCP disassembly confirms the standalone startup playback path:
+
+- byte-pattern scanning finds UTF-16 `LOGO.PAK` at `0x0061d0c4` with xrefs at `0x004f5760` and `0x004f5775`;
+- UTF-16 `LOGO.PAD` is at `0x0061d0d8` with xrefs at `0x004f577c` and `0x004f5791`;
+- `0x004f5750` branches on `byte_66DA97`, probes the selected file through `0x00582460`, and exits early if the file is absent;
+- after reading the selected file into `_AUTOBUF<unsigned char>`, `0x004f57d4` reads the first dword as the first segment size, `0x004f57de` sets the first Bink pointer to `buffer + 4`, `0x004f57e4` stores the next segment pointer in `dword_69B474`, and `0x004f57f2` stores the remaining length in `dword_69B478`;
+- `0x004f5809-0x004f580f` opens the first segment through `BinkOpen(buffer + 4, 0x04080000)`;
+- [UID:00022U][0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart](by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md) reopens from `dword_69B474` with the same `0x04080000` flags when `byte_66DB42` is still set and the current frame is before the midpoint.
+
+Local file-system check on 2026-06-03 found no loose `NEXON.LGO`, `LOGO.PAK`, `LOGO.PAD`, `.LGO`, `.PAK`, `.PAD`, or `.BIK` files under the extracted `C:\Users\admin\Desktop\Clone\NexusTK` tree or under `source-3` staging. Treat this only as a current local-package observation: the IDA path-existence checks prove these media files are optional loose startup assets, but the original distribution/installer packaging still needs archive-level confirmation.
+
 ## Cross-References
 
 - [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md)
 - [UID:00019C][0x004f4c10-0x004f53a8.LogoPane](by-memory/0x004f4c10-0x004f53a8.LogoPane.md)
 - [UID:00019D][0x004f53b0-0x004f570c.LogoPlayerPane](by-memory/0x004f53b0-0x004f570c.LogoPlayerPane.md)
 - [UID:0001NT][0x005c0040-0x005c045b.VideoPlayerPane](by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md)
+- [UID:00022T][0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop](by-memory/0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop.md)
+- [UID:00022U][0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart](by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md)
+- [UID:00029G][0x0069b45c-0x0069b480.StartupLogoBinkPlaybackGlobals](by-memory/0x0069b45c-0x0069b480.StartupLogoBinkPlaybackGlobals.md)
+- [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md)
 - [UID:0001QE][client_libraries](by-meta/client_libraries.md)
 
 ## Changes
@@ -51,3 +68,4 @@ The constructor and advance path both pass a segment size/remaining-size argumen
 - What existed before: the page was scored unevaluated despite having static-logo and Bink-format notes.
 - Changed to: scored `COMPLETION:68` / `CONFIDENCE:84` and added direct IDA MCP evidence for `NEXON.LGO` and the static logo loader.
 - Summary and evidence: the static logo file and loader format are now tied to IDA string/xref/decompilation evidence; score remains moderate because the Bink payload helper and final ownership details still need a separate whole-item audit.
+- 2026-06-03: raised to `COMPLETION:78` / `CONFIDENCE:88` after live IDA MCP byte-pattern and disassembly checks verified the `LOGO.PAK`/`LOGO.PAD` UTF-16 literals, exact xrefs, `byte_66DA97` selection branch, `PathExistsViaStat` gating, `_AUTOBUF` payload layout, first-segment and next-segment pointer math, `BinkOpen(..., 0x04080000)` callsites, and midpoint reopen path through `byte_66DB42`/`dword_69B474`. Added the local extracted-tree absence caveat; completion remains below final quality because archive/installer packaging and exact source asset provenance are still unproven.

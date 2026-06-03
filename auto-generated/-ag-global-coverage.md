@@ -3,12 +3,12 @@
 # ag-global-coverage
 
 Total_Type: 158
-Total_Reconstructable: 39
+Total_Reconstructable: 40
 Total_Not_Reconstructable: 2
-Total_Reconstructed_Assigned: 30
+Total_Reconstructed_Assigned: 31
 Total_Reconstructed_Coded: 0
 Total_Reconstructable_Unassigned: 9
-Total_Unclassified: 117
+Total_Unclassified: 116
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -43,6 +43,7 @@ Total_Error: 0
 | [UID:0000SR][g_pWebBoardDialogOld](by-global/g_pWebBoardDialogOld.md) | assigned | `0000P9` | 50 | no | `auto-generated/NexusTK/ui/dialogs/WebBoardDialog.cpp` | `by-global/g_pWebBoardDialogOld.md` |  |
 | [UID:0000SS][g_pWillBeChangedItemPane](by-global/g_pWillBeChangedItemPane.md) | assigned | `0000JU` | 70 | no | `auto-generated/NexusTK/ui/controls/HelpPanes.cpp` | `by-global/g_pWillBeChangedItemPane.md` |  |
 | [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) | assigned | `0000NS` | 80 | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-global/g_packetSender.md` |  |
+| [UID:0002CG][g_selfLookLastHoverEquipmentSlotId](by-global/g_selfLookLastHoverEquipmentSlotId.md) | assigned | `0000NL` |  | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-global/g_selfLookLastHoverEquipmentSlotId.md` |  |
 | [UID:0000QW][g_pfnLockSurface](by-global/g_pfnLockSurface.md) | not_reconstructable |  |  | no |  | `by-global/g_pfnLockSurface.md` |  |
 | [UID:0000SV][g_uiTileRenderer](by-global/g_uiTileRenderer.md) | not_reconstructable |  |  | no |  | `by-global/g_uiTileRenderer.md` |  |
 | [UID:0000T3][InitializeOleSupport](by-global/InitializeOleSupport.md) | unassigned |  |  | no |  | `by-global/InitializeOleSupport.md` |  |
@@ -170,4 +171,3 @@ Total_Error: 0
 | [UID:0000SC][g_pStaffsDialog](by-global/g_pStaffsDialog.md) | unclassified |  |  | no |  | `by-global/g_pStaffsDialog.md` |  |
 | [UID:0000SD][g_pStaticObjImageLib](by-global/g_pStaticObjImageLib.md) | unclassified |  |  | no |  | `by-global/g_pStaticObjImageLib.md` |  |
 | [UID:0000SE][g_pTabPane](by-global/g_pTabPane.md) | unclassified |  |  | no |  | `by-global/g_pTabPane.md` |  |
-| [UID:0002CG][g_selfLookLastHoverEquipmentSlotId](by-global/g_selfLookLastHoverEquipmentSlotId.md) | unclassified |  |  | no |  | `by-global/g_selfLookLastHoverEquipmentSlotId.md` |  |

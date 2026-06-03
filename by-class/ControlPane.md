@@ -14,7 +14,7 @@
 
 - Confidence: strong for base-control role.
 - Likely source file: [UID:0000IG][ControlPane](by-file/ControlPane.md)
-- Main address range: [UID:000114][0x004949e0-0x00494bf6.ControlPane](by-memory/0x004949e0-0x00494bf6.ControlPane.md)
+- Main address range: [UID:000114][0x004949e0-0x00494bf7.ControlPane](by-memory/0x004949e0-0x00494bf7.ControlPane.md)
 - Type docs: [UID:0001YC][PaneCoreVtableFamily](by-type/by-vtable/PaneCoreVtableFamily.md)
 - Current recovered file: `source-3/simroot_v2/class_ControlPane.cpp`
 
@@ -42,7 +42,7 @@
 ## Cross-References
 
 - [UID:0000IG][ControlPane](by-file/ControlPane.md)
-- [UID:000114][0x004949e0-0x00494bf6.ControlPane](by-memory/0x004949e0-0x00494bf6.ControlPane.md)
+- [UID:000114][0x004949e0-0x00494bf7.ControlPane](by-memory/0x004949e0-0x00494bf7.ControlPane.md)
 - [UID:0002PB][0x004949e0-0x00494a81.ControlPaneConstructor](by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md)
 - [UID:0002PC][0x00494bf0-0x00494bf7.ControlPaneIgnoresHitTesting](by-memory/0x00494bf0-0x00494bf7.ControlPaneIgnoresHitTesting.md)
 - [UID:0001YC][PaneCoreVtableFamily](by-type/by-vtable/PaneCoreVtableFamily.md)

@@ -1,6 +1,6 @@
 *** UID:0000VI | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000O5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -16,8 +16,9 @@
 - Entity kind: raw-code helper/boundary issue
 - Likely owner: [UID:0000O5][StartupWindow](by-file/StartupWindow.md)
 - Main memory doc: [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md)
-- Rebuild handling: `source-authored` startup/update-notice helper code. Marked reconstructable and attached to the StartupWindow file parent, but C++ remains blank because exact helper ends, source names, and promoted function boundaries are not final-source quality.
+- Rebuild handling: `source-authored` startup/update-notice helper code. Marked reconstructable and attached to the StartupWindow file parent, but C++ remains blank because the raw helper starts are tracked canonically by the aggregate until exact child function pages and final source names exist.
 - Canonical evidence: [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) is the detailed aggregate for this raw island; this by-item page stays as the boundary-debt tracker.
+- Current tracker role: non-canonical reminder item for the unmodeled raw helper family. The source-owned address evidence lives in [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md), and the exact curl callback child is [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md).
 
 ## Finding
 
@@ -45,14 +46,15 @@ Rechecked on 2026-05-31:
 | --- | ---: | --- |
 | [UID:0000O5][StartupWindow](by-file/StartupWindow.md) | `86/80` | Source-file owner for the startup/update notice window and private helper family. |
 | [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) | `84/86` | Authoritative address-range inventory, raw helper starts, caller/xref evidence, touched globals, and padding boundaries. |
+| [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md) | `74/86` | Exact nested callback child inside the startup update aggregate; only referenced from the two `RunUpdateCheck` libcurl write-callback setup sites. |
 | [UID:0001RO][startup-update-notice-resources](by-resource/startup-update-notice-resources.md) | `75/88` | Confirms the `brm_*.pcx` notice assets and update-notice resource role. |
 
 ## Score Rationale
 
 | Field | Value | Rationale |
 | --- | ---: | --- |
-| Completion | 70 | The page identifies every known raw helper start, observed behavior, impact, follow-up work, canonical aggregate evidence, and file owner. It remains below high completion because the raw starts have not been promoted into exact function pages or finalized source names. |
-| Confidence | 80 | Existing IDA-backed docs now provide enough evidence to attach the tracker to [UID:0000O5][StartupWindow](by-file/StartupWindow.md). Confidence is capped at 80 because IDA still lacks formal function objects for the raw helper starts. |
+| Completion | 76 | The page identifies every known raw helper start, observed behavior, impact, follow-up work, canonical aggregate evidence, file owner, and exact nested curl callback child. It remains below high completion because most raw starts have not been promoted into exact function pages or finalized source names. |
+| Confidence | 82 | Existing IDA-backed docs provide enough evidence to attach the tracker to [UID:0000O5][StartupWindow](by-file/StartupWindow.md) and to keep the source-owned bytes under the [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) aggregate. Confidence is capped because IDA MCP is unavailable on 2026-06-03 and IDA still lacks formal function objects for the raw helper starts. |
 | Reconstructable | true | The bytes are source-authored startup notice helper code, but reconstructed C++ is intentionally blank until boundaries and names become final-source quality. |
 
 ## Impact
@@ -69,11 +71,17 @@ Generated `class_StartupWindow.cpp` currently inlines or omits parts of this hel
 
 - [UID:0000O5][StartupWindow](by-file/StartupWindow.md)
 - [UID:0000DZ][StartupWindow](by-class/StartupWindow.md)
+- [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md)
+- [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md)
 - [UID:0001RO][startup-update-notice-resources](by-resource/startup-update-notice-resources.md)
 - [wave3 data issues](../wave3_data_issues.md)
 
 ## Changes
 
+- 2026-06-03 canonical-evidence consistency pass:
+  - What existed before: this boundary-debt tracker was scored `70/80`, while the canonical [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) page already carried stronger written IDA evidence at `84/86`; the exact [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md) child was not called out in the evidence map.
+  - Changed to: scores `76/82`, explicit non-canonical tracker role, cross-link to [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md), and score rationale that keeps final C++ blocked on exact child pages for the remaining raw starts.
+  - Summary/evidence: current review of [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md), [UID:0000O5][StartupWindow](by-file/StartupWindow.md), [UID:0000DZ][StartupWindow](by-class/StartupWindow.md), [UID:0001RO][startup-update-notice-resources](by-resource/startup-update-notice-resources.md), and `wave3_data_issues.md` confirms the raw helper family is already anchored to StartupWindow with written IDA evidence. Live IDA MCP was unavailable, so no new raw helper child pages or reconstructed C++ were created.
 - What existed before: the page was unevaluated (`COMPLETION:0`, `CONFIDENCE:0`) and had no reconstructable classification.
 - What it was changed to: the page is now marked reconstructable with low-to-moderate completion and medium confidence, while parent attachment and C++ remain blank.
 - Summary and evidence: IDA MCP raw-disassembly verification on 2026-05-31 reconfirmed the unmodeled helper starts are valid code but still lack IDA function records. The score stays conservative because exact helper ends, caller paths, and how the raw helpers relate to the generated `UpdateCheckWindowProc` body remain unresolved.

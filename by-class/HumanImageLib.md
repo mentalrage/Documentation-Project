@@ -28,7 +28,7 @@
 
 | Method | Address | Role |
 | --- | --- | --- |
-| `HumanImageLib::HumanImageLib` | `0x004d2720` | Large startup table loader; initializes human/equipment arrays and calls the shared frame-table loader for old human asset families. |
+| `HumanImageLib::HumanImageLib` | [UID:0002TO][0x004d2720-0x004d4aca.HumanImageLibConstructor](by-memory/0x004d2720-0x004d4aca.HumanImageLibConstructor.md) | Large startup table loader; initializes human/equipment arrays and calls the shared frame-table loader for old human asset families. |
 | `HumanImageLib::~HumanImageLib` | `0x004d4ad0` | Releases 18 body-part image-library handles, optional cached resources, and ProtectedArray buffers. |
 | `HumanImageLib::ClearSingleton` | `0x004e5b80` | Tiny cleanup/static-lifetime helper that clears `g_pHumanImageLib`. |
 | `ScalarDeletingDestructor` | `0x004e6460` | Calls the destructor and optionally deletes `this`. |
@@ -45,6 +45,7 @@ IDA MCP on 2026-05-26 confirms the class vtable at `0x0061b6d4`, adjacent old-hu
 - [UID:0000R5][g_pHumanImageLib](by-global/g_pHumanImageLib.md)
 - [UID:0001XQ][HumanImageLibVtable](by-type/by-vtable/HumanImageLibVtable.md)
 - [UID:0001UR][HumanImageLibLayout](by-type/by-struct/HumanImageLibLayout.md)
+- [UID:0002TO][0x004d2720-0x004d4aca.HumanImageLibConstructor](by-memory/0x004d2720-0x004d4aca.HumanImageLibConstructor.md)
 - [UID:00017B][0x004d4ad0-0x004d4f67.HumanImageLibDestructor](by-memory/0x004d4ad0-0x004d4f67.HumanImageLibDestructor.md)
 - [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md)
 - [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md)
@@ -58,3 +59,8 @@ IDA MCP on 2026-05-26 confirms the class vtable at `0x0061b6d4`, adjacent old-hu
   - What existed before: class was not marked reconstructable and still pointed at the one-byte-short aggregate label.
   - Changed to: `RECONSTRUCTABLE:TRUE`, scores `78/84`, and references will be validator-resolved to the corrected `0x004d2720-0x004e649b` aggregate.
   - Summary/evidence: IDA MCP confirmed constructor/destructor/scalar-deleting destructor ends and vtable/singleton xrefs. Scores remain below 95 because the large constructor and final source field names are not fully audited.
+
+- 2026-06-03 constructor child link:
+  - What existed before: the constructor row was only an address-level method note under the broad aggregate.
+  - Changed to: the method inventory and cross-reference list now link to [UID:0002TO][0x004d2720-0x004d4aca.HumanImageLibConstructor](by-memory/0x004d2720-0x004d4aca.HumanImageLibConstructor.md).
+  - Summary/evidence: IDA MCP on 2026-06-03 confirmed the exact constructor range, resource/table evidence, callee families, singleton/vtable refs, and post-body padding. The class score is unchanged because final field names and source declarations remain unresolved.

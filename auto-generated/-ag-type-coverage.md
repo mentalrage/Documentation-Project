@@ -5,9 +5,9 @@
 Total_Type: 198
 Total_Reconstructable: 190
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 13
+Total_Reconstructed_Assigned: 14
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 177
+Total_Reconstructable_Unassigned: 176
 Total_Unclassified: 5
 Total_Error: 0
 
@@ -16,6 +16,7 @@ Total_Error: 0
 | [UID:0001SK][BrowserInitFlags](by-type/by-enum/BrowserInitFlags.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-type/by-enum/BrowserInitFlags.md` |  |
 | [UID:0001SM][BrowserOverlayStyle](by-type/by-enum/BrowserOverlayStyle.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-type/by-enum/BrowserOverlayStyle.md` |  |
 | [UID:0001SV][SelectionControlPaneSelectedValue_0x10c](by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md) | assigned | `0000CR` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md` |  |
+| [UID:0001TR][AttachedObjectRegistryLayout](by-type/by-struct/AttachedObjectRegistryLayout.md) | assigned | `0000HJ` |  | no | `auto-generated/NexusTK/map/AttachedObjectPane.cpp` | `by-type/by-struct/AttachedObjectRegistryLayout.md` |  |
 | [UID:0001TZ][CollectionPlayerDataLayout](by-type/by-struct/CollectionPlayerDataLayout.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-type/by-struct/CollectionPlayerDataLayout.md` |  |
 | [UID:0001VI][ParcelNotificationPaneLayouts](by-type/by-struct/ParcelNotificationPaneLayouts.md) | assigned | `0000MF` | 5 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-type/by-struct/ParcelNotificationPaneLayouts.md` |  |
 | [UID:0001VJ][PatchPane2Layout](by-type/by-struct/PatchPane2Layout.md) | assigned | `0000AA` |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-type/by-struct/PatchPane2Layout.md` |  |
@@ -39,7 +40,6 @@ Total_Error: 0
 | [UID:0001SR][ThreadManMessageId](by-type/by-enum/ThreadManMessageId.md) | unassigned |  |  | no |  | `by-type/by-enum/ThreadManMessageId.md` |  |
 | [UID:0001TN][AddEmployeeItemDialogLayout](by-type/by-struct/AddEmployeeItemDialogLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/AddEmployeeItemDialogLayout.md` |  |
 | [UID:0001TO][AlertPaneLayout](by-type/by-struct/AlertPaneLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/AlertPaneLayout.md` |  |
-| [UID:0001TR][AttachedObjectRegistryLayout](by-type/by-struct/AttachedObjectRegistryLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/AttachedObjectRegistryLayout.md` |  |
 | [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/BinaryCodecCursorLayout.md` |  |
 | [UID:0001TT][BlackHoleLayout](by-type/by-struct/BlackHoleLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/BlackHoleLayout.md` |  |
 | [UID:0001TU][CachedHashTableLayout](by-type/by-struct/CachedHashTableLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/CachedHashTableLayout.md` |  |

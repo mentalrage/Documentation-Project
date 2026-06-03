@@ -42,7 +42,7 @@ These are dispatched by [UID:0000JC][FileDownloader](by-file/FileDownloader.md) 
 - [UID:0000JE][FittingRoom](by-file/FittingRoom.md)
 - [UID:0000JC][FileDownloader](by-file/FileDownloader.md)
 - [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md)
-- [UID:0000WJ][0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload](by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md)
+- [UID:0000WJ][0x0041aa00-0x0041b2c9.CashShopVersionAndCatalogDownload](by-memory/0x0041aa00-0x0041b2c9.CashShopVersionAndCatalogDownload.md)
 - [UID:0002CL][0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest](by-memory/0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest.md)
 - [UID:0002CN][0x0041b5e0-0x0041b604.CashShopVersionRequestScalarDeletingDestructor](by-memory/0x0041b5e0-0x0041b604.CashShopVersionRequestScalarDeletingDestructor.md)
 

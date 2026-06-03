@@ -32,7 +32,7 @@ This module should stay app/startup-adjacent rather than moving into generic UI 
 | startup Bink midpoint/restart helper | `0x004f5ae0-0x004f5b1e` | One-shot helper called by the temporary window procedure to reopen Bink from the logo payload under `byte_66DB42`/frame-position conditions. |
 | `LogoPlayerPane::OpenBinkVideo` | `0x005c0110-0x005c0174` | Opens the current memory-backed Bink segment after seeding DirectSound and registering the `term` app notification. Physically in the video-pane island. |
 | callback function objects | `0x004f5040`, `0x004f5070`, `0x004f5250` | Deferred member callback wrappers used to advance the startup screen without running transition logic directly from input handlers. |
-| `_AUTOBUF<unsigned char>` helper | `0x004f5640-0x004f5669` | Adjacent compiler-emitted template constructor, not a `LogoPlayerPane` method. See [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md) and [UID:00019E][0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor.md). |
+| `_AUTOBUF<unsigned char>` helper | `0x004f5640-0x004f566a` | Adjacent compiler-emitted template constructor, not a `LogoPlayerPane` method. See [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md) and [UID:00019E][0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor.md). |
 | startup logo resources | `NEXON.LGO`, segmented Bink payload | Static logo image and movie payload format. See [UID:0001RN][startup-logo-media](by-resource/startup-logo-media.md). |
 
 ## Evidence Notes
@@ -40,7 +40,7 @@ This module should stay app/startup-adjacent rather than moving into generic UI 
 - IDA MCP confirms a real `LogoPane` function island from `0x004f4c10` through `0x004f53a8`, including a Wave3-omitted non-deleting destructor body at `0x004f4eb0`.
 - `LogoPane::LogoPane` is called from the application startup function around `0x004f643c`.
 - `LogoPane::QueueAdvanceToNextScreen` is reached by click handling, a tiny virtual callback, and deferred transition paths.
-- IDA confirms a compact `LogoPlayerPane` island from `0x004f53b0` through `0x004f570c`. The omitted `0x004f5640` helper constructs `_AUTOBUF<unsigned char>` and should not be migrated as a pane virtual.
+- IDA confirms a compact `LogoPlayerPane` island from `0x004f53b0` through `0x004f570c`. The omitted `0x004f5640-0x004f566a` helper constructs `_AUTOBUF<unsigned char>` and should not be migrated as a pane virtual.
 - IDA confirms a standalone Bink playback helper at `0x004f5710-0x004f59c6` and temporary window procedure at `0x004f59d0-0x004f5ac7`. This code is called from the application startup flow and uses `LOGO.PAK`/`LOGO.PAD`, Bink imports, and global playback state rather than pane virtual dispatch.
 - The temporary window procedure calls [UID:00022U][0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart](by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md), a small adjacent helper that closes and reopens the global Bink handle from the logo payload under one-shot flag/frame-position conditions.
 - `LogoPlayerPane::OpenBinkVideo` at `0x005c0110` is called from the logo-player constructor and segment advance helper only.

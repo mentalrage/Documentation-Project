@@ -45,7 +45,7 @@ If later cleanup proves the nation-entry table was only a private `MapPane` help
 ## IDA MCP Evidence
 
 - IDA does not currently model `0x005039f0` as a function, but disassembly at `0x005039f0-0x00503a41` is valid code that initializes the `GameServerConfig` and `ProtectedArray<GameServerConfig::NationEntry>` vtables and global `dword_69B4C4`.
-- IDA also does not model `0x00503a50` as a function, but disassembly at `0x00503a50-0x00503a78` resets the `GameServerConfig`/`ProtectedArray` vtables, frees table storage, clears `dword_69B4C4`, and jumps to base `LObject` cleanup.
+- IDA also does not model `0x00503a50` as a function, but disassembly at `0x00503a50-0x00503a7d` resets the `GameServerConfig`/`ProtectedArray` vtables, frees table storage, clears `dword_69B4C4`, and tail-jumps to base `LObject` cleanup; the tail jump begins at `0x00503a78` and runs through `0x00503a7c`.
 - IDA confirms `0x00503a80-0x00503b58` as a real function with callers at `0x005b8c70` and `0x005be520`.
 - 2026-05-31 IDA recheck: raw code at `0x00503b60-0x00503c61` seeds two `0x44` byte nation-entry records with ids `1` and `2`, localized string ids `0x9f` and `0xa0`, and no current function record or caller xrefs.
 - IDA confirms `0x00503c70-0x00503d03` as a real function with callers at `0x005a5010`, `0x005a5bd0`, `0x005b8c70`, and `0x005be520`.
@@ -76,7 +76,7 @@ The nation-entry lookup/request methods are used by user/status presentation cod
 - Wave3 `inspect class GameServerConfig` includes `CopyNationEntryOrFallback` and `RequestNationEntries`, but `show method` marks both as `excluded: true` and the emitted `class_GameServerConfig.cpp` does not contain their bodies.
 - IDA has valid code at `0x005039f0`, but no IDA function record at that start. This should be treated as an IDA/Wave3 boundary caveat before using it as a rename anchor.
 - `0x00503960-0x005039ed` is valid packet-construction code with no current IDA function object or xrefs. Keep it as a raw retained helper until call-table, vtable, or manually recovered caller evidence appears.
-- IDA shows destructor-like code at `0x00503a50-0x00503a78` in the same local block, but it is not currently modeled as a Wave3 method.
+- IDA shows destructor-like code at `0x00503a50-0x00503a7d` in the same local block, but it is not currently modeled as a function and no direct xrefs target the raw start.
 - `SOBJ.TBL` has two parser views: `StaticObjImageLib` owns the full static-object resource table, while this module's map initializer builds only the compact object-to-nation/classification byte map.
 
 ## Cross-References
@@ -116,3 +116,4 @@ The nation-entry lookup/request methods are used by user/status presentation cod
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and confidence stayed at `78` because the final split between `map/GameServerConfig.cpp` and private `MapPane.cpp` helper code remained open.
   - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/"` and `CONFIDENCE:80`.
   - Summary/evidence: [UID:0000L3][MapPane](by-file/MapPane.md) remains the neighboring map owner, but `by-project-structure/proposed-source-tree.md` has an explicit `map/GameServerConfig.cpp` section for the nation-entry table helpers, and this page already records IDA-backed child ranges, globals, parser/resize support, and `SOBJ.TBL` caveats. Confidence remains capped at 80 because some initialization code may still move into `MapPane.cpp`.
+- 2026-06-03: Refreshed the raw destructor note from `0x00503a50-0x00503a78` to the exact exclusive range `0x00503a50-0x00503a7d`. Evidence: IDA MCP shows the 5-byte tail jump starts at `0x00503a78`, ends before `0x00503a7d`, and is followed by `0xcc` padding before `sub_503A80`.

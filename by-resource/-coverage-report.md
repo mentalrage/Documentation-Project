@@ -6,7 +6,7 @@
 
 ## Summary
 
-- Last generated: 2026-05-26
+- Last updated: 2026-06-03
 - Folder: `by-resource`
 - Coverage summary: 25 covered reconstructable rows, 0 covered ignored rows, 1 uncovered inventory placeholder row.
 - Confidence summary: baseline report generated from existing documentation pages and `-ignored.md`; ignored rows are driven by the local ignored ledger, while reconstructable row confidence is heuristic until IDA/MCP or manual verification raises it.
@@ -32,7 +32,7 @@
 - [UID:0001RK][ranking-ui-resources](by-resource/ranking-ui-resources.md) : reconstructable : 70% : strong : - Resource family: ranking board, event list, reward dialog, and custom scroll controls
 - [UID:0001RL][sobj-tbl](by-resource/sobj-tbl.md) : reconstructable : 50% : medium : - Confidence: strong for loader addresses and field widths, medium for final field names.
 - [UID:0001RM][staff-dialog-resources](by-resource/staff-dialog-resources.md) : reconstructable : 70% : strong : - Confidence: strong for observed names and owner.
-- [UID:0001RN][startup-logo-media](by-resource/startup-logo-media.md) : reconstructable : 50% : medium : - Confidence: strong for `.LGO` static logo format and memory-backed segmented Bink payload handling; medium for final Bink helper ownership.
+- [UID:0001RN][startup-logo-media](by-resource/startup-logo-media.md) : reconstructable : 78% : strong : Startup logo media resources; IDA confirms `NEXON.LGO`, `LOGO.PAK`, `LOGO.PAD`, static `.LGO` image/palette layout, path-existence gating, memory-backed segmented Bink payload layout, first/next segment pointer math, Bink flags, and midpoint reopen state. Archive/installer asset provenance remains open.
 - [UID:0001RO][startup-update-notice-resources](by-resource/startup-update-notice-resources.md) : reconstructable : 70% : strong : - Confidence: strong for resource names and startup owner.
 - [UID:0001RP][str-res-localized-strings](by-resource/str-res-localized-strings.md) : reconstructable : 70% : strong : - Resource kind: DAT-backed text resource.
 - [UID:0001RQ][timerpane-number-resources](by-resource/timerpane-number-resources.md) : reconstructable : 50% : medium : - Confidence: strong for resource names and call site; medium for exact frame atlas layout.

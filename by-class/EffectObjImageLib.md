@@ -2,8 +2,8 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -76,6 +76,11 @@ The object is at least `0x60` bytes. The layout is IDA-confirmed from constructo
 - [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md)
 
 ## Changes
+
+- 2026-06-03 autogen parent attachment:
+  - Before: the class had strong file-owner evidence but blank autogen parent metadata.
+  - After: attached to [UID:0000IY][EffectObjImageLib](by-file/EffectObjImageLib.md) at position `10`.
+  - Summary/evidence: the file page owns the effect sprite resource family, singleton, vtable, layout docs, and exact method/helper list; both file and class confidence are at least `84`, satisfying the parent-attachment threshold.
 
 - 2026-05-30:
   - Before: completion/confidence metadata was left at unevaluated `0/0`.

@@ -33,9 +33,9 @@ Observed access pattern:
 
 ## Evidence
 
-- [UID:0002LJ][0x00583210-0x00583272.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md) seeds the object with the ANSI empty sentinel `0x00670290` before forwarding ANSI varargs to [UID:0002LL][0x00583720-0x00583831.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583831.StringBaseAnsiVFormatWorker.md).
-- [UID:0002LK][0x00583280-0x005832e2.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md) seeds the object with the wide empty sentinel `0x00670278` before forwarding wide varargs to [UID:0002LM][0x00583840-0x00583967.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583967.StringBaseWideVFormatWorker.md).
-- [UID:0002LL][0x00583720-0x00583831.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583831.StringBaseAnsiVFormatWorker.md) and [UID:0002LM][0x00583840-0x00583967.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583967.StringBaseWideVFormatWorker.md) both test `data[-3]` for sharing, compare/grow against `data[-1]` capacity, and write final length into `data[-2]`.
+- [UID:0002LJ][0x00583210-0x00583272.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md) seeds the object with the ANSI empty sentinel `0x00670290` before forwarding ANSI varargs to [UID:0002LL][0x00583720-0x00583832.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583832.StringBaseAnsiVFormatWorker.md).
+- [UID:0002LK][0x00583280-0x005832e2.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md) seeds the object with the wide empty sentinel `0x00670278` before forwarding wide varargs to [UID:0002LM][0x00583840-0x00583968.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583968.StringBaseWideVFormatWorker.md).
+- [UID:0002LL][0x00583720-0x00583832.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583832.StringBaseAnsiVFormatWorker.md) and [UID:0002LM][0x00583840-0x00583968.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583968.StringBaseWideVFormatWorker.md) both test `data[-3]` for sharing, compare/grow against `data[-1]` capacity, and write final length into `data[-2]`.
 - [UID:0002LO][0x005845b0-0x005845eb.StringBaseCompareWideLiteral](by-memory/0x005845b0-0x005845eb.StringBaseCompareWideLiteral.md) computes `lhsEnd = lhsBegin + 2 * lhsBegin[-2]`, then compares against a NUL-terminated literal range through [UID:0002LN][0x005840f0-0x00584159.WideRangeCompare](by-memory/0x005840f0-0x00584159.WideRangeCompare.md).
 - [UID:0001VQ][RefCountedStringBufferHeader](by-type/by-struct/RefCountedStringBufferHeader.md) records the same 12-byte header prefix from allocation/release/copy-on-write helpers.
 
@@ -56,8 +56,8 @@ Observed access pattern:
 - [UID:0001VQ][RefCountedStringBufferHeader](by-type/by-struct/RefCountedStringBufferHeader.md)
 - [UID:0002LJ][0x00583210-0x00583272.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md)
 - [UID:0002LK][0x00583280-0x005832e2.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md)
-- [UID:0002LL][0x00583720-0x00583831.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583831.StringBaseAnsiVFormatWorker.md)
-- [UID:0002LM][0x00583840-0x00583967.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583967.StringBaseWideVFormatWorker.md)
+- [UID:0002LL][0x00583720-0x00583832.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583832.StringBaseAnsiVFormatWorker.md)
+- [UID:0002LM][0x00583840-0x00583968.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583968.StringBaseWideVFormatWorker.md)
 - [UID:0002LN][0x005840f0-0x00584159.WideRangeCompare](by-memory/0x005840f0-0x00584159.WideRangeCompare.md)
 - [UID:0002LO][0x005845b0-0x005845eb.StringBaseCompareWideLiteral](by-memory/0x005845b0-0x005845eb.StringBaseCompareWideLiteral.md)
 
@@ -66,3 +66,4 @@ Observed access pattern:
 - Before: the page was ungraded and described only a narrow wide-string pointer hypothesis with `m_data[-2]` and sentinel references.
 - Changed to: marked the layout reconstructable, documented the 12-byte ref-counted header fields, and tied each field to IDA-confirmed exact child functions.
 - Evidence: IDA MCP `lookup_funcs`, `decompile`, `callers`, `callees`, `xrefs_to`, and byte checks on 2026-05-31 for the constructor/format/compare helpers listed above. Scores remain below `95+` because final original type naming, source-file ownership, and the remaining un-split helper family are still open.
+- 2026-06-03: refreshed the formatting-worker links to the corrected half-open IDA ranges `0x00583720-0x00583832` and `0x00583840-0x00583968`.

@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LJ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,8 +14,8 @@
 
 - Confidence: strong for method roles, medium for final field/type names.
 - Likely source file: [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md)
+- Autogen parent: [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md); C++ remains blank below the `95+` final-source gate.
 - Address ranges: [UID:00017C][0x004dac40-0x004e685f.MonsterImageLib](by-memory/0x004dac40-0x004e685f.MonsterImageLib.md)
-- Current recovered file: `source-3/simroot_v2/class_MonsterImageLib.cpp`
 - Singleton: [UID:0000RR][g_pMonsterImageLib](by-global/g_pMonsterImageLib.md) at `0x0069b440`
 - Vtable: [UID:0001Y7][MonsterImageLibVtable](by-type/by-vtable/MonsterImageLibVtable.md) at `0x0061b6e4`
 - Layout: [UID:0001VD][MonsterImageLibLayout](by-type/by-struct/MonsterImageLibLayout.md)
@@ -83,3 +83,7 @@ IDA MCP checks on 2026-05-31 reverified the constructor (`0x004daec0`), ordinary
 - Completion/confidence score update: existed before as `0/0`; changed to `84/78`. Summary: the singleton monster image library has detailed method, singleton, vtable, layout, DAT archive, cache, render, bounds, table-helper, DATIndexVector, and LinkedList dependency documentation, but final field/type names remain medium confidence. Evidence: linked `MonsterImageLib` range, destructor/get-bounds/singleton-clear pages, `g_pMonsterImageLib`, vtable/layout/type docs, IDA caller checks, and shared monster/riding table-helper notes.
 - Reconstructability/confidence update: existed before as `RECONSTRUCTABLE` blank and confidence `78`; changed to `RECONSTRUCTABLE:TRUE` and confidence `82`. Summary: 2026-05-31 IDA MCP rechecked constructor/destructor/cache-loader/cleanup evidence and confirms this class is NexusTK-owned source that must be rebuilt. Autogen parent and C++ remain blank because final whole-class source is not at the `95+` evidence gate.
 - Method inventory update: `LoadMonsterTables` existed before as an unlinked method row; changed to link the exact [UID:0002JN][0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables](by-memory/0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables.md) child page. Evidence: 2026-05-31 IDA MCP verified `0x004dac40` size `0x27d` and the monster table parse/allocation flow.
+- 2026-06-03 parent assignment:
+  - What existed before: the class was reconstructable and scored `84/82`, but `AUTOGEN_PARENT_UID` was blank and the status section still cited a recovered-file provenance line.
+  - Changed to: parent [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md), with final C++ still blank.
+  - Summary/evidence: current IDA MCP confirms the constructor, destructor, scalar destructor, vtable, singleton lifecycle, archive/table loaders, and render/bounds helpers belong under the `MonsterImageLib.cpp` file parent, which is now above the parent-confidence gate.

@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 201
+Total_Reconstructed_Assigned: 210
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 87
+Total_Error: 78
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -17,7 +17,9 @@ Total_Error: 87
 | [UID:00020J][AesBlockCipher](by-file/AesBlockCipher.md) | assigned |  |  | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-file/AesBlockCipher.md` | by-file generated root |
 | [UID:0000HE][AlertPanes](by-file/AlertPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-file/AlertPanes.md` | by-file generated root |
 | [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md) | assigned |  |  | no | `auto-generated/NexusTK/render/AlphaMaskSurface.cpp` | `by-file/AlphaMaskSurface.md` | by-file generated root |
+| [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-file/ArgumentedMenuDialogs.md` | by-file generated root |
 | [UID:0000HJ][AttachedObjectPane](by-file/AttachedObjectPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/AttachedObjectPane.cpp` | `by-file/AttachedObjectPane.md` | by-file generated root |
+| [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md) | assigned |  |  | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-file/AttachmentAnchorResolver.md` | by-file generated root |
 | [UID:0000HO][BackPane](by-file/BackPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/BackPane.cpp` | `by-file/BackPane.md` | by-file generated root |
 | [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/BackStoryDialogPane.cpp` | `by-file/BackStoryDialogPane.md` | by-file generated root |
 | [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) | assigned |  |  | no | `auto-generated/NexusTK/util/BinaryCodec.cpp` | `by-file/BinaryCodec.md` | by-file generated root |
@@ -33,6 +35,7 @@ Total_Error: 87
 | [UID:0000I2][ChangeMan](by-file/ChangeMan.md) | assigned |  |  | no | `auto-generated/NexusTK/app/ChangeMan.cpp` | `by-file/ChangeMan.md` | by-file generated root |
 | [UID:0000I3][ChangePasswordDialogPane](by-file/ChangePasswordDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-file/ChangePasswordDialogPane.md` | by-file generated root |
 | [UID:0000I5][Chatting](by-file/Chatting.md) | assigned |  |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-file/Chatting.md` | by-file generated root |
+| [UID:0000I6][CheatDetector](by-file/CheatDetector.md) | assigned |  |  | no | `auto-generated/NexusTK/security/CheatDetector.cpp` | `by-file/CheatDetector.md` | by-file generated root |
 | [UID:0000I7][CheckBoxControlPane](by-file/CheckBoxControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/CheckBoxControlPane.cpp` | `by-file/CheckBoxControlPane.md` | by-file generated root |
 | [UID:0000I8][Clan](by-file/Clan.md) | assigned |  |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-file/Clan.md` | by-file generated root |
 | [UID:0000I9][ClanBank](by-file/ClanBank.md) | assigned |  |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-file/ClanBank.md` | by-file generated root |
@@ -88,6 +91,7 @@ Total_Error: 87
 | [UID:0000K7][InputPanes](by-file/InputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/InputPanes.cpp` | `by-file/InputPanes.md` | by-file generated root |
 | [UID:0000KA][InventoryPane](by-file/InventoryPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/inventory/InventoryPane.cpp` | `by-file/InventoryPane.md` | by-file generated root |
 | [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-file/ItemActionInputPanes.md` | by-file generated root |
+| [UID:0000KE][ItemDialogs](by-file/ItemDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/ItemDialogs.cpp` | `by-file/ItemDialogs.md` | by-file generated root |
 | [UID:0000KF][ItemMenuDialogs](by-file/ItemMenuDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/ItemMenuDialogs.cpp` | `by-file/ItemMenuDialogs.md` | by-file generated root |
 | [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ItemObjImageLib.cpp` | `by-file/ItemObjImageLib.md` | by-file generated root |
 | [UID:0000KJ][KeySpeedMgr](by-file/KeySpeedMgr.md) | assigned |  |  | no | `auto-generated/NexusTK/input/KeySpeedMgr.cpp` | `by-file/KeySpeedMgr.md` | by-file generated root |
@@ -113,6 +117,8 @@ Total_Error: 87
 | [UID:0000LH][ModelessDialogPane](by-file/ModelessDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/ModelessDialogPane.cpp` | `by-file/ModelessDialogPane.md` | by-file generated root |
 | [UID:0000LI][Monitor](by-file/Monitor.md) | assigned |  |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-file/Monitor.md` | by-file generated root |
 | [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-file/MonsterImageLib.md` | by-file generated root |
+| [UID:0000LK][MonsterImageLibTables](by-file/MonsterImageLibTables.md) | assigned |  |  | no | `auto-generated/NexusTK/render/MonsterImageLibTables.cpp` | `by-file/MonsterImageLibTables.md` | by-file generated root |
+| [UID:0000LN][MusicControlDialog](by-file/MusicControlDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/MusicControlDialog.cpp` | `by-file/MusicControlDialog.md` | by-file generated root |
 | [UID:0000LO][MyItemListPane](by-file/MyItemListPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/MyItemListPane.cpp` | `by-file/MyItemListPane.md` | by-file generated root |
 | [UID:0000LP][NewCreateUserDialogPane](by-file/NewCreateUserDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/NewCreateUserDialogPane.cpp` | `by-file/NewCreateUserDialogPane.md` | by-file generated root |
 | [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-file/NewHumanImageLib.md` | by-file generated root |
@@ -131,6 +137,7 @@ Total_Error: 87
 | [UID:0000M8][PacketBuffer](by-file/PacketBuffer.md) | assigned |  |  | no | `auto-generated/NexusTK/network/PacketBuffer.cpp` | `by-file/PacketBuffer.md` | by-file generated root |
 | [UID:0000M9][PacketTransform](by-file/PacketTransform.md) | assigned |  |  | no | `auto-generated/NexusTK/network/PacketTransform.cpp` | `by-file/PacketTransform.md` | by-file generated root |
 | [UID:0000MA][Palette](by-file/Palette.md) | assigned |  |  | no | `auto-generated/NexusTK/render/Palette.cpp` | `by-file/Palette.md` | by-file generated root |
+| [UID:0000MC][Pane](by-file/Pane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/Pane.cpp` | `by-file/Pane.md` | by-file generated root |
 | [UID:0000MF][ParcelPane](by-file/ParcelPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-file/ParcelPane.md` | by-file generated root |
 | [UID:0000MG][PasswordGuard](by-file/PasswordGuard.md) | assigned |  |  | no | `auto-generated/NexusTK/auth/PasswordGuard.cpp` | `by-file/PasswordGuard.md` | by-file generated root |
 | [UID:0000MH][PatchPane](by-file/PatchPane.md) | assigned |  |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-file/PatchPane.md` | by-file generated root |
@@ -146,6 +153,7 @@ Total_Error: 87
 | [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-file/ProfileDialog.md` | by-file generated root |
 | [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md) | assigned |  |  | no | `auto-generated/NexusTK/profile/ProfileStorage.cpp` | `by-file/ProfileStorage.md` | by-file generated root |
 | [UID:0000MT][ProgressBarControlPane](by-file/ProgressBarControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-file/ProgressBarControlPane.md` | by-file generated root |
+| [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md) | assigned |  |  | no | `auto-generated/NexusTK/util/ProtectedArray.cpp` | `by-file/ProtectedArray.md` | by-file generated root |
 | [UID:0000MV][ProtocolSend](by-file/ProtocolSend.md) | assigned |  |  | no | `auto-generated/NexusTK/network/ProtocolSend.cpp` | `by-file/ProtocolSend.md` | by-file generated root |
 | [UID:0000MW][Queue](by-file/Queue.md) | assigned |  |  | no | `auto-generated/NexusTK/util/Queue.cpp` | `by-file/Queue.md` | by-file generated root |
 | [UID:0000MX][QuitDialogs](by-file/QuitDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-file/QuitDialogs.md` | by-file generated root |
@@ -173,6 +181,7 @@ Total_Error: 87
 | [UID:0000NS][Socket](by-file/Socket.md) | assigned |  |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-file/Socket.md` | by-file generated root |
 | [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md) | assigned |  |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-file/SoftwareBlend16.md` | by-file generated root |
 | [UID:0000NV][SoundManager](by-file/SoundManager.md) | assigned |  |  | no | `auto-generated/NexusTK/audio/SoundManager.cpp` | `by-file/SoundManager.md` | by-file generated root |
+| [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/SpecializedButtonPanes.cpp` | `by-file/SpecializedButtonPanes.md` | by-file generated root |
 | [UID:0000O0][SpellInputPanes](by-file/SpellInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-file/SpellInputPanes.md` | by-file generated root |
 | [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-file/SpellInventoryPane.md` | by-file generated root |
 | [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-file/StartupLogoPanes.md` | by-file generated root |
@@ -215,14 +224,11 @@ Total_Error: 87
 | [UID:0000HG][Application](by-file/Application.md) | coded |  |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-file/Application.md` | by-file generated root |
 | [UID:0000L6][MD5](by-file/MD5.md) | coded |  |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-file/MD5.md` | by-file generated root |
 | [UID:0000HH][ArgumentedItemInputDialogs](by-file/ArgumentedItemInputDialogs.md) | error |  |  | no |  | `by-file/ArgumentedItemInputDialogs.md` | by-file generated root |
-| [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) | error |  |  | no |  | `by-file/ArgumentedMenuDialogs.md` | by-file generated root |
 | [UID:0000HK][AttachedObjectPaneHelper_53AEC0](by-file/AttachedObjectPaneHelper_53AEC0.md) | error |  |  | no |  | `by-file/AttachedObjectPaneHelper_53AEC0.md` | by-file generated root |
-| [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md) | error |  |  | no |  | `by-file/AttachmentAnchorResolver.md` | by-file generated root |
 | [UID:0000HN][AutoInit](by-file/AutoInit.md) | error |  |  | no |  | `by-file/AutoInit.md` | by-file generated root |
 | [UID:0000HX][BulletinSession](by-file/BulletinSession.md) | error |  |  | no |  | `by-file/BulletinSession.md` | by-file generated root |
 | [UID:0000I1][CashShopVersionRequest](by-file/CashShopVersionRequest.md) | error |  |  | no |  | `by-file/CashShopVersionRequest.md` | by-file generated root |
 | [UID:0000I4][CharacterSummaryRecord](by-file/CharacterSummaryRecord.md) | error |  |  | no |  | `by-file/CharacterSummaryRecord.md` | by-file generated root |
-| [UID:0000I6][CheatDetector](by-file/CheatDetector.md) | error |  |  | no |  | `by-file/CheatDetector.md` | by-file generated root |
 | [UID:0000IA][ClanDialogs](by-file/ClanDialogs.md) | error |  |  | no |  | `by-file/ClanDialogs.md` | by-file generated root |
 | [UID:0000IB][CollectionDialogPane](by-file/CollectionDialogPane.md) | error |  |  | no |  | `by-file/CollectionDialogPane.md` | by-file generated root |
 | [UID:0000IF][ConnStatusPane](by-file/ConnStatusPane.md) | error |  |  | no |  | `by-file/ConnStatusPane.md` | by-file generated root |
@@ -247,7 +253,6 @@ Total_Error: 87
 | [UID:0000K9][InterfaceEfx](by-file/InterfaceEfx.md) | error |  |  | no |  | `by-file/InterfaceEfx.md` | by-file generated root |
 | [UID:0000KB][InventoryScrollPane](by-file/InventoryScrollPane.md) | error |  |  | no |  | `by-file/InventoryScrollPane.md` | by-file generated root |
 | [UID:0000KD][ItemCatalog](by-file/ItemCatalog.md) | error |  |  | no |  | `by-file/ItemCatalog.md` | by-file generated root |
-| [UID:0000KE][ItemDialogs](by-file/ItemDialogs.md) | error |  |  | no |  | `by-file/ItemDialogs.md` | by-file generated root |
 | [UID:0000KG][ItemObjectPane](by-file/ItemObjectPane.md) | error |  |  | no |  | `by-file/ItemObjectPane.md` | by-file generated root |
 | [UID:0000KI][JsonCpp](by-file/JsonCpp.md) | error |  |  | no |  | `by-file/JsonCpp.md` | by-file generated root |
 | [UID:0000KV][LObject](by-file/LObject.md) | error |  |  | no |  | `by-file/LObject.md` | by-file generated root |
@@ -264,19 +269,15 @@ Total_Error: 87
 | [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md) | error |  |  | no |  | `by-file/MessageShowPane.md` | by-file generated root |
 | [UID:0000LE][MiniMap](by-file/MiniMap.md) | error |  |  | no |  | `by-file/MiniMap.md` | by-file generated root |
 | [UID:0000LF][MiniMapVersionManager](by-file/MiniMapVersionManager.md) | error |  |  | no |  | `by-file/MiniMapVersionManager.md` | by-file generated root |
-| [UID:0000LK][MonsterImageLibTables](by-file/MonsterImageLibTables.md) | error |  |  | no |  | `by-file/MonsterImageLibTables.md` | by-file generated root |
 | [UID:0000LL][Motion](by-file/Motion.md) | error |  |  | no |  | `by-file/Motion.md` | by-file generated root |
-| [UID:0000LN][MusicControlDialog](by-file/MusicControlDialog.md) | error |  |  | no |  | `by-file/MusicControlDialog.md` | by-file generated root |
 | [UID:0000LQ][NewHistoryDialogPane](by-file/NewHistoryDialogPane.md) | error |  |  | no |  | `by-file/NewHistoryDialogPane.md` | by-file generated root |
 | [UID:0000M0][NexonclubRegistrationDialog](by-file/NexonclubRegistrationDialog.md) | error |  |  | no |  | `by-file/NexonclubRegistrationDialog.md` | by-file generated root |
 | [UID:0000M2][NumericStringControlPane](by-file/NumericStringControlPane.md) | error |  |  | no |  | `by-file/NumericStringControlPane.md` | by-file generated root |
 | [UID:0000M5][ObjectPane](by-file/ObjectPane.md) | error |  |  | no |  | `by-file/ObjectPane.md` | by-file generated root |
 | [UID:0000M6][ObjectStatusBlob](by-file/ObjectStatusBlob.md) | error |  |  | no |  | `by-file/ObjectStatusBlob.md` | by-file generated root |
 | [UID:0000MB][PaletteLib](by-file/PaletteLib.md) | error |  |  | no |  | `by-file/PaletteLib.md` | by-file generated root |
-| [UID:0000MC][Pane](by-file/Pane.md) | error |  |  | no |  | `by-file/Pane.md` | by-file generated root |
 | [UID:0000MD][PaneChildRegistry](by-file/PaneChildRegistry.md) | error |  |  | no |  | `by-file/PaneChildRegistry.md` | by-file generated root |
 | [UID:0000ME][PanelPane](by-file/PanelPane.md) | error |  |  | no |  | `by-file/PanelPane.md` | by-file generated root |
-| [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md) | error |  |  | no |  | `by-file/ProtectedArray.md` | by-file generated root |
 | [UID:0000MY][RainingLayerPane](by-file/RainingLayerPane.md) | error |  |  | no |  | `by-file/RainingLayerPane.md` | by-file generated root |
 | [UID:0000N1][RectangleControlPane](by-file/RectangleControlPane.md) | error |  |  | no |  | `by-file/RectangleControlPane.md` | by-file generated root |
 | [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md) | error |  |  | no |  | `by-file/ResourceLayoutTable.md` | by-file generated root |
@@ -289,7 +290,6 @@ Total_Error: 87
 | [UID:0000NU][SortedList](by-file/SortedList.md) | error |  |  | no |  | `by-file/SortedList.md` | by-file generated root |
 | [UID:0000NW][SoundObjectPane](by-file/SoundObjectPane.md) | error |  |  | no |  | `by-file/SoundObjectPane.md` | by-file generated root |
 | [UID:0000NX][SoundStatusPane](by-file/SoundStatusPane.md) | error |  |  | no |  | `by-file/SoundStatusPane.md` | by-file generated root |
-| [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) | error |  |  | no |  | `by-file/SpecializedButtonPanes.md` | by-file generated root |
 | [UID:0000O2][SpellMenuDialogs](by-file/SpellMenuDialogs.md) | error |  |  | no |  | `by-file/SpellMenuDialogs.md` | by-file generated root |
 | [UID:0000NZ][SpelledPane](by-file/SpelledPane.md) | error |  |  | no |  | `by-file/SpelledPane.md` | by-file generated root |
 | [UID:0000O3][StaffsDialogPane](by-file/StaffsDialogPane.md) | error |  |  | no |  | `by-file/StaffsDialogPane.md` | by-file generated root |

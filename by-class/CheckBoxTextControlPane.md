@@ -2,8 +2,8 @@
 *** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:30 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -13,11 +13,11 @@
 ## Status
 
 - Confidence: medium-high for control behavior and reusable-control ownership; medium for exact constructor boundary.
-- Likely source file: `ui/controls/CheckBoxTextControlPane.cpp`, currently tracked under [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md)
+- Likely source family: [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md), a provisional `NexusTK/ui/controls/` root. A later final-source pass may still split this into `ui/controls/CheckBoxTextControlPane.cpp`.
 - Current recovered file: `source-3/simroot_v2/class_CheckBoxTextControlPane.cpp`
 - IDA MCP rechecked: 2026-05-24.
 - Type docs: [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md), [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md)
-- Rebuild handling: source-authored reusable UI-control class. Marked reconstructable, but parent attachment and C++ remain blank because [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) is still a provisional below-threshold grouping and the raw constructor/source declaration is not final-audit quality.
+- Rebuild handling: source-authored reusable UI-control class. Marked reconstructable and attached to [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) at autogen position `30` now that the file page is a `76/82` provisional `NexusTK/ui/controls/` root. C++ remains blank because the raw constructor/source declaration is not final-audit quality.
 
 ## Class Purpose
 
@@ -55,7 +55,8 @@ The checked state is not currently exposed through the method at `0x004214c0`; I
 - `PartySearchEditPane::OnAction` reads the checked flag from `+0x108` when applying hunters-list settings and toggles that byte directly for command `2`.
 - 2026-05-26 IDA MCP confirmed primary vtable `0x0062e99c`, secondary vtable `0x0062ea04`, and tertiary vtable `0x0062ea34`. The paint method reads checked byte `+0x108` and label buffer `+0x10a`, and the adjustor thunks are vtable-only compiler glue into scalar deleting destructor `0x0059f050`.
 - [UID:0001KJ][0x0059ded0-0x0059f0a4.CheckBoxTextControlPane](by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md) is now the canonical executable-range page for the constructor-shaped body, paint, teardown helper, and scalar deleting destructor.
-- [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) keeps this class in the reusable-control source family, but deliberately leaves its projected path blank until the final direction/gender/checkbox source split is proven.
+- [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) keeps this class in the reusable-control source family and now supplies the provisional `NexusTK/ui/controls/` parent path. The final direction/gender/checkbox source split is still open.
+- 2026-06-03 IDA MCP recheck again reports `0x0059ded0` as `NOFUNC` with no xrefs or raw pointer hits. It reconfirmed `0x0059df30`, `0x0059df50`, `0x0059efeb`, `0x0059eff6`, and `0x0059f050` as real functions, primary vtable slots `0x0062e99c+0x44 -> 0x0059df50`, `+0x60 -> 0x004214c0`, and `+0x00 -> 0x0059f050`, plus constructor/teardown/inline/destructor vtable store refs at `0x0059defc`, `0x0059df30`, `0x0059e23f`, and `0x0059f056`.
 
 ## Score Rationale
 
@@ -84,3 +85,7 @@ The checked state is not currently exposed through the method at `0x004214c0`; I
   - What existed before: the class page was scored `60/78`, reconstructable metadata was blank, and newer memory/type evidence was only partially reflected.
   - Changed to: scored `72/82`, marked reconstructable, added layout/vtable and score-rationale sections, and linked the exact vtable-data child.
   - Summary/evidence: [UID:0001KJ][0x0059ded0-0x0059f0a4.CheckBoxTextControlPane](by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md), [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md), [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md), and [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) now provide stronger documented evidence while preserving the unresolved raw-constructor and final source-split caveats.
+- 2026-06-03 parent attachment update:
+  - Before: `AUTOGEN_PARENT_UID` was blank because the likely file parent was below the 80+ confidence threshold and had no projected path.
+  - Changed to: `AUTOGEN_PARENT_UID:0000NY` and position `30`; reconstruction C++ remains blank.
+  - Summary/evidence: [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) is now a `76/82` provisional `NexusTK/ui/controls/` parent after a fresh IDA MCP recheck reconfirmed checkbox/text vtable/function evidence while preserving the raw constructor caveat.

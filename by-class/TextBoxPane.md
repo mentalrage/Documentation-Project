@@ -14,7 +14,7 @@
 
 - Confidence: medium-strong.
 - Likely source file: [UID:0000OJ][TextBoxPane](by-file/TextBoxPane.md)
-- Main address ranges: `0x00591300-0x005913f8` and `0x00595390-0x005954b2`
+- Main address ranges: `0x00591300-0x005913f8` and `0x00595390-0x005954b3`
 - Current recovered file: `source-3/simroot_v2/class_TextBoxPane.cpp`
 
 ## Class Purpose
@@ -27,7 +27,7 @@
 | --- | --- | --- |
 | `0x00591300-0x00591369` | `EnsureCursorVisible` | Convert cursor line to visible bounds and apply clip bounds. |
 | `0x00591370-0x005913f8` | `InvalidateLineRange` | Build affected line regions and apply clip bounds to each. |
-| `0x00595390-0x005954b2` | `TextBoxPane::TextBoxPane` | Construct `TextEditPane` base, install vtables, set initial text, update style, and refresh cursor/line visibility. |
+| `0x00595390-0x005954b3` | `TextBoxPane::TextBoxPane` | Construct `TextEditPane` base, install vtables, set initial text, update style, and refresh cursor/line visibility. |
 
 ## Evidence Notes
 
@@ -38,7 +38,7 @@
 ## Cross-References
 
 - [UID:0000OJ][TextBoxPane](by-file/TextBoxPane.md)
-- [UID:0001JO][0x00591300-0x005954b2.TextBoxPane](by-memory/0x00591300-0x005954b2.TextBoxPane.md)
+- [UID:0001JO][0x00591300-0x005954b3.TextBoxPane](by-memory/0x00591300-0x005954b3.TextBoxPane.md)
 - [UID:0000EO][TextEditPane](by-class/TextEditPane.md)
 
 ## Changes
@@ -46,3 +46,6 @@
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `78`, confidence `76`.
 - Evidence: the page documents the `TextEditPane` derivative role, constructor and cursor/line invalidation helpers, direct constructor callers, and IME focus behavior; completion remains limited because broader text-box virtual/destructor coverage and exact style fields are not yet detailed.
+- 2026-06-03:
+  - Corrected constructor range from `0x00595390-0x005954b2` to `0x00595390-0x005954b3`.
+  - Evidence: live IDA MCP reports [UID:0002RV][0x00595390-0x005954b3.TextBoxPaneConstructor](by-memory/0x00595390-0x005954b3.TextBoxPaneConstructor.md) as size `0x123`, with an exclusive end at `0x005954b3`.

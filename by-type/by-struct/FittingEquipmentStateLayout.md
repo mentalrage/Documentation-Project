@@ -13,7 +13,7 @@
 ## Status
 
 - Entity kind: embedded fitting-room state layout
-- Current generated owner: [UID:00004Z][FittingEquipmentState](by-class/FittingEquipmentState.md)
+- Working owner label: [UID:00004Z][FittingEquipmentState](by-class/FittingEquipmentState.md)
 - Likely source owner: [UID:000051][FittingRoomDialogItemState](by-class/FittingRoomDialogItemState.md) in [UID:0000JE][FittingRoom](by-file/FittingRoom.md)
 - Main evidence: IDA decompilation of `0x0041d5e0` and constructor initialization at `0x00422020`.
 - Confidence: strong for documented offsets, medium for final type/name.
@@ -39,7 +39,7 @@
 
 ## Ownership Notes
 
-The generated `FittingEquipmentState` label is useful for the reset method, but IDA caller and constructor evidence tie the object to the larger fitting-room item-state record:
+The `FittingEquipmentState` label is useful for the reset method, but IDA caller and constructor evidence tie the object to the larger fitting-room item-state record:
 
 - `FittingRoomDialog::OnCommand` at `0x0041c404` calls `ResetEntries` with `this + 0x504`.
 - `FittingRoomDialog` constructor calls the item-state constructor at `0x0041be6c` with the same `this + 0x504` pointer.
@@ -58,3 +58,4 @@ Until the full item-state declaration is recovered, keep this as a layout page r
 ## Changes
 
 - 2026-05-30: Scored the layout page from 0/0 to 74/84 after the method page was expanded with exact offset and raw-code evidence. Evidence: IDA MCP decompilation for `0x0041d5e0` confirms the `+0x240/+0x244/+0x248` vector fields, `0xb4` entry stride, and `+0xa8/+0xac/+0xb0` buffer triplet.
+- 2026-06-03: Replaced generated-owner wording with a working-label statement. Live IDA MCP reconfirmed the same layout evidence: `sub_41D5E0` reads/writes the vector tail, `sub_41C310` calls it with dialog `this + 0x504`, and `sub_422020` initializes the vector fields at relative offsets `+0x240/+0x244/+0x248`.

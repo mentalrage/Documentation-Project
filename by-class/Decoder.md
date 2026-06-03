@@ -43,7 +43,7 @@ This layout is inferred from IDA decompilation/disassembly of the constructor, i
 | --- | --- | --- |
 | `0x004a5640` | constructor | Installs the `Decoder` vtable, clears buffer/limit/cursor, sets flags word to `0x0101`. IDA models this as a function. |
 | `0x004a5670` | destructor | Restores the `Decoder` vtable. IDA models this as a function. |
-| `0x004a5680` | set byte order | Stores caller byte into offset `+0x10`. Raw code start, not an IDA function; see [UID:00013Q][0x004a5680-0x004a5dcf.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md). |
+| `0x004a5680` | set byte order | Stores caller byte into offset `+0x10`. Raw code start, not an IDA function; see [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md). |
 | `0x004a5690` | read byte | Reads one byte and advances by one. Raw code start. |
 | `0x004a56c0` | read 16-bit value | Reads a short in selected byte order. Raw code start. |
 | `0x004a5710` | read 24-bit value | Reads three bytes and assembles them by selected byte order. Raw code start. |
@@ -71,7 +71,7 @@ This layout is inferred from IDA decompilation/disassembly of the constructor, i
 - 2026-05-26 IDA MCP recheck produced the same split: constructor/destructor/finalize/no-op/scalar-destructor functions are modeled, every raw reader start still reports `Not a function`, and raw-reader `xrefs_to` remains empty. Keep the raw family as reconstructable `Decoder` project code with missing function-boundary data, not ignored code.
 - 2026-05-26 IDA MCP vtable/layout recheck confirms vtable refs at `0x004a5640`, `0x004a5670`, and `0x004a5e0a`, and confirms constructor/raw initialize/finalize use the shared cursor fields now documented in [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md).
 - 2026-05-26 raw IDA disassembly documents the primitive reader subset at [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md): byte-order setter, byte reader, 16-bit reader, 24-bit reader, and 32-bit reader.
-- 2026-05-26 raw IDA disassembly documents the string/blob reader subset at [UID:00013R][0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md): UTF-16 length-prefixed readers, multibyte-to-wide readers, C-string reader, raw-byte reader, transformed-byte reader, skip helper, and raw initialize body.
+- 2026-05-26 raw IDA disassembly documents the string/blob reader subset at [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md): UTF-16 length-prefixed readers, multibyte-to-wide readers, C-string reader, raw-byte reader, transformed-byte reader, skip helper, and raw initialize body.
 
 ## Current Caveats
 
@@ -86,9 +86,9 @@ This layout is inferred from IDA decompilation/disassembly of the constructor, i
 - [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md)
 - [UID:00004F][Encoder](by-class/Encoder.md)
 - [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md)
-- [UID:00013Q][0x004a5680-0x004a5dcf.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md)
+- [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md)
 - [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md)
-- [UID:00013R][0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md)
+- [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md)
 - [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md)
 - [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md)
 - [Wave3 data issues](../wave3_data_issues.md)

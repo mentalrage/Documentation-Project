@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 03:07:51
+Generated: 2026-06-03 15:30:26
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3659
-- Scored files: 3491
+- Tracked files: 3717
+- Scored files: 3549
 - Ignored files: 168
 
 ## projected_path_completion
@@ -19,14 +19,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Status | Proposed Path | Path | Detail |
 | --- | --- | --- | --- | --- |
 | `0000HH` | blank | `(blank)` | `by-file/ArgumentedItemInputDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000HI` | blank | `(blank)` | `by-file/ArgumentedMenuDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HK` | blank | `(blank)` | `by-file/AttachedObjectPaneHelper_53AEC0.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000HL` | blank | `(blank)` | `by-file/AttachmentAnchorResolver.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HN` | blank | `(blank)` | `by-file/AutoInit.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I1` | blank | `(blank)` | `by-file/CashShopVersionRequest.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000I6` | blank | `(blank)` | `by-file/CheatDetector.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IA` | blank | `(blank)` | `by-file/ClanDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IB` | blank | `(blank)` | `by-file/CollectionDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IF` | blank | `(blank)` | `by-file/ConnStatusPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -51,7 +48,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000K9` | blank | `(blank)` | `by-file/InterfaceEfx.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KB` | blank | `(blank)` | `by-file/InventoryScrollPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KD` | blank | `(blank)` | `by-file/ItemCatalog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KE` | blank | `(blank)` | `by-file/ItemDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KG` | blank | `(blank)` | `by-file/ItemObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KI` | blank | `(blank)` | `by-file/JsonCpp.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KV` | blank | `(blank)` | `by-file/LObject.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -68,19 +64,15 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LB` | blank | `(blank)` | `by-file/MessageShowPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LE` | blank | `(blank)` | `by-file/MiniMap.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LF` | blank | `(blank)` | `by-file/MiniMapVersionManager.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LK` | blank | `(blank)` | `by-file/MonsterImageLibTables.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LL` | blank | `(blank)` | `by-file/Motion.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LN` | blank | `(blank)` | `by-file/MusicControlDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LQ` | blank | `(blank)` | `by-file/NewHistoryDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M0` | blank | `(blank)` | `by-file/NexonclubRegistrationDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M2` | blank | `(blank)` | `by-file/NumericStringControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M5` | blank | `(blank)` | `by-file/ObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M6` | blank | `(blank)` | `by-file/ObjectStatusBlob.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MB` | blank | `(blank)` | `by-file/PaletteLib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000MC` | blank | `(blank)` | `by-file/Pane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MD` | blank | `(blank)` | `by-file/PaneChildRegistry.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000ME` | blank | `(blank)` | `by-file/PanelPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000MU` | blank | `(blank)` | `by-file/ProtectedArray.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MY` | blank | `(blank)` | `by-file/RainingLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000N1` | blank | `(blank)` | `by-file/RectangleControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000N5` | blank | `(blank)` | `by-file/ResourceLayoutTable.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -93,7 +85,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000NU` | blank | `(blank)` | `by-file/SortedList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NW` | blank | `(blank)` | `by-file/SoundObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NX` | blank | `(blank)` | `by-file/SoundStatusPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NY` | blank | `(blank)` | `by-file/SpecializedButtonPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O2` | blank | `(blank)` | `by-file/SpellMenuDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NZ` | blank | `(blank)` | `by-file/SpelledPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O3` | blank | `(blank)` | `by-file/StaffsDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -110,41 +101,36 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002TK` | 68 | 78 | 73.0 | `by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md` |
-| `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
-| `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
-| `00000P` | 68 | 82 | 75.0 | `by-class/AUTOBUF_unsigned_char.md` |
-| `00000H` | 68 | 82 | 75.0 | `by-class/ArgumentedMenuMenuDialog.md` |
-| `0000AJ` | 68 | 82 | 75.0 | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |
-| `0000BC` | 68 | 82 | 75.0 | `by-class/ProtectedArray_struct_ShoeInfo_.md` |
-| `0000HL` | 68 | 82 | 75.0 | `by-file/AttachmentAnchorResolver.md` |
-| `0000UJ` | 68 | 82 | 75.0 | `by-item/DrawTextInRect_004BAD70.md` |
-| `0000WI` | 68 | 82 | 75.0 | `by-memory/0x0041a670-0x0041b69f.FileDownloaderDispatch.md` |
-| `0000WJ` | 68 | 82 | 75.0 | `by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md` |
-| `0002DL` | 68 | 82 | 75.0 | `by-memory/0x0041f2b0-0x0041fb9b.FittingRoomListPaneOnPaint.md` |
-| `0002EG` | 68 | 82 | 75.0 | `by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md` |
-| `0002BR` | 68 | 82 | 75.0 | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |
-| `000114` | 68 | 82 | 75.0 | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |
-| `0002HF` | 68 | 82 | 75.0 | `by-memory/0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint.md` |
-| `00013M` | 68 | 82 | 75.0 | `by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md` |
-| `00016D` | 68 | 82 | 75.0 | `by-memory/0x004bad70-0x004baf92.DrawTextInRect.md` |
-| `0002TC` | 68 | 82 | 75.0 | `by-memory/0x004bdcc0-0x004bdf3e.SoftwareRenderCompatScaledRleTintCallback.md` |
-| `0002TG` | 68 | 82 | 75.0 | `by-memory/0x004c3a50-0x004c3ce1.SoftwareRenderRgb565ScaledRleTintCallback.md` |
-| `0002KR` | 68 | 82 | 75.0 | `by-memory/0x004d04d0-0x004d0521.ResourceLayoutTableCopyEntryTileContext.md` |
-| `00017M` | 68 | 82 | 75.0 | `by-memory/0x004de190-0x004de29f.EffectObjImageLibRenderEffectFrame.md` |
-| `0002BU` | 68 | 82 | 75.0 | `by-memory/0x00526790-0x005269ea.MidiEventReader.md` |
-| `0002BV` | 68 | 82 | 75.0 | `by-memory/0x005269f0-0x00526ba8.MidiStreamEventEncoder.md` |
-| `0002C6` | 68 | 82 | 75.0 | `by-memory/0x005271b0-0x005273a0.MidiStreamBufferFillHelper.md` |
+| `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
+| `00001I` | 70 | 84 | 77.0 | `by-class/CashShopVersionRequest.md` |
+| `0000I1` | 70 | 84 | 77.0 | `by-file/CashShopVersionRequest.md` |
+| `0000SM` | 70 | 84 | 77.0 | `by-global/g_pUrlAlertPane.md` |
+| `0000ST` | 70 | 84 | 77.0 | `by-global/g_screenHeight.md` |
+| `0000SU` | 70 | 84 | 77.0 | `by-global/g_screenWidth.md` |
+| `0002OC` | 70 | 84 | 77.0 | `by-memory/0x0048a100-0x0048a11f.ClanItemDialogVtableResetDestructorTail.md` |
+| `0002P7` | 70 | 84 | 77.0 | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |
+| `0002P9` | 70 | 84 | 77.0 | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |
+| `0002HN` | 70 | 84 | 77.0 | `by-memory/0x004a6550-0x004a666a.InternetErrorConstructor.md` |
+| `00014U` | 70 | 84 | 77.0 | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |
+| `0002IA` | 70 | 84 | 77.0 | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |
+| `0002IB` | 70 | 84 | 77.0 | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |
+| `0002IE` | 70 | 84 | 77.0 | `by-memory/0x004ceb00-0x004ceb45.HierListRemoveNode.md` |
+| `0002IM` | 70 | 84 | 77.0 | `by-memory/0x004cedb0-0x004cee52.HierListScalarDeletingDestructor.md` |
+| `00017N` | 70 | 84 | 77.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
+| `0002PW` | 70 | 84 | 77.0 | `by-memory/0x004f5620-0x004f5634.LogoPlayerPaneOnClose.md` |
+| `0002H7` | 70 | 84 | 77.0 | `by-memory/0x004f5fb0-0x004f6490.ApplicationStartup.md` |
+| `0002H8` | 70 | 84 | 77.0 | `by-memory/0x004f6490-0x004f66a5.ApplicationShutdown.md` |
+| `0002Q3` | 70 | 84 | 77.0 | `by-memory/0x004f9d30-0x004fa7a0.NewUserDialogPaneCoreAndPacketHelpers.md` |
+| `0002Q4` | 70 | 84 | 77.0 | `by-memory/0x004fa7a0-0x004fb2d0.LoginDialogPaneCore.md` |
+| `0002HV` | 70 | 84 | 77.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
+| `0002I1` | 70 | 84 | 77.0 | `by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md` |
+| `0002J4` | 70 | 84 | 77.0 | `by-memory/0x00516f70-0x00516f74.MenuItemStateFlag0Accessor.md` |
+| `0002J5` | 70 | 84 | 77.0 | `by-memory/0x00516f90-0x00516f94.MenuItemStateFlag1Accessor.md` |
 
 ## Low_Confidence
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
-| `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
-| `0000CP` | 72 | 76 | 74.0 | `by-class/ScrollWidget.md` |
-| `00008O` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_5289D0.md` |
-| `00008P` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_528BE0.md` |
 | `000099` | 74 | 76 | 75.0 | `by-class/NewSayToUserMessageInputPane.md` |
 | `0000A7` | 74 | 76 | 75.0 | `by-class/PartySearchEditPane.md` |
 | `0000B4` | 74 | 76 | 75.0 | `by-class/ProtectedArray_struct_GameServerConfig__NationEntry_.md` |
@@ -165,58 +151,17 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000EI` | 78 | 76 | 77.0 | `by-class/TextBoxPane.md` |
 | `0000EQ` | 78 | 76 | 77.0 | `by-class/TextFilter.md` |
 | `0000F0` | 78 | 76 | 77.0 | `by-class/TimerHandler.md` |
+| `0000FB` | 78 | 76 | 77.0 | `by-class/TreeItor_struct_FolderTreePane__TreeElem_.md` |
+| `0000FC` | 78 | 76 | 77.0 | `by-class/TreeStorage_struct_FolderTreePane__TreeElem_.md` |
+| `00008X` | 78 | 76 | 77.0 | `by-class/ncauth__Notification.md` |
+| `0000MY` | 78 | 76 | 77.0 | `by-file/RainingLayerPane.md` |
+| `0000BW` | 80 | 76 | 78.0 | `by-class/RegistryConfig.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002TK` | 68 | 78 | 73.0 | `by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md` |
-| `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
-| `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
-| `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
-| `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
-| `000061` | 70 | 78 | 74.0 | `by-class/HeaderSystemMessage.md` |
-| `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
-| `0002EN` | 70 | 78 | 74.0 | `by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md` |
-| `00015I` | 70 | 78 | 74.0 | `by-memory/0x004b69b0-0x004b6adc.FpsPaneStartLogSessionRaw.md` |
-| `00015J` | 70 | 78 | 74.0 | `by-memory/0x004b6ae0-0x004b6c2b.FpsPaneWriteLogSummaryRaw.md` |
-| `00022H` | 70 | 78 | 74.0 | `by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md` |
-| `00022J` | 70 | 78 | 74.0 | `by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md` |
-| `0002KQ` | 70 | 78 | 74.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
-| `0002KE` | 70 | 78 | 74.0 | `by-memory/0x00546610-0x00546807.ParcelPaneOnMouseEvent.md` |
-| `0001GO` | 70 | 78 | 74.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
-| `0001H1` | 70 | 78 | 74.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
-| `0002LB` | 70 | 78 | 74.0 | `by-memory/0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw.md` |
-| `0002LC` | 70 | 78 | 74.0 | `by-memory/0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw.md` |
-| `0002LD` | 70 | 78 | 74.0 | `by-memory/0x00565490-0x005654ec.ScrollVolumePaneResetInteractionStateRaw.md` |
-| `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
-| `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
-| `0000CP` | 72 | 76 | 74.0 | `by-class/ScrollWidget.md` |
-| `00000P` | 68 | 82 | 75.0 | `by-class/AUTOBUF_unsigned_char.md` |
-| `00000H` | 68 | 82 | 75.0 | `by-class/ArgumentedMenuMenuDialog.md` |
-| `0000AJ` | 68 | 82 | 75.0 | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |
-
-## By Folder
-
-### by-class
-
-| UID | Completion | Confidence | Combined | Path |
-| --- | ---: | ---: | ---: | --- |
-| `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
-| `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
-| `000061` | 70 | 78 | 74.0 | `by-class/HeaderSystemMessage.md` |
-| `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
-| `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
-| `0000CP` | 72 | 76 | 74.0 | `by-class/ScrollWidget.md` |
-| `00000P` | 68 | 82 | 75.0 | `by-class/AUTOBUF_unsigned_char.md` |
-| `00000H` | 68 | 82 | 75.0 | `by-class/ArgumentedMenuMenuDialog.md` |
-| `0000AJ` | 68 | 82 | 75.0 | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |
-| `0000BC` | 68 | 82 | 75.0 | `by-class/ProtectedArray_struct_ShoeInfo_.md` |
-| `000033` | 70 | 80 | 75.0 | `by-class/ConfirmDeleteAlert.md` |
-| `000034` | 70 | 80 | 75.0 | `by-class/ConfirmDeleteMailAlert.md` |
-| `0000AK` | 70 | 80 | 75.0 | `by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md` |
 | `000013` | 72 | 78 | 75.0 | `by-class/Browser.md` |
-| `000020` | 72 | 78 | 75.0 | `by-class/CheatDetector.md` |
 | `00002Y` | 72 | 78 | 75.0 | `by-class/CollectionPane2.md` |
 | `00004U` | 72 | 78 | 75.0 | `by-class/FieldMapPane.md` |
 | `00005G` | 72 | 78 | 75.0 | `by-class/FrameHandler.md` |
@@ -225,8 +170,54 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |
 | `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
 | `000014` | 72 | 78 | 75.0 | `by-class/browser__Notification.md` |
-| `00008O` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_5289D0.md` |
-| `00008P` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_528BE0.md` |
+| `000220` | 72 | 78 | 75.0 | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |
+| `0001G6` | 72 | 78 | 75.0 | `by-memory/0x00557140-0x00559aef.SurfacePresentation.md` |
+| `000099` | 74 | 76 | 75.0 | `by-class/NewSayToUserMessageInputPane.md` |
+| `0000A7` | 74 | 76 | 75.0 | `by-class/PartySearchEditPane.md` |
+| `0000B4` | 74 | 76 | 75.0 | `by-class/ProtectedArray_struct_GameServerConfig__NationEntry_.md` |
+| `0000G8` | 74 | 76 | 75.0 | `by-class/WorldMapNodeEntryVector.md` |
+| `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
+| `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
+| `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
+| `00001A` | 72 | 80 | 76.0 | `by-class/BrowserThread.md` |
+| `00001H` | 72 | 80 | 76.0 | `by-class/CashShopRequest.md` |
+| `000029` | 72 | 80 | 76.0 | `by-class/ClanDepItemDialog.md` |
+| `00002G` | 72 | 80 | 76.0 | `by-class/ClanItemListPane.md` |
+| `000037` | 72 | 80 | 76.0 | `by-class/ConnStatusPane.md` |
+| `00003R` | 72 | 80 | 76.0 | `by-class/DialDialog.md` |
+| `00004G` | 72 | 80 | 76.0 | `by-class/EPFImageControlPane.md` |
+
+## By Folder
+
+### by-class
+
+| UID | Completion | Confidence | Combined | Path |
+| --- | ---: | ---: | ---: | --- |
+| `000013` | 72 | 78 | 75.0 | `by-class/Browser.md` |
+| `00002Y` | 72 | 78 | 75.0 | `by-class/CollectionPane2.md` |
+| `00004U` | 72 | 78 | 75.0 | `by-class/FieldMapPane.md` |
+| `00005G` | 72 | 78 | 75.0 | `by-class/FrameHandler.md` |
+| `00005R` | 72 | 78 | 75.0 | `by-class/GeneralPurposePanel2.md` |
+| `00009Y` | 72 | 78 | 75.0 | `by-class/OverlayImageEffecter.md` |
+| `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |
+| `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
+| `000014` | 72 | 78 | 75.0 | `by-class/browser__Notification.md` |
+| `000099` | 74 | 76 | 75.0 | `by-class/NewSayToUserMessageInputPane.md` |
+| `0000A7` | 74 | 76 | 75.0 | `by-class/PartySearchEditPane.md` |
+| `0000B4` | 74 | 76 | 75.0 | `by-class/ProtectedArray_struct_GameServerConfig__NationEntry_.md` |
+| `0000G8` | 74 | 76 | 75.0 | `by-class/WorldMapNodeEntryVector.md` |
+| `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
+| `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
+| `00001A` | 72 | 80 | 76.0 | `by-class/BrowserThread.md` |
+| `00001H` | 72 | 80 | 76.0 | `by-class/CashShopRequest.md` |
+| `000029` | 72 | 80 | 76.0 | `by-class/ClanDepItemDialog.md` |
+| `00002G` | 72 | 80 | 76.0 | `by-class/ClanItemListPane.md` |
+| `000037` | 72 | 80 | 76.0 | `by-class/ConnStatusPane.md` |
+| `00003R` | 72 | 80 | 76.0 | `by-class/DialDialog.md` |
+| `00004G` | 72 | 80 | 76.0 | `by-class/EPFImageControlPane.md` |
+| `00004H` | 72 | 80 | 76.0 | `by-class/EPFTextEditObject.md` |
+| `00004L` | 72 | 80 | 76.0 | `by-class/Event.md` |
+| `000055` | 72 | 80 | 76.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 
 ### by-external-research
 
@@ -236,9 +227,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
-| `0000HL` | 68 | 82 | 75.0 | `by-file/AttachmentAnchorResolver.md` |
-| `0000HI` | 70 | 82 | 76.0 | `by-file/ArgumentedMenuDialogs.md` |
 | `0000HZ` | 72 | 80 | 76.0 | `by-file/CachedHashTable.md` |
 | `0000I0` | 72 | 80 | 76.0 | `by-file/CashShopRequest.md` |
 | `0000I1` | 70 | 84 | 77.0 | `by-file/CashShopVersionRequest.md` |
@@ -249,10 +237,8 @@ _No scored files._
 | `0000KD` | 76 | 78 | 77.0 | `by-file/ItemCatalog.md` |
 | `0000MY` | 78 | 76 | 77.0 | `by-file/RainingLayerPane.md` |
 | `0000HN` | 70 | 85 | 77.5 | `by-file/AutoInit.md` |
-| `00020J` | 68 | 88 | 78.0 | `by-file/AesBlockCipher.md` |
 | `0000JC` | 72 | 84 | 78.0 | `by-file/FileDownloader.md` |
 | `0000OB` | 72 | 84 | 78.0 | `by-file/StringUtil.md` |
-| `0000HW` | 74 | 82 | 78.0 | `by-file/BulletinReplyAlerts.md` |
 | `0000LP` | 76 | 80 | 78.0 | `by-file/NewCreateUserDialogPane.md` |
 | `0000J2` | 78 | 78 | 78.0 | `by-file/EPFImageControlPane.md` |
 | `0000KO` | 78 | 78 | 78.0 | `by-file/LightingObjectPane.md` |
@@ -261,6 +247,11 @@ _No scored files._
 | `0000HM` | 72 | 86 | 79.0 | `by-file/AUTOBUF.md` |
 | `0000HU` | 74 | 84 | 79.0 | `by-file/BowGaugeObjectPane.md` |
 | `0000K8` | 74 | 84 | 79.0 | `by-file/IntAlphaSurface.md` |
+| `0000M4` | 74 | 84 | 79.0 | `by-file/ObjectList.md` |
+| `0000MG` | 74 | 84 | 79.0 | `by-file/PasswordGuard.md` |
+| `0000HO` | 76 | 82 | 79.0 | `by-file/BackPane.md` |
+| `0000NY` | 76 | 82 | 79.0 | `by-file/SpecializedButtonPanes.md` |
+| `0000L4` | 78 | 80 | 79.0 | `by-file/MapRefreshDimmer.md` |
 
 ### by-function
 
@@ -270,7 +261,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002CG` | 70 | 82 | 76.0 | `by-global/g_selfLookLastHoverEquipmentSlotId.md` |
 | `0000TA` | 72 | 80 | 76.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 72 | 80 | 76.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
 | `0000TE` | 72 | 80 | 76.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
@@ -295,15 +285,12 @@ _No scored files._
 | `0000RQ` | 76 | 82 | 79.0 | `by-global/g_pMiscWorkThread.md` |
 | `0000RF` | 78 | 80 | 79.0 | `by-global/g_pMainUiGraph.md` |
 | `0000RM` | 78 | 80 | 79.0 | `by-global/g_pMidiPlayer.md` |
+| `00020K` | 72 | 88 | 80.0 | `by-global/AesBlockCipherStateAndTables.md` |
 
 ### by-item
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000UJ` | 68 | 82 | 75.0 | `by-item/DrawTextInRect_004BAD70.md` |
-| `0000VI` | 70 | 80 | 75.0 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
-| `0000UL` | 70 | 82 | 76.0 | `by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md` |
-| `0000UY` | 70 | 82 | 76.0 | `by-item/LoadImageFrameTable_004D0F50.md` |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000UB` | 72 | 82 | 77.0 | `by-item/DATAudioResources.md` |
 | `0000UK` | 70 | 85 | 77.5 | `by-item/DrawTextRunCallback_00593DB0.md` |
@@ -325,36 +312,40 @@ _No scored files._
 | `0000VG` | 70 | 85 | 77.5 | `by-item/ServerSelectHelpers_574510_5745b0.md` |
 | `0000VH` | 70 | 85 | 77.5 | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |
 | `0000VJ` | 70 | 85 | 77.5 | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |
+| `0000VK` | 70 | 85 | 77.5 | `by-item/VectorGrowArchiveIndex_004E5990.md` |
+| `0000UN` | 72 | 84 | 78.0 | `by-item/EPFArchiveMetadataTable.md` |
+| `0000UM` | 72 | 84 | 78.0 | `by-item/EncodeTextEditState_0058E490.md` |
+| `0000U7` | 74 | 82 | 78.0 | `by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md` |
 
 ### by-memory
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002TK` | 68 | 78 | 73.0 | `by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md` |
-| `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
-| `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
-| `0002EN` | 70 | 78 | 74.0 | `by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md` |
-| `00015I` | 70 | 78 | 74.0 | `by-memory/0x004b69b0-0x004b6adc.FpsPaneStartLogSessionRaw.md` |
-| `00015J` | 70 | 78 | 74.0 | `by-memory/0x004b6ae0-0x004b6c2b.FpsPaneWriteLogSummaryRaw.md` |
-| `00022H` | 70 | 78 | 74.0 | `by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md` |
-| `00022J` | 70 | 78 | 74.0 | `by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md` |
-| `0002KQ` | 70 | 78 | 74.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
-| `0002KE` | 70 | 78 | 74.0 | `by-memory/0x00546610-0x00546807.ParcelPaneOnMouseEvent.md` |
-| `0001GO` | 70 | 78 | 74.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
-| `0001H1` | 70 | 78 | 74.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
-| `0002LB` | 70 | 78 | 74.0 | `by-memory/0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw.md` |
-| `0002LC` | 70 | 78 | 74.0 | `by-memory/0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw.md` |
-| `0002LD` | 70 | 78 | 74.0 | `by-memory/0x00565490-0x005654ec.ScrollVolumePaneResetInteractionStateRaw.md` |
-| `0000WI` | 68 | 82 | 75.0 | `by-memory/0x0041a670-0x0041b69f.FileDownloaderDispatch.md` |
-| `0000WJ` | 68 | 82 | 75.0 | `by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md` |
-| `0002DL` | 68 | 82 | 75.0 | `by-memory/0x0041f2b0-0x0041fb9b.FittingRoomListPaneOnPaint.md` |
-| `0002EG` | 68 | 82 | 75.0 | `by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md` |
-| `0002BR` | 68 | 82 | 75.0 | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |
-| `000114` | 68 | 82 | 75.0 | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |
-| `0002HF` | 68 | 82 | 75.0 | `by-memory/0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint.md` |
-| `00013M` | 68 | 82 | 75.0 | `by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md` |
-| `00016D` | 68 | 82 | 75.0 | `by-memory/0x004bad70-0x004baf92.DrawTextInRect.md` |
-| `0002TC` | 68 | 82 | 75.0 | `by-memory/0x004bdcc0-0x004bdf3e.SoftwareRenderCompatScaledRleTintCallback.md` |
+| `000220` | 72 | 78 | 75.0 | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |
+| `0001G6` | 72 | 78 | 75.0 | `by-memory/0x00557140-0x00559aef.SurfacePresentation.md` |
+| `0002CZ` | 72 | 80 | 76.0 | `by-memory/0x0041d3b0-0x0041d431.SmallStringStorageAssign.md` |
+| `0002SC` | 72 | 80 | 76.0 | `by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md` |
+| `0002JW` | 72 | 80 | 76.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
+| `00020W` | 72 | 80 | 76.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
+| `0002T7` | 72 | 80 | 76.0 | `by-memory/0x0047e6a0-0x0047e6ed.MailDeleteReplyAlertRawConstructor.md` |
+| `0002FH` | 72 | 80 | 76.0 | `by-memory/0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw.md` |
+| `0002FP` | 72 | 80 | 76.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
+| `0002FQ` | 72 | 80 | 76.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
+| `0002G9` | 72 | 80 | 76.0 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
+| `0002BG` | 72 | 80 | 76.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
+| `0002BH` | 72 | 80 | 76.0 | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |
+| `0002BI` | 72 | 80 | 76.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
+| `0002BK` | 72 | 80 | 76.0 | `by-memory/0x00490200-0x0049050a.LgInternetSessionLauncherParser.md` |
+| `0002BL` | 72 | 80 | 76.0 | `by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md` |
+| `0002BM` | 72 | 80 | 76.0 | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |
+| `0002BO` | 72 | 80 | 76.0 | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |
+| `0002BP` | 72 | 80 | 76.0 | `by-memory/0x00491450-0x0049178d.KwgLauncherParser.md` |
+| `0002BQ` | 72 | 80 | 76.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
+| `00022G` | 72 | 80 | 76.0 | `by-memory/0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods.md` |
+| `00022Q` | 72 | 80 | 76.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
+| `00019Q` | 72 | 80 | 76.0 | `by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md` |
+| `00019R` | 72 | 80 | 76.0 | `by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md` |
+| `0001A5` | 72 | 80 | 76.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 
 ### by-meta
 
@@ -368,7 +359,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001RN` | 68 | 84 | 76.0 | `by-resource/startup-logo-media.md` |
 | `0001R8` | 70 | 85 | 77.5 | `by-resource/collection-ui-resources.md` |
 | `0001RC` | 70 | 85 | 77.5 | `by-resource/hourpane-time-resources.md` |
 | `0001RD` | 70 | 85 | 77.5 | `by-resource/iconspane-icon-resources.md` |
@@ -389,6 +379,7 @@ _No scored files._
 | `0001RK` | 75 | 85 | 80.0 | `by-resource/ranking-ui-resources.md` |
 | `0001RO` | 75 | 88 | 81.5 | `by-resource/startup-update-notice-resources.md` |
 | `0001RL` | 78 | 88 | 83.0 | `by-resource/sobj-tbl.md` |
+| `0001RN` | 78 | 88 | 83.0 | `by-resource/startup-logo-media.md` |
 | `0001RJ` | 78 | 90 | 84.0 | `by-resource/number-input-dialog-resources.md` |
 | `0001RT` | 78 | 90 | 84.0 | `by-resource/webboard-dialog-resources.md` |
 | `0001RP` | 82 | 90 | 86.0 | `by-resource/str-res-localized-strings.md` |
@@ -398,7 +389,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001TR` | 68 | 82 | 75.0 | `by-type/by-struct/AttachedObjectRegistryLayout.md` |
 | `0001SK` | 72 | 80 | 76.0 | `by-type/by-enum/BrowserInitFlags.md` |
 | `0001UA` | 70 | 84 | 77.0 | `by-type/by-struct/EffectPixMapInfo.md` |
 | `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
@@ -423,3 +413,4 @@ _No scored files._
 | `0001WC` | 74 | 86 | 80.0 | `by-type/by-struct/TileClassEntry.md` |
 | `0001WD` | 74 | 86 | 80.0 | `by-type/by-struct/TimerMgrLayout.md` |
 | `0001UN` | 76 | 84 | 80.0 | `by-type/by-struct/FontStyleLayout.md` |
+| `0001VJ` | 76 | 84 | 80.0 | `by-type/by-struct/PatchPane2Layout.md` |

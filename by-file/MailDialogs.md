@@ -42,7 +42,7 @@ ui/dialogs/NewMailDialog.cpp
 | `MailDialog` | `0x0047b220-0x0047ec2a` | `class_MailDialog.cpp` | Reads/parses a mail packet, builds read/reply UI, navigates messages, sends replies, and handles delete replies. |
 | `NewMailDialog` | `0x0047d050-0x0047e032` | `class_NewMailDialog.cpp` | Compose-and-send dialog with recipient/subject/body fields, outgoing mail packet serialization, and a reusable [UID:0000JI][FontStyle](by-file/FontStyle.md) for the "Keep a copy" label in the EPF layout path. |
 | `MailTransferReplyAlert` | projected constructor `0x0047e040`; action `0x0047e090-0x0047e0fe` | `class_MailTransferReplyAlert.cpp` | Mail transfer-reply acknowledgement alert; sends the mail navigation packet and optionally pops the session. |
-| `ConfirmDeleteMailAlert` | projected constructor `0x0047e4b0`; action `0x0047e510-0x0047e693` | `class_ConfirmDeleteMailAlert.cpp` | Mail delete confirmation packet sender. |
+| `ConfirmDeleteMailAlert` | projected constructor `0x0047e4b0`; action `0x0047e510-0x0047e694` | `class_ConfirmDeleteMailAlert.cpp` | Mail delete confirmation packet sender. |
 | `MailDeleteReplyAlert` | projected constructor `0x0047e6a0`; action/destructor helpers `0x0047e6f0-0x0047ebee` | `class_MailDeleteReplyAlert.cpp` | Local mail reply-list deletion confirmation and singleton cleanup. |
 
 ## IDA MCP Evidence

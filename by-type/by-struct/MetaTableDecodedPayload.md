@@ -15,7 +15,7 @@
 - Kind: decoded metadata table payload format.
 - Owner: [UID:000089][MetaTable](by-class/MetaTable.md) / [UID:0001RH][meta-dat-metadata-cache](by-resource/meta-dat-metadata-cache.md)
 - Confidence: medium-high for field order visible in the materializer; medium for final semantic names.
-- Evidence basis: IDA MCP decompilation of [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md) on 2026-05-25. `wave3.py` was not executed for this pass.
+- Evidence basis: IDA MCP decompilation of [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md) on 2026-05-25 and live boundary/callsite recheck on 2026-06-03. `wave3.py` was not executed for this pass.
 
 ## Purpose
 
@@ -69,7 +69,7 @@ This is the decompressed per-table payload, not the outer `Meta.dat` file header
 
 ## Cross-References
 
-- [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md)
+- [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md)
 - [UID:0001V7][MetaTableRowNode](by-type/by-struct/MetaTableRowNode.md)
 - [UID:000089][MetaTable](by-class/MetaTable.md)
 - [UID:0001RH][meta-dat-metadata-cache](by-resource/meta-dat-metadata-cache.md)

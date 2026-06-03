@@ -3,16 +3,18 @@
 # ag-item-coverage
 
 Total_Type: 64
-Total_Reconstructable: 27
+Total_Reconstructable: 29
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 6
+Total_Reconstructed_Assigned: 8
 Total_Reconstructed_Coded: 0
 Total_Reconstructable_Unassigned: 21
-Total_Unclassified: 34
+Total_Unclassified: 32
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| [UID:0000UL][EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0](by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md` |  |
+| [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) | assigned | `0000K1` |  | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-item/LoadImageFrameTable_004D0F50.md` |  |
 | [UID:0000UZ][LoadPcxImage_004A17B0](by-item/LoadPcxImage_004A17B0.md) | assigned | `0000K3` |  | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-item/LoadPcxImage_004A17B0.md` |  |
 | [UID:0000V2][PacketDigest_00515380](by-item/PacketDigest_00515380.md) | assigned | `0000L6` |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-item/PacketDigest_00515380.md` |  |
 | [UID:0000V3][PacketTransformHelpers](by-item/PacketTransformHelpers.md) | assigned | `0000M9` |  | no | `auto-generated/NexusTK/network/PacketTransform.cpp` | `by-item/PacketTransformHelpers.md` |  |
@@ -22,12 +24,12 @@ Total_Error: 0
 | [UID:0000U5][BuildFramePartPanes_004B7120](by-item/BuildFramePartPanes_004B7120.md) | not_reconstructable |  |  | no |  | `by-item/BuildFramePartPanes_004B7120.md` |  |
 | [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md) | not_reconstructable |  |  | no |  | `by-item/InitAlphaSurfaceView_004623C0.md` |  |
 | [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) | not_reconstructable |  |  | no |  | `by-item/ScopedMarkerMissingMethodBodies.md` |  |
+| [UID:0000UJ][DrawTextInRect_004BAD70](by-item/DrawTextInRect_004BAD70.md) | unassigned |  |  | no |  | `by-item/DrawTextInRect_004BAD70.md` |  |
 | [UID:0000US][HalfBlendSpan16Blocks_00460C10](by-item/HalfBlendSpan16Blocks_00460C10.md) | unassigned |  |  | no |  | `by-item/HalfBlendSpan16Blocks_00460C10.md` |  |
 | [UID:0000UT][HasDATEntry_0049C700](by-item/HasDATEntry_0049C700.md) | unassigned |  |  | no |  | `by-item/HasDATEntry_0049C700.md` |  |
 | [UID:0000UV][InitializeMainUiGraph_004F7D10](by-item/InitializeMainUiGraph_004F7D10.md) | unassigned |  |  | no |  | `by-item/InitializeMainUiGraph_004F7D10.md` |  |
 | [UID:0000UW][LoadDatFileBuffer_004BB120](by-item/LoadDatFileBuffer_004BB120.md) | unassigned |  |  | no |  | `by-item/LoadDatFileBuffer_004BB120.md` |  |
 | [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) | unassigned |  |  | no |  | `by-item/LoadFrameDrawRecord_004D1600.md` |  |
-| [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) | unassigned |  |  | no |  | `by-item/LoadImageFrameTable_004D0F50.md` |  |
 | [UID:0000V0][LoadTileEpfMetadata_004D1B80](by-item/LoadTileEpfMetadata_004D1B80.md) | unassigned |  |  | no |  | `by-item/LoadTileEpfMetadata_004D1B80.md` |  |
 | [UID:0000V1][PacketBufferHelpers](by-item/PacketBufferHelpers.md) | unassigned |  |  | no |  | `by-item/PacketBufferHelpers.md` |  |
 | [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md) | unassigned |  |  | no |  | `by-item/PaletteSlotTable.md` |  |
@@ -68,10 +70,8 @@ Total_Error: 0
 | [UID:0000UG][DestroyExceptionHandler_4673A0](by-item/DestroyExceptionHandler_4673A0.md) | unclassified |  |  | no |  | `by-item/DestroyExceptionHandler_4673A0.md` |  |
 | [UID:0000UH][DrawEncodedAlphaFrame_00462F20](by-item/DrawEncodedAlphaFrame_00462F20.md) | unclassified |  |  | no |  | `by-item/DrawEncodedAlphaFrame_00462F20.md` |  |
 | [UID:0000UI][DrawFrameWithBlendMode_00462E10](by-item/DrawFrameWithBlendMode_00462E10.md) | unclassified |  |  | no |  | `by-item/DrawFrameWithBlendMode_00462E10.md` |  |
-| [UID:0000UJ][DrawTextInRect_004BAD70](by-item/DrawTextInRect_004BAD70.md) | unclassified |  |  | no |  | `by-item/DrawTextInRect_004BAD70.md` |  |
 | [UID:0000UK][DrawTextRunCallback_00593DB0](by-item/DrawTextRunCallback_00593DB0.md) | unclassified |  |  | no |  | `by-item/DrawTextRunCallback_00593DB0.md` |  |
 | [UID:0000UN][EPFArchiveMetadataTable](by-item/EPFArchiveMetadataTable.md) | unclassified |  |  | no |  | `by-item/EPFArchiveMetadataTable.md` |  |
-| [UID:0000UL][EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0](by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md) | unclassified |  |  | no |  | `by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md` |  |
 | [UID:0000UM][EncodeTextEditState_0058E490](by-item/EncodeTextEditState_0058E490.md) | unclassified |  |  | no |  | `by-item/EncodeTextEditState_0058E490.md` |  |
 | [UID:0000UO][FolderTreePaneOwnerPollution_47f280_58a8e0](by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md) | unclassified |  |  | no |  | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |  |
 | [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md) | unclassified |  |  | no |  | `by-item/FriendNameListSyncOpcodes.md` |  |

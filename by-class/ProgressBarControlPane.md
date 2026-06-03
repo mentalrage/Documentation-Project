@@ -1,6 +1,6 @@
 *** UID:0000AW | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000MT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for constructor and draw virtual, medium for private helper names.
+- Confidence: strong for constructor, draw virtual, vtable-backed ownership, and source placement; medium for private helper names.
 - Likely source file: [UID:0000MT][ProgressBarControlPane](by-file/ProgressBarControlPane.md)
 - Current recovered file: `source-3/simroot_v2/class_ProgressBarControlPane.cpp`
 - Vtables: [UID:0001YH][ProgressBarControlPaneVtables](by-type/by-vtable/ProgressBarControlPaneVtables.md) at `0x00617b34`, `0x00617b9c`, and `0x00617bcc`
@@ -41,6 +41,7 @@
 - Current generated metadata records a stored constructor-name control-character issue; treat the active emitted source name as cleaned, but keep the data issue tracked.
 - 2026-05-26 recheck: IDA MCP still reports `0x00494a90`, `0x00494af0`, and `0x00494db0` as `Not a function`, with no direct xrefs. Keep them as projected private helper bytes under this class, not ignored/runtime code.
 - 2026-06-01 byte recheck confirms the two range-setter helper bodies end at `0x00494ae7` and `0x00494b4b`, with only `0xcc` alignment between/after them.
+- 2026-06-03 cross-documentation review ties the class attachment tree together: [UID:0000MT][ProgressBarControlPane](by-file/ProgressBarControlPane.md) is at the parent-confidence threshold, the exact helper children are assigned here with blank C++ bodies, [UID:0002OL][0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData](by-memory/0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData.md) proves the vtable data range, and the constructor/draw pages prove the modeled class core.
 
 ## Cross-References
 
@@ -63,3 +64,7 @@
   - Before: validator autogen metadata was blank.
   - After: `RECONSTRUCTABLE:TRUE`, parent UID `0000MT`, and position `10`; no C++ code is emitted.
   - Evidence: constructor, draw virtual, vtables, and projected helper bytes are all documented as NexusTK-owned progress-bar control code, but final-source code still requires higher confidence and completion.
+- 2026-06-03 parent-threshold consistency pass:
+  - Before: confidence remained `78` while exact helper children were already attached under this class.
+  - After: completion/confidence are `84/80`, with confidence raised only to the attachment threshold and final C++ still withheld.
+  - Evidence: the file page, constructor, draw virtual, vtable data, range-setter aggregate, update/draw aggregate, exact helper pages, and autogen reports agree on this class as the progress-bar control owner. Live IDA MCP was unavailable during this pass, so projected helper names remain a cap.

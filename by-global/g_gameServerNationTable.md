@@ -33,7 +33,7 @@ If later class cleanup splits the table from the map-pane initializer, prefer a 
 
 - `0x005039f0-0x00503a41` initializes the table object, installs the `GameServerConfig` and `ProtectedArray<GameServerConfig::NationEntry>` vtables, seeds capacity/count fields, and stores this global.
 - `0x00504110-0x00504521` allocates an 88-byte table object during map-pane initialization and stores it in this global.
-- `0x00503a50-0x00503a78` is destructor-like code in the local constructor block that frees table data and clears the global, but IDA does not currently model it as a separate function.
+- `0x00503a50-0x00503a7d` is destructor-like code in the local constructor block that frees table data, clears the global, and tail-jumps to base `LObject` cleanup, but IDA does not currently model it as a separate function.
 - `0x00514d80-0x00514ddc` frees the table data and writes zero to `dword_69B4C4`.
 - `0x00504530-0x005046c6` tears down `MapPane` state and calls the table object's virtual destructor when this global is non-null.
 
@@ -59,3 +59,4 @@ The generated name `GameServerConfig` is misleading if read as general configura
 ## Changes
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `86/80`. Summary/evidence: the page documents storage, role, lifecycle, allocation/destruction, access patterns, IDA xrefs, caveats, and owner/type refs, with final type name still medium-confidence.
+- 2026-06-03: Updated the raw destructor lifecycle range to `0x00503a50-0x00503a7d`. Evidence: IDA MCP disassembly shows the tail jump starts at `0x00503a78`, runs through `0x00503a7c`, and is followed by `0xcc` padding.

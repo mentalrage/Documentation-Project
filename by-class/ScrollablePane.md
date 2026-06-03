@@ -1,9 +1,9 @@
 *** UID:0000CF | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:30 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -69,3 +69,7 @@ high/low resolution thickness tables  layout-dependent scrollbar size
   - Evidence: IDA MCP reports adjustor thunks at `0x005654ec` and `0x005654f7`, target scalar deleting destructor at `0x00565510`, and `sub_565600` ending at `0x00565608`.
 - [UID:0000CM][ScrollPane](by-class/ScrollPane.md)
 - [UID:0000A2][Pane](by-class/Pane.md)
+- 2026-06-03: Attached class metadata to ScrollBar.
+  - Before: the page was `78/84`, but reconstructability and parent metadata were blank.
+  - After: marked reconstructable and attached to [UID:0000NF][ScrollBar](by-file/ScrollBar.md) at position `30`, with C++ blank.
+  - Evidence: Existing constructor/destructor/layout/input evidence already meets the parent-attachment threshold, and the ScrollWidget pass reconfirmed the `ScrollablePane` constructor creates both horizontal and vertical `ScrollPane` children plus later sync helpers call the embedded scroll widgets.

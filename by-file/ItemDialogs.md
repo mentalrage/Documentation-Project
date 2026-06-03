@@ -1,7 +1,7 @@
 *** UID:0000KE | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ItemDialogs
 
@@ -9,6 +9,7 @@
 
 - Confidence: strong for item selection, mixing, and menu-dialog ownership; medium for exact split between exchange, mix, context-menu, and item-action input files.
 - Proposed module folder: `ui/dialogs/`
+- Projected reconstruction path: `NexusTK/ui/dialogs/`
 - Candidate files: `ui/dialogs/ItemDialogs.cpp`, [UID:0000LO][MyItemListPane](by-file/MyItemListPane.md), [UID:0000KF][ItemMenuDialogs](by-file/ItemMenuDialogs.md), `ui/dialogs/MixItemDialog.cpp`, and `ui/dialogs/ItemActionInputPanes.cpp`
 - Current generated sources: `class_AddItemDialog.cpp`, `class_AddItemWithCountDialog.cpp`, `class_MyItemListPane.cpp`, `class_AddEmployeeItemDialog.cpp`, `class_MixItemDialog.cpp`, `class_AddMixingItemDialog.cpp`, `class_ServerItemMenuDialog.cpp`, `class_ServerItemMenuItemList.cpp`, `class_ClientItemMenuDialog.cpp`, `class_ClientItemMenuItemList.cpp`, plus direct item-action input panes now covered by [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md).
 - Placement update: `class_AddEmployeeItemDialog.cpp` is generated near item picker code, but 2026-05-24 IDA evidence ties final ownership to [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md).
@@ -45,7 +46,7 @@ ui/dialogs/ItemDialogs.cpp
 | `MyItemListPane` | `0x004aeb30-0x004af031` | `class_MyItemListPane.cpp` | Player inventory item-picker list used by add-item, mix-item, and clan-deposit flows. |
 | `AddEmployeeItemDialog` | `0x004a4ae0`, `0x004a4b20-0x004a4d3a` | `class_AddEmployeeItemDialog.cpp` | Employee-specific `AddItemDialog` variant; final owner is likely [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md), while the base picker remains here. |
 | `MixItemDialog` | `0x004af570-0x004b0b14` | `class_MixItemDialog.cpp` | Builds selected-item mix list, handles add/remove/submit actions, and sends mix packet. |
-| `AddMixingItemDialog` | `0x004b0000-0x004b09ce` | `class_AddMixingItemDialog.cpp` | Item picker used by the mix dialog; filters already selected items and handles stack quantity flow. |
+| `AddMixingItemDialog` | `0x004b0000-0x004b09cf` | `class_AddMixingItemDialog.cpp` | Item picker used by the mix dialog; filters already selected items and handles stack quantity flow. |
 | [UID:0000M1][NumberInputDialog](by-file/NumberInputDialog.md) caller use | `0x00530640-0x00530cf7` | `class_NumberInputDialog.cpp` | Reusable numeric prompt invoked by item-mixing quantity paths; implementation should stay in `ui/dialogs/NumberInputDialog.cpp`, not this file. |
 | `ServerItemMenuDialog` | `0x0051a520-0x0051ae8c` | `class_ServerItemMenuDialog.cpp` | Server-provided item action menu over the shared merchant-menu dialog base. |
 | `ServerItemMenuItemList` | `0x0051ae90-0x0051b87a` | `class_ServerItemMenuItemList.cpp` | Private row-list widget for server-provided item menu entries. |
@@ -129,3 +130,7 @@ IDA reports no function at Wave3's `AddEmployeeItemDialog` constructor start `0x
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:88` and `CONFIDENCE:80`.
   - Summary/evidence: item picker, mix, menu-dialog, list-pane, employee-dialog boundary, vtable family, ownership notes, exchange/menu/action split, and cross-references are well documented; confidence is capped by exact original split among item dialogs, exchange, mix, context menus, and item-action input files.
+- 2026-06-03 projected path assignment:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though this page and [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) already placed `ItemDialogs.cpp` under `ui/dialogs/`.
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/"`.
+  - Summary/evidence: the page's status, proposed contents, and project-structure entry consistently place the item picker/mix/menu dialog family under `ui/dialogs/`; this assignment allows attached child documentation such as [UID:000009][AddMixingItemDialog](by-class/AddMixingItemDialog.md) to resolve to a concrete generated source root while preserving the documented caveat that some adjacent classes may later split into `MyItemListPane.cpp`, `ItemMenuDialogs.cpp`, or `MixItemDialog.cpp`.

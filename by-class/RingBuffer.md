@@ -1,9 +1,9 @@
 *** UID:0000C1 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000N8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -72,3 +72,7 @@ Current active `simroot_v2/util/RingBuffer.cpp` emits the main queue methods, cl
   - Evidence: Existing method table, vtable section, Thread/Monitor evidence, Wave3 metadata comparison, and generated data caveats support the score.
 - 2026-06-01: Added the expanded raw iterator-helper pocket found during the memory-page rescore.
   - Evidence: IDA MCP disassembly identifies additional unmodeled helper bodies after `0x00556720`, separated by alignment padding and operating on the iterator's owner pointer/current index fields.
+- 2026-06-03: Attached class metadata to the RingBuffer source file.
+  - Before: The page was already `82/84`, but reconstructability and parent metadata were blank.
+  - After: Marked reconstructable and attached to [UID:0000N8][RingBuffer](by-file/RingBuffer.md) at position `10`, with C++ still blank.
+  - Evidence: Existing Thread caller, synchronization dependency, vtable, and method-boundary evidence already meet the parent-attachment threshold; the fresh iterator pass reconfirmed the shared ring-buffer island and adjacent companion-class layout without resolving the remaining raw helper naming gap.

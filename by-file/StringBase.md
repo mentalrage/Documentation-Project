@@ -28,7 +28,7 @@ The original project may have put this in `StringUtil.cpp`, but the recovered te
 | `mystr::StringBase<wchar_t, mystr::mychar_traits<wchar_t>>` helpers | `0x00582500-0x00584d7d`, especially `0x00583280`, `0x00583840`, `0x005840f0`, `0x005845b0` | UTF-16 construction, formatting, comparison, search, splice, trim, and substring helpers. |
 | [UID:0001VQ][RefCountedStringBufferHeader](by-type/by-struct/RefCountedStringBufferHeader.md) | data pointer `-0x0c` through `-0x04` | Shared header with `refCount`, `length`, and `capacity`. |
 | [UID:0000TM][StringBufferSentinelsAndPools](by-global/StringBufferSentinelsAndPools.md) | `0x00670278`, `0x00670290`, `0x0069bacc-0x0069bbe4` | Empty-string sentinels and 64/128/256/512 fixed-capacity pools for wide and ANSI buffers. |
-| pointer-backed formatting wrappers/workers | [UID:0002LJ][0x00583210-0x00583272.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md), [UID:0002LK][0x00583280-0x005832e2.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md), [UID:0002LL][0x00583720-0x00583831.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583831.StringBaseAnsiVFormatWorker.md), [UID:0002LM][0x00583840-0x00583967.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583967.StringBaseWideVFormatWorker.md) | ANSI/UTF-16 format constructors and `va_list` workers; likely `StringBase<char/wchar_t>` helpers or a thin string facade over them. |
+| pointer-backed formatting wrappers/workers | [UID:0002LJ][0x00583210-0x00583272.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md), [UID:0002LK][0x00583280-0x005832e2.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md), [UID:0002LL][0x00583720-0x00583832.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583832.StringBaseAnsiVFormatWorker.md), [UID:0002LM][0x00583840-0x00583968.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583968.StringBaseWideVFormatWorker.md) | ANSI/UTF-16 format constructors and `va_list` workers; likely `StringBase<char/wchar_t>` helpers or a thin string facade over them. |
 | pointer-backed compare helpers | [UID:0002LN][0x005840f0-0x00584159.WideRangeCompare](by-memory/0x005840f0-0x00584159.WideRangeCompare.md), [UID:0002LO][0x005845b0-0x005845eb.StringBaseCompareWideLiteral](by-memory/0x005845b0-0x005845eb.StringBaseCompareWideLiteral.md) | UTF-16 range comparator and literal compare wrapper. |
 | [UID:000236][0x005151b0-0x005151ef.DefaultCodepageConversionWrappers](by-memory/0x005151b0-0x005151ef.DefaultCodepageConversionWrappers.md) | `0x005151b0`, `0x005151d0` | Thin default-codepage conversion wrappers consumed by the string constructors/converters. |
 
@@ -84,13 +84,13 @@ The final header can still collapse into `StringUtil.h` if later original-source
 - [UID:0001J2][0x00583210-0x005845eb.SimpleUStringPointerBacked](by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md)
 - [UID:0002LJ][0x00583210-0x00583272.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md)
 - [UID:0002LK][0x00583280-0x005832e2.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md)
-- [UID:0002LL][0x00583720-0x00583831.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583831.StringBaseAnsiVFormatWorker.md)
-- [UID:0002LM][0x00583840-0x00583967.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583967.StringBaseWideVFormatWorker.md)
+- [UID:0002LL][0x00583720-0x00583832.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583832.StringBaseAnsiVFormatWorker.md)
+- [UID:0002LM][0x00583840-0x00583968.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583968.StringBaseWideVFormatWorker.md)
 - [UID:0002LN][0x005840f0-0x00584159.WideRangeCompare](by-memory/0x005840f0-0x00584159.WideRangeCompare.md)
 - [UID:0002LO][0x005845b0-0x005845eb.StringBaseCompareWideLiteral](by-memory/0x005845b0-0x005845eb.StringBaseCompareWideLiteral.md)
 - [UID:0001J3][0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation](by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md)
 - [UID:000236][0x005151b0-0x005151ef.DefaultCodepageConversionWrappers](by-memory/0x005151b0-0x005151ef.DefaultCodepageConversionWrappers.md)
-- [UID:0001CQ][0x0052a460-0x0052a49d.FunctionObjectTStringDestructor](by-memory/0x0052a460-0x0052a49d.FunctionObjectTStringDestructor.md)
+- [UID:0001CQ][0x0052a460-0x0052a49e.FunctionObjectTStringDestructor](by-memory/0x0052a460-0x0052a49e.FunctionObjectTStringDestructor.md)
 - [UID:0001QS][client_string_handling](by-meta/client_string_handling.md)
 
 ## Changes
@@ -104,3 +104,5 @@ The final header can still collapse into `StringUtil.h` if later original-source
   - Before: pointer-backed wrappers were listed only as raw addresses and the validator-managed projected reconstruction path was blank.
   - After: linked exact child memory pages, raised scores modestly to `88/80`, and set `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/"` so the validator stages an empty `StringBase.cpp`.
   - Evidence: IDA MCP verification of `0x00583210`, `0x00583280`, `0x00583720`, `0x00583840`, `0x005840f0`, and `0x005845b0`; final C++ remains intentionally blank because the family is below the `95+` reconstruction-code gate.
+
+- 2026-06-03: updated the ANSI and wide formatting worker child links to corrected half-open IDA ranges `0x00583720-0x00583832` and `0x00583840-0x00583968`; no file-level score change.

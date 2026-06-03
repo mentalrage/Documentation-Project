@@ -27,8 +27,8 @@
 | `SimpleListPane` | `0x005739a0-0x005739f6` | Raw constructor-shaped code; computes width/height from rectangle fields and delegates to the `ListPane` base constructor. |
 | `~SimpleListPane` body / entry helpers | [UID:000241][0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers](by-memory/0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers.md) | Aggregate over the non-scalar destructor and copied wide-string append/insert/remove/replace helper bodies. |
 | destroy copied-text buffers | [UID:0002LE][0x00573a00-0x00573a98.SimpleListPaneDestroyEntryBuffers](by-memory/0x00573a00-0x00573a98.SimpleListPaneDestroyEntryBuffers.md) | Restores vtables, frees each heap-backed copied-text buffer, and calls `ListPane` cleanup. |
-| append copied text | [UID:0002LF][0x00573aa0-0x00573b05.SimpleListPaneAppendCopiedText](by-memory/0x00573aa0-0x00573b05.SimpleListPaneAppendCopiedText.md) | Raw helper that appends an allocated copy of a wide string. |
-| insert copied text | [UID:0002LG][0x00573b10-0x00573b6a.SimpleListPaneInsertCopiedText](by-memory/0x00573b10-0x00573b6a.SimpleListPaneInsertCopiedText.md) | Raw helper that inserts an allocated copy of a wide string at a supplied index. |
+| append copied text | [UID:0002LF][0x00573aa0-0x00573b08.SimpleListPaneAppendCopiedText](by-memory/0x00573aa0-0x00573b08.SimpleListPaneAppendCopiedText.md) | Raw helper that appends an allocated copy of a wide string. |
+| insert copied text | [UID:0002LG][0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText](by-memory/0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText.md) | Raw helper that inserts an allocated copy of a wide string at a supplied index. |
 | remove copied text | [UID:0002LH][0x00573b70-0x00573bac.SimpleListPaneRemoveCopiedText](by-memory/0x00573b70-0x00573bac.SimpleListPaneRemoveCopiedText.md) | Raw helper that frees the copied text then removes one list item. |
 | replace copied text | [UID:0002LI][0x00573bb0-0x00573c38.SimpleListPaneReplaceCopiedText](by-memory/0x00573bb0-0x00573c38.SimpleListPaneReplaceCopiedText.md) | Raw helper that frees/removes an existing entry and reinserts a copied replacement. |
 | destructor adjustor thunk | `0x00573c38` | Compiler-generated thunk; adjusts `this` by `-0xa0` before entering the main destructor. |
@@ -55,8 +55,8 @@
 - [UID:0001HP][0x005739a0-0x005739f6.SimpleListPaneConstructor](by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md)
 - [UID:000241][0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers](by-memory/0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers.md)
 - [UID:0002LE][0x00573a00-0x00573a98.SimpleListPaneDestroyEntryBuffers](by-memory/0x00573a00-0x00573a98.SimpleListPaneDestroyEntryBuffers.md)
-- [UID:0002LF][0x00573aa0-0x00573b05.SimpleListPaneAppendCopiedText](by-memory/0x00573aa0-0x00573b05.SimpleListPaneAppendCopiedText.md)
-- [UID:0002LG][0x00573b10-0x00573b6a.SimpleListPaneInsertCopiedText](by-memory/0x00573b10-0x00573b6a.SimpleListPaneInsertCopiedText.md)
+- [UID:0002LF][0x00573aa0-0x00573b08.SimpleListPaneAppendCopiedText](by-memory/0x00573aa0-0x00573b08.SimpleListPaneAppendCopiedText.md)
+- [UID:0002LG][0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText](by-memory/0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText.md)
 - [UID:0002LH][0x00573b70-0x00573bac.SimpleListPaneRemoveCopiedText](by-memory/0x00573b70-0x00573bac.SimpleListPaneRemoveCopiedText.md)
 - [UID:0002LI][0x00573bb0-0x00573c38.SimpleListPaneReplaceCopiedText](by-memory/0x00573bb0-0x00573c38.SimpleListPaneReplaceCopiedText.md)
 - [UID:0001HQ][0x00573c38-0x00573d15.SimpleListPaneDestructorThunks](by-memory/0x00573c38-0x00573d15.SimpleListPaneDestructorThunks.md)
@@ -74,3 +74,7 @@
   - Before: The class page referenced the aggregate helper island but did not list its child helper pages or the current layout/vtable evidence.
   - After: The class page links every current exact `SimpleListPane` child range and records object-size/vtable evidence, while leaving final C++ blank below the 95+ gate.
   - Evidence: IDA MCP raw-disassembly split of `0x00573a00-0x00573c38`, destructor decompilation, vtable xrefs, and updated layout page.
+- 2026-06-03: Corrected copied-text helper links for the append/insert children.
+  - Before: the class page linked the old short ranges `0x00573aa0-0x00573b05` and `0x00573b10-0x00573b6a`, which stopped at the starts of return instructions.
+  - After: the class page links `0x00573aa0-0x00573b08` and `0x00573b10-0x00573b6d`.
+  - Evidence: IDA MCP raw disassembly shows `retn 4` bytes at `0x00573b05-0x00573b08` and `retn 8` bytes at `0x00573b6a-0x00573b6d`.

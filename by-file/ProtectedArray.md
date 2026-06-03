@@ -1,13 +1,13 @@
 *** UID:0000MU | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ProtectedArray
 
 ## Status
 
-- Confidence: strong for template role, medium for exact original filename.
+- Confidence: strong for template role and shared utility placement, medium for exact original header filename.
 - Proposed source artifact: `util/ProtectedArray.h` or an adjacent container header included by render/map sources.
 - Current generated sources: `source-3/simroot_v2/class_ProtectedArray_struct_*.cpp`
 - Primary documented code islands: [UID:00017V][0x004e5a70-0x004e5b6f.ProtectedArrayImageInfoOrdinaryDestructors](by-memory/0x004e5a70-0x004e5b6f.ProtectedArrayImageInfoOrdinaryDestructors.md), [UID:000186][0x004e5f20-0x004e5f64.ProtectedArrayImageInfoAccessors](by-memory/0x004e5f20-0x004e5f64.ProtectedArrayImageInfoAccessors.md), and [UID:000187][0x004e5fa0-0x004e629f.ProtectedArrayImageInfoDeletingDestructors](by-memory/0x004e5fa0-0x004e629f.ProtectedArrayImageInfoDeletingDestructors.md)
@@ -62,6 +62,11 @@ Use `ProtectedArray` as a shared template/container artifact, not as many origin
 - [UID:0001QA][client_containers](by-meta/client_containers.md)
 
 ## Changes
+
+- 2026-06-03 path and parent-link threshold update:
+  - Before: confidence was `78` and projected path was blank even though the body proposed `util/ProtectedArray.h`.
+  - After: confidence is `80` and projected path is `NexusTK/util/`.
+  - Summary/evidence: the source-structure decision keeps reusable `ProtectedArray<T>` declarations in a shared utility/header artifact, while concrete image/map modules own their loaded record fields and parser logic. Confidence remains capped at the parent-link minimum because the exact original header basename is still inferred.
 
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `84`, confidence `78`.

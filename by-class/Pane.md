@@ -57,6 +57,7 @@ GrafPort state block:
 | Family | Addresses | Role |
 | --- | --- | --- |
 | Construction/destruction | `0x00544460`, `0x004b8d20` | Initializes `GrafPort`, handlers, regions, mode/visibility state; releases surface/software storage and embedded objects. |
+| Mode state | [UID:0002V7][0x005446b0-0x005446d4.PaneSetMode](by-memory/0x005446b0-0x005446d4.PaneSetMode.md) | Exact mode-byte setter for `+0xb5`; notifies through primary vtable slot `+0x20` when the mode changes. |
 | Visibility/redraw | `0x00544730-0x005448ab` | Show, hide, repaint, and dirty-region invalidation. |
 | Dirty/motion paint state | `0x00544690-0x00544b7d` | Deferred deletion marker, active/pending motion-region copy/subtract, motion comparison, begin-paint, and end-paint helpers used by layer traversal. |
 | Bounds/layer membership | `0x00544b80-0x00544d70` | Screen bounds, local bounds, attached-layer test at `0x00544c50`, and add/insert/remove from `Layer`. |
@@ -69,6 +70,7 @@ GrafPort state block:
 - Generated source shows many feature panes calling `Pane::Pane` directly.
 - `Pane::AddToLayer` calls `Layer::AddChildAfter`; `Pane::InsertInLayer` calls `Layer::AddChildBefore`; removal paths call `Layer::RemoveChild`.
 - IDA maps pane vtable offsets `+0x38` and `+0x40` to `Pane::RemoveFromLayer` and `Pane::UnregisterEventHandler`; [UID:00000W][BlackHole](by-class/BlackHole.md) uses those virtuals before queueing panes for deferred deletion.
+- 2026-06-03 IDA MCP confirms [UID:0002V7][0x005446b0-0x005446d4.PaneSetMode](by-memory/0x005446b0-0x005446d4.PaneSetMode.md) as the exact mode-byte setter at `0x005446b0-0x005446d4`; it writes `+0xb5` only when changed and dispatches vtable slot `+0x20` with `this + 0x44`.
 - IDA maps `Pane` vtable bases at `0x006219e8`, `0x00621a34`, and `0x00621a64`; the secondary and tertiary destructor slots are the adjustor thunks `0x00544f2e` and `0x00544f39`.
 - IDA caller checks tie the `0x00544690-0x00544b7d` dirty/motion helpers to `Layer` recursion and shared surface presentation. Current generated `class_MapPane.cpp` ownership for these helpers should not be treated as source-file evidence.
 - The base [UID:00004N][EventHandler](by-class/EventHandler.md) methods at `0x004a8970-0x004a8a83` are shared UI event infrastructure used by pane-derived handlers and [UID:00004M][EventDispatcher](by-class/EventDispatcher.md).
@@ -80,6 +82,7 @@ GrafPort state block:
 - [UID:0001VH][PaneLayout](by-type/by-struct/PaneLayout.md)
 - [UID:0001YC][PaneCoreVtableFamily](by-type/by-vtable/PaneCoreVtableFamily.md)
 - [UID:0001EB][0x00544f2e-0x00544f43.PaneAdjustorThunks](by-memory/0x00544f2e-0x00544f43.PaneAdjustorThunks.md)
+- [UID:0002V7][0x005446b0-0x005446d4.PaneSetMode](by-memory/0x005446b0-0x005446d4.PaneSetMode.md)
 - [UID:00005V][GrafPort](by-class/GrafPort.md)
 - [UID:000073][Layer](by-class/Layer.md)
 - [UID:00000W][BlackHole](by-class/BlackHole.md)

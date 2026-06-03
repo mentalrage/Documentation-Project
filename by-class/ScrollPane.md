@@ -1,9 +1,9 @@
 *** UID:0000CM | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -39,8 +39,8 @@ The constructor initializes the scrollbar as a `Pane`, sets three vtable pointer
 
 | Family | Addresses | Role |
 | --- | --- | --- |
-| Construction/state | `0x0055c200`, `0x0055c3e0` | Initializes pane/vtables and tests whether the scroll thumb should be visible. |
-| Input/timer | `0x0055c400-0x0055c642` | Mouse handling, default `CanScroll`, and repeat timer callback into the owner scroll handler. |
+| Construction/state | `0x0055c200`, raw setters at `0x0055c2b0`/`0x0055c2e0`, `0x0055c3e0` | Initializes pane/vtables, updates small state fields with notification, and tests whether the scroll thumb should be visible. |
+| Input/timer | `0x0055c400-0x0055c643` | Mouse handling, default `CanScroll`, and repeat timer callback into the owner scroll handler. |
 | Drawing | `0x0055c650-0x0055d957` | Draws classic and EPF scrollbar modes using scrollbar part rectangles. |
 | Geometry | `0x0055d9e0-0x0055de98` | Computes button, track, and thumb rectangles for vertical/horizontal bars. |
 
@@ -76,3 +76,7 @@ The constructor initializes the scrollbar as a `Pane`, sets three vtable pointer
 - [UID:0000CF][ScrollablePane](by-class/ScrollablePane.md)
 - [UID:0000CP][ScrollWidget](by-class/ScrollWidget.md)
 - [UID:0000A2][Pane](by-class/Pane.md)
+- 2026-06-03: Attached class metadata and expanded input-core state helpers.
+  - Before: the page was `78/82`, but reconstructability and parent metadata were blank, and the input-core summary omitted raw setter-shaped bodies at `0x0055c2b0` and `0x0055c2e0`.
+  - After: marked reconstructable, attached to [UID:0000NF][ScrollBar](by-file/ScrollBar.md) at position `10`, and updated the input/timer range to the corrected half-open `0x0055c400-0x0055c643`.
+  - Evidence: IDA MCP `py_eval` on 2026-06-03 confirms constructor callers from `ScrollablePane`, raw state setters at `0x0055c2b0` and `0x0055c2e0`, `IsScrollThumbVisible` at `0x0055c3e0-0x0055c3fa`, `CanScroll` at `0x0055c600-0x0055c605`, and vtable refs for mouse/timer/default virtual methods.

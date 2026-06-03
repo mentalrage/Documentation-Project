@@ -1,8 +1,8 @@
 *** UID:00008U | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LN | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -71,3 +71,4 @@ The object is a `DialogPane`-style UI class of size `0x270` (`624`) in current W
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `86/80`. Summary: the music/sound settings dialog is documented in high detail across constructor, controls, config offsets, SoundManager/CD/folder behavior, callback template, helper ownership, and generated ownership caveats, but confidence stays medium-high because some helper ownership cleanup and field names remain provisional. Evidence: linked `MusicControlDialog` memory range, IDA-confirmed additional starts, control-id method table, config offset notes, callback wrapper class, and `SelectionControlPaneSetSelectionAndRefresh` reference.
+- 2026-06-03 autogen consistency pass: marked the class reconstructable and attached it to [UID:0000LN][MusicControlDialog](by-file/MusicControlDialog.md) without changing scores or adding C++. Evidence: the existing IDA-backed memory/file docs and proposed source tree already place the class in `MusicControlDialog.cpp`; final source code remains gated because helper methods and field names are not final-source quality.

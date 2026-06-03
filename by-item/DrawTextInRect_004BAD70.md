@@ -1,7 +1,7 @@
 *** UID:0000UJ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:68 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Entity kind: shared UI text helper.
 - Likely source module: [UID:0000JR][GrafPort](by-file/GrafPort.md) / generic text-render helper. The earlier [UID:0000OK][TextButtonControlPane](by-file/TextButtonControlPane.md) assignment should be treated as caller-biased until a source-file split is proven.
 - Exact range: `0x004bad70-0x004baf92`
+- Autogen handling: parent and C++ stay blank because behavior is strong, but final source ownership is still explicitly open between `GrafPort`/shared text infrastructure and older caller-biased generated owners.
 
 ## Behavior
 
@@ -40,6 +41,11 @@
 - [UID:0000JH][FontImageLib](by-file/FontImageLib.md)
 
 ## Changes
+
+- 2026-06-03 score sync with exact memory page:
+  - Before: the item page remained `68/82` with blank reconstructable metadata after the exact memory page had been revalidated.
+  - After: set to `76/84` and `RECONSTRUCTABLE:TRUE`, while leaving parent metadata blank.
+  - Summary/evidence: [UID:00016D][0x004bad70-0x004baf92.DrawTextInRect](by-memory/0x004bad70-0x004baf92.DrawTextInRect.md) records the restarted IDA MCP boundary check, 130 direct callers, concrete callee list, draw-state offsets, bounded stack-line copy, range-check path, and post-function padding. Parent remains blank because ownership is still a GrafPort/shared-text decision rather than a proven final source attachment.
 
 - What existed before: The page had `0` completion/confidence and cited generated metadata plus a generated owner path as the main evidence.
 - What it was changed to: The page now scores the helper from live IDA MCP evidence, records the exact range, caller fanout, concrete callees, buffer bound, and the current owner caveat.

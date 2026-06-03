@@ -90,7 +90,7 @@ Empty ANSI and UTF-16 strings use shared sentinel data pointers. Non-empty strin
 - [UID:0001J1][0x00582500-0x00583206.LObjectStringConstructionAndCow](by-memory/0x00582500-0x00583206.LObjectStringConstructionAndCow.md)
 - [UID:0001J2][0x00583210-0x005845eb.SimpleUStringPointerBacked](by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md)
 - [UID:0001J3][0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation](by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md)
-- [UID:0001CQ][0x0052a460-0x0052a49d.FunctionObjectTStringDestructor](by-memory/0x0052a460-0x0052a49d.FunctionObjectTStringDestructor.md)
+- [UID:0001CQ][0x0052a460-0x0052a49e.FunctionObjectTStringDestructor](by-memory/0x0052a460-0x0052a49e.FunctionObjectTStringDestructor.md)
 
 ## Changes
 

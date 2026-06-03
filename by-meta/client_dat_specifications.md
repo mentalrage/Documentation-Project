@@ -109,7 +109,7 @@ Observed behavior:
 - `MetaMan::LoadMetaDat` opens loose `Meta.dat`, reads a table-count/header area, constructs [UID:000089][MetaTable](by-class/MetaTable.md) objects, and stores compressed table payloads.
 - `MetaMan::HandleMetaPacket` receives server table/checksum lists and individual table payloads, validating each payload through `MetaTable::DecompressAndValidateData`.
 - `MetaTable::DecompressAndValidateData` consumes bundled [UID:0000PC][Zlib](by-file/Zlib.md) support: `Uncompress` inflates the payload and `Crc32` validates the decoded bytes.
-- [UID:0001CC][0x00524870-0x00524c54.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c54.MetaTableMaterializeRows.md) parses the post-zlib [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md): a 16-bit row count, one-byte row-key lengths, 16-bit value counts, and 16-bit length-prefixed multibyte values converted with `MultiByteToWideChar(0, 0, ...)`.
+- [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md) parses the post-zlib [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md): a 16-bit row count, one-byte row-key lengths, 16-bit value counts, and 16-bit length-prefixed multibyte values converted with `MultiByteToWideChar(0, 0, ...)`.
 - A private helper at `0x005237d0` writes dirty metadata state back to `Meta.dat` after synchronization completes.
 - Public lookup APIs such as `MetaMan::FindEntry` and `MetaMan::LoadStatValues` are consumed by [UID:00006U][ItemHelpPane](by-class/ItemHelpPane.md), [UID:00002X][CollectionPane](by-class/CollectionPane.md), and resource helper code.
 
@@ -342,7 +342,7 @@ Application startup is a DAT consumer too. [UID:0001R6][application-startup-dat-
 - [UID:0000QQ][g_pDATFileMgr](by-global/g_pDATFileMgr.md)
 - [UID:0000UF][DestroyDATFileMgr_467380](by-item/DestroyDATFileMgr_467380.md)
 - [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md)
-- [UID:0000WW][0x00423b00-0x00423c3c.DATIndexVectorResizeAndFill](by-memory/0x00423b00-0x00423c3c.DATIndexVectorResizeAndFill.md)
+- [UID:0000WW][0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill](by-memory/0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill.md)
 - [UID:0000XS][0x00457100-0x0045730e.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md)
 - [UID:0000XT][0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md)
 - [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md)

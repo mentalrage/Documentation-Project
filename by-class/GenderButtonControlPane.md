@@ -2,8 +2,8 @@
 *** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:20 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -25,7 +25,7 @@
 ## Rebuild Handling
 
 - Reconstructability: true for the class declaration, gender/visual-state/default fields, recognized virtual methods, and destructor behavior.
-- Parent handling: leave `AUTOGEN_PARENT_UID` blank. [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) remains a provisional routing page at `70/78`, so it is below the parent-attachment threshold despite being the likely source-family reference.
+- Parent handling: attach to [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) at autogen position `20`. The file page is now a `76/82` provisional `NexusTK/ui/controls/` source root, so the child and parent meet the 80+ confidence attachment rule. This is class-level attachment only; method C++ remains blank.
 - C++ handling: leave final C++ blank. The class shape is well supported, but the constructor start at `0x00500640` remains raw/non-IDA-function and the final source split for the account-creation control family is not settled.
 - Ownership guard: keep `0x004fb630-0x004fbfcf` assigned to [UID:00009F][NewUserMiscDialogPane](by-class/NewUserMiscDialogPane.md), not this class. That range only explains inline child-control setup.
 
@@ -65,6 +65,7 @@
 - 2026-05-26 IDA MCP confirmed primary vtable `0x0061db90`, secondary vtable `0x0061dbf8`, and tertiary vtable `0x0061dc28`. Inline setup allocates `0x118` bytes and writes subclass fields at `+0x10c`, `+0x110`, and `+0x114`.
 - 2026-05-27 IDA MCP recheck still reports `0x00500640` as `NOFUNC` with no xrefs, and a raw dword scan across loaded segments found no pointers to `0x00500640`. The same scan found no raw pointer hits for `0x004fb630`; that range remains confirmed by its direct caller at `0x004fa74e`, not by gender-button ownership.
 - 2026-06-01 aggregate and vtable-data pages add exact raw-constructor stores, vtable child boundaries, slot targets, owner-pollution boundaries, and field-layout evidence for `+0x10c`, `+0x110`, and `+0x114`.
+- 2026-06-03 IDA MCP recheck again reports `0x00500640` as `NOFUNC` with no xrefs or raw pointer hits. It reconfirmed `0x005006d0`, `0x00500700`, and `0x00502700` as real functions, primary vtable slots `0x0061db90+0x44 -> 0x00500700`, `+0x48 -> 0x005006d0`, and `+0x00 -> 0x00502700`, plus constructor/inline/destructor vtable store refs at `0x004fb7e8`, `0x004fb869`, `0x0050066f`, and `0x00502706`. The polluted `0x004fb630` row still has a direct caller at `0x004fa74e` and remains `NewUserMiscDialogPane` ownership.
 
 ## Reconstruction Notes
 
@@ -90,3 +91,7 @@
   - Before: the page stayed in the low-confidence queue even though adjacent IDA-backed aggregate, layout, vtable, and exact vtable-data pages had been raised.
   - After: raised to `74/82` and marked `RECONSTRUCTABLE:TRUE`; parent and C++ remain blank.
   - Summary/evidence: exact vtable child [UID:0002OV][0x0061db8c-0x0061dc30.GenderButtonControlPaneVtableData](by-memory/0x0061db8c-0x0061dc30.GenderButtonControlPaneVtableData.md), aggregate method map [UID:0001A4][0x00500640-0x00502754.SpecializedButtonPanes](by-memory/0x00500640-0x00502754.SpecializedButtonPanes.md), layout fields [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md), and `NewUserMiscDialogPane` owner-pollution evidence support the class role and rebuild shape while preserving the `0x00500640` raw-constructor caveat.
+- 2026-06-03 parent attachment update:
+  - Before: `AUTOGEN_PARENT_UID` was blank because the likely file parent was below the 80+ confidence threshold and had no projected path.
+  - Changed to: `AUTOGEN_PARENT_UID:0000NY` and position `20`; reconstruction C++ remains blank.
+  - Summary/evidence: [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) is now a `76/82` provisional `NexusTK/ui/controls/` parent after a fresh IDA MCP recheck reconfirmed gender-button vtable/function evidence and the `NewUserMiscDialogPane` ownership guard while preserving the raw constructor caveat.

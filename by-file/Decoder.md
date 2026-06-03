@@ -22,9 +22,9 @@
 | Entity | Address evidence | Role |
 | --- | --- | --- |
 | [UID:00003M][Decoder](by-class/Decoder.md) | `0x004a5640-0x004a5e23` | In-memory stream reader, reset/finalize, no-op virtual, and scalar deleting destructor. |
-| raw reader family | [UID:00013Q][0x004a5680-0x004a5dcf.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md) | Byte/short/int/string/raw-span readers; the starts are raw code heads rather than current IDA functions. |
+| raw reader family | [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md) | Byte/short/int/string/raw-span readers; the starts are raw code heads rather than current IDA functions. |
 | primitive reader subset | [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md) | Exact raw disassembly for byte-order setter and byte/16-bit/24-bit/32-bit readers. |
-| string/blob reader subset | [UID:00013R][0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md) | Exact raw disassembly for UTF-16, multibyte, raw-span, transformed-span, skip, and initialize readers. |
+| string/blob reader subset | [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md) | Exact raw disassembly for UTF-16, multibyte, raw-span, transformed-span, skip, and initialize readers. |
 
 ## Evidence Notes
 
@@ -40,7 +40,7 @@
 
 - Vtable refs remain constructor/destructor-owned at `0x004a5640`, `0x004a5670`, and `0x004a5e0a`.
 - Constructor and raw initialize/finalize disassembly reconfirm the same cursor fields used by `Encoder`, despite current metadata reporting a 4-byte class layout.
-- Raw disassembly split the string/blob-reader subset into [UID:00013R][0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md). The bodies use the same cursor fields, call copy helpers `0x00516030`/`0x00516220`, use `MultiByteToWideChar` for multibyte text, and leave all starts as `Not a function` in IDA.
+- Raw disassembly split the string/blob-reader subset into [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md). The bodies use the same cursor fields, call copy helpers `0x00516030`/`0x00516220`, use `MultiByteToWideChar` for multibyte text, and leave all starts as `Not a function` in IDA.
 
 2026-05-31 IDA MCP recheck:
 
@@ -61,9 +61,9 @@ Do not trust active generated `class_Decoder.cpp` as migration-ready source unti
 - [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md)
 - [UID:00003M][Decoder](by-class/Decoder.md)
 - [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md)
-- [UID:00013Q][0x004a5680-0x004a5dcf.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md)
+- [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md)
 - [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md)
-- [UID:00013R][0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md)
+- [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md)
 - [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md)
 - [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md)
 - [UID:0000J1][Encoder](by-file/Encoder.md)
@@ -81,4 +81,4 @@ Do not trust active generated `class_Decoder.cpp` as migration-ready source unti
 - 2026-06-03 source-root confidence update:
   - What existed before: scores stayed at `79/72`, and the class autogen attachment stayed gated by the parent confidence even though the linked layout/vtable/raw-reader pages had since been strengthened.
   - Changed to: scores `81/82`; [UID:00003M][Decoder](by-class/Decoder.md) is eligible to attach to this source root while C++ remains blank.
-  - Summary/evidence: [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md), [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md), [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md), and [UID:00013Q][0x004a5680-0x004a5dcf.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md) now document enough ownership, boundary, and source-placement evidence for medium-high file confidence. Raw reader starts still lack IDA function objects/callers, so no reconstruction C++ is emitted.
+  - Summary/evidence: [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md), [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md), [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md), and [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md) now document enough ownership, boundary, and source-placement evidence for medium-high file confidence. Raw reader starts still lack IDA function objects/callers, so no reconstruction C++ is emitted.

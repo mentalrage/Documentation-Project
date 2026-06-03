@@ -1,0 +1,85 @@
+{
+  "case_sensitive": true,
+  "output": "project-level/-unresolved.md",
+  "resolved_output": "project-level/-resolved.md",
+  "multiple_aliases_output": "project-level/-resolved-multple-aliases.md",
+  "scan_extensions": [
+    ".md"
+  ],
+  "exclude_directory_names": [
+    ".git",
+    "__pycache__",
+    "auto-generated"
+  ],
+  "exclude_file_suffixes": [
+    ".bak"
+  ],
+  "filters": [
+    {
+      "name": "this_offset",
+      "enabled": true,
+      "pattern": "\\bthis\\+0x[0-9A-Fa-f]+\\b",
+      "description": "Raw this-pointer field offsets such as this+0x26c."
+    },
+    {
+      "name": "ida_code_symbol",
+      "enabled": true,
+      "pattern": "\\b(?:sub|FUN)_[0-9A-Fa-f]{4,16}\\b",
+      "description": "Decompiler/IDA function labels that still need human names."
+    },
+    {
+      "name": "ida_data_symbol",
+      "enabled": true,
+      "pattern": "\\b(?:byte|word|dword|qword|xmmword|ymmword|zmmword|oword|tbyte|unk|off|loc|jpt|DAT|LAB|PTR|stru|asc|flt|dbl|vftable)_[0-9A-Fa-f]{4,16}\\b",
+      "description": "Decompiler/IDA data, string, structure, label, jump-table, pointer, and vtable symbols. `DAT_[hex]` is generated; real DAT names such as DATFile and DATFileMgr are not matched."
+    },
+    {
+      "name": "ida_string_symbol",
+      "enabled": true,
+      "pattern": "\\ba[A-Z][A-Za-z0-9_]{2,}\\b",
+      "description": "IDA auto-generated string literal labels such as aEmployee or aLookextEpf."
+    },
+    {
+      "name": "ida_import_symbol",
+      "enabled": true,
+      "pattern": "\\b(?:__imp_[A-Za-z0-9_@]+|j_[A-Za-z0-9_@]+)\\b",
+      "description": "IDA import and jump-thunk labels."
+    },
+    {
+      "name": "generated_class_symbol",
+      "enabled": true,
+      "pattern": "\\b(?:Class_[0-9A-Fa-f]{4,16}|cls_0x[0-9A-Fa-f]+)\\b",
+      "description": "Generated class placeholders."
+    },
+    {
+      "name": "generated_method_symbol",
+      "enabled": true,
+      "pattern": "\\b(?:meth|ctor|dtor)_0x[0-9A-Fa-f]+\\b",
+      "description": "Generated method, constructor, and destructor placeholders."
+    },
+    {
+      "name": "generated_stack_symbol",
+      "enabled": true,
+      "pattern": "\\b(?:local|param|auStack|uStack|iStack|puStack|piStack|pcStack|pbStack|pdStack)_[0-9A-Fa-f]+\\b",
+      "description": "Decompiler stack slot and parameter placeholders."
+    },
+    {
+      "name": "generated_var_symbol",
+      "enabled": true,
+      "pattern": "\\b(?:uVar|iVar|bVar|cVar|sVar|lVar|fVar|dVar|pVar|ppVar|pcVar|pbVar|piVar|puVar|unaff|extraout)[0-9]+\\b",
+      "description": "Decompiler temporary variable placeholders."
+    },
+    {
+      "name": "generated_field_symbol",
+      "enabled": true,
+      "pattern": "\\b(?:field|mbr|slot|vftptr)_0x[0-9A-Fa-f]+\\b",
+      "description": "Raw generated structure/member, vftptr, and slot offsets."
+    },
+    {
+      "name": "generated_runtime_stub_symbol",
+      "enabled": true,
+      "pattern": "\\bnullsub_[0-9]+\\b",
+      "description": "IDA nullsub runtime/stub labels."
+    }
+  ]
+}

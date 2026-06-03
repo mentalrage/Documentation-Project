@@ -1,7 +1,7 @@
 *** UID:00003K | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -27,11 +27,15 @@
 
 The class is archive-named and used by DAT-manager code, but callers also include minimap version state, monster image archive bounds, and fitting-room item-state helpers. Keep it as a standalone helper until final folder ownership is proved.
 
+## Changes
+
+- 2026-06-03: Marked the class reconstructable after the live-verified [UID:0000WW][0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill](by-memory/0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill.md) boundary correction reaffirmed DATIndexVector ownership. Evidence is the existing DATIndexVector class/file documentation plus the 2026-06-03 live IDA boundary correction for `sub_423B00`.
+
 ## Methods And Helpers
 
 | Range | Method/helper | Notes |
 | --- | --- | --- |
-| [UID:0000WW][0x00423b00-0x00423c3c.DATIndexVectorResizeAndFill](by-memory/0x00423b00-0x00423c3c.DATIndexVectorResizeAndFill.md) | `ResizeAndFill` | Ensures `entryCount * 2` 32-bit slots, fills with the stored default value, and updates `lastIndex`/`entryCount`. |
+| [UID:0000WW][0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill](by-memory/0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill.md) | `ResizeAndFill` | Ensures `entryCount * 2` 32-bit slots, fills with the stored default value, and updates `lastIndex`/`entryCount`. |
 | [UID:0000XS][0x00457100-0x0045730e.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md) | `InsertNode` | Inserts an intrusive node into a bucket range, coalesces duplicate keys, and rehashes when load factor exceeds `maxLoadFactor`. |
 | [UID:0000XT][0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md) | private cleanup/remove helper | Detaches and frees a node, updates bucket first/last links, and returns the next node. IDA shows only the `InsertNode` EH/unwind cleanup block calling it. |
 | [UID:0000XU][0x004573d0-0x00457428.DATIndexVectorDestructor](by-memory/0x004573d0-0x00457428.DATIndexVectorDestructor.md) | destructor | Frees value storage, clears begin/end/capacity, then tail-jumps into shared [UID:0000XV][0x00457430-0x00457473.LinkedListStateCleanup](by-memory/0x00457430-0x00457473.LinkedListStateCleanup.md). |

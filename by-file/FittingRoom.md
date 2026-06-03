@@ -151,7 +151,7 @@ cashshop/
 - [UID:000162][0x004b95e0-0x004b969f.GrafPortDrawStateAccessors](by-memory/0x004b95e0-0x004b969f.GrafPortDrawStateAccessors.md)
 - [UID:00016C][0x004ba9a0-0x004bad66.GrafPortTextRunHelpers](by-memory/0x004ba9a0-0x004bad66.GrafPortTextRunHelpers.md)
 - [UID:00016I][0x004bb5e0-0x004bb7df.GrafPortDrawGlyph](by-memory/0x004bb5e0-0x004bb7df.GrafPortDrawGlyph.md)
-- [UID:0000WJ][0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload](by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md)
+- [UID:0000WJ][0x0041aa00-0x0041b2c9.CashShopVersionAndCatalogDownload](by-memory/0x0041aa00-0x0041b2c9.CashShopVersionAndCatalogDownload.md)
 - [UID:0000JC][FileDownloader](by-file/FileDownloader.md)
 - [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md)
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md)

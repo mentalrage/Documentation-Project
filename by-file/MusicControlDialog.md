@@ -1,7 +1,7 @@
 *** UID:0000LN | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MusicControlDialog
 
@@ -66,3 +66,7 @@ The generated source still calls `ChattingColorPane::ApplyMusicPlaybackState`, `
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `86`, confidence `80`.
 - Summary/evidence: the page documents dialog role, class and helper ownership, UI/audio dependencies, IDA evidence, generated owner pollution, and cross-references; confidence remains capped by helper ownership cleanup and generated `ChattingColorPane` pollution.
+- 2026-06-03 path consistency pass:
+  - What existed before: the page text and proposed source tree both placed the file at `ui/dialogs/MusicControlDialog.cpp`, but the validator-managed `PROPOSED_RECONSTRUCTION_PATH` was blank, leaving this root in projected-path gaps.
+  - Changed to: set `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/"` without changing scores.
+  - Summary/evidence: existing IDA-backed page evidence anchors the compact `0x00528e60-0x0052a535` music-dialog island, [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) already lists `ui/dialogs/MusicControlDialog.cpp`, and Wave2/generated output still emits `class_MusicControlDialog.cpp` only as a supporting lead. No reconstructed C++ was added because the exact child method split and final field names remain below the `95+` gate.

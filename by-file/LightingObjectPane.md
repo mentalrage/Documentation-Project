@@ -7,7 +7,7 @@
 
 ## Status
 
-- Confidence: strong for lifecycle and intensity ownership; medium for the omitted light-manager render helper.
+- Confidence: strong for lifecycle and intensity ownership; medium for final attached-object/light-binding interface names.
 - Proposed module: `map/LightingObjectPane.cpp`
 - Current generated source: `source-3/simroot_v2/class_LightingObjectPane.cpp`
 - Primary class doc: [UID:000075][LightingObjectPane](by-class/LightingObjectPane.md)
@@ -25,7 +25,7 @@ The file should stay in the map-object family even though it calls into render/l
 | --- | --- | --- |
 | `LightingObjectPane` | `0x0053c5e0-0x0053c6a1`, scalar destructor at `0x0053d380` | Light-source object pane with attached object/light-binding cleanup. |
 | `SetIntensity` | `0x0053c980-0x0053c9b5` | Calls release/rebind virtual slots on the attached object/light-binding pointer when intensity changes. |
-| probable render/light-manager virtual | `0x0053c9c0-0x0053c9eb` | Omitted from active output; calls a light-manager vtable slot with map/render context and a field at `+0x128`. Owner still needs final confirmation. |
+| resolved neighboring light-table apply helper | [UID:0002TZ][0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight](by-memory/0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight.md) | Now documented as an AttachmentAnchorResolver-adjacent helper: live callers compute bounds, resolve an anchor point, then call global light-table slot `+0x0c`. Keep it outside `LightingObjectPane::SetIntensity`. |
 
 ## Boundary Notes
 
@@ -39,6 +39,7 @@ The file should stay in the map-object family even though it calls into render/l
 - [UID:000075][LightingObjectPane](by-class/LightingObjectPane.md)
 - [UID:0001DG][0x0053c5e0-0x0053c6a1.LightingObjectPaneLifecycle](by-memory/0x0053c5e0-0x0053c6a1.LightingObjectPaneLifecycle.md)
 - [UID:0001DI][0x0053c980-0x0053c9b5.LightingObjectPaneSetIntensity](by-memory/0x0053c980-0x0053c9b5.LightingObjectPaneSetIntensity.md)
+- [UID:0002TZ][0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight](by-memory/0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight.md)
 - [UID:0001DM][0x0053d380-0x0053d422.LightingObjectPaneScalarDeletingDestructor](by-memory/0x0053d380-0x0053d422.LightingObjectPaneScalarDeletingDestructor.md)
 - [UID:0000M5][ObjectPane](by-file/ObjectPane.md)
 - [UID:0000L3][MapPane](by-file/MapPane.md)
@@ -56,3 +57,7 @@ The file should stay in the map-object family even though it calls into render/l
   - What existed before: `+0x134` was described as an owned lighting interface.
   - Changed to: constructor-supplied attached object/light-binding interface pointer.
   - Summary/evidence: IDA MCP shows constructor `0x0053c5e0` stores the first constructor argument into `+0x134`, creator paths pass the source object pane there, SetIntensity calls virtual slots `+0x4c`/`+0x48`, and destructors call slot `+0x4c`.
+- 2026-06-03 neighbor resolution update:
+  - Before: `0x0053c9c0-0x0053c9eb` was listed as an unresolved light-manager virtual near `LightingObjectPane`.
+  - Changed to: linked [UID:0002TZ][0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight](by-memory/0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight.md) and kept `LightingObjectPane` ownership limited to lifecycle/destructor/`SetIntensity` behavior.
+  - Evidence: restarted IDA MCP caller-context checks show `0x0053c9c0` is called after `AttachmentAnchorResolver::ComputeScreenBounds` and `ResolveAnchorPoint`, while `SetIntensity` has separate callers and a padding gap before `0x0053c9c0`.

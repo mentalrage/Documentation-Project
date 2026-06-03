@@ -39,7 +39,7 @@ Observed field use spans `0x12` bytes. Final C++ `sizeof` and tail padding shoul
 - `Decoder::Decoder` at `0x004a5640` installs vtable `0x006192d8`, clears `+0x04`, `+0x08`, and `+0x0c`, then writes word `0x0101` at `+0x10`.
 - `Encoder::Initialize` at `0x004a55c0` stores buffer/size at `+0x04/+0x08`, clears cursor `+0x0c`, and sets byte `+0x11`.
 - Raw [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md) use `+0x04` as buffer base, `+0x08` as limit, `+0x0c` as cursor, `+0x10` as byte-order flag, and `+0x11` as valid flag.
-- Raw [UID:00013R][0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md) use the same fields for UTF-16, multibyte, raw-byte, transformed-byte, skip, and initialize bodies; the raw initialize stores buffer/limit, clears cursor, and sets valid flag.
+- Raw [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md) use the same fields for UTF-16, multibyte, raw-byte, transformed-byte, skip, and initialize bodies; the raw initialize stores buffer/limit, clears cursor, and sets valid flag.
 - Raw `Decoder::Initialize` at `0x004a5db0` performs the same buffer/size/cursor/valid setup, but IDA does not currently model it as a function start.
 - `Encoder::Finalize` at `0x004a55e0` returns previous valid state, optionally reports cursor `+0x0c`, writes a trailing NUL at `buffer[cursor]`, clears buffer/size/cursor, and resets byte `+0x11`.
 - `Decoder::Finalize` at `0x004a5dd0` returns previous valid state, clears buffer/size/cursor, and resets byte `+0x11`.
@@ -63,7 +63,7 @@ Current `class_Encoder.meta_wave3` already records an 18-byte stream-like layout
 - [UID:00003M][Decoder](by-class/Decoder.md)
 - [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md)
 - [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md)
-- [UID:00013Q][0x004a5680-0x004a5dcf.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md)
+- [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md)
 - [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md)
-- [UID:00013R][0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dcc.DecoderStringAndBlobReaders.md)
+- [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md)
 - [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md)

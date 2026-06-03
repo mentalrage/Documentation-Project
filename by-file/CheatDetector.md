@@ -1,7 +1,7 @@
 *** UID:0000I6 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/security/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # CheatDetector
 
@@ -11,6 +11,7 @@
 - Proposed module: `security/CheatDetector.cpp`
 - Current recovered source: `source-3/simroot_v2/class_CheatDetector.cpp`
 - Main address range: [UID:000108][0x00483f00-0x0048402c.CheatDetector](by-memory/0x00483f00-0x0048402c.CheatDetector.md)
+- Projected reconstruction path: `NexusTK/security/`, matching [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) and the paired [UID:0000P5][VirusChecker](by-file/VirusChecker.md) security module placement.
 
 ## File Role
 
@@ -22,7 +23,8 @@ The only currently visible virtual check method returns true unconditionally, so
 
 | Entity | Address | Role |
 | --- | --- | --- |
-| [UID:000020][CheatDetector](by-class/CheatDetector.md) | `0x00483f00-0x0048402c` | Constructor, disabled always-true virtual check, singleton-clear helper, scalar deleting destructor. |
+| [UID:000020][CheatDetector](by-class/CheatDetector.md) | `0x00483f00-0x0048402c` | Constructor, raw time-snapshot helper, disabled always-true virtual check, singleton-clear helper, scalar deleting destructor. |
+| [UID:0002EN][0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper](by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md) | `0x00483f90-0x00483fd9` | Raw unmodeled helper that samples `GetSystemTimeAsFileTime`, stores timer/time snapshots on the object, and reads `g_pTimerMgr + 0x18`; no caller surface found. |
 | [UID:000109][0x00483fe0-0x0048402d.CheatDetectorVirtualClearAndDestructor](by-memory/0x00483fe0-0x0048402d.CheatDetectorVirtualClearAndDestructor.md) | `0x00483fe0-0x0048402d` | Always-true vtable slot, singleton clear helper, and scalar deleting destructor with polluted base-teardown naming. |
 | [UID:0001YU][SecuritySingletonVtables](by-type/by-vtable/SecuritySingletonVtables.md) | `0x00615564` | Two-slot RTTI-backed vtable: scalar deleting destructor and true-return virtual check. |
 | [UID:0000QJ][g_pCheatDetector](by-global/g_pCheatDetector.md) | [UID:0001P5][0x0067ab3c-0x0067ab40.g_pCheatDetector](by-memory/0x0067ab3c-0x0067ab40.g_pCheatDetector.md) | Process singleton set by the constructor and cleared by destructor helpers. |
@@ -36,11 +38,14 @@ The only currently visible virtual check method returns true unconditionally, so
 - 2026-05-24 IDA recheck confirms `0x00483fe0` is a vtable-only function returning true, `0x00483ff0` clears `g_pCheatDetector`, and `0x00484000` is vtable-referenced from `0x00615564`.
 - Current generated source still calls the destructor base `EventDispatcher`, while the constructor and metadata indicate timer-handler style ownership; treat that base label as suspect until inheritance is resolved.
 - 2026-05-26 recheck using `simroot_v2` and IDA MCP only: active output still disables `0x00483fe0`, omits `0x00483ff0`, and emits `0x00484000` with polluted base teardown naming.
+- 2026-06-03 IDA raw helper refresh confirms [UID:0002EN][0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper](by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md) as executable project code inside the `CheatDetector` island, with no IDA function record, no incoming/literal xrefs, a `GetSystemTimeAsFileTime` import call, and a `g_pTimerMgr + 0x18` read.
+- [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) already places `CheatDetector.cpp` and `VirusChecker.cpp` under `security/`; assigning `NexusTK/security/` here aligns the file page with that documented project-structure decision while keeping confidence capped by unresolved base-type and helper reachability questions.
 
 ## Migration Notes
 
 - Candidate simpath: `security/CheatDetector.cpp`.
 - Keep the disabled `0x00483fe0` always-true virtual method documented; it is a real vtable slot even though active Wave3 output disables it.
+- Keep [UID:0002EN][0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper](by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md) visible as source-authored project code, but do not emit final C++ for it until caller/reachability and field names reach the `95+` code-emission gate.
 - Do not merge this into `Application.cpp`: application startup constructs it, but the singleton/vtable and timer base make it a distinct module.
 
 ## Cross-References
@@ -54,9 +59,14 @@ The only currently visible virtual check method returns true unconditionally, so
 - [UID:0000HG][Application](by-file/Application.md)
 - [UID:0000OT][TimerMgr](by-file/TimerMgr.md)
 - [UID:0001Q7][client_anticheat](by-meta/client_anticheat.md)
+- [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md)
 
 ## Changes
 
+- 2026-06-03 parent-chain and projected-path pass:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, scores were `84/78`, and the proposed contents omitted the raw time-snapshot helper.
+  - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/security/"`, scores `86/80`, and contents/evidence now include [UID:0002EN][0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper](by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md).
+  - Summary/evidence: [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) already lists `security/CheatDetector.cpp`, the file page already proposed `security/CheatDetector.cpp`, [UID:0000P5][VirusChecker](by-file/VirusChecker.md) is already staged under `NexusTK/security/`, and the 2026-06-03 IDA MCP raw helper pass confirmed the additional timer-snapshot helper inside the compact `CheatDetector` island. Confidence is still only `80` because exact timer/event base naming and helper reachability remain unresolved.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:78`.

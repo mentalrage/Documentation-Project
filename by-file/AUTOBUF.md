@@ -22,8 +22,8 @@ The generated `class_AUTOBUF_unsigned_char.cpp` file currently emits only the re
 
 | Range | Role |
 | --- | --- |
-| `0x004e6ab0-0x004e6adf` | `AUTOBUF<unsigned char>::Resize`; frees old storage, allocates a new byte buffer, stores pointer and byte count. |
-| `0x004f5640-0x004f5669` | `_AUTOBUF<unsigned char>` constructor; calls `LObject` setup, installs vtable, clears pointer/count fields. Used by `MapPane::LoadMapFromFile` for a stack/local compressed-map payload buffer. |
+| `0x004e6ab0-0x004e6ad7` | `AUTOBUF<unsigned char>::Resize`; frees old storage, allocates a new byte buffer, stores pointer and byte count. |
+| `0x004f5640-0x004f566a` | `_AUTOBUF<unsigned char>` constructor; calls `LObject` setup, installs vtable, clears pointer/count fields. Used by `MapPane::LoadMapFromFile` for a stack/local compressed-map payload buffer. |
 
 ## Source-Structure Decision
 
@@ -41,8 +41,8 @@ The `util/` placement is supported by [UID:0001WN][AUTOBUF_unsigned_char](by-typ
 
 | Evidence | Impact |
 | --- | --- |
-| [UID:000188][0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize.md) | Confirms the concrete resize helper frees old storage, allocates the requested byte count, and updates pointer/count fields. |
-| [UID:00019E][0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor.md) | Confirms constructor helper behavior and MapPane caller evidence, excluding LogoPlayerPane-only ownership. |
+| [UID:000188][0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize.md) | Confirms the concrete resize helper frees old storage, allocates the requested byte count, updates pointer/count fields, and ends before nine bytes of alignment padding. |
+| [UID:00019E][0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor.md) | Confirms constructor helper behavior and MapPane caller evidence, excluding LogoPlayerPane-only ownership. |
 | [UID:0002MR][0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData](by-memory/0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData.md) | Confirms RTTI/vtable data for `_AUTOBUF<unsigned char>`, recreated through declarations rather than copied as source data. |
 | [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md) | Consolidates field layout, caller spread, and template/header uncertainty. |
 
@@ -50,8 +50,8 @@ The `util/` placement is supported by [UID:0001WN][AUTOBUF_unsigned_char](by-typ
 
 - [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md)
 - [UID:00000P][AUTOBUF_unsigned_char](by-class/AUTOBUF_unsigned_char.md)
-- [UID:000188][0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize.md)
-- [UID:00019E][0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor.md)
+- [UID:000188][0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize.md)
+- [UID:00019E][0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor.md)
 - [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md)
 - [UID:0000L3][MapPane](by-file/MapPane.md)
 - [UID:0000FP][UserLookPane](by-class/UserLookPane.md)
@@ -65,3 +65,7 @@ The `util/` placement is supported by [UID:0001WN][AUTOBUF_unsigned_char](by-typ
   - Before: projected reconstruction path was blank, leaving the file root in generated coverage error state.
   - After: scored as `72/86` and assigned `NexusTK/util/`.
   - Summary/evidence: proposed source-tree utility-container rationale, concrete constructor/resize/vtable child pages, and cross-feature caller evidence support utility ownership. C++ remains absent because the likely original artifact is template/header support and exact spelling/casing is not final-audit quality.
+- 2026-06-03:
+  - Before: the concrete helper rows used stale exclusive-end labels for both AUTOBUF child pages.
+  - After: corrected `Resize` to `0x004e6ab0-0x004e6ad7` and constructor to `0x004f5640-0x004f566a` from live IDA function bounds.
+  - Summary/evidence: IDA MCP reports `Resize` size `0x27`, constructor size `0x2a`, a nine-byte alignment gap after `Resize`, and 21 vtable references proving this is shared template support.

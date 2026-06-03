@@ -32,7 +32,7 @@
 | `OnKeyEvent` | `0x004f55d0-0x004f55fc` | Enter, Escape, and Space trigger segment advance. |
 | `OnMouseEvent` | `0x004f5600-0x004f561d` | Mouse-up triggers segment advance. |
 | `OnClose` | `0x004f5620-0x004f5634` | Marks the pane for deletion and invokes the completion callback. |
-| AUTOBUF constructor helper | `0x004f5640-0x004f5669` | Adjacent compiler-emitted `_AUTOBUF<unsigned char>` constructor; not part of the pane class. |
+| AUTOBUF constructor helper | `0x004f5640-0x004f566a` | Adjacent compiler-emitted `_AUTOBUF<unsigned char>` constructor; not part of the pane class. |
 | deleting-destructor thunks | `0x004f566a`, `0x004f5675` | Compiler adjustor thunks; subtract `0xa0`/`0xa4` and forward to `0x004f5680`. Current generated source has one nonsensical adjusted-this expression and one missing body. |
 | scalar deleting destructor | `0x004f5680-0x004f570c` | Releases callback, frees the AUTOBUF buffer, calls base video teardown, and optionally deletes. |
 | `OpenBinkVideo` | `0x005c0110-0x005c0174` | Opens the current memory-backed Bink segment after configuring DirectSound. Physically documented with [UID:0001NT][0x005c0040-0x005c045b.VideoPlayerPane](by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md). |
@@ -66,7 +66,7 @@
 - [UID:0002PW][0x004f5620-0x004f5634.LogoPlayerPaneOnClose](by-memory/0x004f5620-0x004f5634.LogoPlayerPaneOnClose.md)
 - [UID:0002PX][0x004f566a-0x004f5680.LogoPlayerPaneDeletingDestructorThunks](by-memory/0x004f566a-0x004f5680.LogoPlayerPaneDeletingDestructorThunks.md)
 - [UID:0002PY][0x004f5680-0x004f570c.LogoPlayerPaneScalarDeletingDestructor](by-memory/0x004f5680-0x004f570c.LogoPlayerPaneScalarDeletingDestructor.md)
-- [UID:00019E][0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f5669.AUTOBUFUnsignedCharConstructor.md)
+- [UID:00019E][0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor.md)
 - [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md)
 - [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md)
 - [UID:0001RN][startup-logo-media](by-resource/startup-logo-media.md)

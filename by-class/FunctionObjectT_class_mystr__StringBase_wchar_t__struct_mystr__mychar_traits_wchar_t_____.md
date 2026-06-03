@@ -33,7 +33,7 @@ This is a generated instantiation of `FunctionObjectT<mystr::StringBase<wchar_t,
 
 | Evidence | Detail | Interpretation |
 | --- | --- | --- |
-| Exact memory page | [UID:0001CQ][0x0052a460-0x0052a49d.FunctionObjectTStringDestructor](by-memory/0x0052a460-0x0052a49d.FunctionObjectTStringDestructor.md) | Confirms this page represents a single narrow destructor-support range. |
+| Exact memory page | [UID:0001CQ][0x0052a460-0x0052a49e.FunctionObjectTStringDestructor](by-memory/0x0052a460-0x0052a49e.FunctionObjectTStringDestructor.md) | Confirms this page represents a single narrow destructor-support range. |
 | IDA decompilation note | Decompilation writes the `FunctionObjectT<mystr::StringBase<wchar_t,mystr::mychar_traits<wchar_t>>>::vftable` before base cleanup. | The string spelling is type-parameter evidence for this callback template instantiation. |
 | Base cleanup | The body calls the `LObject` base destructor helper after installing the local vtable. | Behavior matches `LObject`-derived callback object destruction, not string-buffer destruction. |
 | Delete guard | Conditional storage delete follows scalar-deleting-destructor flag handling. | This is compiler-emitted destructor support, so direct feature callers are not expected. |
@@ -64,7 +64,7 @@ This is a generated instantiation of `FunctionObjectT<mystr::StringBase<wchar_t,
 
 - [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md)
 - [UID:0001WQ][FunctionObjectTemplates](by-type/by-template/FunctionObjectTemplates.md)
-- [UID:0001CQ][0x0052a460-0x0052a49d.FunctionObjectTStringDestructor](by-memory/0x0052a460-0x0052a49d.FunctionObjectTStringDestructor.md)
+- [UID:0001CQ][0x0052a460-0x0052a49e.FunctionObjectTStringDestructor](by-memory/0x0052a460-0x0052a49e.FunctionObjectTStringDestructor.md)
 - [UID:0001WS][StringBaseTemplate](by-type/by-template/StringBaseTemplate.md)
 - [UID:0001CP][0x00528e60-0x0052a535.MusicControlDialog](by-memory/0x00528e60-0x0052a535.MusicControlDialog.md)
 - [UID:0002N2][0x0052a3e0-0x0052a43e.MusicControlDialogFolderCallbackInvoke](by-memory/0x0052a3e0-0x0052a43e.MusicControlDialogFolderCallbackInvoke.md)

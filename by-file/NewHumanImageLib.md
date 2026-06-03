@@ -39,6 +39,8 @@ This is a separate source module from [UID:0000JY][HumanImageLib](by-file/HumanI
 
 `Motion.tbl` vector helpers [UID:00017T][0x004e5240-0x004e5415.VectorGrowMotion](by-memory/0x004e5240-0x004e5415.VectorGrowMotion.md) and [UID:000185][0x004e5dd0-0x004e5e39.DestroyMotionVector](by-memory/0x004e5dd0-0x004e5e39.DestroyMotionVector.md) belong to this module. They are not methods on the runtime [UID:00008R][Motion](by-class/Motion.md) class despite the name overlap.
 
+[UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md) belongs to this module. It computes composition bounds, calls the shared ResourceLayout raw rectangle helper [UID:0002KT][0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md) for overlay-resource rectangles, and is reached by the base/overlay bounds wrappers at `0x004e0b6e` and `0x004e0d01`.
+
 The tiny [UID:000182][0x004e5be0-0x004e5beb.NewHumanImageLibSingletonClearHelper](by-memory/0x004e5be0-0x004e5beb.NewHumanImageLibSingletonClearHelper.md) also belongs here. It clears `dword_67A760`, not the old [UID:0000JY][HumanImageLib](by-file/HumanImageLib.md) singleton.
 
 The disabled/excluded methods `LoadPartFrameDrawRecord` at `0x004e0d70` and `GetHeadCount` at `0x004e0dd0` are still real `NewHumanImageLib` owner evidence and should be kept with this module when reviewing file layout. They are disabled from active emission, not evidence for another class.
@@ -53,6 +55,7 @@ Keep `NewHumanImageLib` as its own render/image source file. It is too large and
 
 - [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md)
 - [UID:0002JR][0x004dfd10-0x004e024a.NewHumanImageLibConstructor](by-memory/0x004dfd10-0x004e024a.NewHumanImageLibConstructor.md)
+- [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md)
 - [UID:00017R][0x004dfd10-0x004e68a7.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md)
 - [UID:0000RT][g_pNewHumanImageLib](by-global/g_pNewHumanImageLib.md)
 - [UID:0001Y9][NewHumanImageLibVtable](by-type/by-vtable/NewHumanImageLibVtable.md)
@@ -75,3 +78,6 @@ Keep `NewHumanImageLib` as its own render/image source file. It is too large and
 - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though this page and the proposed tree both place the file under `render/NewHumanImageLib.cpp`.
 - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/"` and added the exact constructor page link.
 - Summary/evidence: `by-project-structure/proposed-source-tree.md` lists `render/NewHumanImageLib.cpp`, and IDA MCP rechecked the constructor at `0x004dfd10-0x004e024a`.
+- Before: the file page did not link the exact composition-bounds child page.
+- Changed to: added [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md) to owned helpers/cross-references.
+- Summary/evidence: IDA MCP on 2026-06-03 confirmed the `0x004e31f0-0x004e3a2e` boundary, callers, callees, and two overlay-resource rectangle lookups through [UID:0002KT][0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md).

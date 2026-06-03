@@ -1,4 +1,4 @@
-﻿*** UID:0000TR | DO NOT MODIFY OR REMOVE!!! ***
+*** UID:0000TR | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
@@ -40,9 +40,9 @@
 - [UID:0000UG][DestroyExceptionHandler_4673A0](by-item/DestroyExceptionHandler_4673A0.md) : reconstructable : 84% : strong : Tiny cleanup helper; deletes `g_pCrashTarget` through the virtual deleting destructor in paired fatal resource-load cleanup paths.
 - [UID:0000UH][DrawEncodedAlphaFrame_00462F20](by-item/DrawEncodedAlphaFrame_00462F20.md) : reconstructable : 84% : strong : Shared alpha-mask blitter for encoded signed-run frame rows; caller set and blend-mode behavior are IDA-backed, frame-source type remains provisional.
 - [UID:0000UI][DrawFrameWithBlendMode_00462E10](by-item/DrawFrameWithBlendMode_00462E10.md) : reconstructable : 82% : strong : Live IDA MCP on 2026-05-30 verified `sub_462E10` as the alpha-mask frame draw helper with exact bounds, two LightObjImageLib callers, clip/intersect setup, and mode dispatch to byte copy/add/subtract row helpers.
-- [UID:0000UJ][DrawTextInRect_004BAD70](by-item/DrawTextInRect_004BAD70.md) : reconstructable : 68% : strong : - Confidence: strong for function behavior and caller fanout, medium for final owner.
+- [UID:0000UJ][DrawTextInRect_004BAD70](by-item/DrawTextInRect_004BAD70.md) : reconstructable : 76% : strong : Shared wrapped text renderer with exact memory-page evidence for boundary, 130 callers, callee list, draw-state offsets, bounded line copy, and range-check path; final source owner remains open.
 - [UID:0000UK][DrawTextRunCallback_00593DB0](by-item/DrawTextRunCallback_00593DB0.md) : reconstructable : 70% : strong : - Confidence: strong for IDA callback bounds, address-taking xrefs, and text-run rendering behavior.
-- [UID:0000UL][EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0](by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md) : reconstructable : 70% : strong : - IDA-confirmed employee inventory helper, packet dispatcher, and record parser; `0x004a3be0` remains raw-code-shaped with no function object/xrefs.
+- [UID:0000UL][EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0](by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md) : reconstructable : 78% : strong : EmployeeDialogPane helper wrapper with live IDA function bounds, dispatcher/parser xrefs, quantity-dialog construction callers, and raw `0x004a3be0` update-record caveat.
 - [UID:0000UM][EncodeTextEditState_0058E490](by-item/EncodeTextEditState_0058E490.md) : reconstructable : 72% : strong : - IDA-confirmed TextEdit serialization helper at `0x0058e490-0x0058e691`; owner remains medium confidence because incoming xref is a raw thunk at `0x00498c4a`.
 - [UID:0000UN][EPFArchiveMetadataTable](by-item/EPFArchiveMetadataTable.md) : reconstructable : 72% : strong : - Confidence: strong for IDA-confirmed loader behavior and in-memory stride/sentinel shape, medium for original type names.
 - [UID:0000UO][FolderTreePaneOwnerPollution_47f280_58a8e0](by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md) : routing : 72% : strong : FolderTreePane owner-pollution index with canonical owner map for filesystem tree-control, chat UI, surface/presentation, screenshot, and system-message ranges; not a code-emitting parent.
@@ -55,7 +55,7 @@
 - [UID:0000UV][InitializeMainUiGraph_004F7D10](by-item/InitializeMainUiGraph_004F7D10.md) : reconstructable : 70% : strong : - Confidence: strong for boundary, caller, and high-level behavior.
 - [UID:0000UW][LoadDatFileBuffer_004BB120](by-item/LoadDatFileBuffer_004BB120.md) : reconstructable : 70% : strong : - Confidence: strong
 - [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) : reconstructable : 76% : strong : Exact by-memory page documents IDA MCP boundary, caller/callee inventory, broad raw xrefs, projection behavior, table offsets, and the resolved next-record boundary/span relation.
-- [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) : reconstructable : 70% : strong : Exact by-memory page now documents IDA MCP boundary, caller/callee inventory, direct/merge modes, table layout, and open type-name questions.
+- [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) : reconstructable : 82% : strong : IDA-backed ImageFrameTable helper index with exact boundary, parent assignment, direct/merge loader behavior, prefix literals, caller grouping, callee family, and final type-name caveats.
 - [UID:0000UZ][LoadPcxImage_004A17B0](by-item/LoadPcxImage_004A17B0.md) : reconstructable : 50% : medium : - Confidence: strong for behavior and caller family.
 - [UID:0000V0][LoadTileEpfMetadata_004D1B80](by-item/LoadTileEpfMetadata_004D1B80.md) : reconstructable : 70% : strong : - Confidence: strong for behavior and owner.
 - [UID:0000V1][PacketBufferHelpers](by-item/PacketBufferHelpers.md) : reconstructable : 70% : strong : - Confidence: strong for helper behavior and broad utility role.
@@ -75,7 +75,7 @@
 - [UID:0000VF][ScreenshotProofPacket_00558240](by-item/ScreenshotProofPacket_00558240.md) : reconstructable : 70% : strong : Proof helper builds opcode `0x83` from a masked MD5 digest, inserts random pad bytes, and queues 49 bytes; owner remains unproven.
 - [UID:0000VG][ServerSelectHelpers_574510_5745b0](by-item/ServerSelectHelpers_574510_5745b0.md) : reconstructable : 50% : medium : - Confidence: strong for server-select ownership, medium for final helper names.
 - [UID:0000VH][SpellMenuActionButtonState_51d6c0_51e600](by-item/SpellMenuActionButtonState_51d6c0_51e600.md) : reconstructable : 70% : strong : - Confidence: strong for behavior and spell-menu ownership.
-- [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md) : reconstructable : 50% : medium : - Confidence: strong that this is startup notice code; medium for exact function boundaries.
+- [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md) : reconstructable : 76% : strong : StartupWindow raw notice helper boundary-debt tracker backed by the stronger [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) aggregate and exact [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md) child; remaining raw starts still need exact child pages.
 - [UID:0000VJ][TransferServerDialogPaneThunks_599220_5993e0](by-item/TransferServerDialogPaneThunks_599220_5993e0.md) : reconstructable : 50% : medium : - Confidence: strong for helper behavior, medium for final modeling policy.
 - [UID:0000VK][VectorGrowArchiveIndex_004E5990](by-item/VectorGrowArchiveIndex_004E5990.md) : reconstructable : 70% : strong : - Entity kind: free helper
 
