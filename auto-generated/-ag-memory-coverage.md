@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2171
-Total_Reconstructable: 1272
+Total_Reconstructable: 1273
 Total_Not_Reconstructable: 13
-Total_Reconstructed_Assigned: 754
+Total_Reconstructed_Assigned: 755
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 518
-Total_Unclassified: 886
+Total_Unclassified: 885
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -363,6 +363,7 @@ Total_Error: 0
 | [UID:00019Y][0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore](by-memory/0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore.md) | assigned | `0000NH` |  | no | `auto-generated/NexusTK/ui/controls/ScrolledPictureControlPane.cpp` | `by-memory/0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore.md` |  |
 | [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md) | assigned | `0000HP` |  | no | `auto-generated/NexusTK/login/BackStoryDialogPane.cpp` | `by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md` |  |
 | [UID:0001A5][0x005008c0-0x0050114d.BlueAlertPaneCore](by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md) | assigned | `00000Y` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |  |
+| [UID:0001A6][0x00501150-0x00502383.UserCreateAppearanceSelectorControls](by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md` |  |
 | [UID:0002HV][0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw](by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md) | assigned | `00005O` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |  |
 | [UID:0002HW][0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw](by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md) | assigned | `00005O` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md` |  |
 | [UID:0002I1][0x00503e80-0x00503e8b.MapPaneHasEffectListEntries](by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md) | assigned | `00007Q` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md` |  |
@@ -1715,7 +1716,6 @@ Total_Error: 0
 | [UID:0001A0][0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage](by-memory/0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage.md) | unclassified |  |  | no |  | `by-memory/0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage.md` |  |
 | [UID:0001A1][0x004ffd80-0x0050008b.HistoryViewingPaneCore](by-memory/0x004ffd80-0x0050008b.HistoryViewingPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x004ffd80-0x0050008b.HistoryViewingPaneCore.md` |  |
 | [UID:0001A3][0x00500410-0x00500632.NewHistoryDialogPaneCore](by-memory/0x00500410-0x00500632.NewHistoryDialogPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x00500410-0x00500632.NewHistoryDialogPaneCore.md` |  |
-| [UID:0001A6][0x00501150-0x00502383.UserCreateAppearanceSelectorControls](by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md) | unclassified |  |  | no |  | `by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md` |  |
 | [UID:0001A7][0x005023b0-0x005023bb.HistoryViewingPaneSingletonClear](by-memory/0x005023b0-0x005023bb.HistoryViewingPaneSingletonClear.md) | unclassified |  |  | no |  | `by-memory/0x005023b0-0x005023bb.HistoryViewingPaneSingletonClear.md` |  |
 | [UID:0001A8][0x005023e0-0x005023eb.NewHistoryDialogPaneSingletonClear](by-memory/0x005023e0-0x005023eb.NewHistoryDialogPaneSingletonClear.md) | unclassified |  |  | no |  | `by-memory/0x005023e0-0x005023eb.NewHistoryDialogPaneSingletonClear.md` |  |
 | [UID:0001A9][0x00502410-0x0050241b.StaffsDialogPaneSingletonClear](by-memory/0x00502410-0x0050241b.StaffsDialogPaneSingletonClear.md) | unclassified |  |  | no |  | `by-memory/0x00502410-0x0050241b.StaffsDialogPaneSingletonClear.md` |  |

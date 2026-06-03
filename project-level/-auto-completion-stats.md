@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 00:29:40
+Generated: 2026-06-03 00:35:02
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -142,9 +142,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000C5` | 78 | 74 | 76.0 | `by-class/SayToPlanMessageInputPane.md` |
-| `0000FI` | 80 | 74 | 77.0 | `by-class/UserFaceColorSelectListPane.md` |
-| `0000FK` | 80 | 74 | 77.0 | `by-class/UserHairColorSelectListPane.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 | `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
@@ -167,6 +164,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000091` | 78 | 76 | 77.0 | `by-class/NewHistoryDialogPane.md` |
 | `00009T` | 78 | 76 | 77.0 | `by-class/OldSystemMessagePane.md` |
 | `0000AD` | 78 | 76 | 77.0 | `by-class/PhoneBookDialog.md` |
+| `0000AH` | 78 | 76 | 77.0 | `by-class/PictureViewPane.md` |
+| `0000CD` | 78 | 76 | 77.0 | `by-class/ScreenshotCapture.md` |
+| `0000CZ` | 78 | 76 | 77.0 | `by-class/ServerItemMenuDialog.md` |
 
 ## Low_Both
 

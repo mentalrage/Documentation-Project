@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 215
+Total_Reconstructable: 218
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 131
+Total_Reconstructed_Assigned: 134
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 370
+Total_Unclassified: 367
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -117,6 +117,7 @@ Total_Error: 0
 | [UID:0000BX][RequestSyncGate](by-class/RequestSyncGate.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/RequestSyncGate.md` |  |
 | [UID:0000C3][SayInputPane](by-class/SayInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayInputPane.md` |  |
 | [UID:0000C4][SayToGroupMessageInputPane](by-class/SayToGroupMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToGroupMessageInputPane.md` |  |
+| [UID:0000C5][SayToPlanMessageInputPane](by-class/SayToPlanMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToPlanMessageInputPane.md` |  |
 | [UID:0000CR][SelectionControlPane](by-class/SelectionControlPane.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-class/SelectionControlPane.md` |  |
 | [UID:0000CU][SelfLookPane](by-class/SelfLookPane.md) | assigned | `0000NL` |  | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane.md` |  |
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
@@ -136,6 +137,8 @@ Total_Error: 0
 | [UID:0000FA][TreeItor_near_class_EventHandler___](by-class/TreeItor_near_class_EventHandler___.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/TreeItor_near_class_EventHandler___.md` |  |
 | [UID:0000F8][Tree_near_class_EventHandler___](by-class/Tree_near_class_EventHandler___.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/Tree_near_class_EventHandler___.md` |  |
 | [UID:0000FD][UInt32Vector](by-class/UInt32Vector.md) | assigned | `0000P3` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-class/UInt32Vector.md` |  |
+| [UID:0000FI][UserFaceColorSelectListPane](by-class/UserFaceColorSelectListPane.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-class/UserFaceColorSelectListPane.md` |  |
+| [UID:0000FK][UserHairColorSelectListPane](by-class/UserHairColorSelectListPane.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-class/UserHairColorSelectListPane.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
 | [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md) | assigned | `0000P4` |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-class/VideoPlayerPane.md` |  |
 | [UID:0000GB][WSAError](by-class/WSAError.md) | assigned | `0000J5` | 160 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/WSAError.md` |  |
@@ -484,7 +487,6 @@ Total_Error: 0
 | [UID:0000C0][RightButtonMenuPane](by-class/RightButtonMenuPane.md) | unclassified |  |  | no |  | `by-class/RightButtonMenuPane.md` |  |
 | [UID:0000C1][RingBuffer](by-class/RingBuffer.md) | unclassified |  |  | no |  | `by-class/RingBuffer.md` |  |
 | [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md) | unclassified |  |  | no |  | `by-class/RingBufferIterator.md` |  |
-| [UID:0000C5][SayToPlanMessageInputPane](by-class/SayToPlanMessageInputPane.md) | unclassified |  |  | no |  | `by-class/SayToPlanMessageInputPane.md` |  |
 | [UID:0000C6][SayToUserMessageInputPane](by-class/SayToUserMessageInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserMessageInputPane.md` |  |
 | [UID:0000C7][SayToUserNameInputPane](by-class/SayToUserNameInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserNameInputPane.md` |  |
 | [UID:0000C9][ScreenEffecter](by-class/ScreenEffecter.md) | unclassified |  |  | no |  | `by-class/ScreenEffecter.md` |  |
@@ -573,9 +575,7 @@ Total_Error: 0
 | [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md) | unclassified |  |  | no |  | `by-class/UrlAlertPane.md` |  |
 | [UID:0000FG][UseInputPane](by-class/UseInputPane.md) | unclassified |  |  | no |  | `by-class/UseInputPane.md` |  |
 | [UID:0000FH][UserCreatePreviewControlPane](by-class/UserCreatePreviewControlPane.md) | unclassified |  |  | no |  | `by-class/UserCreatePreviewControlPane.md` |  |
-| [UID:0000FI][UserFaceColorSelectListPane](by-class/UserFaceColorSelectListPane.md) | unclassified |  |  | no |  | `by-class/UserFaceColorSelectListPane.md` |  |
 | [UID:0000FJ][UserFaceSelectControlPane](by-class/UserFaceSelectControlPane.md) | unclassified |  |  | no |  | `by-class/UserFaceSelectControlPane.md` |  |
-| [UID:0000FK][UserHairColorSelectListPane](by-class/UserHairColorSelectListPane.md) | unclassified |  |  | no |  | `by-class/UserHairColorSelectListPane.md` |  |
 | [UID:0000FL][UserHairSelectControlPane](by-class/UserHairSelectControlPane.md) | unclassified |  |  | no |  | `by-class/UserHairSelectControlPane.md` |  |
 | [UID:0000FM][UserInfoDialogPane](by-class/UserInfoDialogPane.md) | unclassified |  |  | no |  | `by-class/UserInfoDialogPane.md` |  |
 | [UID:0000FN][UserListDialogPane](by-class/UserListDialogPane.md) | unclassified |  |  | no |  | `by-class/UserListDialogPane.md` |  |
