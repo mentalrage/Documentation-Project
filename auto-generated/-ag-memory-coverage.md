@@ -2,12 +2,12 @@
 
 # ag-memory-coverage
 
-Total_Type: 2244
-Total_Reconstructable: 1383
+Total_Type: 2245
+Total_Reconstructable: 1384
 Total_Not_Reconstructable: 15
-Total_Reconstructed_Assigned: 854
+Total_Reconstructed_Assigned: 857
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 524
+Total_Reconstructable_Unassigned: 522
 Total_Unclassified: 846
 Total_Error: 5
 
@@ -314,7 +314,9 @@ Total_Error: 5
 | [UID:0002IB][0x004ce840-0x004ce854.HierListDefaultInsertWrapper](by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md) | assigned | `000065` | 30 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |  |
 | [UID:0002IC][0x004ce860-0x004ce9ad.HierListInsertBefore](by-memory/0x004ce860-0x004ce9ad.HierListInsertBefore.md) | assigned | `000065` | 40 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ce860-0x004ce9ad.HierListInsertBefore.md` |  |
 | [UID:0002ID][0x004ce9b0-0x004ceafc.HierListInsertAfter](by-memory/0x004ce9b0-0x004ceafc.HierListInsertAfter.md) | assigned | `000065` | 50 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ce9b0-0x004ceafc.HierListInsertAfter.md` |  |
+| [UID:0002IE][0x004ceb00-0x004ceb45.HierListRemoveNode](by-memory/0x004ceb00-0x004ceb45.HierListRemoveNode.md) | assigned | `000065` |  | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004ceb00-0x004ceb45.HierListRemoveNode.md` |  |
 | [UID:0002IK][0x004cec30-0x004ced0f.HierListFindNodeByData](by-memory/0x004cec30-0x004ced0f.HierListFindNodeByData.md) | assigned | `000065` | 110 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004cec30-0x004ced0f.HierListFindNodeByData.md` |  |
+| [UID:0002IM][0x004cedb0-0x004cee52.HierListScalarDeletingDestructor](by-memory/0x004cedb0-0x004cee52.HierListScalarDeletingDestructor.md) | assigned | `000065` |  | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-memory/0x004cedb0-0x004cee52.HierListScalarDeletingDestructor.md` |  |
 | [UID:0002SW][0x004cf1f0-0x004cf25d.IconsPaneConstructor](by-memory/0x004cf1f0-0x004cf25d.IconsPaneConstructor.md) | assigned | `00006B` | 10 | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-memory/0x004cf1f0-0x004cf25d.IconsPaneConstructor.md` |  |
 | [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md) | assigned | `00006B` | 5 | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md` |  |
 | [UID:0002SX][0x004cf260-0x004cf289.IconsPaneCleanupHelper](by-memory/0x004cf260-0x004cf289.IconsPaneCleanupHelper.md) | assigned | `00006B` | 20 | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-memory/0x004cf260-0x004cf289.IconsPaneCleanupHelper.md` |  |
@@ -364,6 +366,7 @@ Total_Error: 5
 | [UID:000184][0x004e5c00-0x004e5c0b.StaticObjImageLibSingletonClearHelper](by-memory/0x004e5c00-0x004e5c0b.StaticObjImageLibSingletonClearHelper.md) | assigned | `0000O7` |  | no | `auto-generated/NexusTK/render/StaticObjImageLib.cpp` | `by-memory/0x004e5c00-0x004e5c0b.StaticObjImageLibSingletonClearHelper.md` |  |
 | [UID:000185][0x004e5dd0-0x004e5e39.DestroyMotionVector](by-memory/0x004e5dd0-0x004e5e39.DestroyMotionVector.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004e5dd0-0x004e5e39.DestroyMotionVector.md` |  |
 | [UID:0002IO][0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor](by-memory/0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor.md) | assigned | `00006E` | 30 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor.md` |  |
+| [UID:0002VC][0x004e6580-0x004e65dc.ItemObjImageLibScalarDeletingDestructor](by-memory/0x004e6580-0x004e65dc.ItemObjImageLibScalarDeletingDestructor.md) | assigned | `0000KH` |  | no | `auto-generated/NexusTK/render/ItemObjImageLib.cpp` | `by-memory/0x004e6580-0x004e65dc.ItemObjImageLibScalarDeletingDestructor.md` |  |
 | [UID:000188][0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize.md) | assigned | `00000P` | 10 | no | `auto-generated/NexusTK/util/AUTOBUF.cpp` | `by-memory/0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize.md` |  |
 | [UID:0002SU][0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers](by-memory/0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers.md) | assigned | `0000KA` |  | no | `auto-generated/NexusTK/ui/inventory/InventoryPane.cpp` | `by-memory/0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers.md` |  |
 | [UID:0002SV][0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor](by-memory/0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor.md) | assigned | `0000KA` |  | no | `auto-generated/NexusTK/ui/inventory/InventoryPane.cpp` | `by-memory/0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor.md` |  |
@@ -1056,14 +1059,12 @@ Total_Error: 5
 | [UID:00016N][0x004c60d0-0x004c6151.BlendRgb565Pair](by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md) | unassigned |  |  | no |  | `by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md` |  |
 | [UID:0002I8][0x004ce730-0x004ce760.HierListConstructor](by-memory/0x004ce730-0x004ce760.HierListConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce730-0x004ce760.HierListConstructor.md` |  |
 | [UID:0002I9][0x004ce760-0x004ce7d1.HierListNonDeletingDestructor](by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md` |  |
-| [UID:0002IE][0x004ceb00-0x004ceb45.HierListRemoveNode](by-memory/0x004ceb00-0x004ceb45.HierListRemoveNode.md) | unassigned |  |  | no |  | `by-memory/0x004ceb00-0x004ceb45.HierListRemoveNode.md` |  |
 | [UID:0002IF][0x004ceb50-0x004ceb62.HierListGetElementAt](by-memory/0x004ceb50-0x004ceb62.HierListGetElementAt.md) | unassigned |  |  | no |  | `by-memory/0x004ceb50-0x004ceb62.HierListGetElementAt.md` |  |
 | [UID:0002IG][0x004ceb70-0x004ceba9.HierListInsertAt](by-memory/0x004ceb70-0x004ceba9.HierListInsertAt.md) | unassigned |  |  | no |  | `by-memory/0x004ceb70-0x004ceba9.HierListInsertAt.md` |  |
 | [UID:0002IH][0x004cebb0-0x004cebb9.HierListAppend](by-memory/0x004cebb0-0x004cebb9.HierListAppend.md) | unassigned |  |  | no |  | `by-memory/0x004cebb0-0x004cebb9.HierListAppend.md` |  |
 | [UID:0002II][0x004cebc0-0x004cebec.HierListRemoveAt](by-memory/0x004cebc0-0x004cebec.HierListRemoveAt.md) | unassigned |  |  | no |  | `by-memory/0x004cebc0-0x004cebec.HierListRemoveAt.md` |  |
 | [UID:0002IJ][0x004cebf0-0x004cec22.HierListSwapElements](by-memory/0x004cebf0-0x004cec22.HierListSwapElements.md) | unassigned |  |  | no |  | `by-memory/0x004cebf0-0x004cec22.HierListSwapElements.md` |  |
 | [UID:0002IL][0x004ced10-0x004ceda4.HierListUpdateHierarchy](by-memory/0x004ced10-0x004ceda4.HierListUpdateHierarchy.md) | unassigned |  |  | no |  | `by-memory/0x004ced10-0x004ceda4.HierListUpdateHierarchy.md` |  |
-| [UID:0002IM][0x004cedb0-0x004cee52.HierListScalarDeletingDestructor](by-memory/0x004cedb0-0x004cee52.HierListScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004cedb0-0x004cee52.HierListScalarDeletingDestructor.md` |  |
 | [UID:0002KO][0x004d0120-0x004d02e4.ResourceLayoutTableLoadResourceIndex](by-memory/0x004d0120-0x004d02e4.ResourceLayoutTableLoadResourceIndex.md) | unassigned |  |  | no |  | `by-memory/0x004d0120-0x004d02e4.ResourceLayoutTableLoadResourceIndex.md` |  |
 | [UID:000174][0x004d0120-0x004d182e.ResourceLayoutTable](by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md) | unassigned |  |  | no |  | `by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md` |  |
 | [UID:0002KP][0x004d02f0-0x004d039d.ResourceLayoutTableLookupLayoutEntry](by-memory/0x004d02f0-0x004d039d.ResourceLayoutTableLookupLayoutEntry.md) | unassigned |  |  | no |  | `by-memory/0x004d02f0-0x004d039d.ResourceLayoutTableLookupLayoutEntry.md` |  |

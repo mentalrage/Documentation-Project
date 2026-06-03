@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 17:20:43
+Generated: 2026-06-03 17:38:50
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3719
-- Scored files: 3551
+- Tracked files: 3720
+- Scored files: 3552
 - Ignored files: 168
 
 ## projected_path_completion
@@ -101,12 +101,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `00014U` | 70 | 84 | 77.0 | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |
-| `0002IA` | 70 | 84 | 77.0 | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |
-| `0002IB` | 70 | 84 | 77.0 | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |
-| `0002IE` | 70 | 84 | 77.0 | `by-memory/0x004ceb00-0x004ceb45.HierListRemoveNode.md` |
-| `0002IM` | 70 | 84 | 77.0 | `by-memory/0x004cedb0-0x004cee52.HierListScalarDeletingDestructor.md` |
-| `00017N` | 70 | 84 | 77.0 | `by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md` |
 | `0002PW` | 70 | 84 | 77.0 | `by-memory/0x004f5620-0x004f5634.LogoPlayerPaneOnClose.md` |
 | `0002H7` | 70 | 84 | 77.0 | `by-memory/0x004f5fb0-0x004f6490.ApplicationStartup.md` |
 | `0002H8` | 70 | 84 | 77.0 | `by-memory/0x004f6490-0x004f66a5.ApplicationShutdown.md` |
@@ -125,6 +119,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
 | `00000Q` | 70 | 85 | 77.5 | `by-class/AutoInit.md` |
 | `0000HN` | 70 | 85 | 77.5 | `by-file/AutoInit.md` |
+| `0000UK` | 70 | 85 | 77.5 | `by-item/DrawTextRunCallback_00593DB0.md` |
+| `0000US` | 70 | 85 | 77.5 | `by-item/HalfBlendSpan16Blocks_00460C10.md` |
+| `0000UT` | 70 | 85 | 77.5 | `by-item/HasDATEntry_0049C700.md` |
+| `0000UV` | 70 | 85 | 77.5 | `by-item/InitializeMainUiGraph_004F7D10.md` |
+| `0000UW` | 70 | 85 | 77.5 | `by-item/LoadDatFileBuffer_004BB120.md` |
+| `0000V0` | 70 | 85 | 77.5 | `by-item/LoadTileEpfMetadata_004D1B80.md` |
 
 ## Low_Confidence
 
