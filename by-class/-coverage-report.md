@@ -283,7 +283,7 @@
 - [UID:00007K][MailDialog](by-class/MailDialog.md) : reconstructable : 78% : strong : - Confidence: strong for behavior and mail-dialog module placement.
 - [UID:00007L][MailListDialog](by-class/MailListDialog.md) : reconstructable : 80% : strong : - Confidence: strong for behavior, packet handling, list update, and mail-dialog module placement.
 - [UID:00007M][MailListPane](by-class/MailListPane.md) : reconstructable : 78% : strong : - Confidence: strong for behavior, row drawing, lazy-load behavior, and mail-dialog module placement.
-- [UID:00007N][MailTransferReplyAlert](by-class/MailTransferReplyAlert.md) : reconstructable : 70% : medium : - Confidence: strong for confirm behavior; medium for constructor boundary.
+- [UID:00007N][MailTransferReplyAlert](by-class/MailTransferReplyAlert.md) : reconstructable : 80% : strong : Mail transfer-reply alert wrapper with parent source bucket, confirm behavior, companion range, mail cluster, vtable-family evidence, imported constructor range, and 95+ C++ gate documented.
 - [UID:00007O][MainMenuPane](by-class/MainMenuPane.md) : reconstructable : 84% : strong : - Confidence: strong for pre-login menu behavior, dialog launchers, local helpers, singleton cleanup, and resource branches.
 - [UID:00007P][MapNamePane](by-class/MapNamePane.md) : reconstructable : 76% : medium : - Confidence: strong for behavior, medium for final file split.
 - [UID:00007Q][MapPane](by-class/MapPane.md) : reconstructable : 84% : medium : - Confidence: strong for class responsibility; medium for final source split, packet/weather boundaries, and unresolved child methods.
