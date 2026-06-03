@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 210
+Total_Reconstructable: 211
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 125
+Total_Reconstructed_Assigned: 126
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 85
-Total_Unclassified: 375
+Total_Unclassified: 374
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -77,6 +77,7 @@ Total_Error: 0
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
 | [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPlayerPane.md` |  |
 | [UID:00008S][MSGHandler](by-class/MSGHandler.md) | assigned | `0000LM` | 10 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-class/MSGHandler.md` |  |
+| [UID:00007J][MailDeleteReplyAlert](by-class/MailDeleteReplyAlert.md) | assigned | `0000HW` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/MailDeleteReplyAlert.md` |  |
 | [UID:00007N][MailTransferReplyAlert](by-class/MailTransferReplyAlert.md) | assigned | `0000HW` | 30 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/MailTransferReplyAlert.md` |  |
 | [UID:00007Q][MapPane](by-class/MapPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-class/MapPane.md` |  |
 | [UID:00007V][MenuItem](by-class/MenuItem.md) | assigned | `0000MN` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-class/MenuItem.md` |  |
@@ -370,7 +371,6 @@ Total_Error: 0
 | [UID:00007E][LodePNGState](by-class/LodePNGState.md) | unclassified |  |  | no |  | `by-class/LodePNGState.md` |  |
 | [UID:00007F][LoginDialogPane](by-class/LoginDialogPane.md) | unclassified |  |  | no |  | `by-class/LoginDialogPane.md` |  |
 | [UID:00007I][MacroDialog](by-class/MacroDialog.md) | unclassified |  |  | no |  | `by-class/MacroDialog.md` |  |
-| [UID:00007J][MailDeleteReplyAlert](by-class/MailDeleteReplyAlert.md) | unclassified |  |  | no |  | `by-class/MailDeleteReplyAlert.md` |  |
 | [UID:00007K][MailDialog](by-class/MailDialog.md) | unclassified |  |  | no |  | `by-class/MailDialog.md` |  |
 | [UID:00007L][MailListDialog](by-class/MailListDialog.md) | unclassified |  |  | no |  | `by-class/MailListDialog.md` |  |
 | [UID:00007M][MailListPane](by-class/MailListPane.md) | unclassified |  |  | no |  | `by-class/MailListPane.md` |  |

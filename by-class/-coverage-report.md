@@ -279,7 +279,7 @@
 - [UID:00007G][LogoPane](by-class/LogoPane.md) : reconstructable : 84% : strong : - Confidence: strong for behavior, startup ownership, resource format, callback lifecycle, and cleanup paths.
 - [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md) : reconstructable : 84% : medium : - Confidence: strong for behavior, medium for exact helper placement.
 - [UID:00007I][MacroDialog](by-class/MacroDialog.md) : reconstructable : 74% : strong : - Confidence: strong for ownership and main methods; method-level behavior remains brief.
-- [UID:00007J][MailDeleteReplyAlert](by-class/MailDeleteReplyAlert.md) : reconstructable : 72% : medium : - Confidence: strong for reply-list deletion behavior; medium for constructor boundary.
+- [UID:00007J][MailDeleteReplyAlert](by-class/MailDeleteReplyAlert.md) : reconstructable : 82% : strong : Mail delete-reply alert wrapper with exact constructor/action/destructor child pages, source-bucket parent, vtable-family evidence, singleton evidence, and 95+ C++ gate documented.
 - [UID:00007K][MailDialog](by-class/MailDialog.md) : reconstructable : 78% : strong : - Confidence: strong for behavior and mail-dialog module placement.
 - [UID:00007L][MailListDialog](by-class/MailListDialog.md) : reconstructable : 80% : strong : - Confidence: strong for behavior, packet handling, list update, and mail-dialog module placement.
 - [UID:00007M][MailListPane](by-class/MailListPane.md) : reconstructable : 78% : strong : - Confidence: strong for behavior, row drawing, lazy-load behavior, and mail-dialog module placement.

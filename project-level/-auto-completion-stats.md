@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 21:57:53
+Generated: 2026-06-02 22:36:02
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3642
-- Scored files: 3475
+- Tracked files: 3646
+- Scored files: 3479
 - Ignored files: 167
 
 ## projected_path_completion
@@ -143,7 +143,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00007J` | 72 | 74 | 73.0 | `by-class/MailDeleteReplyAlert.md` |
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
@@ -168,6 +167,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000070` | 72 | 76 | 74.0 | `by-class/LakeEffecter.md` |
 | `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
 | `0000C9` | 72 | 76 | 74.0 | `by-class/ScreenEffecter.md` |
+| `0000CP` | 72 | 76 | 74.0 | `by-class/ScrollWidget.md` |
 
 ## Low_Both
 
@@ -197,7 +197,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 | `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
 | `0002KD` | 70 | 76 | 73.0 | `by-memory/0x005465e0-0x0054660a.ParcelPaneOnKeyDown.md` |
-| `00007J` | 72 | 74 | 73.0 | `by-class/MailDeleteReplyAlert.md` |
+| `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 
 ## By Folder
 
@@ -211,7 +211,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
-| `00007J` | 72 | 74 | 73.0 | `by-class/MailDeleteReplyAlert.md` |
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `00000Y` | 68 | 80 | 74.0 | `by-class/BlueAlertPane.md` |
@@ -230,6 +229,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000BC` | 68 | 82 | 75.0 | `by-class/ProtectedArray_struct_ShoeInfo_.md` |
 | `000033` | 70 | 80 | 75.0 | `by-class/ConfirmDeleteAlert.md` |
 | `000034` | 70 | 80 | 75.0 | `by-class/ConfirmDeleteMailAlert.md` |
+| `0000AK` | 70 | 80 | 75.0 | `by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md` |
 
 ### by-external-research
 

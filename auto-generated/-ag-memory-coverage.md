@@ -2,10 +2,10 @@
 
 # ag-memory-coverage
 
-Total_Type: 2167
-Total_Reconstructable: 1261
+Total_Type: 2171
+Total_Reconstructable: 1265
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 730
+Total_Reconstructed_Assigned: 734
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 531
 Total_Unclassified: 895
@@ -97,6 +97,10 @@ Total_Error: 0
 | [UID:0000ZM][0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions](by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md) | assigned | `0000HW` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |  |
 | [UID:0002SE][0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest](by-memory/0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest.md) | assigned | `000033` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest.md` |  |
 | [UID:0002SF][0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest](by-memory/0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest.md) | assigned | `000034` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest.md` |  |
+| [UID:0002T7][0x0047e6a0-0x0047e6ed.MailDeleteReplyAlertRawConstructor](by-memory/0x0047e6a0-0x0047e6ed.MailDeleteReplyAlertRawConstructor.md) | assigned | `00007J` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e6a0-0x0047e6ed.MailDeleteReplyAlertRawConstructor.md` |  |
+| [UID:0002T8][0x0047e6f0-0x0047e725.MailDeleteReplyAlertDestructorAndSingletonGetter](by-memory/0x0047e6f0-0x0047e725.MailDeleteReplyAlertDestructorAndSingletonGetter.md) | assigned | `00007J` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e6f0-0x0047e725.MailDeleteReplyAlertDestructorAndSingletonGetter.md` |  |
+| [UID:0002T9][0x0047e730-0x0047e835.MailDeleteReplyAlertOnConfirmDelete](by-memory/0x0047e730-0x0047e835.MailDeleteReplyAlertOnConfirmDelete.md) | assigned | `00007J` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e730-0x0047e835.MailDeleteReplyAlertOnConfirmDelete.md` |  |
+| [UID:0002TA][0x0047eb90-0x0047ebee.MailDeleteReplyAlertScalarDeletingDestructor](by-memory/0x0047eb90-0x0047ebee.MailDeleteReplyAlertScalarDeletingDestructor.md) | assigned | `00007J` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047eb90-0x0047ebee.MailDeleteReplyAlertScalarDeletingDestructor.md` |  |
 | [UID:0002EY][0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw](by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md) | assigned | `00001X` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |  |
 | [UID:0002FF][0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper](by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md) | assigned | `00001Y` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |  |
 | [UID:0002FG][0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest](by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md) | assigned | `00001Y` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md` |  |
