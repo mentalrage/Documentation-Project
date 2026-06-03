@@ -30,10 +30,11 @@ The `DIBitmap` wrapper class itself remains best documented as `render/DIBitmap.
 | [UID:0000UZ][LoadPcxImage_004A17B0](by-item/LoadPcxImage_004A17B0.md) | `0x004a17b0-0x004a18a8` | `render/ImageLoaders.cpp` | Converts an ANSI asset name to wide path, checks availability, opens file/DAT buffer, and calls the PCX-to-DIB factory. |
 | [UID:0000U9][CreateDIBitmapFromPcxBuffer_004A18B0](by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md) | `0x004a18b0-0x004a1b0c` | `render/ImageLoaders.cpp` | Calls the PCX decoder, constructs `DIBitmap`, copies RGB565 rows, and frees temporary pixels. |
 | [UID:0000UD][DecodePcxToRgb565Buffer_00549410](by-item/DecodePcxToRgb565Buffer_00549410.md) | `0x00549410-0x00549616` | `render/ImageLoaders.cpp` or `render/PcxDecode.cpp` | Standalone 8-bit PCX/RLE/palette decoder with one confirmed caller. |
-| `DecodeZpfFpfToTileContext` | `0x004d05f0-0x004d0722` | `render/ImageLoaders.cpp` | Retained legacy compressed image wrapper: `ZPF` outer data inflates to `FPF` and is copied as 16-bit pixels. |
-| `DecodeJpfImageToTileContext` | `0x004d07b0-0x004d09a6` | `render/ImageLoaders.cpp` | Profile/look portrait wrapper: `JPF` header plus embedded JPEG decoded through [UID:0000KN][LibJPEG](by-file/LibJPEG.md), converted to RGB565. |
-| `Decode8BitBmpToTileContext` | `0x004d09b0-0x004d0a89` | `render/ImageLoaders.cpp` | 8-bit BMP plus palette loader used by [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) for `LEVEL.BMP`. |
-| `DecodeJpegBufferToTileContext` | `0x004d0a90-0x004d0c57` | `render/ImageLoaders.cpp` | Raw in-memory JPEG decoder used by [UID:0000LE][MiniMap](by-file/MiniMap.md) `.mnm` tile blobs. |
+| [UID:0002TJ][0x004d05f0-0x004d0723.DecodeZpfFpfToTileContext](by-memory/0x004d05f0-0x004d0723.DecodeZpfFpfToTileContext.md) | `0x004d05f0-0x004d0723` | `render/ImageLoaders.cpp` | Retained legacy compressed image wrapper: `ZPF` outer data inflates to `FPF` and is copied as 16-bit pixels. |
+| [UID:0002TK][0x004d0730-0x004d07a3.DecodeFpfToTileContext](by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md) | `0x004d0730-0x004d07a3` | `render/ImageLoaders.cpp` or adjacent retained helper | IDA-unmodeled direct `FPF` decoder with no known direct xrefs; behavior matches the same 16-bit tile-context copy/finalizer path. |
+| [UID:0002TL][0x004d07b0-0x004d09a7.DecodeJpfImageToTileContext](by-memory/0x004d07b0-0x004d09a7.DecodeJpfImageToTileContext.md) | `0x004d07b0-0x004d09a7` | `render/ImageLoaders.cpp` | Profile/look portrait wrapper: `JPF` header plus embedded JPEG decoded through [UID:0000KN][LibJPEG](by-file/LibJPEG.md), converted to RGB565. |
+| [UID:0002TM][0x004d09b0-0x004d0a8a.Decode8BitBmpToTileContext](by-memory/0x004d09b0-0x004d0a8a.Decode8BitBmpToTileContext.md) | `0x004d09b0-0x004d0a8a` | `render/ImageLoaders.cpp` | 8-bit BMP plus palette loader used by [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) for `LEVEL.BMP`. |
+| [UID:0002TN][0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext](by-memory/0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext.md) | `0x004d0a90-0x004d0c58` | `render/ImageLoaders.cpp` | Raw in-memory JPEG decoder used by [UID:0000LE][MiniMap](by-file/MiniMap.md) `.mnm` tile blobs. |
 
 ## Evidence
 
@@ -46,7 +47,8 @@ The `DIBitmap` wrapper class itself remains best documented as `render/DIBitmap.
 - IDA MCP caller checks show `CreateDIBitmapFromPcxBuffer` has one direct caller: `LoadPcxImage` at `0x004a1876`.
 - IDA MCP caller checks show `DecodePcxToRgb565Buffer` has one direct caller: `CreateDIBitmapFromPcxBuffer` at `0x004a18f5`.
 - Wave3 xrefs show `LoadPcxImage` used by `StartupWindow` update/notice UI paths for six startup PCX assets.
-- IDA MCP decompilation on 2026-05-25 confirms [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md) for `ZPF`/`FPF`, `JPF`, 8-bit `BM`, and raw JPEG.
+- IDA MCP decompilation on 2026-05-25 confirms [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) for `ZPF`/`FPF`, `JPF`, 8-bit `BM`, and raw JPEG.
+- IDA MCP lookup/disassembly/byte audit on 2026-06-03 corrects the wrapper family to five child ranges, including the previously omitted IDA-unmodeled raw `FPF` helper at `0x004d0730-0x004d07a3` and the raw JPEG half-open end at `0x004d0c58`.
 - IDA callers tie `DecodeJpfImageToTileContext` to [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md) and [UID:0000P0][UserLookPane](by-file/UserLookPane.md), `DecodeJpegBufferToTileContext` to [UID:0000LE][MiniMap](by-file/MiniMap.md), and `Decode8BitBmpToTileContext` to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md).
 
 ## Ownership Decision
@@ -69,10 +71,15 @@ Do not put IJG internals in this module. The `JPF` and raw JPEG wrappers belong 
 - [UID:00003V][DIBitmap](by-class/DIBitmap.md)
 - [UID:000135][0x004a1600-0x004a1b5e.DIBitmapAndPcxLoaders](by-memory/0x004a1600-0x004a1b5e.DIBitmapAndPcxLoaders.md)
 - [UID:0001F1][0x00549410-0x00549616.DecodePcxToRgb565Buffer](by-memory/0x00549410-0x00549616.DecodePcxToRgb565Buffer.md)
-- [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md)
+- [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md)
 - [UID:0000UZ][LoadPcxImage_004A17B0](by-item/LoadPcxImage_004A17B0.md)
 - [UID:0000U9][CreateDIBitmapFromPcxBuffer_004A18B0](by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md)
 - [UID:0000UD][DecodePcxToRgb565Buffer_00549410](by-item/DecodePcxToRgb565Buffer_00549410.md)
+- [UID:0002TJ][0x004d05f0-0x004d0723.DecodeZpfFpfToTileContext](by-memory/0x004d05f0-0x004d0723.DecodeZpfFpfToTileContext.md)
+- [UID:0002TK][0x004d0730-0x004d07a3.DecodeFpfToTileContext](by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md)
+- [UID:0002TL][0x004d07b0-0x004d09a7.DecodeJpfImageToTileContext](by-memory/0x004d07b0-0x004d09a7.DecodeJpfImageToTileContext.md)
+- [UID:0002TM][0x004d09b0-0x004d0a8a.Decode8BitBmpToTileContext](by-memory/0x004d09b0-0x004d0a8a.Decode8BitBmpToTileContext.md)
+- [UID:0002TN][0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext](by-memory/0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext.md)
 - StartupWindow update/notice UI paths (`0x00581100` and projected `0x005818d0`)
 - [UID:0000IN][DATFile](by-file/DATFile.md)
 - [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md)
@@ -84,3 +91,8 @@ Do not put IJG internals in this module. The `JPF` and raw JPEG wrappers belong 
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:88` and `CONFIDENCE:82`.
   - Summary/evidence: PCX pipeline, JPF/BMP/raw JPEG wrappers, exact ranges, caller/callee evidence, DAT/DIB/LibJPEG boundaries, ownership decision, and open questions are documented; confidence is capped by final split between `DIBitmap.cpp`, `ImageLoaders.cpp`, and possible `PcxDecode.cpp`.
+
+- 2026-06-03 image decode child split:
+  - What existed before: the wrapper inventory listed four unlinked rows with return-address-style ends and omitted the raw direct `FPF` helper.
+  - Changed to: replaced the wrapper rows with exact child UID links for `ZPF`/`FPF`, raw `FPF`, `JPF`, 8-bit BMP, and raw JPEG; kept the file score unchanged because this pass refines existing ownership rather than resolving the remaining source-file split questions.
+  - Summary/evidence: IDA MCP `lookup_funcs`, `py_eval`, `disasm`, `decompile`, caller/callee checks, and byte audit on 2026-06-03.

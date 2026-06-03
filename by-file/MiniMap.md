@@ -122,7 +122,7 @@ Keep `DownloadMinimap_453AA0` with `map/MiniMapDownloader.cpp`. Treat `DownloadM
 
 - Whether `MiniMapButtonPane`, `MiniMapImageControlPane`, and `MiniMapSymbolControlPane` were declared in the minimap files or in a generic UI controls file.
 - Whether `DownloadMinimap_453AA0` and `DownloadMinimapFile_41A750` are old/new duplicate minimap paths or two separate update workflows.
-- Exact local file format of `.mnm` and hash-list format should get a `by-item` or `by-memory` page when researched. The `.mnm` tile-blob prefix is now partially identified: `MiniMapRenderer::BuildSymbolViews` reads a 32-bit tile-blob size at document offset `0x1c`, then passes `cursor + 0x20` and that size to [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md) at `0x004d0a90`.
+- Exact local file format of `.mnm` and hash-list format should get a `by-item` or `by-memory` page when researched. The `.mnm` tile-blob prefix is now partially identified: `MiniMapRenderer::BuildSymbolViews` reads a 32-bit tile-blob size at document offset `0x1c`, then passes `cursor + 0x20` and that size to [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) at `0x004d0a90`.
 - Whether renderer support helpers around `0x004550d0-0x00455b40` should be file-local minimap helpers or generic collection/string support.
 - Confirm wide-string/resource references in IDA with a deeper string/operand scan.
 
@@ -165,7 +165,7 @@ Free helper/global ownership needs review with Wave3 global ownership commands b
 - [UID:0001AL][0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes](by-memory/0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes.md)
 - [UID:0001AM][0x00503620-0x00503648.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503648.MiniMapButtonPaneCleanup.md)
 - [UID:0001AN][0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks.md)
-- [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md)
+- [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md)
 - [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md)
 - [UID:0000KR][LinkedList](by-file/LinkedList.md)
 - [UID:0000JC][FileDownloader](by-file/FileDownloader.md)

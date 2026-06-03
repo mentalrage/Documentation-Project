@@ -60,6 +60,12 @@ For each ignored range, include:
   - Replacement/procurement: none; compiler/linker alignment.
   - Owner docs: [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md), [UID:000174][0x004d0120-0x004d182e.ResourceLayoutTable](by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md).
 
+- `0x004d0723-0x004d0730`, `0x004d07a3-0x004d07b0`, `0x004d09a7-0x004d09b0`, and `0x004d0a8a-0x004d0a90` - ImageDecodeWrappers internal alignment padding.
+  - Why ignored: confirmed `0xcc` alignment spans between exact image decode wrapper/helper bodies; not standalone project logic.
+  - Evidence: IDA MCP `py_eval` byte audit on 2026-06-03 confirmed the listed spans are all `0xcc` while enumerating `sub_4D05F0`, the raw unmodeled FPF helper at `0x004d0730-0x004d07a3`, `sub_4D07B0`, `sub_4D09B0`, and `sub_4D0A90`.
+  - Replacement/procurement: none; compiler/linker alignment.
+  - Owner docs: [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md), [UID:0002TJ][0x004d05f0-0x004d0723.DecodeZpfFpfToTileContext](by-memory/0x004d05f0-0x004d0723.DecodeZpfFpfToTileContext.md), [UID:0002TK][0x004d0730-0x004d07a3.DecodeFpfToTileContext](by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md), [UID:0002TL][0x004d07b0-0x004d09a7.DecodeJpfImageToTileContext](by-memory/0x004d07b0-0x004d09a7.DecodeJpfImageToTileContext.md), [UID:0002TM][0x004d09b0-0x004d0a8a.Decode8BitBmpToTileContext](by-memory/0x004d09b0-0x004d0a8a.Decode8BitBmpToTileContext.md), and [UID:0002TN][0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext](by-memory/0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext.md).
+
 - `0x004d15c5-0x004d15d0`, `0x004d15fc-0x004d1600`, and `0x004d165d-0x004d1660` - ImageFrameTable helper-neighborhood alignment padding.
   - Why ignored: confirmed `0xcc` alignment spans between exact source-authored helpers; not standalone project logic.
   - Evidence: IDA MCP `lookup_funcs` and `py_eval` byte audit on 2026-06-01 confirmed `sub_4D0F50` ends at `0x004d15c5`, `sub_4D15D0` covers `0x004d15d0-0x004d15fc`, `sub_4D1600` covers `0x004d1600-0x004d165d`, and the listed intervening bytes are all `0xcc`.

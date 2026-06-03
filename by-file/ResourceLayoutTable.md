@@ -58,7 +58,7 @@ Do not reconstruct a standalone `ResourceLayoutStore` class. The registry field 
 
 Do not create an `EPFLibrary` class from current generated references. The generated `EPFLibrary::LoadFrame` call sites are naming artifacts for calls into `ResourceLayoutTable::LookupLayoutEntry`.
 
-Do not absorb the nearby [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md) into this class. They are physically interleaved in the `0x004d` resource neighborhood, but their callers and behavior are shared image-loader glue, not EPF layout-table methods.
+Do not absorb the nearby [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) into this class. They are physically interleaved in the `0x004d` resource neighborhood, but their callers and behavior are shared image-loader glue, not EPF layout-table methods.
 
 ## Cross-References
 
@@ -70,7 +70,7 @@ Do not absorb the nearby [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers]
 - [UID:0000KS][List](by-file/List.md)
 - [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md)
 - [UID:000174][0x004d0120-0x004d182e.ResourceLayoutTable](by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md)
-- [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md)
+- [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md)
 - [UID:0000VB][ResourceLayoutEntry](by-item/ResourceLayoutEntry.md)
 - [UID:0001VU][ResourceLayoutStore](by-type/by-struct/ResourceLayoutStore.md)
 - [UID:0001VS][ResourceLayoutBucket](by-type/by-struct/ResourceLayoutBucket.md)

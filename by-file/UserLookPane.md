@@ -18,7 +18,7 @@
 
 `UserLookPane.cpp` owns the remote-character look/profile panel created by `GeneralPurposePanel`. It parses the server look/profile payload, stores strings, appearance fields, option fields, and portrait payload data, renders the selected look/profile page, and switches among the more-info, profile/bio, and legend child views.
 
-Portrait payloads use two decode paths: a non-`JPF` legacy bitmap path and a `JPF` path that calls the shared [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md) at `0x004d07b0` to decode embedded JPEG into the panel's portrait tile context.
+Portrait payloads use two decode paths: a non-`JPF` legacy bitmap path and a `JPF` path that calls the shared [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) at `0x004d07b0` to decode embedded JPEG into the panel's portrait tile context.
 
 `MoreInfoPane` and `ProfilePane` are tiny child pane classes allocated directly by the `UserLookPane` constructor. They only override two virtual gate methods to return false, so they should migrate with the user-look source unless later original-file evidence proves they were reusable elsewhere.
 
@@ -65,7 +65,7 @@ The emitted Wave3 source splits `MoreInfoPane`, `ProfilePane`, and `LegendPane` 
 - [UID:0000JQ][GeneralPurposePanel](by-file/GeneralPurposePanel.md)
 - [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md)
 - [UID:0001KK][0x0059f260-0x005a2523.UserLookPaneAndProfilePanes](by-memory/0x0059f260-0x005a2523.UserLookPaneAndProfilePanes.md)
-- [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md)
+- [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md)
 - [UID:0001HB][0x0056c400-0x0056c493.LegendPane](by-memory/0x0056c400-0x0056c493.LegendPane.md)
 
 ## Changes

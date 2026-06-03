@@ -2,12 +2,12 @@
 
 # ag-memory-coverage
 
-Total_Type: 2179
-Total_Reconstructable: 1283
+Total_Type: 2184
+Total_Reconstructable: 1288
 Total_Not_Reconstructable: 13
-Total_Reconstructed_Assigned: 757
+Total_Reconstructed_Assigned: 761
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 526
+Total_Reconstructable_Unassigned: 527
 Total_Unclassified: 883
 Total_Error: 0
 
@@ -287,6 +287,10 @@ Total_Error: 0
 | [UID:0002IN][0x004cffb0-0x004d006f.ImageLibConstructor](by-memory/0x004cffb0-0x004d006f.ImageLibConstructor.md) | assigned | `00006E` | 10 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004cffb0-0x004d006f.ImageLibConstructor.md` |  |
 | [UID:000172][0x004cffb0-0x004e6572.ImageLib](by-memory/0x004cffb0-0x004e6572.ImageLib.md) | assigned | `0000K2` | 30 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004cffb0-0x004e6572.ImageLib.md` |  |
 | [UID:000173][0x004d0070-0x004d011b.ImageLibDestructor](by-memory/0x004d0070-0x004d011b.ImageLibDestructor.md) | assigned | `00006E` | 20 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004d0070-0x004d011b.ImageLibDestructor.md` |  |
+| [UID:0002TJ][0x004d05f0-0x004d0723.DecodeZpfFpfToTileContext](by-memory/0x004d05f0-0x004d0723.DecodeZpfFpfToTileContext.md) | assigned | `0000K3` | 40 | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-memory/0x004d05f0-0x004d0723.DecodeZpfFpfToTileContext.md` |  |
+| [UID:0002TL][0x004d07b0-0x004d09a7.DecodeJpfImageToTileContext](by-memory/0x004d07b0-0x004d09a7.DecodeJpfImageToTileContext.md) | assigned | `0000K3` | 50 | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-memory/0x004d07b0-0x004d09a7.DecodeJpfImageToTileContext.md` |  |
+| [UID:0002TM][0x004d09b0-0x004d0a8a.Decode8BitBmpToTileContext](by-memory/0x004d09b0-0x004d0a8a.Decode8BitBmpToTileContext.md) | assigned | `0000K3` | 60 | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-memory/0x004d09b0-0x004d0a8a.Decode8BitBmpToTileContext.md` |  |
+| [UID:0002TN][0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext](by-memory/0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext.md) | assigned | `0000K3` | 70 | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-memory/0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext.md` |  |
 | [UID:0002P4][0x004d0f50-0x004d15c5.LoadImageFrameTable](by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md) | assigned | `0000K1` | 10 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md` |  |
 | [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md) | assigned | `0000K1` | 30 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md` |  |
 | [UID:00017D][0x004db010-0x004db0f7.MonsterImageLibDestructor](by-memory/0x004db010-0x004db0f7.MonsterImageLibDestructor.md) | assigned | `0000LJ` |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-memory/0x004db010-0x004db0f7.MonsterImageLibDestructor.md` |  |
@@ -953,7 +957,8 @@ Total_Error: 0
 | [UID:0002KR][0x004d04d0-0x004d0521.ResourceLayoutTableCopyEntryTileContext](by-memory/0x004d04d0-0x004d0521.ResourceLayoutTableCopyEntryTileContext.md) | unassigned |  |  | no |  | `by-memory/0x004d04d0-0x004d0521.ResourceLayoutTableCopyEntryTileContext.md` |  |
 | [UID:0002KS][0x004d0530-0x004d059a.ResourceLayoutTableGetEntryRect](by-memory/0x004d0530-0x004d059a.ResourceLayoutTableGetEntryRect.md) | unassigned |  |  | no |  | `by-memory/0x004d0530-0x004d059a.ResourceLayoutTableGetEntryRect.md` |  |
 | [UID:0002KT][0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md) | unassigned |  |  | no |  | `by-memory/0x004d05a0-0x004d05e5.ResourceLayoutRawRecordGetEntryRect.md` |  |
-| [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md) | unassigned |  |  | no |  | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |  |
+| [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) | unassigned |  |  | no |  | `by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md` |  |
+| [UID:0002TK][0x004d0730-0x004d07a3.DecodeFpfToTileContext](by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md) | unassigned |  |  | no |  | `by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md` |  |
 | [UID:000176][0x004d0f50-0x004d165d.ImageFrameTable](by-memory/0x004d0f50-0x004d165d.ImageFrameTable.md) | unassigned |  |  | no |  | `by-memory/0x004d0f50-0x004d165d.ImageFrameTable.md` |  |
 | [UID:0002P5][0x004d15d0-0x004d15fc.DestroyOwnedImageBlock](by-memory/0x004d15d0-0x004d15fc.DestroyOwnedImageBlock.md) | unassigned |  |  | no |  | `by-memory/0x004d15d0-0x004d15fc.DestroyOwnedImageBlock.md` |  |
 | [UID:0002KU][0x004d1730-0x004d1772.ResourceLayoutTableGetFrameSize](by-memory/0x004d1730-0x004d1772.ResourceLayoutTableGetFrameSize.md) | unassigned |  |  | no |  | `by-memory/0x004d1730-0x004d1772.ResourceLayoutTableGetFrameSize.md` |  |

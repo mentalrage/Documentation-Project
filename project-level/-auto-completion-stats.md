@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 02:38:05
+Generated: 2026-06-03 03:07:51
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3654
-- Scored files: 3486
+- Tracked files: 3659
+- Scored files: 3491
 - Ignored files: 168
 
 ## projected_path_completion
@@ -110,7 +110,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
+| `0002TK` | 68 | 78 | 73.0 | `by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md` |
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
 | `00000P` | 68 | 82 | 75.0 | `by-class/AUTOBUF_unsigned_char.md` |
@@ -170,7 +170,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
+| `0002TK` | 68 | 78 | 73.0 | `by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md` |
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
@@ -330,7 +330,7 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
+| `0002TK` | 68 | 78 | 73.0 | `by-memory/0x004d0730-0x004d07a3.DecodeFpfToTileContext.md` |
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
 | `0002EN` | 70 | 78 | 74.0 | `by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md` |

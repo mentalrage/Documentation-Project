@@ -53,7 +53,7 @@ Focused source-file anchors now identified inside the library island:
 
 Product-owned wrapper functions are identified outside the library island:
 
-- [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md) call IJG decompression for `JPF` profile/look portraits at `0x004d07b0` and raw minimap JPEG blobs at `0x004d0a90`.
+- [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) call IJG decompression for `JPF` profile/look portraits at `0x004d07b0` and raw minimap JPEG blobs at `0x004d0a90`.
 - [UID:00018N][0x004efbc0-0x004efe94.JpegScreenshotWriter](by-memory/0x004efbc0-0x004efe94.JpegScreenshotWriter.md) calls IJG compression for a retained/unmodeled screenshot `.jpg` path.
 
 ## Source-Structure Decision
@@ -116,7 +116,7 @@ Product-facing JPEG load/use wrappers should remain with render/image modules su
 - [UID:0000VZ][0x004064a0-0x00406d8c.LibJpegMarkerWriter](by-memory/0x004064a0-0x00406d8c.LibJpegMarkerWriter.md)
 - [UID:0000W0][0x00406d90-0x00406e46.LibJpegCompressMasterInit](by-memory/0x00406d90-0x00406e46.LibJpegCompressMasterInit.md)
 - [UID:0000W1][0x00406e50-0x00406ed1.LibJpegNoBackingStoreMemoryBackend](by-memory/0x00406e50-0x00406ed1.LibJpegNoBackingStoreMemoryBackend.md)
-- [UID:000175][0x004d05f0-0x004d0c57.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md)
+- [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md)
 - [UID:00018N][0x004efbc0-0x004efe94.JpegScreenshotWriter](by-memory/0x004efbc0-0x004efe94.JpegScreenshotWriter.md)
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md)
 - [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md)
