@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 201
+Total_Reconstructable: 202
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 115
+Total_Reconstructed_Assigned: 116
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 86
-Total_Unclassified: 384
+Total_Unclassified: 383
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -104,6 +104,7 @@ Total_Error: 0
 | [UID:0000BX][RequestSyncGate](by-class/RequestSyncGate.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/RequestSyncGate.md` |  |
 | [UID:0000C3][SayInputPane](by-class/SayInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayInputPane.md` |  |
 | [UID:0000C4][SayToGroupMessageInputPane](by-class/SayToGroupMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToGroupMessageInputPane.md` |  |
+| [UID:0000CR][SelectionControlPane](by-class/SelectionControlPane.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-class/SelectionControlPane.md` |  |
 | [UID:0000CU][SelfLookPane](by-class/SelfLookPane.md) | assigned | `0000NL` |  | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane.md` |  |
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
 | [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-class/SelfSaveInputPane.md` |  |
@@ -497,7 +498,6 @@ Total_Error: 0
 | [UID:0000CJ][ScrolledTextControlPaneForMadeBy](by-class/ScrolledTextControlPaneForMadeBy.md) | unclassified |  |  | no |  | `by-class/ScrolledTextControlPaneForMadeBy.md` |  |
 | [UID:0000CQ][SelectBoxControlPane](by-class/SelectBoxControlPane.md) | unclassified |  |  | no |  | `by-class/SelectBoxControlPane.md` |  |
 | [UID:0000CT][SelectObjectWithKeyboardPane](by-class/SelectObjectWithKeyboardPane.md) | unclassified |  |  | no |  | `by-class/SelectObjectWithKeyboardPane.md` |  |
-| [UID:0000CR][SelectionControlPane](by-class/SelectionControlPane.md) | unclassified |  |  | no |  | `by-class/SelectionControlPane.md` |  |
 | [UID:0000CS][SelectionState](by-class/SelectionState.md) | unclassified |  |  | no |  | `by-class/SelectionState.md` |  |
 | [UID:0000CX][SelfSaveOKPane](by-class/SelfSaveOKPane.md) | unclassified |  |  | no |  | `by-class/SelfSaveOKPane.md` |  |
 | [UID:0000CZ][ServerItemMenuDialog](by-class/ServerItemMenuDialog.md) | unclassified |  |  | no |  | `by-class/ServerItemMenuDialog.md` |  |

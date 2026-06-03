@@ -5,9 +5,9 @@
 Total_Type: 2156
 Total_Reconstructable: 1242
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 703
+Total_Reconstructed_Assigned: 704
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 539
+Total_Reconstructable_Unassigned: 538
 Total_Unclassified: 903
 Total_Error: 0
 
@@ -145,6 +145,7 @@ Total_Error: 0
 | [UID:000119][0x00494c80-0x00494daa.ProgressBarControlPaneConstructor](by-memory/0x00494c80-0x00494daa.ProgressBarControlPaneConstructor.md) | assigned | `0000AW` | 40 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494c80-0x00494daa.ProgressBarControlPaneConstructor.md` |  |
 | [UID:00011A][0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder](by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md) | assigned | `0000AW` | 50 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |  |
 | [UID:00011C][0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar](by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md) | assigned | `0000AW` | 60 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md` |  |
+| [UID:00011D][0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh](by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md) | assigned | `0000CR` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md` |  |
 | [UID:000223][0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers](by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |  |
 | [UID:000129][0x0049bae0-0x0049bbef.Crasher](by-memory/0x0049bae0-0x0049bbef.Crasher.md) | assigned | `00003A` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-memory/0x0049bae0-0x0049bbef.Crasher.md` |  |
 | [UID:000226][0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers](by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md` |  |
@@ -814,7 +815,6 @@ Total_Error: 0
 | [UID:000116][0x00494a90-0x00494b4b.ProgressBarRangeSetters](by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md) | unassigned |  |  | no |  | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |  |
 | [UID:0002PD][0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers](by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00494b50-0x00494c80.ControlFamilyStateVirtualHelpers.md` |  |
 | [UID:00011B][0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw](by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md) | unassigned |  |  | no |  | `by-memory/0x00494db0-0x00494eaf.ProgressBarControlPaneUpdateAndDraw.md` |  |
-| [UID:00011D][0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh](by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md) | unassigned |  |  | no |  | `by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md` |  |
 | [UID:00011E][0x004964a0-0x0049662f.RadioGroupControlPaneOptionHelpers](by-memory/0x004964a0-0x0049662f.RadioGroupControlPaneOptionHelpers.md) | unassigned |  |  | no |  | `by-memory/0x004964a0-0x0049662f.RadioGroupControlPaneOptionHelpers.md` |  |
 | [UID:0002OA][0x00498c10-0x00498c1f.TextEditControlPaneReadTextForwarder](by-memory/0x00498c10-0x00498c1f.TextEditControlPaneReadTextForwarder.md) | unassigned |  |  | no |  | `by-memory/0x00498c10-0x00498c1f.TextEditControlPaneReadTextForwarder.md` |  |
 | [UID:00011I][0x00498dd0-0x004991ec.StaticTextControlPane](by-memory/0x00498dd0-0x004991ec.StaticTextControlPane.md) | unassigned |  |  | no |  | `by-memory/0x00498dd0-0x004991ec.StaticTextControlPane.md` |  |

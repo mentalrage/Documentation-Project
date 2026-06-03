@@ -14,7 +14,7 @@
 
 ## Covered Items To Replicate
 
-- [UID:0001SV][SelectionControlPaneSelectedValue_0x10c](by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md) : reconstructable : 50% : medium : - Confidence: strong for offset and use, medium for final source-level field name.
+- [UID:0001SV][SelectionControlPaneSelectedValue_0x10c](by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md) : reconstructable : 76% : strong : Exact `SelectionControlPane` selected-value field offset `+0x10c`, known music-dialog caller values, redraw tail-call relationship, parent attachment, and naming caveat documented.
 
 ## Covered Items To Ignore
 
