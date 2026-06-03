@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 23:12:05
+Generated: 2026-06-02 23:16:08
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -131,7 +131,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002PO` | 68 | 80 | 74.0 | `by-memory/0x004f50b0-0x004f5246.LogoPaneStaticLogoLoaderHelpers.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
-| `0002QI` | 68 | 80 | 74.0 | `by-memory/0x00504b70-0x00504b8f.MapPaneTagDetachMessage.md` |
 | `00000P` | 68 | 82 | 75.0 | `by-class/AUTOBUF_unsigned_char.md` |
 | `00000H` | 68 | 82 | 75.0 | `by-class/ArgumentedMenuMenuDialog.md` |
 | `0000AJ` | 68 | 82 | 75.0 | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |
@@ -139,6 +138,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000HL` | 68 | 82 | 75.0 | `by-file/AttachmentAnchorResolver.md` |
 | `0000UJ` | 68 | 82 | 75.0 | `by-item/DrawTextInRect_004BAD70.md` |
 | `0000WI` | 68 | 82 | 75.0 | `by-memory/0x0041a670-0x0041b69f.FileDownloaderDispatch.md` |
+| `0000WJ` | 68 | 82 | 75.0 | `by-memory/0x0041aa00-0x0041b2c8.CashShopVersionAndCatalogDownload.md` |
 
 ## Low_Confidence
 
@@ -198,7 +198,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002PO` | 68 | 80 | 74.0 | `by-memory/0x004f50b0-0x004f5246.LogoPaneStaticLogoLoaderHelpers.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
-| `0002QI` | 68 | 80 | 74.0 | `by-memory/0x00504b70-0x00504b8f.MapPaneTagDetachMessage.md` |
+| `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
 
 ## By Folder
 
@@ -346,7 +346,6 @@ _No scored files._
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002PO` | 68 | 80 | 74.0 | `by-memory/0x004f50b0-0x004f5246.LogoPaneStaticLogoLoaderHelpers.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
-| `0002QI` | 68 | 80 | 74.0 | `by-memory/0x00504b70-0x00504b8f.MapPaneTagDetachMessage.md` |
 | `0002F7` | 70 | 78 | 74.0 | `by-memory/0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys.md` |
 | `0002EN` | 70 | 78 | 74.0 | `by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md` |
 | `00015I` | 70 | 78 | 74.0 | `by-memory/0x004b69b0-0x004b6adc.FpsPaneStartLogSessionRaw.md` |
@@ -359,6 +358,7 @@ _No scored files._
 | `0001GO` | 70 | 78 | 74.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
 | `0001H1` | 70 | 78 | 74.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
 | `0002LB` | 70 | 78 | 74.0 | `by-memory/0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw.md` |
+| `0002LC` | 70 | 78 | 74.0 | `by-memory/0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw.md` |
 
 ### by-meta
 
