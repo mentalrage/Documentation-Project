@@ -2,10 +2,10 @@
 
 # ag-memory-coverage
 
-Total_Type: 2154
-Total_Reconstructable: 1237
+Total_Type: 2156
+Total_Reconstructable: 1239
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 698
+Total_Reconstructed_Assigned: 700
 Total_Reconstructed_Coded: 18
 Total_Reconstructable_Unassigned: 539
 Total_Unclassified: 906
@@ -283,6 +283,8 @@ Total_Error: 0
 | [UID:000185][0x004e5dd0-0x004e5e39.DestroyMotionVector](by-memory/0x004e5dd0-0x004e5e39.DestroyMotionVector.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004e5dd0-0x004e5e39.DestroyMotionVector.md` |  |
 | [UID:0002IO][0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor](by-memory/0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor.md) | assigned | `00006E` | 30 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-memory/0x004e64a0-0x004e6572.ImageLibScalarDeletingDestructor.md` |  |
 | [UID:000188][0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize.md) | assigned | `00000P` | 10 | no | `auto-generated/NexusTK/util/AUTOBUF.cpp` | `by-memory/0x004e6ab0-0x004e6adf.AUTOBUFUnsignedCharResize.md` |  |
+| [UID:0002SU][0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers](by-memory/0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers.md) | assigned | `0000KA` |  | no | `auto-generated/NexusTK/ui/inventory/InventoryPane.cpp` | `by-memory/0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers.md` |  |
+| [UID:0002SV][0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor](by-memory/0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor.md) | assigned | `0000KA` |  | no | `auto-generated/NexusTK/ui/inventory/InventoryPane.cpp` | `by-memory/0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor.md` |  |
 | [UID:00018R][0x004f0010-0x004f0477.LanguageManLocalization](by-memory/0x004f0010-0x004f0477.LanguageManLocalization.md) | assigned | `0000KK` |  | no | `auto-generated/NexusTK/localization/LanguageMan.cpp` | `by-memory/0x004f0010-0x004f0477.LanguageManLocalization.md` |  |
 | [UID:00018S][0x004f0290-0x004f0310.LanguageManCleanupDestructor](by-memory/0x004f0290-0x004f0310.LanguageManCleanupDestructor.md) | assigned | `0000KK` |  | no | `auto-generated/NexusTK/localization/LanguageMan.cpp` | `by-memory/0x004f0290-0x004f0310.LanguageManCleanupDestructor.md` |  |
 | [UID:00018U][0x004f0350-0x004f03cb.LanguageManLookupAndSingletonHelpers](by-memory/0x004f0350-0x004f03cb.LanguageManLookupAndSingletonHelpers.md) | assigned | `0000KK` |  | no | `auto-generated/NexusTK/localization/LanguageMan.cpp` | `by-memory/0x004f0350-0x004f03cb.LanguageManLookupAndSingletonHelpers.md` |  |

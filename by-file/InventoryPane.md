@@ -1,17 +1,17 @@
 *** UID:0000KA | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/inventory/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # InventoryPane
 
 ## Status
 
-- Confidence: strong for inventory UI module ownership, medium for exact legacy/new split.
+- Confidence: strong for inventory UI module ownership and `ui/inventory/` placement, medium-high for exact legacy/new split.
 - Proposed module folder: `ui/inventory/`
 - Candidate files: `ui/inventory/InventoryPane.cpp`, `ui/inventory/NewInventoryPane.cpp`, and `ui/inventory/ScrollInventoryPane.cpp`
 - Current generated sources: `class_InventoryPane.cpp`, `class_InventoryPane2.cpp`, `class_NewInventoryPane.cpp`, and `class_ScrollInventoryPane.cpp`.
-- Evidence basis: Wave3 metadata and targeted IDA MCP boundary checks on 2026-05-23.
+- Evidence basis: targeted IDA MCP boundary checks on 2026-05-23, the 2026-06-01 inventory aggregate refresh, companion vtable/resource data, and the exact [UID:0002SU][0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers](by-memory/0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers.md) / [UID:0002SV][0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor](by-memory/0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor.md) child split.
 
 ## Hypothesis
 
@@ -33,7 +33,7 @@ An alternate compact layout is a single `ui/inventory/InventoryPane.cpp` contain
 | --- | --- | --- | --- |
 | `InventoryPane` | `0x004ea130-0x004efb41` | `class_InventoryPane.cpp` | Legacy item inventory pane with list/grid view, paging, item activation, drag packet, and tooltip message handling. |
 | `NewInventoryPane` | `0x004eb420-0x004efbb6` | `class_NewInventoryPane.cpp` | Updated item inventory pane with scrollbar, list/grid layouts, tab buttons, hover, drag/drop, and compact/expanded state. |
-| `InventoryPane2` | `0x004ee650-0x004efa94` | `class_InventoryPane2.cpp` | Alternate smaller inventory pane with dual list/grid layout and arrow buttons. |
+| `InventoryPane2` | `0x004ee650-0x004efa94`; exact confirmed children are [UID:0002SU][0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers](by-memory/0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers.md) and [UID:0002SV][0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor](by-memory/0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor.md) | `class_InventoryPane2.cpp` | Alternate smaller inventory pane with dual list/grid layout and arrow buttons; constructor start remains unresolved, and BackPane V3 is interleaved between the two children. |
 | `ScrollInventoryPane` | `0x00563260-0x0056470c` | `class_ScrollInventoryPane.cpp` | Private/companion scrollbar used by the newer item inventory UI. |
 
 ## Behavior Summary
@@ -49,7 +49,7 @@ Targeted checks on 2026-05-23 confirmed:
 
 - `0x004ea130-0x004ea202`, `0x004ea2a0-0x004ea945`, `0x004ea9d0-0x004eac88`, and `0x004eac90-0x004eae02` for legacy inventory construction, paint, mouse, and message handling.
 - `0x004eb420-0x004eb510`, `0x004ebb20-0x004ec913`, `0x004ecb50-0x004ed9c4`, and `0x004ee230-0x004ee3b7` for the updated inventory constructor, paint, mouse, and hit test.
-- `0x004ee6f0-0x004eee5c`, `0x004eeee0-0x004ef27a`, and `0x004efa40-0x004efa95` for the alternate inventory render/mouse/delete paths.
+- `0x004ee6f0-0x004eee5c`, `0x004eeee0-0x004ef27a`, and `0x004efa40-0x004efa95` for the alternate inventory render/mouse/delete paths. [UID:0002SU][0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers](by-memory/0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers.md) and [UID:0002SV][0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor](by-memory/0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor.md) record the exact confirmed InventoryPane2 method/helper islands while keeping `0x004ee650` as an unresolved constructor-start caveat and excluding the interleaved BackPane V3 helper.
 - `0x00563260-0x00563301`, `0x005636a0-0x00563d80`, and `0x005640a0-0x00564327` for the item inventory scrollbar.
 
 IDA reports no function at Wave3's `InventoryPane2::InventoryPane2` start `0x004ee650` and no function at `ScrollInventoryPane::ResetScrollState` start `0x005646b0`; both are tracked in [wave3_data_issues](../wave3_data_issues.md).
@@ -73,11 +73,17 @@ Keep [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md) separate. I
 - [UID:000093][NewInventoryPane](by-class/NewInventoryPane.md)
 - [UID:0000CK][ScrollInventoryPane](by-class/ScrollInventoryPane.md)
 - [UID:00018J][0x004ea130-0x004efbb7.InventoryPanes](by-memory/0x004ea130-0x004efbb7.InventoryPanes.md)
+- [UID:0002SU][0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers](by-memory/0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers.md)
+- [UID:0002SV][0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor](by-memory/0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor.md)
 - [UID:0001GZ][0x00563260-0x0056470c.ScrollInventoryPane](by-memory/0x00563260-0x0056470c.ScrollInventoryPane.md)
 - [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md)
 
 ## Changes
 
+- 2026-06-02: Set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/ui/inventory/` and raised `80/76` to `82/82`.
+  - Before: the page text proposed `ui/inventory/`, but validator metadata had no projected path and confidence stayed below the parent-attachment threshold.
+  - After: projected path and confidence now match the written source-placement evidence; [UID:0002SU][0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers](by-memory/0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers.md) and [UID:0002SV][0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor](by-memory/0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor.md) record the exact confirmed `InventoryPane2` method/helper children while preserving the unresolved constructor-start caveat and excluding the interleaved BackPane helper.
+  - Evidence: [UID:00018J][0x004ea130-0x004efbb7.InventoryPanes](by-memory/0x004ea130-0x004efbb7.InventoryPanes.md) records IDA function inventory and source-split ownership; [UID:00025L][0x0061c7a8-0x0061c9c8.InventoryPaneReadOnlyData](by-memory/0x0061c7a8-0x0061c9c8.InventoryPaneReadOnlyData.md) records inventory vtables and resource strings; [UID:0002SU][0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers](by-memory/0x004ee6b0-0x004ef3fc.InventoryPane2CoreAndHelpers.md) and [UID:0002SV][0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor](by-memory/0x004ef630-0x004efa95.InventoryPane2TailHelpersAndDestructor.md) split the alternate-pane method islands.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:80` and `CONFIDENCE:76`.

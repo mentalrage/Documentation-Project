@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 196
+Total_Reconstructable: 199
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 109
+Total_Reconstructed_Assigned: 112
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 87
-Total_Unclassified: 389
+Total_Unclassified: 386
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -47,11 +47,13 @@ Total_Error: 0
 | [UID:00004P][ExceptionHandler](by-class/ExceptionHandler.md) | assigned | `0000J8` |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-class/ExceptionHandler.md` |  |
 | [UID:00004W][FileDownloader](by-class/FileDownloader.md) | assigned | `0000JC` |  | no | `auto-generated/NexusTK/network/FileDownloader.cpp` | `by-class/FileDownloader.md` |  |
 | [UID:00004X][FileError](by-class/FileError.md) | assigned | `0000J5` | 140 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/FileError.md` |  |
+| [UID:00004Y][FilterEffecter](by-class/FilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/FilterEffecter.md` |  |
 | [UID:000051][FittingRoomDialogItemState](by-class/FittingRoomDialogItemState.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomDialogItemState.md` |  |
 | [UID:000052][FittingRoomDownloadControlPane](by-class/FittingRoomDownloadControlPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomDownloadControlPane.md` |  |
 | [UID:000053][FittingRoomListPane](by-class/FittingRoomListPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomListPane.md` |  |
 | [UID:000054][FittingRoomScrollPane](by-class/FittingRoomScrollPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomScrollPane.md` |  |
 | [UID:000055][FittingRoomTextButtonControlPane](by-class/FittingRoomTextButtonControlPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomTextButtonControlPane.md` |  |
+| [UID:000056][FittingRoomUserImageControlPane](by-class/FittingRoomUserImageControlPane.md) | assigned | `0000JE` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-class/FittingRoomUserImageControlPane.md` |  |
 | [UID:000058][FlyingParcelPane](by-class/FlyingParcelPane.md) | assigned | `0000MF` | 30 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/FlyingParcelPane.md` |  |
 | [UID:00005F][FpsPane](by-class/FpsPane.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-class/FpsPane.md` |  |
 | [UID:00005M][FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____](by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |  |
@@ -64,6 +66,7 @@ Total_Error: 0
 | [UID:00006B][IconsPane](by-class/IconsPane.md) | assigned | `0000JZ` |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-class/IconsPane.md` |  |
 | [UID:00006E][ImageLib](by-class/ImageLib.md) | assigned | `0000K2` | 20 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-class/ImageLib.md` |  |
 | [UID:00006Q][InternetError](by-class/InternetError.md) | assigned | `0000J5` | 180 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/InternetError.md` |  |
+| [UID:00006S][InventoryPane2](by-class/InventoryPane2.md) | assigned | `0000KA` |  | no | `auto-generated/NexusTK/ui/inventory/InventoryPane.cpp` | `by-class/InventoryPane2.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPaneState.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
@@ -303,10 +306,8 @@ Total_Error: 0
 | [UID:00004S][ExchangeItemListPane](by-class/ExchangeItemListPane.md) | unclassified |  |  | no |  | `by-class/ExchangeItemListPane.md` |  |
 | [UID:00004T][ExchangeMoneyEditControlPane](by-class/ExchangeMoneyEditControlPane.md) | unclassified |  |  | no |  | `by-class/ExchangeMoneyEditControlPane.md` |  |
 | [UID:00004U][FieldMapPane](by-class/FieldMapPane.md) | unclassified |  |  | no |  | `by-class/FieldMapPane.md` |  |
-| [UID:00004Y][FilterEffecter](by-class/FilterEffecter.md) | unclassified |  |  | no |  | `by-class/FilterEffecter.md` |  |
 | [UID:00004Z][FittingEquipmentState](by-class/FittingEquipmentState.md) | unclassified |  |  | no |  | `by-class/FittingEquipmentState.md` |  |
 | [UID:000050][FittingRoomDialog](by-class/FittingRoomDialog.md) | unclassified |  |  | no |  | `by-class/FittingRoomDialog.md` |  |
-| [UID:000056][FittingRoomUserImageControlPane](by-class/FittingRoomUserImageControlPane.md) | unclassified |  |  | no |  | `by-class/FittingRoomUserImageControlPane.md` |  |
 | [UID:000057][FlyingObjectPane](by-class/FlyingObjectPane.md) | unclassified |  |  | no |  | `by-class/FlyingObjectPane.md` |  |
 | [UID:000059][FolderSelectDialog](by-class/FolderSelectDialog.md) | unclassified |  |  | no |  | `by-class/FolderSelectDialog.md` |  |
 | [UID:00005A][FolderTreePane](by-class/FolderTreePane.md) | unclassified |  |  | no |  | `by-class/FolderTreePane.md` |  |
@@ -343,7 +344,6 @@ Total_Error: 0
 | [UID:00006O][InterfaceEfxMgr](by-class/InterfaceEfxMgr.md) | unclassified |  |  | no |  | `by-class/InterfaceEfxMgr.md` |  |
 | [UID:00006P][InternetConnectionError](by-class/InternetConnectionError.md) | unclassified |  |  | no |  | `by-class/InternetConnectionError.md` |  |
 | [UID:00006R][InventoryPane](by-class/InventoryPane.md) | unclassified |  |  | no |  | `by-class/InventoryPane.md` |  |
-| [UID:00006S][InventoryPane2](by-class/InventoryPane2.md) | unclassified |  |  | no |  | `by-class/InventoryPane2.md` |  |
 | [UID:00006T][ItemCatalog](by-class/ItemCatalog.md) | unclassified |  |  | no |  | `by-class/ItemCatalog.md` |  |
 | [UID:00006U][ItemHelpPane](by-class/ItemHelpPane.md) | unclassified |  |  | no |  | `by-class/ItemHelpPane.md` |  |
 | [UID:00006V][ItemObjectPane](by-class/ItemObjectPane.md) | unclassified |  |  | no |  | `by-class/ItemObjectPane.md` |  |

@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 19:58:32
+Generated: 2026-06-02 20:13:42
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3629
-- Scored files: 3462
+- Tracked files: 3631
+- Scored files: 3464
 - Ignored files: 167
 
 ## projected_path_completion
@@ -51,7 +51,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000K6` | blank | `(blank)` | `by-file/InputMan.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K8` | blank | `(blank)` | `by-file/IntAlphaSurface.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K9` | blank | `(blank)` | `by-file/InterfaceEfx.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KA` | blank | `(blank)` | `by-file/InventoryPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KB` | blank | `(blank)` | `by-file/InventoryScrollPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KD` | blank | `(blank)` | `by-file/ItemCatalog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KE` | blank | `(blank)` | `by-file/ItemDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -119,9 +118,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
-| `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
-| `00006S` | 68 | 76 | 72.0 | `by-class/InventoryPane2.md` |
 | `00009H` | 68 | 76 | 72.0 | `by-class/NexonclubProxyDialog.md` |
 | `0000BS` | 68 | 76 | 72.0 | `by-class/RecordVector_4E57C0.md` |
 | `0000CR` | 68 | 76 | 72.0 | `by-class/SelectionControlPane.md` |
@@ -144,6 +140,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `0002JW` | 68 | 78 | 73.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
 | `0002FP` | 68 | 78 | 73.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
+| `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
+| `00016O` | 68 | 78 | 73.0 | `by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md` |
+| `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 
 ## Low_Confidence
 
@@ -179,9 +178,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
-| `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
-| `00006S` | 68 | 76 | 72.0 | `by-class/InventoryPane2.md` |
 | `00009H` | 68 | 76 | 72.0 | `by-class/NexonclubProxyDialog.md` |
 | `0000BS` | 68 | 76 | 72.0 | `by-class/RecordVector_4E57C0.md` |
 | `0000CR` | 68 | 76 | 72.0 | `by-class/SelectionControlPane.md` |
@@ -204,6 +200,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000018` | 68 | 78 | 73.0 | `by-class/BrowserDialogOld.md` |
 | `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
+| `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
+| `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
+| `0002JW` | 68 | 78 | 73.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
 
 ## By Folder
 
@@ -211,9 +210,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00004Y` | 68 | 76 | 72.0 | `by-class/FilterEffecter.md` |
-| `000056` | 68 | 76 | 72.0 | `by-class/FittingRoomUserImageControlPane.md` |
-| `00006S` | 68 | 76 | 72.0 | `by-class/InventoryPane2.md` |
 | `00009H` | 68 | 76 | 72.0 | `by-class/NexonclubProxyDialog.md` |
 | `0000BS` | 68 | 76 | 72.0 | `by-class/RecordVector_4E57C0.md` |
 | `0000CR` | 68 | 76 | 72.0 | `by-class/SelectionControlPane.md` |
@@ -236,6 +232,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
 | `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
 | `000061` | 70 | 78 | 74.0 | `by-class/HeaderSystemMessage.md` |
+| `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
+| `000070` | 72 | 76 | 74.0 | `by-class/LakeEffecter.md` |
+| `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
 
 ### by-external-research
 
