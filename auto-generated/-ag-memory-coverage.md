@@ -2,12 +2,12 @@
 
 # ag-memory-coverage
 
-Total_Type: 2242
-Total_Reconstructable: 1381
+Total_Type: 2243
+Total_Reconstructable: 1382
 Total_Not_Reconstructable: 15
 Total_Reconstructed_Assigned: 854
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 522
+Total_Reconstructable_Unassigned: 523
 Total_Unclassified: 846
 Total_Error: 5
 
@@ -980,6 +980,7 @@ Total_Error: 5
 | [UID:00010W][0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor](by-memory/0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor.md` |  |
 | [UID:0002BR][0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser](by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md) | unassigned |  |  | no |  | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |  |
 | [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md) | unassigned |  |  | no |  | `by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md` |  |
+| [UID:0002VA][0x00493ef0-0x00493efb.ConfigGlobalClearUnwindHelper](by-memory/0x00493ef0-0x00493efb.ConfigGlobalClearUnwindHelper.md) | unassigned |  |  | no |  | `by-memory/0x00493ef0-0x00493efb.ConfigGlobalClearUnwindHelper.md` |  |
 | [UID:000112][0x00493f10-0x00493f79.SimpleUStringVectorDestructor](by-memory/0x00493f10-0x00493f79.SimpleUStringVectorDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00493f10-0x00493f79.SimpleUStringVectorDestructor.md` |  |
 | [UID:000114][0x004949e0-0x00494bf7.ControlPane](by-memory/0x004949e0-0x00494bf7.ControlPane.md) | unassigned |  |  | no |  | `by-memory/0x004949e0-0x00494bf7.ControlPane.md` |  |
 | [UID:000116][0x00494a90-0x00494b4b.ProgressBarRangeSetters](by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md) | unassigned |  |  | no |  | `by-memory/0x00494a90-0x00494b4b.ProgressBarRangeSetters.md` |  |

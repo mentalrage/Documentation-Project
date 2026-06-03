@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 16:01:48
+Generated: 2026-06-03 16:29:01
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3717
-- Scored files: 3549
+- Tracked files: 3718
+- Scored files: 3550
 - Ignored files: 168
 
 ## projected_path_completion
@@ -101,9 +101,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0002P7` | 70 | 84 | 77.0 | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |
-| `0002P9` | 70 | 84 | 77.0 | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |
-| `0002HN` | 70 | 84 | 77.0 | `by-memory/0x004a6550-0x004a666a.InternetErrorConstructor.md` |
 | `00014U` | 70 | 84 | 77.0 | `by-memory/0x004aeb30-0x004af031.MyItemListPane.md` |
 | `0002IA` | 70 | 84 | 77.0 | `by-memory/0x004ce7e0-0x004ce839.HierListTailInsertWrapper.md` |
 | `0002IB` | 70 | 84 | 77.0 | `by-memory/0x004ce840-0x004ce854.HierListDefaultInsertWrapper.md` |
@@ -125,6 +122,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002SS` | 70 | 84 | 77.0 | `by-memory/0x0061e8e0-0x0061e8f0.DialogCreatorVtableData.md` |
 | `0002B5` | 70 | 84 | 77.0 | `by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md` |
 | `0001UA` | 70 | 84 | 77.0 | `by-type/by-struct/EffectPixMapInfo.md` |
+| `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
+| `00000Q` | 70 | 85 | 77.5 | `by-class/AutoInit.md` |
+| `0000HN` | 70 | 85 | 77.5 | `by-file/AutoInit.md` |
 
 ## Low_Confidence
 
