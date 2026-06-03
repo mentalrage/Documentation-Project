@@ -509,7 +509,7 @@
 - [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) : reconstructable : 86% : strong : Spell target-selection input pane attached to `TargetSelectionInputPanes.cpp`, with constructor/destructor, keyboard and pointer selection, object-list refresh, saved-target clear helper, vtable refs, and padding/switch-table boundaries documented.
 - [UID:0000DY][StaffsDialogPane](by-class/StaffsDialogPane.md) : reconstructable : 86% : medium-high : - Confidence: strong for class behavior, medium for live reachability.
 - [UID:0000DZ][StartupWindow](by-class/StartupWindow.md) : reconstructable : 84% : medium-high : - Confidence: strong for high-level behavior; medium for helper function boundaries.
-- [UID:0000E0][StaticCloudFilterEffecter](by-class/StaticCloudFilterEffecter.md) : reconstructable : 72% : medium-high : - Confidence: strong for role, medium for exact constructor boundary because IDA does not currently model `0x0055b090` as a function object.
+- [UID:0000E0][StaticCloudFilterEffecter](by-class/StaticCloudFilterEffecter.md) : reconstructable : 74% : strong : constructor-only static-cloud filter effecter; vtable store bases, raw constructor span, runtime module owner, and C++ gating notes documented.
 - [UID:0000E1][StaticObjectPane](by-class/StaticObjectPane.md) : reconstructable : 84% : strong : - Confidence: strong for role and anchors.
 - [UID:0000E2][StaticObjImageLib](by-class/StaticObjImageLib.md) : reconstructable : 86% : medium-high : - Confidence: strong for constructor/destructor and bounds helper, medium for field names.
 - [UID:0000E3][StaticTextControlPane](by-class/StaticTextControlPane.md) : reconstructable : 78% : medium-high : - Confidence: strong for broad static text control role; medium for generated field names.

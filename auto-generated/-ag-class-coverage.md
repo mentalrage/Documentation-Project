@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 212
+Total_Reconstructable: 213
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 128
+Total_Reconstructed_Assigned: 129
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 373
+Total_Unclassified: 372
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -125,6 +125,7 @@ Total_Error: 0
 | [UID:0000DC][SnowingLayerPane](by-class/SnowingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SnowingLayerPane.md` |  |
 | [UID:0000DM][SpellInputPaneState](by-class/SpellInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellInputPaneState.md` |  |
 | [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
+| [UID:0000E0][StaticCloudFilterEffecter](by-class/StaticCloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/StaticCloudFilterEffecter.md` |  |
 | [UID:0000E7][StringIter](by-class/StringIter.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/StringIter.md` |  |
 | [UID:0000E9][SwallowLayerPane](by-class/SwallowLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SwallowLayerPane.md` |  |
 | [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/TakeOffInputPane.md` |  |
@@ -531,7 +532,6 @@ Total_Error: 0
 | [UID:0000DK][SpelledPane](by-class/SpelledPane.md) | unclassified |  |  | no |  | `by-class/SpelledPane.md` |  |
 | [UID:0000DY][StaffsDialogPane](by-class/StaffsDialogPane.md) | unclassified |  |  | no |  | `by-class/StaffsDialogPane.md` |  |
 | [UID:0000DZ][StartupWindow](by-class/StartupWindow.md) | unclassified |  |  | no |  | `by-class/StartupWindow.md` |  |
-| [UID:0000E0][StaticCloudFilterEffecter](by-class/StaticCloudFilterEffecter.md) | unclassified |  |  | no |  | `by-class/StaticCloudFilterEffecter.md` |  |
 | [UID:0000E2][StaticObjImageLib](by-class/StaticObjImageLib.md) | unclassified |  |  | no |  | `by-class/StaticObjImageLib.md` |  |
 | [UID:0000E1][StaticObjectPane](by-class/StaticObjectPane.md) | unclassified |  |  | no |  | `by-class/StaticObjectPane.md` |  |
 | [UID:0000E3][StaticTextControlPane](by-class/StaticTextControlPane.md) | unclassified |  |  | no |  | `by-class/StaticTextControlPane.md` |  |

@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 00:06:40
+Generated: 2026-06-03 00:10:01
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -142,7 +142,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `0000BE` | 76 | 74 | 75.0 | `by-class/PursuitMessageDialogPane.md` |
 | `0000DO` | 76 | 74 | 75.0 | `by-class/SpellInventoryPane2.md` |
 | `0000QC` | 76 | 74 | 75.0 | `by-global/g_pBrowserFileLoadText.md` |
@@ -167,6 +166,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000B4` | 74 | 76 | 75.0 | `by-class/ProtectedArray_struct_GameServerConfig__NationEntry_.md` |
 | `0000G8` | 74 | 76 | 75.0 | `by-class/WorldMapNodeEntryVector.md` |
 | `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
+| `0000CC` | 76 | 76 | 76.0 | `by-class/ScreenPanePaletteState_543D30.md` |
 
 ## Low_Both
 
@@ -179,7 +179,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
-| `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
@@ -197,6 +196,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00015I` | 70 | 78 | 74.0 | `by-memory/0x004b69b0-0x004b6adc.FpsPaneStartLogSessionRaw.md` |
 | `00015J` | 70 | 78 | 74.0 | `by-memory/0x004b6ae0-0x004b6c2b.FpsPaneWriteLogSummaryRaw.md` |
 | `00022F` | 70 | 78 | 74.0 | `by-memory/0x004b7120-0x004b731f.BuildFramePartPanes.md` |
+| `00022H` | 70 | 78 | 74.0 | `by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md` |
 
 ## By Folder
 
@@ -210,7 +210,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
-| `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
 | `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
@@ -229,6 +228,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000AK` | 70 | 80 | 75.0 | `by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md` |
 | `000013` | 72 | 78 | 75.0 | `by-class/Browser.md` |
 | `000020` | 72 | 78 | 75.0 | `by-class/CheatDetector.md` |
+| `00002Y` | 72 | 78 | 75.0 | `by-class/CollectionPane2.md` |
 
 ### by-external-research
 
