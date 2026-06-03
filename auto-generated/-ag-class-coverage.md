@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 208
+Total_Reconstructable: 209
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 123
+Total_Reconstructed_Assigned: 124
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 85
-Total_Unclassified: 377
+Total_Unclassified: 376
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -72,6 +72,7 @@ Total_Error: 0
 | [UID:00006S][InventoryPane2](by-class/InventoryPane2.md) | assigned | `0000KA` |  | no | `auto-generated/NexusTK/ui/inventory/InventoryPane.cpp` | `by-class/InventoryPane2.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPaneState.md` |  |
+| [UID:000074][LegendPane](by-class/LegendPane.md) | assigned | `0000KM` | 5 | no | `auto-generated/NexusTK/ui/panels/LegendPane.cpp` | `by-class/LegendPane.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
 | [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPlayerPane.md` |  |
 | [UID:00008S][MSGHandler](by-class/MSGHandler.md) | assigned | `0000LM` | 10 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-class/MSGHandler.md` |  |
@@ -359,7 +360,6 @@ Total_Error: 0
 | [UID:000071][LanguageMan](by-class/LanguageMan.md) | unclassified |  |  | no |  | `by-class/LanguageMan.md` |  |
 | [UID:000072][LanguageManager](by-class/LanguageManager.md) | unclassified |  |  | no |  | `by-class/LanguageManager.md` |  |
 | [UID:000073][Layer](by-class/Layer.md) | unclassified |  |  | no |  | `by-class/Layer.md` |  |
-| [UID:000074][LegendPane](by-class/LegendPane.md) | unclassified |  |  | no |  | `by-class/LegendPane.md` |  |
 | [UID:000076][LightObjImageLib](by-class/LightObjImageLib.md) | unclassified |  |  | no |  | `by-class/LightObjImageLib.md` |  |
 | [UID:000075][LightingObjectPane](by-class/LightingObjectPane.md) | unclassified |  |  | no |  | `by-class/LightingObjectPane.md` |  |
 | [UID:000077][LineInputPane](by-class/LineInputPane.md) | unclassified |  |  | no |  | `by-class/LineInputPane.md` |  |
