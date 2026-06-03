@@ -3,12 +3,12 @@
 # ag-global-coverage
 
 Total_Type: 158
-Total_Reconstructable: 36
+Total_Reconstructable: 39
 Total_Not_Reconstructable: 2
-Total_Reconstructed_Assigned: 27
+Total_Reconstructed_Assigned: 30
 Total_Reconstructed_Coded: 0
 Total_Reconstructable_Unassigned: 9
-Total_Unclassified: 120
+Total_Unclassified: 117
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -22,6 +22,9 @@ Total_Error: 0
 | [UID:0000TF][OpenTerminalPane_4F91C0](by-global/OpenTerminalPane_4F91C0.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-global/OpenTerminalPane_4F91C0.md` |  |
 | [UID:0000TL][SendOptionPacket11B_540E50](by-global/SendOptionPacket11B_540E50.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-global/SendOptionPacket11B_540E50.md` |  |
 | [UID:0000PP][g_activeBrowserPane](by-global/g_activeBrowserPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_activeBrowserPane.md` |  |
+| [UID:0000PQ][g_activeDialogCount](by-global/g_activeDialogCount.md) | assigned | `0000IT` |  | no | `auto-generated/NexusTK/ui/core/DialogPane.cpp` | `by-global/g_activeDialogCount.md` |  |
+| [UID:0000PY][g_fpsDebugActive](by-global/g_fpsDebugActive.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-global/g_fpsDebugActive.md` |  |
+| [UID:0000PZ][g_fpsLogEnabled](by-global/g_fpsLogEnabled.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-global/g_fpsLogEnabled.md` |  |
 | [UID:0000Q6][g_pActiveBrowserWindow](by-global/g_pActiveBrowserWindow.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_pActiveBrowserWindow.md` |  |
 | [UID:0000QC][g_pBrowserFileLoadText](by-global/g_pBrowserFileLoadText.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_pBrowserFileLoadText.md` |  |
 | [UID:0000QF][g_pBrowserTimeoutText](by-global/g_pBrowserTimeoutText.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_pBrowserTimeoutText.md` |  |
@@ -80,7 +83,6 @@ Total_Error: 0
 | [UID:0000TQ][WideApiDispatchTable](by-global/WideApiDispatchTable.md) | unclassified |  |  | no |  | `by-global/WideApiDispatchTable.md` |  |
 | [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) | unclassified |  |  | no |  | `by-global/byte_66DEE0.md` |  |
 | [UID:0000PO][g_activeBrowserControlPane](by-global/g_activeBrowserControlPane.md) | unclassified |  |  | no |  | `by-global/g_activeBrowserControlPane.md` |  |
-| [UID:0000PQ][g_activeDialogCount](by-global/g_activeDialogCount.md) | unclassified |  |  | no |  | `by-global/g_activeDialogCount.md` |  |
 | [UID:0000PR][g_activeMapPane](by-global/g_activeMapPane.md) | unclassified |  |  | no |  | `by-global/g_activeMapPane.md` |  |
 | [UID:0000PS][g_activeUserStatusPane](by-global/g_activeUserStatusPane.md) | unclassified |  |  | no |  | `by-global/g_activeUserStatusPane.md` |  |
 | [UID:0000PT][g_browserControlKeyCallback](by-global/g_browserControlKeyCallback.md) | unclassified |  |  | no |  | `by-global/g_browserControlKeyCallback.md` |  |
@@ -88,8 +90,6 @@ Total_Error: 0
 | [UID:0000PV][g_browserWindowCaption](by-global/g_browserWindowCaption.md) | unclassified |  |  | no |  | `by-global/g_browserWindowCaption.md` |  |
 | [UID:0000PW][g_emptySimpleUString](by-global/g_emptySimpleUString.md) | unclassified |  |  | no |  | `by-global/g_emptySimpleUString.md` |  |
 | [UID:0000PX][g_equipmentSlotKeys](by-global/g_equipmentSlotKeys.md) | unclassified |  |  | no |  | `by-global/g_equipmentSlotKeys.md` |  |
-| [UID:0000PY][g_fpsDebugActive](by-global/g_fpsDebugActive.md) | unclassified |  |  | no |  | `by-global/g_fpsDebugActive.md` |  |
-| [UID:0000PZ][g_fpsLogEnabled](by-global/g_fpsLogEnabled.md) | unclassified |  |  | no |  | `by-global/g_fpsLogEnabled.md` |  |
 | [UID:0000Q0][g_frameRegistry](by-global/g_frameRegistry.md) | unclassified |  |  | no |  | `by-global/g_frameRegistry.md` |  |
 | [UID:0000Q1][g_gameServerNationTable](by-global/g_gameServerNationTable.md) | unclassified |  |  | no |  | `by-global/g_gameServerNationTable.md` |  |
 | [UID:0000Q2][g_metaAliasTableName](by-global/g_metaAliasTableName.md) | unclassified |  |  | no |  | `by-global/g_metaAliasTableName.md` |  |

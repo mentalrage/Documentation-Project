@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 00:23:50
+Generated: 2026-06-03 00:29:40
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -143,9 +143,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000C5` | 78 | 74 | 76.0 | `by-class/SayToPlanMessageInputPane.md` |
-| `0000PQ` | 78 | 74 | 76.0 | `by-global/g_activeDialogCount.md` |
-| `0000PY` | 78 | 74 | 76.0 | `by-global/g_fpsDebugActive.md` |
-| `0000PZ` | 78 | 74 | 76.0 | `by-global/g_fpsLogEnabled.md` |
 | `0000FI` | 80 | 74 | 77.0 | `by-class/UserFaceColorSelectListPane.md` |
 | `0000FK` | 80 | 74 | 77.0 | `by-class/UserHairColorSelectListPane.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
@@ -167,6 +164,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000GC` | 76 | 76 | 76.0 | `by-class/XWaveEffecter.md` |
 | `000012` | 76 | 76 | 76.0 | `by-class/brdir__Notification.md` |
 | `00007D` | 78 | 76 | 77.0 | `by-class/LObject.md` |
+| `000091` | 78 | 76 | 77.0 | `by-class/NewHistoryDialogPane.md` |
+| `00009T` | 78 | 76 | 77.0 | `by-class/OldSystemMessagePane.md` |
+| `0000AD` | 78 | 76 | 77.0 | `by-class/PhoneBookDialog.md` |
 
 ## Low_Both
 
@@ -276,9 +276,6 @@ _No scored files._
 | `0000TA` | 72 | 80 | 76.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 72 | 80 | 76.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
 | `0000TE` | 72 | 80 | 76.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
-| `0000PQ` | 78 | 74 | 76.0 | `by-global/g_activeDialogCount.md` |
-| `0000PY` | 78 | 74 | 76.0 | `by-global/g_fpsDebugActive.md` |
-| `0000PZ` | 78 | 74 | 76.0 | `by-global/g_fpsLogEnabled.md` |
 | `0000SM` | 70 | 84 | 77.0 | `by-global/g_pUrlAlertPane.md` |
 | `0000ST` | 70 | 84 | 77.0 | `by-global/g_screenHeight.md` |
 | `0000SU` | 70 | 84 | 77.0 | `by-global/g_screenWidth.md` |
@@ -297,6 +294,9 @@ _No scored files._
 | `0000S5` | 74 | 84 | 79.0 | `by-global/g_pScreenDimmer.md` |
 | `0000SF` | 74 | 84 | 79.0 | `by-global/g_pTerminalPane.md` |
 | `0000SK` | 74 | 84 | 79.0 | `by-global/g_pTotemFrame.md` |
+| `0000RQ` | 76 | 82 | 79.0 | `by-global/g_pMiscWorkThread.md` |
+| `0000RF` | 78 | 80 | 79.0 | `by-global/g_pMainUiGraph.md` |
+| `0000RM` | 78 | 80 | 79.0 | `by-global/g_pMidiPlayer.md` |
 
 ### by-item
 
