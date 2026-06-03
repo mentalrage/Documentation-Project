@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 22:36:02
+Generated: 2026-06-02 22:43:39
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -109,6 +109,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000OS` | blank | `(blank)` | `by-file/ThreadSafeNodeList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
+
 ## Low_Completion
 
 | UID | Completion | Confidence | Combined | Path |
@@ -157,8 +158,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000PZ` | 78 | 74 | 76.0 | `by-global/g_fpsLogEnabled.md` |
 | `0000FI` | 80 | 74 | 77.0 | `by-class/UserFaceColorSelectListPane.md` |
 | `0000FK` | 80 | 74 | 77.0 | `by-class/UserHairColorSelectListPane.md` |
-| `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
-| `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 | `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
@@ -168,13 +167,13 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
 | `0000C9` | 72 | 76 | 74.0 | `by-class/ScreenEffecter.md` |
 | `0000CP` | 72 | 76 | 74.0 | `by-class/ScrollWidget.md` |
+| `00008O` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_5289D0.md` |
+| `00008P` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_528BE0.md` |
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
-| `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
 | `000018` | 68 | 78 | 73.0 | `by-class/BrowserDialogOld.md` |
 | `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
@@ -198,6 +197,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
 | `0002KD` | 70 | 76 | 73.0 | `by-memory/0x005465e0-0x0054660a.ParcelPaneOnKeyDown.md` |
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
+| `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
+| `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
 
 ## By Folder
 
@@ -333,8 +334,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
-| `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
 | `0002JW` | 68 | 78 | 73.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
 | `0002FP` | 68 | 78 | 73.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 | `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
@@ -358,6 +357,8 @@ _No scored files._
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002PO` | 68 | 80 | 74.0 | `by-memory/0x004f50b0-0x004f5246.LogoPaneStaticLogoLoaderHelpers.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
+| `0002QI` | 68 | 80 | 74.0 | `by-memory/0x00504b70-0x00504b8f.MapPaneTagDetachMessage.md` |
+| `0002F7` | 70 | 78 | 74.0 | `by-memory/0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys.md` |
 
 ### by-meta
 
