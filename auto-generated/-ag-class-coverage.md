@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 205
+Total_Reconstructable: 207
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 119
+Total_Reconstructed_Assigned: 121
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 86
-Total_Unclassified: 380
+Total_Unclassified: 378
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -95,6 +95,8 @@ Total_Error: 0
 | [UID:0000AC][PatchPane__PatchFileSlice](by-class/PatchPane__PatchFileSlice.md) | assigned | `0000MH` |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane__PatchFileSlice.md` |  |
 | [UID:0000AE][PhoneBookListPane](by-class/PhoneBookListPane.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-class/PhoneBookListPane.md` |  |
 | [UID:0000AI][PixelEffecter](by-class/PixelEffecter.md) | assigned | `0000IZ` | 20 | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/PixelEffecter.md` |  |
+| [UID:0000AR][PrettyButtonControlPane](by-class/PrettyButtonControlPane.md) | assigned | `0000MP` |  | no | `auto-generated/NexusTK/ui/controls/PrettyButtonControlPane.cpp` | `by-class/PrettyButtonControlPane.md` |  |
+| [UID:0000AS][PrettyButtonControlPane2](by-class/PrettyButtonControlPane2.md) | assigned | `0000MP` |  | no | `auto-generated/NexusTK/ui/controls/PrettyButtonControlPane.cpp` | `by-class/PrettyButtonControlPane2.md` |  |
 | [UID:0000AU][ProfileDialog](by-class/ProfileDialog.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-class/ProfileDialog.md` |  |
 | [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md) | assigned | `0000MT` | 10 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-class/ProgressBarControlPane.md` |  |
 | [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md) | assigned | `0000MX` |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-class/QuitInputPane.md` |  |
@@ -445,8 +447,6 @@ Total_Error: 0
 | [UID:0000AO][PostInputPane](by-class/PostInputPane.md) | unclassified |  |  | no |  | `by-class/PostInputPane.md` |  |
 | [UID:0000AP][PowerDialogPane](by-class/PowerDialogPane.md) | unclassified |  |  | no |  | `by-class/PowerDialogPane.md` |  |
 | [UID:0000AQ][PowerListPane](by-class/PowerListPane.md) | unclassified |  |  | no |  | `by-class/PowerListPane.md` |  |
-| [UID:0000AR][PrettyButtonControlPane](by-class/PrettyButtonControlPane.md) | unclassified |  |  | no |  | `by-class/PrettyButtonControlPane.md` |  |
-| [UID:0000AS][PrettyButtonControlPane2](by-class/PrettyButtonControlPane2.md) | unclassified |  |  | no |  | `by-class/PrettyButtonControlPane2.md` |  |
 | [UID:0000AT][PrimeNumberGenerator](by-class/PrimeNumberGenerator.md) | unclassified |  |  | no |  | `by-class/PrimeNumberGenerator.md` |  |
 | [UID:0000AV][ProfilePane](by-class/ProfilePane.md) | unclassified |  |  | no |  | `by-class/ProfilePane.md` |  |
 | [UID:0000AX][ProtectedArray_struct_Acc1Info_](by-class/ProtectedArray_struct_Acc1Info_.md) | unclassified |  |  | no |  | `by-class/ProtectedArray_struct_Acc1Info_.md` |  |

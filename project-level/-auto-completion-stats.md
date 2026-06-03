@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 21:18:01
+Generated: 2026-06-02 21:22:19
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -84,7 +84,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000MD` | blank | `(blank)` | `by-file/PaneChildRegistry.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000ME` | blank | `(blank)` | `by-file/PanelPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MI` | blank | `(blank)` | `by-file/PathUtil.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000MP` | blank | `(blank)` | `by-file/PrettyButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MU` | blank | `(blank)` | `by-file/ProtectedArray.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MY` | blank | `(blank)` | `by-file/RainingLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000N1` | blank | `(blank)` | `by-file/RectangleControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -145,7 +144,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000MP` | 76 | 72 | 74.0 | `by-file/PrettyButtonControlPane.md` |
 | `0000Q6` | 76 | 72 | 74.0 | `by-global/g_pActiveBrowserWindow.md` |
 | `0000PP` | 78 | 72 | 75.0 | `by-global/g_activeBrowserPane.md` |
 | `0000IQ` | 79 | 72 | 75.5 | `by-file/Decoder.md` |
@@ -170,6 +168,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000FI` | 80 | 74 | 77.0 | `by-class/UserFaceColorSelectListPane.md` |
 | `0000FK` | 80 | 74 | 77.0 | `by-class/UserHairColorSelectListPane.md` |
 | `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
+| `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
 
 ## Low_Both
 
@@ -244,7 +243,6 @@ _No scored files._
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
-| `0000MP` | 76 | 72 | 74.0 | `by-file/PrettyButtonControlPane.md` |
 | `0000HL` | 68 | 82 | 75.0 | `by-file/AttachmentAnchorResolver.md` |
 | `0000IQ` | 79 | 72 | 75.5 | `by-file/Decoder.md` |
 | `0000HI` | 70 | 82 | 76.0 | `by-file/ArgumentedMenuDialogs.md` |
@@ -266,6 +264,7 @@ _No scored files._
 | `0000LP` | 76 | 80 | 78.0 | `by-file/NewCreateUserDialogPane.md` |
 | `0000J2` | 78 | 78 | 78.0 | `by-file/EPFImageControlPane.md` |
 | `0000KO` | 78 | 78 | 78.0 | `by-file/LightingObjectPane.md` |
+| `0000KQ` | 78 | 78 | 78.0 | `by-file/LineIterator.md` |
 
 ### by-function
 

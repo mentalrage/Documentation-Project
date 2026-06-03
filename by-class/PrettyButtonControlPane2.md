@@ -1,8 +1,8 @@
 *** UID:0000AS | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MP | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -50,3 +50,6 @@
 - Before: completion/confidence metadata were `0/0` despite method map, resource/frame role, constructor xrefs, and endpoint correction.
 - Changed to: `COMPLETION:76` and `CONFIDENCE:84`.
 - Evidence: constructor, state/animation scheduling, EPF/PAL paint, click notification, destructor/thunks, two constructor xrefs, and corrected containing range are documented; remaining gaps are exact fields and reconstructed C++.
+- Before: reconstructable/autogen parent metadata were blank.
+- Changed to: `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000MP`.
+- Evidence: the alternate styled-button class is documented as NexusTK-owned source in the same executable cluster and owning [UID:0000MP][PrettyButtonControlPane](by-file/PrettyButtonControlPane.md) source root, which now has a valid projected path.

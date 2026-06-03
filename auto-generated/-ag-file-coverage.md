@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 196
+Total_Reconstructed_Assigned: 197
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 92
+Total_Error: 91
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -136,6 +136,7 @@ Total_Error: 92
 | [UID:0000MM][PoolAllocator](by-file/PoolAllocator.md) | assigned |  |  | no | `auto-generated/NexusTK/util/PoolAllocator.cpp` | `by-file/PoolAllocator.md` | by-file generated root |
 | [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-file/PopupMenuControls.md` | by-file generated root |
 | [UID:0000MO][PowerDialogPane](by-file/PowerDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/PowerDialogPane.cpp` | `by-file/PowerDialogPane.md` | by-file generated root |
+| [UID:0000MP][PrettyButtonControlPane](by-file/PrettyButtonControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/PrettyButtonControlPane.cpp` | `by-file/PrettyButtonControlPane.md` | by-file generated root |
 | [UID:0000MQ][PrimeNumberGenerator](by-file/PrimeNumberGenerator.md) | assigned |  |  | no | `auto-generated/NexusTK/util/PrimeNumberGenerator.cpp` | `by-file/PrimeNumberGenerator.md` | by-file generated root |
 | [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-file/ProfileDialog.md` | by-file generated root |
 | [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md) | assigned |  |  | no | `auto-generated/NexusTK/profile/ProfileStorage.cpp` | `by-file/ProfileStorage.md` | by-file generated root |
@@ -275,7 +276,6 @@ Total_Error: 92
 | [UID:0000MD][PaneChildRegistry](by-file/PaneChildRegistry.md) | error |  |  | no |  | `by-file/PaneChildRegistry.md` | by-file generated root |
 | [UID:0000ME][PanelPane](by-file/PanelPane.md) | error |  |  | no |  | `by-file/PanelPane.md` | by-file generated root |
 | [UID:0000MI][PathUtil](by-file/PathUtil.md) | error |  |  | no |  | `by-file/PathUtil.md` | by-file generated root |
-| [UID:0000MP][PrettyButtonControlPane](by-file/PrettyButtonControlPane.md) | error |  |  | no |  | `by-file/PrettyButtonControlPane.md` | by-file generated root |
 | [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md) | error |  |  | no |  | `by-file/ProtectedArray.md` | by-file generated root |
 | [UID:0000MY][RainingLayerPane](by-file/RainingLayerPane.md) | error |  |  | no |  | `by-file/RainingLayerPane.md` | by-file generated root |
 | [UID:0000N1][RectangleControlPane](by-file/RectangleControlPane.md) | error |  |  | no |  | `by-file/RectangleControlPane.md` | by-file generated root |

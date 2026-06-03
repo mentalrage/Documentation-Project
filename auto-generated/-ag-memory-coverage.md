@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2165
-Total_Reconstructable: 1257
+Total_Reconstructable: 1258
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 727
+Total_Reconstructed_Assigned: 728
 Total_Reconstructed_Coded: 18
 Total_Reconstructable_Unassigned: 530
-Total_Unclassified: 897
+Total_Unclassified: 896
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -502,6 +502,7 @@ Total_Error: 0
 | [UID:0001F2][0x00549620-0x00549bc5.PhotoAndPicturePanes](by-memory/0x00549620-0x00549bc5.PhotoAndPicturePanes.md) | assigned | `0000MK` | 40 | no | `auto-generated/NexusTK/map/PhotoPane.cpp` | `by-memory/0x00549620-0x00549bc5.PhotoAndPicturePanes.md` |  |
 | [UID:0002R8][0x00549920-0x00549950.PhotoPaneCleanupDestructorBodyRaw](by-memory/0x00549920-0x00549950.PhotoPaneCleanupDestructorBodyRaw.md) | assigned | `0000MK` | 38 | no | `auto-generated/NexusTK/map/PhotoPane.cpp` | `by-memory/0x00549920-0x00549950.PhotoPaneCleanupDestructorBodyRaw.md` |  |
 | [UID:0001F7][0x0054a480-0x0054a4b6.PowerDialogPaneSingletonHelpers](by-memory/0x0054a480-0x0054a4b6.PowerDialogPaneSingletonHelpers.md) | assigned | `0000MO` | 25 | no | `auto-generated/NexusTK/ui/dialogs/PowerDialogPane.cpp` | `by-memory/0x0054a480-0x0054a4b6.PowerDialogPaneSingletonHelpers.md` |  |
+| [UID:0001F9][0x0054b5e0-0x0054bcbd.PrettyButtonControls](by-memory/0x0054b5e0-0x0054bcbd.PrettyButtonControls.md) | assigned | `0000MP` |  | no | `auto-generated/NexusTK/ui/controls/PrettyButtonControlPane.cpp` | `by-memory/0x0054b5e0-0x0054bcbd.PrettyButtonControls.md` |  |
 | [UID:0001FA][0x0054bcc0-0x0054bcec.PrimeNumberGeneratorGetPrimeAt](by-memory/0x0054bcc0-0x0054bcec.PrimeNumberGeneratorGetPrimeAt.md) | assigned | `0000MQ` | 20 | no | `auto-generated/NexusTK/util/PrimeNumberGenerator.cpp` | `by-memory/0x0054bcc0-0x0054bcec.PrimeNumberGeneratorGetPrimeAt.md` |  |
 | [UID:0001FB][0x0054bcf0-0x0054c15a.PrimeNumberGenerator](by-memory/0x0054bcf0-0x0054c15a.PrimeNumberGenerator.md) | assigned | `0000MQ` | 30 | no | `auto-generated/NexusTK/util/PrimeNumberGenerator.cpp` | `by-memory/0x0054bcf0-0x0054c15a.PrimeNumberGenerator.md` |  |
 | [UID:0001FE][0x0054cab0-0x0054cae9.PursuitMessageDialogPaneConstructor](by-memory/0x0054cab0-0x0054cae9.PursuitMessageDialogPaneConstructor.md) | assigned | `0000LA` | 30 | no | `auto-generated/NexusTK/ui/dialogs/MessageDialogs.cpp` | `by-memory/0x0054cab0-0x0054cae9.PursuitMessageDialogPaneConstructor.md` |  |
@@ -1817,7 +1818,6 @@ Total_Error: 0
 | [UID:0001F5][0x00549c20-0x0054a472.PowerDialogPaneConstructor](by-memory/0x00549c20-0x0054a472.PowerDialogPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00549c20-0x0054a472.PowerDialogPaneConstructor.md` |  |
 | [UID:0001F6][0x00549c20-0x0054b5d5.PowerDialogPane](by-memory/0x00549c20-0x0054b5d5.PowerDialogPane.md) | unclassified |  |  | no |  | `by-memory/0x00549c20-0x0054b5d5.PowerDialogPane.md` |  |
 | [UID:0001F8][0x0054b4f0-0x0054b51c.PowerDialogPaneAndPowerListPaneAdjustorThunks](by-memory/0x0054b4f0-0x0054b51c.PowerDialogPaneAndPowerListPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0054b4f0-0x0054b51c.PowerDialogPaneAndPowerListPaneAdjustorThunks.md` |  |
-| [UID:0001F9][0x0054b5e0-0x0054bcbd.PrettyButtonControls](by-memory/0x0054b5e0-0x0054bcbd.PrettyButtonControls.md) | unclassified |  |  | no |  | `by-memory/0x0054b5e0-0x0054bcbd.PrettyButtonControls.md` |  |
 | [UID:0001FC][0x0054c0c0-0x0054c110.DequeElementAddressHelper](by-memory/0x0054c0c0-0x0054c110.DequeElementAddressHelper.md) | unclassified |  |  | no |  | `by-memory/0x0054c0c0-0x0054c110.DequeElementAddressHelper.md` |  |
 | [UID:00023M][0x0054c200-0x0054caa9.MessageDialogPacketDispatcherAndWrappers](by-memory/0x0054c200-0x0054caa9.MessageDialogPacketDispatcherAndWrappers.md) | unclassified |  |  | no |  | `by-memory/0x0054c200-0x0054caa9.MessageDialogPacketDispatcherAndWrappers.md` |  |
 | [UID:0001FF][0x0054caf0-0x0054cc2f.MessageDialogObjectResponseVirtual](by-memory/0x0054caf0-0x0054cc2f.MessageDialogObjectResponseVirtual.md) | unclassified |  |  | no |  | `by-memory/0x0054caf0-0x0054cc2f.MessageDialogObjectResponseVirtual.md` |  |
