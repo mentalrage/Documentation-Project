@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 16:46:18
+Generated: 2026-06-03 17:20:43
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3718
-- Scored files: 3550
+- Tracked files: 3719
+- Scored files: 3551
 - Ignored files: 168
 
 ## projected_path_completion

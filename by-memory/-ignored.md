@@ -54,6 +54,12 @@ For each ignored range, include:
   - Replacement/procurement: none; compiler/linker alignment.
   - Owner docs: [UID:000033][ConfirmDeleteAlert](by-class/ConfirmDeleteAlert.md), [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md), [UID:0000ZM][0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions](by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md).
 
+- `0x00493e29-0x00493e30` - RegistryConfig load to raw adapter formatter alignment padding.
+  - Why ignored: seven confirmed `0xcc` alignment bytes after [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md) and before [UID:0002VB][0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw](by-memory/0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw.md).
+  - Evidence: live IDA MCP byte/decode audit on 2026-06-03 shows `0x00493e29-0x00493e30` is all `0xcc`, `0x00493e30` decodes as a raw `push ebp` function-shaped body, and IDA has no function owner for the padding range.
+  - Replacement/procurement: none; compiler/linker alignment.
+  - Owner docs: [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md), [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md), [UID:0002VB][0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw](by-memory/0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw.md).
+
 - `0x00493efb-0x00493f00` and `0x00493f0d-0x00493f10` - Thrunet parser cleanup-tail alignment padding.
   - Why ignored: confirmed `0xcc` alignment before and after the out-of-line `sub_48FCA0` cleanup tail at `0x00493f00-0x00493f0d`; not standalone project logic.
   - Evidence: live IDA MCP byte/function audit on 2026-06-03 shows `0x00493efb-0x00493f00` is five `0xcc` bytes with no function owner, `0x00493f00-0x00493f0d` belongs to `sub_48FCA0`, and `0x00493f0d-0x00493f10` is three `0xcc` bytes before `sub_493F10`.
@@ -67,19 +73,19 @@ For each ignored range, include:
   - Owner docs: [UID:0002BJ][0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser](by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md), [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md).
 
 - `0x00493f80-0x00493f85` and `0x00493fe0-0x00493fe5` - Config/COM cleanup tail-jump thunks.
-  - Why ignored: tiny compiler/linker thunks that only jump to already documented cleanup helpers, not standalone project source. `0x00493f80` tail-jumps to `sub_582B30`; `0x00493fe0` tail-jumps to [UID:000221][MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md) helper `sub_494440`.
+  - Why ignored: tiny compiler/linker thunks that only jump to already documented cleanup helpers, not standalone project source. `0x00493f80` tail-jumps to `sub_582B30`; `0x00493fe0` tail-jumps to [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md) helper `sub_494440`.
   - Evidence: live IDA MCP disassembly on 2026-06-03 shows `0x00493f80: jmp sub_582B30` with the only xref from the `sub_48E550` constructor cleanup region at `0x005fcc3a`; `0x00493fe0: jmp sub_494440` with xrefs from command-line/COM cleanup chunks.
   - Replacement/procurement: no standalone source; compile the owning string/COM holder cleanup paths.
   - Owner docs: [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md), [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md).
 
 - `0x00493f90-0x00493fd9` - Config constructor entry-block cleanup wrapper.
-  - Why ignored: compiler-generated constructor/unwind cleanup wrapper around [UID:0002PA][ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md) and a 32-element `ConfigEntry` vector destructor pass, not a separate source method.
+  - Why ignored: compiler-generated constructor/unwind cleanup wrapper around [UID:0002PA][0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md) and a 32-element `ConfigEntry` vector destructor pass, not a separate source method.
   - Evidence: live IDA MCP disassembly on 2026-06-03 shows setup of an SEH frame, call to `sub_494130`, then `eh vector destructor iterator` with element size `0x18`, count `0x20`, and destructor callback `sub_48E4B0`. The only normal xref to `0x00493f90` is `0x005fcc2c jmp sub_493F90` from the `sub_48E550` constructor cleanup region; the function's far chunk uses the shared `___CxxFrameHandler3` path.
   - Replacement/procurement: express the owning `Config`/`RegistryConfig` member construction and cleanup; compiler EH generation should recreate or eliminate this wrapper.
   - Owner docs: [UID:0000IE][Config](by-file/Config.md), [UID:000032][ConfigEntryBlock](by-class/ConfigEntryBlock.md), [UID:0002PA][0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md).
 
 - `0x00493f85-0x00493f90`, `0x00493fd9-0x00493fe0`, `0x00493fe5-0x00493ff0`, `0x00493ffc-0x00494000`, and `0x00494011-0x00494020` - Config cleanup helper island alignment padding.
-  - Why ignored: confirmed `0xcc` alignment spans between the cleanup thunks, wrapper, STL helper, COM helper, and [UID:0002P9][ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md); not standalone project logic.
+  - Why ignored: confirmed `0xcc` alignment spans between the cleanup thunks, wrapper, STL helper, COM helper, and [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md); not standalone project logic.
   - Evidence: live IDA MCP byte/function audit on 2026-06-03 reports the exact function ends and shows each listed gap consists only of `0xcc` bytes.
   - Replacement/procurement: none; compiler/linker alignment.
   - Owner docs: [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md), [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md).
