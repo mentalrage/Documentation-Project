@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 195
+Total_Reconstructed_Assigned: 196
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 93
+Total_Error: 92
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -118,6 +118,7 @@ Total_Error: 93
 | [UID:0000LV][NewUserDialogPane](by-file/NewUserDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/NewUserDialogPane.cpp` | `by-file/NewUserDialogPane.md` | by-file generated root |
 | [UID:0000LW][NewUserDialogPane2](by-file/NewUserDialogPane2.md) | assigned |  |  | no | `auto-generated/NexusTK/login/NewUserDialogPane2.cpp` | `by-file/NewUserDialogPane2.md` | by-file generated root |
 | [UID:0000LX][NewUserMiscDialogPane](by-file/NewUserMiscDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/NewUserMiscDialogPane.cpp` | `by-file/NewUserMiscDialogPane.md` | by-file generated root |
+| [UID:0000LY][NewUserShapeSelectControlPane](by-file/NewUserShapeSelectControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/NewUserShapeSelectControlPane.cpp` | `by-file/NewUserShapeSelectControlPane.md` | by-file generated root |
 | [UID:0000LZ][NexonclubProxyDialog](by-file/NexonclubProxyDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/NexonclubProxyDialog.cpp` | `by-file/NexonclubProxyDialog.md` | by-file generated root |
 | [UID:0000M1][NumberInputDialog](by-file/NumberInputDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/NumberInputDialog.cpp` | `by-file/NumberInputDialog.md` | by-file generated root |
 | [UID:0000M3][ObjectImageControlPane](by-file/ObjectImageControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ObjectImageControlPane.cpp` | `by-file/ObjectImageControlPane.md` | by-file generated root |
@@ -265,7 +266,6 @@ Total_Error: 93
 | [UID:0000LN][MusicControlDialog](by-file/MusicControlDialog.md) | error |  |  | no |  | `by-file/MusicControlDialog.md` | by-file generated root |
 | [UID:0000LQ][NewHistoryDialogPane](by-file/NewHistoryDialogPane.md) | error |  |  | no |  | `by-file/NewHistoryDialogPane.md` | by-file generated root |
 | [UID:0000LS][NewInventoryPane](by-file/NewInventoryPane.md) | error |  |  | no |  | `by-file/NewInventoryPane.md` | by-file generated root |
-| [UID:0000LY][NewUserShapeSelectControlPane](by-file/NewUserShapeSelectControlPane.md) | error |  |  | no |  | `by-file/NewUserShapeSelectControlPane.md` | by-file generated root |
 | [UID:0000M0][NexonclubRegistrationDialog](by-file/NexonclubRegistrationDialog.md) | error |  |  | no |  | `by-file/NexonclubRegistrationDialog.md` | by-file generated root |
 | [UID:0000M2][NumericStringControlPane](by-file/NumericStringControlPane.md) | error |  |  | no |  | `by-file/NumericStringControlPane.md` | by-file generated root |
 | [UID:0000M5][ObjectPane](by-file/ObjectPane.md) | error |  |  | no |  | `by-file/ObjectPane.md` | by-file generated root |

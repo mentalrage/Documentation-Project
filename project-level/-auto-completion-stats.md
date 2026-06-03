@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 21:13:23
+Generated: 2026-06-02 21:18:01
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -75,7 +75,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LN` | blank | `(blank)` | `by-file/MusicControlDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LQ` | blank | `(blank)` | `by-file/NewHistoryDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LS` | blank | `(blank)` | `by-file/NewInventoryPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LY` | blank | `(blank)` | `by-file/NewUserShapeSelectControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M0` | blank | `(blank)` | `by-file/NexonclubRegistrationDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M2` | blank | `(blank)` | `by-file/NumericStringControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M5` | blank | `(blank)` | `by-file/ObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -146,7 +145,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000LY` | 76 | 72 | 74.0 | `by-file/NewUserShapeSelectControlPane.md` |
 | `0000MP` | 76 | 72 | 74.0 | `by-file/PrettyButtonControlPane.md` |
 | `0000Q6` | 76 | 72 | 74.0 | `by-global/g_pActiveBrowserWindow.md` |
 | `0000PP` | 78 | 72 | 75.0 | `by-global/g_activeBrowserPane.md` |
@@ -171,6 +169,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000PZ` | 78 | 74 | 76.0 | `by-global/g_fpsLogEnabled.md` |
 | `0000FI` | 80 | 74 | 77.0 | `by-class/UserFaceColorSelectListPane.md` |
 | `0000FK` | 80 | 74 | 77.0 | `by-class/UserHairColorSelectListPane.md` |
+| `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
 
 ## Low_Both
 
@@ -245,7 +244,6 @@ _No scored files._
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
-| `0000LY` | 76 | 72 | 74.0 | `by-file/NewUserShapeSelectControlPane.md` |
 | `0000MP` | 76 | 72 | 74.0 | `by-file/PrettyButtonControlPane.md` |
 | `0000HL` | 68 | 82 | 75.0 | `by-file/AttachmentAnchorResolver.md` |
 | `0000IQ` | 79 | 72 | 75.5 | `by-file/Decoder.md` |
@@ -267,6 +265,7 @@ _No scored files._
 | `0000HW` | 74 | 82 | 78.0 | `by-file/BulletinReplyAlerts.md` |
 | `0000LP` | 76 | 80 | 78.0 | `by-file/NewCreateUserDialogPane.md` |
 | `0000J2` | 78 | 78 | 78.0 | `by-file/EPFImageControlPane.md` |
+| `0000KO` | 78 | 78 | 78.0 | `by-file/LightingObjectPane.md` |
 
 ### by-function
 
