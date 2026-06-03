@@ -25,8 +25,8 @@
 
 | Method | Address | Role |
 | --- | --- | --- |
-| row rectangle helper | [UID:0002FF][0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper](by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md) | Raw IDA-unmodeled helper that writes the compact selector rectangle or an empty rectangle. |
-| initial hit-test helper | [UID:0002FG][0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest](by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md) | Raw IDA-unmodeled helper that tests the compact selector rectangle and returns row `0` or `-1`. |
+| compact button rectangle helper | [UID:0002FF][0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper](by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md) | Raw IDA-unmodeled helper now kept with [UID:00001Y][ChattingVarietyPane](by-class/ChattingVarietyPane.md); included here only because it sits immediately before the raw selector constructor and supports opening this popup. |
+| compact button hit-test helper | [UID:0002FG][0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest](by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md) | Raw IDA-unmodeled helper now kept with [UID:00001Y][ChattingVarietyPane](by-class/ChattingVarietyPane.md); it tests the compact button rectangle, not the six-row popup list. |
 | `ChattingVarietySelectPane` | [UID:0002FH][0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw](by-memory/0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw.md) | Raw constructor body; IDA does not model it as a function start, but byte decode proves real constructor code. |
 | destructor body | [UID:0002FI][0x00481150-0x004811bc.ChattingVarietySelectPaneDestructor](by-memory/0x00481150-0x004811bc.ChattingVarietySelectPaneDestructor.md) | Clears `g_pChattingVarietySelectPane` after vtable/subobject cleanup and base teardown. |
 | `OnMouseEvent` | [UID:0002FJ][0x004811c0-0x00481461.ChattingVarietySelectPaneOnMouseEvent](by-memory/0x004811c0-0x00481461.ChattingVarietySelectPaneOnMouseEvent.md) | Hover/click/release dispatcher for the six selector rows; commits Talk/Shout/Whisper/Group/Clan/Color actions. |
@@ -43,7 +43,7 @@
 ## Evidence Notes
 
 - IDA MCP reports no modeled function at `0x004810f0`, but 2026-05-31 raw decode confirms a complete constructor body at `0x004810f0-0x00481146`.
-- IDA MCP raw decode also confirms unmodeled helper bodies at `0x00481010-0x00481056` and `0x00481060-0x004810ea`; current IDA xrefs do not identify callers for those helpers.
+- IDA MCP raw decode also confirms unmodeled helper bodies at `0x00481010-0x00481056` and `0x00481060-0x004810ea`; current IDA xrefs do not identify callers for those helpers. Their `(0,0,62,24)` geometry matches the compact `ChattingVarietyPane` button, not the six-row popup selector list.
 - IDA MCP confirms exact function boundaries and vtable entries for `0x00481150`, `0x004811c0`, `0x00481470`, `0x00481490`, `0x004816d0`, `0x00481750`, and `0x00481a80`.
 - IDA MCP on 2026-05-26 confirms `0x00481ad0` is a six-row hit-test helper with callers only at `0x0048124d` and `0x00481430` inside `ChattingVarietySelectPane::OnMouseEvent`.
 - IDA MCP on 2026-05-31 confirms raw unmodeled helper bodies at `0x00481b60-0x00481bb9` and `0x00481bc0-0x00481c05`; both are unxrefed in IDA but operate on the same `this + 0x111..0x124` field group.
@@ -76,3 +76,4 @@
 - Summary and evidence: selector rows, mouse/dismiss/paint/background/border helpers, and hit-test helper are covered; projected constructor reachability and final field layout remain incomplete.
 - 2026-05-31: Updated completion/confidence from `72/80` to `76/84` after documenting the raw unmodeled constructor/helper bodies and exact destructor body before the existing mouse-dispatch range. Evidence: IDA MCP raw decode, function boundary checks, decompilation, xref checks, and padding audit.
 - 2026-05-31: Updated completion/confidence from `76/84` to `84/88` after adding exact pages for mouse dispatch, dismiss, paint, background setup, border drawing, row rectangle, hit-test, and raw state compare/snapshot helpers through `0x00481c10`. Evidence: IDA MCP function iteration, vtable xrefs, decompilation, raw disassembly, and padding audit.
+- 2026-06-03: Clarified that the raw `0x00481010`/`0x00481060` compact-button helpers are cross-referenced setup support but attach to [UID:00001Y][ChattingVarietyPane](by-class/ChattingVarietyPane.md), while this popup's own six-row geometry remains [UID:0002FM][0x00481a80-0x00481acd.ChattingVarietySelectPaneGetItemRect](by-memory/0x00481a80-0x00481acd.ChattingVarietySelectPaneGetItemRect.md) and [UID:000106][0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest](by-memory/0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest.md).
