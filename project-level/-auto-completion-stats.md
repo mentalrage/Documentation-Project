@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 22:59:42
+Generated: 2026-06-02 23:04:15
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -124,7 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
 | `0001HP` | 68 | 78 | 73.0 | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |
 | `0001J2` | 68 | 78 | 73.0 | `by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md` |
-| `0002G9` | 68 | 79 | 73.5 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
 | `00000Y` | 68 | 80 | 74.0 | `by-class/BlueAlertPane.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
@@ -139,6 +138,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00000P` | 68 | 82 | 75.0 | `by-class/AUTOBUF_unsigned_char.md` |
 | `00000H` | 68 | 82 | 75.0 | `by-class/ArgumentedMenuMenuDialog.md` |
 | `0000AJ` | 68 | 82 | 75.0 | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |
+| `0000BC` | 68 | 82 | 75.0 | `by-class/ProtectedArray_struct_ShoeInfo_.md` |
 
 ## Low_Confidence
 
@@ -191,7 +191,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
-| `0002G9` | 68 | 79 | 73.5 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
 | `00000Y` | 68 | 80 | 74.0 | `by-class/BlueAlertPane.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
@@ -199,6 +198,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
+| `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 
 ## By Folder
 
@@ -341,7 +341,6 @@ _No scored files._
 | `0001J2` | 68 | 78 | 73.0 | `by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md` |
 | `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
 | `0002KD` | 70 | 76 | 73.0 | `by-memory/0x005465e0-0x0054660a.ParcelPaneOnKeyDown.md` |
-| `0002G9` | 68 | 79 | 73.5 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
 | `0002FE` | 68 | 80 | 74.0 | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
@@ -359,6 +358,7 @@ _No scored files._
 | `00022J` | 70 | 78 | 74.0 | `by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md` |
 | `0002KQ` | 70 | 78 | 74.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
 | `0002KE` | 70 | 78 | 74.0 | `by-memory/0x00546610-0x00546807.ParcelPaneOnMouseEvent.md` |
+| `0001GO` | 70 | 78 | 74.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
 
 ### by-meta
 

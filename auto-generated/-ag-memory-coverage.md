@@ -5,9 +5,9 @@
 Total_Type: 2171
 Total_Reconstructable: 1271
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 745
+Total_Reconstructed_Assigned: 746
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 526
+Total_Reconstructable_Unassigned: 525
 Total_Unclassified: 889
 Total_Error: 0
 
@@ -109,6 +109,7 @@ Total_Error: 0
 | [UID:0002FW][0x00482310-0x00482400.ChatButtonRectHelperRaw](by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |  |
 | [UID:0002G0][0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw](by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md) | assigned | `00001T` | 40 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |  |
 | [UID:0002G1][0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw](by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md) | assigned | `00001T` | 50 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md` |  |
+| [UID:0002G9][0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw](by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |  |
 | [UID:00021D][0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request](by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485440-0x004854a5.SendClanOpcode4BSubtype0Request.md` |  |
 | [UID:00021E][0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request](by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x004854b0-0x00485518.SendClanOpcode4BSubtype1Request.md` |  |
 | [UID:00021F][0x00485520-0x00485588.SendClanJoinListRefreshPacket](by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00485520-0x00485588.SendClanJoinListRefreshPacket.md` |  |
@@ -819,7 +820,6 @@ Total_Error: 0
 | [UID:000103][0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor](by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md` |  |
 | [UID:0002G3][0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw](by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md) | unassigned |  |  | no |  | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |  |
 | [UID:0002G4][0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw](by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md) | unassigned |  |  | no |  | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |  |
-| [UID:0002G9][0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw](by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md) | unassigned |  |  | no |  | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |  |
 | [UID:00010A][0x00484030-0x00484221.ClanStatusPaneConstructor](by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md` |  |
 | [UID:00021C][0x00484f70-0x0048540b.ClanStatusPacketDispatcher](by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md) | unassigned |  |  | no |  | `by-memory/0x00484f70-0x0048540b.ClanStatusPacketDispatcher.md` |  |
 | [UID:00010F][0x00486330-0x0048652d.SubmitClanChangeHelper](by-memory/0x00486330-0x0048652d.SubmitClanChangeHelper.md) | unassigned |  |  | no |  | `by-memory/0x00486330-0x0048652d.SubmitClanChangeHelper.md` |  |
