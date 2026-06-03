@@ -5,9 +5,9 @@
 Total_Type: 586
 Total_Reconstructable: 207
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 121
+Total_Reconstructed_Assigned: 122
 Total_Reconstructed_Coded: 3
-Total_Reconstructable_Unassigned: 86
+Total_Reconstructable_Unassigned: 85
 Total_Unclassified: 378
 Total_Error: 0
 
@@ -37,6 +37,7 @@ Total_Error: 0
 | [UID:00003W][DIError](by-class/DIError.md) | assigned | `0000J5` |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/DIError.md` |  |
 | [UID:00003Z][DLPalette](by-class/DLPalette.md) | assigned | `0000MA` |  | no | `auto-generated/NexusTK/render/Palette.cpp` | `by-class/DLPalette.md` |  |
 | [UID:000045][DSError](by-class/DSError.md) | assigned | `0000J5` |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/DSError.md` |  |
+| [UID:00003M][Decoder](by-class/Decoder.md) | assigned | `0000IQ` |  | no | `auto-generated/NexusTK/util/Decoder.cpp` | `by-class/Decoder.md` |  |
 | [UID:00003N][DeleteFromBlockListenInputPane](by-class/DeleteFromBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/DeleteFromBlockListenInputPane.md` |  |
 | [UID:00003Q][DescPane](by-class/DescPane.md) | assigned | `0000IS` |  | no | `auto-generated/NexusTK/ui/controls/DescPane.cpp` | `by-class/DescPane.md` |  |
 | [UID:000043][DropGoldInputPane](by-class/DropGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/DropGoldInputPane.md` |  |
@@ -160,7 +161,6 @@ Total_Error: 0
 | [UID:00003G][DATFile](by-class/DATFile.md) | unassigned |  |  | no |  | `by-class/DATFile.md` |  |
 | [UID:00003I][DATFileMgr](by-class/DATFileMgr.md) | unassigned |  |  | no |  | `by-class/DATFileMgr.md` |  |
 | [UID:00003V][DIBitmap](by-class/DIBitmap.md) | unassigned |  |  | no |  | `by-class/DIBitmap.md` |  |
-| [UID:00003M][Decoder](by-class/Decoder.md) | unassigned |  |  | no |  | `by-class/Decoder.md` |  |
 | [UID:00003P][Deque](by-class/Deque.md) | unassigned |  |  | no |  | `by-class/Deque.md` |  |
 | [UID:00003S][DialogInSession](by-class/DialogInSession.md) | unassigned |  |  | no |  | `by-class/DialogInSession.md` |  |
 | [UID:00003T][DialogPane](by-class/DialogPane.md) | unassigned |  |  | no |  | `by-class/DialogPane.md` |  |

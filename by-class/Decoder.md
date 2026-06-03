@@ -1,8 +1,8 @@
 *** UID:00003M | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IQ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: medium for complete method set, strong for layout and vtable identity.
+- Confidence: medium-high for class ownership/layout/vtable identity, medium for complete live method reachability.
 - Likely source file: [UID:0000IQ][Decoder](by-file/Decoder.md), under the [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) utility layer
 - Current recovered file: `source-3/simroot_v2/class_Decoder.cpp`
 - Main address evidence: [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md)
@@ -103,3 +103,7 @@ This layout is inferred from IDA decompilation/disassembly of the constructor, i
   - Before: the class was documented as reconstructable in prose but validator `RECONSTRUCTABLE` metadata was blank.
   - After: `RECONSTRUCTABLE` is set to `TRUE`.
   - Summary/evidence: IDA MCP reconfirmed the Decoder constructor/destructor/no-op/scalar-deleting vtable surface and raw-reader caveats; C++ code remains blank because raw reader boundary/caller evidence is below the `95+` final-code gate.
+- 2026-06-03:
+  - Before: scores were `78/78` and `AUTOGEN_PARENT_UID` was blank while the file parent still had low confidence.
+  - After: scores are `80/82`, and `AUTOGEN_PARENT_UID` is [UID:0000IQ][Decoder](by-file/Decoder.md).
+  - Summary/evidence: the class page already records the full observed state, modeled lifecycle functions, raw reader starts, vtable slots, generated-size caveat, and links to the strengthened layout/vtable/source-root docs. C++ remains blank because the raw reader family still lacks modeled function objects and direct caller recovery.

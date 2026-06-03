@@ -1,13 +1,13 @@
 *** UID:0000IQ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:79 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:81 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Decoder
 
 ## Status
 
-- Confidence: medium for full live method set; strong that the reader island is paired with [UID:0000J1][Encoder](by-file/Encoder.md).
+- Confidence: medium-high for source ownership and utility placement; medium for full live method reachability.
 - Proposed module: `NexusTK/util/Decoder.cpp`, or folded into [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) if later evidence proves a single paired codec file.
 - Current recovered source: `source-3/simroot_v2/class_Decoder.cpp`
 - Primary vtable: [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md) at `0x006192d8`
@@ -52,6 +52,10 @@
 
 Do not trust active generated `class_Decoder.cpp` as migration-ready source until the missing reader starts and 18-byte stream layout are modeled. See [wave3_data_issues](../wave3_data_issues.md) for the current generator/data caveat.
 
+## Autogen Notes
+
+[UID:00003M][Decoder](by-class/Decoder.md) can attach to this source root because the Decoder file placement, class ownership, vtable, and shared cursor layout now have enough written evidence. Leave raw reader aggregate pages unattached until the non-modeled starts are represented by exact method pages or a deliberate aggregate insertion plan; otherwise the generated draft would only contain an overlapping placeholder for code that still lacks caller recovery.
+
 ## Cross-References
 
 - [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md)
@@ -74,3 +78,7 @@ Do not trust active generated `class_Decoder.cpp` as migration-ready source unti
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, scores were `78/70`, and the module path used `util/Decoder.cpp` without an explicit generated root.
   - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/"`, scores `79/72`, and proposed module `NexusTK/util/Decoder.cpp`.
   - Summary/evidence: IDA MCP reconfirmed modeled lifecycle/vtable glue and the raw reader caveat. No C++ reconstruction code is emitted because raw-reader boundaries, caller evidence, active generated source completeness, and surrounding/dependency confidence are below the `95+` final-code gate.
+- 2026-06-03 source-root confidence update:
+  - What existed before: scores stayed at `79/72`, and the class autogen attachment stayed gated by the parent confidence even though the linked layout/vtable/raw-reader pages had since been strengthened.
+  - Changed to: scores `81/82`; [UID:00003M][Decoder](by-class/Decoder.md) is eligible to attach to this source root while C++ remains blank.
+  - Summary/evidence: [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md), [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md), [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md), and [UID:00013Q][0x004a5680-0x004a5dcf.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md) now document enough ownership, boundary, and source-placement evidence for medium-high file confidence. Raw reader starts still lack IDA function objects/callers, so no reconstruction C++ is emitted.
