@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 17:57:37
+Generated: 2026-06-03 18:16:35
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -101,8 +101,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0002Q3` | 70 | 84 | 77.0 | `by-memory/0x004f9d30-0x004fa7a0.NewUserDialogPaneCoreAndPacketHelpers.md` |
-| `0002Q4` | 70 | 84 | 77.0 | `by-memory/0x004fa7a0-0x004fb2d0.LoginDialogPaneCore.md` |
 | `0002HV` | 70 | 84 | 77.0 | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |
 | `0002I1` | 70 | 84 | 77.0 | `by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md` |
 | `0002J4` | 70 | 84 | 77.0 | `by-memory/0x00516f70-0x00516f74.MenuItemStateFlag0Accessor.md` |
@@ -125,6 +123,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000V1` | 70 | 85 | 77.5 | `by-item/PacketBufferHelpers.md` |
 | `0000V4` | 70 | 85 | 77.5 | `by-item/PaletteSlotTable.md` |
 | `0000V5` | 70 | 85 | 77.5 | `by-item/ParseEntries_004A5E60.md` |
+| `0000V7` | 70 | 85 | 77.5 | `by-item/PhoneBookListHelpers_58cfa0_58dcb0.md` |
+| `0000V8` | 70 | 85 | 77.5 | `by-item/PopupMenuSelectionCallback_0049AF00.md` |
 
 ## Low_Confidence
 
