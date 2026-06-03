@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 23:48:59
+Generated: 2026-06-02 23:54:45
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -160,7 +160,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000FK` | 80 | 74 | 77.0 | `by-class/UserHairColorSelectListPane.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
-| `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
 | `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
 | `000070` | 72 | 76 | 74.0 | `by-class/LakeEffecter.md` |
 | `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
@@ -169,6 +168,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00008O` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_5289D0.md` |
 | `00008P` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_528BE0.md` |
 | `000099` | 74 | 76 | 75.0 | `by-class/NewSayToUserMessageInputPane.md` |
+| `0000A7` | 74 | 76 | 75.0 | `by-class/PartySearchEditPane.md` |
 
 ## Low_Both
 
@@ -181,7 +181,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
-| `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
@@ -199,6 +198,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000061` | 70 | 78 | 74.0 | `by-class/HeaderSystemMessage.md` |
 | `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
 | `0002EN` | 70 | 78 | 74.0 | `by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md` |
+| `00015I` | 70 | 78 | 74.0 | `by-memory/0x004b69b0-0x004b6adc.FpsPaneStartLogSessionRaw.md` |
 
 ## By Folder
 
@@ -334,7 +334,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
@@ -359,6 +358,7 @@ _No scored files._
 | `0002DL` | 68 | 82 | 75.0 | `by-memory/0x0041f2b0-0x0041fb9b.FittingRoomListPaneOnPaint.md` |
 | `0002EG` | 68 | 82 | 75.0 | `by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md` |
 | `0002BR` | 68 | 82 | 75.0 | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |
+| `000114` | 68 | 82 | 75.0 | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |
 
 ### by-meta
 
