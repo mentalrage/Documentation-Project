@@ -1,19 +1,20 @@
 *** UID:0000HQ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:68 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # BinaryCodec
 
 ## Status
 
 - Confidence: strong for `Encoder`, medium for the full `Decoder` method set.
-- Proposed modules: `util/Encoder.cpp` and `util/Decoder.cpp`, or one compact `util/BinaryCodec.cpp` if later source evidence shows they were paired.
+- Proposed modules: `util/Encoder.cpp` and `util/Decoder.cpp`, with `NexusTK/util/BinaryCodec.cpp` kept as a source-family coordination root until final source evidence proves whether the helpers were split or paired.
 - Current recovered files: `source-3/simroot_v2/class_Encoder.cpp` and `source-3/simroot_v2/class_Decoder.cpp`
+- Generated root: `auto-generated/NexusTK/util/BinaryCodec.cpp`; keep this C++ file blank while the concrete code-bearing roots remain [UID:00004F][Encoder](by-class/Encoder.md) and [UID:00003M][Decoder](by-class/Decoder.md).
 - Main classes: [UID:00004F][Encoder](by-class/Encoder.md) and [UID:00003M][Decoder](by-class/Decoder.md)
 - Main memory docs: [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md) and [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md)
 - Type docs: [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md) and [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md)
-- Evidence basis: `simroot_v2` generated source/metadata as leads, with IDA MCP lookup, vtable, decompilation, disassembly, and xref checks on 2026-05-24, 2026-05-25, 2026-05-26, and 2026-05-31.
+- Evidence basis: `simroot_v2` generated source/metadata as leads, with IDA MCP lookup, vtable, decompilation, disassembly, and xref checks on 2026-05-24, 2026-05-25, 2026-05-26, 2026-05-31, and 2026-06-03.
 
 ## File Role
 
@@ -58,6 +59,14 @@ Current live xref evidence is asymmetric. IDA finds a direct `Encoder` consumer 
 - `py_eval` dword reads show the read-only block at `0x006192c8-0x006192dc` contains `Encoder` RTTI/vtable data followed by `Decoder` RTTI/vtable data.
 - `xrefs_to 0x006192e0` reports the adjacent DAT parser/entry helper at `0x004a5e9e`, confirming that `0x006192e0` is not another BinaryCodec vtable slot.
 
+2026-06-03 IDA MCP recheck:
+
+- `lookup_funcs` still models the compact `Encoder` function family at `0x004a4e70`, `0x004a4ea0`, `0x004a4ec0`, `0x004a4f00`, `0x004a4ff0`, `0x004a5480`, `0x004a55c0`, and `0x004a55e0`, plus the no-op/scalar-deleting-destructor glue at `0x004a5630`, `0x004a5df0`, `0x004a5e00`, and `0x004a5e30`.
+- Raw `Decoder` reader starts at `0x004a5680`, `0x004a5690`, `0x004a56c0`, `0x004a5710`, `0x004a5770`, `0x004a57e0`, and `0x004a5db0` still return `Not a function`, and `xrefs_to` remains empty for the raw reader starts through `0x004a5db0`.
+- `callers` confirms the modeled `Encoder` write/finalize helpers are still only directly reached from [UID:0000UM][EncodeTextEditState_0058E490](by-item/EncodeTextEditState_0058E490.md); `0x004a5640` and `0x004a5dd0` have no callers in the current database.
+- `py_eval` confirms `0x006192cc` points to `0x004a5e30` and `0x004a5630` for `Encoder`, while `0x006192d8` points to `0x004a5e00` and `0x004a5df0` for `Decoder`; padding from `0x004a5621-0x004a5630` and `0x004a5e54-0x004a5e60` remains `0xcc`.
+- `xrefs_to 0x006192e0` and callers of `0x004a5e60` continue to tie the following constants to the adjacent DAT parser helper, not to another BinaryCodec vtable or source-owned method.
+
 ## Ownership Boundaries
 
 Keep [UID:0000M8][PacketBuffer](by-file/PacketBuffer.md) in `network/PacketBuffer.cpp`: it owns packet/network buffer behavior and should not absorb these generic in-memory codec helpers unless later caller evidence proves the original project did so. Keep [UID:0000ON][TextEditPane](by-file/TextEditPane.md) ownership for [UID:0000UM][EncodeTextEditState_0058E490](by-item/EncodeTextEditState_0058E490.md): it is a text-edit serializer that consumes `Encoder`, not a codec method.
@@ -85,3 +94,6 @@ Do not merge this with [UID:0000IN][DATFile](by-file/DATFile.md). `DATFile` is a
 - What existed before: the evidence notes stopped at the 2026-05-26 IDA pass and did not capture the current `0x006192e0` non-vtable boundary check.
 - What it was changed to: the evidence basis now includes the 2026-05-31 IDA MCP vtable/read-only-data recheck and confidence was raised from `78` to `80`.
 - Summary and evidence: IDA MCP dword/xref checks verified the compact `Encoder`/`Decoder` RTTI/vtable layout and the adjacent non-vtable constant boundary, while raw Decoder reader reachability remains unresolved.
+- What existed before: the page remained at `68/80` with no proposed reconstruction path, even though the concrete `Encoder` and `Decoder` file roots were already staged under `NexusTK/util/`.
+- What it was changed to: scores were raised to `72/82` and `PROPOSED_RECONSTRUCTION_PATH` was set to `NexusTK/util/` for a coordinating `BinaryCodec.cpp` root; no C++ body or child attachment is claimed for this coordinator.
+- Summary and evidence: the 2026-06-03 IDA MCP pass reconfirmed modeled Encoder functions, raw/unxrefed Decoder reader starts, compact vtable dwords, padding boundaries, and the adjacent DAT parser boundary. Completion remains capped because Decoder reachability and the final original file split are still unresolved.

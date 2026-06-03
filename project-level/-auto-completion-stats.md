@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 01:11:52
+Generated: 2026-06-03 01:17:38
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -23,7 +23,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000HK` | blank | `(blank)` | `by-file/AttachedObjectPaneHelper_53AEC0.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HL` | blank | `(blank)` | `by-file/AttachmentAnchorResolver.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HN` | blank | `(blank)` | `by-file/AutoInit.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000HQ` | blank | `(blank)` | `by-file/BinaryCodec.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I1` | blank | `(blank)` | `by-file/CashShopVersionRequest.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -111,7 +110,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
@@ -136,6 +134,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002KR` | 68 | 82 | 75.0 | `by-memory/0x004d04d0-0x004d0521.ResourceLayoutTableCopyEntryTileContext.md` |
 | `00017M` | 68 | 82 | 75.0 | `by-memory/0x004de190-0x004de29f.EffectObjImageLibRenderEffectFrame.md` |
 | `0002BU` | 68 | 82 | 75.0 | `by-memory/0x00526790-0x005269ea.MidiEventReader.md` |
+| `0002BV` | 68 | 82 | 75.0 | `by-memory/0x005269f0-0x00526ba8.MidiStreamEventEncoder.md` |
 
 ## Low_Confidence
 
@@ -171,7 +170,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
@@ -196,6 +194,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002LD` | 70 | 78 | 74.0 | `by-memory/0x00565490-0x005654ec.ScrollVolumePaneResetInteractionStateRaw.md` |
 | `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
 | `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
+| `0000CP` | 72 | 76 | 74.0 | `by-class/ScrollWidget.md` |
 
 ## By Folder
 
@@ -237,7 +236,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000NY` | 70 | 78 | 74.0 | `by-file/SpecializedButtonPanes.md` |
 | `0000HL` | 68 | 82 | 75.0 | `by-file/AttachmentAnchorResolver.md` |
 | `0000HI` | 70 | 82 | 76.0 | `by-file/ArgumentedMenuDialogs.md` |
@@ -245,6 +243,7 @@ _No scored files._
 | `0000I0` | 72 | 80 | 76.0 | `by-file/CashShopRequest.md` |
 | `0000I1` | 70 | 84 | 77.0 | `by-file/CashShopVersionRequest.md` |
 | `0000HH` | 72 | 82 | 77.0 | `by-file/ArgumentedItemInputDialogs.md` |
+| `0000HQ` | 72 | 82 | 77.0 | `by-file/BinaryCodec.md` |
 | `0000NL` | 72 | 82 | 77.0 | `by-file/SelfLookPane.md` |
 | `0000LX` | 74 | 80 | 77.0 | `by-file/NewUserMiscDialogPane.md` |
 | `0000KD` | 76 | 78 | 77.0 | `by-file/ItemCatalog.md` |

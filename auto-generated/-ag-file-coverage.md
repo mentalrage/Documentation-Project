@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 200
+Total_Reconstructed_Assigned: 201
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 88
+Total_Error: 87
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -20,6 +20,7 @@ Total_Error: 88
 | [UID:0000HJ][AttachedObjectPane](by-file/AttachedObjectPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/AttachedObjectPane.cpp` | `by-file/AttachedObjectPane.md` | by-file generated root |
 | [UID:0000HO][BackPane](by-file/BackPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/BackPane.cpp` | `by-file/BackPane.md` | by-file generated root |
 | [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/BackStoryDialogPane.cpp` | `by-file/BackStoryDialogPane.md` | by-file generated root |
+| [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) | assigned |  |  | no | `auto-generated/NexusTK/util/BinaryCodec.cpp` | `by-file/BinaryCodec.md` | by-file generated root |
 | [UID:0000HR][BlackHole](by-file/BlackHole.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/BlackHole.cpp` | `by-file/BlackHole.md` | by-file generated root |
 | [UID:0000HS][BlockListenInputPanes](by-file/BlockListenInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-file/BlockListenInputPanes.md` | by-file generated root |
 | [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-file/BoardDialogs.md` | by-file generated root |
@@ -218,7 +219,6 @@ Total_Error: 88
 | [UID:0000HK][AttachedObjectPaneHelper_53AEC0](by-file/AttachedObjectPaneHelper_53AEC0.md) | error |  |  | no |  | `by-file/AttachedObjectPaneHelper_53AEC0.md` | by-file generated root |
 | [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md) | error |  |  | no |  | `by-file/AttachmentAnchorResolver.md` | by-file generated root |
 | [UID:0000HN][AutoInit](by-file/AutoInit.md) | error |  |  | no |  | `by-file/AutoInit.md` | by-file generated root |
-| [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) | error |  |  | no |  | `by-file/BinaryCodec.md` | by-file generated root |
 | [UID:0000HX][BulletinSession](by-file/BulletinSession.md) | error |  |  | no |  | `by-file/BulletinSession.md` | by-file generated root |
 | [UID:0000I1][CashShopVersionRequest](by-file/CashShopVersionRequest.md) | error |  |  | no |  | `by-file/CashShopVersionRequest.md` | by-file generated root |
 | [UID:0000I4][CharacterSummaryRecord](by-file/CharacterSummaryRecord.md) | error |  |  | no |  | `by-file/CharacterSummaryRecord.md` | by-file generated root |

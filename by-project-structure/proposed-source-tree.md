@@ -378,6 +378,7 @@ NexusTK/
     TimerMgr.cpp
     StringUtil.cpp
     StringBase.cpp
+    BinaryCodec.cpp          # coordination root; concrete codec code currently staged in Encoder.cpp/Decoder.cpp
     Encoder.cpp
     Decoder.cpp
     File.cpp
@@ -750,12 +751,13 @@ See [UID:0000JD][FileIO](by-file/FileIO.md), [UID:00004V][File](by-class/File.md
 
 Rationale: IDA MCP vtable inspection shows `File` has pure virtual file operations, while `StdioFile` and `DATFile` fill the same slots with their loose-file and archive-entry implementations. Caller checks show `PathExistsViaStat` is shared by startup, menu, map, and audio code, so it should not be owned by any one caller module.
 
-### `util/Encoder.cpp` and `util/Decoder.cpp`
+### `util/BinaryCodec.cpp`, `util/Encoder.cpp`, and `util/Decoder.cpp`
 
 See [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md), [UID:00004F][Encoder](by-class/Encoder.md), and [UID:00003M][Decoder](by-class/Decoder.md). Current evidence supports a small binary memory-buffer codec utility:
 
 - `Encoder.cpp` owns the in-memory writer at `0x004a4e70-0x004a5620`, plus vtable glue at `0x004a5630` and `0x004a5e30`.
 - `Decoder.cpp` owns the in-memory reader at `0x004a5640-0x004a5e23`, including the [UID:00013Q][0x004a5680-0x004a5dcf.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dcf.DecoderRawReaderFamily.md) in `0x004a5680-0x004a5db0` that current IDA does not model as functions.
+- `BinaryCodec.cpp` is a coordination root for this family only. Keep actual source migration anchored on `Encoder.cpp` and `Decoder.cpp` unless final source evidence proves the original project used one folded codec file.
 - The shared [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md) covers the buffer/capacity/cursor/flags fields, while [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md) records the compact two-slot vtables at `0x006192cc` and `0x006192d8`.
 - [UID:0000UM][EncodeTextEditState_0058E490](by-item/EncodeTextEditState_0058E490.md) is the only confirmed direct `Encoder` behavioral caller, but it belongs with [UID:0000ON][TextEditPane](by-file/TextEditPane.md) because it serializes text-edit tables.
 
