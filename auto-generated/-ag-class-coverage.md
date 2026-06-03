@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 214
+Total_Reconstructable: 215
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 130
+Total_Reconstructed_Assigned: 131
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 371
+Total_Unclassified: 370
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -125,6 +125,7 @@ Total_Error: 0
 | [UID:0000D9][SimpleUString](by-class/SimpleUString.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/SimpleUString.md` |  |
 | [UID:0000DC][SnowingLayerPane](by-class/SnowingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SnowingLayerPane.md` |  |
 | [UID:0000DM][SpellInputPaneState](by-class/SpellInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellInputPaneState.md` |  |
+| [UID:0000DO][SpellInventoryPane2](by-class/SpellInventoryPane2.md) | assigned | `0000O1` |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-class/SpellInventoryPane2.md` |  |
 | [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
 | [UID:0000E0][StaticCloudFilterEffecter](by-class/StaticCloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/StaticCloudFilterEffecter.md` |  |
 | [UID:0000E7][StringIter](by-class/StringIter.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/StringIter.md` |  |
@@ -520,7 +521,6 @@ Total_Error: 0
 | [UID:0000DJ][SoundStatusPane](by-class/SoundStatusPane.md) | unclassified |  |  | no |  | `by-class/SoundStatusPane.md` |  |
 | [UID:0000DL][SpellFourArgsInputPane](by-class/SpellFourArgsInputPane.md) | unclassified |  |  | no |  | `by-class/SpellFourArgsInputPane.md` |  |
 | [UID:0000DN][SpellInventoryPane](by-class/SpellInventoryPane.md) | unclassified |  |  | no |  | `by-class/SpellInventoryPane.md` |  |
-| [UID:0000DO][SpellInventoryPane2](by-class/SpellInventoryPane2.md) | unclassified |  |  | no |  | `by-class/SpellInventoryPane2.md` |  |
 | [UID:0000DP][SpellMacroDialog](by-class/SpellMacroDialog.md) | unclassified |  |  | no |  | `by-class/SpellMacroDialog.md` |  |
 | [UID:0000DQ][SpellMacroEditControlPane](by-class/SpellMacroEditControlPane.md) | unclassified |  |  | no |  | `by-class/SpellMacroEditControlPane.md` |  |
 | [UID:0000DR][SpellOneArgInputPane](by-class/SpellOneArgInputPane.md) | unclassified |  |  | no |  | `by-class/SpellOneArgInputPane.md` |  |

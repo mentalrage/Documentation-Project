@@ -1,8 +1,8 @@
 *** UID:0000DO | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000O1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,8 +12,9 @@
 
 ## Status
 
-- Confidence: strong for alternate spell-pane behavior, medium for constructor boundary.
+- Confidence: strong for alternate spell-pane behavior, source-family ownership, and verified method boundaries; medium for constructor/setup boundary.
 - Likely source file: [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md) or `ui/inventory/SpellInventoryPane.cpp`
+- Autogen parent: [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md); C++ remains blank because the constructor/setup boundary is not source-ready.
 - Address range: [UID:0001IH][0x0057c2d0-0x0057f742.SpellInventoryPanes](by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md)
 - Current recovered file: `source-3/simroot_v2/class_SpellInventoryPane2.cpp`
 
@@ -35,15 +36,24 @@
 ## Evidence Notes
 
 - IDA MCP confirms paint, click, and destructor boundaries.
+- [UID:0002RK][0x0057eaa0-0x0057f58b.SpellInventoryPane2CoreAndHelpers](by-memory/0x0057eaa0-0x0057f58b.SpellInventoryPane2CoreAndHelpers.md) documents the alternate-pane method/helper island at `74/82` and is already attached to [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md).
+- [UID:0001IH][0x0057c2d0-0x0057f742.SpellInventoryPanes](by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md) records the enclosing spell inventory aggregate at `82/84`, including the vtable dword review that maps `SpellInventoryPane2` slots into this executable island.
+- [UID:00026J][0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData](by-memory/0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData.md) records the mixed read-only-data island containing the `SpellInventoryPane2` vtable group.
 - IDA reports no function at `0x0057ea60`; previous function is `0x0057e9d0-0x0057ea57`, next function is `0x0057eaa0-0x0057eabf`. This is tracked in [wave3_data_issues](../wave3_data_issues.md).
 
 ## Cross-References
 
 - [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md)
 - [UID:0001IH][0x0057c2d0-0x0057f742.SpellInventoryPanes](by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md)
+- [UID:0002RK][0x0057eaa0-0x0057f58b.SpellInventoryPane2CoreAndHelpers](by-memory/0x0057eaa0-0x0057f58b.SpellInventoryPane2CoreAndHelpers.md)
+- [UID:00026J][0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData](by-memory/0x0062d02c-0x0062d418.SpellInventoryMacroReadOnlyData.md)
 
 ## Changes
 
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `76`, confidence `74`.
 - Evidence: the page documents alternate spell-pane behavior, file/range ownership, paint/key/click/destructor methods, and the projected-constructor caveat; confidence remains capped because IDA does not define the generated constructor start.
+- 2026-06-03 autogen attachment pass:
+  - Before: the page remained unparented at `76/74` even though the parent file and exact memory island had reached the 80+ confidence gate.
+  - Changed to: completion/confidence `78/82`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000O1`.
+  - Evidence: [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md) is `82/82`; [UID:0001IH][0x0057c2d0-0x0057f742.SpellInventoryPanes](by-memory/0x0057c2d0-0x0057f742.SpellInventoryPanes.md) documents the enclosing executable island at `82/84`; [UID:0002RK][0x0057eaa0-0x0057f58b.SpellInventoryPane2CoreAndHelpers](by-memory/0x0057eaa0-0x0057f58b.SpellInventoryPane2CoreAndHelpers.md) documents the class-specific alternate-pane helper island at `74/82`. C++ remains blank because IDA still does not define the generated constructor start and the page is below the final-source `95+` threshold.

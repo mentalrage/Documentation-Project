@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 00:17:01
+Generated: 2026-06-03 00:23:50
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -142,9 +142,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000DO` | 76 | 74 | 75.0 | `by-class/SpellInventoryPane2.md` |
-| `0000QC` | 76 | 74 | 75.0 | `by-global/g_pBrowserFileLoadText.md` |
-| `0000QF` | 76 | 74 | 75.0 | `by-global/g_pBrowserTimeoutText.md` |
 | `0000C5` | 78 | 74 | 76.0 | `by-class/SayToPlanMessageInputPane.md` |
 | `0000PQ` | 78 | 74 | 76.0 | `by-global/g_activeDialogCount.md` |
 | `0000PY` | 78 | 74 | 76.0 | `by-global/g_fpsDebugActive.md` |
@@ -167,6 +164,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
 | `0000CC` | 76 | 76 | 76.0 | `by-class/ScreenPanePaletteState_543D30.md` |
 | `0000CH` | 76 | 76 | 76.0 | `by-class/ScrolledPictureControlPane.md` |
+| `0000GC` | 76 | 76 | 76.0 | `by-class/XWaveEffecter.md` |
+| `000012` | 76 | 76 | 76.0 | `by-class/brdir__Notification.md` |
+| `00007D` | 78 | 76 | 77.0 | `by-class/LObject.md` |
 
 ## Low_Both
 
@@ -272,8 +272,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000QC` | 76 | 74 | 75.0 | `by-global/g_pBrowserFileLoadText.md` |
-| `0000QF` | 76 | 74 | 75.0 | `by-global/g_pBrowserTimeoutText.md` |
 | `0002CG` | 70 | 82 | 76.0 | `by-global/g_selfLookLastHoverEquipmentSlotId.md` |
 | `0000TA` | 72 | 80 | 76.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 72 | 80 | 76.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
@@ -297,6 +295,8 @@ _No scored files._
 | `0000QO` | 78 | 78 | 78.0 | `by-global/g_pCurrentBrowserHost.md` |
 | `0002CF` | 75 | 82 | 78.5 | `by-global/g_movementSubstepScale.md` |
 | `0000S5` | 74 | 84 | 79.0 | `by-global/g_pScreenDimmer.md` |
+| `0000SF` | 74 | 84 | 79.0 | `by-global/g_pTerminalPane.md` |
+| `0000SK` | 74 | 84 | 79.0 | `by-global/g_pTotemFrame.md` |
 
 ### by-item
 

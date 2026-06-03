@@ -497,7 +497,7 @@
 - [UID:0000DL][SpellFourArgsInputPane](by-class/SpellFourArgsInputPane.md) : reconstructable : 86% : strong : - Confidence: strong for behavior and IDA boundaries.
 - [UID:0000DM][SpellInputPaneState](by-class/SpellInputPaneState.md) : reconstructable : 70% : strong : Target-selection state helper attached to `TargetSelectionInputPanes`, with exact setter evidence, sibling item helper context, and no-code blocker documented.
 - [UID:0000DN][SpellInventoryPane](by-class/SpellInventoryPane.md) : reconstructable : 84% : strong : - Confidence: strong for behavior and inventory-module placement.
-- [UID:0000DO][SpellInventoryPane2](by-class/SpellInventoryPane2.md) : reconstructable : 76% : medium-high : - Confidence: strong for alternate spell-pane behavior, medium for constructor boundary.
+- [UID:0000DO][SpellInventoryPane2](by-class/SpellInventoryPane2.md) : reconstructable : 78% : strong : Alternate spell-pane class with IDA-backed paint/key/mouse/destructor boundaries, enclosing spell inventory aggregate/vtable evidence, and a documented constructor-boundary caveat.
 - [UID:0000DP][SpellMacroDialog](by-class/SpellMacroDialog.md) : reconstructable : 80% : strong : - Confidence: strong.
 - [UID:0000DQ][SpellMacroEditControlPane](by-class/SpellMacroEditControlPane.md) : reconstructable : 84% : medium-high : - Confidence: strong for behavior; medium for helper/thunk completeness.
 - [UID:0000DR][SpellOneArgInputPane](by-class/SpellOneArgInputPane.md) : reconstructable : 86% : strong : - Confidence: strong for spell argument behavior; strong that generated panel helpers and `__wtol` are not spell-input class ownership.

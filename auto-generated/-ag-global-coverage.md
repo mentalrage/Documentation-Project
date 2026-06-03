@@ -3,12 +3,12 @@
 # ag-global-coverage
 
 Total_Type: 158
-Total_Reconstructable: 34
+Total_Reconstructable: 36
 Total_Not_Reconstructable: 2
-Total_Reconstructed_Assigned: 25
+Total_Reconstructed_Assigned: 27
 Total_Reconstructed_Coded: 0
 Total_Reconstructable_Unassigned: 9
-Total_Unclassified: 122
+Total_Unclassified: 120
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -23,6 +23,8 @@ Total_Error: 0
 | [UID:0000TL][SendOptionPacket11B_540E50](by-global/SendOptionPacket11B_540E50.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-global/SendOptionPacket11B_540E50.md` |  |
 | [UID:0000PP][g_activeBrowserPane](by-global/g_activeBrowserPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_activeBrowserPane.md` |  |
 | [UID:0000Q6][g_pActiveBrowserWindow](by-global/g_pActiveBrowserWindow.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_pActiveBrowserWindow.md` |  |
+| [UID:0000QC][g_pBrowserFileLoadText](by-global/g_pBrowserFileLoadText.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_pBrowserFileLoadText.md` |  |
+| [UID:0000QF][g_pBrowserTimeoutText](by-global/g_pBrowserTimeoutText.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_pBrowserTimeoutText.md` |  |
 | [UID:0000SF][g_pTerminalPane](by-global/g_pTerminalPane.md) | assigned | `0000OI` |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-global/g_pTerminalPane.md` |  |
 | [UID:0000SG][g_pTextFilter](by-global/g_pTextFilter.md) | assigned | `0000OO` |  | no | `auto-generated/NexusTK/ui/controls/TextFilter.cpp` | `by-global/g_pTextFilter.md` |  |
 | [UID:0000SH][g_pThreadMan](by-global/g_pThreadMan.md) | assigned | `0000OR` |  | no | `auto-generated/NexusTK/util/Thread.cpp` | `by-global/g_pThreadMan.md` |  |
@@ -99,10 +101,8 @@ Total_Error: 0
 | [UID:0000Q9][g_pBackStoryDialogPane](by-global/g_pBackStoryDialogPane.md) | unclassified |  |  | no |  | `by-global/g_pBackStoryDialogPane.md` |  |
 | [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md) | unclassified |  |  | no |  | `by-global/g_pBowGaugeObjectPane.md` |  |
 | [UID:0000QB][g_pBrowserDialogOld](by-global/g_pBrowserDialogOld.md) | unclassified |  |  | no |  | `by-global/g_pBrowserDialogOld.md` |  |
-| [UID:0000QC][g_pBrowserFileLoadText](by-global/g_pBrowserFileLoadText.md) | unclassified |  |  | no |  | `by-global/g_pBrowserFileLoadText.md` |  |
 | [UID:0000QD][g_pBrowserOverlayLayer](by-global/g_pBrowserOverlayLayer.md) | unclassified |  |  | no |  | `by-global/g_pBrowserOverlayLayer.md` |  |
 | [UID:0000QE][g_pBrowserThread](by-global/g_pBrowserThread.md) | unclassified |  |  | no |  | `by-global/g_pBrowserThread.md` |  |
-| [UID:0000QF][g_pBrowserTimeoutText](by-global/g_pBrowserTimeoutText.md) | unclassified |  |  | no |  | `by-global/g_pBrowserTimeoutText.md` |  |
 | [UID:0000QG][g_pBulletinSession](by-global/g_pBulletinSession.md) | unclassified |  |  | no |  | `by-global/g_pBulletinSession.md` |  |
 | [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) | unclassified |  |  | no |  | `by-global/g_pCashShopRequest.md` |  |
 | [UID:0000QI][g_pChangeMan](by-global/g_pChangeMan.md) | unclassified |  |  | no |  | `by-global/g_pChangeMan.md` |  |
