@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 16:32:25
+Generated: 2026-06-03 16:46:18
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.

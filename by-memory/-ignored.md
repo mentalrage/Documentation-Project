@@ -54,6 +54,48 @@ For each ignored range, include:
   - Replacement/procurement: none; compiler/linker alignment.
   - Owner docs: [UID:000033][ConfirmDeleteAlert](by-class/ConfirmDeleteAlert.md), [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md), [UID:0000ZM][0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions](by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md).
 
+- `0x00493efb-0x00493f00` and `0x00493f0d-0x00493f10` - Thrunet parser cleanup-tail alignment padding.
+  - Why ignored: confirmed `0xcc` alignment before and after the out-of-line `sub_48FCA0` cleanup tail at `0x00493f00-0x00493f0d`; not standalone project logic.
+  - Evidence: live IDA MCP byte/function audit on 2026-06-03 shows `0x00493efb-0x00493f00` is five `0xcc` bytes with no function owner, `0x00493f00-0x00493f0d` belongs to `sub_48FCA0`, and `0x00493f0d-0x00493f10` is three `0xcc` bytes before `sub_493F10`.
+  - Replacement/procurement: none; compiler/linker alignment.
+  - Owner docs: [UID:0002BJ][0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser](by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md), [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md).
+
+- `0x00493f00-0x00493f0d` - Thrunet parser COM pointer cleanup tail.
+  - Why ignored: compiler-generated exception/unwind cleanup tail for [UID:0002BJ][0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser](by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md), not a standalone NexusTK source function. It releases the local `ppv` COM pointer by loading `*ecx`, checking null, and calling vtable slot `+8`.
+  - Evidence: live IDA MCP function-chunk audit on 2026-06-03 reports `sub_48FCA0` chunks at `0x0048fca0-0x004901f0`, `0x00493f00-0x00493f0d`, and `0x005fccc2-0x005fcd3a`. The only code xref to `0x00493f00` is `0x005fccc8 jmp loc_493F00` after `lea ecx, [ebp+ppv]`; unwind metadata references `0x005fccc2`.
+  - Replacement/procurement: reconstruct the owning Thrunet parser with normal COM holder/destructor semantics and let the compiler emit equivalent cleanup code.
+  - Owner docs: [UID:0002BJ][0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser](by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md), [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md).
+
+- `0x00493f80-0x00493f85` and `0x00493fe0-0x00493fe5` - Config/COM cleanup tail-jump thunks.
+  - Why ignored: tiny compiler/linker thunks that only jump to already documented cleanup helpers, not standalone project source. `0x00493f80` tail-jumps to `sub_582B30`; `0x00493fe0` tail-jumps to [UID:000221][MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md) helper `sub_494440`.
+  - Evidence: live IDA MCP disassembly on 2026-06-03 shows `0x00493f80: jmp sub_582B30` with the only xref from the `sub_48E550` constructor cleanup region at `0x005fcc3a`; `0x00493fe0: jmp sub_494440` with xrefs from command-line/COM cleanup chunks.
+  - Replacement/procurement: no standalone source; compile the owning string/COM holder cleanup paths.
+  - Owner docs: [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md), [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md).
+
+- `0x00493f90-0x00493fd9` - Config constructor entry-block cleanup wrapper.
+  - Why ignored: compiler-generated constructor/unwind cleanup wrapper around [UID:0002PA][ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md) and a 32-element `ConfigEntry` vector destructor pass, not a separate source method.
+  - Evidence: live IDA MCP disassembly on 2026-06-03 shows setup of an SEH frame, call to `sub_494130`, then `eh vector destructor iterator` with element size `0x18`, count `0x20`, and destructor callback `sub_48E4B0`. The only normal xref to `0x00493f90` is `0x005fcc2c jmp sub_493F90` from the `sub_48E550` constructor cleanup region; the function's far chunk uses the shared `___CxxFrameHandler3` path.
+  - Replacement/procurement: express the owning `Config`/`RegistryConfig` member construction and cleanup; compiler EH generation should recreate or eliminate this wrapper.
+  - Owner docs: [UID:0000IE][Config](by-file/Config.md), [UID:000032][ConfigEntryBlock](by-class/ConfigEntryBlock.md), [UID:0002PA][0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md).
+
+- `0x00493f85-0x00493f90`, `0x00493fd9-0x00493fe0`, `0x00493fe5-0x00493ff0`, `0x00493ffc-0x00494000`, and `0x00494011-0x00494020` - Config cleanup helper island alignment padding.
+  - Why ignored: confirmed `0xcc` alignment spans between the cleanup thunks, wrapper, STL helper, COM helper, and [UID:0002P9][ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md); not standalone project logic.
+  - Evidence: live IDA MCP byte/function audit on 2026-06-03 reports the exact function ends and shows each listed gap consists only of `0xcc` bytes.
+  - Replacement/procurement: none; compiler/linker alignment.
+  - Owner docs: [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md), [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md).
+
+- `0x00493ff0-0x00493ffc` - Dinkumware iterator container helper.
+  - Why ignored: MSVC/Dinkumware STL support helper `std::_Iterator_base12::_Getcont`, not NexusTK-authored behavior.
+  - Evidence: IDA names the function `?_Getcont@_Iterator_base12@std@@QBEPBU_Container_base12@2@XZ`; live IDA disassembly on 2026-06-03 shows the standard container pointer/null fallback body.
+  - Replacement/procurement: rebuild from the compiler/STL implementation.
+  - Owner docs: [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md) for the adjacent runtime/helper island context.
+
+- `0x00494000-0x00494011` - COM smart-pointer null-check throw helper.
+  - Why ignored: MSVC COM smart-pointer support helper; returns when the stored pointer is non-null, otherwise raises `0x80004003` (`E_POINTER`) through the shared COM issue-error path.
+  - Evidence: live IDA MCP disassembly on 2026-06-03 shows `mov eax, [ecx]`, null-test, `retn` on success, and `push 80004003h; call sub_5C8BF0` on failure. The only direct code xref to the helper start is from `sub_490B10` at `0x00490f41`; `sub_5C8BF0` is broadly used by the command-line COM helper island.
+  - Replacement/procurement: express COM smart-pointer/null-check semantics in the caller and rely on compiler/runtime support.
+  - Owner docs: [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md), [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md).
+
 - `0x00493f7a-0x00493f80`, `0x0049ce49-0x0049ce50`, and `0x0058498c-0x00584990` - SimpleUStringVector helper alignment padding.
   - Why ignored: confirmed `0xcc` alignment spans immediately after the exact `SimpleUStringVector` destructor, grow/insert, and push-back helper functions; not standalone project logic.
   - Evidence: IDA MCP byte check on 2026-05-31 shows each listed span is all `0xcc`; `lookup_funcs` confirms the preceding functions have sizes ending at `0x00493f79`, `0x0049ce48`, and `0x0058498b` respectively.
