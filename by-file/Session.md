@@ -1,14 +1,15 @@
 *** UID:0000NP | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Session
 
 ## Status
 
-- Confidence: low for existence as a generic network file; strong that current `Session` names are feature/dialog-specific.
+- Confidence: medium-high for the current non-promotion boundary; low for existence as a generic network file.
 - Proposed module: `network/Session.cpp` only if a distinct game-session owner is recovered.
+- Projected path status: intentionally blank. Keep this page out of generated source roots until the promotion criteria below are met.
 - Current recovered source: none as a clean source unit; `simroot_v2` has `DialogSession` and `BulletinSession`, not a generic `Session` owner.
 - Primary notes: [UID:0001QH][client_network](by-meta/client_network.md)
 
@@ -22,7 +23,7 @@ Current generated `Session` evidence belongs elsewhere:
 - `class_BulletinSession.cpp` is board/mail social-dialog session code and is documented under [UID:0000HX][BulletinSession](by-file/BulletinSession.md), with exact memory at [UID:0000ZH][0x00471150-0x00471ff1.BulletinSessionCore](by-memory/0x00471150-0x00471ff1.BulletinSessionCore.md).
 - The game transport state is already covered by [UID:0000NS][Socket](by-file/Socket.md), while the broad request/send queue is covered by [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md).
 
-Therefore `network/Session.cpp` should remain a planning placeholder, not a migration target.
+Therefore `network/Session.cpp` should remain a planning placeholder, not a migration target. This is a documented negative source-boundary decision: the page exists to prevent repeated accidental merges of UI/social-dialog session code and transport/request-sender code into a generic `Session.cpp`.
 
 ## Proven Session-Labeled Ranges
 
@@ -67,3 +68,7 @@ Promote this placeholder to a real source module only if later evidence shows a 
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `80` and confidence to `72`.
   - Evidence: document clearly records the placeholder status, proven session-labeled ranges, boundary rules, promotion criteria, and network/session cross-references; confidence stays lower because a distinct original generic `Session.cpp` source unit is not yet proven.
+- 2026-06-03: Non-promotion boundary confidence update.
+  - Before: the page scored the placeholder as `80/72`, which made the documented negative boundary look less reliable than the supporting network/dialog evidence.
+  - After: set completion to `82` and confidence to `84`, with the projected reconstruction path still intentionally blank.
+  - Evidence: [UID:0001QH][client_network](by-meta/client_network.md) records stronger current owners for Socket, packet buffers/transforms, FileDownloader, and request/send queue behavior; [UID:0000IU][DialogSession](by-file/DialogSession.md) and [UID:0000HX][BulletinSession](by-file/BulletinSession.md) own the emitted `Session`-named UI/social modules. No C++ is emitted because no generic game-session source root is proven.
