@@ -5,9 +5,9 @@
 Total_Type: 2171
 Total_Reconstructable: 1271
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 743
+Total_Reconstructed_Assigned: 745
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 528
+Total_Reconstructable_Unassigned: 526
 Total_Unclassified: 889
 Total_Error: 0
 
@@ -104,6 +104,8 @@ Total_Error: 0
 | [UID:0002EY][0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw](by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md) | assigned | `00001X` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |  |
 | [UID:0002FF][0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper](by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md) | assigned | `00001Y` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |  |
 | [UID:0002FG][0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest](by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md) | assigned | `00001Y` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md` |  |
+| [UID:0002FP][0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper](by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |  |
+| [UID:0002FQ][0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper](by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |  |
 | [UID:0002FW][0x00482310-0x00482400.ChatButtonRectHelperRaw](by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |  |
 | [UID:0002G0][0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw](by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md) | assigned | `00001T` | 40 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |  |
 | [UID:0002G1][0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw](by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md) | assigned | `00001T` | 50 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md` |  |
@@ -815,8 +817,6 @@ Total_Error: 0
 | [UID:000101][0x0047ef20-0x0047ef3f.CompareChangeEntries](by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md) | unassigned |  |  | no |  | `by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md` |  |
 | [UID:000102][0x0047ef40-0x0047ef4b.ClearChangeManSingleton](by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md) | unassigned |  |  | no |  | `by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md` |  |
 | [UID:000103][0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor](by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md` |  |
-| [UID:0002FP][0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper](by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md) | unassigned |  |  | no |  | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |  |
-| [UID:0002FQ][0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper](by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md) | unassigned |  |  | no |  | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |  |
 | [UID:0002G3][0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw](by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md) | unassigned |  |  | no |  | `by-memory/0x00482d40-0x00482d4a.ChattingColorSelectPaneRefreshHelperRaw.md` |  |
 | [UID:0002G4][0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw](by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md) | unassigned |  |  | no |  | `by-memory/0x00482d50-0x00482d5a.ChattingColorSelectPaneSelectionNotifyHelperRaw.md` |  |
 | [UID:0002G9][0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw](by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md) | unassigned |  |  | no |  | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |  |

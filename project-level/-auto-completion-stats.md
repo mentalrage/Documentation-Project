@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 22:53:36
+Generated: 2026-06-02 22:59:42
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -119,9 +119,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
-| `0002JW` | 68 | 78 | 73.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
-| `0002FP` | 68 | 78 | 73.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
-| `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
 | `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
@@ -139,6 +136,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002PO` | 68 | 80 | 74.0 | `by-memory/0x004f50b0-0x004f5246.LogoPaneStaticLogoLoaderHelpers.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
 | `0002QI` | 68 | 80 | 74.0 | `by-memory/0x00504b70-0x00504b8f.MapPaneTagDetachMessage.md` |
+| `00000P` | 68 | 82 | 75.0 | `by-class/AUTOBUF_unsigned_char.md` |
+| `00000H` | 68 | 82 | 75.0 | `by-class/ArgumentedMenuMenuDialog.md` |
+| `0000AJ` | 68 | 82 | 75.0 | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |
 
 ## Low_Confidence
 
@@ -179,9 +179,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
-| `0002JW` | 68 | 78 | 73.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
-| `0002FP` | 68 | 78 | 73.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
-| `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
 | `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
@@ -199,6 +196,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `0002FE` | 68 | 80 | 74.0 | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |
+| `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
+| `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
+| `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
 
 ## By Folder
 
@@ -334,9 +334,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002JW` | 68 | 78 | 73.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
-| `0002FP` | 68 | 78 | 73.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
-| `0002FQ` | 68 | 78 | 73.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
 | `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
@@ -359,6 +356,9 @@ _No scored files._
 | `00015J` | 70 | 78 | 74.0 | `by-memory/0x004b6ae0-0x004b6c2b.FpsPaneWriteLogSummaryRaw.md` |
 | `00022F` | 70 | 78 | 74.0 | `by-memory/0x004b7120-0x004b731f.BuildFramePartPanes.md` |
 | `00022H` | 70 | 78 | 74.0 | `by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md` |
+| `00022J` | 70 | 78 | 74.0 | `by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md` |
+| `0002KQ` | 70 | 78 | 74.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
+| `0002KE` | 70 | 78 | 74.0 | `by-memory/0x00546610-0x00546807.ParcelPaneOnMouseEvent.md` |
 
 ### by-meta
 
