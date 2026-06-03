@@ -3,12 +3,12 @@
 # ag-global-coverage
 
 Total_Type: 158
-Total_Reconstructable: 33
+Total_Reconstructable: 34
 Total_Not_Reconstructable: 2
-Total_Reconstructed_Assigned: 24
+Total_Reconstructed_Assigned: 25
 Total_Reconstructed_Coded: 0
 Total_Reconstructable_Unassigned: 9
-Total_Unclassified: 123
+Total_Unclassified: 122
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -21,6 +21,7 @@ Total_Error: 0
 | [UID:0000TE][OpenStoryViewingPane_4F90C0](by-global/OpenStoryViewingPane_4F90C0.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-global/OpenStoryViewingPane_4F90C0.md` |  |
 | [UID:0000TF][OpenTerminalPane_4F91C0](by-global/OpenTerminalPane_4F91C0.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-global/OpenTerminalPane_4F91C0.md` |  |
 | [UID:0000TL][SendOptionPacket11B_540E50](by-global/SendOptionPacket11B_540E50.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-global/SendOptionPacket11B_540E50.md` |  |
+| [UID:0000PP][g_activeBrowserPane](by-global/g_activeBrowserPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_activeBrowserPane.md` |  |
 | [UID:0000Q6][g_pActiveBrowserWindow](by-global/g_pActiveBrowserWindow.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_pActiveBrowserWindow.md` |  |
 | [UID:0000SF][g_pTerminalPane](by-global/g_pTerminalPane.md) | assigned | `0000OI` |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-global/g_pTerminalPane.md` |  |
 | [UID:0000SG][g_pTextFilter](by-global/g_pTextFilter.md) | assigned | `0000OO` |  | no | `auto-generated/NexusTK/ui/controls/TextFilter.cpp` | `by-global/g_pTextFilter.md` |  |
@@ -77,7 +78,6 @@ Total_Error: 0
 | [UID:0000TQ][WideApiDispatchTable](by-global/WideApiDispatchTable.md) | unclassified |  |  | no |  | `by-global/WideApiDispatchTable.md` |  |
 | [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) | unclassified |  |  | no |  | `by-global/byte_66DEE0.md` |  |
 | [UID:0000PO][g_activeBrowserControlPane](by-global/g_activeBrowserControlPane.md) | unclassified |  |  | no |  | `by-global/g_activeBrowserControlPane.md` |  |
-| [UID:0000PP][g_activeBrowserPane](by-global/g_activeBrowserPane.md) | unclassified |  |  | no |  | `by-global/g_activeBrowserPane.md` |  |
 | [UID:0000PQ][g_activeDialogCount](by-global/g_activeDialogCount.md) | unclassified |  |  | no |  | `by-global/g_activeDialogCount.md` |  |
 | [UID:0000PR][g_activeMapPane](by-global/g_activeMapPane.md) | unclassified |  |  | no |  | `by-global/g_activeMapPane.md` |  |
 | [UID:0000PS][g_activeUserStatusPane](by-global/g_activeUserStatusPane.md) | unclassified |  |  | no |  | `by-global/g_activeUserStatusPane.md` |  |

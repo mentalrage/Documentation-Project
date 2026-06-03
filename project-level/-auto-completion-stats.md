@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 21:27:04
+Generated: 2026-06-02 21:31:28
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -109,6 +109,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000OS` | blank | `(blank)` | `by-file/ThreadSafeNodeList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
+
 ## Low_Completion
 
 | UID | Completion | Confidence | Combined | Path |
@@ -143,7 +144,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000PP` | 78 | 72 | 75.0 | `by-global/g_activeBrowserPane.md` |
 | `0000IQ` | 79 | 72 | 75.5 | `by-file/Decoder.md` |
 | `0000NP` | 80 | 72 | 76.0 | `by-file/Session.md` |
 | `00008S` | 70 | 74 | 72.0 | `by-class/MSGHandler.md` |
@@ -168,6 +168,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BA` | 70 | 75 | 72.5 | `by-memory/0x00535b10-0x00535df0.ObjectListEncodedKeyAndRectHelpers.md` |
 | `0002BB` | 70 | 75 | 72.5 | `by-memory/0x00535df0-0x00536270.ObjectListTypeSpecificEncodedKeyLookupHelpers.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
+| `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 
 ## Low_Both
 
@@ -275,7 +276,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `0000QC` | 76 | 74 | 75.0 | `by-global/g_pBrowserFileLoadText.md` |
 | `0000QF` | 76 | 74 | 75.0 | `by-global/g_pBrowserTimeoutText.md` |
-| `0000PP` | 78 | 72 | 75.0 | `by-global/g_activeBrowserPane.md` |
 | `0002CG` | 70 | 82 | 76.0 | `by-global/g_selfLookLastHoverEquipmentSlotId.md` |
 | `0000TA` | 72 | 80 | 76.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 72 | 80 | 76.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
@@ -298,6 +298,7 @@ _No scored files._
 | `0000SO` | 74 | 82 | 78.0 | `by-global/g_pVirusChecker.md` |
 | `0000QO` | 78 | 78 | 78.0 | `by-global/g_pCurrentBrowserHost.md` |
 | `0002CF` | 75 | 82 | 78.5 | `by-global/g_movementSubstepScale.md` |
+| `0000S5` | 74 | 84 | 79.0 | `by-global/g_pScreenDimmer.md` |
 
 ### by-item
 
