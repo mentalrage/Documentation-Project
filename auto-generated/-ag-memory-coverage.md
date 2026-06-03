@@ -5,9 +5,9 @@
 Total_Type: 2171
 Total_Reconstructable: 1271
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 750
+Total_Reconstructed_Assigned: 751
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 521
+Total_Reconstructable_Unassigned: 520
 Total_Unclassified: 889
 Total_Error: 0
 
@@ -597,6 +597,7 @@ Total_Error: 0
 | [UID:0002RN][0x005829f0-0x00582d80.StringBaseShareAssignAndAccess](by-memory/0x005829f0-0x00582d80.StringBaseShareAssignAndAccess.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x005829f0-0x00582d80.StringBaseShareAssignAndAccess.md` |  |
 | [UID:0002RO][0x00582d80-0x00583132.StringBaseAllocationGrowAndCow](by-memory/0x00582d80-0x00583132.StringBaseAllocationGrowAndCow.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x00582d80-0x00583132.StringBaseAllocationGrowAndCow.md` |  |
 | [UID:0002RP][0x00583140-0x00583206.StringBaseSuffixChecks](by-memory/0x00583140-0x00583206.StringBaseSuffixChecks.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x00583140-0x00583206.StringBaseSuffixChecks.md` |  |
+| [UID:0001J2][0x00583210-0x005845eb.SimpleUStringPointerBacked](by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md` |  |
 | [UID:0002RT][0x005832f0-0x00583714.StringBaseReleaseAndCapacity](by-memory/0x005832f0-0x00583714.StringBaseReleaseAndCapacity.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x005832f0-0x00583714.StringBaseReleaseAndCapacity.md` |  |
 | [UID:0001J3][0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation](by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md` |  |
 | [UID:0002RQ][0x00583970-0x00584052.StringBaseReplaceTrimAndLocks](by-memory/0x00583970-0x00584052.StringBaseReplaceTrimAndLocks.md) | assigned | `0000OA` |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-memory/0x00583970-0x00584052.StringBaseReplaceTrimAndLocks.md` |  |
@@ -1113,7 +1114,6 @@ Total_Error: 0
 | [UID:0001IZ][0x00582460-0x00582495.PathExistsViaStat](by-memory/0x00582460-0x00582495.PathExistsViaStat.md) | unassigned |  |  | no |  | `by-memory/0x00582460-0x00582495.PathExistsViaStat.md` |  |
 | [UID:0001J0][0x005824a0-0x005824f6.StdioFileScalarDeletingDestructor](by-memory/0x005824a0-0x005824f6.StdioFileScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x005824a0-0x005824f6.StdioFileScalarDeletingDestructor.md` |  |
 | [UID:0002LJ][0x00583210-0x00583272.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md) | unassigned |  |  | no |  | `by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md` |  |
-| [UID:0001J2][0x00583210-0x005845eb.SimpleUStringPointerBacked](by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md) | unassigned |  |  | no |  | `by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md` |  |
 | [UID:0002LK][0x00583280-0x005832e2.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md) | unassigned |  |  | no |  | `by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md` |  |
 | [UID:0002LL][0x00583720-0x00583831.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583831.StringBaseAnsiVFormatWorker.md) | unassigned |  |  | no |  | `by-memory/0x00583720-0x00583831.StringBaseAnsiVFormatWorker.md` |  |
 | [UID:0002LM][0x00583840-0x00583967.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583967.StringBaseWideVFormatWorker.md) | unassigned |  |  | no |  | `by-memory/0x00583840-0x00583967.StringBaseWideVFormatWorker.md` |  |
