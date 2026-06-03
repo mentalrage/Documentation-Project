@@ -2,10 +2,10 @@
 
 # ag-memory-coverage
 
-Total_Type: 2166
-Total_Reconstructable: 1260
+Total_Type: 2167
+Total_Reconstructable: 1261
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 729
+Total_Reconstructed_Assigned: 730
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 531
 Total_Unclassified: 895
@@ -459,6 +459,7 @@ Total_Error: 0
 | [UID:0001DE][0x0053a110-0x0053d818.LivingObjectPaneCore](by-memory/0x0053a110-0x0053d818.LivingObjectPaneCore.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0053a110-0x0053d818.LivingObjectPaneCore.md` |  |
 | [UID:0002R1][0x0053b700-0x0053baa8.LivingObjectPaneAnimationTimer](by-memory/0x0053b700-0x0053baa8.LivingObjectPaneAnimationTimer.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0053b700-0x0053baa8.LivingObjectPaneAnimationTimer.md` |  |
 | [UID:0002R2][0x0053bb20-0x0053beb6.LivingObjectPaneRenderFrameMethods](by-memory/0x0053bb20-0x0053beb6.LivingObjectPaneRenderFrameMethods.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0053bb20-0x0053beb6.LivingObjectPaneRenderFrameMethods.md` |  |
+| [UID:0002T6][0x0053d030-0x0053d053.LivingObjectPaneBoxRotatorScalarDeletingDestructor](by-memory/0x0053d030-0x0053d053.LivingObjectPaneBoxRotatorScalarDeletingDestructor.md) | assigned | `00007C` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0053d030-0x0053d053.LivingObjectPaneBoxRotatorScalarDeletingDestructor.md` |  |
 | [UID:0002R3][0x0053d430-0x0053d589.LivingObjectPaneScalarDeletingDestructor](by-memory/0x0053d430-0x0053d589.LivingObjectPaneScalarDeletingDestructor.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0053d430-0x0053d589.LivingObjectPaneScalarDeletingDestructor.md` |  |
 | [UID:0001DO][0x0053d820-0x0053e520.OptionPane](by-memory/0x0053d820-0x0053e520.OptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-memory/0x0053d820-0x0053e520.OptionPane.md` |  |
 | [UID:0001DP][0x0053e1e0-0x0053e377.OptionPaneServerOptionResponse](by-memory/0x0053e1e0-0x0053e377.OptionPaneServerOptionResponse.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-memory/0x0053e1e0-0x0053e377.OptionPaneServerOptionResponse.md` |  |

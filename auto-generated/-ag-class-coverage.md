@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 209
+Total_Reconstructable: 210
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 124
+Total_Reconstructed_Assigned: 125
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 85
-Total_Unclassified: 376
+Total_Unclassified: 375
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -73,6 +73,7 @@ Total_Error: 0
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPaneState.md` |  |
 | [UID:000074][LegendPane](by-class/LegendPane.md) | assigned | `0000KM` | 5 | no | `auto-generated/NexusTK/ui/panels/LegendPane.cpp` | `by-class/LegendPane.md` |  |
+| [UID:00007C][LivingObjectPane__BoxRotator](by-class/LivingObjectPane__BoxRotator.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-class/LivingObjectPane__BoxRotator.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
 | [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPlayerPane.md` |  |
 | [UID:00008S][MSGHandler](by-class/MSGHandler.md) | assigned | `0000LM` | 10 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-class/MSGHandler.md` |  |
@@ -366,7 +367,6 @@ Total_Error: 0
 | [UID:000079][List](by-class/List.md) | unclassified |  |  | no |  | `by-class/List.md` |  |
 | [UID:00007A][ListPane](by-class/ListPane.md) | unclassified |  |  | no |  | `by-class/ListPane.md` |  |
 | [UID:00007B][LivingObjectPane](by-class/LivingObjectPane.md) | unclassified |  |  | no |  | `by-class/LivingObjectPane.md` |  |
-| [UID:00007C][LivingObjectPane__BoxRotator](by-class/LivingObjectPane__BoxRotator.md) | unclassified |  |  | no |  | `by-class/LivingObjectPane__BoxRotator.md` |  |
 | [UID:00007E][LodePNGState](by-class/LodePNGState.md) | unclassified |  |  | no |  | `by-class/LodePNGState.md` |  |
 | [UID:00007F][LoginDialogPane](by-class/LoginDialogPane.md) | unclassified |  |  | no |  | `by-class/LoginDialogPane.md` |  |
 | [UID:00007I][MacroDialog](by-class/MacroDialog.md) | unclassified |  |  | no |  | `by-class/MacroDialog.md` |  |
