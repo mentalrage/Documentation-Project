@@ -4,11 +4,11 @@
 
 Total_Type: 64
 Total_Reconstructable: 27
-Total_Not_Reconstructable: 2
+Total_Not_Reconstructable: 3
 Total_Reconstructed_Assigned: 6
 Total_Reconstructed_Coded: 0
 Total_Reconstructable_Unassigned: 21
-Total_Unclassified: 35
+Total_Unclassified: 34
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -19,6 +19,7 @@ Total_Error: 0
 | [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md) | assigned | `0000MI` |  | no | `auto-generated/NexusTK/util/PathUtil.cpp` | `by-item/PathExistsViaStat_00582460.md` |  |
 | [UID:0000V9][ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90](by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md` |  |
 | [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |  |
+| [UID:0000U5][BuildFramePartPanes_004B7120](by-item/BuildFramePartPanes_004B7120.md) | not_reconstructable |  |  | no |  | `by-item/BuildFramePartPanes_004B7120.md` |  |
 | [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md) | not_reconstructable |  |  | no |  | `by-item/InitAlphaSurfaceView_004623C0.md` |  |
 | [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) | not_reconstructable |  |  | no |  | `by-item/ScopedMarkerMissingMethodBodies.md` |  |
 | [UID:0000US][HalfBlendSpan16Blocks_00460C10](by-item/HalfBlendSpan16Blocks_00460C10.md) | unassigned |  |  | no |  | `by-item/HalfBlendSpan16Blocks_00460C10.md` |  |
@@ -54,7 +55,6 @@ Total_Error: 0
 | [UID:0000U2][BuildAboveFrameBorder_00461310](by-item/BuildAboveFrameBorder_00461310.md) | unclassified |  |  | no |  | `by-item/BuildAboveFrameBorder_00461310.md` |  |
 | [UID:0000U3][BuildClippedAlphaSurfaceView_00462320](by-item/BuildClippedAlphaSurfaceView_00462320.md) | unclassified |  |  | no |  | `by-item/BuildClippedAlphaSurfaceView_00462320.md` |  |
 | [UID:0000U4][BuildEffectArchiveTable_004DE420](by-item/BuildEffectArchiveTable_004DE420.md) | unclassified |  |  | no |  | `by-item/BuildEffectArchiveTable_004DE420.md` |  |
-| [UID:0000U5][BuildFramePartPanes_004B7120](by-item/BuildFramePartPanes_004B7120.md) | unclassified |  |  | no |  | `by-item/BuildFramePartPanes_004B7120.md` |  |
 | [UID:0000U6][BuildTilecArchiveTable_004DDA60](by-item/BuildTilecArchiveTable_004DDA60.md) | unclassified |  |  | no |  | `by-item/BuildTilecArchiveTable_004DDA60.md` |  |
 | [UID:0000U7][CheckBoxControlPaneStateTypeHelper_00499EC0](by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md) | unclassified |  |  | no |  | `by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md` |  |
 | [UID:0000U8][CheckTimerSkewAndSendHeartbeat_466CA0](by-item/CheckTimerSkewAndSendHeartbeat_466CA0.md) | unclassified |  |  | no |  | `by-item/CheckTimerSkewAndSendHeartbeat_466CA0.md` |  |

@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 01:07:47
+Generated: 2026-06-03 01:11:52
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -9,8 +9,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 ## Summary
 
 - Tracked files: 3646
-- Scored files: 3479
-- Ignored files: 167
+- Scored files: 3478
+- Ignored files: 168
 
 ## projected_path_completion
 
@@ -111,7 +111,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
@@ -136,6 +135,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00016D` | 68 | 82 | 75.0 | `by-memory/0x004bad70-0x004baf92.DrawTextInRect.md` |
 | `0002KR` | 68 | 82 | 75.0 | `by-memory/0x004d04d0-0x004d0521.ResourceLayoutTableCopyEntryTileContext.md` |
 | `00017M` | 68 | 82 | 75.0 | `by-memory/0x004de190-0x004de29f.EffectObjImageLibRenderEffectFrame.md` |
+| `0002BU` | 68 | 82 | 75.0 | `by-memory/0x00526790-0x005269ea.MidiEventReader.md` |
 
 ## Low_Confidence
 
@@ -171,7 +171,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
@@ -186,7 +185,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002EN` | 70 | 78 | 74.0 | `by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md` |
 | `00015I` | 70 | 78 | 74.0 | `by-memory/0x004b69b0-0x004b6adc.FpsPaneStartLogSessionRaw.md` |
 | `00015J` | 70 | 78 | 74.0 | `by-memory/0x004b6ae0-0x004b6c2b.FpsPaneWriteLogSummaryRaw.md` |
-| `00022F` | 70 | 78 | 74.0 | `by-memory/0x004b7120-0x004b731f.BuildFramePartPanes.md` |
 | `00022H` | 70 | 78 | 74.0 | `by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md` |
 | `00022J` | 70 | 78 | 74.0 | `by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md` |
 | `0002KQ` | 70 | 78 | 74.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
@@ -196,6 +194,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002LB` | 70 | 78 | 74.0 | `by-memory/0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw.md` |
 | `0002LC` | 70 | 78 | 74.0 | `by-memory/0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw.md` |
 | `0002LD` | 70 | 78 | 74.0 | `by-memory/0x00565490-0x005654ec.ScrollVolumePaneResetInteractionStateRaw.md` |
+| `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
+| `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
 
 ## By Folder
 
@@ -301,7 +301,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `0000UJ` | 68 | 82 | 75.0 | `by-item/DrawTextInRect_004BAD70.md` |
 | `0000VI` | 70 | 80 | 75.0 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
@@ -326,6 +325,7 @@ _No scored files._
 | `0000VE` | 70 | 85 | 77.5 | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |
 | `0000VF` | 70 | 85 | 77.5 | `by-item/ScreenshotProofPacket_00558240.md` |
 | `0000VG` | 70 | 85 | 77.5 | `by-item/ServerSelectHelpers_574510_5745b0.md` |
+| `0000VH` | 70 | 85 | 77.5 | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |
 
 ### by-memory
 
@@ -339,7 +339,6 @@ _No scored files._
 | `0002EN` | 70 | 78 | 74.0 | `by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md` |
 | `00015I` | 70 | 78 | 74.0 | `by-memory/0x004b69b0-0x004b6adc.FpsPaneStartLogSessionRaw.md` |
 | `00015J` | 70 | 78 | 74.0 | `by-memory/0x004b6ae0-0x004b6c2b.FpsPaneWriteLogSummaryRaw.md` |
-| `00022F` | 70 | 78 | 74.0 | `by-memory/0x004b7120-0x004b731f.BuildFramePartPanes.md` |
 | `00022H` | 70 | 78 | 74.0 | `by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md` |
 | `00022J` | 70 | 78 | 74.0 | `by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md` |
 | `0002KQ` | 70 | 78 | 74.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
@@ -356,6 +355,7 @@ _No scored files._
 | `0002BR` | 68 | 82 | 75.0 | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |
 | `000114` | 68 | 82 | 75.0 | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |
 | `0002HF` | 68 | 82 | 75.0 | `by-memory/0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint.md` |
+| `00013M` | 68 | 82 | 75.0 | `by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md` |
 
 ### by-meta
 
