@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 00:35:02
+Generated: 2026-06-03 00:42:05
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -123,7 +123,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
-| `0002PO` | 68 | 80 | 74.0 | `by-memory/0x004f50b0-0x004f5246.LogoPaneStaticLogoLoaderHelpers.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
 | `00000P` | 68 | 82 | 75.0 | `by-class/AUTOBUF_unsigned_char.md` |
 | `00000H` | 68 | 82 | 75.0 | `by-class/ArgumentedMenuMenuDialog.md` |
@@ -137,13 +136,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002EG` | 68 | 82 | 75.0 | `by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md` |
 | `0002BR` | 68 | 82 | 75.0 | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |
 | `000114` | 68 | 82 | 75.0 | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |
+| `0002HF` | 68 | 82 | 75.0 | `by-memory/0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint.md` |
 
 ## Low_Confidence
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
-| `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 | `00004S` | 72 | 76 | 74.0 | `by-class/ExchangeItemListPane.md` |
 | `000070` | 72 | 76 | 74.0 | `by-class/LakeEffecter.md` |
 | `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
@@ -167,6 +165,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000AH` | 78 | 76 | 77.0 | `by-class/PictureViewPane.md` |
 | `0000CD` | 78 | 76 | 77.0 | `by-class/ScreenshotCapture.md` |
 | `0000CZ` | 78 | 76 | 77.0 | `by-class/ServerItemMenuDialog.md` |
+| `0000D1` | 78 | 76 | 77.0 | `by-class/ServerSelectMenuItemList.md` |
+| `0000E3` | 78 | 76 | 77.0 | `by-class/StaticTextControlPane.md` |
 
 ## Low_Both
 
@@ -177,15 +177,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
-| `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
-| `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
-| `0002PO` | 68 | 80 | 74.0 | `by-memory/0x004f50b0-0x004f5246.LogoPaneStaticLogoLoaderHelpers.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
 | `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
@@ -197,6 +194,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00015J` | 70 | 78 | 74.0 | `by-memory/0x004b6ae0-0x004b6c2b.FpsPaneWriteLogSummaryRaw.md` |
 | `00022F` | 70 | 78 | 74.0 | `by-memory/0x004b7120-0x004b731f.BuildFramePartPanes.md` |
 | `00022H` | 70 | 78 | 74.0 | `by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md` |
+| `00022J` | 70 | 78 | 74.0 | `by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md` |
+| `0002KQ` | 70 | 78 | 74.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
+| `0002KE` | 70 | 78 | 74.0 | `by-memory/0x00546610-0x00546807.ParcelPaneOnMouseEvent.md` |
 
 ## By Folder
 
@@ -208,8 +208,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
-| `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
-| `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 | `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
 | `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
@@ -229,6 +227,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000013` | 72 | 78 | 75.0 | `by-class/Browser.md` |
 | `000020` | 72 | 78 | 75.0 | `by-class/CheatDetector.md` |
 | `00002Y` | 72 | 78 | 75.0 | `by-class/CollectionPane2.md` |
+| `00004U` | 72 | 78 | 75.0 | `by-class/FieldMapPane.md` |
+| `00005G` | 72 | 78 | 75.0 | `by-class/FrameHandler.md` |
 
 ### by-external-research
 
@@ -336,7 +336,6 @@ _No scored files._
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
-| `0002PO` | 68 | 80 | 74.0 | `by-memory/0x004f50b0-0x004f5246.LogoPaneStaticLogoLoaderHelpers.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
 | `0002EN` | 70 | 78 | 74.0 | `by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md` |
 | `00015I` | 70 | 78 | 74.0 | `by-memory/0x004b69b0-0x004b6adc.FpsPaneStartLogSessionRaw.md` |
@@ -357,6 +356,7 @@ _No scored files._
 | `0002EG` | 68 | 82 | 75.0 | `by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md` |
 | `0002BR` | 68 | 82 | 75.0 | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |
 | `000114` | 68 | 82 | 75.0 | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |
+| `0002HF` | 68 | 82 | 75.0 | `by-memory/0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint.md` |
 
 ### by-meta
 

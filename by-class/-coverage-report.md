@@ -55,7 +55,7 @@
 - [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md) : reconstructable : 70% : medium : legacy browser control pane; MSGHandler layout and old-path retention remain open.
 - [UID:000017][BrowserDialog](by-class/BrowserDialog.md) : reconstructable : 72% : medium : newer singleton browser dialog; singleton typing and final file split remain open.
 - [UID:000018][BrowserDialogOld](by-class/BrowserDialogOld.md) : reconstructable : 68% : medium : legacy browser dialog; old-path reachability and final file/header placement remain open.
-- [UID:000019][BrowserPane](by-class/BrowserPane.md) : reconstructable : 70% : medium : browser command pane; projected constructor and shared helper ownership remain open.
+- [UID:000019][BrowserPane](by-class/BrowserPane.md) : reconstructable : 74% : strong : browser command/key/sound pane attached to Browser; projected constructor remains open, and selection helpers are shared DialogPane infrastructure.
 - [UID:00001A][BrowserThread](by-class/BrowserThread.md) : reconstructable : 72% : medium : legacy browser thread; thread base layout and file split remain open.
 - [UID:00001B][BrowserWindow](by-class/BrowserWindow.md) : reconstructable : 78% : medium : embedded IE ActiveX host; exact COM layout and final source split remain open.
 - [UID:00001C][BulletinDialog](by-class/BulletinDialog.md) : reconstructable : 70% : medium : raw constructor/vtable/destructor evidence is strong; live reachability and final virtual names remain open.
@@ -363,7 +363,7 @@
 - [UID:00009T][OldSystemMessagePane](by-class/OldSystemMessagePane.md) : reconstructable : 78% : medium : - Confidence: strong for class role and IDA boundaries; medium because generated constructor source is incomplete.
 - [UID:00009U][OldUserStatusPane](by-class/OldUserStatusPane.md) : reconstructable : 82% : medium : - Confidence: strong for role, method boundaries, singleton, resources, field evidence, and callers; medium because active generated output omits several bodies.
 - [UID:00009V][OptionPane](by-class/OptionPane.md) : reconstructable : 84% : strong : Old option dialog class with IDA function ranges, vtable refs, packet helpers, server-response/update helpers, and tail ownership documented; final grouping with `NewOptionPane` still caps the score.
-- [UID:00009W][OverlayEffecter](by-class/OverlayEffecter.md) : reconstructable : 70% : medium : - Confidence: strong for role and relationship to subclasses, medium for exact original file split and incomplete field/caller detail.
+- [UID:00009W][OverlayEffecter](by-class/OverlayEffecter.md) : reconstructable : 76% : strong : pane-backed overlay-effect base attached to Effects; exact fields, caller inventory, and final source split remain open.
 - [UID:00009X][OverlayFrameImageEffecter](by-class/OverlayFrameImageEffecter.md) : reconstructable : 72% : strong : - Confidence: strong for role, ownership, method boundaries, and overlay-base relationship.
 - [UID:00009Y][OverlayImageEffecter](by-class/OverlayImageEffecter.md) : reconstructable : 72% : medium : - Confidence: strong for role and ownership; medium for helper names in generated output and remaining source-split detail.
 - [UID:00009Z][OverlayImageOnPointEffecter](by-class/OverlayImageOnPointEffecter.md) : reconstructable : 72% : medium : - Confidence: strong for role and ownership; medium for generated field layout names and incomplete reconstructed C++.

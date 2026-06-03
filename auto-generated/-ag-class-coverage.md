@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 218
+Total_Reconstructable: 220
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 134
+Total_Reconstructed_Assigned: 136
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 367
+Total_Unclassified: 365
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -20,6 +20,7 @@ Total_Error: 0
 | [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/BlueAlertPane.md` |  |
 | [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md) | assigned | `0000HU` |  | no | `auto-generated/NexusTK/ui/panels/BowGaugeObjectPane.cpp` | `by-class/BowGaugeObjectPane.md` |  |
 | [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserControlPaneOld.md` |  |
+| [UID:000019][BrowserPane](by-class/BrowserPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserPane.md` |  |
 | [UID:00003D][CScrollBarBackPane](by-class/CScrollBarBackPane.md) | assigned | `0000NF` |  | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/CScrollBarBackPane.md` |  |
 | [UID:00001H][CashShopRequest](by-class/CashShopRequest.md) | assigned | `0000I0` |  | no | `auto-generated/NexusTK/cashshop/CashShopRequest.cpp` | `by-class/CashShopRequest.md` |  |
 | [UID:00001J][ChangeItemSlotInputPane](by-class/ChangeItemSlotInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ChangeItemSlotInputPane.md` |  |
@@ -95,6 +96,7 @@ Total_Error: 0
 | [UID:00009J][NumberArgsInputPane](by-class/NumberArgsInputPane.md) | assigned | `0000K7` |  | no | `auto-generated/NexusTK/ui/dialogs/InputPanes.cpp` | `by-class/NumberArgsInputPane.md` |  |
 | [UID:00009L][NumberInputPane](by-class/NumberInputPane.md) | assigned | `0000K7` |  | no | `auto-generated/NexusTK/ui/dialogs/InputPanes.cpp` | `by-class/NumberInputPane.md` |  |
 | [UID:00009V][OptionPane](by-class/OptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-class/OptionPane.md` |  |
+| [UID:00009W][OverlayEffecter](by-class/OverlayEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/OverlayEffecter.md` |  |
 | [UID:0000A5][ParcelIconPane](by-class/ParcelIconPane.md) | assigned | `0000MF` | 20 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/ParcelIconPane.md` |  |
 | [UID:0000A6][ParcelPane](by-class/ParcelPane.md) | assigned | `0000MF` | 10 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/ParcelPane.md` |  |
 | [UID:0000A9][PatchPane](by-class/PatchPane.md) | assigned | `0000MH` | 10 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane.md` |  |
@@ -257,7 +259,6 @@ Total_Error: 0
 | [UID:000015][BrowserControlPane](by-class/BrowserControlPane.md) | unclassified |  |  | no |  | `by-class/BrowserControlPane.md` |  |
 | [UID:000017][BrowserDialog](by-class/BrowserDialog.md) | unclassified |  |  | no |  | `by-class/BrowserDialog.md` |  |
 | [UID:000018][BrowserDialogOld](by-class/BrowserDialogOld.md) | unclassified |  |  | no |  | `by-class/BrowserDialogOld.md` |  |
-| [UID:000019][BrowserPane](by-class/BrowserPane.md) | unclassified |  |  | no |  | `by-class/BrowserPane.md` |  |
 | [UID:00001A][BrowserThread](by-class/BrowserThread.md) | unclassified |  |  | no |  | `by-class/BrowserThread.md` |  |
 | [UID:00001B][BrowserWindow](by-class/BrowserWindow.md) | unclassified |  |  | no |  | `by-class/BrowserWindow.md` |  |
 | [UID:00001D][BulletinSession](by-class/BulletinSession.md) | unclassified |  |  | no |  | `by-class/BulletinSession.md` |  |
@@ -432,7 +433,6 @@ Total_Error: 0
 | [UID:00009S][ObjectStatusBlob](by-class/ObjectStatusBlob.md) | unclassified |  |  | no |  | `by-class/ObjectStatusBlob.md` |  |
 | [UID:00009T][OldSystemMessagePane](by-class/OldSystemMessagePane.md) | unclassified |  |  | no |  | `by-class/OldSystemMessagePane.md` |  |
 | [UID:00009U][OldUserStatusPane](by-class/OldUserStatusPane.md) | unclassified |  |  | no |  | `by-class/OldUserStatusPane.md` |  |
-| [UID:00009W][OverlayEffecter](by-class/OverlayEffecter.md) | unclassified |  |  | no |  | `by-class/OverlayEffecter.md` |  |
 | [UID:00009X][OverlayFrameImageEffecter](by-class/OverlayFrameImageEffecter.md) | unclassified |  |  | no |  | `by-class/OverlayFrameImageEffecter.md` |  |
 | [UID:00009Y][OverlayImageEffecter](by-class/OverlayImageEffecter.md) | unclassified |  |  | no |  | `by-class/OverlayImageEffecter.md` |  |
 | [UID:00009Z][OverlayImageOnPointEffecter](by-class/OverlayImageOnPointEffecter.md) | unclassified |  |  | no |  | `by-class/OverlayImageOnPointEffecter.md` |  |
