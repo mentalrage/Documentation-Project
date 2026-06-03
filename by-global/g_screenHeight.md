@@ -1,6 +1,6 @@
 *** UID:0000ST | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -25,22 +25,23 @@
 
 | Field | Value | Reason |
 | --- | ---: | --- |
-| Completion | 70 | The page records exact storage, initial value, role, paired width global, neighboring byte/word boundaries, and current users at a summary level. It is not higher because the complete xref set is summarized rather than enumerated and the final source owner/type remains open. |
-| Confidence | 84 | IDA-backed neighboring memory pages and prior xref checks strongly support the address, size, value, and display-height interpretation. Confidence stays below final-audit level because the source-facing name comes from metadata plus usage, while IDA still labels the storage `word_66DA98`. |
+| Completion | 78 | The page records exact storage, initial value, role, paired width global, neighboring byte/word boundaries, live xref count, representative use families, and source-declared rebuild handling. It is not higher because final owner file, exact declaration type, and original source-facing name remain open. |
+| Confidence | 88 | The 2026-06-03 live IDA pass strongly supports the address, size, initial value, paired-display-height interpretation, and usage categories across application startup, config defaults, event/dialog layout, logo/media sizing, and screenshot paths. Confidence stays below final-audit level because IDA still labels the storage `word_66DA98` and no final source declaration is emitted. |
 | Reconstructable | TRUE | This is source-declared rebuild data, parallel to [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md), but C++ is withheld until the owner file and type naming are settled. |
 
 ## Role
 
 `g_screenHeight` is the global screen/display height used by startup, pane positioning, and screen-size dependent UI/render paths. It is paired with [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md) at `0x0066da94`.
 
-The current best source name comes from Wave2-era metadata and IDA use patterns. IDA still names the storage `word_66DA98`.
+The current documentation name is a source-level role label derived from the paired 1024x768 display-size use pattern. IDA still names the storage `word_66DA98`.
 
 ## Evidence
 
 - `Application` startup and window creation paths read `word_66DA98` together with `word_66DA94`.
 - Dialog and pane layout paths clamp lower edges against `word_66DA98`.
 - Screen-pane construction passes the width/height pair into the screen backing setup path.
-- IDA MCP recheck on 2026-05-26 found 96 xrefs to `0x0066da98`.
+- Live IDA MCP recheck on 2026-06-03 found IDB `NexusTK.exe` MD5 `4247e04e20b65d6414c7238aa8ff5515`, storage name `word_66DA98`, initial word `0x0300` / `768`, and 96 xrefs to `0x0066da98`.
+- Representative live xrefs include `Application__Constructor` at `0x004633b7`, application initialization at `0x0046440a`, `RegistryConfig::InitializeDefaults` at `0x0048efbb`, `LogoPane` construction at `0x004f4ca0`, event/dialog root rectangle setup at `0x004a8bb9`, screenshot capture at `0x00557c03`, and alert-pane centering at `0x004a0449`.
 - The exact [UID:0001OI][0x0066da98-0x0066da9a.g_screenHeight](by-memory/0x0066da98-0x0066da9a.g_screenHeight.md) memory page records the two-byte data item, initial value `0x0300`, and boundaries against the separate movement/layout bytes before it and map-tile dimension globals after it.
 - Related capture/output code such as [UID:0001G9][0x00557aa0-0x00558391.ScreenshotCaptureAndProof](by-memory/0x00557aa0-0x00558391.ScreenshotCaptureAndProof.md) consumes the same width/height pair for active screen dimensions.
 
@@ -77,3 +78,6 @@ Do not attach or emit C++ yet. A later pass should decide whether the final decl
   - Before: the page had exact storage and role evidence but no explicit rebuild handling, score rationale, or source-placement note.
   - After: it matches the paired [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md) documentation style, records source-declared global handling, and keeps parent/C++ blank until final owner/type decisions are made.
   - Evidence: the exact memory page [UID:0001OI][0x0066da98-0x0066da9a.g_screenHeight](by-memory/0x0066da98-0x0066da9a.g_screenHeight.md) confirms storage/value/boundaries, and prior IDA MCP checks recorded 96 xrefs to the height word.
+- 2026-06-03: Raised metadata from `70/84` to `78/88`.
+  - Reason: live IDA MCP reconfirmed the exact `0x0066da98` two-byte storage, initial value `768`, 96-xref count, neighboring byte/word boundaries, and representative use families across application startup, initialization, registry defaults, event/dialog layout, logo sizing, alert centering, and screenshot capture.
+  - Boundary: `AUTOGEN_PARENT_UID` and C++ remain blank because final owner file, original declaration spelling, and exact signedness/linkage are still below the `95/95` reconstruction threshold.

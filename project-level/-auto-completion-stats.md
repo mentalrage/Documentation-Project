@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 15:43:18
+Generated: 2026-06-03 16:01:48
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -101,10 +101,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0000SM` | 70 | 84 | 77.0 | `by-global/g_pUrlAlertPane.md` |
-| `0000ST` | 70 | 84 | 77.0 | `by-global/g_screenHeight.md` |
-| `0000SU` | 70 | 84 | 77.0 | `by-global/g_screenWidth.md` |
-| `0002OC` | 70 | 84 | 77.0 | `by-memory/0x0048a100-0x0048a11f.ClanItemDialogVtableResetDestructorTail.md` |
 | `0002P7` | 70 | 84 | 77.0 | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |
 | `0002P9` | 70 | 84 | 77.0 | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |
 | `0002HN` | 70 | 84 | 77.0 | `by-memory/0x004a6550-0x004a666a.InternetErrorConstructor.md` |
@@ -125,6 +121,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002J5` | 70 | 84 | 77.0 | `by-memory/0x00516f90-0x00516f94.MenuItemStateFlag1Accessor.md` |
 | `0002JJ` | 70 | 84 | 77.0 | `by-memory/0x00516fb0-0x00516fc1.MenuItemCopyBoundsRect.md` |
 | `0002JK` | 70 | 84 | 77.0 | `by-memory/0x00516fd0-0x00516fe1.MenuItemSetBoundsRect.md` |
+| `0001NY` | 70 | 84 | 77.0 | `by-memory/0x005c1120-0x005c11b4.WaitableTimerRawStartStop.md` |
+| `0002SS` | 70 | 84 | 77.0 | `by-memory/0x0061e8e0-0x0061e8f0.DialogCreatorVtableData.md` |
+| `0002B5` | 70 | 84 | 77.0 | `by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md` |
+| `0001UA` | 70 | 84 | 77.0 | `by-type/by-struct/EffectPixMapInfo.md` |
 
 ## Low_Confidence
 
@@ -263,9 +263,6 @@ _No scored files._
 | `0000TA` | 72 | 80 | 76.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
 | `0000TC` | 72 | 80 | 76.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
 | `0000TE` | 72 | 80 | 76.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
-| `0000SM` | 70 | 84 | 77.0 | `by-global/g_pUrlAlertPane.md` |
-| `0000ST` | 70 | 84 | 77.0 | `by-global/g_screenHeight.md` |
-| `0000SU` | 70 | 84 | 77.0 | `by-global/g_screenWidth.md` |
 | `0000T6` | 72 | 82 | 77.0 | `by-global/MainUiLayerSlots.md` |
 | `0000TB` | 72 | 82 | 77.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
 | `0000TF` | 72 | 82 | 77.0 | `by-global/OpenTerminalPane_4F91C0.md` |
@@ -285,6 +282,9 @@ _No scored files._
 | `0000RF` | 78 | 80 | 79.0 | `by-global/g_pMainUiGraph.md` |
 | `0000RM` | 78 | 80 | 79.0 | `by-global/g_pMidiPlayer.md` |
 | `00020K` | 72 | 88 | 80.0 | `by-global/AesBlockCipherStateAndTables.md` |
+| `0000SS` | 74 | 86 | 80.0 | `by-global/g_pWillBeChangedItemPane.md` |
+| `0000PN` | 76 | 84 | 80.0 | `by-global/FrameChromeSlots.md` |
+| `0000PV` | 76 | 84 | 80.0 | `by-global/g_browserWindowCaption.md` |
 
 ### by-item
 
