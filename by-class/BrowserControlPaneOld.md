@@ -1,6 +1,6 @@
 *** UID:000016 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -17,8 +17,9 @@
 ## Likely Original Placement
 
 - Source: [UID:0000HV][Browser](by-file/Browser.md)
-- Proposed path: `browser/Browser.cpp` or `browser/BrowserControlPaneOld.cpp`
+- Proposed path: `browser/Browser.cpp`
 - Confidence: strong for browser folder, medium for exact file split
+- Autogen parent: [UID:0000HV][Browser](by-file/Browser.md). C++ remains blank because the final `MSGHandler` subobject layout, Browser object fields, and old-path source split are not final-source quality.
 
 ## Methods
 
@@ -36,6 +37,9 @@
 - IDA MCP shows the constructor is called from `BrowserDialogOld` at `0x0046936e`.
 - IDA MCP confirms `DispatchToBrowser` at `0x00528de0-0x00528dec`, called from the legacy message path at `0x0046f36d`.
 - `DrawBrowserStatusOverlay`, `HandleBrowserMessage`, and the constructor provide the current evidence for [UID:0001SM][BrowserOverlayStyle](by-type/by-enum/BrowserOverlayStyle.md), [UID:0001SL][BrowserMessageId](by-type/by-enum/BrowserMessageId.md), and [UID:0001SK][BrowserInitFlags](by-type/by-enum/BrowserInitFlags.md).
+- [UID:0000HV][Browser](by-file/Browser.md) is scored `84/88`, assigned to `NexusTK/browser/`, and groups the legacy control pane with the browser/OLE helper module.
+- [UID:0002P3][0x0046ff50-0x00470159.BrowserControlPaneOldConstructor](by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md) is scored `74/88`, reconstructable, and attached to this class; it records the constructor bounds, `MSGHandler` subobject construction, Browser allocation/layout evidence, URL copy, BrowserThread allocation/start, and `g_pBrowserThread` storage.
+- [UID:0001CO][0x00528de0-0x00528deb.BrowserControlPaneOldDispatch](by-memory/0x00528de0-0x00528deb.BrowserControlPaneOldDispatch.md) is scored `70/85` and records the browser-specific dispatch bridge outside generic `MSGHandler` ownership.
 
 ## Open Questions
 
@@ -58,3 +62,7 @@
 - What existed before: the page had legacy-browser control behavior, methods, and supporting evidence, but completion/confidence metadata remained `0/0`.
 - What it was changed to: scores were set to `70/78`.
 - Summary and evidence: constructor, draw/message/dispatch paths, BrowserThread links, and enum references are documented; final MSGHandler layout and whether the old path should remain built are still unresolved.
+- 2026-06-03 evidence/score refresh:
+  - What existed before: the page was already reconstructable and attached to [UID:0000HV][Browser](by-file/Browser.md), but remained in low-both at `70/78`.
+  - Changed to: `COMPLETION:74` and `CONFIDENCE:82`.
+  - Summary/evidence: the Browser file doc, focused constructor child [UID:0002P3][0x0046ff50-0x00470159.BrowserControlPaneOldConstructor](by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md), dispatch bridge [UID:0001CO][0x00528de0-0x00528deb.BrowserControlPaneOldDispatch](by-memory/0x00528de0-0x00528deb.BrowserControlPaneOldDispatch.md), and browser enum/global pages support stronger source ownership. C++ remains blank because final `MSGHandler` layout, Browser field names, and old-path source split are below the 95+ reconstruction gate.

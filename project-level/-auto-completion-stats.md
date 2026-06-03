@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 00:46:01
+Generated: 2026-06-03 00:49:18
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -112,7 +112,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000018` | 68 | 78 | 73.0 | `by-class/BrowserDialogOld.md` |
 | `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
@@ -137,6 +136,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002BR` | 68 | 82 | 75.0 | `by-memory/0x004918e0-0x00491b28.StructuredHostPortIdLauncherParser.md` |
 | `000114` | 68 | 82 | 75.0 | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |
 | `0002HF` | 68 | 82 | 75.0 | `by-memory/0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint.md` |
+| `00013M` | 68 | 82 | 75.0 | `by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md` |
 
 ## Low_Confidence
 
@@ -172,7 +172,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000018` | 68 | 78 | 73.0 | `by-class/BrowserDialogOld.md` |
 | `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
@@ -184,7 +183,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
-| `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
 | `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
 | `000061` | 70 | 78 | 74.0 | `by-class/HeaderSystemMessage.md` |
@@ -197,6 +195,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00022J` | 70 | 78 | 74.0 | `by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md` |
 | `0002KQ` | 70 | 78 | 74.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
 | `0002KE` | 70 | 78 | 74.0 | `by-memory/0x00546610-0x00546807.ParcelPaneOnMouseEvent.md` |
+| `0001GO` | 70 | 78 | 74.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
+| `0001H1` | 70 | 78 | 74.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
 
 ## By Folder
 
@@ -204,11 +204,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000018` | 68 | 78 | 73.0 | `by-class/BrowserDialogOld.md` |
 | `00003B` | 68 | 78 | 73.0 | `by-class/CreateUserDialogPane.md` |
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
-| `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
 | `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
 | `000061` | 70 | 78 | 74.0 | `by-class/HeaderSystemMessage.md` |
@@ -229,6 +227,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00005G` | 72 | 78 | 75.0 | `by-class/FrameHandler.md` |
 | `00005R` | 72 | 78 | 75.0 | `by-class/GeneralPurposePanel2.md` |
 | `00009Y` | 72 | 78 | 75.0 | `by-class/OverlayImageEffecter.md` |
+| `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |
+| `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
 
 ### by-external-research
 

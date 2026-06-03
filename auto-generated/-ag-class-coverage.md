@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 223
+Total_Reconstructable: 224
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 139
+Total_Reconstructed_Assigned: 140
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 362
+Total_Unclassified: 361
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -20,6 +20,7 @@ Total_Error: 0
 | [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/BlueAlertPane.md` |  |
 | [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md) | assigned | `0000HU` |  | no | `auto-generated/NexusTK/ui/panels/BowGaugeObjectPane.cpp` | `by-class/BowGaugeObjectPane.md` |  |
 | [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserControlPaneOld.md` |  |
+| [UID:000018][BrowserDialogOld](by-class/BrowserDialogOld.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserDialogOld.md` |  |
 | [UID:000019][BrowserPane](by-class/BrowserPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserPane.md` |  |
 | [UID:00003D][CScrollBarBackPane](by-class/CScrollBarBackPane.md) | assigned | `0000NF` |  | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/CScrollBarBackPane.md` |  |
 | [UID:00001H][CashShopRequest](by-class/CashShopRequest.md) | assigned | `0000I0` |  | no | `auto-generated/NexusTK/cashshop/CashShopRequest.cpp` | `by-class/CashShopRequest.md` |  |
@@ -261,7 +262,6 @@ Total_Error: 0
 | [UID:000013][Browser](by-class/Browser.md) | unclassified |  |  | no |  | `by-class/Browser.md` |  |
 | [UID:000015][BrowserControlPane](by-class/BrowserControlPane.md) | unclassified |  |  | no |  | `by-class/BrowserControlPane.md` |  |
 | [UID:000017][BrowserDialog](by-class/BrowserDialog.md) | unclassified |  |  | no |  | `by-class/BrowserDialog.md` |  |
-| [UID:000018][BrowserDialogOld](by-class/BrowserDialogOld.md) | unclassified |  |  | no |  | `by-class/BrowserDialogOld.md` |  |
 | [UID:00001A][BrowserThread](by-class/BrowserThread.md) | unclassified |  |  | no |  | `by-class/BrowserThread.md` |  |
 | [UID:00001B][BrowserWindow](by-class/BrowserWindow.md) | unclassified |  |  | no |  | `by-class/BrowserWindow.md` |  |
 | [UID:00001D][BulletinSession](by-class/BulletinSession.md) | unclassified |  |  | no |  | `by-class/BulletinSession.md` |  |

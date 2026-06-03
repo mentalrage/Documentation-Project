@@ -52,9 +52,9 @@
 - [UID:000013][Browser](by-class/Browser.md) : reconstructable : 72% : medium : - Confidence: strong for subsystem placement, medium for exact original class/file split and multiple-inheritance layout.
 - [UID:000014][browser__Notification](by-class/browser__Notification.md) : reconstructable : 72% : medium : browser notification payload; deleting destructor and `PostBrowserNotification` `'Bros'` channel evidence documented, with payload fields still open.
 - [UID:000015][BrowserControlPane](by-class/BrowserControlPane.md) : reconstructable : 76% : medium : newer embedded browser control pane; COM slots and final source-file split remain open.
-- [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md) : reconstructable : 70% : medium : legacy browser control pane; MSGHandler layout and old-path retention remain open.
+- [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md) : reconstructable : 74% : strong : legacy browser control pane attached to Browser; constructor, dispatch bridge, thread/global, enum evidence documented, while MSGHandler layout and old-path source split remain open.
 - [UID:000017][BrowserDialog](by-class/BrowserDialog.md) : reconstructable : 72% : medium : newer singleton browser dialog; singleton typing and final file split remain open.
-- [UID:000018][BrowserDialogOld](by-class/BrowserDialogOld.md) : reconstructable : 68% : medium : legacy browser dialog; old-path reachability and final file/header placement remain open.
+- [UID:000018][BrowserDialogOld](by-class/BrowserDialogOld.md) : reconstructable : 72% : strong : legacy browser dialog attached to Browser; constructor/control-pane/singleton evidence documented, while old-path reachability and final file/header placement remain open.
 - [UID:000019][BrowserPane](by-class/BrowserPane.md) : reconstructable : 74% : strong : browser command/key/sound pane attached to Browser; projected constructor remains open, and selection helpers are shared DialogPane infrastructure.
 - [UID:00001A][BrowserThread](by-class/BrowserThread.md) : reconstructable : 72% : medium : legacy browser thread; thread base layout and file split remain open.
 - [UID:00001B][BrowserWindow](by-class/BrowserWindow.md) : reconstructable : 78% : medium : embedded IE ActiveX host; exact COM layout and final source split remain open.
