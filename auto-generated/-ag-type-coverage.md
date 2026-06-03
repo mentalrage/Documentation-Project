@@ -5,9 +5,9 @@
 Total_Type: 198
 Total_Reconstructable: 190
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 14
+Total_Reconstructed_Assigned: 15
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 176
+Total_Reconstructable_Unassigned: 175
 Total_Unclassified: 5
 Total_Error: 0
 
@@ -18,6 +18,7 @@ Total_Error: 0
 | [UID:0001SV][SelectionControlPaneSelectedValue_0x10c](by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md) | assigned | `0000CR` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md` |  |
 | [UID:0001TR][AttachedObjectRegistryLayout](by-type/by-struct/AttachedObjectRegistryLayout.md) | assigned | `0000HJ` |  | no | `auto-generated/NexusTK/map/AttachedObjectPane.cpp` | `by-type/by-struct/AttachedObjectRegistryLayout.md` |  |
 | [UID:0001TZ][CollectionPlayerDataLayout](by-type/by-struct/CollectionPlayerDataLayout.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-type/by-struct/CollectionPlayerDataLayout.md` |  |
+| [UID:0001UA][EffectPixMapInfo](by-type/by-struct/EffectPixMapInfo.md) | assigned | `0000IY` |  | no | `auto-generated/NexusTK/render/EffectObjImageLib.cpp` | `by-type/by-struct/EffectPixMapInfo.md` |  |
 | [UID:0001VI][ParcelNotificationPaneLayouts](by-type/by-struct/ParcelNotificationPaneLayouts.md) | assigned | `0000MF` | 5 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-type/by-struct/ParcelNotificationPaneLayouts.md` |  |
 | [UID:0001VJ][PatchPane2Layout](by-type/by-struct/PatchPane2Layout.md) | assigned | `0000AA` |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-type/by-struct/PatchPane2Layout.md` |  |
 | [UID:0001VN][RankingCategoryRecordLayout](by-type/by-struct/RankingCategoryRecordLayout.md) | assigned | `0000BL` | 5 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-struct/RankingCategoryRecordLayout.md` |  |
@@ -57,7 +58,6 @@ Total_Error: 0
 | [UID:0001U7][EffectFrameRecord](by-type/by-struct/EffectFrameRecord.md) | unassigned |  |  | no |  | `by-type/by-struct/EffectFrameRecord.md` |  |
 | [UID:0001U8][EffectInfo](by-type/by-struct/EffectInfo.md) | unassigned |  |  | no |  | `by-type/by-struct/EffectInfo.md` |  |
 | [UID:0001U9][EffectObjImageLibLayout](by-type/by-struct/EffectObjImageLibLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/EffectObjImageLibLayout.md` |  |
-| [UID:0001UA][EffectPixMapInfo](by-type/by-struct/EffectPixMapInfo.md) | unassigned |  |  | no |  | `by-type/by-struct/EffectPixMapInfo.md` |  |
 | [UID:0001UB][EmployeeItemPropertyDialogPaneLayout](by-type/by-struct/EmployeeItemPropertyDialogPaneLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/EmployeeItemPropertyDialogPaneLayout.md` |  |
 | [UID:0001UC][EmployeeQuantityInputDialogPaneLayout](by-type/by-struct/EmployeeQuantityInputDialogPaneLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/EmployeeQuantityInputDialogPaneLayout.md` |  |
 | [UID:0001UD][EmployeeRecord](by-type/by-struct/EmployeeRecord.md) | unassigned |  |  | no |  | `by-type/by-struct/EmployeeRecord.md` |  |

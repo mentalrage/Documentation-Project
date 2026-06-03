@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 211
+Total_Reconstructed_Assigned: 212
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 77
+Total_Error: 76
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -20,6 +20,7 @@ Total_Error: 77
 | [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-file/ArgumentedMenuDialogs.md` | by-file generated root |
 | [UID:0000HJ][AttachedObjectPane](by-file/AttachedObjectPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/AttachedObjectPane.cpp` | `by-file/AttachedObjectPane.md` | by-file generated root |
 | [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md) | assigned |  |  | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-file/AttachmentAnchorResolver.md` | by-file generated root |
+| [UID:0000HN][AutoInit](by-file/AutoInit.md) | assigned |  |  | no | `auto-generated/NexusTK/platform/AutoInit.cpp` | `by-file/AutoInit.md` | by-file generated root |
 | [UID:0000HO][BackPane](by-file/BackPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/BackPane.cpp` | `by-file/BackPane.md` | by-file generated root |
 | [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/BackStoryDialogPane.cpp` | `by-file/BackStoryDialogPane.md` | by-file generated root |
 | [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) | assigned |  |  | no | `auto-generated/NexusTK/util/BinaryCodec.cpp` | `by-file/BinaryCodec.md` | by-file generated root |
@@ -226,7 +227,6 @@ Total_Error: 77
 | [UID:0000L6][MD5](by-file/MD5.md) | coded |  |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-file/MD5.md` | by-file generated root |
 | [UID:0000HH][ArgumentedItemInputDialogs](by-file/ArgumentedItemInputDialogs.md) | error |  |  | no |  | `by-file/ArgumentedItemInputDialogs.md` | by-file generated root |
 | [UID:0000HK][AttachedObjectPaneHelper_53AEC0](by-file/AttachedObjectPaneHelper_53AEC0.md) | error |  |  | no |  | `by-file/AttachedObjectPaneHelper_53AEC0.md` | by-file generated root |
-| [UID:0000HN][AutoInit](by-file/AutoInit.md) | error |  |  | no |  | `by-file/AutoInit.md` | by-file generated root |
 | [UID:0000HX][BulletinSession](by-file/BulletinSession.md) | error |  |  | no |  | `by-file/BulletinSession.md` | by-file generated root |
 | [UID:0000I4][CharacterSummaryRecord](by-file/CharacterSummaryRecord.md) | error |  |  | no |  | `by-file/CharacterSummaryRecord.md` | by-file generated root |
 | [UID:0000IA][ClanDialogs](by-file/ClanDialogs.md) | error |  |  | no |  | `by-file/ClanDialogs.md` | by-file generated root |

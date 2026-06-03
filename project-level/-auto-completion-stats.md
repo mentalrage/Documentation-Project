@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 19:08:15
+Generated: 2026-06-03 19:23:11
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -20,7 +20,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | --- | --- | --- | --- |
 | `0000HH` | blank | `(blank)` | `by-file/ArgumentedItemInputDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HK` | blank | `(blank)` | `by-file/AttachedObjectPaneHelper_53AEC0.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000HN` | blank | `(blank)` | `by-file/AutoInit.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IA` | blank | `(blank)` | `by-file/ClanDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -101,10 +100,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0001UA` | 70 | 84 | 77.0 | `by-type/by-struct/EffectPixMapInfo.md` |
 | `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
-| `00000Q` | 70 | 85 | 77.5 | `by-class/AutoInit.md` |
-| `0000HN` | 70 | 85 | 77.5 | `by-file/AutoInit.md` |
 | `0000UK` | 70 | 85 | 77.5 | `by-item/DrawTextRunCallback_00593DB0.md` |
 | `0000US` | 70 | 85 | 77.5 | `by-item/HalfBlendSpan16Blocks_00460C10.md` |
 | `0000UT` | 70 | 85 | 77.5 | `by-item/HasDATEntry_0049C700.md` |
@@ -125,6 +121,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000VH` | 70 | 85 | 77.5 | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |
 | `0000VJ` | 70 | 85 | 77.5 | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |
 | `0000VK` | 70 | 85 | 77.5 | `by-item/VectorGrowArchiveIndex_004E5990.md` |
+| `0000WA` | 70 | 85 | 77.5 | `by-memory/0x00419f70-0x00419f86.MemoryManStaticInitializer.md` |
+| `0000WL` | 70 | 85 | 77.5 | `by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md` |
+| `0000WM` | 70 | 85 | 77.5 | `by-memory/0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual.md` |
 
 ## Low_Confidence
 
@@ -234,7 +233,6 @@ _No scored files._
 | `0000LX` | 74 | 80 | 77.0 | `by-file/NewUserMiscDialogPane.md` |
 | `0000KD` | 76 | 78 | 77.0 | `by-file/ItemCatalog.md` |
 | `0000MY` | 78 | 76 | 77.0 | `by-file/RainingLayerPane.md` |
-| `0000HN` | 70 | 85 | 77.5 | `by-file/AutoInit.md` |
 | `0000JC` | 72 | 84 | 78.0 | `by-file/FileDownloader.md` |
 | `0000OB` | 72 | 84 | 78.0 | `by-file/StringUtil.md` |
 | `0000LP` | 76 | 80 | 78.0 | `by-file/NewCreateUserDialogPane.md` |
@@ -251,6 +249,7 @@ _No scored files._
 | `0000NY` | 76 | 82 | 79.0 | `by-file/SpecializedButtonPanes.md` |
 | `0000L4` | 78 | 80 | 79.0 | `by-file/MapRefreshDimmer.md` |
 | `0000MI` | 78 | 80 | 79.0 | `by-file/PathUtil.md` |
+| `0000OJ` | 78 | 80 | 79.0 | `by-file/TextBoxPane.md` |
 
 ### by-function
 
@@ -389,7 +388,6 @@ _No scored files._
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001SK` | 72 | 80 | 76.0 | `by-type/by-enum/BrowserInitFlags.md` |
-| `0001UA` | 70 | 84 | 77.0 | `by-type/by-struct/EffectPixMapInfo.md` |
 | `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
 | `0001W7` | 72 | 82 | 77.0 | `by-type/by-struct/SpecializedButtonPaneLayouts.md` |
 | `0001YP` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollCollectionPaneVtables.md` |
@@ -413,3 +411,4 @@ _No scored files._
 | `0001WD` | 74 | 86 | 80.0 | `by-type/by-struct/TimerMgrLayout.md` |
 | `0001UN` | 76 | 84 | 80.0 | `by-type/by-struct/FontStyleLayout.md` |
 | `0001VJ` | 76 | 84 | 80.0 | `by-type/by-struct/PatchPane2Layout.md` |
+| `0001W3` | 76 | 84 | 80.0 | `by-type/by-struct/SimpleListPaneLayout.md` |

@@ -5,9 +5,9 @@
 Total_Type: 586
 Total_Reconstructable: 251
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 173
+Total_Reconstructed_Assigned: 174
 Total_Reconstructed_Coded: 2
-Total_Reconstructable_Unassigned: 78
+Total_Reconstructable_Unassigned: 77
 Total_Unclassified: 334
 Total_Error: 0
 
@@ -20,6 +20,7 @@ Total_Error: 0
 | [UID:00000H][ArgumentedMenuMenuDialog](by-class/ArgumentedMenuMenuDialog.md) | assigned | `0000HI` | 10 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-class/ArgumentedMenuMenuDialog.md` |  |
 | [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md) | assigned | `0000HI` | 20 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-class/ArgumentedMenuMenuItemList.md` |  |
 | [UID:00000O][AttachmentAnchorResolver](by-class/AttachmentAnchorResolver.md) | assigned | `0000HL` | 10 | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-class/AttachmentAnchorResolver.md` |  |
+| [UID:00000Q][AutoInit](by-class/AutoInit.md) | assigned | `0000HN` |  | no | `auto-generated/NexusTK/platform/AutoInit.cpp` | `by-class/AutoInit.md` |  |
 | [UID:00000X][BlockListenInputPane](by-class/BlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/BlockListenInputPane.md` |  |
 | [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/BlueAlertPane.md` |  |
 | [UID:00000Z][BoardListDialog](by-class/BoardListDialog.md) | assigned | `0000HT` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-class/BoardListDialog.md` |  |
@@ -189,7 +190,6 @@ Total_Error: 0
 | [UID:00001G][CandidateStringQueue](by-class/CandidateStringQueue.md) | not_reconstructable |  |  | no |  | `by-class/CandidateStringQueue.md` |  |
 | [UID:000005][AboveFrame](by-class/AboveFrame.md) | unassigned |  |  | no |  | `by-class/AboveFrame.md` |  |
 | [UID:00000B][AlertPane](by-class/AlertPane.md) | unassigned |  |  | no |  | `by-class/AlertPane.md` |  |
-| [UID:00000Q][AutoInit](by-class/AutoInit.md) | unassigned |  |  | no |  | `by-class/AutoInit.md` |  |
 | [UID:00000W][BlackHole](by-class/BlackHole.md) | unassigned |  |  | no |  | `by-class/BlackHole.md` |  |
 | [UID:00001C][BulletinDialog](by-class/BulletinDialog.md) | unassigned |  |  | no |  | `by-class/BulletinDialog.md` |  |
 | [UID:00001F][CachedHashTable](by-class/CachedHashTable.md) | unassigned |  |  | no |  | `by-class/CachedHashTable.md` |  |
