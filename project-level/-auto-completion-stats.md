@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 01:01:58
+Generated: 2026-06-03 01:07:47
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -111,7 +111,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
@@ -136,6 +135,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00013M` | 68 | 82 | 75.0 | `by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md` |
 | `00016D` | 68 | 82 | 75.0 | `by-memory/0x004bad70-0x004baf92.DrawTextInRect.md` |
 | `0002KR` | 68 | 82 | 75.0 | `by-memory/0x004d04d0-0x004d0521.ResourceLayoutTableCopyEntryTileContext.md` |
+| `00017M` | 68 | 82 | 75.0 | `by-memory/0x004de190-0x004de29f.EffectObjImageLibRenderEffectFrame.md` |
 
 ## Low_Confidence
 
@@ -171,7 +171,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
@@ -196,6 +195,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001H1` | 70 | 78 | 74.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
 | `0002LB` | 70 | 78 | 74.0 | `by-memory/0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw.md` |
 | `0002LC` | 70 | 78 | 74.0 | `by-memory/0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw.md` |
+| `0002LD` | 70 | 78 | 74.0 | `by-memory/0x00565490-0x005654ec.ScrollVolumePaneResetInteractionStateRaw.md` |
 
 ## By Folder
 
@@ -203,7 +203,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
 | `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
 | `000061` | 70 | 78 | 74.0 | `by-class/HeaderSystemMessage.md` |
@@ -228,6 +227,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
 | `000014` | 72 | 78 | 75.0 | `by-class/browser__Notification.md` |
 | `00008O` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_5289D0.md` |
+| `00008P` | 74 | 76 | 75.0 | `by-class/MonsterImageLibTable_528BE0.md` |
 
 ### by-external-research
 

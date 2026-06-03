@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 226
+Total_Reconstructable: 227
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 142
+Total_Reconstructed_Assigned: 143
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 84
-Total_Unclassified: 359
+Total_Unclassified: 358
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -64,6 +64,7 @@ Total_Error: 0
 | [UID:000058][FlyingParcelPane](by-class/FlyingParcelPane.md) | assigned | `0000MF` | 30 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/FlyingParcelPane.md` |  |
 | [UID:000059][FolderSelectDialog](by-class/FolderSelectDialog.md) | assigned | `0000JF` |  | no | `auto-generated/NexusTK/ui/dialogs/FolderSelectDialog.cpp` | `by-class/FolderSelectDialog.md` |  |
 | [UID:00005F][FpsPane](by-class/FpsPane.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-class/FpsPane.md` |  |
+| [UID:00005K][FunctionObject](by-class/FunctionObject.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/FunctionObject.md` |  |
 | [UID:00005M][FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____](by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md` |  |
 | [UID:00005O][GameServerConfig](by-class/GameServerConfig.md) | assigned | `0000JP` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-class/GameServerConfig.md` |  |
 | [UID:00005T][GiveGoldInputPane](by-class/GiveGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/GiveGoldInputPane.md` |  |
@@ -338,7 +339,6 @@ Total_Error: 0
 | [UID:00005G][FrameHandler](by-class/FrameHandler.md) | unclassified |  |  | no |  | `by-class/FrameHandler.md` |  |
 | [UID:00005H][FrameMgr](by-class/FrameMgr.md) | unclassified |  |  | no |  | `by-class/FrameMgr.md` |  |
 | [UID:00005J][FriendListDialog](by-class/FriendListDialog.md) | unclassified |  |  | no |  | `by-class/FriendListDialog.md` |  |
-| [UID:00005K][FunctionObject](by-class/FunctionObject.md) | unclassified |  |  | no |  | `by-class/FunctionObject.md` |  |
 | [UID:00005L][FunctionObject0](by-class/FunctionObject0.md) | unclassified |  |  | no |  | `by-class/FunctionObject0.md` |  |
 | [UID:00005N][FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___](by-class/FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___.md) | unclassified |  |  | no |  | `by-class/FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___.md` |  |
 | [UID:00005Q][GeneralPurposePanel](by-class/GeneralPurposePanel.md) | unclassified |  |  | no |  | `by-class/GeneralPurposePanel.md` |  |

@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2171
-Total_Reconstructable: 1274
+Total_Reconstructable: 1275
 Total_Not_Reconstructable: 13
-Total_Reconstructed_Assigned: 756
+Total_Reconstructed_Assigned: 757
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 518
-Total_Unclassified: 884
+Total_Unclassified: 883
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -158,6 +158,7 @@ Total_Error: 0
 | [UID:00011A][0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder](by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md) | assigned | `0000AW` | 50 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |  |
 | [UID:00011C][0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar](by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md) | assigned | `0000AW` | 60 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md` |  |
 | [UID:00011D][0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh](by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md) | assigned | `0000CR` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md` |  |
+| [UID:000123][0x0049b090-0x0049b28e.FunctionObjectDestructors](by-memory/0x0049b090-0x0049b28e.FunctionObjectDestructors.md) | assigned | `00005K` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-memory/0x0049b090-0x0049b28e.FunctionObjectDestructors.md` |  |
 | [UID:000223][0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers](by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |  |
 | [UID:000129][0x0049bae0-0x0049bbef.Crasher](by-memory/0x0049bae0-0x0049bbef.Crasher.md) | assigned | `00003A` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-memory/0x0049bae0-0x0049bbef.Crasher.md` |  |
 | [UID:000226][0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers](by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md` |  |
@@ -1613,7 +1614,6 @@ Total_Error: 0
 | [UID:000120][0x0049af3d-0x0049af52.ControlPaneAdjustorThunks](by-memory/0x0049af3d-0x0049af52.ControlPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0049af3d-0x0049af52.ControlPaneAdjustorThunks.md` |  |
 | [UID:000121][0x0049af7f-0x0049af95.NumericStringControlPaneAdjustorThunks](by-memory/0x0049af7f-0x0049af95.NumericStringControlPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0049af7f-0x0049af95.NumericStringControlPaneAdjustorThunks.md` |  |
 | [UID:000122][0x0049afc1-0x0049afd7.RectangleControlPaneAdjustorThunks](by-memory/0x0049afc1-0x0049afd7.RectangleControlPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0049afc1-0x0049afd7.RectangleControlPaneAdjustorThunks.md` |  |
-| [UID:000123][0x0049b090-0x0049b28e.FunctionObjectDestructors](by-memory/0x0049b090-0x0049b28e.FunctionObjectDestructors.md) | unclassified |  |  | no |  | `by-memory/0x0049b090-0x0049b28e.FunctionObjectDestructors.md` |  |
 | [UID:000124][0x0049b2f0-0x0049b3af.NumericStringControlPaneScalarDeletingDestructor](by-memory/0x0049b2f0-0x0049b3af.NumericStringControlPaneScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0049b2f0-0x0049b3af.NumericStringControlPaneScalarDeletingDestructor.md` |  |
 | [UID:000125][0x0049b490-0x0049b4e5.RectangleControlPaneScalarDeletingDestructor](by-memory/0x0049b490-0x0049b4e5.RectangleControlPaneScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0049b490-0x0049b4e5.RectangleControlPaneScalarDeletingDestructor.md` |  |
 | [UID:000128][0x0049b8f0-0x0049b8f5.RectangleControlPaneTypeId](by-memory/0x0049b8f0-0x0049b8f5.RectangleControlPaneTypeId.md) | unclassified |  |  | no |  | `by-memory/0x0049b8f0-0x0049b8f5.RectangleControlPaneTypeId.md` |  |

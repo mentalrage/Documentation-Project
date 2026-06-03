@@ -209,7 +209,7 @@
 - [UID:00005H][FrameMgr](by-class/FrameMgr.md) : reconstructable : 78% : strong : - Confidence: strong.
 - [UID:00005I][FramePartPane](by-class/FramePartPane.md) : reconstructable : 82% : strong : - Confidence: strong for behavior.
 - [UID:00005J][FriendListDialog](by-class/FriendListDialog.md) : reconstructable : 80% : strong : - Confidence: strong.
-- [UID:00005K][FunctionObject](by-class/FunctionObject.md) : reconstructable : 68% : medium : - Confidence: strong for callback-base role, medium for final source name.
+- [UID:00005K][FunctionObject](by-class/FunctionObject.md) : reconstructable : 74% : strong : shared callback base attached to `FunctionObjects`; IDA MCP reconfirmed destructor boundaries, vtable-only xrefs, base/free callees, and generated callback-family reuse.
 - [UID:00005L][FunctionObject0](by-class/FunctionObject0.md) : reconstructable : 72% : strong : - Confidence: strong for zero-argument callback-base role.
 - [UID:00005M][FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____](by-class/FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.md) : reconstructable : 66% : strong : - Confidence: strong for string-argument callback-base support.
 - [UID:00005N][FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___](by-class/FunctionObjectT_near_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t____const___.md) : reconstructable : 70% : strong : - Confidence: strong for const-reference string callback-base support.
