@@ -1,8 +1,8 @@
 *** UID:0000UK | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000ON | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,10 +12,12 @@
 
 ## Status
 
-- Confidence: strong.
-- Entity: global function `DrawTextRunCallback`
+- Confidence: strong for IDA callback bounds, address-taking xrefs, callee/call-site behavior, and TextEditPane ownership; medium for final callback-state field names and exact source signature.
+- Entity: file-local/free callback `DrawTextRunCallback`.
 - Range: `0x00593db0-0x00593ef6` in IDA end-exclusive form; last instruction is `0x00593ef5`.
 - Likely source file: [UID:0000ON][TextEditPane](by-file/TextEditPane.md)
+- Parent attachment: [UID:0000ON][TextEditPane](by-file/TextEditPane.md) is currently `88/80`, and the exact callback docs are now IDA-backed at `78/86`; attaching under the file parent is justified by the child and parent confidence scores.
+- C++ reconstruction: intentionally blank until the callback state layout, style payload type, and exact source-facing signature reach the 95% final-code bar.
 
 ## Purpose
 
@@ -40,6 +42,10 @@ char __cdecl DrawTextRunCallback(TextRunLineRecord* lineRecord,
 - Live IDA xrefs to the callback address are two address-taking pushes: `0x005908e6` inside `sub_590810` and `0x0059168c` in the adjacent text-edit selection/invalidation region. Both use `push offset sub_593DB0`.
 - Live IDA callees are [UID:000164][0x004b96c0-0x004b9767.GrafPortClipRectHelper](by-memory/0x004b96c0-0x004b9767.GrafPortClipRectHelper.md), [UID:00015S][0x004b7c30-0x004b7f87.RectGeometryHelpers](by-memory/0x004b7c30-0x004b7f87.RectGeometryHelpers.md) subrange `0x004b7cc0`, [UID:000162][0x004b95e0-0x004b969f.GrafPortDrawStateAccessors](by-memory/0x004b95e0-0x004b969f.GrafPortDrawStateAccessors.md), [UID:00016C][0x004ba9a0-0x004bad66.GrafPortTextRunHelpers](by-memory/0x004ba9a0-0x004bad66.GrafPortTextRunHelpers.md) subranges `0x004baaa0` and `0x004baad0`, callback slot [UID:0000TN][SurfaceRenderCallbackTable](by-global/SurfaceRenderCallbackTable.md) `dword_69B3FC`, and lower text renderer `0x005946b0`.
 - The sibling [UID:0001JQ][0x00593c20-0x00593ce4.TextRunMeasureCallback](by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md) handles row-width measurement for the same text-run iteration family.
+- 2026-06-04 live IDA MCP recheck confirms `sub_593DB0` at `0x00593db0-0x00593ef6`, previous text-run callback `sub_593C20` at `0x00593c20-0x00593ce5`, and the lower renderer `sub_5946B0` at `0x005946b0-0x0059489f`.
+- 2026-06-04 live IDA `xrefs_to` still reports only two data/address-taking references to the callback: `0x005908e6` inside `sub_590810` and `0x0059168c` in a raw `.text` code island between `sub_591520` and `sub_591740`.
+- Caller-context disassembly shows both xrefs zero a local callback-state rectangle block, push the state pointer and `offset sub_593DB0`, then call `sub_593500`, the text-run iterator. The raw `0x00591650-0x005916b2` island ends with `retn 8` and is recorded as raw code rather than a named function because IDA has no function object there.
+- 2026-06-04 live IDA call-site inventory inside the callback confirms calls at `0x00593e05`, `0x00593e0d`, `0x00593e34`, `0x00593e3c`, `0x00593e47`, `0x00593e75`, `0x00593e8a`, `0x00593ea0`, `0x00593eae`, `0x00593ed4`, and `0x00593ee8`, covering clip/intersect, draw-state swap, surface render callback, text origin update, style color update, optional style-object virtual dispatch, trailing visible-character trim, and final UTF-16 text draw.
 
 ## Ownership Decision
 
@@ -61,3 +67,7 @@ Treat this as a file-local/free helper in `TextEditPane.cpp`. Its only known liv
 - What existed before: The page had `0` completion/confidence and used generated import/recovered-file statements as evidence.
 - What it was changed to: The page now records live IDA MCP function extent, address-taking callback xrefs, concrete callees, and the callback-source ownership decision.
 - Summary and evidence: IDA confirms `sub_593DB0` at `0x00593db0-0x00593ef6`, two `push offset sub_593DB0` xrefs at `0x005908e6` and `0x0059168c`, and outgoing calls through `0x004b96c0`, `0x004b7cc0`, `0x004b9660`, `0x004b9680`, `0x004baaa0`, `0x004baad0`, `dword_69B3FC`, and `0x005946b0`.
+- 2026-06-04 live IDA parent-attachment and score update:
+  - Before: scores were `70/85`, with blank reconstructable and parent metadata.
+  - After: scores set to `78/86`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000ON`.
+  - Summary/evidence: live IDA revalidated function bounds, exact callback xrefs, caller context for both iterator uses, the raw `0x00591650-0x005916b2` code-island caveat, the complete call-site inventory inside the callback, and sibling/parent TextEditPane ownership. Final C++ stays blank because the callback-state structure and source-facing signature are not yet at the 95% bar.

@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2245
-Total_Reconstructable: 1384
+Total_Reconstructable: 1386
 Total_Not_Reconstructable: 15
-Total_Reconstructed_Assigned: 857
+Total_Reconstructed_Assigned: 859
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 522
-Total_Unclassified: 846
+Total_Unclassified: 844
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -72,6 +72,7 @@ Total_Error: 5
 | [UID:000207][0x004607e0-0x0046093c.Rgb565TransparentAlphaBlendSpanRaw](by-memory/0x004607e0-0x0046093c.Rgb565TransparentAlphaBlendSpanRaw.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x004607e0-0x0046093c.Rgb565TransparentAlphaBlendSpanRaw.md` |  |
 | [UID:000208][0x00460940-0x004609d3.BlitTransparentShadow565MmxBlocks](by-memory/0x00460940-0x004609d3.BlitTransparentShadow565MmxBlocks.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00460940-0x004609d3.BlitTransparentShadow565MmxBlocks.md` |  |
 | [UID:000209][0x004609e0-0x00460af9.Rgb565TransparentAlphaBlendMmxBlocks](by-memory/0x004609e0-0x00460af9.Rgb565TransparentAlphaBlendMmxBlocks.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x004609e0-0x00460af9.Rgb565TransparentAlphaBlendMmxBlocks.md` |  |
+| [UID:0000YG][0x00460c10-0x00460c8c.HalfBlendSpan16Blocks](by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md` |  |
 | [UID:00020A][0x00460c90-0x00460d51.Rgb565AlphaMapMmxBlocks](by-memory/0x00460c90-0x00460d51.Rgb565AlphaMapMmxBlocks.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00460c90-0x00460d51.Rgb565AlphaMapMmxBlocks.md` |  |
 | [UID:00020B][0x00460d60-0x00460dee.ByteSpanFillRows](by-memory/0x00460d60-0x00460dee.ByteSpanFillRows.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00460d60-0x00460dee.ByteSpanFillRows.md` |  |
 | [UID:00020C][0x00460df0-0x00460e79.ByteSpanCopyRows](by-memory/0x00460df0-0x00460e79.ByteSpanCopyRows.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-memory/0x00460df0-0x00460e79.ByteSpanCopyRows.md` |  |
@@ -712,6 +713,7 @@ Total_Error: 5
 | [UID:0002RU][0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides](by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md) | assigned | `0000OJ` |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-memory/0x00591300-0x005913f8.TextBoxPaneCursorInvalidationOverrides.md` |  |
 | [UID:0001JO][0x00591300-0x005954b3.TextBoxPane](by-memory/0x00591300-0x005954b3.TextBoxPane.md) | assigned | `0000OJ` |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-memory/0x00591300-0x005954b3.TextBoxPane.md` |  |
 | [UID:0001JQ][0x00593c20-0x00593ce4.TextRunMeasureCallback](by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md) | assigned | `0000ON` |  | no | `auto-generated/NexusTK/ui/controls/TextEditPane.cpp` | `by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md` |  |
+| [UID:0001JR][0x00593db0-0x00593ef5.DrawTextRunCallback](by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md) | assigned | `0000ON` |  | no | `auto-generated/NexusTK/ui/controls/TextEditPane.cpp` | `by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md` |  |
 | [UID:0002RV][0x00595390-0x005954b3.TextBoxPaneConstructor](by-memory/0x00595390-0x005954b3.TextBoxPaneConstructor.md) | assigned | `0000OJ` |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-memory/0x00595390-0x005954b3.TextBoxPaneConstructor.md` |  |
 | [UID:0001JU][0x00595760-0x005958fe.TextFilterAndSanitizer](by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md) | assigned | `0000OO` |  | no | `auto-generated/NexusTK/ui/controls/TextFilter.cpp` | `by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md` |  |
 | [UID:0001JV][0x00595900-0x00596242.TextPad](by-memory/0x00595900-0x00596242.TextPad.md) | assigned | `0000OQ` |  | no | `auto-generated/NexusTK/ui/dialogs/TextPad.cpp` | `by-memory/0x00595900-0x00596242.TextPad.md` |  |
@@ -1560,7 +1562,6 @@ Total_Error: 5
 | [UID:0000YD][0x0045fa00-0x004604f4.Rgb555565BlitHelpers](by-memory/0x0045fa00-0x004604f4.Rgb555565BlitHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0045fa00-0x004604f4.Rgb555565BlitHelpers.md` |  |
 | [UID:0000YE][0x00460500-0x00460709.AlphaBlendSpan16](by-memory/0x00460500-0x00460709.AlphaBlendSpan16.md) | unclassified |  |  | no |  | `by-memory/0x00460500-0x00460709.AlphaBlendSpan16.md` |  |
 | [UID:0000YF][0x00460b00-0x00460c0a.AlphaBlendSpan16Blocks](by-memory/0x00460b00-0x00460c0a.AlphaBlendSpan16Blocks.md) | unclassified |  |  | no |  | `by-memory/0x00460b00-0x00460c0a.AlphaBlendSpan16Blocks.md` |  |
-| [UID:0000YG][0x00460c10-0x00460c8c.HalfBlendSpan16Blocks](by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md) | unclassified |  |  | no |  | `by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md` |  |
 | [UID:0000YH][0x004610f0-0x0046178a.AboveFrame](by-memory/0x004610f0-0x0046178a.AboveFrame.md) | unclassified |  |  | no |  | `by-memory/0x004610f0-0x0046178a.AboveFrame.md` |  |
 | [UID:0000YI][0x004615b0-0x00461657.AboveFrameRefreshHelpers](by-memory/0x004615b0-0x00461657.AboveFrameRefreshHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004615b0-0x00461657.AboveFrameRefreshHelpers.md` |  |
 | [UID:0000YJ][0x004616c8-0x004616de.AboveFrameAdjustorThunks](by-memory/0x004616c8-0x004616de.AboveFrameAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004616c8-0x004616de.AboveFrameAdjustorThunks.md` |  |
@@ -1967,7 +1968,6 @@ Total_Error: 5
 | [UID:0001JM][0x0058dce0-0x005917c8.TextEditPaneCore](by-memory/0x0058dce0-0x005917c8.TextEditPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x0058dce0-0x005917c8.TextEditPaneCore.md` |  |
 | [UID:0001JN][0x0058e490-0x0058e690.TextEditPaneSerialization](by-memory/0x0058e490-0x0058e690.TextEditPaneSerialization.md) | unclassified |  |  | no |  | `by-memory/0x0058e490-0x0058e690.TextEditPaneSerialization.md` |  |
 | [UID:0001JP][0x00591d60-0x00593a10.TextEditPaneFormattingRuns](by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md) | unclassified |  |  | no |  | `by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md` |  |
-| [UID:0001JR][0x00593db0-0x00593ef5.DrawTextRunCallback](by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md) | unclassified |  |  | no |  | `by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md` |  |
 | [UID:0001JS][0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap](by-memory/0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap.md) | unclassified |  |  | no |  | `by-memory/0x00594040-0x00594e11.TextEditPaneInputNavigationAndWrap.md` |  |
 | [UID:0001K4][0x005974e0-0x005974eb.ClearThreadManSingleton](by-memory/0x005974e0-0x005974eb.ClearThreadManSingleton.md) | unclassified |  |  | no |  | `by-memory/0x005974e0-0x005974eb.ClearThreadManSingleton.md` |  |
 | [UID:0001K5][0x005974f0-0x0059756e.ThreadManScalarDeletingDestructor](by-memory/0x005974f0-0x0059756e.ThreadManScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x005974f0-0x0059756e.ThreadManScalarDeletingDestructor.md` |  |
