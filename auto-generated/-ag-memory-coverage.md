@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2171
-Total_Reconstructable: 1267
+Total_Reconstructable: 1271
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 736
+Total_Reconstructed_Assigned: 742
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 531
-Total_Unclassified: 893
+Total_Reconstructable_Unassigned: 529
+Total_Unclassified: 889
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -450,8 +450,14 @@ Total_Error: 0
 | [UID:0001CX][0x00530b00-0x00530b35.NumberInputDialogRawDestructor](by-memory/0x00530b00-0x00530b35.NumberInputDialogRawDestructor.md) | assigned | `0000M1` |  | no | `auto-generated/NexusTK/ui/dialogs/NumberInputDialog.cpp` | `by-memory/0x00530b00-0x00530b35.NumberInputDialogRawDestructor.md` |  |
 | [UID:0001CY][0x00530b40-0x00530c78.NumberInputDialogActionHandler](by-memory/0x00530b40-0x00530c78.NumberInputDialogActionHandler.md) | assigned | `0000M1` |  | no | `auto-generated/NexusTK/ui/dialogs/NumberInputDialog.cpp` | `by-memory/0x00530b40-0x00530c78.NumberInputDialogActionHandler.md` |  |
 | [UID:0001D0][0x00530c90-0x00530cf7.NumberInputDialogScalarDeletingDestructor](by-memory/0x00530c90-0x00530cf7.NumberInputDialogScalarDeletingDestructor.md) | assigned | `0000M1` |  | no | `auto-generated/NexusTK/ui/dialogs/NumberInputDialog.cpp` | `by-memory/0x00530c90-0x00530cf7.NumberInputDialogScalarDeletingDestructor.md` |  |
+| [UID:0002C8][0x00531480-0x00531498.ObjectListOriginInitializedCheck](by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md` |  |
+| [UID:00023E][0x00531480-0x00532530.ObjectListCategorizeLookupHelpers](by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md` |  |
+| [UID:0002C9][0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize](by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md` |  |
+| [UID:0002CA][0x00531c10-0x00532180.ObjectListTypeDispatchRemove](by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md` |  |
 | [UID:0002CB][0x00532180-0x005322d0.ObjectListEncodedKeyResolve](by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md` |  |
 | [UID:0002CC][0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch](by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md` |  |
+| [UID:0002CD][0x00532370-0x00532443.ObjectListFindByObjectId](by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md` |  |
+| [UID:0002CE][0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper](by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |  |
 | [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md` |  |
 | [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md` |  |
 | [UID:00023F][0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers](by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md) | assigned | `0000M4` |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md` |  |
@@ -1029,8 +1035,6 @@ Total_Error: 0
 | [UID:0002JS][0x00530ee0-0x0053125d.ObjectListConstructor](by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md` |  |
 | [UID:0001D1][0x00530ee0-0x00531473.ObjectListLifecycle](by-memory/0x00530ee0-0x00531473.ObjectListLifecycle.md) | unassigned |  |  | no |  | `by-memory/0x00530ee0-0x00531473.ObjectListLifecycle.md` |  |
 | [UID:0002JT][0x00531260-0x00531473.ObjectListDestructor](by-memory/0x00531260-0x00531473.ObjectListDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00531260-0x00531473.ObjectListDestructor.md` |  |
-| [UID:0002C8][0x00531480-0x00531498.ObjectListOriginInitializedCheck](by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md) | unassigned |  |  | no |  | `by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md` |  |
-| [UID:0002CE][0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper](by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md) | unassigned |  |  | no |  | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |  |
 | [UID:0002QW][0x00539bc0-0x00539d43.MotionAnimationConstructor](by-memory/0x00539bc0-0x00539d43.MotionAnimationConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00539bc0-0x00539d43.MotionAnimationConstructor.md` |  |
 | [UID:0001DD][0x00539bc0-0x0053d614.MotionAnimation](by-memory/0x00539bc0-0x0053d614.MotionAnimation.md) | unassigned |  |  | no |  | `by-memory/0x00539bc0-0x0053d614.MotionAnimation.md` |  |
 | [UID:0002QX][0x00539de0-0x00539f52.MotionAnimationAlternateConstructor](by-memory/0x00539de0-0x00539f52.MotionAnimationAlternateConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00539de0-0x00539f52.MotionAnimationAlternateConstructor.md` |  |
@@ -1772,10 +1776,6 @@ Total_Error: 0
 | [UID:0001CU][0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers](by-memory/0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers.md` |  |
 | [UID:0001CZ][0x00530c78-0x00530c8e.NumberInputDialogAdjustorThunks](by-memory/0x00530c78-0x00530c8e.NumberInputDialogAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x00530c78-0x00530c8e.NumberInputDialogAdjustorThunks.md` |  |
 | [UID:00023D][0x00530d00-0x00530ed9.ObjectListRemoveByObjectIdHelper](by-memory/0x00530d00-0x00530ed9.ObjectListRemoveByObjectIdHelper.md) | unclassified |  |  | no |  | `by-memory/0x00530d00-0x00530ed9.ObjectListRemoveByObjectIdHelper.md` |  |
-| [UID:00023E][0x00531480-0x00532530.ObjectListCategorizeLookupHelpers](by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md` |  |
-| [UID:0002C9][0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize](by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md) | unclassified |  |  | no |  | `by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md` |  |
-| [UID:0002CA][0x00531c10-0x00532180.ObjectListTypeDispatchRemove](by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md) | unclassified |  |  | no |  | `by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md` |  |
-| [UID:0002CD][0x00532370-0x00532443.ObjectListFindByObjectId](by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md) | unclassified |  |  | no |  | `by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md` |  |
 | [UID:0001D4][0x00537290-0x005372c8.ObjectListScalarDeletingDestructor](by-memory/0x00537290-0x005372c8.ObjectListScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00537290-0x005372c8.ObjectListScalarDeletingDestructor.md` |  |
 | [UID:0001D5][0x005372d0-0x005378fa.ObjectPane](by-memory/0x005372d0-0x005378fa.ObjectPane.md) | unclassified |  |  | no |  | `by-memory/0x005372d0-0x005378fa.ObjectPane.md` |  |
 | [UID:0001D6][0x00537900-0x00537abf.StaticObjectPaneCore](by-memory/0x00537900-0x00537abf.StaticObjectPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x00537900-0x00537abf.StaticObjectPaneCore.md` |  |

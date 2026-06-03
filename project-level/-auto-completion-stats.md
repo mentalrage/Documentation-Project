@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 22:43:39
+Generated: 2026-06-02 22:48:47
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -126,10 +126,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
-| `0002C9` | 68 | 78 | 73.0 | `by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md` |
-| `0002CA` | 68 | 78 | 73.0 | `by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md` |
-| `0002CD` | 68 | 78 | 73.0 | `by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md` |
-| `0002CE` | 68 | 78 | 73.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
 | `0001HP` | 68 | 78 | 73.0 | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |
 | `0001J2` | 68 | 78 | 73.0 | `by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md` |
 | `0002G9` | 68 | 79 | 73.5 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
@@ -139,6 +135,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002FE` | 68 | 80 | 74.0 | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |
 | `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
+| `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
+| `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
+| `0002PO` | 68 | 80 | 74.0 | `by-memory/0x004f50b0-0x004f5246.LogoPaneStaticLogoLoaderHelpers.md` |
+| `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
 
 ## Low_Confidence
 
@@ -186,10 +186,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
-| `0002C9` | 68 | 78 | 73.0 | `by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md` |
-| `0002CA` | 68 | 78 | 73.0 | `by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md` |
-| `0002CD` | 68 | 78 | 73.0 | `by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md` |
-| `0002CE` | 68 | 78 | 73.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
 | `0001HP` | 68 | 78 | 73.0 | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |
 | `0001J2` | 68 | 78 | 73.0 | `by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md` |
 | `000019` | 70 | 76 | 73.0 | `by-class/BrowserPane.md` |
@@ -199,6 +195,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
+| `0002G9` | 68 | 79 | 73.5 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
+| `00000Y` | 68 | 80 | 74.0 | `by-class/BlueAlertPane.md` |
+| `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
+| `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 
 ## By Folder
 
@@ -341,10 +341,6 @@ _No scored files._
 | `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
-| `0002C9` | 68 | 78 | 73.0 | `by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md` |
-| `0002CA` | 68 | 78 | 73.0 | `by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md` |
-| `0002CD` | 68 | 78 | 73.0 | `by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md` |
-| `0002CE` | 68 | 78 | 73.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
 | `0001HP` | 68 | 78 | 73.0 | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |
 | `0001J2` | 68 | 78 | 73.0 | `by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md` |
 | `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
@@ -359,6 +355,10 @@ _No scored files._
 | `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
 | `0002QI` | 68 | 80 | 74.0 | `by-memory/0x00504b70-0x00504b8f.MapPaneTagDetachMessage.md` |
 | `0002F7` | 70 | 78 | 74.0 | `by-memory/0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys.md` |
+| `0002EN` | 70 | 78 | 74.0 | `by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md` |
+| `00015I` | 70 | 78 | 74.0 | `by-memory/0x004b69b0-0x004b6adc.FpsPaneStartLogSessionRaw.md` |
+| `00015J` | 70 | 78 | 74.0 | `by-memory/0x004b6ae0-0x004b6c2b.FpsPaneWriteLogSummaryRaw.md` |
+| `00022F` | 70 | 78 | 74.0 | `by-memory/0x004b7120-0x004b731f.BuildFramePartPanes.md` |
 
 ### by-meta
 
