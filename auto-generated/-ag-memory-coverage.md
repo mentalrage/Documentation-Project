@@ -5,9 +5,9 @@
 Total_Type: 2171
 Total_Reconstructable: 1271
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 742
+Total_Reconstructed_Assigned: 743
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 529
+Total_Reconstructable_Unassigned: 528
 Total_Unclassified: 889
 Total_Error: 0
 
@@ -257,6 +257,7 @@ Total_Error: 0
 | [UID:00016L][0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks](by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md) | assigned | `0000OC` |  | no | `auto-generated/NexusTK/render/Surface.cpp` | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |  |
 | [UID:0002PJ][0x004c0850-0x004c0f7a.SoftwareRenderRgb565LineCallback](by-memory/0x004c0850-0x004c0f7a.SoftwareRenderRgb565LineCallback.md) | assigned | `0000OC` |  | no | `auto-generated/NexusTK/render/Surface.cpp` | `by-memory/0x004c0850-0x004c0f7a.SoftwareRenderRgb565LineCallback.md` |  |
 | [UID:0002PK][0x004c0f80-0x004c3123.SoftwareRenderRgb565SpriteBlitCallback](by-memory/0x004c0f80-0x004c3123.SoftwareRenderRgb565SpriteBlitCallback.md) | assigned | `0000OC` | 230 | no | `auto-generated/NexusTK/render/Surface.cpp` | `by-memory/0x004c0f80-0x004c3123.SoftwareRenderRgb565SpriteBlitCallback.md` |  |
+| [UID:00016O][0x004c6160-0x004c659c.CachedHashTableLifecycle](by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md) | assigned | `0000HZ` |  | no | `auto-generated/NexusTK/util/CachedHashTable.cpp` | `by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md` |  |
 | [UID:00016P][0x004c62d0-0x004c64de.CachedHashTableRawHelpers](by-memory/0x004c62d0-0x004c64de.CachedHashTableRawHelpers.md) | assigned | `0000HZ` |  | no | `auto-generated/NexusTK/util/CachedHashTable.cpp` | `by-memory/0x004c62d0-0x004c64de.CachedHashTableRawHelpers.md` |  |
 | [UID:00016Q][0x004c64b0-0x004c64c4.CachedHashTableCountAccessors](by-memory/0x004c64b0-0x004c64c4.CachedHashTableCountAccessors.md) | assigned | `0000HZ` |  | no | `auto-generated/NexusTK/util/CachedHashTable.cpp` | `by-memory/0x004c64b0-0x004c64c4.CachedHashTableCountAccessors.md` |  |
 | [UID:00022N][0x004c6eb0-0x004c6f89.HelpPaneFadeStateUpdate](by-memory/0x004c6eb0-0x004c6f89.HelpPaneFadeStateUpdate.md) | assigned | `0000JU` |  | no | `auto-generated/NexusTK/ui/controls/HelpPanes.cpp` | `by-memory/0x004c6eb0-0x004c6f89.HelpPaneFadeStateUpdate.md` |  |
@@ -910,7 +911,6 @@ Total_Error: 0
 | [UID:0002HU][0x004b6350-0x004b6409.FontImageLibScalarDeletingDestructor](by-memory/0x004b6350-0x004b6409.FontImageLibScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004b6350-0x004b6409.FontImageLibScalarDeletingDestructor.md` |  |
 | [UID:00022J][0x004b81a0-0x004b81eb.WideStringHashHelper](by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md) | unassigned |  |  | no |  | `by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md` |  |
 | [UID:00016N][0x004c60d0-0x004c6151.BlendRgb565Pair](by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md) | unassigned |  |  | no |  | `by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md` |  |
-| [UID:00016O][0x004c6160-0x004c659c.CachedHashTableLifecycle](by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md) | unassigned |  |  | no |  | `by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md` |  |
 | [UID:0002I8][0x004ce730-0x004ce760.HierListConstructor](by-memory/0x004ce730-0x004ce760.HierListConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce730-0x004ce760.HierListConstructor.md` |  |
 | [UID:0002I9][0x004ce760-0x004ce7d1.HierListNonDeletingDestructor](by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md` |  |
 | [UID:0002IC][0x004ce860-0x004ce9ad.HierListInsertBefore](by-memory/0x004ce860-0x004ce9ad.HierListInsertBefore.md) | unassigned |  |  | no |  | `by-memory/0x004ce860-0x004ce9ad.HierListInsertBefore.md` |  |

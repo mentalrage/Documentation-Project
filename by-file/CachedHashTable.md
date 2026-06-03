@@ -29,7 +29,7 @@ Current IDA xref checks found no direct constructor/destructor callers. Treat th
 - constructor at `0x004c6160-0x004c6258`
 - ordinary destructor at `0x004c6260-0x004c62cd`
 - helper island at `0x004c62d0-0x004c64de`, including modeled count accessors at `0x004c64b0` and `0x004c64c0`
-- scalar deleting destructor at `0x004c64f0-0x004c659b`
+- scalar deleting destructor at `0x004c64f0-0x004c659c`
 
 ## Evidence
 
@@ -77,3 +77,4 @@ Do not merge it into [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md) or 
   - Before: page documented the standalone utility class, lifecycle methods, vtable, raw helper island, no-caller result, and generated-output omissions but remained unevaluated and had no projected path.
   - After: score reflects strong source-replication evidence for the class and helper island, and [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) places `CachedHashTable.cpp` under `util/`.
   - Evidence: IDA checks confirm lifecycle method starts, exact primary vtable child range, count accessors, raw helper island, and no direct callers; linked memory/type pages cover the layout and helper ranges.
+- 2026-06-03: Corrected the scalar deleting destructor inventory endpoint from `0x004c659b` to exclusive end `0x004c659c`, matching [UID:00016O][0x004c6160-0x004c659c.CachedHashTableLifecycle](by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md) and the written IDA evidence that the final `retn 4` consumes bytes through `0x004c659b`.

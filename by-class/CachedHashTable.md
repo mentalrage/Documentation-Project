@@ -50,7 +50,7 @@ Observed size is `0x1c` bytes.
 | `0x004c6160-0x004c6258` | `CachedHashTable::CachedHashTable` | Initializes `LObject`, allocates entry and slot-state buffers, zeroes slot state, and seeds hash bytes. |
 | `0x004c6260-0x004c62cd` | `CachedHashTable::~CachedHashTable` | Frees entry and slot-state buffers, clears pointers, and tears down `LObject`. |
 | `0x004c62d0-0x004c64de` | helper island | Hash index, clear, slot access/update, [UID:00016Q][0x004c64b0-0x004c64c4.CachedHashTableCountAccessors](by-memory/0x004c64b0-0x004c64c4.CachedHashTableCountAccessors.md), and unchecked entry-address helper. See [UID:00016P][0x004c62d0-0x004c64de.CachedHashTableRawHelpers](by-memory/0x004c62d0-0x004c64de.CachedHashTableRawHelpers.md). |
-| `0x004c64f0-0x004c659b` | `CachedHashTable::ScalarDeletingDestructor` | Runs destructor and optionally frees the object. |
+| `0x004c64f0-0x004c659c` | `CachedHashTable::ScalarDeletingDestructor` | Runs destructor and optionally frees the object. |
 
 ## Evidence
 
@@ -89,3 +89,4 @@ For source-complete reconstruction, this should remain a real utility class rath
 - What existed before: the page documented layout, lifecycle methods, raw helpers, vtable evidence, and unresolved live construction.
 - What it was changed to: the class is marked reconstructable, scores were raised to `82/84`, and exact vtable-data child range [UID:0002M7][0x0061aac4-0x0061aad0.CachedHashTableVtableData](by-memory/0x0061aac4-0x0061aad0.CachedHashTableVtableData.md) was added.
 - Summary and evidence: object layout, constructor/destructor, scalar delete, helper island, vtable bytes, and no-caller caveat are covered; final helper names and whether this is legacy/indirectly constructed code remain unresolved.
+- 2026-06-03: Corrected the scalar deleting destructor method row from `0x004c64f0-0x004c659b` to exclusive end `0x004c659c`, matching [UID:00016O][0x004c6160-0x004c659c.CachedHashTableLifecycle](by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md) and its written IDA boundary evidence.
