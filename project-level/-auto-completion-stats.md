@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 01:21:55
+Generated: 2026-06-03 01:32:21
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3646
-- Scored files: 3478
+- Tracked files: 3650
+- Scored files: 3482
 - Ignored files: 168
 
 ## projected_path_completion
@@ -110,7 +110,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
@@ -130,6 +129,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002HF` | 68 | 82 | 75.0 | `by-memory/0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint.md` |
 | `00013M` | 68 | 82 | 75.0 | `by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md` |
 | `00016D` | 68 | 82 | 75.0 | `by-memory/0x004bad70-0x004baf92.DrawTextInRect.md` |
+| `0002TC` | 68 | 82 | 75.0 | `by-memory/0x004bdcc0-0x004bdf3e.SoftwareRenderCompatScaledRleTintCallback.md` |
 | `0002KR` | 68 | 82 | 75.0 | `by-memory/0x004d04d0-0x004d0521.ResourceLayoutTableCopyEntryTileContext.md` |
 | `00017M` | 68 | 82 | 75.0 | `by-memory/0x004de190-0x004de29f.EffectObjImageLibRenderEffectFrame.md` |
 | `0002BU` | 68 | 82 | 75.0 | `by-memory/0x00526790-0x005269ea.MidiEventReader.md` |
@@ -170,7 +170,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
@@ -195,6 +194,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000C2` | 72 | 76 | 74.0 | `by-class/RingBufferIterator.md` |
 | `0000CP` | 72 | 76 | 74.0 | `by-class/ScrollWidget.md` |
 | `00000P` | 68 | 82 | 75.0 | `by-class/AUTOBUF_unsigned_char.md` |
+| `00000H` | 68 | 82 | 75.0 | `by-class/ArgumentedMenuMenuDialog.md` |
 
 ## By Folder
 
@@ -330,7 +330,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00016J` | 68 | 80 | 74.0 | `by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md` |
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
@@ -355,6 +354,7 @@ _No scored files._
 | `000114` | 68 | 82 | 75.0 | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |
 | `0002HF` | 68 | 82 | 75.0 | `by-memory/0x004a4570-0x004a4659.EmployeeItemPropertyDialogPaneOnPaint.md` |
 | `00013M` | 68 | 82 | 75.0 | `by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md` |
+| `00016D` | 68 | 82 | 75.0 | `by-memory/0x004bad70-0x004baf92.DrawTextInRect.md` |
 
 ### by-meta
 

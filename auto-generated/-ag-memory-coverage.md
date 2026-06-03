@@ -2,12 +2,12 @@
 
 # ag-memory-coverage
 
-Total_Type: 2171
-Total_Reconstructable: 1275
+Total_Type: 2175
+Total_Reconstructable: 1279
 Total_Not_Reconstructable: 13
 Total_Reconstructed_Assigned: 757
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 518
+Total_Reconstructable_Unassigned: 522
 Total_Unclassified: 883
 Total_Error: 0
 
@@ -924,6 +924,10 @@ Total_Error: 0
 | [UID:0002HT][0x004b61e0-0x004b6341.FontImageLibDecodeGlyphBitmap](by-memory/0x004b61e0-0x004b6341.FontImageLibDecodeGlyphBitmap.md) | unassigned |  |  | no |  | `by-memory/0x004b61e0-0x004b6341.FontImageLibDecodeGlyphBitmap.md` |  |
 | [UID:0002HU][0x004b6350-0x004b6409.FontImageLibScalarDeletingDestructor](by-memory/0x004b6350-0x004b6409.FontImageLibScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004b6350-0x004b6409.FontImageLibScalarDeletingDestructor.md` |  |
 | [UID:00022J][0x004b81a0-0x004b81eb.WideStringHashHelper](by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md) | unassigned |  |  | no |  | `by-memory/0x004b81a0-0x004b81eb.WideStringHashHelper.md` |  |
+| [UID:0002TB][0x004bd420-0x004bdca9.SoftwareRenderCompatRleFillCallback](by-memory/0x004bd420-0x004bdca9.SoftwareRenderCompatRleFillCallback.md) | unassigned |  |  | no |  | `by-memory/0x004bd420-0x004bdca9.SoftwareRenderCompatRleFillCallback.md` |  |
+| [UID:0002TC][0x004bdcc0-0x004bdf3e.SoftwareRenderCompatScaledRleTintCallback](by-memory/0x004bdcc0-0x004bdf3e.SoftwareRenderCompatScaledRleTintCallback.md) | unassigned |  |  | no |  | `by-memory/0x004bdcc0-0x004bdf3e.SoftwareRenderCompatScaledRleTintCallback.md` |  |
+| [UID:0002TD][0x004bdf40-0x004be0db.SoftwareRenderCompatAlphaLookupBlitCallback](by-memory/0x004bdf40-0x004be0db.SoftwareRenderCompatAlphaLookupBlitCallback.md) | unassigned |  |  | no |  | `by-memory/0x004bdf40-0x004be0db.SoftwareRenderCompatAlphaLookupBlitCallback.md` |  |
+| [UID:0002TE][0x004be0e0-0x004be66e.SoftwareRenderCompatBitmaskBlitCallback](by-memory/0x004be0e0-0x004be66e.SoftwareRenderCompatBitmaskBlitCallback.md) | unassigned |  |  | no |  | `by-memory/0x004be0e0-0x004be66e.SoftwareRenderCompatBitmaskBlitCallback.md` |  |
 | [UID:00016N][0x004c60d0-0x004c6151.BlendRgb565Pair](by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md) | unassigned |  |  | no |  | `by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md` |  |
 | [UID:0002I8][0x004ce730-0x004ce760.HierListConstructor](by-memory/0x004ce730-0x004ce760.HierListConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce730-0x004ce760.HierListConstructor.md` |  |
 | [UID:0002I9][0x004ce760-0x004ce7d1.HierListNonDeletingDestructor](by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md` |  |
