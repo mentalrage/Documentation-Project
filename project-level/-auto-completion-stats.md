@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 23:04:15
+Generated: 2026-06-02 23:08:41
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -119,12 +119,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
-| `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
 | `0001HP` | 68 | 78 | 73.0 | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |
 | `0001J2` | 68 | 78 | 73.0 | `by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md` |
-| `00000Y` | 68 | 80 | 74.0 | `by-class/BlueAlertPane.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `0002FE` | 68 | 80 | 74.0 | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |
@@ -139,6 +137,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00000H` | 68 | 82 | 75.0 | `by-class/ArgumentedMenuMenuDialog.md` |
 | `0000AJ` | 68 | 82 | 75.0 | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |
 | `0000BC` | 68 | 82 | 75.0 | `by-class/ProtectedArray_struct_ShoeInfo_.md` |
+| `0000HL` | 68 | 82 | 75.0 | `by-file/AttachmentAnchorResolver.md` |
+| `0000UJ` | 68 | 82 | 75.0 | `by-item/DrawTextInRect_004BAD70.md` |
 
 ## Low_Confidence
 
@@ -179,7 +179,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000059` | 68 | 78 | 73.0 | `by-class/FolderSelectDialog.md` |
 | `00005K` | 68 | 78 | 73.0 | `by-class/FunctionObject.md` |
 | `0000U5` | 68 | 78 | 73.0 | `by-item/BuildFramePartPanes_004B7120.md` |
-| `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
 | `0001HP` | 68 | 78 | 73.0 | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |
@@ -191,7 +190,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
 | `0000MI` | 72 | 74 | 73.0 | `by-file/PathUtil.md` |
-| `00000Y` | 68 | 80 | 74.0 | `by-class/BlueAlertPane.md` |
 | `0000HQ` | 68 | 80 | 74.0 | `by-file/BinaryCodec.md` |
 | `0000UX` | 68 | 80 | 74.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `0002FE` | 68 | 80 | 74.0 | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |
@@ -199,6 +197,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00016L` | 68 | 80 | 74.0 | `by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md` |
 | `000175` | 68 | 80 | 74.0 | `by-memory/0x004d05f0-0x004d0c57.ImageDecodeWrappers.md` |
 | `00017A` | 68 | 80 | 74.0 | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |
+| `0002PO` | 68 | 80 | 74.0 | `by-memory/0x004f50b0-0x004f5246.LogoPaneStaticLogoLoaderHelpers.md` |
+| `0002Q6` | 68 | 80 | 74.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
 
 ## By Folder
 
@@ -214,7 +214,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009W` | 70 | 76 | 73.0 | `by-class/OverlayEffecter.md` |
 | `000093` | 72 | 74 | 73.0 | `by-class/NewInventoryPane.md` |
 | `0000E0` | 72 | 74 | 73.0 | `by-class/StaticCloudFilterEffecter.md` |
-| `00000Y` | 68 | 80 | 74.0 | `by-class/BlueAlertPane.md` |
 | `000016` | 70 | 78 | 74.0 | `by-class/BrowserControlPaneOld.md` |
 | `00004J` | 70 | 78 | 74.0 | `by-class/Error.md` |
 | `00005D` | 70 | 78 | 74.0 | `by-class/FooterSystemMessage.md` |
@@ -231,6 +230,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000033` | 70 | 80 | 75.0 | `by-class/ConfirmDeleteAlert.md` |
 | `000034` | 70 | 80 | 75.0 | `by-class/ConfirmDeleteMailAlert.md` |
 | `0000AK` | 70 | 80 | 75.0 | `by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md` |
+| `000013` | 72 | 78 | 75.0 | `by-class/Browser.md` |
 
 ### by-external-research
 
@@ -334,7 +334,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001A5` | 68 | 78 | 73.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
 | `0001HP` | 68 | 78 | 73.0 | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |
@@ -359,6 +358,7 @@ _No scored files._
 | `0002KQ` | 70 | 78 | 74.0 | `by-memory/0x004d03a0-0x004d04cf.ResourceLayoutRawBufferLookupEntry.md` |
 | `0002KE` | 70 | 78 | 74.0 | `by-memory/0x00546610-0x00546807.ParcelPaneOnMouseEvent.md` |
 | `0001GO` | 70 | 78 | 74.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
+| `0001H1` | 70 | 78 | 74.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
 
 ### by-meta
 

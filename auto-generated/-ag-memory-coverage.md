@@ -5,9 +5,9 @@
 Total_Type: 2171
 Total_Reconstructable: 1271
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 746
+Total_Reconstructed_Assigned: 748
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 525
+Total_Reconstructable_Unassigned: 523
 Total_Unclassified: 889
 Total_Error: 0
 
@@ -362,6 +362,7 @@ Total_Error: 0
 | [UID:0002QE][0x004fee40-0x004ff03f.HandlePasswordChangeReplySimple](by-memory/0x004fee40-0x004ff03f.HandlePasswordChangeReplySimple.md) | assigned | `0000I3` |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-memory/0x004fee40-0x004ff03f.HandlePasswordChangeReplySimple.md` |  |
 | [UID:00019Y][0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore](by-memory/0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore.md) | assigned | `0000NH` |  | no | `auto-generated/NexusTK/ui/controls/ScrolledPictureControlPane.cpp` | `by-memory/0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore.md` |  |
 | [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md) | assigned | `0000HP` |  | no | `auto-generated/NexusTK/login/BackStoryDialogPane.cpp` | `by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md` |  |
+| [UID:0001A5][0x005008c0-0x0050114d.BlueAlertPaneCore](by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md) | assigned | `00000Y` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |  |
 | [UID:0002HV][0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw](by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md) | assigned | `00005O` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |  |
 | [UID:0002HW][0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw](by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md) | assigned | `00005O` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md` |  |
 | [UID:0002I1][0x00503e80-0x00503e8b.MapPaneHasEffectListEntries](by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md) | assigned | `00007Q` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00503e80-0x00503e8b.MapPaneHasEffectListEntries.md` |  |
@@ -707,6 +708,7 @@ Total_Error: 0
 | [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md` |  |
 | [UID:000251][0x006168d0-0x00617a38.ConfigChannelReadOnlyData](by-memory/0x006168d0-0x00617a38.ConfigChannelReadOnlyData.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x006168d0-0x00617a38.ConfigChannelReadOnlyData.md` |  |
 | [UID:00025P][0x0061d118-0x0061d264.BaramAppReadOnlyData](by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md) | assigned | `00000V` | 100 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0061d118-0x0061d264.BaramAppReadOnlyData.md` |  |
+| [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md) | assigned | `00000Y` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md` |  |
 | [UID:0002GL][0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData](by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md) | assigned | `00008S` | 100 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md` |  |
 | [UID:0002SH][0x0061fd04-0x0061fd94.NewUserDialogPane2VtableData](by-memory/0x0061fd04-0x0061fd94.NewUserDialogPane2VtableData.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0061fd04-0x0061fd94.NewUserDialogPane2VtableData.md` |  |
 | [UID:0002SJ][0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData](by-memory/0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData.md` |  |
@@ -997,7 +999,6 @@ Total_Error: 0
 | [UID:00019U][0x004fb630-0x004fe782.NewUserMiscShapeAndPasswordDialogs](by-memory/0x004fb630-0x004fe782.NewUserMiscShapeAndPasswordDialogs.md) | unassigned |  |  | no |  | `by-memory/0x004fb630-0x004fe782.NewUserMiscShapeAndPasswordDialogs.md` |  |
 | [UID:00019V][0x004fccf0-0x004fce7e.SelectBoxControlPane](by-memory/0x004fccf0-0x004fce7e.SelectBoxControlPane.md) | unassigned |  |  | no |  | `by-memory/0x004fccf0-0x004fce7e.SelectBoxControlPane.md` |  |
 | [UID:0001A4][0x00500640-0x00502754.SpecializedButtonPanes](by-memory/0x00500640-0x00502754.SpecializedButtonPanes.md) | unassigned |  |  | no |  | `by-memory/0x00500640-0x00502754.SpecializedButtonPanes.md` |  |
-| [UID:0001A5][0x005008c0-0x0050114d.BlueAlertPaneCore](by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md) | unassigned |  |  | no |  | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |  |
 | [UID:00022Z][0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers](by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00503060-0x005031e1.UnreferencedUiResourceTextHelpers.md` |  |
 | [UID:000230][0x00503960-0x005039ed.GameServerNationRequestPacketRawHelper](by-memory/0x00503960-0x005039ed.GameServerNationRequestPacketRawHelper.md) | unassigned |  |  | no |  | `by-memory/0x00503960-0x005039ed.GameServerNationRequestPacketRawHelper.md` |  |
 | [UID:0001AO][0x005039f0-0x00504521.GameServerNationAndMapInit](by-memory/0x005039f0-0x00504521.GameServerNationAndMapInit.md) | unassigned |  |  | no |  | `by-memory/0x005039f0-0x00504521.GameServerNationAndMapInit.md` |  |
@@ -1209,7 +1210,6 @@ Total_Error: 0
 | [UID:00025Q][0x0061d264-0x0061e5b4.MainMenuNewUserReadOnlyData](by-memory/0x0061d264-0x0061e5b4.MainMenuNewUserReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061d264-0x0061e5b4.MainMenuNewUserReadOnlyData.md` |  |
 | [UID:0002OV][0x0061db8c-0x0061dc30.GenderButtonControlPaneVtableData](by-memory/0x0061db8c-0x0061dc30.GenderButtonControlPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061db8c-0x0061dc30.GenderButtonControlPaneVtableData.md` |  |
 | [UID:0002OW][0x0061dc30-0x0061dcd4.DirectionButtonControlPaneVtableData](by-memory/0x0061dc30-0x0061dcd4.DirectionButtonControlPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061dc30-0x0061dcd4.DirectionButtonControlPaneVtableData.md` |  |
-| [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md` |  |
 | [UID:0002SP][0x0061e704-0x0061e71c.GameServerConfigVtableData](by-memory/0x0061e704-0x0061e71c.GameServerConfigVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e704-0x0061e71c.GameServerConfigVtableData.md` |  |
 | [UID:00025S][0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData](by-memory/0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x0061e704-0x0061eb08.MapPaneGameServerReadOnlyData.md` |  |
 | [UID:0002SQ][0x0061e71c-0x0061e7a0.MapPaneVtableData](by-memory/0x0061e71c-0x0061e7a0.MapPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0061e71c-0x0061e7a0.MapPaneVtableData.md` |  |

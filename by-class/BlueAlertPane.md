@@ -1,8 +1,8 @@
 *** UID:00000Y | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:68 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Likely source file: [UID:0000HE][AlertPanes](by-file/AlertPanes.md), pending live-reachability review.
+- Assigned source file: [UID:0000HE][AlertPanes](by-file/AlertPanes.md). Live construction reachability is still unresolved, but the class-level source ownership is strong enough for no-code parent attachment.
 - Address ranges: [UID:0001A5][0x005008c0-0x0050114d.BlueAlertPaneCore](by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md), with shared destructor [UID:00010W][0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor](by-memory/0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor.md) and adjustor thunks [UID:00010V][0x0048c315-0x0048c32b.AlertPaneAdjustorThunks](by-memory/0x0048c315-0x0048c32b.AlertPaneAdjustorThunks.md).
 - Vtables: [UID:0001X3][BlueAlertPaneVtables](by-type/by-vtable/BlueAlertPaneVtables.md) at `0x0061dcd8`, `0x0061dd40`, and `0x0061dd70`; exact vtable bytes are split as [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md).
 - Layout docs: [UID:0001TO][AlertPaneLayout](by-type/by-struct/AlertPaneLayout.md).
@@ -28,7 +28,7 @@
 - Base family: [UID:00000B][AlertPane](by-class/AlertPane.md)-family dialog with three vtable views and shared alert deleting-destructor support.
 - Layout state: stores caller layout reference at `+0x26c` and follows [UID:0001TO][AlertPaneLayout](by-type/by-struct/AlertPaneLayout.md).
 - Render role: draws blue framed alert/list content from `BDFRAME.EPF` using EPF frame lookup/render callbacks.
-- Source placement: [UID:0000HE][AlertPanes](by-file/AlertPanes.md), but live construction path remains unresolved.
+- Source placement: attached to [UID:0000HE][AlertPanes](by-file/AlertPanes.md), with live construction path still unresolved.
 
 ## Method Notes
 
@@ -59,6 +59,12 @@
 - The generated constructor should be re-emitted or rewritten from IDA before source migration.
 - The generated `g_uiTileRenderer` global-data record is now listed in [UID:0000PF][-ignored](by-global/-ignored.md) as a stale alias. Do not make it a source singleton without a later render/global pass proving backing storage.
 
+## Reconstruction Notes
+
+- Attached to [UID:0000HE][AlertPanes](by-file/AlertPanes.md) as an assigned/no-code class. The parent file has a valid `NexusTK/ui/dialogs/` reconstruction path and already groups the shared `AlertPane`, `VersatileAlertPane`, `BlueAlertPane`, and `UrlAlertPane` family from IDA-backed evidence.
+- Do not emit class C++ yet. The current generated constructor body is contradicted by IDA evidence, and the final source declaration still needs a constructor rewrite, exact field names, and a live-reachability explanation.
+- 2026-06-03 local IDA MCP retry failed at the JSON-RPC transport with `The underlying connection was closed: The connection was closed unexpectedly.` No new live IDA facts were added from that failed query.
+
 ## Cross-References
 
 - [UID:0000HE][AlertPanes](by-file/AlertPanes.md)
@@ -78,3 +84,7 @@
 - What existed before: the page contained IDA-based corrections for generated constructor/render aliases and live-reachability caveats; it referenced the vtables only through the type page.
 - What it was changed to: the class is marked reconstructable, scores were raised conservatively to `68/80`, and the exact vtable-data child range [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md) was added.
 - Summary and evidence: vtables, layout stores, render methods, and vtable-data boundaries are now well supported by IDA MCP evidence. Confidence remains below final-source level because current generated constructor prose is wrong and no direct live construction xrefs were found.
+- 2026-06-03 parent assignment:
+  - What existed before: the class was reconstructable but unassigned even though its likely source file was already documented as [UID:0000HE][AlertPanes](by-file/AlertPanes.md).
+  - Changed to: `COMPLETION:72`, `CONFIDENCE:82`, and `AUTOGEN_PARENT_UID:0000HE`, with C++ still blank.
+  - Summary/evidence: the AlertPanes page has a valid projected path and IDA-backed shared alert-family grouping. The attachment is limited to source ownership; generated constructor text and live construction reachability remain open.

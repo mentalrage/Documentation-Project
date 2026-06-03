@@ -5,9 +5,9 @@
 Total_Type: 586
 Total_Reconstructable: 211
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 126
+Total_Reconstructed_Assigned: 127
 Total_Reconstructed_Coded: 2
-Total_Reconstructable_Unassigned: 85
+Total_Reconstructable_Unassigned: 84
 Total_Unclassified: 374
 Total_Error: 0
 
@@ -17,6 +17,7 @@ Total_Error: 0
 | [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-class/AddEmployeeItemDialog.md` |  |
 | [UID:00000A][AddToBlockListenInputPane](by-class/AddToBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/AddToBlockListenInputPane.md` |  |
 | [UID:00000X][BlockListenInputPane](by-class/BlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/BlockListenInputPane.md` |  |
+| [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/BlueAlertPane.md` |  |
 | [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md) | assigned | `0000HU` |  | no | `auto-generated/NexusTK/ui/panels/BowGaugeObjectPane.cpp` | `by-class/BowGaugeObjectPane.md` |  |
 | [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserControlPaneOld.md` |  |
 | [UID:00003D][CScrollBarBackPane](by-class/CScrollBarBackPane.md) | assigned | `0000NF` |  | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/CScrollBarBackPane.md` |  |
@@ -144,7 +145,6 @@ Total_Error: 0
 | [UID:00000B][AlertPane](by-class/AlertPane.md) | unassigned |  |  | no |  | `by-class/AlertPane.md` |  |
 | [UID:00000Q][AutoInit](by-class/AutoInit.md) | unassigned |  |  | no |  | `by-class/AutoInit.md` |  |
 | [UID:00000W][BlackHole](by-class/BlackHole.md) | unassigned |  |  | no |  | `by-class/BlackHole.md` |  |
-| [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md) | unassigned |  |  | no |  | `by-class/BlueAlertPane.md` |  |
 | [UID:00001C][BulletinDialog](by-class/BulletinDialog.md) | unassigned |  |  | no |  | `by-class/BulletinDialog.md` |  |
 | [UID:00001F][CachedHashTable](by-class/CachedHashTable.md) | unassigned |  |  | no |  | `by-class/CachedHashTable.md` |  |
 | [UID:00001K][ChangeMan](by-class/ChangeMan.md) | unassigned |  |  | no |  | `by-class/ChangeMan.md` |  |
