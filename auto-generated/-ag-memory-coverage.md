@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2156
-Total_Reconstructable: 1242
+Total_Reconstructable: 1243
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 704
+Total_Reconstructed_Assigned: 705
 Total_Reconstructed_Coded: 18
 Total_Reconstructable_Unassigned: 538
-Total_Unclassified: 903
+Total_Unclassified: 902
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -97,6 +97,7 @@ Total_Error: 0
 | [UID:0000ZM][0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions](by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md) | assigned | `0000HW` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x00478fe0-0x0047ec6b.BulletinMailAlertCompanions.md` |  |
 | [UID:0002SE][0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest](by-memory/0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest.md) | assigned | `000033` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e160-0x0047e2e3.ConfirmDeleteAlertSendDeleteRequest.md` |  |
 | [UID:0002SF][0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest](by-memory/0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest.md) | assigned | `000034` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-memory/0x0047e510-0x0047e693.ConfirmDeleteMailAlertSendDeleteRequest.md` |  |
+| [UID:0002EY][0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw](by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md) | assigned | `00001X` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |  |
 | [UID:0002FW][0x00482310-0x00482400.ChatButtonRectHelperRaw](by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |  |
 | [UID:0002G0][0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw](by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md) | assigned | `00001T` | 40 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482c40-0x00482c54.ChattingColorPaneRefreshColorSelectHelperRaw.md` |  |
 | [UID:0002G1][0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw](by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md) | assigned | `00001T` | 50 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482c60-0x00482c9f.ChattingColorPaneSyncColorListSelectionHelperRaw.md` |  |
@@ -1484,7 +1485,6 @@ Total_Error: 0
 | [UID:0002EV][0x0047f8d0-0x0047fbc5.ChattingPaneOnPaint](by-memory/0x0047f8d0-0x0047fbc5.ChattingPaneOnPaint.md) | unclassified |  |  | no |  | `by-memory/0x0047f8d0-0x0047fbc5.ChattingPaneOnPaint.md` |  |
 | [UID:0002EW][0x0047fbd0-0x0047fc6b.ChattingPaneSetVisibleRowCount](by-memory/0x0047fbd0-0x0047fc6b.ChattingPaneSetVisibleRowCount.md) | unclassified |  |  | no |  | `by-memory/0x0047fbd0-0x0047fc6b.ChattingPaneSetVisibleRowCount.md` |  |
 | [UID:0002EX][0x0047fc70-0x0047fd3b.ChattingPaneComputeLineCount](by-memory/0x0047fc70-0x0047fd3b.ChattingPaneComputeLineCount.md) | unclassified |  |  | no |  | `by-memory/0x0047fc70-0x0047fd3b.ChattingPaneComputeLineCount.md` |  |
-| [UID:0002EY][0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw](by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md) | unclassified |  |  | no |  | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |  |
 | [UID:0002EZ][0x0047fd70-0x0047ff80.ChatPacketType13Handler](by-memory/0x0047fd70-0x0047ff80.ChatPacketType13Handler.md) | unclassified |  |  | no |  | `by-memory/0x0047fd70-0x0047ff80.ChatPacketType13Handler.md` |  |
 | [UID:0002F0][0x0047ff80-0x00480640.ChatPacketType10Handler](by-memory/0x0047ff80-0x00480640.ChatPacketType10Handler.md) | unclassified |  |  | no |  | `by-memory/0x0047ff80-0x00480640.ChatPacketType10Handler.md` |  |
 | [UID:0002F1][0x00480640-0x00480694.ChattingBackPaneConstructor](by-memory/0x00480640-0x00480694.ChattingBackPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00480640-0x00480694.ChattingBackPaneConstructor.md` |  |

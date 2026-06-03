@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 203
+Total_Reconstructable: 204
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 117
+Total_Reconstructed_Assigned: 118
 Total_Reconstructed_Coded: 3
 Total_Reconstructable_Unassigned: 86
-Total_Unclassified: 382
+Total_Unclassified: 381
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -25,6 +25,7 @@ Total_Error: 0
 | [UID:00001M][ChangeSpellSlotInputPane](by-class/ChangeSpellSlotInputPane.md) | assigned | `0000O0` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-class/ChangeSpellSlotInputPane.md` |  |
 | [UID:00001Q][ChatInputPane](by-class/ChatInputPane.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChatInputPane.md` |  |
 | [UID:00001T][ChattingColorPane](by-class/ChattingColorPane.md) | assigned | `0000I5` | 80 | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChattingColorPane.md` |  |
+| [UID:00001X][ChattingPane](by-class/ChattingPane.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChattingPane.md` |  |
 | [UID:00002T][CloudFilterEffecter](by-class/CloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/CloudFilterEffecter.md` |  |
 | [UID:000033][ConfirmDeleteAlert](by-class/ConfirmDeleteAlert.md) | assigned | `0000HW` | 40 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteAlert.md` |  |
 | [UID:000034][ConfirmDeleteMailAlert](by-class/ConfirmDeleteMailAlert.md) | assigned | `0000HW` | 60 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteMailAlert.md` |  |
@@ -257,7 +258,6 @@ Total_Error: 0
 | [UID:00001U][ChattingColorSelectPane](by-class/ChattingColorSelectPane.md) | unclassified |  |  | no |  | `by-class/ChattingColorSelectPane.md` |  |
 | [UID:00001V][ChattingHandlePane](by-class/ChattingHandlePane.md) | unclassified |  |  | no |  | `by-class/ChattingHandlePane.md` |  |
 | [UID:00001W][ChattingModifyHeightPane](by-class/ChattingModifyHeightPane.md) | unclassified |  |  | no |  | `by-class/ChattingModifyHeightPane.md` |  |
-| [UID:00001X][ChattingPane](by-class/ChattingPane.md) | unclassified |  |  | no |  | `by-class/ChattingPane.md` |  |
 | [UID:00001Y][ChattingVarietyPane](by-class/ChattingVarietyPane.md) | unclassified |  |  | no |  | `by-class/ChattingVarietyPane.md` |  |
 | [UID:00001Z][ChattingVarietySelectPane](by-class/ChattingVarietySelectPane.md) | unclassified |  |  | no |  | `by-class/ChattingVarietySelectPane.md` |  |
 | [UID:000020][CheatDetector](by-class/CheatDetector.md) | unclassified |  |  | no |  | `by-class/CheatDetector.md` |  |

@@ -25,7 +25,7 @@ The current `FolderTreePane` owner for `AddChattingMessage`, `AddIncomingMessage
 
 | Entity | Current range | Current file | Role |
 | --- | --- | --- | --- |
-| `ChattingPane` | `0x0047efb0-0x0047fd3a`, plus scroll helpers at `0x0055e7e0+` | `class_ChattingPane.cpp` | Scrollable chat display pane, message list allocation, line measurement, input scroll navigation, paint, and scrollbar sync. |
+| `ChattingPane` | `0x0047efb0-0x0047fd68`, plus scroll helpers at `0x0055e7e0+` | `class_ChattingPane.cpp` | Scrollable chat display pane, message list allocation, line measurement, input scroll navigation, paint, scrollbar sync, and the raw reset-scroll-range helper [UID:0002EY][0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw](by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md). |
 | `FolderTreePane` chat-message subset | `0x0047f280-0x004805d4` | `class_FolderTreePane.cpp` | Creates `ColorStringChattingMessage` objects, adds incoming messages, resizes visible rows, and decodes chat packet subtype `10`. |
 | `ChattingBackPane` | `0x00480640-0x004807aa`, destructor at `0x00483aa0` | `class_ChattingBackPane.cpp` | Transparent chat background pane tied to chat handle visibility/mode state. |
 | `ChattingModifyHeightPane` | `0x004807b0-0x00480c45`, helper at [UID:000105][0x004806d0-0x00480739.BackPaneViewportRectHelper](by-memory/0x004806d0-0x00480739.BackPaneViewportRectHelper.md), destructor at `0x00483c00` | `class_ChattingModifyHeightPane.cpp` plus generated `class_BackPane.cpp` owner caveat | Drag handle for changing visible chat line count, recomputing the scroll viewport from BackPane/root bounds, and persisting it to config. |
@@ -147,3 +147,7 @@ Keep `ChattingColorPane`, `ChattingColorSelectPane`, and `ChattingColorListPane`
   - Before: the proposed contents only described `0x005b38e0` as a projected constructor start.
   - After: linked exact raw packet helper [UID:0002S8][0x005b37f0-0x005b38d5.ChatPacketRawSender](by-memory/0x005b37f0-0x005b38d5.ChatPacketRawSender.md), raw constructor child [UID:0002S9][0x005b38e0-0x005b3940.ChatInputPaneRawConstructor](by-memory/0x005b38e0-0x005b3940.ChatInputPaneRawConstructor.md), and confirmed method cluster [UID:0001MC][0x005b3940-0x005b3bba.ChatInputPane](by-memory/0x005b3940-0x005b3bba.ChatInputPane.md).
   - Evidence: IDA raw bytes, vtable stores, decompilation, and callee maps confirm the helper/constructor/method boundaries.
+- 2026-06-03 `ChattingPane` raw helper ownership:
+  - Before: the proposed contents row stopped at `0x0047fd3a`, before the already documented raw reset-scroll-range helper.
+  - After: the row extends through [UID:0002EY][0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw](by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md).
+  - Evidence: the exact memory page and [UID:000104][0x0047efb0-0x00483ef7.ChattingUI](by-memory/0x0047efb0-0x00483ef7.ChattingUI.md) record the raw helper bytes, padding before/after, and shared scroll-helper behavior inside the chat display pane band.
