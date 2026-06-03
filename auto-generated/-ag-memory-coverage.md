@@ -5,9 +5,9 @@
 Total_Type: 2156
 Total_Reconstructable: 1245
 Total_Not_Reconstructable: 11
-Total_Reconstructed_Assigned: 707
+Total_Reconstructed_Assigned: 709
 Total_Reconstructed_Coded: 18
-Total_Reconstructable_Unassigned: 538
+Total_Reconstructable_Unassigned: 536
 Total_Unclassified: 900
 Total_Error: 0
 
@@ -127,6 +127,7 @@ Total_Error: 0
 | [UID:00021X][0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor](by-memory/0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-memory/0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor.md` |  |
 | [UID:00021Y][0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers](by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |  |
 | [UID:00021Z][0x0048e310-0x0048e479.ConfigRawTableHelpers](by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |  |
+| [UID:0002BG][0x0048f400-0x0048f4cf.CommandLineArgumentCounter](by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md) | assigned | `0000N4` | 34 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |  |
 | [UID:0002BH][0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser](by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md) | assigned | `0000N4` | 35 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |  |
 | [UID:0002BI][0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser](by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md) | assigned | `0000N4` | 36 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |  |
 | [UID:0002BJ][0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser](by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md) | assigned | `0000N4` |  | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |  |
@@ -136,6 +137,7 @@ Total_Error: 0
 | [UID:0002BN][0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser](by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md) | assigned | `0000N4` |  | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00490b10-0x004910c0.ComBackedLauncherAuthenticationParser.md` |  |
 | [UID:0002BO][0x004910d0-0x00491445.BixelLauncherParser](by-memory/0x004910d0-0x00491445.BixelLauncherParser.md) | assigned | `0000N4` | 56 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |  |
 | [UID:0002BP][0x00491450-0x0049178d.KwgLauncherParser](by-memory/0x00491450-0x0049178d.KwgLauncherParser.md) | assigned | `0000N4` | 57 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491450-0x0049178d.KwgLauncherParser.md` |  |
+| [UID:0002BQ][0x00491790-0x004918dc.GameBillLauncherGate](by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md) | assigned | `0000N4` | 58 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |  |
 | [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md) | assigned | `0000N4` | 60 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md` |  |
 | [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md) | assigned | `0000N4` | 70 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |  |
 | [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |  |
@@ -810,8 +812,6 @@ Total_Error: 0
 | [UID:0002OB][0x0048a120-0x0048a1be.ClanItemDialogConfirmValidation](by-memory/0x0048a120-0x0048a1be.ClanItemDialogConfirmValidation.md) | unassigned |  |  | no |  | `by-memory/0x0048a120-0x0048a1be.ClanItemDialogConfirmValidation.md` |  |
 | [UID:00010T][0x0048c260-0x0048c63f.ClanDestructorBand](by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md) | unassigned |  |  | no |  | `by-memory/0x0048c260-0x0048c63f.ClanDestructorBand.md` |  |
 | [UID:00010W][0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor](by-memory/0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor.md` |  |
-| [UID:0002BG][0x0048f400-0x0048f4cf.CommandLineArgumentCounter](by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md) | unassigned |  |  | no |  | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |  |
-| [UID:0002BQ][0x00491790-0x004918dc.GameBillLauncherGate](by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md) | unassigned |  |  | no |  | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |  |
 | [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md) | unassigned |  |  | no |  | `by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md` |  |
 | [UID:000112][0x00493f10-0x00493f79.SimpleUStringVectorDestructor](by-memory/0x00493f10-0x00493f79.SimpleUStringVectorDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00493f10-0x00493f79.SimpleUStringVectorDestructor.md` |  |
 | [UID:000114][0x004949e0-0x00494bf6.ControlPane](by-memory/0x004949e0-0x00494bf6.ControlPane.md) | unassigned |  |  | no |  | `by-memory/0x004949e0-0x00494bf6.ControlPane.md` |  |

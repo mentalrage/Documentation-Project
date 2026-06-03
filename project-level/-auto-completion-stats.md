@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-02 20:48:31
+Generated: 2026-06-02 20:51:50
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -116,8 +116,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BG` | 68 | 76 | 72.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
-| `0002BQ` | 68 | 76 | 72.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
 | `00016Z` | 68 | 76 | 72.0 | `by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md` |
 | `0002BX` | 68 | 76 | 72.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
 | `0002BZ` | 68 | 76 | 72.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
@@ -141,6 +139,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002CD` | 68 | 78 | 73.0 | `by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md` |
 | `0002CE` | 68 | 78 | 73.0 | `by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md` |
 | `0001HP` | 68 | 78 | 73.0 | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |
+| `0001J2` | 68 | 78 | 73.0 | `by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md` |
+| `0002G9` | 68 | 79 | 73.5 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
 
 ## Low_Confidence
 
@@ -176,8 +176,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BG` | 68 | 76 | 72.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
-| `0002BQ` | 68 | 76 | 72.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
 | `00016Z` | 68 | 76 | 72.0 | `by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md` |
 | `0002BX` | 68 | 76 | 72.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
 | `0002BZ` | 68 | 76 | 72.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
@@ -201,6 +199,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0002QG` | 68 | 78 | 73.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
 | `0001AW` | 68 | 78 | 73.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
 | `0002C9` | 68 | 78 | 73.0 | `by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md` |
+| `0002CA` | 68 | 78 | 73.0 | `by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md` |
+| `0002CD` | 68 | 78 | 73.0 | `by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md` |
 
 ## By Folder
 
@@ -336,8 +336,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BG` | 68 | 76 | 72.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
-| `0002BQ` | 68 | 76 | 72.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
 | `00016Z` | 68 | 76 | 72.0 | `by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md` |
 | `0002BX` | 68 | 76 | 72.0 | `by-memory/0x00526ce0-0x00526d9a.MidiTrackBufferRefill.md` |
 | `0002BZ` | 68 | 76 | 72.0 | `by-memory/0x00526f10-0x00526f57.MidiSourceOpenHelper.md` |
@@ -361,6 +359,8 @@ _No scored files._
 | `0001J2` | 68 | 78 | 73.0 | `by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md` |
 | `00022C` | 70 | 76 | 73.0 | `by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md` |
 | `0002KD` | 70 | 76 | 73.0 | `by-memory/0x005465e0-0x0054660a.ParcelPaneOnKeyDown.md` |
+| `0002G9` | 68 | 79 | 73.5 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
+| `0002FE` | 68 | 80 | 74.0 | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |
 
 ### by-meta
 
