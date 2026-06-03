@@ -2,12 +2,12 @@
 
 # ag-memory-coverage
 
-Total_Type: 2175
-Total_Reconstructable: 1279
+Total_Type: 2179
+Total_Reconstructable: 1283
 Total_Not_Reconstructable: 13
 Total_Reconstructed_Assigned: 757
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 522
+Total_Reconstructable_Unassigned: 526
 Total_Unclassified: 883
 Total_Error: 0
 
@@ -928,6 +928,10 @@ Total_Error: 0
 | [UID:0002TC][0x004bdcc0-0x004bdf3e.SoftwareRenderCompatScaledRleTintCallback](by-memory/0x004bdcc0-0x004bdf3e.SoftwareRenderCompatScaledRleTintCallback.md) | unassigned |  |  | no |  | `by-memory/0x004bdcc0-0x004bdf3e.SoftwareRenderCompatScaledRleTintCallback.md` |  |
 | [UID:0002TD][0x004bdf40-0x004be0db.SoftwareRenderCompatAlphaLookupBlitCallback](by-memory/0x004bdf40-0x004be0db.SoftwareRenderCompatAlphaLookupBlitCallback.md) | unassigned |  |  | no |  | `by-memory/0x004bdf40-0x004be0db.SoftwareRenderCompatAlphaLookupBlitCallback.md` |  |
 | [UID:0002TE][0x004be0e0-0x004be66e.SoftwareRenderCompatBitmaskBlitCallback](by-memory/0x004be0e0-0x004be66e.SoftwareRenderCompatBitmaskBlitCallback.md) | unassigned |  |  | no |  | `by-memory/0x004be0e0-0x004be66e.SoftwareRenderCompatBitmaskBlitCallback.md` |  |
+| [UID:0002TF][0x004c3190-0x004c3a40.SoftwareRenderRgb565RleFillCallback](by-memory/0x004c3190-0x004c3a40.SoftwareRenderRgb565RleFillCallback.md) | unassigned |  |  | no |  | `by-memory/0x004c3190-0x004c3a40.SoftwareRenderRgb565RleFillCallback.md` |  |
+| [UID:0002TG][0x004c3a50-0x004c3ce1.SoftwareRenderRgb565ScaledRleTintCallback](by-memory/0x004c3a50-0x004c3ce1.SoftwareRenderRgb565ScaledRleTintCallback.md) | unassigned |  |  | no |  | `by-memory/0x004c3a50-0x004c3ce1.SoftwareRenderRgb565ScaledRleTintCallback.md` |  |
+| [UID:0002TH][0x004c3cf0-0x004c3e93.SoftwareRenderRgb565AlphaLookupBlitCallback](by-memory/0x004c3cf0-0x004c3e93.SoftwareRenderRgb565AlphaLookupBlitCallback.md) | unassigned |  |  | no |  | `by-memory/0x004c3cf0-0x004c3e93.SoftwareRenderRgb565AlphaLookupBlitCallback.md` |  |
+| [UID:0002TI][0x004c3ea0-0x004c4364.SoftwareRenderRgb565BitmaskBlitCallback](by-memory/0x004c3ea0-0x004c4364.SoftwareRenderRgb565BitmaskBlitCallback.md) | unassigned |  |  | no |  | `by-memory/0x004c3ea0-0x004c4364.SoftwareRenderRgb565BitmaskBlitCallback.md` |  |
 | [UID:00016N][0x004c60d0-0x004c6151.BlendRgb565Pair](by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md) | unassigned |  |  | no |  | `by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md` |  |
 | [UID:0002I8][0x004ce730-0x004ce760.HierListConstructor](by-memory/0x004ce730-0x004ce760.HierListConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce730-0x004ce760.HierListConstructor.md` |  |
 | [UID:0002I9][0x004ce760-0x004ce7d1.HierListNonDeletingDestructor](by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004ce760-0x004ce7d1.HierListNonDeletingDestructor.md` |  |
