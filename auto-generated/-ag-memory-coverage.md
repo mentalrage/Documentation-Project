@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1435
+Total_Reconstructable: 1436
 Total_Not_Reconstructable: 24
-Total_Reconstructed_Assigned: 905
+Total_Reconstructed_Assigned: 907
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 524
-Total_Unclassified: 789
+Total_Reconstructable_Unassigned: 523
+Total_Unclassified: 788
 Total_Error: 6
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -120,6 +120,8 @@ Total_Error: 6
 | [UID:0000YT][0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat](by-memory/0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md) | assigned | `0000HG` | 50 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md` |  |
 | [UID:0002GX][0x00467960-0x004679bf.ApplicationSendShutdownMessage](by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md) | assigned | `00000D` | 140 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x00467960-0x004679bf.ApplicationSendShutdownMessage.md` |  |
 | [UID:0000YZ][0x00467b30-0x0046904e.BalloonObjectPane](by-memory/0x00467b30-0x0046904e.BalloonObjectPane.md) | assigned | `0000HJ` |  | no | `auto-generated/NexusTK/map/AttachedObjectPane.cpp` | `by-memory/0x00467b30-0x0046904e.BalloonObjectPane.md` |  |
+| [UID:0000Z1][0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion](by-memory/0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion.md) | assigned | `0000HR` |  | no | `auto-generated/NexusTK/ui/core/BlackHole.cpp` | `by-memory/0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion.md` |  |
+| [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md` |  |
 | [UID:00020V][0x0046a630-0x0046a6ea.BrowserWindowHostWndProc](by-memory/0x0046a630-0x0046a6ea.BrowserWindowHostWndProc.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046a630-0x0046a6ea.BrowserWindowHostWndProc.md` |  |
 | [UID:00020W][0x0046a760-0x0046a855.BrowserRawWindowProcClone](by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |  |
 | [UID:000210][0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers](by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md) | assigned | `0000P9` |  | no | `auto-generated/NexusTK/ui/dialogs/WebBoardDialog.cpp` | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |  |
@@ -1001,7 +1003,6 @@ Total_Error: 6
 | [UID:0000Z0][0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue](by-memory/0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue.md) | unassigned |  |  | no |  | `by-memory/0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue.md` |  |
 | [UID:0002M1][0x00469100-0x00469115.BlackHoleDestructor](by-memory/0x00469100-0x00469115.BlackHoleDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00469100-0x00469115.BlackHoleDestructor.md` |  |
 | [UID:0002M3][0x00469120-0x00469171.BlackHoleEnqueueIfMissing](by-memory/0x00469120-0x00469171.BlackHoleEnqueueIfMissing.md) | unassigned |  |  | no |  | `by-memory/0x00469120-0x00469171.BlackHoleEnqueueIfMissing.md` |  |
-| [UID:0000Z1][0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion](by-memory/0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion.md) | unassigned |  |  | no |  | `by-memory/0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion.md` |  |
 | [UID:0002M4][0x00469200-0x00469233.BlackHoleReleaseQueuedOwnedObjects](by-memory/0x00469200-0x00469233.BlackHoleReleaseQueuedOwnedObjects.md) | unassigned |  |  | no |  | `by-memory/0x00469200-0x00469233.BlackHoleReleaseQueuedOwnedObjects.md` |  |
 | [UID:0002M2][0x00469240-0x00469288.BlackHoleScalarDeletingDestructor](by-memory/0x00469240-0x00469288.BlackHoleScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00469240-0x00469288.BlackHoleScalarDeletingDestructor.md` |  |
 | [UID:00020T][0x0046a3d0-0x0046a505.BrowserWindowDocHostUiHandlerStubs](by-memory/0x0046a3d0-0x0046a505.BrowserWindowDocHostUiHandlerStubs.md) | unassigned |  |  | no |  | `by-memory/0x0046a3d0-0x0046a505.BrowserWindowDocHostUiHandlerStubs.md` |  |
@@ -1597,7 +1598,6 @@ Total_Error: 6
 | [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md) | unclassified |  |  | no |  | `by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md` |  |
 | [UID:0000YW][0x004673a0-0x004673b1.DestroyExceptionHandler](by-memory/0x004673a0-0x004673b1.DestroyExceptionHandler.md) | unclassified |  |  | no |  | `by-memory/0x004673a0-0x004673b1.DestroyExceptionHandler.md` |  |
 | [UID:0000YY][0x00467510-0x00467b2d.BackPaneAndBackGroundPane](by-memory/0x00467510-0x00467b2d.BackPaneAndBackGroundPane.md) | unclassified |  |  | no |  | `by-memory/0x00467510-0x00467b2d.BackPaneAndBackGroundPane.md` |  |
-| [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md) | unclassified |  |  | no |  | `by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md` |  |
 | [UID:0000Z4][0x00469640-0x0046a39c.BrowserWindowCore](by-memory/0x00469640-0x0046a39c.BrowserWindowCore.md) | unclassified |  |  | no |  | `by-memory/0x00469640-0x0046a39c.BrowserWindowCore.md` |  |
 | [UID:00020U][0x0046a510-0x0046a617.BrowserWindowAcceleratorTranslateMessage](by-memory/0x0046a510-0x0046a617.BrowserWindowAcceleratorTranslateMessage.md) | unclassified |  |  | no |  | `by-memory/0x0046a510-0x0046a617.BrowserWindowAcceleratorTranslateMessage.md` |  |
 | [UID:0000Z5][0x0046a860-0x0046ad0a.BrowserPaneAndDialog](by-memory/0x0046a860-0x0046ad0a.BrowserPaneAndDialog.md) | unclassified |  |  | no |  | `by-memory/0x0046a860-0x0046ad0a.BrowserPaneAndDialog.md` |  |

@@ -34,13 +34,13 @@
 
 ## Evidence
 
-- Wave3 reports 10 methods, 8 active and 2 adjustor thunks.
+- Live IDA evidence now anchors the core constructor/destructor/event methods, secondary vtable slots, scalar deleting destructor, adjustor thunks, and far dialog-bounds helper.
 - IDA MCP confirms constructor at `0x00469290-0x00469426`.
 - IDA MCP shows the constructor calls `BrowserControlPaneOld::BrowserControlPaneOld` at `0x0046ff50`.
 - IDA MCP confirms the far `SetDialogBounds` helper at `0x0049dae0-0x0049db14`.
-- Generated constructor/destructor evidence tracks [UID:0000QB][g_pBrowserDialogOld](by-global/g_pBrowserDialogOld.md) as the legacy browser dialog singleton.
+- Constructor/destructor evidence tracks [UID:0000QB][g_pBrowserDialogOld](by-global/g_pBrowserDialogOld.md) as the legacy browser dialog singleton.
 - [UID:0000HV][Browser](by-file/Browser.md) is scored `84/88`, assigned to `NexusTK/browser/`, and groups `BrowserDialogOld`, `BrowserControlPaneOld`, `BrowserThread`, browser COM helpers, browser-specific globals, and the legacy/new browser control family under the browser module.
-- [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md) is scored `70/85` and records the corrected constructor/destructor/key/mouse/navigate boundaries, constructor call into `BrowserControlPaneOld`, singleton global, and browser-module ownership.
+- [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md) is scored `84/90` and records the corrected constructor/destructor/key/mouse/navigate boundaries, raw helper bodies, constructor call into `BrowserControlPaneOld`, singleton global, and browser-module ownership.
 - [UID:0000QB][g_pBrowserDialogOld](by-global/g_pBrowserDialogOld.md) documents the legacy browser dialog singleton role and ownership hypothesis with this dialog/control path.
 
 ## Open Questions
@@ -64,3 +64,7 @@
   - What existed before: the page was reconstructable in substance but had blank autogen metadata and remained in the low-completion/low-both tables at `68/78`.
   - Changed to: `COMPLETION:72`, `CONFIDENCE:82`, `RECONSTRUCTABLE:TRUE`, and parent [UID:0000HV][Browser](by-file/Browser.md).
   - Summary/evidence: the Browser file doc, exact old-dialog core memory page, `BrowserControlPaneOld` constructor linkage, and singleton global page support browser-module source ownership. C++ remains blank because old-path reachability, final file/header split, and legacy lifetime details are below the 95+ reconstruction gate.
+- 2026-06-04 evidence-reference refresh:
+  - What existed before: the evidence list still described the method inventory through stale source metadata and referenced the core page at its old `70/85` score.
+  - Changed to: the evidence list now points to live IDA coverage and the updated [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md) `84/90` score.
+  - Summary/evidence: IDA MCP confirmed the core constructor/destructor/key/mouse/navigation functions, raw helper bodies, vtable anchors, and singleton set/clear behavior on 2026-06-04; class-level scores stay unchanged until the non-core methods and final source split are refreshed at class scope.

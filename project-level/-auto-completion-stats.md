@@ -87,8 +87,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000Z1` | 70 | 85 | 77.5 | `by-memory/0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion.md` |
-| `0000Z3` | 70 | 85 | 77.5 | `by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md` |
 | `0000Z4` | 70 | 85 | 77.5 | `by-memory/0x00469640-0x0046a39c.BrowserWindowCore.md` |
 | `0000Z6` | 70 | 85 | 77.5 | `by-memory/0x0046b520-0x0046cfe0.BrowserControlPaneCore.md` |
 | `0000Z8` | 70 | 85 | 77.5 | `by-memory/0x0046d480-0x0046d4a3.WebBoardDialogPacketForwarder.md` |
