@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 22:25:46
+Generated: 2026-06-03 22:49:11
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -99,12 +99,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0000WL` | 70 | 85 | 77.5 | `by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md` |
-| `0000WM` | 70 | 85 | 77.5 | `by-memory/0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual.md` |
-| `0000WP` | 70 | 85 | 77.5 | `by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md` |
-| `0000WQ` | 70 | 85 | 77.5 | `by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md` |
-| `0000WZ` | 70 | 85 | 77.5 | `by-memory/0x00428b4b-0x004298f0.JsonCppValuePathIteratorAndCrtNumericSupport.md` |
-| `0000X1` | 70 | 85 | 77.5 | `by-memory/0x0042acdf-0x0042ae90.JsonCppLegacyReaderRawLexicalHelpers.md` |
 | `0001ZT` | 70 | 85 | 77.5 | `by-memory/0x004361b0-0x00439df9.MsvcStlIostreamTemplateSupport.md` |
 | `0001ZU` | 70 | 85 | 77.5 | `by-memory/0x00439eb0-0x00439ed5.JsonCppValueCoreEhCleanupChunk.md` |
 | `0001ZV` | 70 | 85 | 77.5 | `by-memory/0x00439ee0-0x0043e0a3.MsvcStlIostreamNumericSupport.md` |
@@ -123,6 +117,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000Y2` | 70 | 85 | 77.5 | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |
 | `0000Y3` | 70 | 85 | 77.5 | `by-memory/0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent.md` |
 | `0001Z9` | 70 | 85 | 77.5 | `by-memory/0x00459cd0-0x00459cd4.RankingEventScrollPaneHasActiveEffect.md` |
+| `0001ZA` | 70 | 85 | 77.5 | `by-memory/0x00459ce0-0x0045a3f5.RankingEventScrollPaneOnPaint.md` |
+| `0000Y4` | 70 | 85 | 77.5 | `by-memory/0x0045a400-0x0045a70b.RankingEventScrollPaneHitTest.md` |
+| `0001ZB` | 70 | 85 | 77.5 | `by-memory/0x0045a710-0x0045a98a.RankingEventScrollPaneGetScrollRegionRect.md` |
+| `0000Y5` | 70 | 85 | 77.5 | `by-memory/0x0045a990-0x0045ac0f.RankingEventScrollPaneRawHoverDragHelpers.md` |
+| `0000Y6` | 70 | 85 | 77.5 | `by-memory/0x0045ac10-0x0045adc3.RankingEventScrollPaneDragToPosition.md` |
+| `0000Y7` | 70 | 85 | 77.5 | `by-memory/0x0045add0-0x0045ae2b.RankingEventScrollPaneRawResetState.md` |
 
 ## Low_Confidence
 

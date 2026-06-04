@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1397
-Total_Not_Reconstructable: 16
+Total_Reconstructable: 1401
+Total_Not_Reconstructable: 18
 Total_Reconstructed_Assigned: 870
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 522
-Total_Unclassified: 835
+Total_Reconstructable_Unassigned: 526
+Total_Unclassified: 829
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -891,6 +891,8 @@ Total_Error: 5
 | [UID:0000WA][0x00419f70-0x00419f86.MemoryManStaticInitializer](by-memory/0x00419f70-0x00419f86.MemoryManStaticInitializer.md) | not_reconstructable |  |  | no |  | `by-memory/0x00419f70-0x00419f86.MemoryManStaticInitializer.md` |  |
 | [UID:0002DO][0x004207ce-0x00420840.FittingRoomListPaneOnInputEventJumpTables](by-memory/0x004207ce-0x00420840.FittingRoomListPaneOnInputEventJumpTables.md) | not_reconstructable |  |  | no |  | `by-memory/0x004207ce-0x00420840.FittingRoomListPaneOnInputEventJumpTables.md` |  |
 | [UID:0002UC][0x00423800-0x00423805.FittingRoomStorageDestructorThunk](by-memory/0x00423800-0x00423805.FittingRoomStorageDestructorThunk.md) | not_reconstructable |  |  | no |  | `by-memory/0x00423800-0x00423805.FittingRoomStorageDestructorThunk.md` |  |
+| [UID:0000WZ][0x00428b4b-0x004298f0.JsonCppValuePathIteratorAndCrtNumericSupport](by-memory/0x00428b4b-0x004298f0.JsonCppValuePathIteratorAndCrtNumericSupport.md) | not_reconstructable |  |  | no |  | `by-memory/0x00428b4b-0x004298f0.JsonCppValuePathIteratorAndCrtNumericSupport.md` |  |
+| [UID:0000X1][0x0042acdf-0x0042ae90.JsonCppLegacyReaderRawLexicalHelpers](by-memory/0x0042acdf-0x0042ae90.JsonCppLegacyReaderRawLexicalHelpers.md) | not_reconstructable |  |  | no |  | `by-memory/0x0042acdf-0x0042ae90.JsonCppLegacyReaderRawLexicalHelpers.md` |  |
 | [UID:0000Z2][0x00469180-0x004691fa.PaneChildRegistry](by-memory/0x00469180-0x004691fa.PaneChildRegistry.md) | not_reconstructable |  |  | no |  | `by-memory/0x00469180-0x004691fa.PaneChildRegistry.md` |  |
 | [UID:0000ZV][0x0047ed20-0x0047ed50.ChangeManConstructorCleanup](by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md) | not_reconstructable |  |  | no |  | `by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md` |  |
 | [UID:0002FE][0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder](by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md) | not_reconstructable |  |  | no |  | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |  |
@@ -906,6 +908,10 @@ Total_Error: 5
 | [UID:0002I5][0x00504090-0x00504093.MapPaneNullCallback40](by-memory/0x00504090-0x00504093.MapPaneNullCallback40.md) | not_reconstructable |  |  | no |  | `by-memory/0x00504090-0x00504093.MapPaneNullCallback40.md` |  |
 | [UID:0000W8][0x00419ee0-0x00419ef4.InitializeOleSupport](by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md) | unassigned |  |  | no |  | `by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md` |  |
 | [UID:0000WG][0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers](by-memory/0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers.md) | unassigned |  |  | no |  | `by-memory/0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers.md` |  |
+| [UID:0000WL][0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual](by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md) | unassigned |  |  | no |  | `by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md` |  |
+| [UID:0000WM][0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual](by-memory/0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual.md) | unassigned |  |  | no |  | `by-memory/0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual.md` |  |
+| [UID:0000WP][0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor](by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md) | unassigned |  |  | no |  | `by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md` |  |
+| [UID:0000WQ][0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor](by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md` |  |
 | [UID:0002DR][0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers](by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md` |  |
 | [UID:0002U4][0x00423000-0x0042305c.FittingRoomCategoryLookupInsertNode](by-memory/0x00423000-0x0042305c.FittingRoomCategoryLookupInsertNode.md) | unassigned |  |  | no |  | `by-memory/0x00423000-0x0042305c.FittingRoomCategoryLookupInsertNode.md` |  |
 | [UID:0002EE][0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers](by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00423000-0x00423af4.FittingRoomCategoryStorageAndStringHelpers.md` |  |
@@ -1459,12 +1465,8 @@ Total_Error: 5
 | [UID:0000WK][0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal](by-memory/0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal.md) | unclassified |  |  | no |  | `by-memory/0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal.md` |  |
 | [UID:0002CM][0x0041b570-0x0041b5db.CashShopRequestScalarDeletingDestructor](by-memory/0x0041b570-0x0041b5db.CashShopRequestScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0041b570-0x0041b5db.CashShopRequestScalarDeletingDestructor.md` |  |
 | [UID:0002CO][0x0041b610-0x0041b69f.FileDownloaderScalarDeletingDestructor](by-memory/0x0041b610-0x0041b69f.FileDownloaderScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0041b610-0x0041b69f.FileDownloaderScalarDeletingDestructor.md` |  |
-| [UID:0000WL][0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual](by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md) | unclassified |  |  | no |  | `by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md` |  |
-| [UID:0000WM][0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual](by-memory/0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual.md) | unclassified |  |  | no |  | `by-memory/0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual.md` |  |
 | [UID:0000WN][0x0041b6d0-0x0041b9a0.MsvcStringSupportHelpers](by-memory/0x0041b6d0-0x0041b9a0.MsvcStringSupportHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0041b6d0-0x0041b9a0.MsvcStringSupportHelpers.md` |  |
 | [UID:0000WO][0x0041b9a0-0x0041b9de.CrtStdioCommonSprintfGlue](by-memory/0x0041b9a0-0x0041b9de.CrtStdioCommonSprintfGlue.md) | unclassified |  |  | no |  | `by-memory/0x0041b9a0-0x0041b9de.CrtStdioCommonSprintfGlue.md` |  |
-| [UID:0000WP][0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor](by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md` |  |
-| [UID:0000WQ][0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor](by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md` |  |
 | [UID:0000WR][0x0041ba40-0x004245f5.FittingRoomUiCore](by-memory/0x0041ba40-0x004245f5.FittingRoomUiCore.md) | unclassified |  |  | no |  | `by-memory/0x0041ba40-0x004245f5.FittingRoomUiCore.md` |  |
 | [UID:0002CP][0x0041bdd0-0x0041c250.FittingRoomDialogConstructor](by-memory/0x0041bdd0-0x0041c250.FittingRoomDialogConstructor.md) | unclassified |  |  | no |  | `by-memory/0x0041bdd0-0x0041c250.FittingRoomDialogConstructor.md` |  |
 | [UID:0002CQ][0x0041c310-0x0041c596.FittingRoomDialogOnCommand](by-memory/0x0041c310-0x0041c596.FittingRoomDialogOnCommand.md) | unclassified |  |  | no |  | `by-memory/0x0041c310-0x0041c596.FittingRoomDialogOnCommand.md` |  |
@@ -1522,9 +1524,7 @@ Total_Error: 5
 | [UID:0002EH][0x00422e91-0x00422ec0.FittingRoomCategorySwitchTable](by-memory/0x00422e91-0x00422ec0.FittingRoomCategorySwitchTable.md) | unclassified |  |  | no |  | `by-memory/0x00422e91-0x00422ec0.FittingRoomCategorySwitchTable.md` |  |
 | [UID:0000WX][0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers](by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md) | unclassified |  |  | no |  | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |  |
 | [UID:0000WY][0x00424630-0x00428b4b.JsonCppValueCore](by-memory/0x00424630-0x00428b4b.JsonCppValueCore.md) | unclassified |  |  | no |  | `by-memory/0x00424630-0x00428b4b.JsonCppValueCore.md` |  |
-| [UID:0000WZ][0x00428b4b-0x004298f0.JsonCppValuePathIteratorAndCrtNumericSupport](by-memory/0x00428b4b-0x004298f0.JsonCppValuePathIteratorAndCrtNumericSupport.md) | unclassified |  |  | no |  | `by-memory/0x00428b4b-0x004298f0.JsonCppValuePathIteratorAndCrtNumericSupport.md` |  |
 | [UID:0000X0][0x004298f0-0x0042acdf.JsonCppDocumentParseFrontEnds](by-memory/0x004298f0-0x0042acdf.JsonCppDocumentParseFrontEnds.md) | unclassified |  |  | no |  | `by-memory/0x004298f0-0x0042acdf.JsonCppDocumentParseFrontEnds.md` |  |
-| [UID:0000X1][0x0042acdf-0x0042ae90.JsonCppLegacyReaderRawLexicalHelpers](by-memory/0x0042acdf-0x0042ae90.JsonCppLegacyReaderRawLexicalHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0042acdf-0x0042ae90.JsonCppLegacyReaderRawLexicalHelpers.md` |  |
 | [UID:0000X2][0x0042ae90-0x0042edeb.JsonCppReaderBuilderIsland](by-memory/0x0042ae90-0x0042edeb.JsonCppReaderBuilderIsland.md) | unclassified |  |  | no |  | `by-memory/0x0042ae90-0x0042edeb.JsonCppReaderBuilderIsland.md` |  |
 | [UID:0000X3][0x0042e850-0x0042f3f0.JsonCppStreamWriterBuilderIsland](by-memory/0x0042e850-0x0042f3f0.JsonCppStreamWriterBuilderIsland.md) | unclassified |  |  | no |  | `by-memory/0x0042e850-0x0042f3f0.JsonCppStreamWriterBuilderIsland.md` |  |
 | [UID:0000X4][0x0042f3f0-0x00430040.JsonCppLegacyWriterCore](by-memory/0x0042f3f0-0x00430040.JsonCppLegacyWriterCore.md) | unclassified |  |  | no |  | `by-memory/0x0042f3f0-0x00430040.JsonCppLegacyWriterCore.md` |  |
