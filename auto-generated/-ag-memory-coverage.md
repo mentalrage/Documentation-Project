@@ -3,13 +3,13 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1416
+Total_Reconstructable: 1418
 Total_Not_Reconstructable: 24
-Total_Reconstructed_Assigned: 878
+Total_Reconstructed_Assigned: 880
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 533
-Total_Unclassified: 808
-Total_Error: 5
+Total_Reconstructable_Unassigned: 532
+Total_Unclassified: 806
+Total_Error: 6
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -229,6 +229,7 @@ Total_Error: 5
 | [UID:0002HI][0x004a4a30-0x004a4adb.EmployeeQuantityInputDialogPaneOnAction](by-memory/0x004a4a30-0x004a4adb.EmployeeQuantityInputDialogPaneOnAction.md) | assigned | `000138` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-memory/0x004a4a30-0x004a4adb.EmployeeQuantityInputDialogPaneOnAction.md` |  |
 | [UID:000139][0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor](by-memory/0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor.md) | assigned | `000006` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-memory/0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor.md` |  |
 | [UID:00013A][0x004a4b20-0x004a4d3b.AddEmployeeItemDialog](by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md) | assigned | `000006` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md` |  |
+| [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md) | assigned | `0000HQ` | 200 | no | `auto-generated/NexusTK/util/BinaryCodec.cpp` | `by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md` |  |
 | [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md) | assigned | `00013Q` | 10 | no | `auto-generated/NexusTK/util/Decoder.cpp` | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |  |
 | [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md) | assigned | `00003M` | 30 | no | `auto-generated/NexusTK/util/Decoder.cpp` | `by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md` |  |
 | [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md) | assigned | `00013Q` | 20 | no | `auto-generated/NexusTK/util/Decoder.cpp` | `by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md` |  |
@@ -502,6 +503,7 @@ Total_Error: 5
 | [UID:0001BQ][0x0051c470-0x0051ca3c.ClientItemMenuItemList](by-memory/0x0051c470-0x0051ca3c.ClientItemMenuItemList.md) | assigned | `0000KF` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemMenuDialogs.cpp` | `by-memory/0x0051c470-0x0051ca3c.ClientItemMenuItemList.md` |  |
 | [UID:0002TW][0x0051e9a0-0x0051f28d.ArgumentedMenuMenuDialog](by-memory/0x0051e9a0-0x0051f28d.ArgumentedMenuMenuDialog.md) | assigned | `0001BS` | 10 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-memory/0x0051e9a0-0x0051f28d.ArgumentedMenuMenuDialog.md` |  |
 | [UID:0001BS][0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs](by-memory/0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs.md) | assigned | `0000HI` | 100 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-memory/0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs.md` |  |
+| [UID:0001BT][0x0051fc90-0x00520539.ArgumentedItemInputDialogs](by-memory/0x0051fc90-0x00520539.ArgumentedItemInputDialogs.md) | assigned | `0000HH` | 100 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedItemInputDialogs.cpp` | `by-memory/0x0051fc90-0x00520539.ArgumentedItemInputDialogs.md` |  |
 | [UID:0001BU][0x00520540-0x00520816.ObjectImageControlPane](by-memory/0x00520540-0x00520816.ObjectImageControlPane.md) | assigned | `0000M3` |  | no | `auto-generated/NexusTK/ui/controls/ObjectImageControlPane.cpp` | `by-memory/0x00520540-0x00520816.ObjectImageControlPane.md` |  |
 | [UID:0001C8][0x005227d0-0x00524581.MetaMan](by-memory/0x005227d0-0x00524581.MetaMan.md) | assigned | `0000LC` |  | no | `auto-generated/NexusTK/metadata/MetaMan.cpp` | `by-memory/0x005227d0-0x00524581.MetaMan.md` |  |
 | [UID:0001C9][0x00523a00-0x00523c99.MetaManLookupHelpers](by-memory/0x00523a00-0x00523c99.MetaManLookupHelpers.md) | assigned | `0000LC` |  | no | `auto-generated/NexusTK/metadata/MetaMan.cpp` | `by-memory/0x00523a00-0x00523c99.MetaManLookupHelpers.md` |  |
@@ -891,6 +893,7 @@ Total_Error: 5
 | [UID:00019B][0x004f4b70-0x004f4b86.ApplicationForwardMessage](by-memory/0x004f4b70-0x004f4b86.ApplicationForwardMessage.md) | coded | `00000D` | 20 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f4b70-0x004f4b86.ApplicationForwardMessage.md` |  |
 | [UID:00027R][0x0066ddd8-0x0066de18.Md5PaddingBlock](by-memory/0x0066ddd8-0x0066de18.Md5PaddingBlock.md) | coded | `0000L6` | 5 | yes | `auto-generated/NexusTK/util/MD5.cpp` | `by-memory/0x0066ddd8-0x0066de18.Md5PaddingBlock.md` |  |
 | [UID:000294][0x0067ab1c-0x0067ab20.g_pApplication](by-memory/0x0067ab1c-0x0067ab20.g_pApplication.md) | coded | `0000HG` | 30 | yes | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x0067ab1c-0x0067ab20.g_pApplication.md` |  |
+| [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md) | error | `00004F` | 100 | no |  | `by-memory/0x004a4e70-0x004a5621.EncoderCore.md` | by-memory/0x004a4e70-0x004a5621.EncoderCore.md: autogen_parent_unknown: parent UID is not in validator.ini |
 | [UID:000241][0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers](by-memory/0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers.md) | error | `0000D8` |  | no |  | `by-memory/0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers.md` | by-memory/0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers.md: autogen_parent_unknown: parent UID is not in validator.ini |
 | [UID:0002LF][0x00573aa0-0x00573b08.SimpleListPaneAppendCopiedText](by-memory/0x00573aa0-0x00573b08.SimpleListPaneAppendCopiedText.md) | error | `000241` |  | no |  | `by-memory/0x00573aa0-0x00573b08.SimpleListPaneAppendCopiedText.md` | by-memory/0x00573aa0-0x00573b08.SimpleListPaneAppendCopiedText.md: autogen_parent_unknown: parent UID is not in validator.ini |
 | [UID:0002LG][0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText](by-memory/0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText.md) | error | `000241` |  | no |  | `by-memory/0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText.md` | by-memory/0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText.md: autogen_parent_unknown: parent UID is not in validator.ini |
@@ -1048,7 +1051,6 @@ Total_Error: 5
 | [UID:00012Z][0x004a0760-0x004a0c8e.ModelessDialogPane](by-memory/0x004a0760-0x004a0c8e.ModelessDialogPane.md) | unassigned |  |  | no |  | `by-memory/0x004a0760-0x004a0c8e.ModelessDialogPane.md` |  |
 | [UID:000131][0x004a0d80-0x004a15f8.DialogSessionCore](by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md) | unassigned |  |  | no |  | `by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md` |  |
 | [UID:00013L][0x004a5630-0x004a5631.EncoderNoopVirtual](by-memory/0x004a5630-0x004a5631.EncoderNoopVirtual.md) | unassigned |  |  | no |  | `by-memory/0x004a5630-0x004a5631.EncoderNoopVirtual.md` |  |
-| [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md) | unassigned |  |  | no |  | `by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md` |  |
 | [UID:00013N][0x004a5640-0x004a5664.DecoderConstructor](by-memory/0x004a5640-0x004a5664.DecoderConstructor.md) | unassigned |  |  | no |  | `by-memory/0x004a5640-0x004a5664.DecoderConstructor.md` |  |
 | [UID:00013O][0x004a5670-0x004a5677.DecoderDestructor](by-memory/0x004a5670-0x004a5677.DecoderDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004a5670-0x004a5677.DecoderDestructor.md` |  |
 | [UID:00013S][0x004a5dd0-0x004a5ded.DecoderFinalize](by-memory/0x004a5dd0-0x004a5ded.DecoderFinalize.md) | unassigned |  |  | no |  | `by-memory/0x004a5dd0-0x004a5ded.DecoderFinalize.md` |  |
@@ -1740,7 +1742,6 @@ Total_Error: 5
 | [UID:000137][0x004a1b60-0x004a1d6a.DirectX](by-memory/0x004a1b60-0x004a1d6a.DirectX.md) | unclassified |  |  | no |  | `by-memory/0x004a1b60-0x004a1d6a.DirectX.md` |  |
 | [UID:00013B][0x004a4cb1-0x004a4cf3.EmployeeDialogAdjustorThunks](by-memory/0x004a4cb1-0x004a4cf3.EmployeeDialogAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x004a4cb1-0x004a4cf3.EmployeeDialogAdjustorThunks.md` |  |
 | [UID:00013C][0x004a4e70-0x004a4e94.EncoderConstructor](by-memory/0x004a4e70-0x004a4e94.EncoderConstructor.md) | unclassified |  |  | no |  | `by-memory/0x004a4e70-0x004a4e94.EncoderConstructor.md` |  |
-| [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md) | unclassified |  |  | no |  | `by-memory/0x004a4e70-0x004a5621.EncoderCore.md` |  |
 | [UID:00013E][0x004a4ea0-0x004a4ea7.EncoderDestructor](by-memory/0x004a4ea0-0x004a4ea7.EncoderDestructor.md) | unclassified |  |  | no |  | `by-memory/0x004a4ea0-0x004a4ea7.EncoderDestructor.md` |  |
 | [UID:00013F][0x004a4ec0-0x004a4ef1.EncoderWriteByte](by-memory/0x004a4ec0-0x004a4ef1.EncoderWriteByte.md) | unclassified |  |  | no |  | `by-memory/0x004a4ec0-0x004a4ef1.EncoderWriteByte.md` |  |
 | [UID:00013G][0x004a4f00-0x004a4f59.EncoderWriteShort](by-memory/0x004a4f00-0x004a4f59.EncoderWriteShort.md) | unclassified |  |  | no |  | `by-memory/0x004a4f00-0x004a4f59.EncoderWriteShort.md` |  |
@@ -1844,7 +1845,6 @@ Total_Error: 5
 | [UID:0001BN][0x00517ec0-0x0051a417.TextMenuDialogs](by-memory/0x00517ec0-0x0051a417.TextMenuDialogs.md) | unclassified |  |  | no |  | `by-memory/0x00517ec0-0x0051a417.TextMenuDialogs.md` |  |
 | [UID:0001BO][0x0051a520-0x0051c46d.ItemMenuDialogs](by-memory/0x0051a520-0x0051c46d.ItemMenuDialogs.md) | unclassified |  |  | no |  | `by-memory/0x0051a520-0x0051c46d.ItemMenuDialogs.md` |  |
 | [UID:0001BR][0x0051ca40-0x0051e998.SpellMenuDialogs](by-memory/0x0051ca40-0x0051e998.SpellMenuDialogs.md) | unclassified |  |  | no |  | `by-memory/0x0051ca40-0x0051e998.SpellMenuDialogs.md` |  |
-| [UID:0001BT][0x0051fc90-0x00520539.ArgumentedItemInputDialogs](by-memory/0x0051fc90-0x00520539.ArgumentedItemInputDialogs.md) | unclassified |  |  | no |  | `by-memory/0x0051fc90-0x00520539.ArgumentedItemInputDialogs.md` |  |
 | [UID:0001BV][0x00520820-0x00520c9a.ObjectImageButtonPane](by-memory/0x00520820-0x00520c9a.ObjectImageButtonPane.md) | unclassified |  |  | no |  | `by-memory/0x00520820-0x00520c9a.ObjectImageButtonPane.md` |  |
 | [UID:0001BW][0x00520aa5-0x00520abb.SharedDialogDefaultDestructorThunks](by-memory/0x00520aa5-0x00520abb.SharedDialogDefaultDestructorThunks.md) | unclassified |  |  | no |  | `by-memory/0x00520aa5-0x00520abb.SharedDialogDefaultDestructorThunks.md` |  |
 | [UID:0001BY][0x00520ad1-0x00520ae7.SharedClientSpellMenuListDestructorThunks](by-memory/0x00520ad1-0x00520ae7.SharedClientSpellMenuListDestructorThunks.md) | unclassified |  |  | no |  | `by-memory/0x00520ad1-0x00520ae7.SharedClientSpellMenuListDestructorThunks.md` |  |

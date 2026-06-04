@@ -1,6 +1,6 @@
 *** UID:0000I0 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/cashshop/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # CashShopRequest
@@ -10,18 +10,17 @@
 - Confidence: strong for class ownership, medium for original module placement.
 - Proposed module: `NexusTK/cashshop/CashShopRequest.cpp`, with a possible later split of the generic queue/send funnel into a base [UID:0000OR][Thread](by-file/Thread.md) request helper or network sender interface.
 - Projected path status: valid current reconstruction target; source split caveats still block final-source C++.
-- Current Wave3 file: `class_CashShopRequest.cpp`
 - Main class: [UID:00001H][CashShopRequest](by-class/CashShopRequest.md)
 - Main address docs: [UID:0000WH][0x0041a5d0-0x0041b5da.CashShopRequestItemSetup](by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md), [UID:0001HT][0x00574b90-0x00575377.CashShopRequestSendQueue](by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md), [UID:0001HW][0x00574d40-0x00574e44.SendPositionUpdate](by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md), [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md), [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md), and [UID:0001JY][0x00596620-0x005969b0.CashShopRequestWaitDispatch](by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md)
-- Stale generated ownership note: the former `0x00528290-0x005283d4` auth/directory range is now corrected to [UID:0000LG][MiscWorkThread](by-file/MiscWorkThread.md); see [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md).
-- Evidence basis: `simroot_v2` generated source, Wave3 metadata/xrefs, and IDA MCP lookup/xref checks through 2026-05-25.
+- Ownership correction: the former `0x00528290-0x005283d4` auth/directory range is now corrected to [UID:0000LG][MiscWorkThread](by-file/MiscWorkThread.md); see [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md).
+- Evidence basis: live IDA MCP lookup, raw disassembly, caller/xref, vtable, and global-reference checks through 2026-06-04.
 
 ## Score Rationale
 
 | Field | Value | Reason |
 | --- | ---: | --- |
-| Completion | 72 | The page now has a valid projected source path, exact child coverage for the constructor/destructor and send clusters, and explicit FileDownloader/Socket/Thread boundary notes. It is not higher because several helpers still need final source ownership review. |
-| Confidence | 80 | Existing IDA-backed child pages and the proposed source tree support `NexusTK/cashshop/` as the current reconstruction home. Confidence is capped at the attach threshold because queue/send and downloader helpers may later split out. |
+| Completion | 82 | The page now has live IDA coverage for raw constructor/destructor starts, modeled submit/send/wait boundaries, vtable placement, queue-dispatch caller counts, and current global-reference corrections. It is not higher because several helpers still need final source ownership review. |
+| Confidence | 86 | Existing IDA-backed child pages, the parent class page, and the proposed source tree support `NexusTK/cashshop/` as the current reconstruction home. Confidence remains below final-source quality because queue/send, downloader-submit, and generic thread helper boundaries may later split out. |
 
 ## Evidence Map
 
@@ -30,7 +29,7 @@
 | [UID:0000WH][0x0041a5d0-0x0041b5da.CashShopRequestItemSetup](by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md) | Early constructor/destructor and request-payload setup cluster. | Aggregate page still includes provisional downloader-submit helpers. |
 | [UID:0001HT][0x00574b90-0x00575377.CashShopRequestSendQueue](by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md) | Send/status helper cluster and `QueueAndSendPacket` reachability. | Generic send API is used by many feature modules and may split to a base request/network interface. |
 | [UID:0001JY][0x00596620-0x005969b0.CashShopRequestWaitDispatch](by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md) | Synchronous wait/dispatch mechanics and the generic queue post primitive. | Current ownership is [UID:0000OR][Thread](by-file/Thread.md), so this is supporting boundary evidence rather than CashShopRequest-owned source. |
-| [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) | Packet sender lifetime is Socket constructor/destructor-family owned. | Generated `CashShopRequest*` global typing is not final ownership proof. |
+| [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) | Packet sender lifetime is Socket constructor/destructor-family owned. | Recovered `CashShopRequest*` global aliases are not final ownership proof. |
 | [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) and [UID:0001OP][0x0067a738-0x0067a73c.g_pCashShopRequest](by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md) | Downloader request singleton storage and caller argument source. | Lifetime writes point to FileDownloader, not a CashShopRequest-owned global. |
 | [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) | Current projected placement under `cashshop/CashShopRequest.cpp`. | Tree also records the later `Thread`/network split candidates. |
 
@@ -38,7 +37,7 @@
 
 `CashShopRequest` is a real class-centered source module, but its current name is broader than a pure cash-shop UI file. It combines cash-shop/download/auth directory request setup with a generic queued request funnel used by hundreds of packet senders across the client.
 
-For source reconstruction, keep the class in `cashshop/CashShopRequest.cpp` for now because many methods are cash-shop-specific. Mark [UID:0001HU][0x00574bb0-0x00574c13.QueueAndSendPacket](by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md) and `DispatchRequest` as possible later base-thread/request-sender split candidates after class/interface cleanup. A 2026-05-25 IDA recheck shows [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) lifetime writes belong to Socket, and a separate recheck shows [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) / `dword_67A738` lifetime writes belong to FileDownloader. Generated `CashShopRequest*` global types are therefore not final ownership proof.
+For source reconstruction, keep the class in `cashshop/CashShopRequest.cpp` for now because many methods are cash-shop-specific. Mark [UID:0001HU][0x00574bb0-0x00574c13.QueueAndSendPacket](by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md) and `DispatchRequest` as possible later base-thread/request-sender split candidates after class/interface cleanup. Live IDA rechecks show [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) lifetime writes belong to Socket, and [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) / `dword_67A738` lifetime writes belong to FileDownloader. Recovered `CashShopRequest*` global aliases are therefore not final ownership proof.
 
 ## Contents
 
@@ -50,23 +49,20 @@ Likely source-level contents:
 - Cash-shop item, fitting-room, named request, and packet-send request submission.
 - `QueueWindowMessage`, `QueueAndSendPacket`, `SendStringCommand`, and raw/provisional [UID:0001HV][0x00574d00-0x00574d3f.SendRawDataRaw](by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md).
 - Connection/send-disable status helpers.
-- Position/status update, connection-status getter, and opcode `0x77` friend/name-list upload construction. Current generated names still call the latter `BuildAndSendInventoryData`, but caller evidence and [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) now make the inventory interpretation suspect.
+- Position/status update, connection-status getter, and opcode `0x77` friend/name-list upload construction. The older `BuildAndSendInventoryData` name should remain suspect because caller evidence and [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) point away from item inventory semantics.
 - Synchronous submit/wait and result-list handling.
-- Request queue dispatch through a message queue plus semaphore; current `simroot_v2/class_Thread.cpp` emits the core `0x00596960` dispatcher as `Thread::DispatchRequest`.
+- Request queue dispatch through a message queue plus semaphore; current source planning treats the core `0x00596960` dispatcher as [UID:0000OR][Thread](by-file/Thread.md) infrastructure until class-layout cleanup proves otherwise.
 
 ## Evidence
 
-- Wave3 reports `CashShopRequest` as the only class attached to `class_CashShopRequest.cpp`, with 21 included methods.
-- Wave3 class notes describe a 240,208-byte structure with an embedded SSO string, queue/list/critical-section fields, and request codes for named, raw packet, string, raw data, item, fitting room, hash, auth, and directory requests.
-- Wave3/simroot and IDA both report `QueueAndSendPacket` at `0x00574bb0` with 416 direct code refs from 380 unique calling functions.
-- IDA MCP confirms `QueueAndSendPacket` as `0x00574bb0-0x00574c13`, `SendPositionUpdate` as `0x00574d40-0x00574e44`, `BuildAndSendInventoryData` as `0x00574e50-0x0057536b`, `GetConnectionStatus` as `0x00575370-0x00575377`, and `DispatchRequest` as `0x00596960-0x005969b0`.
-- Generated source shows `QueueAndSendPacket` allocating `packetSize + 1`, copying caller data, appending a zero byte, and dispatching request code `8`.
-- Current `simroot_v2/class_Thread.cpp` shows `DispatchRequest` enqueuing a small request record and releasing the base thread semaphore.
-- IDA MCP `lookup_funcs` on 2026-05-25 reports generated `SendRawData` start `0x00574d00` as `Not a function`, but raw disassembly shows function-shaped code at `0x00574d00-0x00574d3f` that allocates/copies raw bytes and dispatches request code `0x0e`. No external xrefs to the raw start were found; a 2026-05-27 raw-pointer scan also found no loaded dword equal to `0x00574d00`, so keep reachability/final ownership provisional.
-- IDA MCP callers on 2026-05-25 show `SendPositionUpdate` is reached from `ReconnectDialog::OnButtonClick` and the `TerminalPane` stream parser. This makes the helper a reconnect/terminal position-state upload, not a cash-shop feature.
-- IDA MCP callers on 2026-05-25 show `BuildAndSendInventoryData` is reached from `MapPane::HandlePacket` case `0x6a` and `FriendListDialog::OnOkButton`. Both paths are gated by [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md), and the helper serializes the same 20 config name slots that [UID:0000JN][FriendListDialog](by-file/FriendListDialog.md) writes, so its generated `InventoryData` name should be treated as a data issue.
-- IDA MCP `py_eval` on 2026-05-25 found all direct writes to `0x0067a7ec` in the Socket constructor/destructor family, even though many generated callers pass that global into this `QueueAndSendPacket` method.
-- IDA MCP `py_eval` on 2026-05-25 found all direct writes to `0x0067a738` in the FileDownloader constructor/destructor family, while fitting-room callers pass that storage into the request submission helpers at `0x0041b180`, `0x0041b200`, and `0x0041b270`.
+- 2026-06-04 live IDA MCP reports raw/non-function constructor and non-deleting destructor starts at `0x0041a5d0` and `0x0041a610`. Raw disassembly shows the constructor stores the `CashShopRequest` vtable at `+0x00`, clears state fields, initializes SSO fields at `+0x20/+0x24`, and returns at `0x0041a606`; the raw destructor restores the same vtable, releases non-SSO string storage, resets SSO fields, and returns at `0x0041a65c`.
+- 2026-06-04 live IDA confirms modeled submit/destructor functions at `0x0041b180-0x0041b1f5`, `0x0041b200-0x0041b26d`, `0x0041b270-0x0041b2c9`, and `0x0041b570-0x0041b5db`. Direct callers are `0x00451d18`, `0x0041cd0f`, and `0x0041c21b` for the three submit helpers; the scalar deleting destructor is referenced from vtable slot `0x0060d7a0`.
+- 2026-06-04 live IDA confirms the CashShopRequest vtable boundary: `0x0060d79c` is `??_R4CashShopRequest@@6B@`, `0x0060d7a0 -> 0x0041b570`, and `0x0060d7a4` is already the next `FileDownloader` RTTI pointer.
+- 2026-06-04 live IDA confirms send/status function boundaries: `0x00574b90-0x00574ba4`, `0x00574bb0-0x00574c13`, `0x00574c20-0x00574c35`, `0x00574c40-0x00574ca1`, `0x00574cb0-0x00574cc5`, `0x00574cd0-0x00574cdb`, `0x00574ce0-0x00574cf0`, `0x00574cf0-0x00574d00`, `0x00574d40-0x00574e44`, `0x00574e50-0x0057536b`, and `0x00575370-0x00575377`.
+- 2026-06-04 live IDA confirms `0x00574d00` remains a raw/non-function start with no direct code or data refs. Raw bytes allocate/copy caller data and dispatch request code `0x0e` through `0x00596960`, then return at `0x00574d3c`.
+- 2026-06-04 live IDA caller counts preserve the broad send-funnel evidence: `QueueAndSendPacket` at `0x00574bb0` has 416 direct code refs; `0x00574d40` has callers `0x005542a9` and `0x0058b42f`; `0x00574e50` has callers `0x00508b14`, `0x005143ad`, and `0x0053f8ed`; `0x00575370` has three direct callers.
+- 2026-06-04 live IDA confirms wait/dispatch helper boundaries at `0x00596620-0x0059675e`, `0x00596760-0x005967c7`, and `0x00596960-0x005969b0`; `0x00596960` has 22 direct callers, including the downloader submit helpers, the raw `0x00453a30` candidate, MiscWorkThread wrappers, and socket/request sender wrappers.
+- 2026-06-04 live IDA global-reference checks show `0x0067a7ec` has 489 xrefs from broad packet-send call sites, `0x0067a738` has nine xrefs spanning FileDownloader lifetime and fitting-room/downloader submit reads, and `0x0066dee0` has three xrefs from the map/friend-list upload paths. These globals support the current boundary caveats rather than pure cash-shop ownership.
 
 ## File Split
 
@@ -76,7 +72,7 @@ Keep final transport and encryption in [UID:0000NS][Socket](by-file/Socket.md). 
 
 Keep fitting-room UI/catalog state in [UID:0000JE][FittingRoom](by-file/FittingRoom.md) and [UID:0000KD][ItemCatalog](by-file/ItemCatalog.md). `CashShopRequest::SubmitFittingRoomRequest` allocates and dispatches a request payload, but the item-shop HTTP download, `ItemShop.jbn` cache, dialog controls, and preview state belong to the fitting-room feature module.
 
-Keep the shared HTTP download dispatcher in [UID:0000JC][FileDownloader](by-file/FileDownloader.md). Current generated code writes [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) from `FileDownloader::FileDownloader`, and live IDA confirms the `0x0067a738` write/clear set belongs to the FileDownloader constructor/destructor family. That does not merge the small `CashShopRequest` payload class into `FileDownloader.cpp`; it does mean the adjacent `0x0041b180`, `0x0041b200`, and `0x0041b270` submission helpers need an explicit dispatcher/payload ownership review before migration.
+Keep the shared HTTP download dispatcher in [UID:0000JC][FileDownloader](by-file/FileDownloader.md). Live IDA confirms the [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) / `0x0067a738` write/clear set belongs to the FileDownloader constructor/destructor family. That does not merge the small `CashShopRequest` payload class into `FileDownloader.cpp`; it does mean the adjacent `0x0041b180`, `0x0041b200`, and `0x0041b270` submission helpers need an explicit dispatcher/payload ownership review before migration.
 
 ## Proposed Placement
 
@@ -142,6 +138,9 @@ cashshop/
 
 ## Changes
 
+- 2026-06-04: Raised scores from `72/80` to `82/86` after live IDA MCP revalidated the raw constructor/destructor starts, modeled submit/send/wait function boundaries, CashShopRequest vtable slot and FileDownloader boundary, caller counts for `QueueAndSendPacket` and queue helpers, and current xrefs for `g_packetSender`, `g_pCashShopRequest`, and the friend-list upload flag.
+  - Before: the page had useful child links and boundary caveats, but still relied on stale provenance wording and had not recorded the current live IDA xref/function-boundary pass.
+  - After: evidence is based on live IDA/disassembly, the stale provenance wording is removed, the manual score aligns with the already attached class page, and C++ remains blank because raw starts, downloader-submit ownership, packet-sender typing, and generic thread-queue placement are still unresolved.
 - Before: this proposed source file described the early constructor/destructor and request-submit cluster through broad ranges and address-only mentions.
 - After: the contents list and cross-references point to exact `by-memory` child pages for the raw constructor/destructor, scalar deleting destructor, and three downloader request-submit helpers.
 - Summary/evidence: IDA MCP and raw disassembly split the early cluster into exact children, while receiver evidence for the submit helpers still points through FileDownloader-lifetime `dword_67A738`.

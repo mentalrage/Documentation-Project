@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 220
+Total_Reconstructed_Assigned: 221
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 68
+Total_Error: 67
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -17,6 +17,7 @@ Total_Error: 68
 | [UID:00020J][AesBlockCipher](by-file/AesBlockCipher.md) | assigned |  |  | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-file/AesBlockCipher.md` | by-file generated root |
 | [UID:0000HE][AlertPanes](by-file/AlertPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-file/AlertPanes.md` | by-file generated root |
 | [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md) | assigned |  |  | no | `auto-generated/NexusTK/render/AlphaMaskSurface.cpp` | `by-file/AlphaMaskSurface.md` | by-file generated root |
+| [UID:0000HH][ArgumentedItemInputDialogs](by-file/ArgumentedItemInputDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedItemInputDialogs.cpp` | `by-file/ArgumentedItemInputDialogs.md` | by-file generated root |
 | [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-file/ArgumentedMenuDialogs.md` | by-file generated root |
 | [UID:0000HJ][AttachedObjectPane](by-file/AttachedObjectPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/AttachedObjectPane.cpp` | `by-file/AttachedObjectPane.md` | by-file generated root |
 | [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md) | assigned |  |  | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-file/AttachmentAnchorResolver.md` | by-file generated root |
@@ -233,7 +234,6 @@ Total_Error: 68
 | [UID:0000PA][WinMain](by-file/WinMain.md) | assigned |  |  | no | `auto-generated/NexusTK/app/WinMain.cpp` | `by-file/WinMain.md` | by-file generated root |
 | [UID:0000HG][Application](by-file/Application.md) | coded |  |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-file/Application.md` | by-file generated root |
 | [UID:0000L6][MD5](by-file/MD5.md) | coded |  |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-file/MD5.md` | by-file generated root |
-| [UID:0000HH][ArgumentedItemInputDialogs](by-file/ArgumentedItemInputDialogs.md) | error |  |  | no |  | `by-file/ArgumentedItemInputDialogs.md` | by-file generated root |
 | [UID:0000HK][AttachedObjectPaneHelper_53AEC0](by-file/AttachedObjectPaneHelper_53AEC0.md) | error |  |  | no |  | `by-file/AttachedObjectPaneHelper_53AEC0.md` | by-file generated root |
 | [UID:0000HX][BulletinSession](by-file/BulletinSession.md) | error |  |  | no |  | `by-file/BulletinSession.md` | by-file generated root |
 | [UID:0000I4][CharacterSummaryRecord](by-file/CharacterSummaryRecord.md) | error |  |  | no |  | `by-file/CharacterSummaryRecord.md` | by-file generated root |

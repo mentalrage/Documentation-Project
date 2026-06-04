@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 278
+Total_Reconstructable: 280
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 201
+Total_Reconstructed_Assigned: 204
 Total_Reconstructed_Coded: 2
-Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 307
+Total_Reconstructable_Unassigned: 76
+Total_Unclassified: 305
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -17,6 +17,8 @@ Total_Error: 0
 | [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-class/AddEmployeeItemDialog.md` |  |
 | [UID:000009][AddMixingItemDialog](by-class/AddMixingItemDialog.md) | assigned | `0000KE` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemDialogs.cpp` | `by-class/AddMixingItemDialog.md` |  |
 | [UID:00000A][AddToBlockListenInputPane](by-class/AddToBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/AddToBlockListenInputPane.md` |  |
+| [UID:00000F][ArgumentedItemConfirmInputDialogPane](by-class/ArgumentedItemConfirmInputDialogPane.md) | assigned | `0000HH` | 20 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedItemInputDialogs.cpp` | `by-class/ArgumentedItemConfirmInputDialogPane.md` |  |
+| [UID:00000G][ArgumentedItemQuantityInputDialogPane](by-class/ArgumentedItemQuantityInputDialogPane.md) | assigned | `0000HH` | 10 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedItemInputDialogs.cpp` | `by-class/ArgumentedItemQuantityInputDialogPane.md` |  |
 | [UID:00000H][ArgumentedMenuMenuDialog](by-class/ArgumentedMenuMenuDialog.md) | assigned | `0000HI` | 10 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-class/ArgumentedMenuMenuDialog.md` |  |
 | [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md) | assigned | `0000HI` | 20 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-class/ArgumentedMenuMenuItemList.md` |  |
 | [UID:00000O][AttachmentAnchorResolver](by-class/AttachmentAnchorResolver.md) | assigned | `0000HL` | 10 | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-class/AttachmentAnchorResolver.md` |  |
@@ -32,6 +34,7 @@ Total_Error: 0
 | [UID:000019][BrowserPane](by-class/BrowserPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserPane.md` |  |
 | [UID:00001A][BrowserThread](by-class/BrowserThread.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserThread.md` |  |
 | [UID:00003D][CScrollBarBackPane](by-class/CScrollBarBackPane.md) | assigned | `0000NF` |  | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/CScrollBarBackPane.md` |  |
+| [UID:00001F][CachedHashTable](by-class/CachedHashTable.md) | assigned | `0000HZ` |  | no | `auto-generated/NexusTK/util/CachedHashTable.cpp` | `by-class/CachedHashTable.md` |  |
 | [UID:00001H][CashShopRequest](by-class/CashShopRequest.md) | assigned | `0000I0` |  | no | `auto-generated/NexusTK/cashshop/CashShopRequest.cpp` | `by-class/CashShopRequest.md` |  |
 | [UID:00001I][CashShopVersionRequest](by-class/CashShopVersionRequest.md) | assigned | `0000I1` | 10 | no | `auto-generated/NexusTK/cashshop/CashShopVersionRequest.cpp` | `by-class/CashShopVersionRequest.md` |  |
 | [UID:00001J][ChangeItemSlotInputPane](by-class/ChangeItemSlotInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ChangeItemSlotInputPane.md` |  |
@@ -219,7 +222,6 @@ Total_Error: 0
 | [UID:00000B][AlertPane](by-class/AlertPane.md) | unassigned |  |  | no |  | `by-class/AlertPane.md` |  |
 | [UID:00000W][BlackHole](by-class/BlackHole.md) | unassigned |  |  | no |  | `by-class/BlackHole.md` |  |
 | [UID:00001C][BulletinDialog](by-class/BulletinDialog.md) | unassigned |  |  | no |  | `by-class/BulletinDialog.md` |  |
-| [UID:00001F][CachedHashTable](by-class/CachedHashTable.md) | unassigned |  |  | no |  | `by-class/CachedHashTable.md` |  |
 | [UID:00001K][ChangeMan](by-class/ChangeMan.md) | unassigned |  |  | no |  | `by-class/ChangeMan.md` |  |
 | [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md) | unassigned |  |  | no |  | `by-class/CheckBoxControlPane.md` |  |
 | [UID:000023][ClanAppearNameInputDialog](by-class/ClanAppearNameInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanAppearNameInputDialog.md` |  |
@@ -296,8 +298,6 @@ Total_Error: 0
 | [UID:000008][AddItemWithCountDialog](by-class/AddItemWithCountDialog.md) | unclassified |  |  | no |  | `by-class/AddItemWithCountDialog.md` |  |
 | [UID:00000C][AlphaMaskSurface](by-class/AlphaMaskSurface.md) | unclassified |  |  | no |  | `by-class/AlphaMaskSurface.md` |  |
 | [UID:00000E][ApplicationHelper_4A6C40](by-class/ApplicationHelper_4A6C40.md) | unclassified |  |  | no |  | `by-class/ApplicationHelper_4A6C40.md` |  |
-| [UID:00000F][ArgumentedItemConfirmInputDialogPane](by-class/ArgumentedItemConfirmInputDialogPane.md) | unclassified |  |  | no |  | `by-class/ArgumentedItemConfirmInputDialogPane.md` |  |
-| [UID:00000G][ArgumentedItemQuantityInputDialogPane](by-class/ArgumentedItemQuantityInputDialogPane.md) | unclassified |  |  | no |  | `by-class/ArgumentedItemQuantityInputDialogPane.md` |  |
 | [UID:00000J][ArticleDialog](by-class/ArticleDialog.md) | unclassified |  |  | no |  | `by-class/ArticleDialog.md` |  |
 | [UID:00000K][ArticleListDialog](by-class/ArticleListDialog.md) | unclassified |  |  | no |  | `by-class/ArticleListDialog.md` |  |
 | [UID:00000L][ArticleListPane](by-class/ArticleListPane.md) | unclassified |  |  | no |  | `by-class/ArticleListPane.md` |  |

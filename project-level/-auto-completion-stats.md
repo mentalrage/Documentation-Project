@@ -18,7 +18,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Status | Proposed Path | Path | Detail |
 | --- | --- | --- | --- | --- |
-| `0000HH` | blank | `(blank)` | `by-file/ArgumentedItemInputDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HK` | blank | `(blank)` | `by-file/AttachedObjectPaneHelper_53AEC0.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -113,10 +112,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000HZ` | 72 | 80 | 76.0 | `by-file/CachedHashTable.md` |
-| `0000I0` | 72 | 80 | 76.0 | `by-file/CashShopRequest.md` |
-| `0000HH` | 72 | 82 | 77.0 | `by-file/ArgumentedItemInputDialogs.md` |
-| `0000HQ` | 72 | 82 | 77.0 | `by-file/BinaryCodec.md` |
 | `0000NL` | 72 | 82 | 77.0 | `by-file/SelfLookPane.md` |
 | `0000LX` | 74 | 80 | 77.0 | `by-file/NewUserMiscDialogPane.md` |
 | `0000KD` | 76 | 78 | 77.0 | `by-file/ItemCatalog.md` |
@@ -176,7 +171,6 @@ _No scored files._
 | `0000U7` | 74 | 82 | 78.0 | `by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md` |
 | `0000V3` | 74 | 82 | 78.0 | `by-item/PacketTransformHelpers.md` |
 | `0000UO` | 72 | 86 | 79.0 | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |
-| `0000TY` | 76 | 82 | 79.0 | `by-item/ArgumentedItemPurchaseHelpers_51f450_51f640.md` |
 | `0000V2` | 76 | 82 | 79.0 | `by-item/PacketDigest_00515380.md` |
 | `0000VI` | 76 | 82 | 79.0 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
 | `0000V6` | 74 | 85 | 79.5 | `by-item/PathExistsViaStat_00582460.md` |
@@ -257,7 +251,6 @@ _No scored files._
 | `0001VL` | 72 | 86 | 79.0 | `by-type/by-struct/PrimeNumberGeneratorLayout.md` |
 | `0001UH` | 74 | 84 | 79.0 | `by-type/by-struct/FittingEquipmentStateLayout.md` |
 | `0001SF` | 72 | 88 | 80.0 | `by-type/by-constant/DownloaderMessageIds.md` |
-| `0001TU` | 74 | 86 | 80.0 | `by-type/by-struct/CachedHashTableLayout.md` |
 | `0001VY` | 74 | 86 | 80.0 | `by-type/by-struct/ScreenOverlayPaneLayouts.md` |
 | `0001WC` | 74 | 86 | 80.0 | `by-type/by-struct/TileClassEntry.md` |
 | `0001WD` | 74 | 86 | 80.0 | `by-type/by-struct/TimerMgrLayout.md` |

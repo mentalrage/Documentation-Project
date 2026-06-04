@@ -2,8 +2,8 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HQ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:20 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -13,9 +13,10 @@
 ## Status
 
 - Entity kind: vtable layout
-- Confidence: strong for slot values and owning class association.
-- Evidence basis: IDA MCP `py_eval` vtable reads and xref checks on 2026-05-26 and 2026-05-31.
-- Current data caveat: `class_Encoder.meta_wave3` and `class_Decoder.meta_wave3` both report `vtable_count: 0`; do not use that generated count as authority.
+- Confidence: strong for slot values, owning class association, vtable-store refs, and the non-vtable boundary at `0x006192e0`.
+- Parent attachment: attached to [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md), now `80/86`, because this is shared read-only type data for both codec classes.
+- Evidence basis: live IDA MCP dword, xref, function-boundary, and padding checks through 2026-06-04.
+- Metadata caveat: any non-IDA metadata that omits these vtables is incomplete; IDA dwords and xrefs are the authority here.
 
 ## Encoder Vtable
 
@@ -55,19 +56,24 @@ IDA xrefs to `0x006192d8` land at:
 
 The no-op virtual target has only the vtable data reference at `0x006192dc` in the current IDA database.
 
-## 2026-05-31 IDA Recheck
+## Live IDA Evidence
 
-- `lookup_funcs` confirms the vtable slots are code: `0x004a5630` is `nullsub_27` size `0x1`, `0x004a5df0` is `nullsub_28` size `0x1`, `0x004a5e00` is size `0x24`, and `0x004a5e30` is size `0x24`.
-- `lookup_funcs` confirms `0x006192cc`, `0x006192d8`, and `0x006192e0` are not functions.
-- `py_eval` confirms `0x006192c8 -> ??_R4Encoder@@6B@`, `0x006192cc -> 0x004a5e30`, `0x006192d0 -> 0x004a5630`, `0x006192d4 -> ??_R4Decoder@@6B@`, `0x006192d8 -> 0x004a5e00`, and `0x006192dc -> 0x004a5df0`.
-- `xrefs_to 0x006192cc` reports only Encoder constructor/destructor/deleting-destructor vptr stores at `0x004a4e70`, `0x004a4ea0`, and `0x004a5e3a`.
-- `xrefs_to 0x006192d8` reports only Decoder constructor/destructor/deleting-destructor vptr stores at `0x004a5640`, `0x004a5670`, and `0x004a5e0a`.
-- `xrefs_to 0x006192e0` reports DAT parser code at `0x004a5e9e`, so the table after the Decoder no-op slot is adjacent non-vtable constant data, not a third Decoder vtable slot.
-- Disassembly confirms both no-op virtual targets are single-byte `retn` functions and both scalar deleting destructors restore the class vtable, check the scalar-delete flag, and conditionally call the delete helper with size `0x14`.
+2026-06-04 IDA MCP checks confirmed:
+
+- `0x004a5630-0x004a5631` and `0x004a5df0-0x004a5df1` are one-byte `retn` functions.
+- `0x004a5e00-0x004a5e24` and `0x004a5e30-0x004a5e54` are scalar deleting destructor wrappers that restore the class vtable and conditionally call the delete helper.
+- `0x006192c8 -> ??_R4Encoder@@6B@`
+- `0x006192cc -> 0x004a5e30`
+- `0x006192d0 -> 0x004a5630`
+- `0x006192d4 -> ??_R4Decoder@@6B@`
+- `0x006192d8 -> 0x004a5e00`
+- `0x006192dc -> 0x004a5df0`
+- `0x006192e0 -> 0x0000001a`, with the only data ref from `0x004a5e9e` inside the adjacent [UID:0000IN][DATFile](by-file/DATFile.md) parser helper. This proves `0x006192e0` is not another codec vtable slot.
+- `0x004a5e54-0x004a5e60` is `0xcc` padding before the adjacent DAT helper at `0x004a5e60`.
 
 ## Source-Layout Implication
 
-Both classes have compact two-slot vtables and share the same [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md) field pattern. The vtable adjacency supports a paired utility source family, either separate `util/Encoder.cpp` / `util/Decoder.cpp` files or one compact `util/BinaryCodec.cpp`. It does not support assigning the codec methods to packet, DAT, or text-edit feature modules.
+Both classes have compact two-slot vtables and share the same [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md) field pattern. The vtable adjacency supports a paired utility source family, either separate `NexusTK/util/Encoder.cpp` / `NexusTK/util/Decoder.cpp` files or one compact binary-codec source/header family. It does not support assigning the codec methods to packet, DAT, or text-edit feature modules.
 
 ## Cross-References
 
@@ -83,6 +89,7 @@ Both classes have compact two-slot vtables and share the same [UID:0001TS][Binar
 
 ## Changes
 
-- What existed before: the page had strong vtable content but remained scored as unevaluated and reconstructability was not marked.
-- What it was changed to: the page is now marked reconstructable, scored `84/90`, and slot targets now link to the exact memory pages.
-- Summary/evidence: 2026-05-31 IDA MCP reconfirmed the Encoder and Decoder vtable slots, constructor/destructor vptr-store xrefs, no-op bodies, deleting-destructor bodies, RTTI adjacency, and the `0x006192e0` non-vtable boundary.
+- 2026-06-04: Attached `AUTOGEN_PARENT_UID:0000HQ`; scores remain `84/90`.
+  - Before: the page had strong vtable content but no parent attachment and stale non-IDA metadata caveat wording.
+  - After: live IDA MCP reconfirms slot dwords, vtable-store refs, no-op bodies, deleting-destructor boundaries, padding, and the `0x006192e0` non-vtable boundary, and the page is attached to the strengthened BinaryCodec coordinator.
+  - Score rationale: no score increase was made because the new pass reconfirms rather than materially expands the vtable evidence.

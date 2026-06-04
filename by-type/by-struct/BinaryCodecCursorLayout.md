@@ -1,9 +1,9 @@
 *** UID:0001TS | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HQ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -13,10 +13,11 @@
 ## Status
 
 - Entity kind: shared object layout for [UID:00004F][Encoder](by-class/Encoder.md) and [UID:00003M][Decoder](by-class/Decoder.md).
-- Confidence: strong for observed offsets, medium for final source-facing field names and `sizeof` tail padding.
-- Likely owner header: `util/Encoder.h`, `util/Decoder.h`, or a compact `util/BinaryCodec.h`.
-- Evidence basis: IDA MCP disassembly of constructor/initialize/finalize bodies on 2026-05-26, plus existing exact memory pages.
-- Reconstructable: yes, as source-level codec cursor layout information. Do not emit declaration C++ until the final owner header and class split are proven.
+- Confidence: strong for observed offsets, constructor initialization, initialize/finalize field use, and raw reader/writer field use.
+- Remaining caveat: final source-facing field names and tail padding/`sizeof` are not proven.
+- Likely owner header: `NexusTK/util/Encoder.h`, `NexusTK/util/Decoder.h`, or a compact `NexusTK/util/BinaryCodec.h`.
+- Parent attachment: attached to [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md), now `80/86`, because this is a shared layout across both codec classes.
+- C++ reconstruction: intentionally blank until final header ownership and class split reach the 95/95 final-code bar.
 
 ## Layout
 
@@ -33,23 +34,17 @@
 
 Observed field use spans `0x12` bytes. Final C++ `sizeof` and tail padding should remain open until allocation/caller evidence proves whether the original declaration packed the two flag bytes or rounded to 4-byte alignment.
 
-## IDA Evidence
+## Live IDA Evidence
 
-- `Encoder::Encoder` at `0x004a4e70` installs vtable `0x006192cc`, clears `+0x04`, `+0x08`, and `+0x0c`, then writes word `0x0101` at `+0x10`.
-- `Decoder::Decoder` at `0x004a5640` installs vtable `0x006192d8`, clears `+0x04`, `+0x08`, and `+0x0c`, then writes word `0x0101` at `+0x10`.
-- `Encoder::Initialize` at `0x004a55c0` stores buffer/size at `+0x04/+0x08`, clears cursor `+0x0c`, and sets byte `+0x11`.
-- Raw [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md) use `+0x04` as buffer base, `+0x08` as limit, `+0x0c` as cursor, `+0x10` as byte-order flag, and `+0x11` as valid flag.
-- Raw [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md) use the same fields for UTF-16, multibyte, raw-byte, transformed-byte, skip, and initialize bodies; the raw initialize stores buffer/limit, clears cursor, and sets valid flag.
-- Raw `Decoder::Initialize` at `0x004a5db0` performs the same buffer/size/cursor/valid setup, but IDA does not currently model it as a function start.
-- `Encoder::Finalize` at `0x004a55e0` returns previous valid state, optionally reports cursor `+0x0c`, writes a trailing NUL at `buffer[cursor]`, clears buffer/size/cursor, and resets byte `+0x11`.
-- `Decoder::Finalize` at `0x004a5dd0` returns previous valid state, clears buffer/size/cursor, and resets byte `+0x11`.
-- 2026-05-31 IDA MCP recheck confirms `Encoder::Encoder` at `0x004a4e70` and `Decoder::Decoder` at `0x004a5640` both clear dwords `+0x04`, `+0x08`, and `+0x0c`, then write word `0x0101` at `+0x10`.
-- 2026-05-31 IDA MCP recheck confirms `Encoder::Initialize` at `0x004a55c0` writes buffer/size/cursor/valid at `+0x04/+0x08/+0x0c/+0x11`, and `Encoder::Finalize` at `0x004a55e0` returns byte `+0x11`, reports cursor `+0x0c`, clears the cursor state, and resets valid to `1`.
-- 2026-05-31 IDA MCP recheck confirms `Decoder::Finalize` at `0x004a5dd0` returns byte `+0x11`, clears buffer/size/cursor, and resets valid to `1`.
+2026-06-04 IDA MCP checks confirmed:
 
-## Generated-Data Caveat
-
-Current `class_Encoder.meta_wave3` already records an 18-byte stream-like layout, but current `class_Decoder.meta_wave3` reports a 4-byte minimal class. IDA confirms `Decoder` uses the same cursor fields as `Encoder`; do not migrate active `class_Decoder.cpp` until this layout is corrected.
+- `Encoder::Encoder` at `0x004a4e70-0x004a4e94` stores vtable `0x006192cc`, clears dwords `+0x04`, `+0x08`, and `+0x0c`, then writes word `0x0101` at `+0x10`.
+- `Decoder::Decoder` at `0x004a5640-0x004a5664` stores vtable `0x006192d8`, clears dwords `+0x04`, `+0x08`, and `+0x0c`, then writes word `0x0101` at `+0x10`.
+- `Encoder::Initialize` at `0x004a55c0-0x004a55de` writes buffer/size at `+0x04/+0x08`, clears cursor `+0x0c`, and writes valid byte `+0x11`.
+- `Encoder::Finalize` at `0x004a55e0-0x004a5621` reads valid byte `+0x11`, optionally reports cursor `+0x0c`, writes the trailing NUL through buffer `+0x04`, clears buffer/size/cursor, and restores valid byte `+0x11`.
+- `Decoder::Finalize` at `0x004a5dd0-0x004a5ded` reads valid byte `+0x11`, clears buffer/size/cursor at `+0x04/+0x08/+0x0c`, and restores valid byte `+0x11`.
+- Writer bodies at `0x004a4ec0`, `0x004a4f00`, `0x004a4ff0`, and `0x004a5480` check valid byte `+0x11`, compare limit `+0x08` with cursor growth from `+0x0c`, use buffer `+0x04`, and honor byte-order flag `+0x10` for scalar values.
+- Raw [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md) and [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md) use the same field offsets for input buffer, limit, cursor, byte-order flag, and validity.
 
 ## Open Questions
 
@@ -67,3 +62,10 @@ Current `class_Encoder.meta_wave3` already records an 18-byte stream-like layout
 - [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md)
 - [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md)
 - [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md)
+
+## Changes
+
+- 2026-06-04: Raised grading from `78/88` to `82/90` and attached `AUTOGEN_PARENT_UID:0000HQ`.
+  - Before: the page had strong layout evidence but still lacked a parent attachment and carried stale non-live metadata caveat wording.
+  - After: live IDA MCP evidence records constructor, initialize, finalize, writer, and reader use of every cursor field, with the shared layout attached to the strengthened BinaryCodec coordinator.
+  - Score rationale: completion and confidence increased because the field offsets are now verified across both classes and across both modeled and raw bodies. The score remains below final-code level because final field names, tail padding, and header ownership are still open.

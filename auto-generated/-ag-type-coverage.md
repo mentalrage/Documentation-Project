@@ -5,9 +5,9 @@
 Total_Type: 198
 Total_Reconstructable: 190
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 15
+Total_Reconstructed_Assigned: 18
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 175
+Total_Reconstructable_Unassigned: 172
 Total_Unclassified: 5
 Total_Error: 0
 
@@ -17,6 +17,8 @@ Total_Error: 0
 | [UID:0001SM][BrowserOverlayStyle](by-type/by-enum/BrowserOverlayStyle.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-type/by-enum/BrowserOverlayStyle.md` |  |
 | [UID:0001SV][SelectionControlPaneSelectedValue_0x10c](by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md) | assigned | `0000CR` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md` |  |
 | [UID:0001TR][AttachedObjectRegistryLayout](by-type/by-struct/AttachedObjectRegistryLayout.md) | assigned | `0000HJ` |  | no | `auto-generated/NexusTK/map/AttachedObjectPane.cpp` | `by-type/by-struct/AttachedObjectRegistryLayout.md` |  |
+| [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md) | assigned | `0000HQ` | 10 | no | `auto-generated/NexusTK/util/BinaryCodec.cpp` | `by-type/by-struct/BinaryCodecCursorLayout.md` |  |
+| [UID:0001TU][CachedHashTableLayout](by-type/by-struct/CachedHashTableLayout.md) | assigned | `0000HZ` |  | no | `auto-generated/NexusTK/util/CachedHashTable.cpp` | `by-type/by-struct/CachedHashTableLayout.md` |  |
 | [UID:0001TZ][CollectionPlayerDataLayout](by-type/by-struct/CollectionPlayerDataLayout.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-type/by-struct/CollectionPlayerDataLayout.md` |  |
 | [UID:0001UA][EffectPixMapInfo](by-type/by-struct/EffectPixMapInfo.md) | assigned | `0000IY` |  | no | `auto-generated/NexusTK/render/EffectObjImageLib.cpp` | `by-type/by-struct/EffectPixMapInfo.md` |  |
 | [UID:0001VI][ParcelNotificationPaneLayouts](by-type/by-struct/ParcelNotificationPaneLayouts.md) | assigned | `0000MF` | 5 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-type/by-struct/ParcelNotificationPaneLayouts.md` |  |
@@ -25,6 +27,7 @@ Total_Error: 0
 | [UID:0001VO][RankingEventScrollPaneLayout](by-type/by-struct/RankingEventScrollPaneLayout.md) | assigned | `0000BO` | 5 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-struct/RankingEventScrollPaneLayout.md` |  |
 | [UID:0001VP][RectBoundsLayout](by-type/by-struct/RectBoundsLayout.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-type/by-struct/RectBoundsLayout.md` |  |
 | [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md) | assigned | `0000HM` | 20 | no | `auto-generated/NexusTK/util/AUTOBUF.cpp` | `by-type/by-template/AUTOBUF_unsigned_char.md` |  |
+| [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md) | assigned | `0000HQ` | 20 | no | `auto-generated/NexusTK/util/BinaryCodec.cpp` | `by-type/by-vtable/BinaryCodecVtables.md` |  |
 | [UID:0001X4][BoardArticleDialogVtableFamily](by-type/by-vtable/BoardArticleDialogVtableFamily.md) | assigned | `0000HT` |  | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |  |
 | [UID:0001YI][PursuitMessageDialogPaneVtables](by-type/by-vtable/PursuitMessageDialogPaneVtables.md) | assigned | `0000LA` |  | no | `auto-generated/NexusTK/ui/dialogs/MessageDialogs.cpp` | `by-type/by-vtable/PursuitMessageDialogPaneVtables.md` |  |
 | [UID:0001YK][RankingEventScrollPaneVtables](by-type/by-vtable/RankingEventScrollPaneVtables.md) | assigned | `0000BO` | 6 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-vtable/RankingEventScrollPaneVtables.md` |  |
@@ -41,9 +44,7 @@ Total_Error: 0
 | [UID:0001SR][ThreadManMessageId](by-type/by-enum/ThreadManMessageId.md) | unassigned |  |  | no |  | `by-type/by-enum/ThreadManMessageId.md` |  |
 | [UID:0001TN][AddEmployeeItemDialogLayout](by-type/by-struct/AddEmployeeItemDialogLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/AddEmployeeItemDialogLayout.md` |  |
 | [UID:0001TO][AlertPaneLayout](by-type/by-struct/AlertPaneLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/AlertPaneLayout.md` |  |
-| [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/BinaryCodecCursorLayout.md` |  |
 | [UID:0001TT][BlackHoleLayout](by-type/by-struct/BlackHoleLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/BlackHoleLayout.md` |  |
-| [UID:0001TU][CachedHashTableLayout](by-type/by-struct/CachedHashTableLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/CachedHashTableLayout.md` |  |
 | [UID:0001TV][ChangeManEntry](by-type/by-struct/ChangeManEntry.md) | unassigned |  |  | no |  | `by-type/by-struct/ChangeManEntry.md` |  |
 | [UID:0001TW][ChangeManLayout](by-type/by-struct/ChangeManLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/ChangeManLayout.md` |  |
 | [UID:0001TX][CheckBoxControlPaneLayout](by-type/by-struct/CheckBoxControlPaneLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/CheckBoxControlPaneLayout.md` |  |
@@ -135,7 +136,6 @@ Total_Error: 0
 | [UID:0001WS][StringBaseTemplate](by-type/by-template/StringBaseTemplate.md) | unassigned |  |  | no |  | `by-type/by-template/StringBaseTemplate.md` |  |
 | [UID:0001WZ][AlertPaneVtables](by-type/by-vtable/AlertPaneVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/AlertPaneVtables.md` |  |
 | [UID:0001X0][AutoInitVtable](by-type/by-vtable/AutoInitVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/AutoInitVtable.md` |  |
-| [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/BinaryCodecVtables.md` |  |
 | [UID:0001X2][BlackHoleVtable](by-type/by-vtable/BlackHoleVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/BlackHoleVtable.md` |  |
 | [UID:0001X3][BlueAlertPaneVtables](by-type/by-vtable/BlueAlertPaneVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/BlueAlertPaneVtables.md` |  |
 | [UID:0001X5][BulletinDialogVtables](by-type/by-vtable/BulletinDialogVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/BulletinDialogVtables.md` |  |
