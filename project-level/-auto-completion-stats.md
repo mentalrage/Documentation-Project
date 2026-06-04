@@ -81,7 +81,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000NZ` | blank | `(blank)` | `by-file/SpelledPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O3` | blank | `(blank)` | `by-file/StaffsDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O6` | blank | `(blank)` | `by-file/StaticObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000O8` | blank | `(blank)` | `by-file/StaticTextControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OG` | blank | `(blank)` | `by-file/TargetOptionDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OK` | blank | `(blank)` | `by-file/TextButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000OM` | blank | `(blank)` | `by-file/TextEditControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -97,12 +96,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000E3` | 78 | 76 | 77.0 | `by-class/StaticTextControlPane.md` |
-| `0000EI` | 78 | 76 | 77.0 | `by-class/TextBoxPane.md` |
-| `0000EQ` | 78 | 76 | 77.0 | `by-class/TextFilter.md` |
-| `0000F0` | 78 | 76 | 77.0 | `by-class/TimerHandler.md` |
-| `0000FB` | 78 | 76 | 77.0 | `by-class/TreeItor_struct_FolderTreePane__TreeElem_.md` |
-| `0000FC` | 78 | 76 | 77.0 | `by-class/TreeStorage_struct_FolderTreePane__TreeElem_.md` |
 | `00008X` | 78 | 76 | 77.0 | `by-class/ncauth__Notification.md` |
 | `0000MY` | 78 | 76 | 77.0 | `by-file/RainingLayerPane.md` |
 | `0000BW` | 80 | 76 | 78.0 | `by-class/RegistryConfig.md` |
@@ -147,7 +140,6 @@ _No scored files._
 | `0000NY` | 76 | 82 | 79.0 | `by-file/SpecializedButtonPanes.md` |
 | `0000L4` | 78 | 80 | 79.0 | `by-file/MapRefreshDimmer.md` |
 | `0000MI` | 78 | 80 | 79.0 | `by-file/PathUtil.md` |
-| `0000OJ` | 78 | 80 | 79.0 | `by-file/TextBoxPane.md` |
 
 ### by-function
 

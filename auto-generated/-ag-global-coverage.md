@@ -3,12 +3,12 @@
 # ag-global-coverage
 
 Total_Type: 158
-Total_Reconstructable: 43
+Total_Reconstructable: 44
 Total_Not_Reconstructable: 2
-Total_Reconstructed_Assigned: 34
+Total_Reconstructed_Assigned: 35
 Total_Reconstructed_Coded: 0
 Total_Reconstructable_Unassigned: 9
-Total_Unclassified: 113
+Total_Unclassified: 112
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -23,6 +23,7 @@ Total_Error: 0
 | [UID:0000TE][OpenStoryViewingPane_4F90C0](by-global/OpenStoryViewingPane_4F90C0.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-global/OpenStoryViewingPane_4F90C0.md` |  |
 | [UID:0000TF][OpenTerminalPane_4F91C0](by-global/OpenTerminalPane_4F91C0.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-global/OpenTerminalPane_4F91C0.md` |  |
 | [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md) | assigned | `0000IN` |  | no | `auto-generated/NexusTK/archive/DATFile.cpp` | `by-global/ParseEntries_004A5E60.md` |  |
+| [UID:0000TK][SanitizeWideTextForChat](by-global/SanitizeWideTextForChat.md) | assigned | `0000OO` |  | no | `auto-generated/NexusTK/ui/controls/TextFilter.cpp` | `by-global/SanitizeWideTextForChat.md` |  |
 | [UID:0000TL][SendOptionPacket11B_540E50](by-global/SendOptionPacket11B_540E50.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-global/SendOptionPacket11B_540E50.md` |  |
 | [UID:0000PP][g_activeBrowserPane](by-global/g_activeBrowserPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/g_activeBrowserPane.md` |  |
 | [UID:0000PQ][g_activeDialogCount](by-global/g_activeDialogCount.md) | assigned | `0000IT` |  | no | `auto-generated/NexusTK/ui/core/DialogPane.cpp` | `by-global/g_activeDialogCount.md` |  |
@@ -77,7 +78,6 @@ Total_Error: 0
 | [UID:0000TD][OpenQuitPrompt_5A94B0](by-global/OpenQuitPrompt_5A94B0.md) | unclassified |  |  | no |  | `by-global/OpenQuitPrompt_5A94B0.md` |  |
 | [UID:0000TG][PacketTransformGlobals](by-global/PacketTransformGlobals.md) | unclassified |  |  | no |  | `by-global/PacketTransformGlobals.md` |  |
 | [UID:0000TI][PoolAllocatorStaticInstances](by-global/PoolAllocatorStaticInstances.md) | unclassified |  |  | no |  | `by-global/PoolAllocatorStaticInstances.md` |  |
-| [UID:0000TK][SanitizeWideTextForChat](by-global/SanitizeWideTextForChat.md) | unclassified |  |  | no |  | `by-global/SanitizeWideTextForChat.md` |  |
 | [UID:0000TM][StringBufferSentinelsAndPools](by-global/StringBufferSentinelsAndPools.md) | unclassified |  |  | no |  | `by-global/StringBufferSentinelsAndPools.md` |  |
 | [UID:0000TN][SurfaceRenderCallbackTable](by-global/SurfaceRenderCallbackTable.md) | unclassified |  |  | no |  | `by-global/SurfaceRenderCallbackTable.md` |  |
 | [UID:0000TO][VectorGrowMotion](by-global/VectorGrowMotion.md) | unclassified |  |  | no |  | `by-global/VectorGrowMotion.md` |  |

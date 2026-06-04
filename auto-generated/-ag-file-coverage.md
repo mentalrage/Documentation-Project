@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 218
+Total_Reconstructed_Assigned: 219
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 70
+Total_Error: 69
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -195,6 +195,7 @@ Total_Error: 70
 | [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-file/StartupLogoPanes.md` | by-file generated root |
 | [UID:0000O5][StartupWindow](by-file/StartupWindow.md) | assigned |  |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-file/StartupWindow.md` | by-file generated root |
 | [UID:0000O7][StaticObjImageLib](by-file/StaticObjImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/StaticObjImageLib.cpp` | `by-file/StaticObjImageLib.md` | by-file generated root |
+| [UID:0000O8][StaticTextControlPane](by-file/StaticTextControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/StaticTextControlPane.cpp` | `by-file/StaticTextControlPane.md` | by-file generated root |
 | [UID:0000O9][StdioFile](by-file/StdioFile.md) | assigned |  |  | no | `auto-generated/NexusTK/util/StdioFile.cpp` | `by-file/StdioFile.md` | by-file generated root |
 | [UID:0000OA][StringBase](by-file/StringBase.md) | assigned |  |  | no | `auto-generated/NexusTK/util/StringBase.cpp` | `by-file/StringBase.md` | by-file generated root |
 | [UID:0000OB][StringUtil](by-file/StringUtil.md) | assigned |  |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-file/StringUtil.md` | by-file generated root |
@@ -294,7 +295,6 @@ Total_Error: 70
 | [UID:0000NZ][SpelledPane](by-file/SpelledPane.md) | error |  |  | no |  | `by-file/SpelledPane.md` | by-file generated root |
 | [UID:0000O3][StaffsDialogPane](by-file/StaffsDialogPane.md) | error |  |  | no |  | `by-file/StaffsDialogPane.md` | by-file generated root |
 | [UID:0000O6][StaticObjectPane](by-file/StaticObjectPane.md) | error |  |  | no |  | `by-file/StaticObjectPane.md` | by-file generated root |
-| [UID:0000O8][StaticTextControlPane](by-file/StaticTextControlPane.md) | error |  |  | no |  | `by-file/StaticTextControlPane.md` | by-file generated root |
 | [UID:0000OG][TargetOptionDialog](by-file/TargetOptionDialog.md) | error |  |  | no |  | `by-file/TargetOptionDialog.md` | by-file generated root |
 | [UID:0000OK][TextButtonControlPane](by-file/TextButtonControlPane.md) | error |  |  | no |  | `by-file/TextButtonControlPane.md` | by-file generated root |
 | [UID:0000OM][TextEditControlPane](by-file/TextEditControlPane.md) | error |  |  | no |  | `by-file/TextEditControlPane.md` | by-file generated root |

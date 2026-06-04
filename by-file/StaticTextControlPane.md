@@ -1,7 +1,7 @@
 *** UID:0000O8 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # StaticTextControlPane
 
@@ -10,7 +10,7 @@
 - Confidence: strong for grouping `StaticTextControlPane`, `StaticTextControlPane2`, and `StaticTextControlPane2::SimpleHelpTextPartPane`; medium for exact original class names.
 - Proposed module: `ui/controls/StaticTextControlPane.cpp`
 - Proposed header: `ui/controls/StaticTextControlPane.h`
-- Current recovered sources: `source-3/simroot_v2/class_StaticTextControlPane.cpp`, `class_StaticTextControlPane2.cpp`, and `class_StaticTextControlPane2__SimpleHelpTextPartPane.cpp`
+- Reviewed source-family inputs: `StaticTextControlPane`, `StaticTextControlPane2`, and `StaticTextControlPane2::SimpleHelpTextPartPane` class pages plus their exact memory ranges.
 - Main address clusters: `0x00498dd0-0x004991ec`, `0x00499fe0-0x0049b915`, and `0x004bafa0-0x004bb0da`
 
 ## File Role
@@ -51,7 +51,7 @@ Do not merge this into [UID:0000OK][TextButtonControlPane](by-file/TextButtonCon
 
 ## Current Caveats
 
-- `class_StaticTextControlPane.cpp` currently emits only a marker and local `TextEditPane` struct for the constructor body at `0x00499030`, despite the range being `0x00499030-0x004991eb` and the method having 104 direct callers. This is tracked in [Wave3 Noticed Problems](../wave3_noticed_problems.md).
+- Earlier constructor notes for `0x00499030` were incomplete, but live IDA shows a nontrivial constructor that installs three `StaticTextControlPane` vtables, allocates an embedded text pane, initializes its bounds/state, seeds optional text, and finalizes the owner state. Use live IDA and the memory docs as authority until final source reconstruction.
 - The class summary for `StaticTextControlPane` appears overfit to fitting-room user-image state. Treat fitting-room names in active/inactive helpers as provisional until field ownership is verified.
 - `SimpleHelpTextPartPane` destructor support currently references unrelated generated owner names such as `BowGaugeObjectPane` and `TextButtonExControlPane`. Treat those as owner-name pollution.
 
@@ -78,3 +78,6 @@ Do not merge this into [UID:0000OK][TextButtonControlPane](by-file/TextButtonCon
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `86` and confidence to `80`.
   - Evidence: document covers static-text control role, proposed contents, grouping decision, FontStyle relationship, IDA caller evidence, generated-output caveats, range correction, and cross-references; confidence remains capped by exact original class names and incomplete generated constructor body.
+- 2026-06-04: Set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/ui/controls/`.
+  - Evidence: the page already proposes `ui/controls/StaticTextControlPane.cpp` and `.h`; live IDA confirms this is a UI control family through adjacent `StaticTextControlPane`/`StaticTextControlPane2` vtables, pane constructors, dialog fan-in, and child control behavior.
+  - Score unchanged because this is a parent-path assignment, not new behavioral coverage beyond the existing `86/80` file-page assessment.

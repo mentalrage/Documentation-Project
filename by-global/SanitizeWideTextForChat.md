@@ -1,8 +1,8 @@
 *** UID:0000TK | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -13,10 +13,9 @@
 ## Status
 
 - Symbol kind: recovered free helper.
-- Address range: `0x005957c0-0x005958c9`.
+- Address range: `0x005957c0-0x005958ca`.
 - Proposed signature: `void SanitizeWideTextForChat(unsigned short* text, unsigned int textLength)`.
-- Likely owner: [UID:0000OO][TextFilter](by-file/TextFilter.md), or a broader text utility source if final foldering moves sanitizer code out of `ui/controls`.
-- Current recovered source: `source-3/simroot_v2/recovered/SanitizeWideTextForChat_005957C0.cpp`.
+- Parent attachment: [UID:0000OO][TextFilter](by-file/TextFilter.md), with a broader text utility source still possible if final foldering moves sanitizer code out of `ui/controls`.
 - Confidence: strong for behavior, callers, and address range.
 
 ## Purpose
@@ -32,9 +31,9 @@ The allowed accented code units are:
 
 ## Evidence
 
-- IDA MCP `lookup_funcs` on 2026-05-26 confirms `0x005957c0` as a real function with size `0x10a`, ending at `0x005958ca`.
-- IDA decompilation on 2026-05-26 matches the active recovered source in `simroot_v2/recovered/SanitizeWideTextForChat_005957C0.cpp`.
-- IDA callers on 2026-05-26 show 14 direct call sites spanning article, mail, profile, party search, spell-string input, target-message input, normal say, recipient say, and shout flows.
+- IDA MCP `lookup_funcs` on 2026-06-04 confirms `0x005957c0` as a real function with size `0x10a`, ending at `0x005958ca`.
+- IDA decompilation on 2026-06-04 shows the helper loops over UTF-16 code units, stops at NUL, preserves the documented ASCII/CR/LF/accent allowlist, and writes `?` (`0x003f`) for disallowed nonzero code units.
+- IDA callers on 2026-06-04 show 14 direct call sites spanning article, mail, profile, party search, spell-string input, target-message input, normal say, recipient say, and shout flows.
 - The helper is adjacent to [UID:0000EQ][TextFilter](by-class/TextFilter.md) and reads are paired with [UID:0000SG][g_pTextFilter](by-global/g_pTextFilter.md) in several callers, but the body is a free helper rather than a `TextFilter` virtual method.
 
 ## Caller Families
@@ -62,3 +61,9 @@ The allowed accented code units are:
 ## Changes
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `90/86`. Summary/evidence: the page documents the exact function range, proposed signature, sanitizer behavior, allowlist, IDA decompilation/caller evidence, caller families, and likely owner, with only final source placement open.
+- 2026-06-04: Corrected the displayed address range to end-exclusive `0x005957c0-0x005958ca` and refreshed evidence from live IDA.
+  - Evidence: live IDA MCP reports size `0x10a`, 14 direct call sites across 12 caller functions, and decompilation matching the documented allowlist/replacement behavior.
+  - Score unchanged because behavior and caller coverage were already strong at `90/86`; the edit aligns endpoint notation and removes stale source-output wording.
+- 2026-06-04: Set `RECONSTRUCTABLE:TRUE` and attached the helper to [UID:0000OO][TextFilter](by-file/TextFilter.md).
+  - Evidence: the helper is adjacent to the TextFilter lifecycle cluster, several callers read [UID:0000SG][g_pTextFilter](by-global/g_pTextFilter.md) before calling the sanitizer, and the parent file page is now `84/86` with the sanitizer listed as a proposed content.
+  - Score unchanged because this is an autogen attachment update, not new behavior beyond the live IDA recheck above.

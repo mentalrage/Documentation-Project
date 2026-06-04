@@ -27,9 +27,9 @@
 
 - IDA MCP `xrefs_to 0x0067adc8` on 2026-05-26 shows constructor writes at `0x00595771` and `0x00595784`, clear writes at `0x005957a6` and `0x005958e0`, and reads from text-submission callers before they call `0x005957c0`.
 - IDA MCP `py_eval` rechecked `0x0067adc8` on 2026-05-31 and confirmed IDA name `dword_67ADC8`, initial dword `0xffffffff`, and 19 data xrefs. The same recheck confirmed the constructor writes, destructor/clear writes, and broad submit-path reads listed below.
-- `TextFilter::TextFilter` at `0x00595760-0x00595794` stores `this` into `0x0067adc8` and installs the [UID:0001YY][TextFilterVtable](by-type/by-vtable/TextFilterVtable.md).
-- The non-deleting destructor-like body at `0x005957a0-0x005957b0` and scalar deleting destructor at `0x005958d0-0x005958fd` both clear the singleton.
-- Current `simroot_v2/class_TextFilter.cpp` emits `TextFilter* g_pTextFilter`, but the generated global-data record remains below completion threshold and should be checked against this address before migration.
+- `TextFilter::TextFilter` at `0x00595760-0x00595795` stores `this` into `0x0067adc8` and installs the [UID:0001YY][TextFilterVtable](by-type/by-vtable/TextFilterVtable.md).
+- The non-deleting destructor-like body at `0x005957a0-0x005957b1` and scalar deleting destructor at `0x005958d0-0x005958fe` both clear the singleton.
+- Live IDA ties the singleton lifecycle to this exact address; final source naming remains below the 95+ reconstruction threshold.
 
 ## Users
 
@@ -58,4 +58,7 @@ IDA data xrefs include article/mail/profile/party-search/spell/chat submit paths
 - 2026-05-31: Updated reconstruction metadata and scores from live IDA evidence.
   - Before: completion/confidence were `0/0`, reconstructable state was blank, and no parent file UID was assigned.
   - After: `COMPLETION:76`, `CONFIDENCE:84`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000OO` for [UID:0000OO][TextFilter](by-file/TextFilter.md). `RECONSTRUCTION_CPP CODE` remains blank because the page is below the 95+ final-source threshold.
-  - Evidence: IDA MCP rechecked `0x0067adc8` as a 4-byte singleton pointer with 19 data xrefs, constructor writes in `0x00595760-0x00595794`, clear writes in `0x005957a0-0x005957b0` and `0x005958d0-0x005958fe`, and broad user-text submission reads.
+  - Evidence: IDA MCP rechecked `0x0067adc8` as a 4-byte singleton pointer with 19 data xrefs, constructor writes in `0x00595760-0x00595795`, clear writes in `0x005957a0-0x005957b1` and `0x005958d0-0x005958fe`, and broad user-text submission reads.
+- 2026-06-04: Corrected linked TextFilter lifecycle ranges to live IDA end-exclusive endpoints.
+  - Evidence: live IDA MCP reports constructor `0x00595760-0x00595795`, non-deleting body `0x005957a0-0x005957b1`, scalar deleting destructor `0x005958d0-0x005958fe`, and the same 19 data xrefs for `0x0067adc8`.
+  - Score unchanged because this edit only aligns endpoints and removes stale source-output wording; the address/lifecycle confidence was already reflected in `76/84`.

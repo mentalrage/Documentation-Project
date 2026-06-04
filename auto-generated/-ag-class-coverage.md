@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 270
+Total_Reconstructable: 276
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 193
+Total_Reconstructed_Assigned: 199
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 315
+Total_Unclassified: 309
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -187,12 +187,18 @@ Total_Error: 0
 | [UID:0000DO][SpellInventoryPane2](by-class/SpellInventoryPane2.md) | assigned | `0000O1` |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-class/SpellInventoryPane2.md` |  |
 | [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
 | [UID:0000E0][StaticCloudFilterEffecter](by-class/StaticCloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/StaticCloudFilterEffecter.md` |  |
+| [UID:0000E3][StaticTextControlPane](by-class/StaticTextControlPane.md) | assigned | `0000O8` |  | no | `auto-generated/NexusTK/ui/controls/StaticTextControlPane.cpp` | `by-class/StaticTextControlPane.md` |  |
 | [UID:0000E7][StringIter](by-class/StringIter.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/StringIter.md` |  |
 | [UID:0000E9][SwallowLayerPane](by-class/SwallowLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SwallowLayerPane.md` |  |
 | [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/TakeOffInputPane.md` |  |
+| [UID:0000EI][TextBoxPane](by-class/TextBoxPane.md) | assigned | `0000OJ` |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-class/TextBoxPane.md` |  |
+| [UID:0000EQ][TextFilter](by-class/TextFilter.md) | assigned | `0000OO` |  | no | `auto-generated/NexusTK/ui/controls/TextFilter.cpp` | `by-class/TextFilter.md` |  |
 | [UID:0000EZ][ThrowReallyInputPane](by-class/ThrowReallyInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/ThrowReallyInputPane.md` |  |
+| [UID:0000F0][TimerHandler](by-class/TimerHandler.md) | assigned | `0000OT` |  | no | `auto-generated/NexusTK/util/TimerMgr.cpp` | `by-class/TimerHandler.md` |  |
 | [UID:0000F6][TransferReplyPredefinedAlert](by-class/TransferReplyPredefinedAlert.md) | assigned | `0000HW` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/TransferReplyPredefinedAlert.md` |  |
 | [UID:0000FA][TreeItor_near_class_EventHandler___](by-class/TreeItor_near_class_EventHandler___.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/TreeItor_near_class_EventHandler___.md` |  |
+| [UID:0000FB][TreeItor_struct_FolderTreePane__TreeElem_](by-class/TreeItor_struct_FolderTreePane__TreeElem_.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-class/TreeItor_struct_FolderTreePane__TreeElem_.md` |  |
+| [UID:0000FC][TreeStorage_struct_FolderTreePane__TreeElem_](by-class/TreeStorage_struct_FolderTreePane__TreeElem_.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-class/TreeStorage_struct_FolderTreePane__TreeElem_.md` |  |
 | [UID:0000F8][Tree_near_class_EventHandler___](by-class/Tree_near_class_EventHandler___.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/Tree_near_class_EventHandler___.md` |  |
 | [UID:0000FD][UInt32Vector](by-class/UInt32Vector.md) | assigned | `0000P3` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-class/UInt32Vector.md` |  |
 | [UID:0000FI][UserFaceColorSelectListPane](by-class/UserFaceColorSelectListPane.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-class/UserFaceColorSelectListPane.md` |  |
@@ -537,7 +543,6 @@ Total_Error: 0
 | [UID:0000DZ][StartupWindow](by-class/StartupWindow.md) | unclassified |  |  | no |  | `by-class/StartupWindow.md` |  |
 | [UID:0000E2][StaticObjImageLib](by-class/StaticObjImageLib.md) | unclassified |  |  | no |  | `by-class/StaticObjImageLib.md` |  |
 | [UID:0000E1][StaticObjectPane](by-class/StaticObjectPane.md) | unclassified |  |  | no |  | `by-class/StaticObjectPane.md` |  |
-| [UID:0000E3][StaticTextControlPane](by-class/StaticTextControlPane.md) | unclassified |  |  | no |  | `by-class/StaticTextControlPane.md` |  |
 | [UID:0000E4][StaticTextControlPane2](by-class/StaticTextControlPane2.md) | unclassified |  |  | no |  | `by-class/StaticTextControlPane2.md` |  |
 | [UID:0000E5][StaticTextControlPane2__SimpleHelpTextPartPane](by-class/StaticTextControlPane2__SimpleHelpTextPartPane.md) | unclassified |  |  | no |  | `by-class/StaticTextControlPane2__SimpleHelpTextPartPane.md` |  |
 | [UID:0000EA][SystemMessagePane](by-class/SystemMessagePane.md) | unclassified |  |  | no |  | `by-class/SystemMessagePane.md` |  |
@@ -547,7 +552,6 @@ Total_Error: 0
 | [UID:0000EF][TargetOptionEditControlPane](by-class/TargetOptionEditControlPane.md) | unclassified |  |  | no |  | `by-class/TargetOptionEditControlPane.md` |  |
 | [UID:0000EG][TerminalPane](by-class/TerminalPane.md) | unclassified |  |  | no |  | `by-class/TerminalPane.md` |  |
 | [UID:0000EH][TerminalSetupPane](by-class/TerminalSetupPane.md) | unclassified |  |  | no |  | `by-class/TerminalSetupPane.md` |  |
-| [UID:0000EI][TextBoxPane](by-class/TextBoxPane.md) | unclassified |  |  | no |  | `by-class/TextBoxPane.md` |  |
 | [UID:0000EJ][TextButtonControlPane](by-class/TextButtonControlPane.md) | unclassified |  |  | no |  | `by-class/TextButtonControlPane.md` |  |
 | [UID:0000EK][TextButtonExControlPane](by-class/TextButtonExControlPane.md) | unclassified |  |  | no |  | `by-class/TextButtonExControlPane.md` |  |
 | [UID:0000EL][TextDialog](by-class/TextDialog.md) | unclassified |  |  | no |  | `by-class/TextDialog.md` |  |
@@ -555,7 +559,6 @@ Total_Error: 0
 | [UID:0000EN][TextEditObject](by-class/TextEditObject.md) | unclassified |  |  | no |  | `by-class/TextEditObject.md` |  |
 | [UID:0000EO][TextEditPane](by-class/TextEditPane.md) | unclassified |  |  | no |  | `by-class/TextEditPane.md` |  |
 | [UID:0000EP][TextEditScrap](by-class/TextEditScrap.md) | unclassified |  |  | no |  | `by-class/TextEditScrap.md` |  |
-| [UID:0000EQ][TextFilter](by-class/TextFilter.md) | unclassified |  |  | no |  | `by-class/TextFilter.md` |  |
 | [UID:0000ER][TextInputMenuDialog](by-class/TextInputMenuDialog.md) | unclassified |  |  | no |  | `by-class/TextInputMenuDialog.md` |  |
 | [UID:0000ES][TextMenuDialog](by-class/TextMenuDialog.md) | unclassified |  |  | no |  | `by-class/TextMenuDialog.md` |  |
 | [UID:0000ET][TextMenuItemList](by-class/TextMenuItemList.md) | unclassified |  |  | no |  | `by-class/TextMenuItemList.md` |  |
@@ -563,14 +566,11 @@ Total_Error: 0
 | [UID:0000EV][Thread](by-class/Thread.md) | unclassified |  |  | no |  | `by-class/Thread.md` |  |
 | [UID:0000EX][ThreadSafeNodeList](by-class/ThreadSafeNodeList.md) | unclassified |  |  | no |  | `by-class/ThreadSafeNodeList.md` |  |
 | [UID:0000EY][ThrowInputPane](by-class/ThrowInputPane.md) | unclassified |  |  | no |  | `by-class/ThrowInputPane.md` |  |
-| [UID:0000F0][TimerHandler](by-class/TimerHandler.md) | unclassified |  |  | no |  | `by-class/TimerHandler.md` |  |
 | [UID:0000F1][TimerMgr](by-class/TimerMgr.md) | unclassified |  |  | no |  | `by-class/TimerMgr.md` |  |
 | [UID:0000F2][TimerMgrTimerQueue](by-class/TimerMgrTimerQueue.md) | unclassified |  |  | no |  | `by-class/TimerMgrTimerQueue.md` |  |
 | [UID:0000F4][TotemFrame](by-class/TotemFrame.md) | unclassified |  |  | no |  | `by-class/TotemFrame.md` |  |
 | [UID:0000F5][TransferReplyAlert](by-class/TransferReplyAlert.md) | unclassified |  |  | no |  | `by-class/TransferReplyAlert.md` |  |
 | [UID:0000F7][TransferServerDialogPane](by-class/TransferServerDialogPane.md) | unclassified |  |  | no |  | `by-class/TransferServerDialogPane.md` |  |
-| [UID:0000FB][TreeItor_struct_FolderTreePane__TreeElem_](by-class/TreeItor_struct_FolderTreePane__TreeElem_.md) | unclassified |  |  | no |  | `by-class/TreeItor_struct_FolderTreePane__TreeElem_.md` |  |
-| [UID:0000FC][TreeStorage_struct_FolderTreePane__TreeElem_](by-class/TreeStorage_struct_FolderTreePane__TreeElem_.md) | unclassified |  |  | no |  | `by-class/TreeStorage_struct_FolderTreePane__TreeElem_.md` |  |
 | [UID:0000F9][Tree_struct_FolderTreePane__TreeElem_](by-class/Tree_struct_FolderTreePane__TreeElem_.md) | unclassified |  |  | no |  | `by-class/Tree_struct_FolderTreePane__TreeElem_.md` |  |
 | [UID:0000FE][UniAPIInit](by-class/UniAPIInit.md) | unclassified |  |  | no |  | `by-class/UniAPIInit.md` |  |
 | [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md) | unclassified |  |  | no |  | `by-class/UrlAlertPane.md` |  |
