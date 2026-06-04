@@ -1430,6 +1430,12 @@ For each ignored range, include:
   - Replacement/procurement: no source replacement; compiler/linker alignment byte.
   - Owner docs: [UID:0000WQ][0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor](by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md), [UID:0000WR][0x0041ba40-0x004245f5.FittingRoomUiCore](by-memory/0x0041ba40-0x004245f5.FittingRoomUiCore.md).
 
+- `0x0041d3b0-0x0041d431` - MSVC/Dinkumware small-string storage copy helper.
+  - Why ignored: shared compiler/runtime SSO-15 byte-string copy support, not NexusTK handwritten source.
+  - Evidence: 2026-06-04 live IDA MCP reports `sub_41D3B0` at `0x0041d3b0-0x0041d431`, decompiles the inline-vs-heap small-string copy, shows callees `0x0041b6e0` and `_memmove`, and shows broad fitting-room, JsonCpp, and MSVC string/iostream caller spread.
+  - Replacement/procurement: rebuild source should use the appropriate string/value types and the selected compiler/runtime, which should emit equivalent support code.
+  - Owner docs: [UID:0002CZ][0x0041d3b0-0x0041d431.SmallStringStorageAssign](by-memory/0x0041d3b0-0x0041d431.SmallStringStorageAssign.md), [UID:0000WN][0x0041b6d0-0x0041b9a0.MsvcStringSupportHelpers](by-memory/0x0041b6d0-0x0041b9a0.MsvcStringSupportHelpers.md), [UID:0001QE][client_libraries](by-meta/client_libraries.md).
+
 - `0x0041d431-0x0041d440`, `0x0041d44b-0x0041d450`, `0x0041d481-0x0041d490`, `0x0041d572-0x0041d580`, and `0x0041d5d5-0x0041d5e0` - alignment padding around fitting-room helper/thunk/destructor island.
   - Why ignored: confirmed `0xcc` compiler/linker alignment bytes between adjacent documented fitting-room helper functions, destructor thunks, and destructor wrappers.
   - Evidence: 2026-05-30 IDA MCP function inventory reports `sub_41D3B0` ending at `0x0041d431`, `sub_41D440` at `0x0041d440-0x0041d44b`, thunk functions at `0x0041d450-0x0041d481`, [UID:0002CR][0x0041d490-0x0041d572.FittingRoomDialogScalarDeletingDestructor](by-memory/0x0041d490-0x0041d572.FittingRoomDialogScalarDeletingDestructor.md), [UID:0002EI][0x0041d580-0x0041d5d5.FittingRoomDownloadControlPaneDeletingDestructor](by-memory/0x0041d580-0x0041d5d5.FittingRoomDownloadControlPaneDeletingDestructor.md), and [UID:0000WS][0x0041d5e0-0x0041d671.FittingEquipmentStateResetEntries](by-memory/0x0041d5e0-0x0041d671.FittingEquipmentStateResetEntries.md); the intervening bytes decode as padding.

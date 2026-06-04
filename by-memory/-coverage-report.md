@@ -8,7 +8,7 @@
 
 - Last generated: 2026-06-03
 - Folder: `by-memory`
-- Coverage summary: 2044 reconstructable rows, 1213 ignored rows, 0 unknown gap rows, 1 uncovered inventory row.
+- Coverage summary: 2043 reconstructable rows, 1214 ignored rows, 0 unknown gap rows, 1 uncovered inventory row.
 - Confidence summary: baseline report generated from existing documentation pages and `-ignored.md`; ignored rows are driven by the local ignored ledger, while reconstructable row confidence is heuristic until IDA/MCP or manual verification raises it.
 - Ordering: `by-memory` covered rows are sorted low-to-high by address, with reconstructable, ignored, and unknown rows together.
 - Gap-row status: no explicit `UNKNOWN` rows remain after the latest IDA/MCP-backed split pass. New `UNKNOWN` rows should still be generated between adjacent covered by-memory ranges if future inventory comparison finds manually uninvestigated spans.
@@ -100,7 +100,7 @@
         - [UID:0002CW][0x0041d150-0x0041d284.FittingRoomControlBounds](by-memory/0x0041d150-0x0041d284.FittingRoomControlBounds.md) 0x0041d150-0x0041d284 | helper | FittingRoomControlBounds : reconstructable : 85% : strong : Maps fitting-room control IDs to fixed dialog-relative rectangles and category-button grid coordinates.
         - [UID:0002CX][0x0041d2c0-0x0041d335.FittingRoomDialogSelectButton](by-memory/0x0041d2c0-0x0041d335.FittingRoomDialogSelectButton.md) 0x0041d2c0-0x0041d335 | method | FittingRoomDialogSelectButton : reconstructable : 82% : strong : Updates selected category button state at `this + 0x788`, toggling old and new button selection flags.
         - [UID:0002CY][0x0041d340-0x0041d3b0.CompareEquipmentNames](by-memory/0x0041d340-0x0041d3b0.CompareEquipmentNames.md) 0x0041d340-0x0041d3b0 | helper | CompareEquipmentNames : reconstructable : 85% : strong : Length-first byte equality helper used by fitting-room action state comparison.
-        - [UID:0002CZ][0x0041d3b0-0x0041d431.SmallStringStorageAssign](by-memory/0x0041d3b0-0x0041d431.SmallStringStorageAssign.md) 0x0041d3b0-0x0041d431 | shared utility | SmallStringStorageAssign : reconstructable : 72% : strong : Generic 24-byte small-string storage assignment helper; nested here by address but not fitting-room-private.
+        - [UID:0002CZ][0x0041d3b0-0x0041d431.SmallStringStorageAssign](by-memory/0x0041d3b0-0x0041d431.SmallStringStorageAssign.md) 0x0041d3b0-0x0041d431 | compiler/runtime | SmallStringStorageAssign : ignored : 84% : strong : Live IDA confirms a broad SSO-15 byte-string copy helper with fitting-room, JsonCpp, and MSVC string/iostream callers; regenerate through source string types and compiler/runtime support rather than reconstructing as NexusTK handwritten code.
         - [UID:0000VN][-ignored](by-memory/-ignored.md) 0x0041d431-0x0041d440 | padding | FittingRoomHelperAlignmentPadding : ignored : 100% : strong : Confirmed `0xcc` alignment padding between `SmallStringStorageAssign` and singleton cleanup.
         - [UID:0002D0][0x0041d440-0x0041d44b.ClearFittingRoomDialogGlobal](by-memory/0x0041d440-0x0041d44b.ClearFittingRoomDialogGlobal.md) 0x0041d440-0x0041d44b | cleanup helper | ClearFittingRoomDialogGlobal : reconstructable : 82% : strong : Clears `g_pFittingRoomDialog`; likely cleanup/unwind helper for the dialog singleton.
         - [UID:0000VN][-ignored](by-memory/-ignored.md) 0x0041d44b-0x0041d450 | padding | FittingRoomHelperAlignmentPadding : ignored : 100% : strong : Confirmed `0xcc` alignment padding before the fitting-room destructor adjustor thunk island.
