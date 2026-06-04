@@ -5,9 +5,9 @@
 Total_Type: 64
 Total_Reconstructable: 30
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 14
+Total_Reconstructed_Assigned: 16
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 16
+Total_Reconstructable_Unassigned: 14
 Total_Unclassified: 31
 Total_Error: 0
 
@@ -22,8 +22,10 @@ Total_Error: 0
 | [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) | assigned | `0000K1` |  | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-item/LoadImageFrameTable_004D0F50.md` |  |
 | [UID:0000UZ][LoadPcxImage_004A17B0](by-item/LoadPcxImage_004A17B0.md) | assigned | `0000K3` |  | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-item/LoadPcxImage_004A17B0.md` |  |
 | [UID:0000V0][LoadTileEpfMetadata_004D1B80](by-item/LoadTileEpfMetadata_004D1B80.md) | assigned | `0000L5` |  | no | `auto-generated/NexusTK/render/MapTileImageLib.cpp` | `by-item/LoadTileEpfMetadata_004D1B80.md` |  |
+| [UID:0000V1][PacketBufferHelpers](by-item/PacketBufferHelpers.md) | assigned | `0000M8` |  | no | `auto-generated/NexusTK/network/PacketBuffer.cpp` | `by-item/PacketBufferHelpers.md` |  |
 | [UID:0000V2][PacketDigest_00515380](by-item/PacketDigest_00515380.md) | assigned | `0000L6` |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-item/PacketDigest_00515380.md` |  |
 | [UID:0000V3][PacketTransformHelpers](by-item/PacketTransformHelpers.md) | assigned | `0000M9` |  | no | `auto-generated/NexusTK/network/PacketTransform.cpp` | `by-item/PacketTransformHelpers.md` |  |
+| [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md) | assigned | `0000MA` |  | no | `auto-generated/NexusTK/render/Palette.cpp` | `by-item/PaletteSlotTable.md` |  |
 | [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md) | assigned | `0000MI` |  | no | `auto-generated/NexusTK/util/PathUtil.cpp` | `by-item/PathExistsViaStat_00582460.md` |  |
 | [UID:0000V9][ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90](by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md` |  |
 | [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |  |
@@ -32,8 +34,6 @@ Total_Error: 0
 | [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) | not_reconstructable |  |  | no |  | `by-item/ScopedMarkerMissingMethodBodies.md` |  |
 | [UID:0000UJ][DrawTextInRect_004BAD70](by-item/DrawTextInRect_004BAD70.md) | unassigned |  |  | no |  | `by-item/DrawTextInRect_004BAD70.md` |  |
 | [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) | unassigned |  |  | no |  | `by-item/LoadFrameDrawRecord_004D1600.md` |  |
-| [UID:0000V1][PacketBufferHelpers](by-item/PacketBufferHelpers.md) | unassigned |  |  | no |  | `by-item/PacketBufferHelpers.md` |  |
-| [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md) | unassigned |  |  | no |  | `by-item/PaletteSlotTable.md` |  |
 | [UID:0000V5][ParseEntries_004A5E60](by-item/ParseEntries_004A5E60.md) | unassigned |  |  | no |  | `by-item/ParseEntries_004A5E60.md` |  |
 | [UID:0000V7][PhoneBookListHelpers_58cfa0_58dcb0](by-item/PhoneBookListHelpers_58cfa0_58dcb0.md) | unassigned |  |  | no |  | `by-item/PhoneBookListHelpers_58cfa0_58dcb0.md` |  |
 | [UID:0000V8][PopupMenuSelectionCallback_0049AF00](by-item/PopupMenuSelectionCallback_0049AF00.md) | unassigned |  |  | no |  | `by-item/PopupMenuSelectionCallback_0049AF00.md` |  |

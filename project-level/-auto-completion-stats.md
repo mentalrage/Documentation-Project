@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 20:13:57
+Generated: 2026-06-03 20:35:05
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -101,8 +101,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
-| `0000V1` | 70 | 85 | 77.5 | `by-item/PacketBufferHelpers.md` |
-| `0000V4` | 70 | 85 | 77.5 | `by-item/PaletteSlotTable.md` |
 | `0000V5` | 70 | 85 | 77.5 | `by-item/ParseEntries_004A5E60.md` |
 | `0000V7` | 70 | 85 | 77.5 | `by-item/PhoneBookListHelpers_58cfa0_58dcb0.md` |
 | `0000V8` | 70 | 85 | 77.5 | `by-item/PopupMenuSelectionCallback_0049AF00.md` |
@@ -124,6 +122,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000X1` | 70 | 85 | 77.5 | `by-memory/0x0042acdf-0x0042ae90.JsonCppLegacyReaderRawLexicalHelpers.md` |
 | `0001ZT` | 70 | 85 | 77.5 | `by-memory/0x004361b0-0x00439df9.MsvcStlIostreamTemplateSupport.md` |
 | `0001ZU` | 70 | 85 | 77.5 | `by-memory/0x00439eb0-0x00439ed5.JsonCppValueCoreEhCleanupChunk.md` |
+| `0001ZV` | 70 | 85 | 77.5 | `by-memory/0x00439ee0-0x0043e0a3.MsvcStlIostreamNumericSupport.md` |
+| `0001ZW` | 70 | 85 | 77.5 | `by-memory/0x0043e250-0x004417dd.MsvcStlJsonCppStringSupport.md` |
 
 ## Low_Confidence
 
@@ -291,8 +291,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000UB` | 72 | 82 | 77.0 | `by-item/DATAudioResources.md` |
-| `0000V1` | 70 | 85 | 77.5 | `by-item/PacketBufferHelpers.md` |
-| `0000V4` | 70 | 85 | 77.5 | `by-item/PaletteSlotTable.md` |
 | `0000V5` | 70 | 85 | 77.5 | `by-item/ParseEntries_004A5E60.md` |
 | `0000V7` | 70 | 85 | 77.5 | `by-item/PhoneBookListHelpers_58cfa0_58dcb0.md` |
 | `0000V8` | 70 | 85 | 77.5 | `by-item/PopupMenuSelectionCallback_0049AF00.md` |
@@ -314,6 +312,8 @@ _No scored files._
 | `0000V2` | 76 | 82 | 79.0 | `by-item/PacketDigest_00515380.md` |
 | `0000VI` | 76 | 82 | 79.0 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
 | `0000V6` | 74 | 85 | 79.5 | `by-item/PathExistsViaStat_00582460.md` |
+| `0000V9` | 72 | 88 | 80.0 | `by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md` |
+| `0000UC` | 76 | 84 | 80.0 | `by-item/DATEntryRecord.md` |
 
 ### by-memory
 
