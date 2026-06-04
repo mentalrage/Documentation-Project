@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 296
+Total_Reconstructable: 298
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 226
+Total_Reconstructed_Assigned: 228
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 70
-Total_Unclassified: 289
+Total_Unclassified: 287
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -123,6 +123,7 @@ Total_Error: 0
 | [UID:00007J][MailDeleteReplyAlert](by-class/MailDeleteReplyAlert.md) | assigned | `0000HW` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/MailDeleteReplyAlert.md` |  |
 | [UID:00007N][MailTransferReplyAlert](by-class/MailTransferReplyAlert.md) | assigned | `0000HW` | 30 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/MailTransferReplyAlert.md` |  |
 | [UID:00007Q][MapPane](by-class/MapPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-class/MapPane.md` |  |
+| [UID:00007S][MapRefreshDimmer](by-class/MapRefreshDimmer.md) | assigned | `0000L4` |  | no | `auto-generated/NexusTK/map/MapRefreshDimmer.cpp` | `by-class/MapRefreshDimmer.md` |  |
 | [UID:00007U][MemoryMan](by-class/MemoryMan.md) | assigned | `0000L7` |  | no | `auto-generated/NexusTK/util/MemoryMan.cpp` | `by-class/MemoryMan.md` |  |
 | [UID:00007V][MenuItem](by-class/MenuItem.md) | assigned | `0000MN` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-class/MenuItem.md` |  |
 | [UID:000083][MerchantDialogPane](by-class/MerchantDialogPane.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-class/MerchantDialogPane.md` |  |
@@ -182,6 +183,7 @@ Total_Error: 0
 | [UID:0000C3][SayInputPane](by-class/SayInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayInputPane.md` |  |
 | [UID:0000C4][SayToGroupMessageInputPane](by-class/SayToGroupMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToGroupMessageInputPane.md` |  |
 | [UID:0000C5][SayToPlanMessageInputPane](by-class/SayToPlanMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToPlanMessageInputPane.md` |  |
+| [UID:0000C6][SayToUserMessageInputPane](by-class/SayToUserMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToUserMessageInputPane.md` |  |
 | [UID:0000C9][ScreenEffecter](by-class/ScreenEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/ScreenEffecter.md` |  |
 | [UID:0000CD][ScreenshotCapture](by-class/ScreenshotCapture.md) | assigned | `0000ND` |  | no | `auto-generated/NexusTK/render/ScreenshotCapture.cpp` | `by-class/ScreenshotCapture.md` |  |
 | [UID:0000CM][ScrollPane](by-class/ScrollPane.md) | assigned | `0000NF` | 10 | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/ScrollPane.md` |  |
@@ -428,7 +430,6 @@ Total_Error: 0
 | [UID:00007O][MainMenuPane](by-class/MainMenuPane.md) | unclassified |  |  | no |  | `by-class/MainMenuPane.md` |  |
 | [UID:00007P][MapNamePane](by-class/MapNamePane.md) | unclassified |  |  | no |  | `by-class/MapNamePane.md` |  |
 | [UID:00007R][MapPaneSpatialIndex](by-class/MapPaneSpatialIndex.md) | unclassified |  |  | no |  | `by-class/MapPaneSpatialIndex.md` |  |
-| [UID:00007S][MapRefreshDimmer](by-class/MapRefreshDimmer.md) | unclassified |  |  | no |  | `by-class/MapRefreshDimmer.md` |  |
 | [UID:00007W][MenuPane](by-class/MenuPane.md) | unclassified |  |  | no |  | `by-class/MenuPane.md` |  |
 | [UID:00007X][MenuQuestionDialog](by-class/MenuQuestionDialog.md) | unclassified |  |  | no |  | `by-class/MenuQuestionDialog.md` |  |
 | [UID:00007Y][MenuQuestionDialogLarger](by-class/MenuQuestionDialogLarger.md) | unclassified |  |  | no |  | `by-class/MenuQuestionDialogLarger.md` |  |
@@ -512,7 +513,6 @@ Total_Error: 0
 | [UID:0000BT][RectangleControlPane](by-class/RectangleControlPane.md) | unclassified |  |  | no |  | `by-class/RectangleControlPane.md` |  |
 | [UID:0000BV][Region](by-class/Region.md) | unclassified |  |  | no |  | `by-class/Region.md` |  |
 | [UID:0000C0][RightButtonMenuPane](by-class/RightButtonMenuPane.md) | unclassified |  |  | no |  | `by-class/RightButtonMenuPane.md` |  |
-| [UID:0000C6][SayToUserMessageInputPane](by-class/SayToUserMessageInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserMessageInputPane.md` |  |
 | [UID:0000C7][SayToUserNameInputPane](by-class/SayToUserNameInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserNameInputPane.md` |  |
 | [UID:0000CB][ScreenPane](by-class/ScreenPane.md) | unclassified |  |  | no |  | `by-class/ScreenPane.md` |  |
 | [UID:0000CC][ScreenPanePaletteState_543D30](by-class/ScreenPanePaletteState_543D30.md) | unclassified |  |  | no |  | `by-class/ScreenPanePaletteState_543D30.md` |  |
