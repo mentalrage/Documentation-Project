@@ -185,7 +185,7 @@
 - [UID:00004T][ExchangeMoneyEditControlPane](by-class/ExchangeMoneyEditControlPane.md) : reconstructable : 76% : strong : Numeric money edit role, control flow, destructor/key/editable methods, and false generated method evidence are documented.
 - [UID:00004U][FieldMapPane](by-class/FieldMapPane.md) : reconstructable : 82% : strong : live IDA confirms exact modeled method endpoints, vtable slots, request/path helper callers, render/input ownership, and raw rect-helper boundary debt.
 - [UID:00004V][File](by-class/File.md) : reconstructable : 76% : strong : - Confidence: strong for abstract base role.
-- [UID:00004W][FileDownloader](by-class/FileDownloader.md) : reconstructable : 50% : medium : - Confidence: strong for methods and message dispatch, medium for inherited `StartThread` ownership.
+- [UID:00004W][FileDownloader](by-class/FileDownloader.md) : reconstructable : 84% : strong : - Confidence: strong for methods, message dispatch, submit-helper callsites, and singleton lifetime; medium for inherited `StartThread` ownership and final source-facing request/global names.
 - [UID:00004X][FileError](by-class/FileError.md) : reconstructable : 74% : strong : - Confidence: strong for class responsibility and shared error-module placement.
 - [UID:00004Y][FilterEffecter](by-class/FilterEffecter.md) : reconstructable : 68% : medium : - Confidence: strong for role and relationship to subclasses, medium for exact original file split.
 - [UID:00004Z][FittingEquipmentState](by-class/FittingEquipmentState.md) : reconstructable : 76% : strong : Embedded fitting-room equipment-entry reset helper with live IDA-confirmed sole caller, constructor embedding through `this + 0x504`, vector-tail layout, and source-placement caveat; final standalone class identity remains unresolved.
@@ -483,7 +483,7 @@
 - [UID:0000D7][SimpleHelpPane2](by-class/SimpleHelpPane2.md) : reconstructable : 82% : medium-high : - Likely source file: HelpPanes
 - [UID:0000D8][SimpleListPane](by-class/SimpleListPane.md) : reconstructable : 84% : medium-high : - Confidence: medium-high for reusable control ownership; final split from `ListPane` remains a source-layout decision.
 - [UID:0000D9][SimpleUString](by-class/SimpleUString.md) : reconstructable : 78% : strong : Shared UTF-16/string coordination/facade page with live IDA-confirmed SSO-7 endpoint helpers, pointer-backed child inventory, sentinel evidence, and `StringBase` ownership caveat; final public API split remains unresolved.
-- [UID:0000DA][SimpleUStringVector](by-class/SimpleUStringVector.md) : reconstructable : 82% : strong : Begin/end/capacity vector for contiguous 4-byte pointer-backed string-handle slots; destructor, grow/insert, and push-back ranges are IDA verified.
+- [UID:0000DA][SimpleUStringVector](by-class/SimpleUStringVector.md) : reconstructable : 84% : strong : Begin/end/capacity vector for contiguous 4-byte pointer-backed string-handle slots, now attached to StringUtil with live IDA-verified destructor, grow/insert, and push-back ranges.
 - [UID:0000DB][SliderControlPane](by-class/SliderControlPane.md) : reconstructable : 82% : medium-high : - Confidence: strong for behavior, medium for final class name semantics.
 - [UID:0000DC][SnowingLayerPane](by-class/SnowingLayerPane.md) : reconstructable : 84% : medium-high : - Confidence: strong for behavior, medium for final source owner.
 - [UID:0000DD][Socket](by-class/Socket.md) : reconstructable : 86% : high : - Confidence: strong for class responsibility and owner file.
@@ -516,7 +516,7 @@
 - [UID:0000E4][StaticTextControlPane2](by-class/StaticTextControlPane2.md) : reconstructable : 86% : strong : - Confidence: strong.
 - [UID:0000E5][StaticTextControlPane2__SimpleHelpTextPartPane](by-class/StaticTextControlPane2__SimpleHelpTextPartPane.md) : reconstructable : 82% : medium-high : - Confidence: strong for embedded subpane behavior; medium for generated class name spelling.
 - [UID:0000E6][StdioFile](by-class/StdioFile.md) : reconstructable : 88% : high : - Confidence: strong for class behavior, medium for exact original file split.
-- [UID:0000E7][StringIter](by-class/StringIter.md) : reconstructable : 74% : medium : `StringIter` is an `LObject`-derived iterator over wide-character string data. It stores a source data pointer, length, and current position, and returns the next character or `...
+- [UID:0000E7][StringIter](by-class/StringIter.md) : reconstructable : 78% : strong : `StringIter` is an `LObject`-derived iterator over wide-character string data with exact promoted/raw helper inventory, layout, caller fan-in, and StringUtil parent attachment documented.
 - [UID:0000E8][StringMenuItem](by-class/StringMenuItem.md) : reconstructable : 88% : strong : - Confidence: strong for class role, inline label layout, vtable ownership, and exact constructor/text/measure/draw/destructor pages.
 - [UID:0000E9][SwallowLayerPane](by-class/SwallowLayerPane.md) : reconstructable : 84% : high : - Confidence: strong for behavior and IDA boundaries; current generated output is incomplete.
 - [UID:0000EA][SystemMessagePane](by-class/SystemMessagePane.md) : reconstructable : 84% : high : - Confidence: strong for class role and IDA boundaries; several virtual helper names remain provisional.

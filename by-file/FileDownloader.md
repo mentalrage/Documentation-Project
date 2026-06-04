@@ -1,19 +1,18 @@
 *** UID:0000JC | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/network/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # FileDownloader
 
 ## Status
 
-- Confidence: strong for dispatcher behavior, medium for final original file name.
+- Confidence: strong for dispatcher behavior, child function boundaries, submit-helper callsites, and singleton lifetime; medium for final original file name and exact source-facing global type.
 - Proposed module: `network/FileDownloader.cpp`
 - Projected reconstruction path: `NexusTK/network/`
-- Current Wave3 file: `class_FileDownloader.cpp`
 - Main class: [UID:00004W][FileDownloader](by-class/FileDownloader.md)
 - Related constants: [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md)
-- Evidence basis: `simroot_v2`, prior Wave2 report notes, and live IDA MCP lookup/caller/callee/decompile/xref checks through 2026-05-25.
+- Evidence basis: live IDA MCP lookup, caller/callee, decompile, xref, and byte-padding checks through 2026-06-04.
 
 ## Hypothesis
 
@@ -34,7 +33,7 @@ An alternate old-project layout could have used `util/FileDownloader.cpp` if the
 - `DownloadCashShopCatalog_41AE20`, the message `10001` item-shop catalog download helper.
 - `DownloadCashShopVersion_41AA00`, the message `10002` item-shop version download helper.
 - [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) / `dword_67A738`, the FileDownloader-lifetime download-request singleton with final source-facing type/name still unresolved.
-- Request submission helpers [UID:0002CJ][0x0041b180-0x0041b1f5.FileDownloaderSubmitMinimapRequest](by-memory/0x0041b180-0x0041b1f5.FileDownloaderSubmitMinimapRequest.md), [UID:0002CK][0x0041b200-0x0041b26d.FileDownloaderSubmitCashShopCatalogRequest](by-memory/0x0041b200-0x0041b26d.FileDownloaderSubmitCashShopCatalogRequest.md), and [UID:0002CL][0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest](by-memory/0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest.md), if later ownership cleanup keeps them with the downloader dispatcher rather than a cash-shop payload class.
+- Request submission helpers [UID:0002CJ][0x0041b180-0x0041b1f5.FileDownloaderSubmitMinimapRequest](by-memory/0x0041b180-0x0041b1f5.FileDownloaderSubmitMinimapRequest.md), [UID:0002CK][0x0041b200-0x0041b26d.FileDownloaderSubmitCashShopCatalogRequest](by-memory/0x0041b200-0x0041b26d.FileDownloaderSubmitCashShopCatalogRequest.md), and [UID:0002CL][0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest](by-memory/0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest.md), now attached to this parent as high-confidence downloader queue submit helpers while preserving cash-shop/minimap payload caveats.
 
 `MiniMapDownloader` is related but should stay in [UID:0000LE][MiniMap](by-file/MiniMap.md) or `map/MiniMapDownloader.cpp`, because it has its own singleton, virtual task handler, and minimap-specific task structure.
 
@@ -60,19 +59,19 @@ The message IDs are currently documented at [UID:0001SF][DownloaderMessageIds](b
 
 ## Evidence
 
-- Generated `class_FileDownloader.cpp` constructs a `Thread(5)`, assigns `g_pCashShopRequest = this`, installs the `FileDownloader` vtable, and starts the worker.
-- IDA MCP confirms `0x0041b110-0x0041b180` as a real function and decompiles it as a `switch` on message IDs `10000`, `10001`, and `10002`.
-- IDA MCP `callees` for `0x0041b110` include `0x0041a750`, `0x0041aa00`, and `0x0041ae20`.
-- IDA MCP `callers` confirms `DownloadMinimapFile_41A750`, `DownloadCashShopVersion_41AA00`, and `DownloadCashShopCatalog_41AE20` are each called only from `0x0041b110` in the current database.
+- Live IDA decompilation of `0x0041a670-0x0041a6e5` constructs the base thread with argument `5`, writes `dword_67A738 = this`, installs the `FileDownloader` vtable, and calls the worker-start helper.
+- Live IDA confirms `0x0041b110-0x0041b180` as a real function and decompiles it as a `switch` on message IDs `10000`, `10001`, and `10002`.
+- Live IDA caller/callee checks for `0x0041b110` show calls to `0x0041a750`, `0x0041aa00`, and `0x0041ae20`, with those download helpers each called only from the dispatcher in the current database.
 - The recovered helpers use WinINet, HTTP status checks, timeout options, and caller-supplied progress/output fields.
 - `Application` startup allocates a `FileDownloader` instance size `0x68` and constructs it during subsystem initialization.
-- IDA MCP `py_eval` on 2026-05-25 found 9 xrefs and 5 direct writes to `dword_67A738`; all writes are FileDownloader constructor/destructor-family writes, including the constructor-unwind clear helper [UID:0000WK][0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal](by-memory/0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal.md).
-- Live IDA decompilation shows fitting-room download/version request callers passing `dword_67A738` into the request submission helpers at `0x0041b180`, `0x0041b200`, and `0x0041b270`, which enqueue downloader messages `10000`, `10001`, and `10002`.
+- Live IDA xrefs on 2026-06-04 found 9 xrefs and 5 direct writes to `dword_67A738`; all writes are FileDownloader constructor/destructor-family writes, including the constructor-unwind clear helper [UID:0000WK][0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal](by-memory/0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal.md).
+- Live IDA decompilation and call-site windows show fitting-room/minimap callers passing `dword_67A738` into request submission helpers at `0x0041b180`, `0x0041b200`, and `0x0041b270`, which enqueue downloader messages `10000`, `10001`, and `10002`.
+- Live IDA byte checks confirm the nested function split and `0xcc` padding boundaries across `0x0041a670-0x0041b69f`, including non-padding real code at `0x0041b2d0`.
 
 ## Boundary Cautions
 
 - `FileDownloader::StartThread` at `0x005965e0` is currently owned by `FileDownloader`, but IDA callers include `FileDownloader`, `MiniMapDownloader`, browser control construction, application initialization, and `MiscWorkThread`. The body is a generic thread launch wrapper: call virtual slot 5, then `ResumeThread(this[23])`. This may ultimately belong to `Thread` or a shared worker-thread helper.
-- [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) is a reliable alias for `dword_67A738` only when live evidence points at that address. Generated simroot files also reuse the same name for packet-send paths that IDA proves read [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / `dword_67A7EC`; normalize those paths before changing ownership.
+- [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md) is a reliable alias for `dword_67A738` only when live evidence points at that address. Earlier recovered aliases also reuse the same name for packet-send paths that IDA proves read [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / `dword_67A7EC`; normalize those paths before changing ownership.
 - The request submission helpers at `0x0041b180`, `0x0041b200`, and `0x0041b270` are adjacent to the small cash-shop payload constructor/destructor and still have provisional class ownership. Their consumers pass the FileDownloader-lifetime singleton, so do not migrate them blindly under `CashShopRequest.cpp`.
 - The minimap has two similar WinINet helpers: `DownloadMinimapFile_41A750` through `FileDownloader::OnMessage`, and `DownloadMinimap_453AA0` through `MiniMapDownloader::OnThreadTask`. Treat them as related but not interchangeable until task structure layout is reconciled.
 
@@ -88,8 +87,8 @@ Feature-specific payload/request definitions may stay in cash-shop or map header
 
 ## Score Rationale
 
-- Completion is raised because the projected reconstruction path, ownership evidence, message dispatch map, singleton lifetime, submit-helper caveats, and network/source-tree placement are now all recorded on the file page.
-- Confidence is raised because the IDA-backed dispatcher, callee, caller, and global-lifetime evidence consistently place the dispatcher in downloader/network infrastructure.
+- Completion is raised because the projected reconstruction path, ownership evidence, exact child split, message dispatch map, singleton lifetime, attached submit-helper pages, and network/source-tree placement are now all recorded on the file page.
+- Confidence is raised because live IDA dispatcher decompilation, caller/callee evidence, `dword_67A738` xrefs, submit-helper callsites, and byte-padding checks consistently place the dispatcher in downloader/network infrastructure.
 - Confidence remains below final-source level because `StartThread` may belong to `Thread`, and the request submission helpers still straddle FileDownloader versus cash-shop payload ownership.
 
 ## Cross-References
@@ -119,3 +118,7 @@ Feature-specific payload/request definitions may stay in cash-shop or map header
 - Before: likely contents named the scalar deleting destructor and request submission helpers only as class/address concepts.
 - After: likely contents and cross-references link exact `by-memory` pages for the submit helpers and FileDownloader scalar deleting destructor.
 - Summary/evidence: IDA MCP and xref checks tied the helpers to the downloader queue and `dword_67A738`; destructor decompilation confirms the global clear and thread cleanup sequence.
+- 2026-06-04 live IDA evidence pass:
+  - What existed before: `COMPLETION:72`, `CONFIDENCE:84`, stale non-IDA provenance, and submit-helper ownership remained recorded as a caveat instead of an autogen attachment decision.
+  - What it was changed to: raised to `COMPLETION:84`, `CONFIDENCE:88`, replaced stale provenance with live IDA evidence, and documented the high-confidence FileDownloader attachment for the submit helpers.
+  - Summary/evidence: live IDA decompilation confirms constructor/destructor/global writes, the `OnMessage` switch, `sub_596960` queue posting, callers at `0x451d18`, `0x41cd0f`, and `0x41c21b` using `dword_67A738`, exact function boundaries, and nested `0xcc` padding. C++ remains blank because `StartThread`, final source names, and payload ownership stay below the 95/95 gate.

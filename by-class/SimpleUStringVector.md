@@ -1,8 +1,8 @@
 *** UID:0000DA | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OB | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -18,7 +18,8 @@
 
 - Source: [UID:0000OB][StringUtil](by-file/StringUtil.md)
 - Proposed path: `util/StringUtil.cpp`
-- Confidence: strong for utility ownership, medium for exact file split.
+- Autogen parent: [UID:0000OB][StringUtil](by-file/StringUtil.md)
+- Confidence: strong for utility ownership, exact helper ranges, 4-byte slot behavior, and child attachment; medium-high for exact original file split.
 
 ## Methods
 
@@ -28,16 +29,24 @@
 
 ## Evidence
 
-- Metadata says this class was restored from the raw missing class `cls_0x493f10`; this is treated only as a lead.
-- IDA decompilation proves the layout is a standard `begin`, `end`, `capacity` pointer triplet and that element stride is four bytes.
+- Earlier metadata names this class from the raw class lead `cls_0x493f10`; this is treated only as a lead.
+- Live IDA decompilation proves the layout is a standard `begin`, `end`, `capacity` pointer triplet and that element stride is four bytes.
 - `DATFile::ReadAllLines` is a clear caller for grow/insert when appending converted lines.
 - The string mutation helper at `0x005839c0` calls push-back at two sites and calls grow/insert directly at two other sites.
 - Config and Socket override notes already model matching `SimpleUStringVector` fields.
-- IDA confirms the corrected last-byte-inclusive ranges: `0x00493f10-0x00493f79`, `0x0049cc40-0x0049ce48`, and `0x00584910-0x0058498b`, with `0xcc` padding immediately after each function.
+- 2026-06-04 live IDA confirms the corrected last-byte-inclusive ranges: `0x00493f10-0x00493f79`, `0x0049cc40-0x0049ce48`, and `0x00584910-0x0058498b`, with `0xcc` padding immediately after each function.
+- Live IDA caller/callee checks report 19 callers to the destructor, 7 callers to grow/insert, 2 callers to push-back, and helper calls through `0x00582a90`, `0x00582b70`, `0x0049d530`, and `0x00584ba0`.
 
-## Generated Data Caveats
+## Recovered Metadata Caveats
 
-IDA reports `GrowAndInsert` start `0x0049cc40` with size `0x209`, making `0x0049ce48` the last executable byte, while metadata records an end around `0x0049ce23`. Use IDA-confirmed function size for memory-range decisions until Wave3 data is rechecked.
+Live IDA reports `GrowAndInsert` start `0x0049cc40` with size `0x209`, making `0x0049ce48` the last executable byte, while earlier metadata records an end around `0x0049ce23`. Use IDA-confirmed function size for memory-range decisions.
+
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `84` | The page now records all three high-confidence child helpers, the attached StringUtil parent, live IDA range/caller/callee evidence, 4-byte slot behavior, vector triplet layout, and metadata caveats. Completion remains capped because the exact original class/file split and public API names are still not final-source quality. |
+| Confidence `88` | Confidence is strong for StringUtil utility ownership and vector behavior because live IDA confirms ranges, decompilation shape, caller sets, child helpers, and padding. It remains below final-source confidence because the original source could still have split this helper into a narrower string-vector implementation file. |
 
 ## Cross-References
 
@@ -50,9 +59,13 @@ IDA reports `GrowAndInsert` start `0x0049cc40` with size `0x209`, making `0x0049
 
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `78`, confidence `76`.
-- Evidence: the page documents container layout, likely utility placement, destructor/grow/push-back ranges, key callers, layout cross-reference, and generated-data range caveat; completion remains limited because it lacks source-ready C++ and full caller inventory.
+- Evidence: the page documents container layout, likely utility placement, destructor/grow/push-back ranges, key callers, layout cross-reference, and metadata range caveat; completion remains limited because it lacks source-ready C++ and full caller inventory.
 
 - 2026-05-31: Corrected the vector element model and exact memory ranges.
   - Before: the page described contiguous `SimpleUString` elements without spelling out the recovered slot size and kept reconstructable metadata blank.
   - After: marked the class reconstructable, documented 4-byte pointer-backed string-handle slots, linked the last-byte-inclusive function pages, and raised scores to `82/84`.
   - Evidence: IDA MCP decompilation of the destructor, grow/insert, and push-back helpers shows pointer differences shifted by two and slot construction/destruction through string-handle helpers; byte checks confirm padding after each corrected function range.
+- 2026-06-04 live IDA attachment pass:
+  - Before: `COMPLETION:82`, `CONFIDENCE:84`, `AUTOGEN_PARENT_UID` blank, and stale metadata caveat wording.
+  - After: `COMPLETION:84`, `CONFIDENCE:88`, `AUTOGEN_PARENT_UID:0000OB`, and live IDA evidence/caller counts recorded.
+  - Evidence: live IDA reconfirmed destructor/grow/push-back bounds, 4-byte slot arithmetic, child helper calls, caller counts, and padding. C++ remains blank because final API/source split remains below the 95/95 gate.

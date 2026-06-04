@@ -111,8 +111,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000JC` | 72 | 84 | 78.0 | `by-file/FileDownloader.md` |
-| `0000OB` | 72 | 84 | 78.0 | `by-file/StringUtil.md` |
 | `0000LP` | 76 | 80 | 78.0 | `by-file/NewCreateUserDialogPane.md` |
 | `0000KO` | 78 | 78 | 78.0 | `by-file/LightingObjectPane.md` |
 | `0000KQ` | 78 | 78 | 78.0 | `by-file/LineIterator.md` |
