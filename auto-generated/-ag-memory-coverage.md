@@ -2,13 +2,13 @@
 
 # ag-memory-coverage
 
-Total_Type: 2247
-Total_Reconstructable: 1396
-Total_Not_Reconstructable: 15
-Total_Reconstructed_Assigned: 869
+Total_Type: 2248
+Total_Reconstructable: 1397
+Total_Not_Reconstructable: 16
+Total_Reconstructed_Assigned: 870
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 522
-Total_Unclassified: 836
+Total_Unclassified: 835
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -362,6 +362,7 @@ Total_Error: 5
 | [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md` |  |
 | [UID:00017T][0x004e5240-0x004e5415.VectorGrowMotion](by-memory/0x004e5240-0x004e5415.VectorGrowMotion.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004e5240-0x004e5415.VectorGrowMotion.md` |  |
 | [UID:00017U][0x004e57c0-0x004e5989.RecordVectorInsert](by-memory/0x004e57c0-0x004e5989.RecordVectorInsert.md) | assigned | `0000BS` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-memory/0x004e57c0-0x004e5989.RecordVectorInsert.md` |  |
+| [UID:0002VF][0x004e5990-0x004e5a62.VectorGrowArchiveIndex](by-memory/0x004e5990-0x004e5a62.VectorGrowArchiveIndex.md) | assigned | `0000LJ` |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-memory/0x004e5990-0x004e5a62.VectorGrowArchiveIndex.md` |  |
 | [UID:00017W][0x004e5b70-0x004e5b7b.EffectObjImageLibSingletonClearHelper](by-memory/0x004e5b70-0x004e5b7b.EffectObjImageLibSingletonClearHelper.md) | assigned | `0000IY` |  | no | `auto-generated/NexusTK/render/EffectObjImageLib.cpp` | `by-memory/0x004e5b70-0x004e5b7b.EffectObjImageLibSingletonClearHelper.md` |  |
 | [UID:00017X][0x004e5b80-0x004e5b8b.HumanImageLibSingletonClearHelper](by-memory/0x004e5b80-0x004e5b8b.HumanImageLibSingletonClearHelper.md) | assigned | `0000JY` |  | no | `auto-generated/NexusTK/render/HumanImageLib.cpp` | `by-memory/0x004e5b80-0x004e5b8b.HumanImageLibSingletonClearHelper.md` |  |
 | [UID:00017Y][0x004e5ba0-0x004e5bab.ItemObjImageLibSingletonClearHelper](by-memory/0x004e5ba0-0x004e5bab.ItemObjImageLibSingletonClearHelper.md) | assigned | `0000KH` |  | no | `auto-generated/NexusTK/render/ItemObjImageLib.cpp` | `by-memory/0x004e5ba0-0x004e5bab.ItemObjImageLibSingletonClearHelper.md` |  |
@@ -887,6 +888,7 @@ Total_Error: 5
 | [UID:0002LG][0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText](by-memory/0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText.md) | error | `000241` |  | no |  | `by-memory/0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText.md` | by-memory/0x00573b10-0x00573b6d.SimpleListPaneInsertCopiedText.md: autogen_parent_unknown: parent UID is not in validator.ini |
 | [UID:0002LH][0x00573b70-0x00573bac.SimpleListPaneRemoveCopiedText](by-memory/0x00573b70-0x00573bac.SimpleListPaneRemoveCopiedText.md) | error | `000241` |  | no |  | `by-memory/0x00573b70-0x00573bac.SimpleListPaneRemoveCopiedText.md` | by-memory/0x00573b70-0x00573bac.SimpleListPaneRemoveCopiedText.md: autogen_parent_unknown: parent UID is not in validator.ini |
 | [UID:0002LI][0x00573bb0-0x00573c38.SimpleListPaneReplaceCopiedText](by-memory/0x00573bb0-0x00573c38.SimpleListPaneReplaceCopiedText.md) | error | `000241` |  | no |  | `by-memory/0x00573bb0-0x00573c38.SimpleListPaneReplaceCopiedText.md` | by-memory/0x00573bb0-0x00573c38.SimpleListPaneReplaceCopiedText.md: autogen_parent_unknown: parent UID is not in validator.ini |
+| [UID:0000WA][0x00419f70-0x00419f86.MemoryManStaticInitializer](by-memory/0x00419f70-0x00419f86.MemoryManStaticInitializer.md) | not_reconstructable |  |  | no |  | `by-memory/0x00419f70-0x00419f86.MemoryManStaticInitializer.md` |  |
 | [UID:0002DO][0x004207ce-0x00420840.FittingRoomListPaneOnInputEventJumpTables](by-memory/0x004207ce-0x00420840.FittingRoomListPaneOnInputEventJumpTables.md) | not_reconstructable |  |  | no |  | `by-memory/0x004207ce-0x00420840.FittingRoomListPaneOnInputEventJumpTables.md` |  |
 | [UID:0002UC][0x00423800-0x00423805.FittingRoomStorageDestructorThunk](by-memory/0x00423800-0x00423805.FittingRoomStorageDestructorThunk.md) | not_reconstructable |  |  | no |  | `by-memory/0x00423800-0x00423805.FittingRoomStorageDestructorThunk.md` |  |
 | [UID:0000Z2][0x00469180-0x004691fa.PaneChildRegistry](by-memory/0x00469180-0x004691fa.PaneChildRegistry.md) | not_reconstructable |  |  | no |  | `by-memory/0x00469180-0x004691fa.PaneChildRegistry.md` |  |
@@ -1445,7 +1447,6 @@ Total_Error: 5
 | [UID:0000W6][0x00417ba0-0x00419e56.ZlibInflateInternals](by-memory/0x00417ba0-0x00419e56.ZlibInflateInternals.md) | unclassified |  |  | no |  | `by-memory/0x00417ba0-0x00419e56.ZlibInflateInternals.md` |  |
 | [UID:0000W7][0x00419e56-0x00419ee0.StaticInitializerWrappersPreOle](by-memory/0x00419e56-0x00419ee0.StaticInitializerWrappersPreOle.md) | unclassified |  |  | no |  | `by-memory/0x00419e56-0x00419ee0.StaticInitializerWrappersPreOle.md` |  |
 | [UID:0000W9][0x00419ef4-0x00419f70.StaticInitializerWrappersAfterOle](by-memory/0x00419ef4-0x00419f70.StaticInitializerWrappersAfterOle.md) | unclassified |  |  | no |  | `by-memory/0x00419ef4-0x00419f70.StaticInitializerWrappersAfterOle.md` |  |
-| [UID:0000WA][0x00419f70-0x00419f86.MemoryManStaticInitializer](by-memory/0x00419f70-0x00419f86.MemoryManStaticInitializer.md) | unclassified |  |  | no |  | `by-memory/0x00419f70-0x00419f86.MemoryManStaticInitializer.md` |  |
 | [UID:0000WB][0x00419f86-0x0041a040.StaticInitializerWrappersBeforePoolAllocators](by-memory/0x00419f86-0x0041a040.StaticInitializerWrappersBeforePoolAllocators.md) | unclassified |  |  | no |  | `by-memory/0x00419f86-0x0041a040.StaticInitializerWrappersBeforePoolAllocators.md` |  |
 | [UID:0000WC][0x0041a040-0x0041a27d.PoolAllocatorStaticConstructorWrappers](by-memory/0x0041a040-0x0041a27d.PoolAllocatorStaticConstructorWrappers.md) | unclassified |  |  | no |  | `by-memory/0x0041a040-0x0041a27d.PoolAllocatorStaticConstructorWrappers.md` |  |
 | [UID:0000WE][0x0041a4b0-0x0041a4cd.UserPanePoolStaticConstructorWrapper](by-memory/0x0041a4b0-0x0041a4cd.UserPanePoolStaticConstructorWrapper.md) | unclassified |  |  | no |  | `by-memory/0x0041a4b0-0x0041a4cd.UserPanePoolStaticConstructorWrapper.md` |  |

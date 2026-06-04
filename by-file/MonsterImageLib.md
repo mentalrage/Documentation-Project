@@ -55,7 +55,7 @@ The helper classes documented in [UID:0000LK][MonsterImageLibTables](by-file/Mon
 
 [UID:00017E][0x004dbe60-0x004dc174.MonsterImageLibGetArchiveBoundsBucket](by-memory/0x004dbe60-0x004dc174.MonsterImageLibGetArchiveBoundsBucket.md) at `0x004dbe60` is disabled/excluded from active emission but remains owner-relevant. It lazily loads and caches per-archive [UID:0001VA][MonsterArchiveBoundsBucket](by-type/by-struct/MonsterArchiveBoundsBucket.md) records for `DATA/MON%d.DAT`; it should stay with `MonsterImageLib` during source-file migration.
 
-`VectorGrowArchiveIndex_004E5990` has only one IDA-observed caller, `MonsterImageLib::LoadMonsterArchives`, so it currently belongs with this module. The adjacent [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md) helper is different: `MonsterImageLib` consumes it, but its callers span DAT manager, minimap, fitting-room, and monster-image code, so it should remain standalone.
+[UID:0002VF][0x004e5990-0x004e5a62.VectorGrowArchiveIndex](by-memory/0x004e5990-0x004e5a62.VectorGrowArchiveIndex.md) has only one IDA-observed caller, `MonsterImageLib::LoadMonsterArchives`, so it currently belongs with this module. The adjacent [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md) helper is different: `MonsterImageLib` consumes it, but its callers span DAT manager, minimap, fitting-room, and monster-image code, so it should remain standalone.
 
 `MonsterImageLib` also consumes shared [UID:0000KR][LinkedList](by-file/LinkedList.md) helpers for sentinel lists and two-word payload nodes. Keep those generic helpers under `util/LinkedList.cpp`; this module should own only monster-specific archive/table payload interpretation and render/cache policy.
 
@@ -64,6 +64,7 @@ The helper classes documented in [UID:0000LK][MonsterImageLibTables](by-file/Mon
 - [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md)
 - [UID:00017C][0x004dac40-0x004e685f.MonsterImageLib](by-memory/0x004dac40-0x004e685f.MonsterImageLib.md)
 - [UID:0002JN][0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables](by-memory/0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables.md)
+- [UID:0002VF][0x004e5990-0x004e5a62.VectorGrowArchiveIndex](by-memory/0x004e5990-0x004e5a62.VectorGrowArchiveIndex.md)
 - [UID:0000RR][g_pMonsterImageLib](by-global/g_pMonsterImageLib.md)
 - [UID:0001Y7][MonsterImageLibVtable](by-type/by-vtable/MonsterImageLibVtable.md)
 - [UID:0001VD][MonsterImageLibLayout](by-type/by-struct/MonsterImageLibLayout.md)
@@ -87,3 +88,6 @@ The helper classes documented in [UID:0000LK][MonsterImageLibTables](by-file/Mon
   - What existed before: confidence was `78`, the page cited indirect evidence, and the strongest owner evidence was spread across child pages.
   - Changed to: confidence `82`, provenance now points to live IDA evidence and the autogen root, and the score rationale records why this file is a valid parent for MonsterImageLib class/memory children.
   - Summary/evidence: current IDA MCP verifies the function inventory, constructor caller, constructor-loaded table/archive helpers, vtable stores, singleton lifecycle writes/clears, archive/cache behavior, and monster resource strings. Final C++ remains absent because exact field names and helper split are still below the `95/95` gate.
+- 2026-06-04 exact helper child update:
+  - Added [UID:0002VF][0x004e5990-0x004e5a62.VectorGrowArchiveIndex](by-memory/0x004e5990-0x004e5a62.VectorGrowArchiveIndex.md) as the exact `LoadMonsterArchives` slow-path vector grow helper.
+  - Evidence: live IDA MCP confirms a single caller at `0x004dbd8f` inside `LoadMonsterArchives`, exact `0x004e5990-0x004e5a62` boundary, immediate post-body alignment, and archive-index vector grow behavior.

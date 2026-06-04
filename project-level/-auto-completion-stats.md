@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 22:09:01
+Generated: 2026-06-03 22:25:46
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3722
-- Scored files: 3554
+- Tracked files: 3723
+- Scored files: 3555
 - Ignored files: 168
 
 ## projected_path_completion
@@ -99,8 +99,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0000VK` | 70 | 85 | 77.5 | `by-item/VectorGrowArchiveIndex_004E5990.md` |
-| `0000WA` | 70 | 85 | 77.5 | `by-memory/0x00419f70-0x00419f86.MemoryManStaticInitializer.md` |
 | `0000WL` | 70 | 85 | 77.5 | `by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md` |
 | `0000WM` | 70 | 85 | 77.5 | `by-memory/0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual.md` |
 | `0000WP` | 70 | 85 | 77.5 | `by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md` |
@@ -123,6 +121,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000XY` | 70 | 85 | 77.5 | `by-memory/0x00457a60-0x00458610.EPFTileContext.md` |
 | `000200` | 70 | 85 | 77.5 | `by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md` |
 | `0000Y2` | 70 | 85 | 77.5 | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |
+| `0000Y3` | 70 | 85 | 77.5 | `by-memory/0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent.md` |
+| `0001Z9` | 70 | 85 | 77.5 | `by-memory/0x00459cd0-0x00459cd4.RankingEventScrollPaneHasActiveEffect.md` |
 
 ## Low_Confidence
 
@@ -290,7 +290,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000UB` | 72 | 82 | 77.0 | `by-item/DATAudioResources.md` |
-| `0000VK` | 70 | 85 | 77.5 | `by-item/VectorGrowArchiveIndex_004E5990.md` |
 | `0000UN` | 72 | 84 | 78.0 | `by-item/EPFArchiveMetadataTable.md` |
 | `0000UM` | 72 | 84 | 78.0 | `by-item/EncodeTextEditState_0058E490.md` |
 | `0000U7` | 74 | 82 | 78.0 | `by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md` |
@@ -313,6 +312,7 @@ _No scored files._
 | `0000UR` | 78 | 86 | 82.0 | `by-item/GetSpriteBounds_004DE2A0.md` |
 | `0000UV` | 78 | 86 | 82.0 | `by-item/InitializeMainUiGraph_004F7D10.md` |
 | `0000TU` | 80 | 84 | 82.0 | `by-item/AILFileOpenCallback_0057B630.md` |
+| `0000U0` | 80 | 84 | 82.0 | `by-item/BlendRgb565Pair_004C60D0.md` |
 
 ### by-memory
 
