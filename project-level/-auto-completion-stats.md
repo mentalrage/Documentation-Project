@@ -98,11 +98,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0000Y2` | 70 | 85 | 77.5 | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |
-| `0000Y3` | 70 | 85 | 77.5 | `by-memory/0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent.md` |
-| `0001Z9` | 70 | 85 | 77.5 | `by-memory/0x00459cd0-0x00459cd4.RankingEventScrollPaneHasActiveEffect.md` |
-| `0001ZA` | 70 | 85 | 77.5 | `by-memory/0x00459ce0-0x0045a3f5.RankingEventScrollPaneOnPaint.md` |
-| `0000Y4` | 70 | 85 | 77.5 | `by-memory/0x0045a400-0x0045a70b.RankingEventScrollPaneHitTest.md` |
 | `0001ZB` | 70 | 85 | 77.5 | `by-memory/0x0045a710-0x0045a98a.RankingEventScrollPaneGetScrollRegionRect.md` |
 | `0000Y5` | 70 | 85 | 77.5 | `by-memory/0x0045a990-0x0045ac0f.RankingEventScrollPaneRawHoverDragHelpers.md` |
 | `0000Y6` | 70 | 85 | 77.5 | `by-memory/0x0045ac10-0x0045adc3.RankingEventScrollPaneDragToPosition.md` |
