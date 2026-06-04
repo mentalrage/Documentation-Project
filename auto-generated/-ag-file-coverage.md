@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 215
+Total_Reconstructed_Assigned: 216
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 73
+Total_Error: 72
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -67,6 +67,7 @@ Total_Error: 73
 | [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-file/EmployeeDialogPane.md` | by-file generated root |
 | [UID:0000J1][Encoder](by-file/Encoder.md) | assigned |  |  | no | `auto-generated/NexusTK/util/Encoder.cpp` | `by-file/Encoder.md` | by-file generated root |
 | [UID:0000J5][Error](by-file/Error.md) | assigned |  |  | no | `auto-generated/NexusTK/util/Error.cpp` | `by-file/Error.md` | by-file generated root |
+| [UID:0000J6][Event](by-file/Event.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/Event.cpp` | `by-file/Event.md` | by-file generated root |
 | [UID:0000J7][EventDispatcher](by-file/EventDispatcher.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-file/EventDispatcher.md` | by-file generated root |
 | [UID:0000J8][ExceptionHandler](by-file/ExceptionHandler.md) | assigned |  |  | no | `auto-generated/NexusTK/platform/ExceptionHandler.cpp` | `by-file/ExceptionHandler.md` | by-file generated root |
 | [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/ExchangeDialog.cpp` | `by-file/ExchangeDialog.md` | by-file generated root |
@@ -238,7 +239,6 @@ Total_Error: 73
 | [UID:0000IM][DATArchive](by-file/DATArchive.md) | error |  |  | no |  | `by-file/DATArchive.md` | by-file generated root |
 | [UID:0000J3][EPFImageResources](by-file/EPFImageResources.md) | error |  |  | no |  | `by-file/EPFImageResources.md` | by-file generated root |
 | [UID:0000IX][EditablePaperPane](by-file/EditablePaperPane.md) | error |  |  | no |  | `by-file/EditablePaperPane.md` | by-file generated root |
-| [UID:0000J6][Event](by-file/Event.md) | error |  |  | no |  | `by-file/Event.md` | by-file generated root |
 | [UID:0000JD][FileIO](by-file/FileIO.md) | error |  |  | no |  | `by-file/FileIO.md` | by-file generated root |
 | [UID:0000JH][FontImageLib](by-file/FontImageLib.md) | error |  |  | no |  | `by-file/FontImageLib.md` | by-file generated root |
 | [UID:0000JI][FontStyle](by-file/FontStyle.md) | error |  |  | no |  | `by-file/FontStyle.md` | by-file generated root |

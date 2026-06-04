@@ -28,7 +28,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000IM` | blank | `(blank)` | `by-file/DATArchive.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000J3` | blank | `(blank)` | `by-file/EPFImageResources.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IX` | blank | `(blank)` | `by-file/EditablePaperPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000J6` | blank | `(blank)` | `by-file/Event.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JD` | blank | `(blank)` | `by-file/FileIO.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JH` | blank | `(blank)` | `by-file/FontImageLib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JI` | blank | `(blank)` | `by-file/FontStyle.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -128,8 +127,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00004H` | 72 | 80 | 76.0 | `by-class/EPFTextEditObject.md` |
-| `00004L` | 72 | 80 | 76.0 | `by-class/Event.md` |
 | `000055` | 72 | 80 | 76.0 | `by-class/FittingRoomTextButtonControlPane.md` |
 
 ### by-external-research

@@ -1,15 +1,15 @@
 *** UID:0000J6 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/core/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Event
 
 ## Status
 
-- Confidence: strong for event-object and event-factory ownership; medium for whether `EventMan` was split into its own `.cpp`.
+- Confidence: strong for event-object, event-factory, and `ui/core` placement; medium for whether `EventMan` was split into its own `.cpp`.
 - Proposed module: `ui/core/Event.cpp`
-- Current generated sources: `class_Event.cpp`, `class_EventMan.cpp`, recovered event helper files under `simroot_v2/recovered`
+- Reconstruction status: no final C++ emitted; keep this as an evidence/ownership page until event-record field names and the final `EventMan` split reach source quality.
 - Primary class docs: [UID:00004L][Event](by-class/Event.md), [UID:00004O][EventMan](by-class/EventMan.md)
 - Main address docs: [UID:00014B][0x004a8a90-0x004ab434.EventObjects](by-memory/0x004a8a90-0x004ab434.EventObjects.md), [UID:00014C][0x004a8b40-0x004ab476.EventMan](by-memory/0x004a8b40-0x004ab476.EventMan.md)
 
@@ -47,6 +47,7 @@
 - IDA confirms exact `EventMan` starts from `0x004a8b40` through `0x004ab440`; the class methods are non-contiguous because free event factories occupy gaps.
 - IDA callers show `EventMan::EventMan` is called from `Application::Initialize`, while the IME event factories are called from `InputMan::HandleWindowMessage`.
 - The old [UID:00014B][0x004a8a90-0x004ab434.EventObjects](by-memory/0x004a8a90-0x004ab434.EventObjects.md) memory doc is a broad base-event span and should not be treated as ownership of every byte between its endpoints.
+- 2026-06-04 live IDA recheck confirms the base `Event` constructor `0x004a8a90-0x004a8ab0`, destructor `0x004a8ab0-0x004a8abf`, and scalar deleting destructor `0x004ab3f0-0x004ab435`, with `Event` vtable data at `0x006196a0-0x006196b0` and the following `EventMan` RTTI/vtable beginning at `0x006196b0`.
 
 ## Cross-References
 
@@ -60,6 +61,10 @@
 
 ## Changes
 
+- 2026-06-04 projected path and base-event evidence refresh:
+  - What existed before: projected reconstruction path was blank, score was `82/78`, and the page still cited emitted-source provenance instead of only current evidence.
+  - Changed to: projected path `NexusTK/ui/core/`, score `84/82`, and documentation-only reconstruction status.
+  - Summary/evidence: live IDA confirms the base `Event` method bounds, `Event` vtable data before the adjacent `EventMan` RTTI/vtable, and the same UI-core ownership already argued by the `EventDispatcher`, `InputMan`, and `EventMan` separation notes.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:82` and `CONFIDENCE:78`.
