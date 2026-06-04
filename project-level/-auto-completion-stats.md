@@ -227,10 +227,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BL` | 72 | 80 | 76.0 | `by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md` |
-| `0002BM` | 72 | 80 | 76.0 | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |
-| `0002BO` | 72 | 80 | 76.0 | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |
-| `0002BP` | 72 | 80 | 76.0 | `by-memory/0x00491450-0x0049178d.KwgLauncherParser.md` |
 | `0002BQ` | 72 | 80 | 76.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
 | `00022G` | 72 | 80 | 76.0 | `by-memory/0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods.md` |
 | `00022Q` | 72 | 80 | 76.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
