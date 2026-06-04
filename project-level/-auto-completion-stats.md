@@ -124,9 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00002Y` | 72 | 78 | 75.0 | `by-class/CollectionPane2.md` |
-| `00004U` | 72 | 78 | 75.0 | `by-class/FieldMapPane.md` |
-| `00005G` | 72 | 78 | 75.0 | `by-class/FrameHandler.md` |
 | `00005R` | 72 | 78 | 75.0 | `by-class/GeneralPurposePanel2.md` |
 | `00009Y` | 72 | 78 | 75.0 | `by-class/OverlayImageEffecter.md` |
 | `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |
@@ -148,9 +145,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00002Y` | 72 | 78 | 75.0 | `by-class/CollectionPane2.md` |
-| `00004U` | 72 | 78 | 75.0 | `by-class/FieldMapPane.md` |
-| `00005G` | 72 | 78 | 75.0 | `by-class/FrameHandler.md` |
 | `00005R` | 72 | 78 | 75.0 | `by-class/GeneralPurposePanel2.md` |
 | `00009Y` | 72 | 78 | 75.0 | `by-class/OverlayImageEffecter.md` |
 | `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |

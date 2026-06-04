@@ -115,7 +115,7 @@
 - [UID:00002V][CollectionDialogPane](by-class/CollectionDialogPane.md) : reconstructable : 82% : strong : collection detail dialog construction, navigation, singleton handling, and child controls are documented.
 - [UID:00002W][CollectionEntryControlPane](by-class/CollectionEntryControlPane.md) : reconstructable : 76% : medium : entry-slot draw states, collection data offsets, and shared GrafPort helper caveats are documented.
 - [UID:00002X][CollectionPane](by-class/CollectionPane.md) : reconstructable : 82% : strong : collection summary panel, metadata loading, scroll/draw behavior, detail opening, and destructor island are documented.
-- [UID:00002Y][CollectionPane2](by-class/CollectionPane2.md) : reconstructable : 72% : medium : alternate collection frame pane with raw constructor/destructor and false stubs documented.
+- [UID:00002Y][CollectionPane2](by-class/CollectionPane2.md) : reconstructable : 82% : strong : live IDA confirms the raw constructor bytes, modeled method endpoints, vtable slots, render resource xrefs, false stubs, and scalar destructor linkage; constructor function-object/caller gap remains.
 - [UID:00002Z][ColorStringChattingMessage](by-class/ColorStringChattingMessage.md) : reconstructable : 86% : strong : exact constructor/destructor/clone/line-count/draw child pages, draw tail tables, and scalar deleting destructor glue context are documented.
 - [UID:000030][ColorStringSystemMessage](by-class/ColorStringSystemMessage.md) : reconstructable : 78% : strong : - Confidence: strong for role/vtable membership and documented core methods; medium for final method names/signatures.
 - [UID:000031][Config](by-class/Config.md) : reconstructable : 72% : strong : - Confidence: strong for base config ownership, constructor/destructor behavior, and helper-range links.
@@ -183,7 +183,7 @@
 - [UID:00004R][ExchangeDialog](by-class/ExchangeDialog.md) : reconstructable : 78% : strong : Trade dialog construction/actions/packet handling/money paths and helper caveats are documented.
 - [UID:00004S][ExchangeItemListPane](by-class/ExchangeItemListPane.md) : reconstructable : 78% : strong : Exchange offered-item list role, row layout, exact raw helper ranges, vtable slots, padding splits, and parent ExchangeDialog ownership are documented; final helper names remain below C++ emission quality.
 - [UID:00004T][ExchangeMoneyEditControlPane](by-class/ExchangeMoneyEditControlPane.md) : reconstructable : 76% : strong : Numeric money edit role, control flow, destructor/key/editable methods, and false generated method evidence are documented.
-- [UID:00004U][FieldMapPane](by-class/FieldMapPane.md) : reconstructable : 72% : strong : - Confidence: medium-strong for class behavior and map/UI placement; helper boundary caveat remains.
+- [UID:00004U][FieldMapPane](by-class/FieldMapPane.md) : reconstructable : 82% : strong : live IDA confirms exact modeled method endpoints, vtable slots, request/path helper callers, render/input ownership, and raw rect-helper boundary debt.
 - [UID:00004V][File](by-class/File.md) : reconstructable : 76% : strong : - Confidence: strong for abstract base role.
 - [UID:00004W][FileDownloader](by-class/FileDownloader.md) : reconstructable : 50% : medium : - Confidence: strong for methods and message dispatch, medium for inherited `StartThread` ownership.
 - [UID:00004X][FileError](by-class/FileError.md) : reconstructable : 74% : strong : - Confidence: strong for class responsibility and shared error-module placement.
@@ -205,7 +205,7 @@
 - [UID:00005D][FooterSystemMessage](by-class/FooterSystemMessage.md) : reconstructable : 76% : strong : Marker entry with IDA-confirmed four-byte factory body, corrected half-open endpoint, vtable slot map, default true helper, shared destructor caveat, and SystemMessagePanes parent attachment.
 - [UID:00005E][ForcedInformMessageDialog](by-class/ForcedInformMessageDialog.md) : reconstructable : 86% : strong : - Confidence: strong for class behavior and boundaries; medium for exact original filename.
 - [UID:00005F][FpsPane](by-class/FpsPane.md) : reconstructable : 82% : strong : - Confidence: strong for overlay/statistics responsibility, medium for the constructor/session-start boundaries.
-- [UID:00005G][FrameHandler](by-class/FrameHandler.md) : reconstructable : 72% : medium : - Confidence: strong for behavior, medium for final class name.
+- [UID:00005G][FrameHandler](by-class/FrameHandler.md) : reconstructable : 84% : strong : live IDA confirms decorated `FrameHandler` RTTI/vtable data, exact wrapper/destructor endpoints, broad generic frame callers, vtable stores in embedding owners, and unregister behavior.
 - [UID:00005H][FrameMgr](by-class/FrameMgr.md) : reconstructable : 78% : strong : - Confidence: strong.
 - [UID:00005I][FramePartPane](by-class/FramePartPane.md) : reconstructable : 82% : strong : - Confidence: strong for behavior.
 - [UID:00005J][FriendListDialog](by-class/FriendListDialog.md) : reconstructable : 80% : strong : - Confidence: strong.
