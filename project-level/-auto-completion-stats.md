@@ -93,16 +93,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000OS` | blank | `(blank)` | `by-file/ThreadSafeNodeList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-
 ## Low_Completion
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0001ZT` | 70 | 85 | 77.5 | `by-memory/0x004361b0-0x00439df9.MsvcStlIostreamTemplateSupport.md` |
-| `0001ZU` | 70 | 85 | 77.5 | `by-memory/0x00439eb0-0x00439ed5.JsonCppValueCoreEhCleanupChunk.md` |
-| `0001ZV` | 70 | 85 | 77.5 | `by-memory/0x00439ee0-0x0043e0a3.MsvcStlIostreamNumericSupport.md` |
-| `0001ZW` | 70 | 85 | 77.5 | `by-memory/0x0043e250-0x004417dd.MsvcStlJsonCppStringSupport.md` |
 | `0001ZX` | 70 | 85 | 77.5 | `by-memory/0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport.md` |
 | `0000XL` | 70 | 85 | 77.5 | `by-memory/0x00452260-0x0045239a.GetControlLayout_452260.md` |
 | `0001ZY` | 70 | 85 | 77.5 | `by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md` |
