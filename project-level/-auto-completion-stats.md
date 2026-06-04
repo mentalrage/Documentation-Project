@@ -227,9 +227,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BH` | 72 | 80 | 76.0 | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |
-| `0002BI` | 72 | 80 | 76.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
-| `0002BK` | 72 | 80 | 76.0 | `by-memory/0x00490200-0x0049050a.LgInternetSessionLauncherParser.md` |
 | `0002BL` | 72 | 80 | 76.0 | `by-memory/0x00490510-0x00490809.LauncherHostPortPayloadParser.md` |
 | `0002BM` | 72 | 80 | 76.0 | `by-memory/0x00490810-0x00490b01.MihosoftLauncherParser.md` |
 | `0002BO` | 72 | 80 | 76.0 | `by-memory/0x004910d0-0x00491445.BixelLauncherParser.md` |
