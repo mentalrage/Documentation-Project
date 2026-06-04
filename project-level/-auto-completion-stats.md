@@ -87,11 +87,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001ZF` | 70 | 85 | 77.5 | `by-memory/0x0045d7e0-0x0045db54.RankingRewardEntryParseAndAccessors.md` |
-| `0001ZG` | 70 | 85 | 77.5 | `by-memory/0x0045dba0-0x0045f12c.RankingRewardInfoDialogCore.md` |
-| `0001ZH` | 70 | 85 | 77.5 | `by-memory/0x0045ddd0-0x0045df8c.RankingRewardInfoPacketHandler.md` |
-| `0000YF` | 70 | 85 | 77.5 | `by-memory/0x00460b00-0x00460c0a.AlphaBlendSpan16Blocks.md` |
-| `0000YH` | 70 | 85 | 77.5 | `by-memory/0x004610f0-0x0046178a.AboveFrame.md` |
 | `0002GU` | 70 | 85 | 77.5 | `by-memory/0x00465b70-0x00465b89.ApplicationCopyWorldName.md` |
 | `0002GV` | 70 | 85 | 77.5 | `by-memory/0x00465b90-0x00465bac.ApplicationCopyPlayerName.md` |
 | `0000YZ` | 70 | 85 | 77.5 | `by-memory/0x00467b30-0x0046904e.BalloonObjectPane.md` |

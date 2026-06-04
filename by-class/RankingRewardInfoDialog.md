@@ -1,8 +1,8 @@
 *** UID:0000BP | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,7 +15,7 @@
 - Likely source file: [UID:0000MZ][RankingDialog](by-file/RankingDialog.md)
 - Address range: [UID:0000XZ][0x00458610-0x0045f9f5.RankingDialog](by-memory/0x00458610-0x0045f9f5.RankingDialog.md)
 - Exact class core: [UID:0001ZG][0x0045dba0-0x0045f12c.RankingRewardInfoDialogCore](by-memory/0x0045dba0-0x0045f12c.RankingRewardInfoDialogCore.md)
-- Current recovered file: `source-3/simroot_v2/class_RankingRewardInfoDialog.cpp`
+- Autogen parent: [UID:0000MZ][RankingDialog](by-file/RankingDialog.md).
 - Confidence: strong for dialog purpose, packet handler, reward-entry layout, and internal reward container helpers.
 
 ## Class Purpose
@@ -44,8 +44,8 @@
 - Reward entries are 560-byte records: `rankStart[8]` at `+0x00`, `rankEnd[8]` at `+0x10`, `symbolText[256]` at `+0x20`, symbol bytes at `+0x220/+0x221`, and an item-vector triplet at `+0x224`.
 - Item reward rows are 520-byte records containing `name[256]`, quantity, icon id, and palette/index.
 - Item reward rows draw item icons through `g_pItemObjImageLib` and labels formatted as `%s(%d)`.
-- IDA confirms primary, secondary, and tertiary vtables at `0x00610bc4`, `0x00610c24`, and `0x00610c54`; current generated metadata still reports `vtable_count: 0`.
-- Current `simroot_v2` source omits the `0x0045ddd0` packet-handler body and the parser/storage helper bodies; use the exact `by-memory` pages above for reconstruction.
+- IDA confirms primary, secondary, and tertiary vtables at `0x00610bc4`, `0x00610c24`, and `0x00610c54`.
+- Use the exact `by-memory` pages above for reconstruction of the packet-handler, parser, and storage helper bodies.
 
 ## Cross-References
 
@@ -64,6 +64,12 @@
 - [UID:0001RK][ranking-ui-resources](by-resource/ranking-ui-resources.md)
 
 ## Changes
+
+### 2026-06-04 - Parent assignment and stale source cleanup
+
+- Before: class score was already `84/88`, but reconstructable/autogen metadata was blank and the page still referenced stale recovered-source artifacts.
+- Changed to: marked reconstructable, attached to [UID:0000MZ][RankingDialog](by-file/RankingDialog.md), and removed stale recovered-source wording without changing the score.
+- Summary/evidence: live IDA reconfirmed [UID:0001ZF][0x0045d7e0-0x0045db54.RankingRewardEntryParseAndAccessors](by-memory/0x0045d7e0-0x0045db54.RankingRewardEntryParseAndAccessors.md) as ranking reward-info behavior called from the opcode `0x7d` subcommand `5` packet handler.
 
 ### 2026-05-30 - Grading update
 

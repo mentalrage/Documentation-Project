@@ -3,17 +3,18 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 283
+Total_Reconstructable: 284
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 209
+Total_Reconstructed_Assigned: 211
 Total_Reconstructed_Coded: 2
-Total_Reconstructable_Unassigned: 74
-Total_Unclassified: 302
+Total_Reconstructable_Unassigned: 73
+Total_Unclassified: 301
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | [UID:00000P][AUTOBUF_unsigned_char](by-class/AUTOBUF_unsigned_char.md) | assigned | `0000HM` | 10 | no | `auto-generated/NexusTK/util/AUTOBUF.cpp` | `by-class/AUTOBUF_unsigned_char.md` |  |
+| [UID:000005][AboveFrame](by-class/AboveFrame.md) | assigned | `0000JL` |  | no | `auto-generated/NexusTK/ui/core/FrameChrome.cpp` | `by-class/AboveFrame.md` |  |
 | [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-class/AddEmployeeItemDialog.md` |  |
 | [UID:000009][AddMixingItemDialog](by-class/AddMixingItemDialog.md) | assigned | `0000KE` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemDialogs.cpp` | `by-class/AddMixingItemDialog.md` |  |
 | [UID:00000A][AddToBlockListenInputPane](by-class/AddToBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/AddToBlockListenInputPane.md` |  |
@@ -166,6 +167,7 @@ Total_Error: 0
 | [UID:0000BK][RankingCategoryCollection](by-class/RankingCategoryCollection.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingCategoryCollection.md` |  |
 | [UID:0000BL][RankingCategoryRecord](by-class/RankingCategoryRecord.md) | assigned | `0000MZ` | 50 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingCategoryRecord.md` |  |
 | [UID:0000BO][RankingEventScrollPane](by-class/RankingEventScrollPane.md) | assigned | `0000MZ` | 20 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingEventScrollPane.md` |  |
+| [UID:0000BP][RankingRewardInfoDialog](by-class/RankingRewardInfoDialog.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingRewardInfoDialog.md` |  |
 | [UID:0000BQ][RankingUserListPane](by-class/RankingUserListPane.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingUserListPane.md` |  |
 | [UID:0000BS][RecordVector_4E57C0](by-class/RecordVector_4E57C0.md) | assigned | `0000P3` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-class/RecordVector_4E57C0.md` |  |
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-class/RectBounds.md` |  |
@@ -223,7 +225,6 @@ Total_Error: 0
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
 | [UID:00001G][CandidateStringQueue](by-class/CandidateStringQueue.md) | not_reconstructable |  |  | no |  | `by-class/CandidateStringQueue.md` |  |
-| [UID:000005][AboveFrame](by-class/AboveFrame.md) | unassigned |  |  | no |  | `by-class/AboveFrame.md` |  |
 | [UID:00000B][AlertPane](by-class/AlertPane.md) | unassigned |  |  | no |  | `by-class/AlertPane.md` |  |
 | [UID:00000W][BlackHole](by-class/BlackHole.md) | unassigned |  |  | no |  | `by-class/BlackHole.md` |  |
 | [UID:00001C][BulletinDialog](by-class/BulletinDialog.md) | unassigned |  |  | no |  | `by-class/BulletinDialog.md` |  |
@@ -497,7 +498,6 @@ Total_Error: 0
 | [UID:0000BI][RadioGroupControlPane](by-class/RadioGroupControlPane.md) | unclassified |  |  | no |  | `by-class/RadioGroupControlPane.md` |  |
 | [UID:0000BM][RankingDialog](by-class/RankingDialog.md) | unclassified |  |  | no |  | `by-class/RankingDialog.md` |  |
 | [UID:0000BN][RankingEventListPane](by-class/RankingEventListPane.md) | unclassified |  |  | no |  | `by-class/RankingEventListPane.md` |  |
-| [UID:0000BP][RankingRewardInfoDialog](by-class/RankingRewardInfoDialog.md) | unclassified |  |  | no |  | `by-class/RankingRewardInfoDialog.md` |  |
 | [UID:0000BR][ReconnectDialog](by-class/ReconnectDialog.md) | unclassified |  |  | no |  | `by-class/ReconnectDialog.md` |  |
 | [UID:0000BT][RectangleControlPane](by-class/RectangleControlPane.md) | unclassified |  |  | no |  | `by-class/RectangleControlPane.md` |  |
 | [UID:0000BV][Region](by-class/Region.md) | unclassified |  |  | no |  | `by-class/Region.md` |  |

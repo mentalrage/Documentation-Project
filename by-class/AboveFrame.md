@@ -1,8 +1,8 @@
 *** UID:000005 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JL | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,7 @@
 - Likely source file: [UID:0000JL][FrameChrome](by-file/FrameChrome.md)
 - Address range: [UID:0000YH][0x004610f0-0x0046178a.AboveFrame](by-memory/0x004610f0-0x0046178a.AboveFrame.md)
 - Vtable/layout anchor: [UID:0001XO][FrameChromeVtableFamily](by-type/by-vtable/FrameChromeVtableFamily.md); exact data child [UID:0002NG][0x00610ed8-0x00610f60.AboveFrameVtableData](by-memory/0x00610ed8-0x00610f60.AboveFrameVtableData.md)
-- Current recovered file: `source-3/simroot_v2/class_AboveFrame.cpp`
+- Autogen parent: [UID:0000JL][FrameChrome](by-file/FrameChrome.md).
 
 ## Class Purpose
 
@@ -24,14 +24,17 @@
 
 ## Observed State
 
-Wave3 notes describe:
+Live IDA decompilation and linked layout pages support these object fields:
 
-```text
-size   572 bytes
-0x000  Pane base
-0x0f8  EPFTileContext
-0x108  frame data array, about 308 bytes
-```
+| Offset | Meaning |
+| --- | --- |
+| `+0x000` | primary Pane-derived object/vtable |
+| `+0x0a0` | secondary vtable view |
+| `+0x0a4` | tertiary vtable view |
+| `+0x0f8` | `EPFTileContext`/tile context storage |
+| `+0x108` | loaded frame rectangle/tile bounds |
+| `+0x120` | positioned pane bounds |
+| `+0x130` | frame/tab resource mode flag |
 
 For frame indices below `4`, EPF mode loads `FRMPART.EPF`. For frame indices `4` and above, EPF mode loads `TABS.EPF`. Legacy mode loads `FRMPART.EPD`.
 
@@ -42,21 +45,21 @@ The visible frame objects are tracked through [UID:0000PN][FrameChromeSlots](by-
 | Method | Address | Role |
 | --- | --- | --- |
 | `AboveFrame::AboveFrame` | `0x004610f0-0x00461299` | Initializes pane, loads frame/tab EPF/EPD resource, positions bounds, registers notification. |
-| `~AboveFrame` | `0x004612a0-0x00461308` | Unregisters notification and destroys base pane. |
+| `~AboveFrame` | `0x004612a0-0x00461309` | Unregisters notification and destroys base pane. |
 | `DrawFrame` | `0x00461660-0x004616af` | Selects `FRMPART.PAL`, `TABS.PAL`, or `NPAL5.PAL` and draws the tile. |
-| `OnNotify` | `0x004616b0-0x004616c7` | Handles `goog` notification by destroying/dismissing itself. |
+| `OnNotify` | `0x004616b0-0x004616c8` | Handles `goog` notification by destroying/dismissing itself. |
 | `ScalarDeletingDestructor` | `0x004616e0-0x0046178a` | Destructor and optional delete wrapper. |
 
 ## Evidence Notes
 
 - IDA MCP reports the factory at `0x00461310` calls the constructor nine times.
 - IDA MCP reports `0x004615b0` releases the dynamic `AboveFrame` slot and the adjacent helper rebuilds it, despite the current misleading IDA name on the creator.
-- 2026-05-26 exact xref recheck splits the ten direct constructor refs into nine from the border factory at `0x00461310` and one from the dynamic recreate helper at `0x004615d0`.
-- IDA MCP confirms three `AboveFrame` vtable bases at `0x00610edc`, `0x00610f28`, and `0x00610f58`; current generated metadata reports `vtable_count: 0`.
+- 2026-06-04 exact xref recheck splits the ten direct constructor refs into nine from the border factory at `0x00461310` and one from the dynamic recreate helper at `0x004615d0`.
+- IDA MCP confirms three `AboveFrame` vtable bases at `0x00610edc`, `0x00610f28`, and `0x00610f58`.
 - 2026-05-31 IDA MCP proves exact vtable-data child [UID:0002NG][0x00610ed8-0x00610f60.AboveFrameVtableData](by-memory/0x00610ed8-0x00610f60.AboveFrameVtableData.md), starting at the primary RTTI locator and ending before UTF-16 `FRMPART.EPF` string data at `0x00610f60`.
 - The address-like value `0x00520046` is adjacent UTF-16 `FRMPART.EPF` string data after the short tertiary vtable, not an `AboveFrame` method.
-- Resource strings and generated source tie the class to `FRMPART.EPF`, `FRMPART.EPD`, `TABS.EPF`, `FRMPART.PAL`, `TABS.PAL`, and `NPAL5.PAL`.
-- Generated `EPFLibrary::LoadFrame` calls should be treated as `ResourceLayoutTable`/`g_pEPFLib` registry calls until an actual `EPFLibrary` class is proven.
+- Live IDA string decoding ties the class to `FRMPART.EPF`, `FRMPART.EPD`, `TABS.EPF`, `FRMPART.PAL`, `TABS.PAL`, and `NPAL5.PAL`.
+- `EPFLibrary::LoadFrame`-style calls should be treated as `ResourceLayoutTable`/`g_pEPFLib` registry calls until an actual `EPFLibrary` class is proven.
 
 ## Cross-References
 
@@ -72,6 +75,12 @@ The visible frame objects are tracked through [UID:0000PN][FrameChromeSlots](by-
 - [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md)
 
 ## Changes
+
+### 2026-06-04 - Live IDA refresh and parent assignment
+
+- Before: score was `72/88`, autogen parent was blank, and the page still used stale recovered-source wording for layout evidence.
+- Changed to: score is now `84/90`, attached to [UID:0000JL][FrameChrome](by-file/FrameChrome.md), and replaced stale source wording with live IDA offset/resource/vtable evidence.
+- Summary/evidence: live IDA confirms constructor/destructor/draw/notify/scalar-deleting-destructor ranges, ten constructor call sites, vtable bases `0x00610edc/0x00610f28/0x00610f58`, offsets `+0xf8/+0x108/+0x120/+0x130`, resources `FRMPART.EPF`, `TABS.EPF`, `FRMPART.EPD`, palettes `FRMPART.PAL`, `TABS.PAL`, `NPAL5.PAL`, notification tag `goog`, and boundary padding.
 
 - Before: the `AboveFrame` memory range and scalar deleting destructor ended at `0x00461789`.
 - After: the range and scalar deleting destructor end at `0x0046178a`.

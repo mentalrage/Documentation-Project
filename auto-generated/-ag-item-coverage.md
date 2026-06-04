@@ -3,16 +3,17 @@
 # ag-item-coverage
 
 Total_Type: 64
-Total_Reconstructable: 31
+Total_Reconstructable: 32
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 29
+Total_Reconstructed_Assigned: 30
 Total_Reconstructed_Coded: 0
 Total_Reconstructable_Unassigned: 2
-Total_Unclassified: 30
+Total_Unclassified: 29
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| [UID:0000TW][AlphaBlendSpan16Blocks_00460B00](by-item/AlphaBlendSpan16Blocks_00460B00.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-item/AlphaBlendSpan16Blocks_00460B00.md` |  |
 | [UID:0000TY][ArgumentedItemPurchaseHelpers_51f450_51f640](by-item/ArgumentedItemPurchaseHelpers_51f450_51f640.md) | assigned | `0000HH` | 5 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedItemInputDialogs.cpp` | `by-item/ArgumentedItemPurchaseHelpers_51f450_51f640.md` |  |
 | [UID:0000UK][DrawTextRunCallback_00593DB0](by-item/DrawTextRunCallback_00593DB0.md) | assigned | `0000ON` |  | no | `auto-generated/NexusTK/ui/controls/TextEditPane.cpp` | `by-item/DrawTextRunCallback_00593DB0.md` |  |
 | [UID:0000UL][EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0](by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md` |  |
@@ -49,7 +50,6 @@ Total_Error: 0
 | [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) | unassigned |  |  | no |  | `by-item/LoadFrameDrawRecord_004D1600.md` |  |
 | [UID:0000TU][AILFileOpenCallback_0057B630](by-item/AILFileOpenCallback_0057B630.md) | unclassified |  |  | no |  | `by-item/AILFileOpenCallback_0057B630.md` |  |
 | [UID:0000TT][AddEmployeeItemDialogInlineConstruction_004A339F](by-item/AddEmployeeItemDialogInlineConstruction_004A339F.md) | unclassified |  |  | no |  | `by-item/AddEmployeeItemDialogInlineConstruction_004A339F.md` |  |
-| [UID:0000TW][AlphaBlendSpan16Blocks_00460B00](by-item/AlphaBlendSpan16Blocks_00460B00.md) | unclassified |  |  | no |  | `by-item/AlphaBlendSpan16Blocks_00460B00.md` |  |
 | [UID:0000TV][AlphaBlendSpan16_00460500](by-item/AlphaBlendSpan16_00460500.md) | unclassified |  |  | no |  | `by-item/AlphaBlendSpan16_00460500.md` |  |
 | [UID:0000TX][AlphaSurfaceReleaseOwnedPixels_00462260](by-item/AlphaSurfaceReleaseOwnedPixels_00462260.md) | unclassified |  |  | no |  | `by-item/AlphaSurfaceReleaseOwnedPixels_00462260.md` |  |
 | [UID:0000TZ][BlendRgb555_004C0710](by-item/BlendRgb555_004C0710.md) | unclassified |  |  | no |  | `by-item/BlendRgb555_004C0710.md` |  |

@@ -15,7 +15,7 @@
 ## Covered Items To Replicate
 
 - [UID:000004][_DATFileMgr](by-class/_DATFileMgr.md) : reconstructable : 86% : strong : internal DAT archive manager; layout, raw destructor, load/find/insert/node helpers, resolver ownership, DAT entry behavior, exact one-slot vtable data, and field-name caveats documented.
-- [UID:000005][AboveFrame](by-class/AboveFrame.md) : reconstructable : 70% : strong : Frame-chrome pane with documented resource selection, slot ownership, vtable anchors, constructor/destructor family, and corrected scalar-deleting-destructor boundary.
+- [UID:000005][AboveFrame](by-class/AboveFrame.md) : reconstructable : 84% : strong : Frame-chrome pane with live IDA-confirmed method ranges, constructor xrefs, resource selection, slot ownership, vtable anchors, notification handling, and corrected scalar-deleting-destructor boundary.
 - [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md) : reconstructable : 76% : strong : Employee-specific `AddItemDialog` variant with confirmed inline construction path, owner pointer at `+0x270`, exact vtable-data child, and employee-command confirmation behavior; raw constructor reachability remains unresolved.
 - [UID:000007][AddItemDialog](by-class/AddItemDialog.md) : reconstructable : 72% : strong : Base reusable item-picker dialog with IDA-confirmed methods, three-view vtable layout, high/low resolution construction, and `MyItemListPane` ownership.
 - [UID:000008][AddItemWithCountDialog](by-class/AddItemWithCountDialog.md) : reconstructable : 66% : strong : Quantity-aware item add dialog with confirmed methods and vtable anchors; field/parameter naming still needs deeper method-level work.
