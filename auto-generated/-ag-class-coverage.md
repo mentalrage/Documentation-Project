@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 263
+Total_Reconstructable: 264
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 186
+Total_Reconstructed_Assigned: 187
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 322
+Total_Unclassified: 321
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -105,6 +105,7 @@ Total_Error: 0
 | [UID:00006S][InventoryPane2](by-class/InventoryPane2.md) | assigned | `0000KA` |  | no | `auto-generated/NexusTK/ui/inventory/InventoryPane.cpp` | `by-class/InventoryPane2.md` |  |
 | [UID:00006X][ItemWhoInputPane](by-class/ItemWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPane.md` |  |
 | [UID:00006Y][ItemWhoInputPaneState](by-class/ItemWhoInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/ItemWhoInputPaneState.md` |  |
+| [UID:00007D][LObject](by-class/LObject.md) | assigned | `0000KV` |  | no | `auto-generated/NexusTK/util/LObject.cpp` | `by-class/LObject.md` |  |
 | [UID:000070][LakeEffecter](by-class/LakeEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/LakeEffecter.md` |  |
 | [UID:000074][LegendPane](by-class/LegendPane.md) | assigned | `0000KM` | 5 | no | `auto-generated/NexusTK/ui/panels/LegendPane.cpp` | `by-class/LegendPane.md` |  |
 | [UID:00007C][LivingObjectPane__BoxRotator](by-class/LivingObjectPane__BoxRotator.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-class/LivingObjectPane__BoxRotator.md` |  |
@@ -382,7 +383,6 @@ Total_Error: 0
 | [UID:00006T][ItemCatalog](by-class/ItemCatalog.md) | unclassified |  |  | no |  | `by-class/ItemCatalog.md` |  |
 | [UID:00006U][ItemHelpPane](by-class/ItemHelpPane.md) | unclassified |  |  | no |  | `by-class/ItemHelpPane.md` |  |
 | [UID:00006V][ItemObjectPane](by-class/ItemObjectPane.md) | unclassified |  |  | no |  | `by-class/ItemObjectPane.md` |  |
-| [UID:00007D][LObject](by-class/LObject.md) | unclassified |  |  | no |  | `by-class/LObject.md` |  |
 | [UID:000071][LanguageMan](by-class/LanguageMan.md) | unclassified |  |  | no |  | `by-class/LanguageMan.md` |  |
 | [UID:000072][LanguageManager](by-class/LanguageManager.md) | unclassified |  |  | no |  | `by-class/LanguageManager.md` |  |
 | [UID:000073][Layer](by-class/Layer.md) | unclassified |  |  | no |  | `by-class/Layer.md` |  |

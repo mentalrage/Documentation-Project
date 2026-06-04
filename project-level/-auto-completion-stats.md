@@ -45,7 +45,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000KD` | blank | `(blank)` | `by-file/ItemCatalog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KG` | blank | `(blank)` | `by-file/ItemObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KI` | blank | `(blank)` | `by-file/JsonCpp.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KV` | blank | `(blank)` | `by-file/LObject.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KL` | blank | `(blank)` | `by-file/Layer.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KN` | blank | `(blank)` | `by-file/LibJPEG.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KO` | blank | `(blank)` | `by-file/LightingObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -99,7 +98,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00007D` | 78 | 76 | 77.0 | `by-class/LObject.md` |
 | `000091` | 78 | 76 | 77.0 | `by-class/NewHistoryDialogPane.md` |
 | `00009T` | 78 | 76 | 77.0 | `by-class/OldSystemMessagePane.md` |
 | `0000AD` | 78 | 76 | 77.0 | `by-class/PhoneBookDialog.md` |
@@ -148,7 +146,6 @@ _No scored files._
 | `0000LP` | 76 | 80 | 78.0 | `by-file/NewCreateUserDialogPane.md` |
 | `0000KO` | 78 | 78 | 78.0 | `by-file/LightingObjectPane.md` |
 | `0000KQ` | 78 | 78 | 78.0 | `by-file/LineIterator.md` |
-| `0000KV` | 80 | 76 | 78.0 | `by-file/LObject.md` |
 | `0000HM` | 72 | 86 | 79.0 | `by-file/AUTOBUF.md` |
 | `0000HU` | 74 | 84 | 79.0 | `by-file/BowGaugeObjectPane.md` |
 | `0000K8` | 74 | 84 | 79.0 | `by-file/IntAlphaSurface.md` |
