@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 264
+Total_Reconstructable: 265
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 187
+Total_Reconstructed_Assigned: 188
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 321
+Total_Unclassified: 320
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -123,6 +123,7 @@ Total_Error: 0
 | [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md) | assigned | `0000LN` |  | no | `auto-generated/NexusTK/ui/dialogs/MusicControlDialog.cpp` | `by-class/MusicControlDialog.md` |  |
 | [UID:00008V][MyError](by-class/MyError.md) | assigned | `0000J5` | 220 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/MyError.md` |  |
 | [UID:00008Z][NewCreateUserDialogPane](by-class/NewCreateUserDialogPane.md) | assigned | `0000LP` |  | no | `auto-generated/NexusTK/login/NewCreateUserDialogPane.cpp` | `by-class/NewCreateUserDialogPane.md` |  |
+| [UID:000091][NewHistoryDialogPane](by-class/NewHistoryDialogPane.md) | assigned | `0000LQ` |  | no | `auto-generated/NexusTK/login/NewHistoryDialogPane.cpp` | `by-class/NewHistoryDialogPane.md` |  |
 | [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-class/NewHumanImageLib.md` |  |
 | [UID:000093][NewInventoryPane](by-class/NewInventoryPane.md) | assigned | `0000LS` |  | no | `auto-generated/NexusTK/ui/inventory/NewInventoryPane.cpp` | `by-class/NewInventoryPane.md` |  |
 | [UID:000097][NewOptionPane](by-class/NewOptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-class/NewOptionPane.md` |  |
@@ -427,7 +428,6 @@ Total_Error: 0
 | [UID:00008Q][MoreInfoPane](by-class/MoreInfoPane.md) | unclassified |  |  | no |  | `by-class/MoreInfoPane.md` |  |
 | [UID:00008T][MultiLineInputPane](by-class/MultiLineInputPane.md) | unclassified |  |  | no |  | `by-class/MultiLineInputPane.md` |  |
 | [UID:00008Y][NewArticleDialog](by-class/NewArticleDialog.md) | unclassified |  |  | no |  | `by-class/NewArticleDialog.md` |  |
-| [UID:000091][NewHistoryDialogPane](by-class/NewHistoryDialogPane.md) | unclassified |  |  | no |  | `by-class/NewHistoryDialogPane.md` |  |
 | [UID:000094][NewMacroDialog](by-class/NewMacroDialog.md) | unclassified |  |  | no |  | `by-class/NewMacroDialog.md` |  |
 | [UID:000095][NewMacroEditControlPane](by-class/NewMacroEditControlPane.md) | unclassified |  |  | no |  | `by-class/NewMacroEditControlPane.md` |  |
 | [UID:000096][NewMailDialog](by-class/NewMailDialog.md) | unclassified |  |  | no |  | `by-class/NewMailDialog.md` |  |

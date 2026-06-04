@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1414
+Total_Reconstructable: 1415
 Total_Not_Reconstructable: 24
-Total_Reconstructed_Assigned: 876
+Total_Reconstructed_Assigned: 877
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 533
-Total_Unclassified: 810
+Total_Unclassified: 809
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -437,6 +437,7 @@ Total_Error: 5
 | [UID:0002QE][0x004fee40-0x004ff03f.HandlePasswordChangeReplySimple](by-memory/0x004fee40-0x004ff03f.HandlePasswordChangeReplySimple.md) | assigned | `0000I3` |  | no | `auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp` | `by-memory/0x004fee40-0x004ff03f.HandlePasswordChangeReplySimple.md` |  |
 | [UID:00019Y][0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore](by-memory/0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore.md) | assigned | `0000NH` |  | no | `auto-generated/NexusTK/ui/controls/ScrolledPictureControlPane.cpp` | `by-memory/0x004ff7d0-0x004ffa9e.ScrolledPictureControlPaneCore.md` |  |
 | [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md) | assigned | `0000HP` |  | no | `auto-generated/NexusTK/login/BackStoryDialogPane.cpp` | `by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md` |  |
+| [UID:0001A3][0x00500410-0x00500632.NewHistoryDialogPaneCore](by-memory/0x00500410-0x00500632.NewHistoryDialogPaneCore.md) | assigned | `0000LQ` |  | no | `auto-generated/NexusTK/login/NewHistoryDialogPane.cpp` | `by-memory/0x00500410-0x00500632.NewHistoryDialogPaneCore.md` |  |
 | [UID:0001A5][0x005008c0-0x0050114d.BlueAlertPaneCore](by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md) | assigned | `00000Y` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |  |
 | [UID:0001A6][0x00501150-0x00502383.UserCreateAppearanceSelectorControls](by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md` |  |
 | [UID:0002HV][0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw](by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md) | assigned | `00005O` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |  |
@@ -1814,7 +1815,6 @@ Total_Error: 5
 | [UID:00019Z][0x004ffaa0-0x004ffd3d.StaffsDialogPaneCore](by-memory/0x004ffaa0-0x004ffd3d.StaffsDialogPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x004ffaa0-0x004ffd3d.StaffsDialogPaneCore.md` |  |
 | [UID:0001A0][0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage](by-memory/0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage.md) | unclassified |  |  | no |  | `by-memory/0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage.md` |  |
 | [UID:0001A1][0x004ffd80-0x0050008b.HistoryViewingPaneCore](by-memory/0x004ffd80-0x0050008b.HistoryViewingPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x004ffd80-0x0050008b.HistoryViewingPaneCore.md` |  |
-| [UID:0001A3][0x00500410-0x00500632.NewHistoryDialogPaneCore](by-memory/0x00500410-0x00500632.NewHistoryDialogPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x00500410-0x00500632.NewHistoryDialogPaneCore.md` |  |
 | [UID:0001A7][0x005023b0-0x005023bb.HistoryViewingPaneSingletonClear](by-memory/0x005023b0-0x005023bb.HistoryViewingPaneSingletonClear.md) | unclassified |  |  | no |  | `by-memory/0x005023b0-0x005023bb.HistoryViewingPaneSingletonClear.md` |  |
 | [UID:0001A8][0x005023e0-0x005023eb.NewHistoryDialogPaneSingletonClear](by-memory/0x005023e0-0x005023eb.NewHistoryDialogPaneSingletonClear.md) | unclassified |  |  | no |  | `by-memory/0x005023e0-0x005023eb.NewHistoryDialogPaneSingletonClear.md` |  |
 | [UID:0001A9][0x00502410-0x0050241b.StaffsDialogPaneSingletonClear](by-memory/0x00502410-0x0050241b.StaffsDialogPaneSingletonClear.md) | unclassified |  |  | no |  | `by-memory/0x00502410-0x0050241b.StaffsDialogPaneSingletonClear.md` |  |

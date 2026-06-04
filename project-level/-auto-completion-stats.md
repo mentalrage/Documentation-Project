@@ -59,7 +59,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LE` | blank | `(blank)` | `by-file/MiniMap.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LF` | blank | `(blank)` | `by-file/MiniMapVersionManager.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LL` | blank | `(blank)` | `by-file/Motion.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LQ` | blank | `(blank)` | `by-file/NewHistoryDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M0` | blank | `(blank)` | `by-file/NexonclubRegistrationDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M2` | blank | `(blank)` | `by-file/NumericStringControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M5` | blank | `(blank)` | `by-file/ObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -98,8 +97,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000091` | 78 | 76 | 77.0 | `by-class/NewHistoryDialogPane.md` |
-| `00009T` | 78 | 76 | 77.0 | `by-class/OldSystemMessagePane.md` |
 | `0000AD` | 78 | 76 | 77.0 | `by-class/PhoneBookDialog.md` |
 | `0000AH` | 78 | 76 | 77.0 | `by-class/PictureViewPane.md` |
 | `0000CD` | 78 | 76 | 77.0 | `by-class/ScreenshotCapture.md` |
