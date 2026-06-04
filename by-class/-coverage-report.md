@@ -520,7 +520,7 @@
 - [UID:0000E8][StringMenuItem](by-class/StringMenuItem.md) : reconstructable : 88% : strong : - Confidence: strong for class role, inline label layout, vtable ownership, and exact constructor/text/measure/draw/destructor pages.
 - [UID:0000E9][SwallowLayerPane](by-class/SwallowLayerPane.md) : reconstructable : 84% : high : - Confidence: strong for behavior and IDA boundaries; current generated output is incomplete.
 - [UID:0000EA][SystemMessagePane](by-class/SystemMessagePane.md) : reconstructable : 84% : high : - Confidence: strong for class role and IDA boundaries; several virtual helper names remain provisional.
-- [UID:0000EB][TabPane](by-class/TabPane.md) : reconstructable : 82% : medium-high : - Confidence: strong for local behavior and range, medium for final source grouping.
+- [UID:0000EB][TabPane](by-class/TabPane.md) : reconstructable : 86% : strong : Live IDA pass verified exact function boundaries, singleton xrefs, vtable slots/writes, input/action dispatch, tab rectangles, destructor behavior, and the raw unreferenced rectangle helper; final tab labels/source grouping remain open.
 - [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) : reconstructable : 86% : strong : Take-off equipment-removal prompt with raw constructor, shortcut opcode `0x2d`, shared opcode `0x1f` helper, `A` all-equipment command, slot-key table scan, vtable identity, and padding boundaries documented.
 - [UID:0000ED][TargetObjectWithKeyboardPane](by-class/TargetObjectWithKeyboardPane.md) : reconstructable : 86% : high : - Confidence: strong for class behavior and IDA boundaries; medium for exact original file split.
 - [UID:0000EE][TargetOptionDialog](by-class/TargetOptionDialog.md) : reconstructable : 84% : strong : - Confidence: strong for behavior and pairing with `TargetOptionEditControlPane`.
@@ -529,7 +529,7 @@
 - [UID:0000EH][TerminalSetupPane](by-class/TerminalSetupPane.md) : reconstructable : 82% : strong : - Confidence: strong
 - [UID:0000EI][TextBoxPane](by-class/TextBoxPane.md) : reconstructable : 84% : strong : TextEditPane-derived text box control with live IDA constructor/override boundaries, corrected cursor-invalidation endpoint, eight constructor call sites, three vtable stores, optional text insertion, IME focus assignment, cursor/line refresh behavior, and parent attachment documented.
 - [UID:0000EJ][TextButtonControlPane](by-class/TextButtonControlPane.md) : reconstructable : 84% : high : - Confidence: strong for class role.
-- [UID:0000EK][TextButtonExControlPane](by-class/TextButtonExControlPane.md) : reconstructable : 82% : medium-high : - Confidence: strong for class role, medium for destructor/helper owner names.
+- [UID:0000EK][TextButtonExControlPane](by-class/TextButtonExControlPane.md) : reconstructable : 86% : strong : Live IDA pass verified function boundaries, constructor caller, vtables/slots, text-provider child lifecycle, raw ordinary teardown, state/text/show/hide/attach/detach/paint behavior, and destructor thunks.
 - [UID:0000EL][TextDialog](by-class/TextDialog.md) : reconstructable : 86% : strong : - Confidence: strong for main behavior and function boundaries.
 - [UID:0000EM][TextEditControlPane](by-class/TextEditControlPane.md) : reconstructable : 84% : strong : - Confidence: strong.
 - [UID:0000EN][TextEditObject](by-class/TextEditObject.md) : reconstructable : 76% : medium-high : - Confidence: strong for class behavior; medium for exact original file split.

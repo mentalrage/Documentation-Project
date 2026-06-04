@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1449
+Total_Reconstructable: 1450
 Total_Not_Reconstructable: 29
 Total_Reconstructed_Assigned: 922
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 521
-Total_Unclassified: 770
+Total_Reconstructable_Unassigned: 522
+Total_Unclassified: 769
 Total_Error: 6
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -1151,6 +1151,7 @@ Total_Error: 6
 | [UID:0002II][0x004cebc0-0x004cebec.HierListRemoveAt](by-memory/0x004cebc0-0x004cebec.HierListRemoveAt.md) | unassigned |  |  | no |  | `by-memory/0x004cebc0-0x004cebec.HierListRemoveAt.md` |  |
 | [UID:0002IJ][0x004cebf0-0x004cec22.HierListSwapElements](by-memory/0x004cebf0-0x004cec22.HierListSwapElements.md) | unassigned |  |  | no |  | `by-memory/0x004cebf0-0x004cec22.HierListSwapElements.md` |  |
 | [UID:0002IL][0x004ced10-0x004ceda4.HierListUpdateHierarchy](by-memory/0x004ced10-0x004ceda4.HierListUpdateHierarchy.md) | unassigned |  |  | no |  | `by-memory/0x004ced10-0x004ceda4.HierListUpdateHierarchy.md` |  |
+| [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md) | unassigned |  |  | no |  | `by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md` |  |
 | [UID:0002KO][0x004d0120-0x004d02e4.ResourceLayoutTableLoadResourceIndex](by-memory/0x004d0120-0x004d02e4.ResourceLayoutTableLoadResourceIndex.md) | unassigned |  |  | no |  | `by-memory/0x004d0120-0x004d02e4.ResourceLayoutTableLoadResourceIndex.md` |  |
 | [UID:000174][0x004d0120-0x004d182e.ResourceLayoutTable](by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md) | unassigned |  |  | no |  | `by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md` |  |
 | [UID:0002KP][0x004d02f0-0x004d039d.ResourceLayoutTableLookupLayoutEntry](by-memory/0x004d02f0-0x004d039d.ResourceLayoutTableLookupLayoutEntry.md) | unassigned |  |  | no |  | `by-memory/0x004d02f0-0x004d039d.ResourceLayoutTableLookupLayoutEntry.md` |  |
@@ -1795,7 +1796,6 @@ Total_Error: 6
 | [UID:00016U][0x004c78e0-0x004c82cf.WillBeChangedPreviewPanes](by-memory/0x004c78e0-0x004c82cf.WillBeChangedPreviewPanes.md) | unclassified |  |  | no |  | `by-memory/0x004c78e0-0x004c82cf.WillBeChangedPreviewPanes.md` |  |
 | [UID:00016V][0x004c82d0-0x004ce160.ItemHelpPaneCore](by-memory/0x004c82d0-0x004ce160.ItemHelpPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x004c82d0-0x004ce160.ItemHelpPaneCore.md` |  |
 | [UID:00016Y][0x004cee60-0x004cf1ef.HourPane](by-memory/0x004cee60-0x004cf1ef.HourPane.md) | unclassified |  |  | no |  | `by-memory/0x004cee60-0x004cf1ef.HourPane.md` |  |
-| [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md) | unclassified |  |  | no |  | `by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md` |  |
 | [UID:00017G][0x004dc730-0x004dc7d8.RidingImageLibDestructor](by-memory/0x004dc730-0x004dc7d8.RidingImageLibDestructor.md) | unclassified |  |  | no |  | `by-memory/0x004dc730-0x004dc7d8.RidingImageLibDestructor.md` |  |
 | [UID:00017H][0x004dcf60-0x004e6aa6.StaticObjImageLib](by-memory/0x004dcf60-0x004e6aa6.StaticObjImageLib.md) | unclassified |  |  | no |  | `by-memory/0x004dcf60-0x004e6aa6.StaticObjImageLib.md` |  |
 | [UID:00017I][0x004dd1e0-0x004dd2bd.StaticObjImageLibDestructor](by-memory/0x004dd1e0-0x004dd2bd.StaticObjImageLibDestructor.md) | unclassified |  |  | no |  | `by-memory/0x004dd1e0-0x004dd2bd.StaticObjImageLibDestructor.md` |  |

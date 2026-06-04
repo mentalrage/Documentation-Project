@@ -91,8 +91,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000EB` | 82 | 76 | 79.0 | `by-class/TabPane.md` |
-| `0000EK` | 82 | 76 | 79.0 | `by-class/TextButtonExControlPane.md` |
 | `0000FQ` | 82 | 76 | 79.0 | `by-class/UserPane.md` |
 | `0000IA` | 82 | 76 | 79.0 | `by-file/ClanDialogs.md` |
 | `0000JA` | 82 | 76 | 79.0 | `by-file/FieldMapPane.md` |
