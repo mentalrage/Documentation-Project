@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 21:43:22
+Generated: 2026-06-03 22:09:01
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3721
-- Scored files: 3553
+- Tracked files: 3722
+- Scored files: 3554
 - Ignored files: 168
 
 ## projected_path_completion
@@ -83,7 +83,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000NU` | blank | `(blank)` | `by-file/SortedList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NW` | blank | `(blank)` | `by-file/SoundObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NX` | blank | `(blank)` | `by-file/SoundStatusPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000O2` | blank | `(blank)` | `by-file/SpellMenuDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NZ` | blank | `(blank)` | `by-file/SpelledPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O3` | blank | `(blank)` | `by-file/StaffsDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000O6` | blank | `(blank)` | `by-file/StaticObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -100,9 +99,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
-| `0000VH` | 70 | 85 | 77.5 | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |
-| `0000VJ` | 70 | 85 | 77.5 | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |
 | `0000VK` | 70 | 85 | 77.5 | `by-item/VectorGrowArchiveIndex_004E5990.md` |
 | `0000WA` | 70 | 85 | 77.5 | `by-memory/0x00419f70-0x00419f86.MemoryManStaticInitializer.md` |
 | `0000WL` | 70 | 85 | 77.5 | `by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md` |
@@ -124,6 +120,9 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000XT` | 70 | 85 | 77.5 | `by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md` |
 | `0000XU` | 70 | 85 | 77.5 | `by-memory/0x004573d0-0x00457428.DATIndexVectorDestructor.md` |
 | `0000XX` | 70 | 85 | 77.5 | `by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md` |
+| `0000XY` | 70 | 85 | 77.5 | `by-memory/0x00457a60-0x00458610.EPFTileContext.md` |
+| `000200` | 70 | 85 | 77.5 | `by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md` |
+| `0000Y2` | 70 | 85 | 77.5 | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |
 
 ## Low_Confidence
 
@@ -291,8 +290,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000UB` | 72 | 82 | 77.0 | `by-item/DATAudioResources.md` |
-| `0000VH` | 70 | 85 | 77.5 | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |
-| `0000VJ` | 70 | 85 | 77.5 | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |
 | `0000VK` | 70 | 85 | 77.5 | `by-item/VectorGrowArchiveIndex_004E5990.md` |
 | `0000UN` | 72 | 84 | 78.0 | `by-item/EPFArchiveMetadataTable.md` |
 | `0000UM` | 72 | 84 | 78.0 | `by-item/EncodeTextEditState_0058E490.md` |
@@ -314,6 +311,8 @@ _No scored files._
 | `0000UL` | 78 | 86 | 82.0 | `by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md` |
 | `0000UP` | 78 | 86 | 82.0 | `by-item/FriendNameListSyncOpcodes.md` |
 | `0000UR` | 78 | 86 | 82.0 | `by-item/GetSpriteBounds_004DE2A0.md` |
+| `0000UV` | 78 | 86 | 82.0 | `by-item/InitializeMainUiGraph_004F7D10.md` |
+| `0000TU` | 80 | 84 | 82.0 | `by-item/AILFileOpenCallback_0057B630.md` |
 
 ### by-memory
 
@@ -388,7 +387,6 @@ _No scored files._
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0001SK` | 72 | 80 | 76.0 | `by-type/by-enum/BrowserInitFlags.md` |
-| `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
 | `0001W7` | 72 | 82 | 77.0 | `by-type/by-struct/SpecializedButtonPaneLayouts.md` |
 | `0001YP` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollCollectionPaneVtables.md` |
 | `0001YQ` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollInventoryPaneVtables.md` |
@@ -412,3 +410,4 @@ _No scored files._
 | `0001UN` | 76 | 84 | 80.0 | `by-type/by-struct/FontStyleLayout.md` |
 | `0001VJ` | 76 | 84 | 80.0 | `by-type/by-struct/PatchPane2Layout.md` |
 | `0001W3` | 76 | 84 | 80.0 | `by-type/by-struct/SimpleListPaneLayout.md` |
+| `0001UI` | 74 | 87 | 80.5 | `by-type/by-struct/FittingRoomDownloadProgressState.md` |

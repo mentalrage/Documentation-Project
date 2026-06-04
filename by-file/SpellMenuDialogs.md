@@ -1,7 +1,7 @@
 *** UID:0000O2 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SpellMenuDialogs
 
@@ -9,14 +9,14 @@
 
 - Confidence: strong for class boundaries and shared source family.
 - Proposed module: `ui/dialogs/SpellMenuDialogs.cpp`
-- Current recovered sources: `class_ServerSpellMenuDialog.cpp`, `class_ClientSpellMenuDialog.cpp`, `class_ServerSpellMenuItemList.cpp`, and `class_ClientSpellMenuItemList.cpp`.
+- Current IDA owner cluster: `ServerSpellMenuDialog`, `ClientSpellMenuDialog`, `ServerSpellMenuItemList`, and `ClientSpellMenuItemList`.
 - Vtable/layout anchor: [UID:0001Y5][MerchantMenuDialogVtableFamily](by-type/by-vtable/MerchantMenuDialogVtableFamily.md)
 
 ## File Role
 
 `SpellMenuDialogs.cpp` is the spell-action sibling to `ItemMenuDialogs.cpp`. It owns server-supplied and client-local spell action menus, parses packet/object-image payloads, builds `DLGMERC1` dialog layouts, and sends opcode `0x39` spell-action replies.
 
-IDA confirms spell menu dialog/list vtables at `0x0061f168-0x0061f41c`. Current generated metadata reports `vtable_count: 0` for the checked spell menu classes.
+IDA confirms spell menu dialog/list vtables at `0x0061f168-0x0061f41c`, with the spell-specific dialog and list methods grouped inside the compact `0x0051ca40-0x0051e998` range.
 
 The server and client variants share the same visual shell and inherit the same [UID:0000L9][MerchantDialogPane](by-file/MerchantDialogPane.md) base virtual used by text/item menu dialogs:
 
@@ -39,12 +39,11 @@ The server and client variants share the same visual shell and inherit the same 
 ## Evidence Notes
 
 - IDA MCP confirms the full spell-menu block from `0x0051ca40` through `0x0051e998`; `0x0051e998-0x0051e9a0` is alignment padding before the separate argumented-menu dialog cluster.
-- Wave3 summaries report strong grades: `ServerSpellMenuDialog` `97.3`, `ClientSpellMenuDialog` `98.0`, and both spell item lists `97.7`.
 - IDA MCP confirms constructor refs into the two dialogs from the dialog-packet dispatcher area around `0x005176c3`, `0x00517b77`, `0x0051770b`, and `0x00517c07`.
 - [UID:000238][0x00517450-0x00517d23.MenuDialogFactoryHelpers](by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md) now documents that dispatcher/wrapper area as the shared menu-dialog creator for packet subtypes `6` and `8`.
 - IDA MCP confirms both spell-menu vtable groups reference [UID:0000L9][MerchantDialogPane](by-file/MerchantDialogPane.md)'s [UID:0001BM][0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual](by-memory/0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual.md).
 - `ServerSpellMenuItemList` and `ClientSpellMenuItemList` share row rendering structure, but their row payload offsets differ: server rows draw text from `entry + 2`, while client rows draw text from `entry + 4` after the spell slot/code field.
-- 2026-05-24 MCP recheck: server/client `UpdateActionButtonState` methods both fetch child slot `1` for the action button and child slot `6` for the spell list, count enabled entries, and dispatch to the button enable/disable virtual. The real `ChattingColorListPane` constructor has only chat-color callers, so the generated client local type is not ownership evidence.
+- 2026-05-24 MCP recheck: server/client `UpdateActionButtonState` methods both fetch child slot `1` for the action button and child slot `6` for the spell list, count enabled entries, and dispatch to the button enable/disable virtual. The real `ChattingColorListPane` constructor has only chat-color callers, so the stale client local type is not ownership evidence.
 - 2026-05-24 item-menu-list pass: IDA xrefs show the secondary/tertiary destructor thunks at `0x00520ad1` and `0x00520adc`, plus scalar deleting destructor `0x00520c20`, are shared by `ClientItemMenuItemList`, `ServerSpellMenuItemList`, and `ClientSpellMenuItemList`.
 
 ## Ownership Notes
@@ -52,7 +51,7 @@ The server and client variants share the same visual shell and inherit the same 
 - Keep this adjacent to [UID:0000KE][ItemDialogs](by-file/ItemDialogs.md) and [UID:0000OP][TextMenuDialogs](by-file/TextMenuDialogs.md), but not merged into either. The spell menu has a distinct spell-list payload model and local-player spell-table population path.
 - Keep the shared [UID:0000L9][MerchantDialogPane](by-file/MerchantDialogPane.md) base adjacent to the menu-dialog family; it is not spell-specific despite spell-menu vtable references.
 - The `ObjectImageControlPane` dependency is a reusable control dependency, not a reason to move spell menu dialogs into the object-image control module.
-- Current generated `ClientSpellMenuDialog::UpdateActionButtonState` still types the spell list through `ChattingColorListPane`; treat that as owner-name pollution, not chat ownership. Rename that local type to a neutral spell-list wrapper before source migration.
+- The current `ClientSpellMenuDialog::UpdateActionButtonState` local label still types the spell list through `ChattingColorListPane`; treat that as owner-name pollution, not chat ownership. Rename that local type to a neutral spell-list wrapper before source migration.
 - Do not duplicate the shared list-pane destructor glue in each spell list source body. Keep `0x00520ad1`, `0x00520adc`, and `0x00520c20` as compiler/list-pane destructor support shared with item menu list classes.
 
 ## Cross-References
@@ -79,4 +78,8 @@ The server and client variants share the same visual shell and inherit the same 
 - 2026-05-30: Scored documentation completeness/confidence.
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `88` and confidence to `86`.
-  - Evidence: document covers class boundaries, shared dialog/list source family, proposed contents, IDA/vtable evidence, ownership notes, generated-name pollution, shared destructor glue, and cross-references; confidence is high because class boundaries and grouping are strongly verified.
+  - Evidence: document covers class boundaries, shared dialog/list source family, proposed contents, IDA/vtable evidence, ownership notes, local-name pollution, shared destructor glue, and cross-references; confidence is high because class boundaries and grouping are strongly verified.
+- 2026-06-04: Assigned reconstruction path.
+  - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank, leaving the file in projected-path completion.
+  - After: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/"`.
+  - Evidence: [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) lists `ui/dialogs/SpellMenuDialogs.cpp`, and live IDA confirms the server/client spell menu dialog and list range remains a compact dialog-source owner cluster.

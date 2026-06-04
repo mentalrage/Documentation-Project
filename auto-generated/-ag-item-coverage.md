@@ -5,9 +5,9 @@
 Total_Type: 64
 Total_Reconstructable: 30
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 25
+Total_Reconstructed_Assigned: 27
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 5
+Total_Reconstructable_Unassigned: 3
 Total_Unclassified: 31
 Total_Error: 0
 
@@ -37,14 +37,14 @@ Total_Error: 0
 | [UID:0000VE][ScreenEffecterSmallConstructorBoundaries](by-item/ScreenEffecterSmallConstructorBoundaries.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |  |
 | [UID:0000VF][ScreenshotProofPacket_00558240](by-item/ScreenshotProofPacket_00558240.md) | assigned | `0000ND` |  | no | `auto-generated/NexusTK/render/ScreenshotCapture.cpp` | `by-item/ScreenshotProofPacket_00558240.md` |  |
 | [UID:0000VG][ServerSelectHelpers_574510_5745b0](by-item/ServerSelectHelpers_574510_5745b0.md) | assigned | `0000NO` |  | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-item/ServerSelectHelpers_574510_5745b0.md` |  |
+| [UID:0000VH][SpellMenuActionButtonState_51d6c0_51e600](by-item/SpellMenuActionButtonState_51d6c0_51e600.md) | assigned | `0000O2` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellMenuDialogs.cpp` | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |  |
 | [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |  |
+| [UID:0000VJ][TransferServerDialogPaneThunks_599220_5993e0](by-item/TransferServerDialogPaneThunks_599220_5993e0.md) | assigned | `0000OW` |  | no | `auto-generated/NexusTK/ui/dialogs/TransferServerDialogPane.cpp` | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |  |
 | [UID:0000U5][BuildFramePartPanes_004B7120](by-item/BuildFramePartPanes_004B7120.md) | not_reconstructable |  |  | no |  | `by-item/BuildFramePartPanes_004B7120.md` |  |
 | [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md) | not_reconstructable |  |  | no |  | `by-item/InitAlphaSurfaceView_004623C0.md` |  |
 | [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) | not_reconstructable |  |  | no |  | `by-item/ScopedMarkerMissingMethodBodies.md` |  |
 | [UID:0000UJ][DrawTextInRect_004BAD70](by-item/DrawTextInRect_004BAD70.md) | unassigned |  |  | no |  | `by-item/DrawTextInRect_004BAD70.md` |  |
 | [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) | unassigned |  |  | no |  | `by-item/LoadFrameDrawRecord_004D1600.md` |  |
-| [UID:0000VH][SpellMenuActionButtonState_51d6c0_51e600](by-item/SpellMenuActionButtonState_51d6c0_51e600.md) | unassigned |  |  | no |  | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |  |
-| [UID:0000VJ][TransferServerDialogPaneThunks_599220_5993e0](by-item/TransferServerDialogPaneThunks_599220_5993e0.md) | unassigned |  |  | no |  | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |  |
 | [UID:0000VK][VectorGrowArchiveIndex_004E5990](by-item/VectorGrowArchiveIndex_004E5990.md) | unassigned |  |  | no |  | `by-item/VectorGrowArchiveIndex_004E5990.md` |  |
 | [UID:0000TU][AILFileOpenCallback_0057B630](by-item/AILFileOpenCallback_0057B630.md) | unclassified |  |  | no |  | `by-item/AILFileOpenCallback_0057B630.md` |  |
 | [UID:0000TT][AddEmployeeItemDialogInlineConstruction_004A339F](by-item/AddEmployeeItemDialogInlineConstruction_004A339F.md) | unclassified |  |  | no |  | `by-item/AddEmployeeItemDialogInlineConstruction_004A339F.md` |  |

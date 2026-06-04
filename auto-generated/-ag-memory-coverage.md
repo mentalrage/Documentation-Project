@@ -2,12 +2,12 @@
 
 # ag-memory-coverage
 
-Total_Type: 2246
-Total_Reconstructable: 1395
+Total_Type: 2247
+Total_Reconstructable: 1396
 Total_Not_Reconstructable: 15
 Total_Reconstructed_Assigned: 869
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 521
+Total_Reconstructable_Unassigned: 522
 Total_Unclassified: 836
 Total_Error: 5
 
@@ -1276,6 +1276,7 @@ Total_Error: 5
 | [UID:0001OB][0x006131b4-0x006139df.BrowserVtablesAndStrings](by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md) | unassigned |  |  | no |  | `by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md` |  |
 | [UID:00024W][0x00613ab0-0x00614cd0.BoardMailReadOnlyData](by-memory/0x00613ab0-0x00614cd0.BoardMailReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00613ab0-0x00614cd0.BoardMailReadOnlyData.md` |  |
 | [UID:0002MI][0x00613ba4-0x00613c44.BulletinDialogVtableData](by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md` |  |
+| [UID:0002VE][0x00613c44-0x00613ce4.BoardListDialogVtableData](by-memory/0x00613c44-0x00613ce4.BoardListDialogVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00613c44-0x00613ce4.BoardListDialogVtableData.md` |  |
 | [UID:0002M8][0x00614cd0-0x00614cdc.ChangeManVtableData](by-memory/0x00614cd0-0x00614cdc.ChangeManVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00614cd0-0x00614cdc.ChangeManVtableData.md` |  |
 | [UID:00024X][0x00614cd0-0x00615560.ChattingReadOnlyData](by-memory/0x00614cd0-0x00615560.ChattingReadOnlyData.md) | unassigned |  |  | no |  | `by-memory/0x00614cd0-0x00615560.ChattingReadOnlyData.md` |  |
 | [UID:00024Y][0x00615560-0x00615570.CheatDetectorVtableData](by-memory/0x00615560-0x00615570.CheatDetectorVtableData.md) | unassigned |  |  | no |  | `by-memory/0x00615560-0x00615570.CheatDetectorVtableData.md` |  |
