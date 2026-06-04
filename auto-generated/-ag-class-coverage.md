@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 251
+Total_Reconstructable: 253
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 174
+Total_Reconstructed_Assigned: 176
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 334
+Total_Unclassified: 332
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -124,6 +124,8 @@ Total_Error: 0
 | [UID:00009L][NumberInputPane](by-class/NumberInputPane.md) | assigned | `0000K7` |  | no | `auto-generated/NexusTK/ui/dialogs/InputPanes.cpp` | `by-class/NumberInputPane.md` |  |
 | [UID:00009V][OptionPane](by-class/OptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-class/OptionPane.md` |  |
 | [UID:00009W][OverlayEffecter](by-class/OverlayEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/OverlayEffecter.md` |  |
+| [UID:00009Y][OverlayImageEffecter](by-class/OverlayImageEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/OverlayImageEffecter.md` |  |
+| [UID:00009Z][OverlayImageOnPointEffecter](by-class/OverlayImageOnPointEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/OverlayImageOnPointEffecter.md` |  |
 | [UID:0000A5][ParcelIconPane](by-class/ParcelIconPane.md) | assigned | `0000MF` | 20 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/ParcelIconPane.md` |  |
 | [UID:0000A6][ParcelPane](by-class/ParcelPane.md) | assigned | `0000MF` | 10 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-class/ParcelPane.md` |  |
 | [UID:0000A9][PatchPane](by-class/PatchPane.md) | assigned | `0000MH` | 10 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane.md` |  |
@@ -444,8 +446,6 @@ Total_Error: 0
 | [UID:00009T][OldSystemMessagePane](by-class/OldSystemMessagePane.md) | unclassified |  |  | no |  | `by-class/OldSystemMessagePane.md` |  |
 | [UID:00009U][OldUserStatusPane](by-class/OldUserStatusPane.md) | unclassified |  |  | no |  | `by-class/OldUserStatusPane.md` |  |
 | [UID:00009X][OverlayFrameImageEffecter](by-class/OverlayFrameImageEffecter.md) | unclassified |  |  | no |  | `by-class/OverlayFrameImageEffecter.md` |  |
-| [UID:00009Y][OverlayImageEffecter](by-class/OverlayImageEffecter.md) | unclassified |  |  | no |  | `by-class/OverlayImageEffecter.md` |  |
-| [UID:00009Z][OverlayImageOnPointEffecter](by-class/OverlayImageOnPointEffecter.md) | unclassified |  |  | no |  | `by-class/OverlayImageOnPointEffecter.md` |  |
 | [UID:0000A0][OverlayMovingImageEffecter](by-class/OverlayMovingImageEffecter.md) | unclassified |  |  | no |  | `by-class/OverlayMovingImageEffecter.md` |  |
 | [UID:0000A1][PaletteLib](by-class/PaletteLib.md) | unclassified |  |  | no |  | `by-class/PaletteLib.md` |  |
 | [UID:0000A2][Pane](by-class/Pane.md) | unclassified |  |  | no |  | `by-class/Pane.md` |  |

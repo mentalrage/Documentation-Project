@@ -124,9 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00005R` | 72 | 78 | 75.0 | `by-class/GeneralPurposePanel2.md` |
-| `00009Y` | 72 | 78 | 75.0 | `by-class/OverlayImageEffecter.md` |
-| `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |
 | `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
 | `000220` | 72 | 78 | 75.0 | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |
 | `0001G6` | 72 | 78 | 75.0 | `by-memory/0x00557140-0x00559aef.SurfacePresentation.md` |
@@ -145,9 +142,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00005R` | 72 | 78 | 75.0 | `by-class/GeneralPurposePanel2.md` |
-| `00009Y` | 72 | 78 | 75.0 | `by-class/OverlayImageEffecter.md` |
-| `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |
 | `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
 | `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
 | `00001A` | 72 | 80 | 76.0 | `by-class/BrowserThread.md` |
