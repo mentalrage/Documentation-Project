@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 253
+Total_Reconstructable: 254
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 176
+Total_Reconstructed_Assigned: 177
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 332
+Total_Unclassified: 331
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -146,6 +146,7 @@ Total_Error: 0
 | [UID:0000BJ][RainingLayerPane](by-class/RainingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/RainingLayerPane.md` |  |
 | [UID:0000BL][RankingCategoryRecord](by-class/RankingCategoryRecord.md) | assigned | `0000MZ` | 50 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingCategoryRecord.md` |  |
 | [UID:0000BO][RankingEventScrollPane](by-class/RankingEventScrollPane.md) | assigned | `0000MZ` | 20 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingEventScrollPane.md` |  |
+| [UID:0000BQ][RankingUserListPane](by-class/RankingUserListPane.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingUserListPane.md` |  |
 | [UID:0000BS][RecordVector_4E57C0](by-class/RecordVector_4E57C0.md) | assigned | `0000P3` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-class/RecordVector_4E57C0.md` |  |
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-class/RectBounds.md` |  |
 | [UID:0000BX][RequestSyncGate](by-class/RequestSyncGate.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/RequestSyncGate.md` |  |
@@ -486,7 +487,6 @@ Total_Error: 0
 | [UID:0000BM][RankingDialog](by-class/RankingDialog.md) | unclassified |  |  | no |  | `by-class/RankingDialog.md` |  |
 | [UID:0000BN][RankingEventListPane](by-class/RankingEventListPane.md) | unclassified |  |  | no |  | `by-class/RankingEventListPane.md` |  |
 | [UID:0000BP][RankingRewardInfoDialog](by-class/RankingRewardInfoDialog.md) | unclassified |  |  | no |  | `by-class/RankingRewardInfoDialog.md` |  |
-| [UID:0000BQ][RankingUserListPane](by-class/RankingUserListPane.md) | unclassified |  |  | no |  | `by-class/RankingUserListPane.md` |  |
 | [UID:0000BR][ReconnectDialog](by-class/ReconnectDialog.md) | unclassified |  |  | no |  | `by-class/ReconnectDialog.md` |  |
 | [UID:0000BT][RectangleControlPane](by-class/RectangleControlPane.md) | unclassified |  |  | no |  | `by-class/RectangleControlPane.md` |  |
 | [UID:0000BV][Region](by-class/Region.md) | unclassified |  |  | no |  | `by-class/Region.md` |  |

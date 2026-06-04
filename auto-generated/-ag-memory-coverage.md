@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1410
+Total_Reconstructable: 1411
 Total_Not_Reconstructable: 23
-Total_Reconstructed_Assigned: 871
+Total_Reconstructed_Assigned: 872
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 534
-Total_Unclassified: 815
+Total_Unclassified: 814
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -170,6 +170,7 @@ Total_Error: 5
 | [UID:00021Y][0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers](by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |  |
 | [UID:00021Z][0x0048e310-0x0048e479.ConfigRawTableHelpers](by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |  |
 | [UID:0002BG][0x0048f400-0x0048f4cf.CommandLineArgumentCounter](by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md) | assigned | `0000N4` | 34 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |  |
+| [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md) | assigned | `0000N4` |  | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |  |
 | [UID:0002BH][0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser](by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md) | assigned | `0000N4` | 35 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |  |
 | [UID:0002BI][0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser](by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md) | assigned | `0000N4` | 36 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |  |
 | [UID:0002BJ][0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser](by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md) | assigned | `0000N4` |  | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048fca0-0x004901f0.ThrunetStartupAuthFileParser.md` |  |
@@ -1696,7 +1697,6 @@ Total_Error: 5
 | [UID:00010Y][0x0048d480-0x0048d49f.CollectionEntryControlPaneDestructor](by-memory/0x0048d480-0x0048d49f.CollectionEntryControlPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0048d480-0x0048d49f.CollectionEntryControlPaneDestructor.md` |  |
 | [UID:00010Z][0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton](by-memory/0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton.md) | unclassified |  |  | no |  | `by-memory/0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton.md` |  |
 | [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md) | unclassified |  |  | no |  | `by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md` |  |
-| [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md) | unclassified |  |  | no |  | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |  |
 | [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md` |  |
 | [UID:000113][0x00494520-0x004949df.ConnStatusPane](by-memory/0x00494520-0x004949df.ConnStatusPane.md) | unclassified |  |  | no |  | `by-memory/0x00494520-0x004949df.ConnStatusPane.md` |  |
 | [UID:00011F][0x00498040-0x0049b8e5.PopupMenuControlPane](by-memory/0x00498040-0x0049b8e5.PopupMenuControlPane.md) | unclassified |  |  | no |  | `by-memory/0x00498040-0x0049b8e5.PopupMenuControlPane.md` |  |

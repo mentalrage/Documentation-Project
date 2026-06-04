@@ -124,9 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
-| `000220` | 72 | 78 | 75.0 | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |
-| `0001G6` | 72 | 78 | 75.0 | `by-memory/0x00557140-0x00559aef.SurfacePresentation.md` |
 | `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
 | `00001A` | 72 | 80 | 76.0 | `by-class/BrowserThread.md` |
 | `00001H` | 72 | 80 | 76.0 | `by-class/CashShopRequest.md` |
@@ -142,7 +139,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
 | `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
 | `00001A` | 72 | 80 | 76.0 | `by-class/BrowserThread.md` |
 | `00001H` | 72 | 80 | 76.0 | `by-class/CashShopRequest.md` |
@@ -256,8 +252,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000220` | 72 | 78 | 75.0 | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |
-| `0001G6` | 72 | 78 | 75.0 | `by-memory/0x00557140-0x00559aef.SurfacePresentation.md` |
 | `0002CZ` | 72 | 80 | 76.0 | `by-memory/0x0041d3b0-0x0041d431.SmallStringStorageAssign.md` |
 | `0002SC` | 72 | 80 | 76.0 | `by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md` |
 | `0002JW` | 72 | 80 | 76.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
