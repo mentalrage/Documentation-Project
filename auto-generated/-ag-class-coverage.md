@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 298
+Total_Reconstructable: 300
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 228
+Total_Reconstructed_Assigned: 230
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 70
-Total_Unclassified: 287
+Total_Unclassified: 285
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -105,6 +105,7 @@ Total_Error: 0
 | [UID:000061][HeaderSystemMessage](by-class/HeaderSystemMessage.md) | assigned | `0000OE` | 30 | no | `auto-generated/NexusTK/social/SystemMessagePanes.cpp` | `by-class/HeaderSystemMessage.md` |  |
 | [UID:000065][HierList](by-class/HierList.md) | assigned | `0000JV` | 20 | no | `auto-generated/NexusTK/util/HierList.cpp` | `by-class/HierList.md` |  |
 | [UID:00006B][IconsPane](by-class/IconsPane.md) | assigned | `0000JZ` |  | no | `auto-generated/NexusTK/ui/panels/IconsPane.cpp` | `by-class/IconsPane.md` |  |
+| [UID:00006C][IdleWatcher](by-class/IdleWatcher.md) | assigned | `0000K0` |  | no | `auto-generated/NexusTK/app/IdleWatcher.cpp` | `by-class/IdleWatcher.md` |  |
 | [UID:00006E][ImageLib](by-class/ImageLib.md) | assigned | `0000K2` | 20 | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-class/ImageLib.md` |  |
 | [UID:00006Q][InternetError](by-class/InternetError.md) | assigned | `0000J5` | 180 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/InternetError.md` |  |
 | [UID:00006S][InventoryPane2](by-class/InventoryPane2.md) | assigned | `0000KA` |  | no | `auto-generated/NexusTK/ui/inventory/InventoryPane.cpp` | `by-class/InventoryPane2.md` |  |
@@ -122,6 +123,7 @@ Total_Error: 0
 | [UID:00008S][MSGHandler](by-class/MSGHandler.md) | assigned | `0000LM` | 10 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-class/MSGHandler.md` |  |
 | [UID:00007J][MailDeleteReplyAlert](by-class/MailDeleteReplyAlert.md) | assigned | `0000HW` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/MailDeleteReplyAlert.md` |  |
 | [UID:00007N][MailTransferReplyAlert](by-class/MailTransferReplyAlert.md) | assigned | `0000HW` | 30 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/MailTransferReplyAlert.md` |  |
+| [UID:00007P][MapNamePane](by-class/MapNamePane.md) | assigned | `0000L2` |  | no | `auto-generated/NexusTK/map/MapNamePane.cpp` | `by-class/MapNamePane.md` |  |
 | [UID:00007Q][MapPane](by-class/MapPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-class/MapPane.md` |  |
 | [UID:00007S][MapRefreshDimmer](by-class/MapRefreshDimmer.md) | assigned | `0000L4` |  | no | `auto-generated/NexusTK/map/MapRefreshDimmer.cpp` | `by-class/MapRefreshDimmer.md` |  |
 | [UID:00007U][MemoryMan](by-class/MemoryMan.md) | assigned | `0000L7` |  | no | `auto-generated/NexusTK/util/MemoryMan.cpp` | `by-class/MemoryMan.md` |  |
@@ -402,7 +404,6 @@ Total_Error: 0
 | [UID:00006G][IMECompositionPane](by-class/IMECompositionPane.md) | unclassified |  |  | no |  | `by-class/IMECompositionPane.md` |  |
 | [UID:00006H][IMEPane](by-class/IMEPane.md) | unclassified |  |  | no |  | `by-class/IMEPane.md` |  |
 | [UID:00006I][IMEStatusPane](by-class/IMEStatusPane.md) | unclassified |  |  | no |  | `by-class/IMEStatusPane.md` |  |
-| [UID:00006C][IdleWatcher](by-class/IdleWatcher.md) | unclassified |  |  | no |  | `by-class/IdleWatcher.md` |  |
 | [UID:00006D][ImageButtonControlPane](by-class/ImageButtonControlPane.md) | unclassified |  |  | no |  | `by-class/ImageButtonControlPane.md` |  |
 | [UID:00006J][InputMan](by-class/InputMan.md) | unclassified |  |  | no |  | `by-class/InputMan.md` |  |
 | [UID:00006L][IntegrateMacroDialog](by-class/IntegrateMacroDialog.md) | unclassified |  |  | no |  | `by-class/IntegrateMacroDialog.md` |  |
@@ -428,7 +429,6 @@ Total_Error: 0
 | [UID:00007L][MailListDialog](by-class/MailListDialog.md) | unclassified |  |  | no |  | `by-class/MailListDialog.md` |  |
 | [UID:00007M][MailListPane](by-class/MailListPane.md) | unclassified |  |  | no |  | `by-class/MailListPane.md` |  |
 | [UID:00007O][MainMenuPane](by-class/MainMenuPane.md) | unclassified |  |  | no |  | `by-class/MainMenuPane.md` |  |
-| [UID:00007P][MapNamePane](by-class/MapNamePane.md) | unclassified |  |  | no |  | `by-class/MapNamePane.md` |  |
 | [UID:00007R][MapPaneSpatialIndex](by-class/MapPaneSpatialIndex.md) | unclassified |  |  | no |  | `by-class/MapPaneSpatialIndex.md` |  |
 | [UID:00007W][MenuPane](by-class/MenuPane.md) | unclassified |  |  | no |  | `by-class/MenuPane.md` |  |
 | [UID:00007X][MenuQuestionDialog](by-class/MenuQuestionDialog.md) | unclassified |  |  | no |  | `by-class/MenuQuestionDialog.md` |  |

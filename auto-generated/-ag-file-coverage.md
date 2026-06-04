@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 227
+Total_Reconstructed_Assigned: 228
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 61
+Total_Error: 60
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -117,6 +117,7 @@ Total_Error: 61
 | [UID:0000KY][MacroDialogs](by-file/MacroDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/MacroDialogs.cpp` | `by-file/MacroDialogs.md` | by-file generated root |
 | [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-file/MainMenuPane.md` | by-file generated root |
 | [UID:0000L1][MainUiGraph](by-file/MainUiGraph.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/MainUiGraph.cpp` | `by-file/MainUiGraph.md` | by-file generated root |
+| [UID:0000L2][MapNamePane](by-file/MapNamePane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/MapNamePane.cpp` | `by-file/MapNamePane.md` | by-file generated root |
 | [UID:0000L3][MapPane](by-file/MapPane.md) | assigned |  |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-file/MapPane.md` | by-file generated root |
 | [UID:0000L4][MapRefreshDimmer](by-file/MapRefreshDimmer.md) | assigned |  |  | no | `auto-generated/NexusTK/map/MapRefreshDimmer.cpp` | `by-file/MapRefreshDimmer.md` | by-file generated root |
 | [UID:0000L5][MapTileImageLib](by-file/MapTileImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/MapTileImageLib.cpp` | `by-file/MapTileImageLib.md` | by-file generated root |
@@ -269,7 +270,6 @@ Total_Error: 61
 | [UID:0000KW][LodePNG](by-file/LodePNG.md) | error |  |  | no |  | `by-file/LodePNG.md` | by-file generated root |
 | [UID:0000KX][LoginDialogPane](by-file/LoginDialogPane.md) | error |  |  | no |  | `by-file/LoginDialogPane.md` | by-file generated root |
 | [UID:0000KZ][MailDialogs](by-file/MailDialogs.md) | error |  |  | no |  | `by-file/MailDialogs.md` | by-file generated root |
-| [UID:0000L2][MapNamePane](by-file/MapNamePane.md) | error |  |  | no |  | `by-file/MapNamePane.md` | by-file generated root |
 | [UID:0000L8][MenuVarietyPanes](by-file/MenuVarietyPanes.md) | error |  |  | no |  | `by-file/MenuVarietyPanes.md` | by-file generated root |
 | [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md) | error |  |  | no |  | `by-file/MessageShowPane.md` | by-file generated root |
 | [UID:0000LE][MiniMap](by-file/MiniMap.md) | error |  |  | no |  | `by-file/MiniMap.md` | by-file generated root |

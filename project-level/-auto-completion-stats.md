@@ -47,7 +47,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000KW` | blank | `(blank)` | `by-file/LodePNG.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KX` | blank | `(blank)` | `by-file/LoginDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KZ` | blank | `(blank)` | `by-file/MailDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000L2` | blank | `(blank)` | `by-file/MapNamePane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000L8` | blank | `(blank)` | `by-file/MenuVarietyPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LB` | blank | `(blank)` | `by-file/MessageShowPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LE` | blank | `(blank)` | `by-file/MiniMap.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -85,16 +84,12 @@ _No scored files._
 
 ## Low_Confidence
 
-| UID | Completion | Confidence | Combined | Path |
-| --- | ---: | ---: | ---: | --- |
-| `000214` | 74 | 78 | 76.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
-| `00007P` | 76 | 78 | 77.0 | `by-class/MapNamePane.md` |
+_No scored files._
 
 ## Low_Both
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00006C` | 72 | 80 | 76.0 | `by-class/IdleWatcher.md` |
 | `00009D` | 72 | 80 | 76.0 | `by-class/NewUserDialogPane.md` |
 | `00009S` | 72 | 80 | 76.0 | `by-class/ObjectStatusBlob.md` |
 | `0002QG` | 72 | 80 | 76.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
@@ -108,7 +103,6 @@ _No scored files._
 | `00027I` | 72 | 80 | 76.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
 | `0002B7` | 72 | 80 | 76.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
 | `0001SK` | 72 | 80 | 76.0 | `by-type/by-enum/BrowserInitFlags.md` |
-| `000214` | 74 | 78 | 76.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `00000Y` | 72 | 82 | 77.0 | `by-class/BlueAlertPane.md` |
 | `000018` | 72 | 82 | 77.0 | `by-class/BrowserDialogOld.md` |
 | `00001C` | 72 | 82 | 77.0 | `by-class/BulletinDialog.md` |
@@ -122,7 +116,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00006C` | 72 | 80 | 76.0 | `by-class/IdleWatcher.md` |
 | `00009D` | 72 | 80 | 76.0 | `by-class/NewUserDialogPane.md` |
 | `00009S` | 72 | 80 | 76.0 | `by-class/ObjectStatusBlob.md` |
 | `00000Y` | 72 | 82 | 77.0 | `by-class/BlueAlertPane.md` |
@@ -253,7 +246,6 @@ _No scored files._
 | `000279` | 72 | 80 | 76.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
 | `00027I` | 72 | 80 | 76.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
 | `0002B7` | 72 | 80 | 76.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
-| `000214` | 74 | 78 | 76.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
 | `0002D8` | 72 | 82 | 77.0 | `by-memory/0x0041e1d0-0x0041e4ed.FittingRoomScrollPaneHitTestPart.md` |
 | `0002DI` | 72 | 82 | 77.0 | `by-memory/0x0041f100-0x0041f219.FittingRoomListPaneResetScrollPosition.md` |
 | `0000WX` | 72 | 82 | 77.0 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |

@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1450
+Total_Reconstructable: 1451
 Total_Not_Reconstructable: 29
-Total_Reconstructed_Assigned: 922
+Total_Reconstructed_Assigned: 923
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 522
-Total_Unclassified: 769
+Total_Unclassified: 768
 Total_Error: 6
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -471,6 +471,7 @@ Total_Error: 6
 | [UID:0001A3][0x00500410-0x00500632.NewHistoryDialogPaneCore](by-memory/0x00500410-0x00500632.NewHistoryDialogPaneCore.md) | assigned | `0000LQ` |  | no | `auto-generated/NexusTK/login/NewHistoryDialogPane.cpp` | `by-memory/0x00500410-0x00500632.NewHistoryDialogPaneCore.md` |  |
 | [UID:0001A5][0x005008c0-0x0050114d.BlueAlertPaneCore](by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md) | assigned | `00000Y` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |  |
 | [UID:0001A6][0x00501150-0x00502383.UserCreateAppearanceSelectorControls](by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md` |  |
+| [UID:0001AK][0x005031f0-0x005038fd.MapNamePane](by-memory/0x005031f0-0x005038fd.MapNamePane.md) | assigned | `0000L2` |  | no | `auto-generated/NexusTK/map/MapNamePane.cpp` | `by-memory/0x005031f0-0x005038fd.MapNamePane.md` |  |
 | [UID:0002HV][0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw](by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md) | assigned | `00005O` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-memory/0x005039f0-0x00503a42.GameServerConfigNationTableConstructorRaw.md` |  |
 | [UID:0002HW][0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw](by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md) | assigned | `00005O` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-memory/0x00503a50-0x00503a7d.GameServerConfigNationTableDestructorRaw.md` |  |
 | [UID:0002HY][0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw](by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md) | assigned | `00005O` |  | no | `auto-generated/NexusTK/map/GameServerConfig.cpp` | `by-memory/0x00503b60-0x00503c61.GameServerConfigSeedDefaultNationEntriesRaw.md` |  |
@@ -1841,7 +1842,6 @@ Total_Error: 6
 | [UID:0001AJ][0x00502cc0-0x00502d05.StaffsDialogPaneDestructor](by-memory/0x00502cc0-0x00502d05.StaffsDialogPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00502cc0-0x00502d05.StaffsDialogPaneDestructor.md` |  |
 | [UID:00022X][0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors](by-memory/0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors.md) | unclassified |  |  | no |  | `by-memory/0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors.md` |  |
 | [UID:00022Y][0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers](by-memory/0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers.md` |  |
-| [UID:0001AK][0x005031f0-0x005038fd.MapNamePane](by-memory/0x005031f0-0x005038fd.MapNamePane.md) | unclassified |  |  | no |  | `by-memory/0x005031f0-0x005038fd.MapNamePane.md` |  |
 | [UID:0001AL][0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes](by-memory/0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes.md) | unclassified |  |  | no |  | `by-memory/0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes.md` |  |
 | [UID:0001AM][0x00503620-0x00503648.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503648.MiniMapButtonPaneCleanup.md) | unclassified |  |  | no |  | `by-memory/0x00503620-0x00503648.MiniMapButtonPaneCleanup.md` |  |
 | [UID:0001AN][0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks.md) | unclassified |  |  | no |  | `by-memory/0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks.md` |  |
