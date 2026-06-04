@@ -1,6 +1,6 @@
 *** UID:0000CH | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,10 +12,9 @@
 
 ## Status
 
-- Confidence: strong for behavior, medium for field names and caller ownership.
+- Confidence: strong for behavior, exact method boundaries, vtable refs, callee set, and source-file ownership; medium for final field names and construction path.
 - Likely source file: [UID:0000NH][ScrolledPictureControlPane](by-file/ScrolledPictureControlPane.md)
-- Main address ranges: `0x004ff7d0-0x004ffa9e` and `0x00502ab0-0x00502b58`
-- Current recovered file: `source-3/simroot_v2/class_ScrolledPictureControlPane.cpp`
+- Main address ranges: `0x004ff7d0-0x004ffa9f`, `0x00502550-0x00502566`, and `0x00502ab0-0x00502b58`
 
 ## Class Purpose
 
@@ -25,24 +24,26 @@
 
 | Range | Function | Role |
 | --- | --- | --- |
-| `0x004ff7d0-0x004ff95d` | constructor | Initialize `ControlPane`, load frame metadata and draw record, load or select a palette, compute initial destination rectangle, and start a timer. |
+| `0x004ff7d0-0x004ff95e` | constructor | Initialize `ControlPane`, load frame metadata and draw record, load or select a palette, compute initial destination rectangle, and start a timer. |
 | `0x004ff970-0x004ff9d7` | destructor | Destroy the owned image block and tear down pane/control state. |
 | `0x004ff9e0-0x004ffa4b` | `OnTimerEvent` | Offset the image rectangle by scroll step/direction, refresh the owner/control region, and schedule the next tick. |
-| `0x004ffa60-0x004ffa9e` | `OnPaintFrame` | Fill/prepare the control region and blit the current image frame. |
+| `0x004ffa60-0x004ffa9f` | `OnPaintFrame` | Fill/prepare the control region and blit the current image frame. |
 | `0x00502550-0x00502566` | adjustor thunks | Secondary/tertiary vtable glue to `0x00502ab0`. |
 | `0x00502ab0-0x00502b58` | scalar deleting destructor | Deleting-destructor wrapper around image cleanup and base teardown. |
 
 ## Evidence Notes
 
-- IDA MCP confirms the constructor, destructor, timer, paint, thunk, and scalar deleting destructor starts.
-- The constructor uses [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md) helpers rather than text-edit or DAT text rendering.
-- `OnTimerEvent` scrolls in four directions and schedules another timer, matching an animated picture control rather than a one-shot image pane.
-- Current IDA caller checks did not find a direct constructor caller, so final feature owner is unresolved.
+- 2026-06-04 live IDA MCP on `NexusTK.exe` MD5 `4247e04e20b65d6414c7238aa8ff5515` confirms `sub_4FF7D0` as `0x004ff7d0-0x004ff95e`, `sub_4FF970` as `0x004ff970-0x004ff9d7`, `sub_4FF9E0` as `0x004ff9e0-0x004ffa4b`, `sub_4FFA60` as `0x004ffa60-0x004ffa9f`, the two `0xb` adjustor thunks at `0x00502550` and `0x0050255b`, and `sub_502AB0` as `0x00502ab0-0x00502b58`.
+- Live refs show no direct code/data refs to the constructor or non-deleting destructor starts; timer and paint are vtable-reached at `0x0061d92c` and `0x0061d8d4`, and the scalar deleting destructor has vtable ref `0x0061d890` plus thunk code refs from `0x00502556` and `0x00502561`.
+- The constructor calls [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md) helpers `0x004d0f50` and `0x004d1600`, palette helpers `0x00543d70`/`0x00543d40`, rectangle setup `0x004b7c50`, and timer scheduling `0x005975e0`, confirming an EPF/palette picture control rather than text-edit or DAT text rendering.
+- `OnTimerEvent` switches on direction `0..3`, offsets the destination rectangle by the scroll step, invalidates/refreshes through the owner/control subobject, and schedules another timer tick.
+- `OnPaintFrame` calls the pane fill/prepare helper and render callbacks through `dword_69B3FC` and `dword_69B3E8`, matching frame blitting with palette state.
+- Live boundary bytes confirm constructor switch-table support starts after the constructor at `0x004ff95e`, timer switch-table support starts after `0x004ffa4b`, and the paint method's final `retn` is at `0x004ffa9e` with padding at `0x004ffa9f`.
 
 ## Data Caveats
 
-- Generated owner names in the current source include fitting-room and head-selection types. Treat those as data pollution until factory/config construction is found.
-- The generated timer method is written through an owner/subobject adjustment. Field offsets should be rechecked before any structure layout migration.
+- Prior owner labels include fitting-room and head-selection types. Treat those as data pollution until factory/config construction is found.
+- The timer method is reached through an owner/subobject adjustment. Field offsets should be rechecked before any structure layout migration.
 - 2026-05-25 IDA recheck still finds no direct constructor callers for `0x004ff7d0`; `0x00502ab0` is only directly reached by the two thunk starts at `0x00502550` and `0x0050255b`. The generated fitting-room/head-selection labels remain unsafe because IDA decompilation shows generic frame-table, palette, timer, and render-callback behavior.
 
 ## Cross-References
@@ -62,3 +63,7 @@
   - Before: The page was unevaluated despite documenting image scrolling behavior, constructor/destructor/timer/paint ranges, destructor thunks, and generated-owner pollution.
   - After: Scored as moderate-high completion and confidence because behavior is strong, while field names and final caller/feature owner remain unresolved.
   - Evidence: Existing method-family table, IDA evidence notes, data caveats, and image/control cross-references support the score.
+- 2026-06-04: Changed completion/confidence from `76/76` to `84/88`.
+  - Before: The page had a useful function map but stale generated-source wording, final-byte-style method ends, and limited caller/vtable/callee evidence.
+  - After: Scored higher because live IDA confirms exact half-open method extents, vtable refs, thunk targets, callee set, switch-table boundaries, scalar deleting destructor behavior, and source-file ownership through the refreshed core memory page.
+  - Remaining uncertainty: final C++ stays blank because field names, construction/factory path, and base teardown naming are not proven to the 95/95 reconstruction bar.

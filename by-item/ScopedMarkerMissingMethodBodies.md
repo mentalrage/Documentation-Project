@@ -1,6 +1,6 @@
 *** UID:0000VD | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,12 +12,10 @@
 
 ## Status
 
-- Confidence: strong for the generated-source quality pattern and example IDA function boundaries; medium for whether any listed row still has a fully missing emitted body in the current generated tree.
-- Issue type: Wave3 data/source-emission issue, not a confirmed recovered-source behavior.
+- Queue status: ignored/not scored for source-coverage work.
+- Issue type: generated-output/source-emission tracker, not a confirmed recovered-source behavior.
 - Rebuild handling: not a reconstructable code item. This page tracks generated-source quality defects; the underlying methods should be documented and rebuilt through their own class/memory/file pages.
-- Current documentation state: sufficient as a cross-cutting quality tracker; it should not be promoted into a reconstructable code page because it has no single source owner or address range.
-- Tracking issue: [Wave3 data issues](../wave3_data_issues.md)
-- Detection support: [Wave3 tool guide](../wave3_tool_guide.md)
+- Current documentation state: retained as a cross-cutting quality warning only; do not use this page as evidence for project-code coverage or score increases because it has no single source owner or address range.
 
 ## Pattern
 
@@ -29,7 +27,7 @@ Treat these sections as incomplete reconstruction work. A high manual/imported g
 
 ## Current Examples
 
-This pass did not run `wave3.py` directly. The examples below were rechecked from current `simroot_v2` source and IDA MCP function-boundary evidence.
+The examples below are retained as historical generated-output warnings. They are not live source-coverage evidence; use the owning class/memory/file pages and fresh IDA evidence for any real reconstruction work.
 
 | Method | IDA range | Current emitted source evidence |
 | --- | --- | --- |
@@ -53,8 +51,8 @@ Rechecked on 2026-05-31:
 
 | Field | Value | Rationale |
 | --- | ---: | --- |
-| Completion | 70 | The page now has a stable purpose, current examples, concrete IDA range evidence, handling rules, and cross-references to the owning docs for each affected method family. |
-| Confidence | 82 | Confidence is above the attachment threshold for the tracker itself because the listed addresses and quality pattern were IDA/source checked, but it remains capped because the current generated tree can change and each affected method still needs its own source-quality review. |
+| Completion | -1 | Ignored for source-coverage scoring because the page is a generated-output quality tracker, not a source unit, memory range, class, file, type, global, resource, or reconstructable item. |
+| Confidence | -1 | Ignored for source-coverage scoring; confidence belongs on the owning class/memory/file pages after fresh IDA-backed review. |
 | Reconstructable | false | This is not a source unit. It records a generated-output quality condition across unrelated methods, so reconstructed C++ must live on the individual method/file/memory pages. |
 
 ## Handling Rule
@@ -87,3 +85,7 @@ Do not migrate an affected method from generated C++ just because the containing
 - What it was changed to: the page now tracks scoped-marker generated-body quality issues; the examples are updated to reflect current generated bodies where present, and the page is marked non-reconstructable because it is a data-quality tracker rather than a code item.
 - Summary and evidence: IDA MCP verification on 2026-05-31 confirmed the method ranges are real project code, while current `simroot_v2` snippets show several listed examples now emit decompiler-shaped bodies rather than literal `WAVE3 OMITTED METHOD BODY` placeholders.
 - 2026-06-02: Raised from `50/75` to `70/82` after confirming the page is now a useful tracker with current examples, IDA range evidence, handling rules, and owner cross-references. Kept `RECONSTRUCTABLE:FALSE` and parent blank because this page intentionally tracks a cross-file generated-output condition rather than a source-owned code range.
+- 2026-06-04: Changed completion/confidence from `70/82` to `-1/-1`.
+  - Before: The page appeared in the low-completion queue even though its own status and reconstructable flag identified it as a generated-output quality tracker with no single source owner or address range.
+  - After: Marked ignored/not scored for source-coverage work so the queue focuses on live IDA-backed project-code documentation instead of generated-output caveats.
+  - Evidence: The page is `RECONSTRUCTABLE:FALSE`, documents no canonical source unit, and directs real reconstruction work to the owning class/memory/file pages.

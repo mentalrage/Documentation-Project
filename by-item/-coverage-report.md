@@ -8,7 +8,7 @@
 
 - Last generated: 2026-05-26
 - Folder: `by-item`
-- Coverage summary: 64 covered reconstructable rows, 0 covered ignored rows, 1 uncovered inventory placeholder row.
+- Coverage summary: 63 covered reconstructable rows, 1 covered ignored row, 1 uncovered inventory placeholder row.
 - Confidence summary: baseline report generated from existing documentation pages and `-ignored.md`; ignored rows are driven by the local ignored ledger, while reconstructable row confidence is heuristic until IDA/MCP or manual verification raises it.
 - Ordering: alphabetic by item name, except `by-memory`, which is sorted by the first address in the row.
 
@@ -70,7 +70,6 @@
 - [UID:0000VA][ResolveSpritePartPath_004E19D0](by-item/ResolveSpritePartPath_004E19D0.md) : reconstructable : 86% : strong : NewHumanImageLib-owned sprite-part EPF resolver; exact memory child, two same-family callers, numbered/single EPF flow, DAT-backed record merge, sentinel, cleanup, and parent assignment documented from live IDA.
 - [UID:0000VB][ResourceLayoutEntry](by-item/ResourceLayoutEntry.md) : reconstructable : 84% : strong : EPF/EPD 24-byte layout row with raw read order, absolute-offset rebasing, sentinel boundary, `EPFTileContext` mapping, helper copy semantics, and `ImageLib`/`g_pEPFLib` parent evidence documented from live IDA.
 - [UID:0000VC][ScaleDirectionOffsetToPixels_00505100](by-item/ScaleDirectionOffsetToPixels_00505100.md) : reconstructable : 84% : strong : MapPane coordinate helper scales an in-place direction/offset pair by live-confirmed 48-pixel tile dimensions; exact range, caller set, no-callee status, globals, and parent assignment documented.
-- [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) : reconstructable : 70% : strong : - Confidence: strong for the defect pattern and example function boundaries.
 - [UID:0000VE][ScreenEffecterSmallConstructorBoundaries](by-item/ScreenEffecterSmallConstructorBoundaries.md) : reconstructable : 82% : strong : Six raw ScreenEffecter-family constructor islands rechecked with live IDA; absent function objects, exact neighboring modeled functions, vtable stores, return cleanup, no direct raw-start xrefs, and `Effects` ownership are documented.
 - [UID:0000VF][ScreenshotProofPacket_00558240](by-item/ScreenshotProofPacket_00558240.md) : reconstructable : 84% : strong : ScreenshotCapture-owned proof helper with exact function boundary, BMP/PNG modeled callers, raw JPG proof call, MD5/hash-mask/packet/random/free callees, XOR key xrefs, packet sender state, and `0x83` 49-byte packet layout documented from live IDA.
 - [UID:0000VG][ServerSelectHelpers_574510_5745b0](by-item/ServerSelectHelpers_574510_5745b0.md) : reconstructable : 84% : strong : ServerSelectPane-owned apply/send helpers with exact ranges, two action-handler callsites, selected-entry name copy, `0x57` packet emission, selected-id/session writes, endpoint formatting fields, row-entry layout, and raw wrapper caveat documented from live IDA.
@@ -81,7 +80,7 @@
 
 ## Covered Items To Ignore
 
-- None recorded yet.
+- [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) : ignored : -1 : strong : Generated-output quality tracker only; not a source unit, memory range, class, file, type, global, resource, or reconstructable item.
 
 ## Uncovered Items
 

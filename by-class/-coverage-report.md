@@ -450,12 +450,12 @@
 - [UID:0000C9][ScreenEffecter](by-class/ScreenEffecter.md) : reconstructable : 76% : strong : base runtime effect interface attached to Effects; final virtual names, layout, and header split remain open.
 - [UID:0000CA][ScreenFadeOut](by-class/ScreenFadeOut.md) : reconstructable : 84% : strong : - Confidence: strong for behavior and layout; medium for final source split.
 - [UID:0000CB][ScreenPane](by-class/ScreenPane.md) : reconstructable : 82% : strong : - Confidence: strong for class role.
-- [UID:0000CC][ScreenPanePaletteState_543D30](by-class/ScreenPanePaletteState_543D30.md) : reconstructable : 76% : medium : - Confidence: strong for the two imported methods and `PaletteLib`-resident ownership, medium for final class/facet naming.
+- [UID:0000CC][ScreenPanePaletteState_543D30](by-class/ScreenPanePaletteState_543D30.md) : reconstructable : 84% : strong : - Confidence: strong for method behavior, `PaletteLib` ownership, caller contexts, bank-table offsets, ResetSlots helper calls, and adjacent helper split; medium only for final source-facing facet name.
 - [UID:0000CD][ScreenshotCapture](by-class/ScreenshotCapture.md) : reconstructable : 78% : medium : - Confidence: strong for behavior and file ownership; medium for whether the original code used a class or free helper functions.
 - [UID:0000CE][ScrollableControlPane](by-class/ScrollableControlPane.md) : reconstructable : 78% : strong : - Confidence: strong.
 - [UID:0000CF][ScrollablePane](by-class/ScrollablePane.md) : reconstructable : 78% : strong : - Confidence: strong.
 - [UID:0000CG][ScrollCollectionPane](by-class/ScrollCollectionPane.md) : reconstructable : 82% : medium : - Likely source file: ScrollCollectionPane, or final merge into ScrollBar
-- [UID:0000CH][ScrolledPictureControlPane](by-class/ScrolledPictureControlPane.md) : reconstructable : 76% : medium : - Confidence: strong for behavior, medium for field names and caller ownership.
+- [UID:0000CH][ScrolledPictureControlPane](by-class/ScrolledPictureControlPane.md) : reconstructable : 84% : strong : Live IDA confirms exact method extents, vtable refs, thunk targets, callee set, source-file ownership, and switch-table boundaries; field names and construction path remain provisional.
 - [UID:0000CI][ScrolledTextControlPane](by-class/ScrolledTextControlPane.md) : reconstructable : 80% : strong : - Confidence: strong.
 - [UID:0000CJ][ScrolledTextControlPaneForMadeBy](by-class/ScrolledTextControlPaneForMadeBy.md) : reconstructable : 82% : strong : - Confidence: strong.
 - [UID:0000CK][ScrollInventoryPane](by-class/ScrollInventoryPane.md) : reconstructable : 80% : medium : - Confidence: strong for scrollbar behavior, medium for one reset-helper boundary.

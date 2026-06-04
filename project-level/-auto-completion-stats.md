@@ -97,14 +97,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 
 ## Low_Confidence
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000CC` | 76 | 76 | 76.0 | `by-class/ScreenPanePaletteState_543D30.md` |
-| `0000CH` | 76 | 76 | 76.0 | `by-class/ScrolledPictureControlPane.md` |
 | `000012` | 76 | 76 | 76.0 | `by-class/brdir__Notification.md` |
 | `00007D` | 78 | 76 | 77.0 | `by-class/LObject.md` |
 | `000091` | 78 | 76 | 77.0 | `by-class/NewHistoryDialogPane.md` |
@@ -139,7 +136,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000014` | 72 | 78 | 75.0 | `by-class/browser__Notification.md` |
 | `000220` | 72 | 78 | 75.0 | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |
 | `0001G6` | 72 | 78 | 75.0 | `by-memory/0x00557140-0x00559aef.SurfacePresentation.md` |
-| `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
 | `00001A` | 72 | 80 | 76.0 | `by-class/BrowserThread.md` |
 | `00001H` | 72 | 80 | 76.0 | `by-class/CashShopRequest.md` |
@@ -248,7 +244,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000UB` | 72 | 82 | 77.0 | `by-item/DATAudioResources.md` |
 | `0000UN` | 72 | 84 | 78.0 | `by-item/EPFArchiveMetadataTable.md` |
 | `0000UM` | 72 | 84 | 78.0 | `by-item/EncodeTextEditState_0058E490.md` |
