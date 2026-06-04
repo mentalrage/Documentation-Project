@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 213
+Total_Reconstructed_Assigned: 214
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 75
+Total_Error: 74
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -44,6 +44,7 @@ Total_Error: 75
 | [UID:0000IC][CollectionPane](by-file/CollectionPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-file/CollectionPane.md` | by-file generated root |
 | [UID:0000ID][CommandInputPanes](by-file/CommandInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-file/CommandInputPanes.md` | by-file generated root |
 | [UID:0000IE][Config](by-file/Config.md) | assigned |  |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-file/Config.md` | by-file generated root |
+| [UID:0000IF][ConnStatusPane](by-file/ConnStatusPane.md) | assigned |  |  | no | `auto-generated/NexusTK/network/ConnStatusPane.cpp` | `by-file/ConnStatusPane.md` | by-file generated root |
 | [UID:0000IG][ControlPane](by-file/ControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-file/ControlPane.md` | by-file generated root |
 | [UID:0000IH][CopyWindow](by-file/CopyWindow.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/CopyWindow.cpp` | `by-file/CopyWindow.md` | by-file generated root |
 | [UID:0000II][Crasher](by-file/Crasher.md) | assigned |  |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-file/Crasher.md` | by-file generated root |
@@ -232,7 +233,6 @@ Total_Error: 75
 | [UID:0000I4][CharacterSummaryRecord](by-file/CharacterSummaryRecord.md) | error |  |  | no |  | `by-file/CharacterSummaryRecord.md` | by-file generated root |
 | [UID:0000IA][ClanDialogs](by-file/ClanDialogs.md) | error |  |  | no |  | `by-file/ClanDialogs.md` | by-file generated root |
 | [UID:0000IB][CollectionDialogPane](by-file/CollectionDialogPane.md) | error |  |  | no |  | `by-file/CollectionDialogPane.md` | by-file generated root |
-| [UID:0000IF][ConnStatusPane](by-file/ConnStatusPane.md) | error |  |  | no |  | `by-file/ConnStatusPane.md` | by-file generated root |
 | [UID:0000IL][CursorManager](by-file/CursorManager.md) | error |  |  | no |  | `by-file/CursorManager.md` | by-file generated root |
 | [UID:0000IM][DATArchive](by-file/DATArchive.md) | error |  |  | no |  | `by-file/DATArchive.md` | by-file generated root |
 | [UID:0000J2][EPFImageControlPane](by-file/EPFImageControlPane.md) | error |  |  | no |  | `by-file/EPFImageControlPane.md` | by-file generated root |

@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 256
+Total_Reconstructable: 259
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 179
+Total_Reconstructed_Assigned: 182
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 329
+Total_Unclassified: 326
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -42,9 +42,12 @@ Total_Error: 0
 | [UID:00001Y][ChattingVarietyPane](by-class/ChattingVarietyPane.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChattingVarietyPane.md` |  |
 | [UID:000020][CheatDetector](by-class/CheatDetector.md) | assigned | `0000I6` |  | no | `auto-generated/NexusTK/security/CheatDetector.cpp` | `by-class/CheatDetector.md` |  |
 | [UID:000022][CheckBoxTextControlPane](by-class/CheckBoxTextControlPane.md) | assigned | `0000NY` | 30 | no | `auto-generated/NexusTK/ui/controls/SpecializedButtonPanes.cpp` | `by-class/CheckBoxTextControlPane.md` |  |
+| [UID:000029][ClanDepItemDialog](by-class/ClanDepItemDialog.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-class/ClanDepItemDialog.md` |  |
+| [UID:00002G][ClanItemListPane](by-class/ClanItemListPane.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-class/ClanItemListPane.md` |  |
 | [UID:00002T][CloudFilterEffecter](by-class/CloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/CloudFilterEffecter.md` |  |
 | [UID:000033][ConfirmDeleteAlert](by-class/ConfirmDeleteAlert.md) | assigned | `0000HW` | 40 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteAlert.md` |  |
 | [UID:000034][ConfirmDeleteMailAlert](by-class/ConfirmDeleteMailAlert.md) | assigned | `0000HW` | 60 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteMailAlert.md` |  |
+| [UID:000037][ConnStatusPane](by-class/ConnStatusPane.md) | assigned | `0000IF` |  | no | `auto-generated/NexusTK/network/ConnStatusPane.cpp` | `by-class/ConnStatusPane.md` |  |
 | [UID:00003A][Crasher](by-class/Crasher.md) | assigned | `0000II` |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-class/Crasher.md` |  |
 | [UID:00003B][CreateUserDialogPane](by-class/CreateUserDialogPane.md) | assigned | `0000IJ` |  | no | `auto-generated/NexusTK/login/CreateUserDialogPane.cpp` | `by-class/CreateUserDialogPane.md` |  |
 | [UID:00003C][CriticalSectionLock](by-class/CriticalSectionLock.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/CriticalSectionLock.md` |  |
@@ -303,10 +306,8 @@ Total_Error: 0
 | [UID:000024][ClanAttrInputDialog](by-class/ClanAttrInputDialog.md) | unclassified |  |  | no |  | `by-class/ClanAttrInputDialog.md` |  |
 | [UID:000025][ClanBankItemListPane](by-class/ClanBankItemListPane.md) | unclassified |  |  | no |  | `by-class/ClanBankItemListPane.md` |  |
 | [UID:000026][ClanBankPane](by-class/ClanBankPane.md) | unclassified |  |  | no |  | `by-class/ClanBankPane.md` |  |
-| [UID:000029][ClanDepItemDialog](by-class/ClanDepItemDialog.md) | unclassified |  |  | no |  | `by-class/ClanDepItemDialog.md` |  |
 | [UID:00002C][ClanEnlistListPane](by-class/ClanEnlistListPane.md) | unclassified |  |  | no |  | `by-class/ClanEnlistListPane.md` |  |
 | [UID:00002E][ClanInfoListPane](by-class/ClanInfoListPane.md) | unclassified |  |  | no |  | `by-class/ClanInfoListPane.md` |  |
-| [UID:00002G][ClanItemListPane](by-class/ClanItemListPane.md) | unclassified |  |  | no |  | `by-class/ClanItemListPane.md` |  |
 | [UID:00002H][ClanJoinListPane](by-class/ClanJoinListPane.md) | unclassified |  |  | no |  | `by-class/ClanJoinListPane.md` |  |
 | [UID:00002J][ClanNameInputDialog](by-class/ClanNameInputDialog.md) | unclassified |  |  | no |  | `by-class/ClanNameInputDialog.md` |  |
 | [UID:00002L][ClanStringListPane](by-class/ClanStringListPane.md) | unclassified |  |  | no |  | `by-class/ClanStringListPane.md` |  |
@@ -325,7 +326,6 @@ Total_Error: 0
 | [UID:000031][Config](by-class/Config.md) | unclassified |  |  | no |  | `by-class/Config.md` |  |
 | [UID:000032][ConfigEntryBlock](by-class/ConfigEntryBlock.md) | unclassified |  |  | no |  | `by-class/ConfigEntryBlock.md` |  |
 | [UID:000035][ConfirmInputPane](by-class/ConfirmInputPane.md) | unclassified |  |  | no |  | `by-class/ConfirmInputPane.md` |  |
-| [UID:000037][ConnStatusPane](by-class/ConnStatusPane.md) | unclassified |  |  | no |  | `by-class/ConnStatusPane.md` |  |
 | [UID:000036][ConnectionClosedDialog](by-class/ConnectionClosedDialog.md) | unclassified |  |  | no |  | `by-class/ConnectionClosedDialog.md` |  |
 | [UID:000039][CopyWindow](by-class/CopyWindow.md) | unclassified |  |  | no |  | `by-class/CopyWindow.md` |  |
 | [UID:00003E][CursorManager](by-class/CursorManager.md) | unclassified |  |  | no |  | `by-class/CursorManager.md` |  |

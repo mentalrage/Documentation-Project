@@ -1,17 +1,16 @@
 *** UID:0000IF | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/network/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ConnStatusPane
 
 ## Status
 
-- Confidence: strong for the core `ConnStatusPane` class; medium for final file placement.
+- Confidence: strong for the core `ConnStatusPane` class and singleton/vtable evidence; medium-high for final file placement.
 - Proposed module folder: `network/` or `ui/status/`
 - Proposed source file: `network/ConnStatusPane.cpp`
-- Current generated source: `source-3/simroot_v2/class_ConnStatusPane.cpp`
-- Evidence basis: Wave3 class inspection, generated source, existing Wave2 notes in `by-memory/-report.md`, and IDA MCP boundary checks.
+- Evidence basis: live IDA MCP/disassembly boundary, vtable, singleton, caller, paint/message/update, and destructor checks.
 
 ## Hypothesis
 
@@ -30,15 +29,19 @@ If the final tree separates networking transport from UI, `ui/status/ConnStatusP
 
 | Entity | Current range | Current file | Role |
 | --- | --- | --- | --- |
-| `ConnStatusPane` | `0x00494520-0x004949df` | `class_ConnStatusPane.cpp` | Constructor, paint, connection-message handler, latency-frame update, destructor family. |
-| `Pane::SetConnecting` / `SetDisconnected` / `SetConnected` | `0x00544db0-0x00544dd9` | `class_Pane.cpp` | Base pane virtual wrappers; Wave3 also lists `ConnStatusPane` shadow rows, but canonical owner appears to be `Pane`. |
-| `g_pConnStatusPane` | global-data | `class_ConnStatusPane.cpp` | Singleton pointer for the active status pane. |
+| `ConnStatusPane` | `0x00494520-0x004949df` | `ConnStatusPane.cpp` | Constructor, vtable reset helper, state snapshot helper, paint, connection-message handler, latency-frame update, and destructor family. |
+| `Pane::SetConnecting` / `SetDisconnected` / `SetConnected` | `0x00544db0-0x00544dd9` | `Pane.cpp` | Shared base-pane virtual wrappers reused by many vtables, including `ConnStatusPane`; not class-local source. |
+| `g_pConnStatusPane` | `0x0069adf4` | `ConnStatusPane.cpp` | Singleton pointer for the active status pane. |
 
 ## Boundary Notes
 
-- IDA confirms `0x00494520`, `0x00494620`, `0x004946c0`, `0x004947a0`, `0x00494964`, `0x0049496f`, and `0x00494980` as real functions in the local class block.
-- `InitializeMainUiGraph` calls the constructor through `CreateConnStatusPane`.
-- The `0x00544db0`, `0x00544dc0`, and `0x00544dd0` methods are tiny connection-state wrappers with broad base-pane vtable xrefs. Treat them as `Pane` methods unless later vtable evidence proves a `ConnStatusPane` override.
+- Live IDA on 2026-06-04 used `C:\Users\admin\Desktop\Clone\NexusTK\NexusTK.exe`, imagebase `0x00400000`, MD5 `4247e04e20b65d6414c7238aa8ff5515`.
+- IDA confirms local functions at `0x00494520-0x004945e0`, `0x004945e0-0x00494609`, `0x00494610-0x0049461f`, `0x00494620-0x004946b1`, `0x004946c0-0x00494765`, `0x004947a0-0x00494964`, `0x00494964-0x0049496f`, `0x0049496f-0x0049497a`, and `0x00494980-0x004949df`.
+- `0x004f87ec` inside `0x004f7d10` is the sole constructor caller, matching main UI graph setup.
+- Constructor and destructor paths write `g_pConnStatusPane` at `0x0069adf4`; another live xref reads it at `0x00504a32`.
+- Constructor/vtable-reset/destructor stores use primary vtable `0x006179ec`, secondary vtable `0x00617a38`, and tertiary vtable `0x00617a68`.
+- `ConnStatusPane` vtable slots place paint at `0x00617a30 -> 0x00494620`, message handling at `0x00617a48 -> 0x004946c0`, and destructor adjustors at `0x00617a38 -> 0x00494964` / `0x00617a68 -> 0x0049496f`.
+- The `0x00544db0`, `0x00544dc0`, and `0x00544dd0` methods appear in `ConnStatusPane` slots but are shared base-pane wrappers: live IDA reports broad vtable fan-in for all three, including 79/72/120 data refs respectively.
 
 ## Cross-References
 
@@ -53,3 +56,7 @@ If the final tree separates networking transport from UI, `ui/status/ConnStatusP
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:80` and `CONFIDENCE:78`.
   - Summary/evidence: class role, network/status UI placement options, local IDA function starts, singleton, base-pane wrapper caveat, and cross-references are documented; confidence remains medium-high because final `network` versus `ui/status` placement is unresolved.
+- 2026-06-04: Raised from `80/78` to `84/84` and filled `PROPOSED_RECONSTRUCTION_PATH` with `NexusTK/network/`.
+  - Before: parent placement was plausible but had a blank validator path, stale provenance wording, and only coarse IDA-start evidence.
+  - After: live IDA evidence records executable identity, exact local ranges, constructor caller, singleton xrefs, vtable stores/slots, base-wrapper fan-in counts, and the reason the `0x00544d*` methods remain shared `Pane` dependencies.
+  - Reasoning: `network/ConnStatusPane.cpp` is the best current reconstruction path because the class is connection-status UI with network-message handling, while `ui/status/` remains a plausible future split. Parent confidence is now high enough to receive the reconstructable class child, but final placement and field names remain below final-code confidence.

@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1411
+Total_Reconstructable: 1413
 Total_Not_Reconstructable: 23
-Total_Reconstructed_Assigned: 872
+Total_Reconstructed_Assigned: 874
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 534
-Total_Unclassified: 814
+Total_Unclassified: 812
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -167,6 +167,7 @@ Total_Error: 5
 | [UID:0002O4][0x00489ff0-0x0048a025.ClanChangeInputDialogRawConstructor](by-memory/0x00489ff0-0x0048a025.ClanChangeInputDialogRawConstructor.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x00489ff0-0x0048a025.ClanChangeInputDialogRawConstructor.md` |  |
 | [UID:0002O6][0x0048a060-0x0048a09e.ClanLeaveConfirmDialogRawConstructor](by-memory/0x0048a060-0x0048a09e.ClanLeaveConfirmDialogRawConstructor.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x0048a060-0x0048a09e.ClanLeaveConfirmDialogRawConstructor.md` |  |
 | [UID:00021X][0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor](by-memory/0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-memory/0x0048a0c0-0x0048a0fb.ClanItemDialogRawConstructor.md` |  |
+| [UID:00010Q][0x0048ae70-0x0048b1b1.ClanItemListPane](by-memory/0x0048ae70-0x0048b1b1.ClanItemListPane.md) | assigned | `00002G` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-memory/0x0048ae70-0x0048b1b1.ClanItemListPane.md` |  |
 | [UID:00021Y][0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers](by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-memory/0x0048b7e0-0x0048b8bc.ClanBankPaneRawPacketHelpers.md` |  |
 | [UID:00021Z][0x0048e310-0x0048e479.ConfigRawTableHelpers](by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x0048e310-0x0048e479.ConfigRawTableHelpers.md` |  |
 | [UID:0002BG][0x0048f400-0x0048f4cf.CommandLineArgumentCounter](by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md) | assigned | `0000N4` | 34 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |  |
@@ -185,6 +186,7 @@ Total_Error: 5
 | [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md) | assigned | `0000N4` | 70 | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md` |  |
 | [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md) | assigned | `0000IE` |  | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md` |  |
 | [UID:0002PA][0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md) | assigned | `0000IE` | 65 | no | `auto-generated/NexusTK/config/Config.cpp` | `by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md` |  |
+| [UID:000113][0x00494520-0x004949df.ConnStatusPane](by-memory/0x00494520-0x004949df.ConnStatusPane.md) | assigned | `000037` |  | no | `auto-generated/NexusTK/network/ConnStatusPane.cpp` | `by-memory/0x00494520-0x004949df.ConnStatusPane.md` |  |
 | [UID:0002PB][0x004949e0-0x00494a81.ControlPaneConstructor](by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md) | assigned | `0000IG` | 10 | no | `auto-generated/NexusTK/ui/core/ControlPane.cpp` | `by-memory/0x004949e0-0x00494a81.ControlPaneConstructor.md` |  |
 | [UID:000115][0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter](by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md) | assigned | `0000AW` | 20 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494a90-0x00494ae7.ProgressBarControlPaneRangeStartSetter.md` |  |
 | [UID:000117][0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter](by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md) | assigned | `0000AW` | 30 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494af0-0x00494b4b.ProgressBarControlPaneRangeEndSetter.md` |  |
@@ -1688,7 +1690,6 @@ Total_Error: 5
 | [UID:00010L][0x00489600-0x00489f80.ClanAttrInputDialogCore](by-memory/0x00489600-0x00489f80.ClanAttrInputDialogCore.md) | unclassified |  |  | no |  | `by-memory/0x00489600-0x00489f80.ClanAttrInputDialogCore.md` |  |
 | [UID:00010O][0x0048a1c0-0x0048a805.ClanDepItemDialog](by-memory/0x0048a1c0-0x0048a805.ClanDepItemDialog.md) | unclassified |  |  | no |  | `by-memory/0x0048a1c0-0x0048a805.ClanDepItemDialog.md` |  |
 | [UID:00010P][0x0048a810-0x0048ae65.ClanWidItemDialog](by-memory/0x0048a810-0x0048ae65.ClanWidItemDialog.md) | unclassified |  |  | no |  | `by-memory/0x0048a810-0x0048ae65.ClanWidItemDialog.md` |  |
-| [UID:00010Q][0x0048ae70-0x0048b1b1.ClanItemListPane](by-memory/0x0048ae70-0x0048b1b1.ClanItemListPane.md) | unclassified |  |  | no |  | `by-memory/0x0048ae70-0x0048b1b1.ClanItemListPane.md` |  |
 | [UID:00010R][0x0048b1c0-0x0048b7dc.ClanBankPane](by-memory/0x0048b1c0-0x0048b7dc.ClanBankPane.md) | unclassified |  |  | no |  | `by-memory/0x0048b1c0-0x0048b7dc.ClanBankPane.md` |  |
 | [UID:00010S][0x0048b8c0-0x0048c251.ClanBankItemListPane](by-memory/0x0048b8c0-0x0048c251.ClanBankItemListPane.md) | unclassified |  |  | no |  | `by-memory/0x0048b8c0-0x0048c251.ClanBankItemListPane.md` |  |
 | [UID:00010U][0x0048c27b-0x0048c290.DialogPaneAdjustorThunks](by-memory/0x0048c27b-0x0048c290.DialogPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0048c27b-0x0048c290.DialogPaneAdjustorThunks.md` |  |
@@ -1698,7 +1699,6 @@ Total_Error: 5
 | [UID:00010Z][0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton](by-memory/0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton.md) | unclassified |  |  | no |  | `by-memory/0x0048e140-0x0048e14b.ClearCollectionDialogPaneSingleton.md` |  |
 | [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md) | unclassified |  |  | no |  | `by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md` |  |
 | [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md` |  |
-| [UID:000113][0x00494520-0x004949df.ConnStatusPane](by-memory/0x00494520-0x004949df.ConnStatusPane.md) | unclassified |  |  | no |  | `by-memory/0x00494520-0x004949df.ConnStatusPane.md` |  |
 | [UID:00011F][0x00498040-0x0049b8e5.PopupMenuControlPane](by-memory/0x00498040-0x0049b8e5.PopupMenuControlPane.md) | unclassified |  |  | no |  | `by-memory/0x00498040-0x0049b8e5.PopupMenuControlPane.md` |  |
 | [UID:00011G][0x004985a0-0x004988cc.ScrollableControlPaneCore](by-memory/0x004985a0-0x004988cc.ScrollableControlPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x004985a0-0x004988cc.ScrollableControlPaneCore.md` |  |
 | [UID:00011H][0x004988d0-0x00499020.TextEditControlPaneCore](by-memory/0x004988d0-0x00499020.TextEditControlPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x004988d0-0x00499020.TextEditControlPaneCore.md` |  |

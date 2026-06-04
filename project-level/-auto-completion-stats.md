@@ -24,7 +24,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IA` | blank | `(blank)` | `by-file/ClanDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IB` | blank | `(blank)` | `by-file/CollectionDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000IF` | blank | `(blank)` | `by-file/ConnStatusPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IL` | blank | `(blank)` | `by-file/CursorManager.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IM` | blank | `(blank)` | `by-file/DATArchive.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000J2` | blank | `(blank)` | `by-file/EPFImageControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -124,9 +123,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000029` | 72 | 80 | 76.0 | `by-class/ClanDepItemDialog.md` |
-| `00002G` | 72 | 80 | 76.0 | `by-class/ClanItemListPane.md` |
-| `000037` | 72 | 80 | 76.0 | `by-class/ConnStatusPane.md` |
 | `00003R` | 72 | 80 | 76.0 | `by-class/DialDialog.md` |
 | `00004G` | 72 | 80 | 76.0 | `by-class/EPFImageControlPane.md` |
 
@@ -136,9 +132,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000029` | 72 | 80 | 76.0 | `by-class/ClanDepItemDialog.md` |
-| `00002G` | 72 | 80 | 76.0 | `by-class/ClanItemListPane.md` |
-| `000037` | 72 | 80 | 76.0 | `by-class/ConnStatusPane.md` |
 | `00003R` | 72 | 80 | 76.0 | `by-class/DialDialog.md` |
 | `00004G` | 72 | 80 | 76.0 | `by-class/EPFImageControlPane.md` |
 | `00004H` | 72 | 80 | 76.0 | `by-class/EPFTextEditObject.md` |

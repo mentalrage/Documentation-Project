@@ -1,8 +1,8 @@
 *** UID:000029 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000I9 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,9 +12,8 @@
 
 ## Status
 
-- Confidence: strong for confirmed methods; medium for the shared slide animation owner.
+- Confidence: strong for constructor, vtable, button-handler, and packet-sender evidence; medium for exact field names and shared slide-helper ownership.
 - Likely source file: [UID:0000I9][ClanBank](by-file/ClanBank.md)
-- Current recovered file: `source-3/simroot_v2/class_ClanDepItemDialog.cpp`
 
 ## Class Purpose
 
@@ -24,17 +23,23 @@
 
 | Method | Address | Role |
 | --- | --- | --- |
-| `ClanDepItemDialog` | `0x0048a1c0-0x0048a689` | Builds the dialog, decodes packet text, creates item/object list and amount edit controls, and attaches to the desktop/main window. |
-| vtable-reset helper | `0x0048a690-0x0048a6af` | Real IDA function with no Wave3 memory owner; resets class vtables before base cleanup. |
-| `OnButtonClick` | `0x0048a6b0-0x0048a780` | On OK, reads selected item and amount, sends deposit packet, then OK/Cancel closes. |
-| `SendDepositItemPacket` | `0x0048a790-0x0048a804` | Sends opcode `0x4b`, subtype `5`, action `1`, deposit mode, and big-endian amount via `g_packetSender`. |
-| `AnimateSlideIn` | `0x0049ec80-0x0049ed57` | Horizontal slide animation using map repaint and motion offsets. |
+| `ClanDepItemDialog` | `0x0048a1c0-0x0048a68a` | Builds the dialog, decodes packet text, creates item/object list and amount edit controls, and attaches to the desktop/main window. |
+| vtable-reset helper | `0x0048a690-0x0048a6af` | Standalone reset helper; resets class vtables before base cleanup. |
+| `OnButtonClick` | `0x0048a6b0-0x0048a781` | On OK, reads selected item and amount, sends the deposit packet through virtual slot `0x5c`, then OK/Cancel closes. |
+| `SendDepositItemPacket` | `0x0048a790-0x0048a805` | Sends opcode `0x4b`, subtype `5`, action `1`, deposit mode, and big-endian amount through the packet sender. |
+| shared slide-in helper | `0x0049ec80-0x0049ed58` | Horizontal slide animation dependency used by this dialog and sibling clan dialogs. |
+| shared slide-close helper | `0x0049ed60-0x0049ee42` | Close animation dependency used by this dialog and other clan-bank dialog paths. |
 
 ## Evidence Notes
 
-- IDA confirms real starts at `0x0048a1c0`, `0x0048a690`, `0x0048a6b0`, `0x0048a790`, and `0x0049ec80`.
-- IDA reports a `MyItemListPane` constructor call at `0x0048a50d` inside the dialog constructor.
-- The generated source's `g_packetSender` queue path matches other clan opcode `0x4b` item dialog flows.
+- Live IDA `py_eval` on 2026-06-04 used `C:\Users\admin\Desktop\Clone\NexusTK\NexusTK.exe`, imagebase `0x00400000`, MD5 `4247e04e20b65d6414c7238aa8ff5515`.
+- IDA confirms modeled ranges `0x0048a1c0-0x0048a68a`, `0x0048a690-0x0048a6af`, `0x0048a6b0-0x0048a781`, `0x0048a790-0x0048a805`, `0x0049ec80-0x0049ed58`, and `0x0049ed60-0x0049ee42`; padding between adjacent bodies is `0xcc`.
+- Constructor callers are `0x0048516e` inside `0x00484f70` and `0x00487e83` inside `0x00487e20`, matching the clan status/packet dialog-open path.
+- Constructor vtable stores are `0x0048a21a -> 0x0061607c`, `0x0048a220 -> 0x006160e0`, and `0x0048a22a -> 0x00616110`. The primary vtable places `OnButtonClick` in slot 18 (`0x006160c4 -> 0x0048a6b0`) and `SendDepositItemPacket` in slot 23 (`0x006160d8 -> 0x0048a790`).
+- The dialog allocates the reusable [UID:00008W][MyItemListPane](by-class/MyItemListPane.md) at constructor call site `0x0048a50d`. Live caller fanout for `0x004aeb30` is `ClanDepItemDialog`, `AddItemDialog`, and `MixItemDialog`, so the picker remains shared item UI support.
+- `OnButtonClick` branches on button ids `1` and `2`; the OK path reads the selected item from the list, parses the amount text, dispatches through virtual slot `0x5c`, and then calls the shared close helper at `0x0049ed60`.
+- `SendDepositItemPacket` writes byte sequence pieces for opcode `0x4b`, subtype `5`, action `1`, deposit mode, and amount, then reads `dword_67A7EC` and calls `0x00574bb0` with length `6`.
+- The slide helpers are intentionally kept as shared dependencies: `0x0049ec80` also has sibling clan-dialog callers, and `0x0049ed60` is called from clan money/item dialogs plus `ClanBankPane`.
 
 ## Cross-References
 
@@ -46,6 +51,9 @@
 
 ## Changes
 
-- What existed before: the page documented item-deposit dialog behavior, packet sender, MyItemListPane ownership, and slide animation caveat, but metadata remained `0/0`.
-- What it was changed to: scores were set to `72/80`.
-- Summary and evidence: constructor, vtable reset, button action, deposit packet helper, and item-list dependency are covered; shared slide animation ownership and detailed dialog field layout remain open.
+- Earlier baseline: the page documented item-deposit dialog behavior, packet sender, MyItemListPane ownership, and slide animation caveat, but metadata remained unevaluated.
+- Earlier scoring pass: scores were set to `72/80` because constructor, vtable reset, button action, deposit packet helper, and item-list dependency were covered; shared slide animation ownership and detailed dialog field layout remained open.
+- 2026-06-04: Raised from `72/80` to `82/86`, marked reconstructable, and attached to [UID:0000I9][ClanBank](by-file/ClanBank.md).
+  - Before: page had strong behavior notes but lacked live boundary/caller/vtable evidence, had no reconstructable/parent metadata, and still included a recovered-file provenance line.
+  - After: live IDA evidence records the executable identity, exact function ranges and padding, constructor callers, three vtable stores, virtual slots for button handling and packet send, `MyItemListPane` reuse, packet byte layout, and shared slide-helper caller caveat.
+  - Reasoning: this is enough for reconstructable class-level documentation and parent attachment because [UID:0000I9][ClanBank](by-file/ClanBank.md) is already `86/80` with a valid `NexusTK/social/` path. Completion stays below the high-reconstruction threshold because final field names, signatures, and shared animation helper ownership remain provisional.
