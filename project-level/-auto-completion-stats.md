@@ -87,9 +87,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000ZE` | 70 | 85 | 77.5 | `by-memory/0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor.md` |
-| `0000ZH` | 70 | 85 | 77.5 | `by-memory/0x00471150-0x00471ff1.BulletinSessionCore.md` |
-| `0000ZO` | 70 | 85 | 77.5 | `by-memory/0x00479110-0x0047ec2b.MailDialogs.md` |
 | `0000ZP` | 70 | 85 | 77.5 | `by-memory/0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks.md` |
 | `0000ZX` | 70 | 85 | 77.5 | `by-memory/0x0047ed50-0x0047ee18.ChangeManRegistrationMethods.md` |
 | `000101` | 70 | 85 | 77.5 | `by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md` |
