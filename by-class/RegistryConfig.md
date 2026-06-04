@@ -1,8 +1,8 @@
 *** UID:0000BW | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000N4 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,11 +12,11 @@
 
 ## Status
 
-- Confidence: strong for config-module ownership, medium for exact original file split.
+- Confidence: strong for config-module ownership, live method anchors, vtable slots, persistence child docs, and profile-block relationships; medium-high for final helper naming/source split.
 - Likely source module: [UID:0000N4][RegistryConfig](by-file/RegistryConfig.md), with base storage in [UID:0000IE][Config](by-file/Config.md).
-- Current file: `class_RegistryConfig.cpp`
-- Current range: `0x00467340-0x00493e28`
-- Evidence basis: Wave3 class inspection, generated source, profile-storage globals, and IDA MCP boundary checks on 2026-05-23.
+- Current relevant ranges: scalar deleting wrapper `0x00467340-0x0046737b`, RegistryConfig body methods `0x0048e780-0x00493e29`, and adjacent Config cleanup helpers `0x00494020-0x004941d6`.
+- Evidence basis: live IDA MCP function, vtable, global-ref, and caller checks through 2026-06-04 plus exact child memory docs.
+- Reconstructable: yes, attached to [UID:0000N4][RegistryConfig](by-file/RegistryConfig.md). Final C++ remains blank because the registry persistence bodies and helper names are still below the `95/95` reconstruction bar.
 
 ## Responsibility
 
@@ -33,16 +33,16 @@ The profile/user-data slice inside this object is now tracked as [UID:0001VR][Re
 
 ## Methods
 
-| Address | Method | Role |
+| Range | Method | Role |
 | --- | --- | --- |
-| `0x00467340` | `ScalarDeletingDestructor(unsigned char flags)` | Wrapper that calls the real destructor and conditionally deletes the object. |
-| `0x0048e780` | `~RegistryConfig()` | Releases registry/key handle state, string/vector members, config-entry storage, clears `g_pConfig`, and destroys the base. |
-| `0x0048e860` | `LoadOrInitialize()` | Resets defaults, attempts registry load, falls back to defaults, and normalizes command-line startup state. |
+| `0x00467340-0x0046737b` | `ScalarDeletingDestructor(unsigned char flags)` | Wrapper that calls the real destructor and conditionally deletes the object. |
+| `0x0048e780-0x0048e85a` | `~RegistryConfig()` | Releases registry/key handle state, string/vector members, config-entry storage, clears `g_pConfig`, and destroys the base. |
+| `0x0048e860-0x0048e94f` | `LoadOrInitialize()` | Resets defaults, attempts registry load, falls back to defaults, and normalizes command-line startup state. |
 | `0x0048f400-0x00491b28` | command-line/session helpers | Helper island for login/session modes, hostname/port parsing, and mode flags used around startup config. |
-| `0x0048ebc0` | `InitializeUserDataDefaults()` | Resets the [UID:0001VR][RegistryConfigUserProfileBlock](by-type/by-struct/RegistryConfigUserProfileBlock.md) before `.usr` or legacy `.cfg` data is applied. |
-| `0x0048eed0` | `InitializeDefaults()` | Applies built-in client defaults, centered pane positions, option masks, and user-data defaults. |
-| `0x00491b30` | `SaveToRegistry()` | Saves current client configuration and server lists to Kingdom of the Winds registry keys. |
-| `0x004926a0` | `LoadFromRegistry()` | Loads configuration from registry, seeds CLSID if needed, and rebuilds adapter/server metadata. |
+| `0x0048ebc0-0x0048eecf` | `InitializeUserDataDefaults()` | Resets the [UID:0001VR][RegistryConfigUserProfileBlock](by-type/by-struct/RegistryConfigUserProfileBlock.md) before `.usr` or legacy `.cfg` data is applied. |
+| `0x0048eed0-0x0048f3f1` | `InitializeDefaults()` | Applies built-in client defaults, centered pane positions, option masks, and user-data defaults. |
+| `0x00491b30-0x00492695` | `SaveToRegistry()` | Saves current client configuration and server lists to Kingdom of the Winds registry keys. |
+| `0x004926a0-0x00493e29` | `LoadFromRegistry()` | Loads configuration from registry, seeds CLSID if needed, and rebuilds adapter/server metadata. |
 
 ## Ownership Notes
 
@@ -51,17 +51,18 @@ The profile/user-data slice inside this object is now tracked as [UID:0001VR][Re
 - `LoadFromRegistry` calls [UID:0000L6][MD5](by-file/MD5.md) helper `0x005153e0` at `0x004928ba` to fill a 16-byte digest buffer during registry/CLSID setup. Keep that helper in the shared MD5 utility module.
 - `ConfigEntryBlock` is embedded in both `Config` and `RegistryConfig`, so its helpers belong near `Config`/`RegistryConfig`.
 
-## Data Caveats
+## Evidence Notes
 
-- `class_RegistryConfig.cpp` currently omits the actual source bodies for `SaveToRegistry` and `LoadFromRegistry`; only struct/stub material is emitted after their markers. Wave3 metadata and IDA ranges still confirm the methods exist. Track the emission defect under [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md).
-- `~RegistryConfig` is marked `needs_attention` by Wave3 inspection and should be reviewed before final code migration.
+- Live IDA on 2026-06-04 confirms `0x00467340-0x0046737b`, `0x0048e780-0x0048e85a`, `0x0048e860-0x0048e94f`, `0x0048ebc0-0x0048eecf`, `0x0048eed0-0x0048f3f1`, `0x00491b30-0x00492695`, `0x004926a0-0x00493e29`, `0x00494020-0x00494126`, and `0x00494130-0x004941d6` as modeled function ranges.
+- RegistryConfig RTTI/vtable data starts at `0x00612610`; slot `0x00612614` points to scalar deleting wrapper `0x00467340`, slot `0x00612620` points to `SaveToRegistry`, and slot `0x00612624` points to `LoadFromRegistry`. The vtable is installed/read at `0x0046413b`.
+- Live IDA reports `g_pConfig` storage at `0x0067a7c8` with 433 data refs across startup, UI, profile, network, audio, and packet code, matching the class's global configuration role.
+- Source-output artifacts still omit the full `SaveToRegistry` and `LoadFromRegistry` bodies after their source markers; exact child docs now carry the reliable IDA-backed behavior until final reconstruction.
+- `~RegistryConfig` still needs final source-quality review before C++ migration, but the live destructor range and scalar wrapper relationship are now documented.
 - 2026-05-25 IDA recheck: `SaveToRegistry` opens `Software\Nexon\Kingdom of the Winds`, writes option/state values, recent strings, `Color%d`, `MultiServerAddr%d`, `MultiServerName%d`, `MultiServerDesc%d`, and `MultiServerAgreement%d` values, then closes keys. `LoadFromRegistry` seeds/reads a CLSID value and loads the same registry family.
 - 2026-05-27 gap pass: [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md) now records the previously UNKNOWN command-line/session parser island between defaults and registry persistence.
 - 2026-05-30 split pass: the command-line/session helper island is now split into exact by-memory child pages under [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md). The helpers still look like config-adjacent launcher/bootstrap routines, not confirmed `RegistryConfig` methods.
 - 2026-06-01 split pass: `SaveToRegistry` and `LoadFromRegistry` now have exact child memory pages at [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md) and [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md). The adjacent cleanup functions after the load body are tracked separately as [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md) and [UID:0002PA][0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md).
 - 2026-05-25 MD5 pass: `LoadFromRegistry` has a direct call to `Md5BytesToBuffer` at `0x005153e0`, confirming a config-to-utility dependency.
-- Current `simroot_v2/class_RegistryConfig.cpp` still has omitted-body markers at `0x00491b30` and `0x004926a0`.
-
 ## Cross-References
 
 - [UID:0000N4][RegistryConfig](by-file/RegistryConfig.md)
@@ -84,5 +85,9 @@ The profile/user-data slice inside this object is now tracked as [UID:0001VR][Re
 
 - 2026-05-30: Changed completion/confidence from `0/0` to `80/76`.
   - Before: The page was unevaluated despite documenting responsibility, methods, ownership, profile/config split, data caveats, helper islands, and persistence dependencies.
-  - After: Scored as high completion with medium-high confidence because `SaveToRegistry`/`LoadFromRegistry` still have generated omitted-body defects and the exact original file split remains partly inferred.
+  - After: Scored as high completion with medium-high confidence because `SaveToRegistry`/`LoadFromRegistry` still have source-output omitted-body defects and the exact original file split remains partly inferred.
   - Evidence: Existing method table, ownership notes, data caveats, IDA recheck notes, command-line parser split, MD5 dependency, profile-block references, and memory/type/meta cross-references support the score.
+- 2026-06-04 live IDA evidence update:
+  - What existed before: `COMPLETION:80`, `CONFIDENCE:76`, no reconstructable parent assignment, stale source-output/tooling caveats, and several method rows without half-open ranges.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:86`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000N4`.
+  - Summary/evidence: live IDA confirms exact method ranges, RegistryConfig vtable slots at `0x00612614/0x00612620/0x00612624`, 433 data refs to `g_pConfig`, the direct `Md5BytesToBuffer` call at `0x004928ba`, exact registry persistence child docs, and the profile-block defaulting relationship. C++ remains blank because registry persistence/helper names are not yet at the `95/95` bar.

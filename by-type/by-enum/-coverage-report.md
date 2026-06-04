@@ -21,7 +21,7 @@
 - [UID:0001SN][HttpGetNotificationState](by-type/by-enum/HttpGetNotificationState.md) : reconstructable : 50% : medium : - Confidence: strong for observed state values, medium for final names.
 - [UID:0001SO][MapServerPacketOpcode](by-type/by-enum/MapServerPacketOpcode.md) : reconstructable : 50% : medium : - Confidence: strong for observed opcode values in `MapPane::HandlePacket`, medium for many working names.
 - [UID:0001SP][MiscWorkThreadMessageId](by-type/by-enum/MiscWorkThreadMessageId.md) : reconstructable : 50% : medium : - Confidence: strong for observed values, medium for final symbolic names.
-- [UID:0001SQ][NcauthNotificationState](by-type/by-enum/NcauthNotificationState.md) : reconstructable : 50% : medium : - Confidence: medium for semantic names, strong for values.
+- [UID:0001SQ][NcauthNotificationState](by-type/by-enum/NcauthNotificationState.md) : reconstructable : 80% : strong : NCA auth/update notification states; live IDA confirms producer values, payload state offset `+4`, the only `NCAu` consumer compare, success handling for state `0`, and localized message-id mapping for states `1-5`.
 - [UID:0001SR][ThreadManMessageId](by-type/by-enum/ThreadManMessageId.md) : reconstructable : 50% : medium : - Kind: Win32 message-id group
 
 ## Covered Items To Ignore

@@ -66,7 +66,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000MB` | blank | `(blank)` | `by-file/PaletteLib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MD` | blank | `(blank)` | `by-file/PaneChildRegistry.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000ME` | blank | `(blank)` | `by-file/PanelPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000MY` | blank | `(blank)` | `by-file/RainingLayerPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000N1` | blank | `(blank)` | `by-file/RectangleControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000N5` | blank | `(blank)` | `by-file/ResourceLayoutTable.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000NA` | blank | `(blank)` | `by-file/ScreenDimmer.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -94,11 +93,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 ## Low_Confidence
 
-| UID | Completion | Confidence | Combined | Path |
-| --- | ---: | ---: | ---: | --- |
-| `00008X` | 78 | 76 | 77.0 | `by-class/ncauth__Notification.md` |
-| `0000MY` | 78 | 76 | 77.0 | `by-file/RainingLayerPane.md` |
-| `0000BW` | 80 | 76 | 78.0 | `by-class/RegistryConfig.md` |
+_No scored files._
 
 ## Low_Both
 
@@ -125,7 +120,6 @@ _No scored files._
 | `0000NL` | 72 | 82 | 77.0 | `by-file/SelfLookPane.md` |
 | `0000LX` | 74 | 80 | 77.0 | `by-file/NewUserMiscDialogPane.md` |
 | `0000KD` | 76 | 78 | 77.0 | `by-file/ItemCatalog.md` |
-| `0000MY` | 78 | 76 | 77.0 | `by-file/RainingLayerPane.md` |
 | `0000JC` | 72 | 84 | 78.0 | `by-file/FileDownloader.md` |
 | `0000OB` | 72 | 84 | 78.0 | `by-file/StringUtil.md` |
 | `0000LP` | 76 | 80 | 78.0 | `by-file/NewCreateUserDialogPane.md` |
@@ -260,7 +254,6 @@ _No scored files._
 | `0001SO` | 74 | 82 | 78.0 | `by-type/by-enum/MapServerPacketOpcode.md` |
 | `0001VR` | 74 | 82 | 78.0 | `by-type/by-struct/RegistryConfigUserProfileBlock.md` |
 | `0001W4` | 74 | 82 | 78.0 | `by-type/by-struct/SimpleUStringPointerBackedLayout.md` |
-| `0001SQ` | 72 | 86 | 79.0 | `by-type/by-enum/NcauthNotificationState.md` |
 | `0001VL` | 72 | 86 | 79.0 | `by-type/by-struct/PrimeNumberGeneratorLayout.md` |
 | `0001UH` | 74 | 84 | 79.0 | `by-type/by-struct/FittingEquipmentStateLayout.md` |
 | `0001SF` | 72 | 88 | 80.0 | `by-type/by-constant/DownloaderMessageIds.md` |

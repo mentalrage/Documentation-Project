@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 276
+Total_Reconstructable: 278
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 199
+Total_Reconstructed_Assigned: 201
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 309
+Total_Unclassified: 307
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -162,6 +162,7 @@ Total_Error: 0
 | [UID:0000BQ][RankingUserListPane](by-class/RankingUserListPane.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingUserListPane.md` |  |
 | [UID:0000BS][RecordVector_4E57C0](by-class/RecordVector_4E57C0.md) | assigned | `0000P3` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-class/RecordVector_4E57C0.md` |  |
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-class/RectBounds.md` |  |
+| [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md) | assigned | `0000N4` |  | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-class/RegistryConfig.md` |  |
 | [UID:0000BX][RequestSyncGate](by-class/RequestSyncGate.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/RequestSyncGate.md` |  |
 | [UID:0000C1][RingBuffer](by-class/RingBuffer.md) | assigned | `0000N8` | 10 | no | `auto-generated/NexusTK/util/RingBuffer.cpp` | `by-class/RingBuffer.md` |  |
 | [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md) | assigned | `0000N8` | 20 | no | `auto-generated/NexusTK/util/RingBuffer.cpp` | `by-class/RingBufferIterator.md` |  |
@@ -210,6 +211,7 @@ Total_Error: 0
 | [UID:0000G7][Win32Error](by-class/Win32Error.md) | assigned | `0000J5` | 20 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/Win32Error.md` |  |
 | [UID:0000GC][XWaveEffecter](by-class/XWaveEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/XWaveEffecter.md` |  |
 | [UID:0000GD][YFlipEffecter](by-class/YFlipEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/YFlipEffecter.md` |  |
+| [UID:00008X][ncauth__Notification](by-class/ncauth__Notification.md) | assigned | `0000LG` |  | no | `auto-generated/NexusTK/app/MiscWorkThread.cpp` | `by-class/ncauth__Notification.md` |  |
 | [UID:00000D][Application](by-class/Application.md) | coded | `0000HG` | 10 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/Application.md` |  |
 | [UID:00000V][BaramApp](by-class/BaramApp.md) | coded | `0000HG` | 20 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-class/BaramApp.md` |  |
 | [UID:00001G][CandidateStringQueue](by-class/CandidateStringQueue.md) | not_reconstructable |  |  | no |  | `by-class/CandidateStringQueue.md` |  |
@@ -499,7 +501,6 @@ Total_Error: 0
 | [UID:0000BR][ReconnectDialog](by-class/ReconnectDialog.md) | unclassified |  |  | no |  | `by-class/ReconnectDialog.md` |  |
 | [UID:0000BT][RectangleControlPane](by-class/RectangleControlPane.md) | unclassified |  |  | no |  | `by-class/RectangleControlPane.md` |  |
 | [UID:0000BV][Region](by-class/Region.md) | unclassified |  |  | no |  | `by-class/Region.md` |  |
-| [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md) | unclassified |  |  | no |  | `by-class/RegistryConfig.md` |  |
 | [UID:0000C0][RightButtonMenuPane](by-class/RightButtonMenuPane.md) | unclassified |  |  | no |  | `by-class/RightButtonMenuPane.md` |  |
 | [UID:0000C6][SayToUserMessageInputPane](by-class/SayToUserMessageInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserMessageInputPane.md` |  |
 | [UID:0000C7][SayToUserNameInputPane](by-class/SayToUserNameInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserNameInputPane.md` |  |
@@ -598,4 +599,3 @@ Total_Error: 0
 | [UID:000012][brdir__Notification](by-class/brdir__Notification.md) | unclassified |  |  | no |  | `by-class/brdir__Notification.md` |  |
 | [UID:000014][browser__Notification](by-class/browser__Notification.md) | unclassified |  |  | no |  | `by-class/browser__Notification.md` |  |
 | [UID:000069][httpget__Notification](by-class/httpget__Notification.md) | unclassified |  |  | no |  | `by-class/httpget__Notification.md` |  |
-| [UID:00008X][ncauth__Notification](by-class/ncauth__Notification.md) | unclassified |  |  | no |  | `by-class/ncauth__Notification.md` |  |
