@@ -227,9 +227,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002JW` | 72 | 80 | 76.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
-| `00020W` | 72 | 80 | 76.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
-| `0002T7` | 72 | 80 | 76.0 | `by-memory/0x0047e6a0-0x0047e6ed.MailDeleteReplyAlertRawConstructor.md` |
 | `0002FH` | 72 | 80 | 76.0 | `by-memory/0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw.md` |
 | `0002FP` | 72 | 80 | 76.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
 | `0002FQ` | 72 | 80 | 76.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
