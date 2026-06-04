@@ -89,10 +89,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001GO` | 72 | 80 | 76.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
-| `0001H1` | 72 | 80 | 76.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
-| `0001HC` | 72 | 80 | 76.0 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
-| `0001HV` | 72 | 80 | 76.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
 | `000279` | 72 | 80 | 76.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
 | `00027I` | 72 | 80 | 76.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
 | `0002B7` | 72 | 80 | 76.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
@@ -226,10 +222,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001GO` | 72 | 80 | 76.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
-| `0001H1` | 72 | 80 | 76.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
-| `0001HC` | 72 | 80 | 76.0 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
-| `0001HV` | 72 | 80 | 76.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
 | `000279` | 72 | 80 | 76.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
 | `00027I` | 72 | 80 | 76.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
 | `0002B7` | 72 | 80 | 76.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
