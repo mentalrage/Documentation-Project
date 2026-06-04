@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 268
+Total_Reconstructable: 270
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 191
+Total_Reconstructed_Assigned: 193
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 317
+Total_Unclassified: 315
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -178,6 +178,8 @@ Total_Error: 0
 | [UID:0000CU][SelfLookPane](by-class/SelfLookPane.md) | assigned | `0000NL` |  | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane.md` |  |
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
 | [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-class/SelfSaveInputPane.md` |  |
+| [UID:0000CZ][ServerItemMenuDialog](by-class/ServerItemMenuDialog.md) | assigned | `0000KF` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemMenuDialogs.cpp` | `by-class/ServerItemMenuDialog.md` |  |
+| [UID:0000D1][ServerSelectMenuItemList](by-class/ServerSelectMenuItemList.md) | assigned | `0000NO` |  | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-class/ServerSelectMenuItemList.md` |  |
 | [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/ShoutInputPane.md` |  |
 | [UID:0000D9][SimpleUString](by-class/SimpleUString.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/SimpleUString.md` |  |
 | [UID:0000DC][SnowingLayerPane](by-class/SnowingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SnowingLayerPane.md` |  |
@@ -506,9 +508,7 @@ Total_Error: 0
 | [UID:0000CT][SelectObjectWithKeyboardPane](by-class/SelectObjectWithKeyboardPane.md) | unclassified |  |  | no |  | `by-class/SelectObjectWithKeyboardPane.md` |  |
 | [UID:0000CS][SelectionState](by-class/SelectionState.md) | unclassified |  |  | no |  | `by-class/SelectionState.md` |  |
 | [UID:0000CX][SelfSaveOKPane](by-class/SelfSaveOKPane.md) | unclassified |  |  | no |  | `by-class/SelfSaveOKPane.md` |  |
-| [UID:0000CZ][ServerItemMenuDialog](by-class/ServerItemMenuDialog.md) | unclassified |  |  | no |  | `by-class/ServerItemMenuDialog.md` |  |
 | [UID:0000D0][ServerItemMenuItemList](by-class/ServerItemMenuItemList.md) | unclassified |  |  | no |  | `by-class/ServerItemMenuItemList.md` |  |
-| [UID:0000D1][ServerSelectMenuItemList](by-class/ServerSelectMenuItemList.md) | unclassified |  |  | no |  | `by-class/ServerSelectMenuItemList.md` |  |
 | [UID:0000D2][ServerSelectPane](by-class/ServerSelectPane.md) | unclassified |  |  | no |  | `by-class/ServerSelectPane.md` |  |
 | [UID:0000D3][ServerSpellMenuDialog](by-class/ServerSpellMenuDialog.md) | unclassified |  |  | no |  | `by-class/ServerSpellMenuDialog.md` |  |
 | [UID:0000D4][ServerSpellMenuItemList](by-class/ServerSpellMenuItemList.md) | unclassified |  |  | no |  | `by-class/ServerSpellMenuItemList.md` |  |
