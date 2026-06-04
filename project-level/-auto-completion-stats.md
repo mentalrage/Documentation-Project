@@ -41,7 +41,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000K8` | blank | `(blank)` | `by-file/IntAlphaSurface.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K9` | blank | `(blank)` | `by-file/InterfaceEfx.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KB` | blank | `(blank)` | `by-file/InventoryScrollPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KD` | blank | `(blank)` | `by-file/ItemCatalog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KG` | blank | `(blank)` | `by-file/ItemObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KI` | blank | `(blank)` | `by-file/JsonCpp.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KL` | blank | `(blank)` | `by-file/Layer.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -112,9 +111,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000NL` | 72 | 82 | 77.0 | `by-file/SelfLookPane.md` |
-| `0000LX` | 74 | 80 | 77.0 | `by-file/NewUserMiscDialogPane.md` |
-| `0000KD` | 76 | 78 | 77.0 | `by-file/ItemCatalog.md` |
 | `0000JC` | 72 | 84 | 78.0 | `by-file/FileDownloader.md` |
 | `0000OB` | 72 | 84 | 78.0 | `by-file/StringUtil.md` |
 | `0000LP` | 76 | 80 | 78.0 | `by-file/NewCreateUserDialogPane.md` |
