@@ -125,9 +125,7 @@ _No scored files._
 
 ### by-class
 
-| UID | Completion | Confidence | Combined | Path |
-| --- | ---: | ---: | ---: | --- |
-| `000055` | 72 | 80 | 76.0 | `by-class/FittingRoomTextButtonControlPane.md` |
+_No scored files._
 
 ### by-external-research
 
@@ -230,7 +228,6 @@ _No scored files._
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0002CZ` | 72 | 80 | 76.0 | `by-memory/0x0041d3b0-0x0041d431.SmallStringStorageAssign.md` |
-| `0002SC` | 72 | 80 | 76.0 | `by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md` |
 | `0002JW` | 72 | 80 | 76.0 | `by-memory/0x00465130-0x004651b8.ApplicationReadProcessorName.md` |
 | `00020W` | 72 | 80 | 76.0 | `by-memory/0x0046a760-0x0046a855.BrowserRawWindowProcClone.md` |
 | `0002T7` | 72 | 80 | 76.0 | `by-memory/0x0047e6a0-0x0047e6ed.MailDeleteReplyAlertRawConstructor.md` |

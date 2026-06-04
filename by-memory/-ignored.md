@@ -1520,6 +1520,12 @@ For each ignored range, include:
   - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
   - Owner docs: [UID:0002DR][0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers](by-memory/0x00420de0-0x00421301.FittingRoomSelectionVectorHelpers.md), [UID:0000JE][FittingRoom](by-file/FittingRoom.md).
 
+- `0x0042405f-0x00424060`, `0x0042407f-0x00424080`, `0x0042425d-0x00424260`, `0x00424286-0x00424290`, `0x004242e5-0x004242f0`, and `0x004242f5-0x00424300` - FittingRoomTextButtonControlPane local alignment padding.
+  - Why ignored: confirmed alignment bytes between exact local methods and around the separate shared `0x004242f0` type-code helper; not standalone product behavior.
+  - Evidence: 2026-06-04 live IDA MCP byte/function audit reports `sub_424020` ends at `0x0042405f`, `sub_424060` spans `0x00424060-0x0042407f`, `sub_424080` spans `0x00424080-0x0042425d`, `sub_424260` spans `0x00424260-0x00424270`, adjustor thunks span `0x00424270-0x00424286`, `sub_424290` spans `0x00424290-0x004242e5`, and `sub_4242F0` spans `0x004242f0-0x004242f5`; the listed gaps are `0xcc` padding.
+  - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
+  - Owner docs: [UID:0002SC][0x00424020-0x004242e4.FittingRoomTextButtonControlPane](by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md), [UID:0000WR][0x0041ba40-0x004245f5.FittingRoomUiCore](by-memory/0x0041ba40-0x004245f5.FittingRoomUiCore.md), and [UID:00009N][ObjectImageButtonPane](by-class/ObjectImageButtonPane.md) for the adjacent shared type-code helper.
+
 - `0x004245f5-0x00424600` - alignment padding after `FittingRoomUserImageControlPane` scalar-deleting destructor.
   - Why ignored: confirmed `0xcc` alignment padding with no product behavior.
   - Evidence: 2026-05-27 IDA MCP byte/function audit reports `sub_4245A0` ends at `0x004245f5`; bytes through `0x00424600` render as `align 10h` padding with no xrefs.
