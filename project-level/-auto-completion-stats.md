@@ -91,9 +91,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000AQ` | 82 | 76 | 79.0 | `by-class/PowerListPane.md` |
-| `0000BY` | 82 | 76 | 79.0 | `by-class/ResourceLayoutTable.md` |
-| `0000D0` | 82 | 76 | 79.0 | `by-class/ServerItemMenuItemList.md` |
 | `0000D7` | 82 | 76 | 79.0 | `by-class/SimpleHelpPane2.md` |
 | `0000DB` | 82 | 76 | 79.0 | `by-class/SliderControlPane.md` |
 | `0000EB` | 82 | 76 | 79.0 | `by-class/TabPane.md` |

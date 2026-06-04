@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 287
+Total_Reconstructable: 289
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 215
+Total_Reconstructed_Assigned: 218
 Total_Reconstructed_Coded: 2
-Total_Reconstructable_Unassigned: 72
-Total_Unclassified: 298
+Total_Reconstructable_Unassigned: 71
+Total_Unclassified: 296
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -158,6 +158,7 @@ Total_Error: 0
 | [UID:0000AI][PixelEffecter](by-class/PixelEffecter.md) | assigned | `0000IZ` | 20 | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/PixelEffecter.md` |  |
 | [UID:0000AJ][PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_](by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |  |
 | [UID:0000AK][PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_](by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md` |  |
+| [UID:0000AQ][PowerListPane](by-class/PowerListPane.md) | assigned | `0000MO` |  | no | `auto-generated/NexusTK/ui/dialogs/PowerDialogPane.cpp` | `by-class/PowerListPane.md` |  |
 | [UID:0000AR][PrettyButtonControlPane](by-class/PrettyButtonControlPane.md) | assigned | `0000MP` |  | no | `auto-generated/NexusTK/ui/controls/PrettyButtonControlPane.cpp` | `by-class/PrettyButtonControlPane.md` |  |
 | [UID:0000AS][PrettyButtonControlPane2](by-class/PrettyButtonControlPane2.md) | assigned | `0000MP` |  | no | `auto-generated/NexusTK/ui/controls/PrettyButtonControlPane.cpp` | `by-class/PrettyButtonControlPane2.md` |  |
 | [UID:0000AU][ProfileDialog](by-class/ProfileDialog.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-class/ProfileDialog.md` |  |
@@ -175,6 +176,7 @@ Total_Error: 0
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | assigned | `0000N2` |  | no | `auto-generated/NexusTK/ui/core/RectBounds.cpp` | `by-class/RectBounds.md` |  |
 | [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md) | assigned | `0000N4` |  | no | `auto-generated/NexusTK/config/RegistryConfig.cpp` | `by-class/RegistryConfig.md` |  |
 | [UID:0000BX][RequestSyncGate](by-class/RequestSyncGate.md) | assigned | `0000LI` |  | no | `auto-generated/NexusTK/util/Monitor.cpp` | `by-class/RequestSyncGate.md` |  |
+| [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md) | assigned | `0000K2` |  | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-class/ResourceLayoutTable.md` |  |
 | [UID:0000C1][RingBuffer](by-class/RingBuffer.md) | assigned | `0000N8` | 10 | no | `auto-generated/NexusTK/util/RingBuffer.cpp` | `by-class/RingBuffer.md` |  |
 | [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md) | assigned | `0000N8` | 20 | no | `auto-generated/NexusTK/util/RingBuffer.cpp` | `by-class/RingBufferIterator.md` |  |
 | [UID:0000C3][SayInputPane](by-class/SayInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayInputPane.md` |  |
@@ -191,6 +193,7 @@ Total_Error: 0
 | [UID:0000CV][SelfLookPane2](by-class/SelfLookPane2.md) | assigned | `0000NL` | 15 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-class/SelfLookPane2.md` |  |
 | [UID:0000CW][SelfSaveInputPane](by-class/SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-class/SelfSaveInputPane.md` |  |
 | [UID:0000CZ][ServerItemMenuDialog](by-class/ServerItemMenuDialog.md) | assigned | `0000KF` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemMenuDialogs.cpp` | `by-class/ServerItemMenuDialog.md` |  |
+| [UID:0000D0][ServerItemMenuItemList](by-class/ServerItemMenuItemList.md) | assigned | `0000KF` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemMenuDialogs.cpp` | `by-class/ServerItemMenuItemList.md` |  |
 | [UID:0000D1][ServerSelectMenuItemList](by-class/ServerSelectMenuItemList.md) | assigned | `0000NO` |  | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-class/ServerSelectMenuItemList.md` |  |
 | [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/ShoutInputPane.md` |  |
 | [UID:0000D9][SimpleUString](by-class/SimpleUString.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/SimpleUString.md` |  |
@@ -283,7 +286,6 @@ Total_Error: 0
 | [UID:00009R][ObjectPane](by-class/ObjectPane.md) | unassigned |  |  | no |  | `by-class/ObjectPane.md` |  |
 | [UID:0000A8][PasswordError](by-class/PasswordError.md) | unassigned |  |  | no |  | `by-class/PasswordError.md` |  |
 | [UID:0000AL][PlainMemberFunctionObjectT_void____thiscall_MusicControlDialog_____class_m__h73bc206d7ae6](by-class/PlainMemberFunctionObjectT_void____thiscall_MusicControlDialog_____class_m__h73bc206d7ae6.md) | unassigned |  |  | no |  | `by-class/PlainMemberFunctionObjectT_void____thiscall_MusicControlDialog_____class_m__h73bc206d7ae6.md` |  |
-| [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md) | unassigned |  |  | no |  | `by-class/ResourceLayoutTable.md` |  |
 | [UID:0000BZ][RidingImageLib](by-class/RidingImageLib.md) | unassigned |  |  | no |  | `by-class/RidingImageLib.md` |  |
 | [UID:0000C8][ScreenDimmer](by-class/ScreenDimmer.md) | unassigned |  |  | no |  | `by-class/ScreenDimmer.md` |  |
 | [UID:0000CA][ScreenFadeOut](by-class/ScreenFadeOut.md) | unassigned |  |  | no |  | `by-class/ScreenFadeOut.md` |  |
@@ -476,7 +478,6 @@ Total_Error: 0
 | [UID:0000AN][PopupMenuControlPane](by-class/PopupMenuControlPane.md) | unclassified |  |  | no |  | `by-class/PopupMenuControlPane.md` |  |
 | [UID:0000AO][PostInputPane](by-class/PostInputPane.md) | unclassified |  |  | no |  | `by-class/PostInputPane.md` |  |
 | [UID:0000AP][PowerDialogPane](by-class/PowerDialogPane.md) | unclassified |  |  | no |  | `by-class/PowerDialogPane.md` |  |
-| [UID:0000AQ][PowerListPane](by-class/PowerListPane.md) | unclassified |  |  | no |  | `by-class/PowerListPane.md` |  |
 | [UID:0000AT][PrimeNumberGenerator](by-class/PrimeNumberGenerator.md) | unclassified |  |  | no |  | `by-class/PrimeNumberGenerator.md` |  |
 | [UID:0000AV][ProfilePane](by-class/ProfilePane.md) | unclassified |  |  | no |  | `by-class/ProfilePane.md` |  |
 | [UID:0000AX][ProtectedArray_struct_Acc1Info_](by-class/ProtectedArray_struct_Acc1Info_.md) | unclassified |  |  | no |  | `by-class/ProtectedArray_struct_Acc1Info_.md` |  |
@@ -517,7 +518,6 @@ Total_Error: 0
 | [UID:0000CT][SelectObjectWithKeyboardPane](by-class/SelectObjectWithKeyboardPane.md) | unclassified |  |  | no |  | `by-class/SelectObjectWithKeyboardPane.md` |  |
 | [UID:0000CS][SelectionState](by-class/SelectionState.md) | unclassified |  |  | no |  | `by-class/SelectionState.md` |  |
 | [UID:0000CX][SelfSaveOKPane](by-class/SelfSaveOKPane.md) | unclassified |  |  | no |  | `by-class/SelfSaveOKPane.md` |  |
-| [UID:0000D0][ServerItemMenuItemList](by-class/ServerItemMenuItemList.md) | unclassified |  |  | no |  | `by-class/ServerItemMenuItemList.md` |  |
 | [UID:0000D2][ServerSelectPane](by-class/ServerSelectPane.md) | unclassified |  |  | no |  | `by-class/ServerSelectPane.md` |  |
 | [UID:0000D3][ServerSpellMenuDialog](by-class/ServerSpellMenuDialog.md) | unclassified |  |  | no |  | `by-class/ServerSpellMenuDialog.md` |  |
 | [UID:0000D4][ServerSpellMenuItemList](by-class/ServerSpellMenuItemList.md) | unclassified |  |  | no |  | `by-class/ServerSpellMenuItemList.md` |  |
