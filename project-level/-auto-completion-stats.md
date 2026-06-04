@@ -23,7 +23,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IB` | blank | `(blank)` | `by-file/CollectionDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IL` | blank | `(blank)` | `by-file/CursorManager.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000IM` | blank | `(blank)` | `by-file/DATArchive.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000J3` | blank | `(blank)` | `by-file/EPFImageResources.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IX` | blank | `(blank)` | `by-file/EditablePaperPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000JD` | blank | `(blank)` | `by-file/FileIO.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -89,9 +88,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000P5` | 84 | 76 | 80.0 | `by-file/VirusChecker.md` |
-| `0000IM` | 88 | 76 | 82.0 | `by-file/DATArchive.md` |
-| `0000OC` | 88 | 76 | 82.0 | `by-file/Surface.md` |
 | `00004N` | 74 | 78 | 76.0 | `by-class/EventHandler.md` |
 | `00007S` | 74 | 78 | 76.0 | `by-class/MapRefreshDimmer.md` |
 | `0000C6` | 74 | 78 | 76.0 | `by-class/SayToUserMessageInputPane.md` |

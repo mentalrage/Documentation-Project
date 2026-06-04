@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 225
+Total_Reconstructed_Assigned: 226
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 63
+Total_Error: 62
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -52,6 +52,7 @@ Total_Error: 63
 | [UID:0000II][Crasher](by-file/Crasher.md) | assigned |  |  | no | `auto-generated/NexusTK/platform/Crasher.cpp` | `by-file/Crasher.md` | by-file generated root |
 | [UID:0000IJ][CreateUserDialogPane](by-file/CreateUserDialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/login/CreateUserDialogPane.cpp` | `by-file/CreateUserDialogPane.md` | by-file generated root |
 | [UID:0000IK][CreateUserDialogs](by-file/CreateUserDialogs.md) | assigned |  |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-file/CreateUserDialogs.md` | by-file generated root |
+| [UID:0000IM][DATArchive](by-file/DATArchive.md) | assigned |  |  | no | `auto-generated/NexusTK/archive/DATArchive.cpp` | `by-file/DATArchive.md` | by-file generated root |
 | [UID:0000IN][DATFile](by-file/DATFile.md) | assigned |  |  | no | `auto-generated/NexusTK/archive/DATFile.cpp` | `by-file/DATFile.md` | by-file generated root |
 | [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md) | assigned |  |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-file/DATFileMgr.md` | by-file generated root |
 | [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md) | assigned |  |  | no | `auto-generated/NexusTK/archive/DATIndexVector.cpp` | `by-file/DATIndexVector.md` | by-file generated root |
@@ -243,7 +244,6 @@ Total_Error: 63
 | [UID:0000I4][CharacterSummaryRecord](by-file/CharacterSummaryRecord.md) | error |  |  | no |  | `by-file/CharacterSummaryRecord.md` | by-file generated root |
 | [UID:0000IB][CollectionDialogPane](by-file/CollectionDialogPane.md) | error |  |  | no |  | `by-file/CollectionDialogPane.md` | by-file generated root |
 | [UID:0000IL][CursorManager](by-file/CursorManager.md) | error |  |  | no |  | `by-file/CursorManager.md` | by-file generated root |
-| [UID:0000IM][DATArchive](by-file/DATArchive.md) | error |  |  | no |  | `by-file/DATArchive.md` | by-file generated root |
 | [UID:0000J3][EPFImageResources](by-file/EPFImageResources.md) | error |  |  | no |  | `by-file/EPFImageResources.md` | by-file generated root |
 | [UID:0000IX][EditablePaperPane](by-file/EditablePaperPane.md) | error |  |  | no |  | `by-file/EditablePaperPane.md` | by-file generated root |
 | [UID:0000JD][FileIO](by-file/FileIO.md) | error |  |  | no |  | `by-file/FileIO.md` | by-file generated root |

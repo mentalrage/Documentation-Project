@@ -1,15 +1,15 @@
 *** UID:0000OC | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Surface
 
 ## Status
 
-- Confidence: medium for `render/Surface.cpp` as a shared surface/presentation helper bucket; strong that this code should not be owned by DAT/image-library parsing.
-- Proposed module: `render/Surface.cpp`
-- Current recovered owners are scattered: `class_GrafPort.cpp`, `class_FolderTreePane.cpp`, `class_MapPane.cpp`, `class_RankingUserListPane.cpp`, `class_FittingRoomDownloadControlPane.cpp`, `class_EPFImageControlPane.cpp`, plus the alpha-surface files.
+- Confidence: strong for `NexusTK/render/Surface.cpp` as a shared surface/presentation helper bucket; medium-high for exact original source-unit boundaries.
+- Proposed module: `NexusTK/render/Surface.cpp`
+- Current recovery owners are scattered across GrafPort, pane, map, ranking, fitting-room, EPF image control, and alpha-surface pages; live caller evidence shows those labels are callsite-biased.
 - Main evidence ranges: `0x004b9820-0x004ba81d`, `0x00557140-0x00559aef`, and the already split alpha-surface ranges around `0x00462170-0x004632b1`.
 
 ## File Role
@@ -20,11 +20,11 @@
 - `Surface.cpp` likely owns small paint lifecycle, surface metadata, blit/presentation, line/sprite/tile draw wrappers, and shared function-pointer/global state used across panes.
 - `AlphaMaskSurface.cpp` and `IntAlphaSurface.cpp` own specialized alpha-mask and integer-alpha surface objects and should remain nearby, not inside asset libraries.
 
-Current Wave3 ownership names are not reliable enough to be final source filenames for this cluster. Several helpers are attached to `FolderTreePane`, `MapPane`, `RankingUserListPane`, or `FittingRoomDownloadControlPane`, but IDA caller evidence shows broad drawing/surface use rather than feature-specific ownership.
+Current recovery ownership names are not reliable enough to be final source filenames for this cluster. Several helpers are attached to `FolderTreePane`, `MapPane`, `RankingUserListPane`, or `FittingRoomDownloadControlPane`, but IDA caller evidence shows broad drawing/surface use rather than feature-specific ownership.
 
 ## Proposed Contents
 
-| Entity | Address | Current Wave3 owner | Role |
+| Entity | Address | Current callsite-biased owner | Role |
 | --- | --- | --- | --- |
 | [UID:00022M][0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter](by-memory/0x004b8be0-0x004b8be8.GrafPortDirtyFlagSetter.md) | `0x004b8be0-0x004b8be8` | `FolderTreePane` pollution path | Tiny GrafPort/surface setup flag setter called by `BalloonObjectPane` after allocating a `GrafPort`; keep with GrafPort/surface review, not FolderTreePane. |
 | `UpdateSurfaceInfo` | `0x004b9820-0x004b98b8` | `FolderTreePane` | Updates surface pitch/height metadata from cached fields or a DirectDraw surface descriptor; IDA reports 28 direct callers across pane/render code. |
@@ -39,17 +39,17 @@ Current Wave3 ownership names are not reliable enough to be final source filenam
 | [UID:000169][0x004ba540-0x004ba6ad.CompositePixels16](by-memory/0x004ba540-0x004ba6ad.CompositePixels16.md) | `0x004ba540-0x004ba6ad` | `BowGaugeObjectPane` | Shared 16-bit pixel compositor that fills zero pixels with a palette color and inverts nonzero pixels; IDA callers include BowGauge and TextEditPane drawing paths. |
 | [UID:00016A][0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground](by-memory/0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground.md) | `0x004ba6b0-0x004ba81d` | `RankingEventListPane` | Shared tiled-background helper that temporarily applies a clip region and repeats a source tile through callback slot `dword_69B3E8`; IDA reports 26 direct callers. |
 | `RenderPresentation` | `0x00557140-0x00557377` | `MapPane` | Presents rendered frames through region animation or direct blit. |
-| [UID:0001AR][0x005051c0-0x00505228.DrawVisibleTilesHelper](by-memory/0x005051c0-0x00505228.DrawVisibleTilesHelper.md) | `0x005051c0-0x00505228` | `ParcelPane` in active generated output | Shared visible-tile redraw helper called by screen/presentation paths; current ParcelPane ownership is false. |
+| [UID:0001AR][0x005051c0-0x00505228.DrawVisibleTilesHelper](by-memory/0x005051c0-0x00505228.DrawVisibleTilesHelper.md) | `0x005051c0-0x00505228` | `ParcelPane` in active recovery output | Shared visible-tile redraw helper called by screen/presentation paths; current ParcelPane ownership is false. |
 | `FlipSurfaces` | `0x00557470-0x0055769d` | `MapPane` | Sets DirectDraw cooperative/display state and locks the active render surface. |
 | `DrawTileSurface` | `0x005583a0-0x0055867a` | `MapPane` | Drives frame rendering with shake/direct-blit presentation modes. |
 | `RenderMinimap` | `0x00558840-0x00558f63` | `MapPane` | Creates minimap DirectDraw surfaces, selects color-depth render functions, and builds alpha lookup tables. |
 | `BlitSurfaceToDisplay` | `0x005595d0-0x00559a0f` | `FolderTreePane` | Presents a DirectDraw source surface to the display, including fullscreen/windowed paths and RGB565-to-XRGB8888 conversion. |
-| [UID:0000QW][g_pfnLockSurface](by-global/g_pfnLockSurface.md) | `0x0069b3fc` / `dword_69B3FC` | `EPFImageControlPane` reference owner | Generated alias for callback-table slot 7; IDA shows the EPF call as `dword_69B3FC(this, this + 0x44)`, so the current one-argument generated signature is suspect. |
-| [UID:0000TN][SurfaceRenderCallbackTable](by-global/SurfaceRenderCallbackTable.md) | `0x0069b3e0-0x0069b410` | many generated aliases | Process-wide render callback table selected by the surface initializer at `0x00558840`; includes `dword_69B3E8`, `dword_69B3EC`, `dword_69B3FC`, and neighboring 555/565 dispatch slots. |
+| [UID:0000QW][g_pfnLockSurface](by-global/g_pfnLockSurface.md) | `0x0069b3fc` / `dword_69B3FC` | `EPFImageControlPane` reference owner | Recovery alias for callback-table slot 7; IDA shows the EPF call as `dword_69B3FC(this, this + 0x44)`, so the current one-argument recovery signature is suspect. |
+| [UID:0000TN][SurfaceRenderCallbackTable](by-global/SurfaceRenderCallbackTable.md) | `0x0069b3e0-0x0069b410` | many recovery aliases | Process-wide render callback table selected by the surface initializer at `0x00558840`; includes `dword_69B3E8`, `dword_69B3EC`, `dword_69B3FC`, and neighboring 555/565 dispatch slots. |
 | [UID:00016H][0x004bb2e0-0x004bb5a5.LineClipHelpers](by-memory/0x004bb2e0-0x004bb5a5.LineClipHelpers.md) | `0x004bb2e0-0x004bb5a5` | `RankingEventListPane` / recovered global | Shared line-segment clipping helper pair called only by the software line callbacks at `0x004bb9b0` and `0x004c0850`. |
 | [UID:00016J][0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks](by-memory/0x004bb8d0-0x004c069e.SoftwareRenderCompatCallbacks.md) | `0x004bb8d0-0x004c069e` | `RankingEventListPane` for active emitted markers | Compatibility/RGB555-family callback targets assigned into the surface render callback table. |
 | [UID:00016L][0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks](by-memory/0x004c0770-0x004c5fde.SoftwareRenderRgb565Callbacks.md) | `0x004c0770-0x004c5fde` | `RankingEventListPane` for active emitted markers | RGB565-family callback targets assigned into the surface render callback table. |
-| [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md) | `0x0066da94` | external Application/display config | External screen-width global used by `GrafPort::UpdateRenderRegion`; current generated `g_maxSurfacePitch` metadata is a stale alias over this storage. |
+| [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md) | `0x0066da94` | external Application/display config | External screen-width global used by `GrafPort::UpdateRenderRegion`; current recovery `g_maxSurfacePitch` metadata is a stale alias over this storage. |
 
 ## Related Surface Files
 
@@ -64,7 +64,7 @@ Current Wave3 ownership names are not reliable enough to be final source filenam
 
 ## Ownership Decision
 
-Use `render/Surface.cpp` as a migration review bucket, not as proof that all listed helpers were originally in one file. The common thread is source ownership: these are generic surface/presentation helpers and should not be migrated into chat, ranking, fitting-room, or DAT/resource files solely because Wave3 currently attaches them to those owners.
+Use `render/Surface.cpp` as a migration review bucket, not as proof that all listed helpers were originally in one file. The common thread is source ownership: these are generic surface/presentation helpers and should not be migrated into chat, ranking, fitting-room, or DAT/resource files solely because recovery metadata currently attaches them to those owners.
 
 For now:
 
@@ -77,18 +77,23 @@ For now:
 - IDA MCP reports exact functions in the `0x004b9820-0x004ba24a` paint/helper range and the `0x00557140-0x00559aef` presentation range.
 - IDA MCP reports `UpdateSurfaceInfo` has 28 direct callers, including balloon, GrafPort-region, text, pane, and UI paths; that breadth argues against a feature-specific owner.
 - IDA MCP caller checks for `0x004ba540` report callers from BowGauge painting and TextEditPane draw/invalidation paths, so its current BowGauge owner should be treated as caller-biased.
-- Wave3 summaries for `FlipSurfaces`, `DrawTileSurface`, `RenderMinimap`, and `BlitSurfaceToDisplay` all describe DirectDraw surface/presentation behavior, even though current owners are `MapPane` or `FolderTreePane`.
+- Recovery summaries for `FlipSurfaces`, `DrawTileSurface`, `RenderMinimap`, and `BlitSurfaceToDisplay` all describe DirectDraw surface/presentation behavior, even though current owners are `MapPane` or `FolderTreePane`.
 - 2026-05-25 IDA caller checks show `0x00559410` invokes [UID:0000MC][Pane](by-file/Pane.md) dirty/motion helpers at `0x005446e0` and `0x00544980`, which supports treating the `0x00559410` neighborhood as shared presentation traversal rather than as map gameplay code.
 - `0x004b99f0` is a real 0x73-byte IDA function. A 2026-05-25 recheck shows it builds an offset rectangle and forwards through `dword_69B3E8`, with direct callers at `0x004b5917`, `0x005c3b60`, and `0x005c3db0`.
 - `0x004ba250` is a real 0x1f4-byte IDA function. A 2026-05-25 recheck shows it calls `UpdateSurfaceInfo`, `EndPaint`, and callback slot `dword_69B3E8`, with eight direct callers. Current `MapPane::DrawSpriteAtPosition` ownership is callsite-biased.
 - `0x004ba450` is a real 0xeb-byte IDA function. A 2026-05-25 recheck shows 47 direct callers and a GrafPort clip/cursor/line-delta body. Current `RankingEventListPane::DrawRectFrame` ownership is callsite-biased.
 - `0x004ba6b0` is a real 0x16d-byte IDA function. A 2026-05-25 recheck shows 26 direct callers and a tiled-background body using temporary GrafPort clip state, palette lookup, and `dword_69B3E8`. Current `RankingEventListPane::DrawTiledBackground` ownership is callsite-biased.
-- `g_pfnLockSurface` is a generated alias for `dword_69B3FC` at `0x0069b3fc`. A 2026-05-25 IDA MCP recheck of `0x00499310` shows `dword_69B3FC(this, this + 68)`, not the simplified one-argument call emitted by `simroot_v2`.
-- `g_maxSurfacePitch` is not currently supported as a real global. A 2026-05-26 IDA MCP recheck of `GrafPort::UpdateRenderRegion` shows the generated reference is `word_66DA94` / [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md), a 16-bit screen-width global initialized to `1024`.
+- `g_pfnLockSurface` is a recovery alias for `dword_69B3FC` at `0x0069b3fc`. A 2026-05-25 IDA MCP recheck of `0x00499310` shows `dword_69B3FC(this, this + 68)`, not the simplified one-argument call in older recovery output.
+- `g_maxSurfacePitch` is not currently supported as a real global. A 2026-05-26 IDA MCP recheck of `GrafPort::UpdateRenderRegion` shows the recovery metadata reference is `word_66DA94` / [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md), a 16-bit screen-width global initialized to `1024`.
 - `0x005051c0` is currently emitted as `ParcelPane::DrawParcelSlot`, but IDA shows it paints visible tiles from `this + 0x428` and callers are screen/presentation paths. Keep it in shared render review, not parcel notification source.
-- [UID:0000TN][SurfaceRenderCallbackTable](by-global/SurfaceRenderCallbackTable.md) documents the `0x0069b3e0-0x0069b410` callback block. Current generated aliases include names such as `g_uiTileRenderer`, `g_pfnBlitTileFrame`, `g_pfnBlitSprite`, and `g_preparedCompositionRenderer_69B3E8`; those names are callsite-biased projections over shared callback storage.
+- [UID:0000TN][SurfaceRenderCallbackTable](by-global/SurfaceRenderCallbackTable.md) documents the `0x0069b3e0-0x0069b410` callback block. Current recovery aliases include names such as `g_uiTileRenderer`, `g_pfnBlitTileFrame`, `g_pfnBlitSprite`, and `g_preparedCompositionRenderer_69B3E8`; those names are callsite-biased projections over shared callback storage.
 - [UID:00016H][0x004bb2e0-0x004bb5a5.LineClipHelpers](by-memory/0x004bb2e0-0x004bb5a5.LineClipHelpers.md) are currently emitted under `RankingEventListPane`, but IDA callers are limited to the software line callbacks in the two callback families. Keep the helper in shared render/geometry review.
 - The callback target families at `0x004bb8d0-0x004c069e` and `0x004c0770-0x004c5fde` are currently emitted mostly under `RankingEventListPane`, but IDA xrefs show representative targets are assigned by the surface initializer at `0x00558840`. Treat these as shared render dispatch implementations, not ranking source.
+- 2026-06-04 live IDA identity: `C:\Users\admin\Desktop\Clone\NexusTK\NexusTK.exe`, module `NexusTK.exe`, MD5 `4247e04e20b65d6414c7238aa8ff5515`.
+- 2026-06-04 live IDA confirms exact helper function boundaries for `0x004b8be0-0x004b8be8`, `0x004b9820-0x004ba81d`, `0x004bb2e0-0x004bb517`, `0x004bb8d0-0x004bb9a5`, `0x004c0770-0x004c0845`, `0x005051c0-0x00505228`, `0x00557140-0x00557377`, `0x00557470-0x0055769d`, `0x005583a0-0x0055867a`, `0x00558840-0x00558f63`, and `0x005595d0-0x00559a0f`.
+- 2026-06-04 caller breadth remains surface-wide: `0x004b9820` has 28 code refs across 23 unique functions, `0x004ba250` has 8 refs across 7 functions, `0x004ba450` has 49 refs across 27 functions, `0x004ba6b0` has 26 refs across 19 functions, and `0x00557140` has 37 refs across 24 functions.
+- 2026-06-04 narrower helpers also match shared-surface placement: `0x004bb2e0` is called only by software line callbacks `0x004bb9b0` and `0x004c0850`, `0x005051c0` is reached from screen/presentation paths, and `0x005595d0` is called from `0x00557140`/`0x005583a0`.
+- 2026-06-04 callback-table xrefs prove process-wide dispatch storage, not feature ownership: `0x0069b3e8` has 114 refs across 67 unique functions, `0x0069b3fc` has 206 refs across 130 unique functions, and every slot from `0x0069b3e0` through `0x0069b40c` starts as `0xffffffff` before surface setup.
 
 ## Cross-References
 
@@ -129,8 +134,12 @@ For now:
 - 2026-05-30: Scored documentation completeness/confidence.
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `88` and confidence to `76`.
-  - Evidence: document has a broad helper inventory, current generated-owner pollution notes, related surface-file split, ownership decision, IDA caller/boundary evidence, callback/global references, range correction, and cross-references; confidence remains medium-high because `Surface.cpp` is still a provisional migration-review bucket rather than a proven original source unit.
+  - Evidence: document has a broad helper inventory, current recovery-owner pollution notes, related surface-file split, ownership decision, IDA caller/boundary evidence, callback/global references, range correction, and cross-references; confidence remains medium-high because `Surface.cpp` is still a provisional migration-review bucket rather than a proven original source unit.
 - 2026-06-01: Changed proposed reconstruction path from blank to `NexusTK/render/`.
   - Before: The page proposed `render/Surface.cpp` but left validator path metadata blank.
   - After: Validator metadata now stages `Surface.cpp` under `NexusTK/render/`.
   - Evidence: `by-project-structure/proposed-source-tree.md` lists `render/Surface.cpp`, and IDA MCP rechecks for the `0x004b9820-0x004ba24a` helper cluster confirm shared surface/presentation behavior rather than feature-file ownership.
+- 2026-06-04 confidence update:
+  - Before: `CONFIDENCE:76`.
+  - After: `CONFIDENCE:84`.
+  - Evidence: live IDA rechecked exact helper boundaries, caller breadth for the paint/presentation helpers, line-callback-only clipping helpers, screen/presentation caller paths for `0x005051c0`, and callback-table xrefs across `0x0069b3e0-0x0069b40c`. Completion remains `88` because `Surface.cpp` is still a migration-review bucket, not a proven exact original source unit.

@@ -1,19 +1,20 @@
 *** UID:0000IM | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/archive/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # DATArchive
 
 ## Status
 
-- Confidence: medium
+- Confidence: strong for archive-folder split and DAT API boundaries; medium-high for umbrella granularity.
 - Document kind: archive/resource umbrella over [UID:0000IN][DATFile](by-file/DATFile.md), [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), and neighboring image/archive helpers
-- Evidence basis: Wave2 readonly JSON, `simroot_v2` metadata, generated class/helper summaries, Wave3 class/layout inspection, and targeted IDA MCP caller/callee checks through 2026-05-25.
+- Proposed folder context: `NexusTK/archive/`; concrete classes should still attach to [UID:0000IN][DATFile](by-file/DATFile.md), [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), or [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md), not to this umbrella page.
+- Evidence basis: live IDA MCP caller/callee/decompile checks through 2026-06-04 plus cross-linked concrete owner pages.
 
 ## Hypothesis
 
-NexusTK resource loading likely had a compact archive subsystem centered on DAT files, EPF/EPD image assets, frame metadata, palettes, and PCX/DIB conversion. Current Wave3 emits many of these as isolated class/global files, but the behavior and names point to a small set of archive/render-support modules.
+NexusTK resource loading likely had a compact archive subsystem centered on DAT files, EPF/EPD image assets, frame metadata, palettes, and PCX/DIB conversion. Current recovery inventory models many of these as isolated class/global pages, but the behavior and names point to a small set of archive/render-support modules.
 
 ## Current File Split
 
@@ -55,7 +56,7 @@ This page remains the umbrella for adjacent archive/resource research. Do not us
 | `NewHumanImageLib` | `0x004dfd10-0x004e68a7` | `class_NewHumanImageLib.cpp` | Updated human composition image library; render owner for motion/layer/part tables. |
 | `MonsterImageLib` | `0x004dac40-0x004e685f` | `class_MonsterImageLib.cpp` | Monster sprite image library; render owner for monster tables and `DATA/MON%d.DAT` indexing. |
 | `RidingImageLib` | `0x004dc420-0x004e6980` | `class_RidingImageLib.cpp` | Riding/mount image library; parses `RIDINGS.DNA` and loads `RIDINGS.EPF`. |
-| `LightObjImageLib` | `0x004df7e0-0x004e669c` | `class_LightObjImageLib.cpp` | Light source image library; reads `LIGHT.TBL` and builds generated radial frames. |
+| `LightObjImageLib` | `0x004df7e0-0x004e669c` | `class_LightObjImageLib.cpp` | Light source image library; reads `LIGHT.TBL` and builds procedural radial frames. |
 | `AlphaMaskSurface` | `0x00462170-0x00462e02` | `class_AlphaMaskSurface.cpp` | Temporary byte alpha-mask surface used by rendering and overlay shading. |
 | `IntAlphaSurface` | `0x00463270-0x004632b1` | `class_IntAlphaSurface.cpp` | Related alpha surface destructor and vtable evidence; final source split still open. |
 
@@ -101,8 +102,8 @@ This page remains the umbrella for adjacent archive/resource research. Do not us
 - IDA MCP `callees` confirmed [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md) (`0x004bb120`) constructs `DATFile`, opens the DAT-backed path, gets size, reads payload bytes, closes, and destructs the `DATFile`.
 - IDA MCP `callers` found [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) used by PCX loading, image-frame loading, tile metadata, tilec/effect table building, sprite-part resolution, audio paths, and other resource paths.
 - IDA MCP decompilation of `SoundManager` confirmed DAT-backed audio resource use: `%03d.wav` sound effects are probed/opened through [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) and `DATFile`, and zone `%08d.LST`/`%08d.LSR`/`%08d.MP3` entries are selected through the same helper. See [UID:0000UB][DATAudioResources](by-item/DATAudioResources.md).
-- Wave3 xrefs and IDA MCP callee checks confirm EPF/EPD table helpers call the DAT API but belong above it: `LoadImageFrameTable`, `LoadTileEpfMetadata`, `BuildTilecArchiveTable`, `BuildEffectArchiveTable`, and `ResolveSpritePartPath` all use [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md), `DATFile`, and `DATFile::GetDataPointer` while building render metadata tables. See [UID:0000J3][EPFImageResources](by-file/EPFImageResources.md).
-- Wave3/IDA inspection confirms `ImageLib` initializes `g_pEPFLib` / `DAT_0067a744`, while the methods recovered as `ResourceLayoutTable` provide the shared EPF/EPD layout lookup API. They open EPF/EPD resources through `DATFile`, but own named frame-layout buckets and should live in render/resource code rather than in `archive/DATFile.cpp`.
+- Live IDA caller/callee checks confirm EPF/EPD table helpers call the DAT API but belong above it: `LoadImageFrameTable`, `LoadTileEpfMetadata`, `BuildTilecArchiveTable`, `BuildEffectArchiveTable`, and `ResolveSpritePartPath` all use [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md), `DATFile`, and `DATFile::GetDataPointer` while building render metadata tables. See [UID:0000J3][EPFImageResources](by-file/EPFImageResources.md).
+- Live IDA inspection confirms `ImageLib` initializes `g_pEPFLib` / `DAT_0067a744`, while the methods recovered as `ResourceLayoutTable` provide the shared EPF/EPD layout lookup API. They open EPF/EPD resources through `DATFile`, but own named frame-layout buckets and should live in render/resource code rather than in `archive/DATFile.cpp`.
 - Palette inspection confirms `PaletteLib` and `DLPalette` follow the same dependency pattern: they read DAT-backed `.PAL` streams through `DATFile`, but own render palette selection, color conversion, and slot tables. See [UID:0000MA][Palette](by-file/Palette.md).
 - Map/static/effect image-library inspection confirms `MapTileImageLib`, `StaticObjImageLib`, and `EffectObjImageLib` depend on DAT-backed resources but own render/image metadata: `TILE%d.EPF`, `TILEC%d.EPF`, and `EFFECT%d.EPF` table builders each have a single owning image-library constructor caller.
 - Item/riding/light image-library inspection extends that ownership rule: `ItemObjImageLib` owns item table metadata and draw variants over `ITEM.EPF`/`ITEM.EPD`, `RidingImageLib` owns `RIDINGS.DNA` plus `RIDINGS.EPF` loading, and `LightObjImageLib` owns `LIGHT.TBL` procedural light-frame generation. These are DAT consumers, not DAT archive parser classes.
@@ -113,6 +114,18 @@ This page remains the umbrella for adjacent archive/resource research. Do not us
 - 2026-05-25 IDA MCP disassembly/string reads resolve the full [UID:0001R6][application-startup-dat-archives](by-resource/application-startup-dat-archives.md) inventory around the numbered-family helper, including fixed required archives, `DATA/MUH###.DAT`/`DATA/MUS###.DAT` music loops, BINT `0..2`, and `DATA/WM.DAT`.
 - 2026-05-24 IDA MCP checks resolve `WriteRGBA8PNGFile` as a small [UID:0000K4][ImageWriters](by-file/ImageWriters.md) wrapper over bundled [UID:0000KW][LodePNG](by-file/LodePNG.md) code. It should not be grouped into DAT/archive resource code.
 - 2026-05-24 IDA MCP checks resolve `Crc32`, `Adler32`, `Uncompress`, and the inflate/deflate helpers as bundled [UID:0000PC][Zlib](by-file/Zlib.md) 1.1.4 support code, not DAT parser code.
+
+## 2026-06-04 Live IDA Recheck
+
+- IDB identity: `C:\Users\admin\Desktop\Clone\NexusTK\NexusTK.exe`, module `NexusTK.exe`, MD5 `4247e04e20b65d6414c7238aa8ff5515`.
+- Live `lookup_funcs` confirms the core archive ranges still split cleanly: `0x0049bd30-0x0049be41` public manager wrapper, `0x0049be70-0x0049be7c` forwarder, `0x0049be80-0x0049c0c9` mapped archive container, `0x0049c130-0x0049d2cb` `DATFile`/entry reader cluster, `0x0049c800-0x0049d6ed` internal manager/resolver cluster, `0x004a5e60-0x004a609f` parse helper, and `0x004bb120-0x004bb1d2` load-buffer wrapper.
+- `ParseEntries` at `0x004a5e60` still has exactly two live callers, `0x0049c4d4` in `0x0049c4a0` and `0x0049c524` in `0x0049c4f0`, matching private/static-style support for [UID:0000IN][DATFile](by-file/DATFile.md).
+- `DATFile::Open` at `0x0049c180` calls the manager lookup helper `0x0049cad0`; `HasDATEntry` at `0x0049c700` also only calls `0x0049cad0`, proving it is a thin archive API boundary.
+- `LoadDatFileBuffer` at `0x004bb120` calls `DATFile` constructor/open/get-size/read/close/destructor helpers (`0x0049c130`, `0x0049c180`, `0x0049c240`, `0x0049c2f0`, `0x0049c310`, `0x0049c160`) and has broad resource/UI callers, so it remains a [UID:0000IN][DATFile](by-file/DATFile.md) wrapper rather than a consumer-owned helper.
+- `HasDATEntry` has live caller fanout from PCX/image loading, image-frame table loading, tile metadata, tilec/effect table builders, sprite-part resolution, palette/audio paths, and UI/resource consumers; those callers confirm DAT dependency, not DAT parser ownership.
+- `LoadIndexedDATSeries` at `0x00467410-0x004674ed` is called from `Application::Initialize` (`0x004639d0`) for numbered archive families and calls the `0x0049be70` archive-manager forwarder after file-existence probing, so it remains startup policy in [UID:0000HG][Application](by-file/Application.md).
+- `DATIndexVector` fanout remains broad: `0x00423b00` has callers in fitting-room/minimap/DAT manager/monster-image paths, while `0x00457100` and `0x00457580` are used by minimap and monster-image helper paths. This supports a standalone [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md) file under `NexusTK/archive/`, not private ownership by `DATFileMgr.cpp`.
+- The umbrella path assignment to `NexusTK/archive/` is folder context only. Concrete code ownership remains on [UID:0000IN][DATFile](by-file/DATFile.md), [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md), and the render/audio/application consumer files named above.
 
 ## Proposed Split
 
@@ -232,3 +245,7 @@ third_party/zlib/
   - What existed before: `MapTileImageLib` and `LoadTileEpfMetadata` used stale endpoints `0x004e6747` and `0x004d1f21`.
   - Changed to: half-open endpoints `0x004e6748` and `0x004d1f22`.
   - Summary/evidence: IDA `lookup_funcs` reports `MapTileImageLib` scalar deleting destructor `0x004e66a0` size `0xa8` and `LoadTileEpfMetadata` `0x004d1b80` size `0x3a2`; these functions now have exact by-memory pages and coverage rows.
+- 2026-06-04 reconstruction path and confidence update:
+  - Before: `CONFIDENCE:76` and blank `PROPOSED_RECONSTRUCTION_PATH`.
+  - After: `CONFIDENCE:84` and `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/archive/"`.
+  - Summary/evidence: live IDA rechecked the DAT manager/file/helper boundaries, the two-callsite `ParseEntries` ownership, `LoadDatFileBuffer` as a DATFile wrapper, `HasDATEntry` as a broad DAT API boundary, `LoadIndexedDATSeries` as application startup policy, and `DATIndexVector` as shared archive helper infrastructure. Completion stays at `88` because this page remains an umbrella and should not become the final owner for concrete classes.

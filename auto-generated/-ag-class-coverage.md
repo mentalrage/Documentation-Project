@@ -5,9 +5,9 @@
 Total_Type: 586
 Total_Reconstructable: 296
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 225
+Total_Reconstructed_Assigned: 226
 Total_Reconstructed_Coded: 2
-Total_Reconstructable_Unassigned: 71
+Total_Reconstructable_Unassigned: 70
 Total_Unclassified: 289
 Total_Error: 0
 
@@ -230,6 +230,7 @@ Total_Error: 0
 | [UID:0000FQ][UserPane](by-class/UserPane.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-class/UserPane.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
 | [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md) | assigned | `0000P4` |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-class/VideoPlayerPane.md` |  |
+| [UID:0000FW][VirusChecker](by-class/VirusChecker.md) | assigned | `0000P5` |  | no | `auto-generated/NexusTK/security/VirusChecker.cpp` | `by-class/VirusChecker.md` |  |
 | [UID:0000GB][WSAError](by-class/WSAError.md) | assigned | `0000J5` | 160 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/WSAError.md` |  |
 | [UID:0000G1][WeatherLayerPane](by-class/WeatherLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/WeatherLayerPane.md` |  |
 | [UID:0000G7][Win32Error](by-class/Win32Error.md) | assigned | `0000J5` | 20 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/Win32Error.md` |  |
@@ -306,7 +307,6 @@ Total_Error: 0
 | [UID:0000EW][ThreadMan](by-class/ThreadMan.md) | unassigned |  |  | no |  | `by-class/ThreadMan.md` |  |
 | [UID:0000F3][TimerPane](by-class/TimerPane.md) | unassigned |  |  | no |  | `by-class/TimerPane.md` |  |
 | [UID:0000FS][UserStatusPane](by-class/UserStatusPane.md) | unassigned |  |  | no |  | `by-class/UserStatusPane.md` |  |
-| [UID:0000FW][VirusChecker](by-class/VirusChecker.md) | unassigned |  |  | no |  | `by-class/VirusChecker.md` |  |
 | [UID:0000FX][VoteMenuPane](by-class/VoteMenuPane.md) | unassigned |  |  | no |  | `by-class/VoteMenuPane.md` |  |
 | [UID:0000FY][WaitableTimer](by-class/WaitableTimer.md) | unassigned |  |  | no |  | `by-class/WaitableTimer.md` |  |
 | [UID:000004][_DATFileMgr](by-class/_DATFileMgr.md) | unassigned |  |  | no |  | `by-class/_DATFileMgr.md` |  |

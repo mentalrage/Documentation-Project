@@ -1,8 +1,8 @@
 *** UID:0000FW | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,7 +15,6 @@
 - Confidence: strong for recovered behavior, medium for live activation.
 - Likely source file: [UID:0000P5][VirusChecker](by-file/VirusChecker.md)
 - Main address range: [UID:0001NU][0x005c0460-0x005c0fe1.VirusChecker](by-memory/0x005c0460-0x005c0fe1.VirusChecker.md)
-- Current recovered file: `source-3/simroot_v2/class_VirusChecker.cpp`
 
 ## Class Purpose
 
@@ -39,11 +38,12 @@
 
 - [UID:0000SO][g_pVirusChecker](by-global/g_pVirusChecker.md) is at [UID:0001Q3][0x0069bf94-0x0069bf98.g_pVirusChecker](by-memory/0x0069bf94-0x0069bf98.g_pVirusChecker.md).
 - IDA confirms the one-slot [UID:0001YU][SecuritySingletonVtables](by-type/by-vtable/SecuritySingletonVtables.md) uses object vptr `0x006310e0`; the only function slot is scalar deleting destructor `0x005c0ec0`.
-- The observed object and path-tree fields are recorded in [UID:0001WG][VirusCheckerProcessTreeLayout](by-type/by-struct/VirusCheckerProcessTreeLayout.md). In particular, object offset `+0x08` behaves as a tree node count, so the active generated name `m_state` is provisional.
+- The observed object and path-tree fields are recorded in [UID:0001WG][VirusCheckerProcessTreeLayout](by-type/by-struct/VirusCheckerProcessTreeLayout.md). In particular, object offset `+0x08` behaves as a tree node count, so the field name remains provisional.
 - Module/function pointer globals in IDA include `dword_69BF90` for `V3PCTRL.DLL`, `dword_69BF80` for `V3PCtrl_EnumModules`, `AhnExCheckFile`, and `dword_69BF88` for `AhnExGetVirusName`.
-- 2026-05-26 recheck: active `simroot_v2/class_VirusChecker.cpp` still omits the V3 load/scan and tree helper pages linked above, except for the recovered recursive cleanup helper.
-- Current exported metadata still contains historical control-character name records such as `~VirusChecker\r` and old name-control grade reasons. The active generated source uses clean canonical names, so treat the metadata history rows as stale and prefer IDA plus current active code for naming.
-- 2026-05-31 IDA MCP recheck confirms the object layout, V3 DLL load/scan helpers, process/module callback chain, red-black-tree-style path set, singleton xrefs, and boundary before `WaitableTimer`. The class is reconstructable project code, but parent/code attachment remains blank until live activation and final source names are near-final.
+- Current exported metadata still contains historical control-character name records such as `~VirusChecker\r` and old name-control grade reasons. Treat the metadata history rows as stale and prefer live IDA plus canonical documentation names for naming.
+- 2026-06-04 live IDA recheck confirms the object layout, V3 DLL load/scan helpers, process/module callback chain, red-black-tree-style path set, singleton xrefs, one-slot vtable, and boundary before `WaitableTimer`.
+- Live xrefs still show no direct callers for the constructor `0x005c0460`, loader `0x005c05a0`, scanner `0x005c07b0`, or scalar deleting destructor `0x005c0ec0`; the only external code xref to the local clear helper `0x005c0eb0` is a compiler EH cleanup thunk at `0x0060bc76`.
+- File parent [UID:0000P5][VirusChecker](by-file/VirusChecker.md) is now strong enough for class attachment, while `RECONSTRUCTION_CPP CODE` remains blank because this class is below the 95/95 final-source threshold.
 
 ## Cross-References
 
@@ -62,8 +62,12 @@
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:86` and `CONFIDENCE:82`.
-  - Summary/evidence: scored from the singleton constructor/destructor, V3 load/scan helpers, process-tree helpers, global function/module pointers, vtable/layout evidence, simroot omission notes, and stale metadata caveats; confidence remains capped by medium live-activation evidence.
+  - Summary/evidence: scored from the singleton constructor/destructor, V3 load/scan helpers, process-tree helpers, global function/module pointers, vtable/layout evidence, and stale metadata caveats; confidence remains capped by medium live-activation evidence.
 - 2026-05-31 reconstructable flag:
   - What existed before: blank `RECONSTRUCTABLE`.
   - Changed to: `RECONSTRUCTABLE:TRUE`.
   - Summary/evidence: IDA MCP confirms this class as NexusTK-owned wrapper/source code around dynamically loaded V3 scanner DLLs, with local singleton lifecycle and process-tree ownership.
+- 2026-06-04 parent/confidence update:
+  - Before: `CONFIDENCE:82` and blank `AUTOGEN_PARENT_UID`.
+  - After: `CONFIDENCE:84` and `AUTOGEN_PARENT_UID:0000P5`.
+  - Summary/evidence: live IDA rechecked the exact constructor/destructor/loader/scanner/callback/tree/destructor ranges, V3 DLL/export strings, singleton/vtable refs, no-direct-caller state, EH cleanup thunk, and padding boundary. Confidence remains capped by unresolved runtime activation, and no final C++ was added because the class is below the 95/95 threshold.
