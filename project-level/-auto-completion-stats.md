@@ -54,7 +54,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000LB` | blank | `(blank)` | `by-file/MessageShowPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LE` | blank | `(blank)` | `by-file/MiniMap.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000LF` | blank | `(blank)` | `by-file/MiniMapVersionManager.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LL` | blank | `(blank)` | `by-file/Motion.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M0` | blank | `(blank)` | `by-file/NexonclubRegistrationDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M2` | blank | `(blank)` | `by-file/NumericStringControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M5` | blank | `(blank)` | `by-file/ObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -90,9 +89,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000LL` | 82 | 76 | 79.0 | `by-file/Motion.md` |
-| `0000DZ` | 84 | 76 | 80.0 | `by-class/StartupWindow.md` |
-| `0000EG` | 84 | 76 | 80.0 | `by-class/TerminalPane.md` |
 | `0000P5` | 84 | 76 | 80.0 | `by-file/VirusChecker.md` |
 | `0000IM` | 88 | 76 | 82.0 | `by-file/DATArchive.md` |
 | `0000OC` | 88 | 76 | 82.0 | `by-file/Surface.md` |
@@ -183,7 +179,6 @@ _No scored files._
 | `0000L4` | 78 | 80 | 79.0 | `by-file/MapRefreshDimmer.md` |
 | `0000MI` | 78 | 80 | 79.0 | `by-file/PathUtil.md` |
 | `0000NU` | 80 | 78 | 79.0 | `by-file/SortedList.md` |
-| `0000LL` | 82 | 76 | 79.0 | `by-file/Motion.md` |
 | `0000HI` | 76 | 84 | 80.0 | `by-file/ArgumentedMenuDialogs.md` |
 | `0000HL` | 76 | 84 | 80.0 | `by-file/AttachmentAnchorResolver.md` |
 | `0000HW` | 76 | 84 | 80.0 | `by-file/BulletinReplyAlerts.md` |

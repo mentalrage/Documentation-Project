@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 294
+Total_Reconstructable: 296
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 223
+Total_Reconstructed_Assigned: 225
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 71
-Total_Unclassified: 291
+Total_Unclassified: 289
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -205,12 +205,14 @@ Total_Error: 0
 | [UID:0000DO][SpellInventoryPane2](by-class/SpellInventoryPane2.md) | assigned | `0000O1` |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-class/SpellInventoryPane2.md` |  |
 | [UID:0000DT][SpellSpellInputPane](by-class/SpellSpellInputPane.md) | assigned | `0000O0` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-class/SpellSpellInputPane.md` |  |
 | [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
+| [UID:0000DZ][StartupWindow](by-class/StartupWindow.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-class/StartupWindow.md` |  |
 | [UID:0000E0][StaticCloudFilterEffecter](by-class/StaticCloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/StaticCloudFilterEffecter.md` |  |
 | [UID:0000E3][StaticTextControlPane](by-class/StaticTextControlPane.md) | assigned | `0000O8` |  | no | `auto-generated/NexusTK/ui/controls/StaticTextControlPane.cpp` | `by-class/StaticTextControlPane.md` |  |
 | [UID:0000E7][StringIter](by-class/StringIter.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/StringIter.md` |  |
 | [UID:0000E9][SwallowLayerPane](by-class/SwallowLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SwallowLayerPane.md` |  |
 | [UID:0000EB][TabPane](by-class/TabPane.md) | assigned | `0000OF` |  | no | `auto-generated/NexusTK/ui/panels/TabPane.cpp` | `by-class/TabPane.md` |  |
 | [UID:0000EC][TakeOffInputPane](by-class/TakeOffInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/TakeOffInputPane.md` |  |
+| [UID:0000EG][TerminalPane](by-class/TerminalPane.md) | assigned | `0000OI` |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-class/TerminalPane.md` |  |
 | [UID:0000EI][TextBoxPane](by-class/TextBoxPane.md) | assigned | `0000OJ` |  | no | `auto-generated/NexusTK/ui/controls/TextBoxPane.cpp` | `by-class/TextBoxPane.md` |  |
 | [UID:0000EK][TextButtonExControlPane](by-class/TextButtonExControlPane.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-class/TextButtonExControlPane.md` |  |
 | [UID:0000EQ][TextFilter](by-class/TextFilter.md) | assigned | `0000OO` |  | no | `auto-generated/NexusTK/ui/controls/TextFilter.cpp` | `by-class/TextFilter.md` |  |
@@ -545,7 +547,6 @@ Total_Error: 0
 | [UID:0000DW][SpellTwoArgsInputPane](by-class/SpellTwoArgsInputPane.md) | unclassified |  |  | no |  | `by-class/SpellTwoArgsInputPane.md` |  |
 | [UID:0000DK][SpelledPane](by-class/SpelledPane.md) | unclassified |  |  | no |  | `by-class/SpelledPane.md` |  |
 | [UID:0000DY][StaffsDialogPane](by-class/StaffsDialogPane.md) | unclassified |  |  | no |  | `by-class/StaffsDialogPane.md` |  |
-| [UID:0000DZ][StartupWindow](by-class/StartupWindow.md) | unclassified |  |  | no |  | `by-class/StartupWindow.md` |  |
 | [UID:0000E2][StaticObjImageLib](by-class/StaticObjImageLib.md) | unclassified |  |  | no |  | `by-class/StaticObjImageLib.md` |  |
 | [UID:0000E1][StaticObjectPane](by-class/StaticObjectPane.md) | unclassified |  |  | no |  | `by-class/StaticObjectPane.md` |  |
 | [UID:0000E4][StaticTextControlPane2](by-class/StaticTextControlPane2.md) | unclassified |  |  | no |  | `by-class/StaticTextControlPane2.md` |  |
@@ -554,7 +555,6 @@ Total_Error: 0
 | [UID:0000ED][TargetObjectWithKeyboardPane](by-class/TargetObjectWithKeyboardPane.md) | unclassified |  |  | no |  | `by-class/TargetObjectWithKeyboardPane.md` |  |
 | [UID:0000EE][TargetOptionDialog](by-class/TargetOptionDialog.md) | unclassified |  |  | no |  | `by-class/TargetOptionDialog.md` |  |
 | [UID:0000EF][TargetOptionEditControlPane](by-class/TargetOptionEditControlPane.md) | unclassified |  |  | no |  | `by-class/TargetOptionEditControlPane.md` |  |
-| [UID:0000EG][TerminalPane](by-class/TerminalPane.md) | unclassified |  |  | no |  | `by-class/TerminalPane.md` |  |
 | [UID:0000EH][TerminalSetupPane](by-class/TerminalSetupPane.md) | unclassified |  |  | no |  | `by-class/TerminalSetupPane.md` |  |
 | [UID:0000EJ][TextButtonControlPane](by-class/TextButtonControlPane.md) | unclassified |  |  | no |  | `by-class/TextButtonControlPane.md` |  |
 | [UID:0000EL][TextDialog](by-class/TextDialog.md) | unclassified |  |  | no |  | `by-class/TextDialog.md` |  |

@@ -508,7 +508,7 @@
 - [UID:0000DW][SpellTwoArgsInputPane](by-class/SpellTwoArgsInputPane.md) : reconstructable : 86% : strong : - Confidence: strong for behavior and IDA boundaries.
 - [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) : reconstructable : 86% : strong : Spell target-selection input pane attached to `TargetSelectionInputPanes.cpp`, with constructor/destructor, keyboard and pointer selection, object-list refresh, saved-target clear helper, vtable refs, and padding/switch-table boundaries documented.
 - [UID:0000DY][StaffsDialogPane](by-class/StaffsDialogPane.md) : reconstructable : 86% : medium-high : - Confidence: strong for class behavior, medium for live reachability.
-- [UID:0000DZ][StartupWindow](by-class/StartupWindow.md) : reconstructable : 84% : medium-high : - Confidence: strong for high-level behavior; medium for helper function boundaries.
+- [UID:0000DZ][StartupWindow](by-class/StartupWindow.md) : reconstructable : 86% : strong : Live IDA confirms WinMain-only entry points, vtable/singleton/global writes, WndProc callback refs, startup-local curl/string helpers, read-only notice strings, and raw helper boundary debt under the StartupWindow file parent.
 - [UID:0000E0][StaticCloudFilterEffecter](by-class/StaticCloudFilterEffecter.md) : reconstructable : 74% : strong : constructor-only static-cloud filter effecter; vtable store bases, raw constructor span, runtime module owner, and C++ gating notes documented.
 - [UID:0000E1][StaticObjectPane](by-class/StaticObjectPane.md) : reconstructable : 84% : strong : - Confidence: strong for role and anchors.
 - [UID:0000E2][StaticObjImageLib](by-class/StaticObjImageLib.md) : reconstructable : 86% : medium-high : - Confidence: strong for constructor/destructor and bounds helper, medium for field names.
@@ -525,7 +525,7 @@
 - [UID:0000ED][TargetObjectWithKeyboardPane](by-class/TargetObjectWithKeyboardPane.md) : reconstructable : 86% : high : - Confidence: strong for class behavior and IDA boundaries; medium for exact original file split.
 - [UID:0000EE][TargetOptionDialog](by-class/TargetOptionDialog.md) : reconstructable : 84% : strong : - Confidence: strong for behavior and pairing with `TargetOptionEditControlPane`.
 - [UID:0000EF][TargetOptionEditControlPane](by-class/TargetOptionEditControlPane.md) : reconstructable : 82% : strong : - Confidence: strong for behavior and ownership by `TargetOptionDialog`.
-- [UID:0000EG][TerminalPane](by-class/TerminalPane.md) : reconstructable : 84% : medium-high : - Confidence: strong for class role, medium for unmodeled helper ownership.
+- [UID:0000EG][TerminalPane](by-class/TerminalPane.md) : reconstructable : 86% : strong : Live IDA confirms TerminalPane constructor/parser/disconnect/close/callback/destructor ranges, TerminalSetup companion boundaries, vtable slots, singleton lifecycle, reconnect callback ownership, and parser call into `SendPositionUpdate`.
 - [UID:0000EH][TerminalSetupPane](by-class/TerminalSetupPane.md) : reconstructable : 82% : strong : - Confidence: strong
 - [UID:0000EI][TextBoxPane](by-class/TextBoxPane.md) : reconstructable : 84% : strong : TextEditPane-derived text box control with live IDA constructor/override boundaries, corrected cursor-invalidation endpoint, eight constructor call sites, three vtable stores, optional text insertion, IME focus assignment, cursor/line refresh behavior, and parent attachment documented.
 - [UID:0000EJ][TextButtonControlPane](by-class/TextButtonControlPane.md) : reconstructable : 84% : high : - Confidence: strong for class role.
