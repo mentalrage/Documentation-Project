@@ -168,9 +168,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000TA` | 72 | 80 | 76.0 | `by-global/OpenChangePasswordDialog_4F9060.md` |
-| `0000TC` | 72 | 80 | 76.0 | `by-global/OpenHistoryViewingPane_4F9140.md` |
-| `0000TE` | 72 | 80 | 76.0 | `by-global/OpenStoryViewingPane_4F90C0.md` |
 | `0000T6` | 72 | 82 | 77.0 | `by-global/MainUiLayerSlots.md` |
 | `0000TB` | 72 | 82 | 77.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
 | `0000TF` | 72 | 82 | 77.0 | `by-global/OpenTerminalPane_4F91C0.md` |
@@ -225,11 +222,7 @@ _No scored files._
 
 ### by-memory
 
-| UID | Completion | Confidence | Combined | Path |
-| --- | ---: | ---: | ---: | --- |
-| `00019Q` | 72 | 80 | 76.0 | `by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md` |
-| `00019R` | 72 | 80 | 76.0 | `by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md` |
-| `0001A5` | 72 | 80 | 76.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |
+_No scored files._
 
 ### by-meta
 

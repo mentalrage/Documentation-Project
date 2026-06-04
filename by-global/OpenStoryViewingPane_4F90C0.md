@@ -1,6 +1,6 @@
 *** UID:0000TE | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -14,7 +14,6 @@
 
 - Confidence: strong for behavior, source owner, and current unreferenced status; medium for why the wrapper was retained.
 - Address range: [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md)
-- Current generated file: no standalone `simroot_v2` recovered source found in this pass.
 - Likely owner source: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
 
 ## Function Role
@@ -29,6 +28,11 @@ This duplicates the story branch inside `MainMenuPane::ActivateMenuItem`. Curren
 - IDA MCP callees are allocator `0x004f4aa0` and `HistoryViewingPane::HistoryViewingPane` at `0x004ffd80`.
 - IDA MCP reports no direct callers and no xrefs to `0x004f90c0`.
 - The constructor call sites inside this helper appear as `0x004f910c` and `0x004f912b` in `callers 0x004ffd80`.
+- 2026-06-04 live IDA reports the function as `0x004f90c0-0x004f913f`, followed by one `0xcc` byte before the history helper at `0x004f9140`.
+- 2026-06-04 live IDA reports no xrefs to `0x004f90c0` and zero loaded-segment dword hits for `0x004f90c0`.
+- 2026-06-04 live disassembly shows an SEH/security-cookie frame, `byte_66DA97 == 1` branch, allocation size `0x108`, non-null allocation check, and constructor call through `sub_4FFD80`.
+- 2026-06-04 live string-byte decoding confirms the resource operands as `STORY.EPF` at `0x0061e128` and `STORY.EPD` at `0x0061e13c`.
+- 2026-06-04 live decompile of `sub_4F7A10` confirms active menu case `3` directly duplicates this allocation/resource/constructor sequence.
 - 2026-05-26 IDA recheck still reports zero code refs and zero data refs to the helper start.
 - 2026-05-27 IDA raw-pointer scan across loaded segments found no dword equal to `0x004f90c0`.
 - 2026-05-28 IDA MCP recheck still reports no code/data refs, no little-endian pointer byte match for `c0 90 4f 00`, and no immediate-value search hits for `0x004f90c0`.
@@ -46,7 +50,10 @@ Keep this with `login/MainMenuPane.cpp` as a menu action helper for address-matc
 
 ## Score Rationale
 
-The score is raised because repeated IDA checks confirm a real `0x7f`-byte function, allocator and `HistoryViewingPane` constructor callees, constructor call sites, no direct/raw-pointer/immediate references to the helper start, and matching direct construction in `MainMenuPane::ActivateMenuItem`. Confidence remains below final range because the exact reason the duplicate wrapper survived is still unknown.
+| Score | Rationale |
+| --- | --- |
+| Completion `80` | Exact boundary, padding relationship, resource operands, allocator/constructor behavior, no-xref/no-pointer checks, matching active menu case, and source-placement caveat are documented. Completion remains capped because the retained duplicate wrapper's source reason is unresolved. |
+| Confidence `86` | Live IDA strongly confirms the helper body, decoded resource operands, constructor path, and current unreferenced status. Confidence remains below higher scores because no live caller or callback table has been recovered. |
 
 ## Cross-References
 
@@ -54,10 +61,14 @@ The score is raised because repeated IDA checks confirm a real `0x7f`-byte funct
 - [UID:0000JW][HistoryViewingPane](by-file/HistoryViewingPane.md)
 - [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
 - [UID:0001RF][main-menu-history-resources](by-resource/main-menu-history-resources.md)
-- [Wave3 data issues](../wave3_data_issues.md)
 
 ## Changes
 
+- 2026-06-04: Raised completion/confidence from `72/80` to `80/86` after live IDA verified the exact helper boundary, internal padding relationship, no entry xrefs, zero loaded dword hits, decoded `STORY.EPF`/`STORY.EPD` operands, raw instruction shape, and matching active `MainMenuPane` story case.
+- Before: the page recorded older behavior/no-reference checks but lacked current padding, resource operand, and instruction-level evidence.
+- After: the symbol summary now mirrors the stronger by-memory evidence while keeping final C++ blank and source retention unresolved.
+- Why: live IDA proves the helper is real retained project code and strengthens the duplicate/unreferenced interpretation, but still finds no caller or callback table.
+- Evidence: 2026-06-04 IDA MCP function lookup, byte checks, `xrefs_to`, loaded pointer scan, operand string decoding, helper disassembly, and `sub_4F7A10` decompile.
 - Before: documented as a retained helper with weak unresolved reachability.
 - After: documented as a retained duplicate launcher whose current lack of refs has been rechecked; the active main-menu story action is documented as directly duplicating the allocation/constructor sequence.
 - Why: IDA MCP found no direct or raw-pointer references to `0x004f90c0`, while `0x004f7a10` story case performs the same `264`-byte allocation and `0x004ffd80` constructor call.

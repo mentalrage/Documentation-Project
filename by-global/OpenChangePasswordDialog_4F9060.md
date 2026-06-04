@@ -1,6 +1,6 @@
 *** UID:0000TA | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -37,6 +37,10 @@ IDA reports no direct caller/xref to the helper start in the current database. T
 - IDA MCP `decompile 0x004f9060` shows allocation followed by `sub_4FDD40(result)`.
 - IDA MCP `callers` and `xrefs_to` for `0x004f9060` return no direct references.
 - IDA MCP `callers 0x004fdd40` reports constructor call sites at `0x004f7b49` and `0x004f90a0`.
+- 2026-06-04 live IDA reports exact function boundaries at `0x004f9060-0x004f90b4`, with eleven `0xcc` bytes before the helper and twelve `0xcc` bytes before the next helper at `0x004f90c0`.
+- 2026-06-04 live disassembly records the SEH/security-cookie frame, allocator immediate `0x26c`, null check, `ecx = eax`, and constructor call at `0x004f90a0`.
+- 2026-06-04 live IDA reports no xrefs to the helper entry, exactly two xrefs to the constructor (`0x004f7b49` and `0x004f90a0`), and zero loaded dword hits for `0x004f9060`.
+- 2026-06-04 live decompile/disassembly of `sub_4F7A10` confirms main-menu action case `2` directly duplicates the `sub_4F4AA0(620)` plus `sub_4FDD40` construction path.
 - 2026-05-26 IDA recheck still reports no code or data refs to `0x004f9060`; keep reachability weak until an indirect callback table or dead-code decision is proven.
 - 2026-05-27 IDA raw-pointer scan across loaded segments found no dword equal to `0x004f9060`.
 - 2026-05-28 IDA MCP recheck still reports no code/data refs, no little-endian pointer byte match for `60 90 4F 00`, and no immediate-value search hits for `0x004f9060`.
@@ -50,8 +54,8 @@ Keep this as a retained private helper in the login/main-menu family for address
 
 | Score | Rationale |
 | --- | --- |
-| Completion `72` | The page documents exact behavior, allocation size, constructor target, repeated no-xref checks, raw pointer/immediate searches, active duplicate main-menu path, and source-placement caveat. Completion remains capped because the reason for retention and final helper grouping are unresolved. |
-| Confidence `80` | Confidence is strong for what the helper does and for the current unreferenced/duplicate status. It is not higher because no live caller or callback table has been found and an address-matching rebuild may choose different grouping. |
+| Completion `80` | The page documents exact behavior, allocation size, constructor target, boundary/padding checks, repeated no-xref checks, raw pointer/immediate searches, active duplicate main-menu path, disassembly-level instruction shape, and source-placement caveat. Completion remains capped because the reason for retention and final helper grouping are unresolved. |
+| Confidence `86` | Confidence is strong for what the helper does and for the current unreferenced/duplicate status after the 2026-06-04 live IDA recheck. It is not higher because no live caller or callback table has been found and an address-matching rebuild may choose different grouping. |
 
 ## Cross-References
 
@@ -59,10 +63,14 @@ Keep this as a retained private helper in the login/main-menu family for address
 - [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
 - [UID:0000I3][ChangePasswordDialogPane](by-file/ChangePasswordDialogPane.md)
 - [UID:00001L][ChangePasswordDialogPane](by-class/ChangePasswordDialogPane.md)
-- [Wave3 data issues](../wave3_data_issues.md)
 
 ## Changes
 
+- 2026-06-04: Raised completion/confidence from `72/80` to `80/86` after live IDA verified exact boundaries, adjacent padding, no helper-entry xrefs, zero loaded dword hits for `0x004f9060`, constructor xrefs, instruction-level helper shape, and the matching active `MainMenuPane` case `2` construction path.
+- Before: the global summary recorded the retained opener behavior but lacked current boundary/padding and raw instruction evidence.
+- After: the symbol page now mirrors the stronger by-memory evidence while still keeping final source grouping and C++ emission unresolved.
+- Why: live IDA proves the helper's behavior and current unreferenced duplicate status more strongly, but still does not recover a caller or callback table.
+- Evidence: 2026-06-04 IDA MCP function lookup, raw bytes, `xrefs_to`, loaded pointer scan, helper disassembly, and `sub_4F7A10` decompile/disassembly.
 - 2026-06-02: Raised completion/confidence from `65/65` to `72/80`, marked reconstructable, and attached to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md). C++ remains blank because this retained launcher is below the final-code gate and live reachability remains unresolved.
 - Before: documented as a retained opener with weak unresolved reachability.
 - After: documented as a retained duplicate launcher whose lack of current refs has been rechecked; the active main-menu action path is now recorded as directly duplicating the allocation/constructor sequence.
