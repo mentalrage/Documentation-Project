@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1426
+Total_Reconstructable: 1428
 Total_Not_Reconstructable: 24
-Total_Reconstructed_Assigned: 892
+Total_Reconstructed_Assigned: 895
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 528
-Total_Unclassified: 798
+Total_Reconstructable_Unassigned: 527
+Total_Unclassified: 796
 Total_Error: 6
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -554,7 +554,7 @@ Total_Error: 6
 | [UID:0002N3][0x0052a4a0-0x0052a4de.MusicControlDialogFolderCallbackDestructor](by-memory/0x0052a4a0-0x0052a4de.MusicControlDialogFolderCallbackDestructor.md) | assigned | `0001CP` |  | no | `auto-generated/NexusTK/ui/dialogs/MusicControlDialog.cpp` | `by-memory/0x0052a4a0-0x0052a4de.MusicControlDialogFolderCallbackDestructor.md` |  |
 | [UID:0002QR][0x0052a540-0x0052c325.NewUserDialogPane2CreateUserVariant](by-memory/0x0052a540-0x0052c325.NewUserDialogPane2CreateUserVariant.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0052a540-0x0052c325.NewUserDialogPane2CreateUserVariant.md` |  |
 | [UID:0001CR][0x0052a540-0x0052f94c.CreateUserDialogVariants](by-memory/0x0052a540-0x0052f94c.CreateUserDialogVariants.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0052a540-0x0052f94c.CreateUserDialogVariants.md` |  |
-| [UID:0002QS][0x0052c360-0x0052dcf5.NewCreateUserDialogPaneCore](by-memory/0x0052c360-0x0052dcf5.NewCreateUserDialogPaneCore.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0052c360-0x0052dcf5.NewCreateUserDialogPaneCore.md` |  |
+| [UID:0002QS][0x0052c360-0x0052dcf5.NewCreateUserDialogPaneCore](by-memory/0x0052c360-0x0052dcf5.NewCreateUserDialogPaneCore.md) | assigned | `0000LP` |  | no | `auto-generated/NexusTK/login/NewCreateUserDialogPane.cpp` | `by-memory/0x0052c360-0x0052dcf5.NewCreateUserDialogPaneCore.md` |  |
 | [UID:0002QT][0x0052dd30-0x0052f6e5.CreateUserDialogPaneCore](by-memory/0x0052dd30-0x0052f6e5.CreateUserDialogPaneCore.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0052dd30-0x0052f6e5.CreateUserDialogPaneCore.md` |  |
 | [UID:0002QU][0x0052f710-0x0052f94c.CreateUserDialogDestructorAndThunkIsland](by-memory/0x0052f710-0x0052f94c.CreateUserDialogDestructorAndThunkIsland.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0052f710-0x0052f94c.CreateUserDialogDestructorAndThunkIsland.md` |  |
 | [UID:0001CV][0x00530640-0x00530b00.NumberInputDialogConstructor](by-memory/0x00530640-0x00530b00.NumberInputDialogConstructor.md) | assigned | `0000M1` |  | no | `auto-generated/NexusTK/ui/dialogs/NumberInputDialog.cpp` | `by-memory/0x00530640-0x00530b00.NumberInputDialogConstructor.md` |  |
@@ -583,12 +583,15 @@ Total_Error: 6
 | [UID:0001DE][0x0053a110-0x0053d818.LivingObjectPaneCore](by-memory/0x0053a110-0x0053d818.LivingObjectPaneCore.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0053a110-0x0053d818.LivingObjectPaneCore.md` |  |
 | [UID:0002R1][0x0053b700-0x0053baa8.LivingObjectPaneAnimationTimer](by-memory/0x0053b700-0x0053baa8.LivingObjectPaneAnimationTimer.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0053b700-0x0053baa8.LivingObjectPaneAnimationTimer.md` |  |
 | [UID:0002R2][0x0053bb20-0x0053beb6.LivingObjectPaneRenderFrameMethods](by-memory/0x0053bb20-0x0053beb6.LivingObjectPaneRenderFrameMethods.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0053bb20-0x0053beb6.LivingObjectPaneRenderFrameMethods.md` |  |
+| [UID:0001DG][0x0053c5e0-0x0053c6a1.LightingObjectPaneLifecycle](by-memory/0x0053c5e0-0x0053c6a1.LightingObjectPaneLifecycle.md) | assigned | `0000KO` |  | no | `auto-generated/NexusTK/map/LightingObjectPane.cpp` | `by-memory/0x0053c5e0-0x0053c6a1.LightingObjectPaneLifecycle.md` |  |
 | [UID:0002TX][0x0053c6b0-0x0053c6f7.AttachmentAnchorImageBoundsMetricRaw](by-memory/0x0053c6b0-0x0053c6f7.AttachmentAnchorImageBoundsMetricRaw.md) | assigned | `00000O` | 5 | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-memory/0x0053c6b0-0x0053c6f7.AttachmentAnchorImageBoundsMetricRaw.md` |  |
 | [UID:0001DH][0x0053c700-0x0053c92e.AttachmentAnchorResolver](by-memory/0x0053c700-0x0053c92e.AttachmentAnchorResolver.md) | assigned | `00000O` | 10 | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-memory/0x0053c700-0x0053c92e.AttachmentAnchorResolver.md` |  |
 | [UID:0002TY][0x0053c930-0x0053c97b.AttachmentAnchorScreenBoundsNotifyRaw](by-memory/0x0053c930-0x0053c97b.AttachmentAnchorScreenBoundsNotifyRaw.md) | assigned | `00000O` | 20 | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-memory/0x0053c930-0x0053c97b.AttachmentAnchorScreenBoundsNotifyRaw.md` |  |
+| [UID:0001DI][0x0053c980-0x0053c9b5.LightingObjectPaneSetIntensity](by-memory/0x0053c980-0x0053c9b5.LightingObjectPaneSetIntensity.md) | assigned | `0000KO` |  | no | `auto-generated/NexusTK/map/LightingObjectPane.cpp` | `by-memory/0x0053c980-0x0053c9b5.LightingObjectPaneSetIntensity.md` |  |
 | [UID:0002TZ][0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight](by-memory/0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight.md) | assigned | `00000O` | 30 | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-memory/0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight.md` |  |
 | [UID:0002U0][0x0053c9f0-0x0053ca1b.AttachmentAnchorLightApplyTwinRaw](by-memory/0x0053c9f0-0x0053ca1b.AttachmentAnchorLightApplyTwinRaw.md) | assigned | `00000O` | 40 | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-memory/0x0053c9f0-0x0053ca1b.AttachmentAnchorLightApplyTwinRaw.md` |  |
 | [UID:0002T6][0x0053d030-0x0053d053.LivingObjectPaneBoxRotatorScalarDeletingDestructor](by-memory/0x0053d030-0x0053d053.LivingObjectPaneBoxRotatorScalarDeletingDestructor.md) | assigned | `00007C` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0053d030-0x0053d053.LivingObjectPaneBoxRotatorScalarDeletingDestructor.md` |  |
+| [UID:0001DM][0x0053d380-0x0053d422.LightingObjectPaneScalarDeletingDestructor](by-memory/0x0053d380-0x0053d422.LightingObjectPaneScalarDeletingDestructor.md) | assigned | `0000KO` |  | no | `auto-generated/NexusTK/map/LightingObjectPane.cpp` | `by-memory/0x0053d380-0x0053d422.LightingObjectPaneScalarDeletingDestructor.md` |  |
 | [UID:0002R3][0x0053d430-0x0053d589.LivingObjectPaneScalarDeletingDestructor](by-memory/0x0053d430-0x0053d589.LivingObjectPaneScalarDeletingDestructor.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-memory/0x0053d430-0x0053d589.LivingObjectPaneScalarDeletingDestructor.md` |  |
 | [UID:0001DO][0x0053d820-0x0053e520.OptionPane](by-memory/0x0053d820-0x0053e520.OptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-memory/0x0053d820-0x0053e520.OptionPane.md` |  |
 | [UID:0001DP][0x0053e1e0-0x0053e377.OptionPaneServerOptionResponse](by-memory/0x0053e1e0-0x0053e377.OptionPaneServerOptionResponse.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-memory/0x0053e1e0-0x0053e377.OptionPaneServerOptionResponse.md` |  |
@@ -849,7 +852,7 @@ Total_Error: 6
 | [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md) | assigned | `00000Y` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md` |  |
 | [UID:0002GL][0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData](by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md) | assigned | `00008S` | 100 | no | `auto-generated/NexusTK/app/MSGHandler.cpp` | `by-memory/0x0061fbf8-0x0061fc04.MSGHandlerReadOnlyData.md` |  |
 | [UID:0002SH][0x0061fd04-0x0061fd94.NewUserDialogPane2VtableData](by-memory/0x0061fd04-0x0061fd94.NewUserDialogPane2VtableData.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0061fd04-0x0061fd94.NewUserDialogPane2VtableData.md` |  |
-| [UID:0002SJ][0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData](by-memory/0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData.md` |  |
+| [UID:0002SJ][0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData](by-memory/0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData.md) | assigned | `0000LP` |  | no | `auto-generated/NexusTK/login/NewCreateUserDialogPane.cpp` | `by-memory/0x0061fda0-0x0061fe30.NewCreateUserDialogPaneVtableData.md` |  |
 | [UID:0002SI][0x0061fe3c-0x0061fecc.CreateUserDialogPaneVtableData](by-memory/0x0061fe3c-0x0061fecc.CreateUserDialogPaneVtableData.md) | assigned | `0000IK` |  | no | `auto-generated/NexusTK/login/CreateUserDialogs.cpp` | `by-memory/0x0061fe3c-0x0061fecc.CreateUserDialogPaneVtableData.md` |  |
 | [UID:000262][0x0062179c-0x006219e8.PaletteReadOnlyData](by-memory/0x0062179c-0x006219e8.PaletteReadOnlyData.md) | assigned | `0000MA` |  | no | `auto-generated/NexusTK/render/Palette.cpp` | `by-memory/0x0062179c-0x006219e8.PaletteReadOnlyData.md` |  |
 | [UID:0002OM][0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData](by-memory/0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData.md) | assigned | `0000LA` |  | no | `auto-generated/NexusTK/ui/dialogs/MessageDialogs.cpp` | `by-memory/0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData.md` |  |
@@ -1218,7 +1221,6 @@ Total_Error: 6
 | [UID:0001DD][0x00539bc0-0x0053d614.MotionAnimation](by-memory/0x00539bc0-0x0053d614.MotionAnimation.md) | unassigned |  |  | no |  | `by-memory/0x00539bc0-0x0053d614.MotionAnimation.md` |  |
 | [UID:0002QX][0x00539de0-0x00539f52.MotionAnimationAlternateConstructor](by-memory/0x00539de0-0x00539f52.MotionAnimationAlternateConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00539de0-0x00539f52.MotionAnimationAlternateConstructor.md` |  |
 | [UID:0002QY][0x00539fe0-0x0053a10c.MotionAnimationTimerTick](by-memory/0x00539fe0-0x0053a10c.MotionAnimationTimerTick.md) | unassigned |  |  | no |  | `by-memory/0x00539fe0-0x0053a10c.MotionAnimationTimerTick.md` |  |
-| [UID:0001DI][0x0053c980-0x0053c9b5.LightingObjectPaneSetIntensity](by-memory/0x0053c980-0x0053c9b5.LightingObjectPaneSetIntensity.md) | unassigned |  |  | no |  | `by-memory/0x0053c980-0x0053c9b5.LightingObjectPaneSetIntensity.md` |  |
 | [UID:0002QZ][0x0053d590-0x0053d614.MotionAnimationScalarDeletingDestructor](by-memory/0x0053d590-0x0053d614.MotionAnimationScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0053d590-0x0053d614.MotionAnimationScalarDeletingDestructor.md` |  |
 | [UID:00023K][0x005426e0-0x00542ab5.DialogPaneScalarDeletingDestructorIsland](by-memory/0x005426e0-0x00542ab5.DialogPaneScalarDeletingDestructorIsland.md) | unassigned |  |  | no |  | `by-memory/0x005426e0-0x00542ab5.DialogPaneScalarDeletingDestructorIsland.md` |  |
 | [UID:0002R4][0x00543670-0x005436f4.PaletteCollectionColorTransformRaw](by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md) | unassigned |  |  | no |  | `by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md` |  |
@@ -1875,11 +1877,9 @@ Total_Error: 6
 | [UID:0001DB][0x00538bc0-0x00539bb2.ObjectOverlayPanes](by-memory/0x00538bc0-0x00539bb2.ObjectOverlayPanes.md) | unclassified |  |  | no |  | `by-memory/0x00538bc0-0x00539bb2.ObjectOverlayPanes.md` |  |
 | [UID:0001DC][0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers](by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md) | unclassified |  |  | no |  | `by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md` |  |
 | [UID:0001DF][0x0053aec0-0x0053b011.AttachedObjectDetachRegistry](by-memory/0x0053aec0-0x0053b011.AttachedObjectDetachRegistry.md) | unclassified |  |  | no |  | `by-memory/0x0053aec0-0x0053b011.AttachedObjectDetachRegistry.md` |  |
-| [UID:0001DG][0x0053c5e0-0x0053c6a1.LightingObjectPaneLifecycle](by-memory/0x0053c5e0-0x0053c6a1.LightingObjectPaneLifecycle.md) | unclassified |  |  | no |  | `by-memory/0x0053c5e0-0x0053c6a1.LightingObjectPaneLifecycle.md` |  |
 | [UID:0001DJ][0x0053ca20-0x0053ce3c.SoundObjectPaneCore](by-memory/0x0053ca20-0x0053ce3c.SoundObjectPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x0053ca20-0x0053ce3c.SoundObjectPaneCore.md` |  |
 | [UID:0001DK][0x0053ce50-0x0053ce8e.MotionPoolFreeUnwindWrapper](by-memory/0x0053ce50-0x0053ce8e.MotionPoolFreeUnwindWrapper.md) | unclassified |  |  | no |  | `by-memory/0x0053ce50-0x0053ce8e.MotionPoolFreeUnwindWrapper.md` |  |
 | [UID:0001DL][0x0053cfa0-0x0053d65b.ObjectPaneCompanionDestructors](by-memory/0x0053cfa0-0x0053d65b.ObjectPaneCompanionDestructors.md) | unclassified |  |  | no |  | `by-memory/0x0053cfa0-0x0053d65b.ObjectPaneCompanionDestructors.md` |  |
-| [UID:0001DM][0x0053d380-0x0053d422.LightingObjectPaneScalarDeletingDestructor](by-memory/0x0053d380-0x0053d422.LightingObjectPaneScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0053d380-0x0053d422.LightingObjectPaneScalarDeletingDestructor.md` |  |
 | [UID:0001DN][0x0053d660-0x0053d7bd.SoundAndStaticObjectPaneDestructors](by-memory/0x0053d660-0x0053d7bd.SoundAndStaticObjectPaneDestructors.md) | unclassified |  |  | no |  | `by-memory/0x0053d660-0x0053d7bd.SoundAndStaticObjectPaneDestructors.md` |  |
 | [UID:0001DR][0x0053e520-0x0053f2b6.MacroDialogs](by-memory/0x0053e520-0x0053f2b6.MacroDialogs.md) | unclassified |  |  | no |  | `by-memory/0x0053e520-0x0053f2b6.MacroDialogs.md` |  |
 | [UID:0001DS][0x0053f2c0-0x0053f939.FriendListDialog](by-memory/0x0053f2c0-0x0053f939.FriendListDialog.md) | unclassified |  |  | no |  | `by-memory/0x0053f2c0-0x0053f939.FriendListDialog.md` |  |

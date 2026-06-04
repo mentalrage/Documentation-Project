@@ -45,7 +45,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000KI` | blank | `(blank)` | `by-file/JsonCpp.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KL` | blank | `(blank)` | `by-file/Layer.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KN` | blank | `(blank)` | `by-file/LibJPEG.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KO` | blank | `(blank)` | `by-file/LightingObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KT` | blank | `(blank)` | `by-file/ListPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KW` | blank | `(blank)` | `by-file/LodePNG.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KX` | blank | `(blank)` | `by-file/LoginDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -111,8 +110,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000LP` | 76 | 80 | 78.0 | `by-file/NewCreateUserDialogPane.md` |
-| `0000KO` | 78 | 78 | 78.0 | `by-file/LightingObjectPane.md` |
 | `0000KQ` | 78 | 78 | 78.0 | `by-file/LineIterator.md` |
 | `0000HM` | 72 | 86 | 79.0 | `by-file/AUTOBUF.md` |
 | `0000HU` | 74 | 84 | 79.0 | `by-file/BowGaugeObjectPane.md` |

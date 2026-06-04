@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 281
+Total_Reconstructable: 282
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 206
+Total_Reconstructed_Assigned: 207
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 75
-Total_Unclassified: 304
+Total_Unclassified: 303
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -112,6 +112,7 @@ Total_Error: 0
 | [UID:00007D][LObject](by-class/LObject.md) | assigned | `0000KV` |  | no | `auto-generated/NexusTK/util/LObject.cpp` | `by-class/LObject.md` |  |
 | [UID:000070][LakeEffecter](by-class/LakeEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/LakeEffecter.md` |  |
 | [UID:000074][LegendPane](by-class/LegendPane.md) | assigned | `0000KM` | 5 | no | `auto-generated/NexusTK/ui/panels/LegendPane.cpp` | `by-class/LegendPane.md` |  |
+| [UID:000075][LightingObjectPane](by-class/LightingObjectPane.md) | assigned | `0000KO` |  | no | `auto-generated/NexusTK/map/LightingObjectPane.cpp` | `by-class/LightingObjectPane.md` |  |
 | [UID:00007C][LivingObjectPane__BoxRotator](by-class/LivingObjectPane__BoxRotator.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-class/LivingObjectPane__BoxRotator.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
 | [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPlayerPane.md` |  |
@@ -401,7 +402,6 @@ Total_Error: 0
 | [UID:000072][LanguageManager](by-class/LanguageManager.md) | unclassified |  |  | no |  | `by-class/LanguageManager.md` |  |
 | [UID:000073][Layer](by-class/Layer.md) | unclassified |  |  | no |  | `by-class/Layer.md` |  |
 | [UID:000076][LightObjImageLib](by-class/LightObjImageLib.md) | unclassified |  |  | no |  | `by-class/LightObjImageLib.md` |  |
-| [UID:000075][LightingObjectPane](by-class/LightingObjectPane.md) | unclassified |  |  | no |  | `by-class/LightingObjectPane.md` |  |
 | [UID:000077][LineInputPane](by-class/LineInputPane.md) | unclassified |  |  | no |  | `by-class/LineInputPane.md` |  |
 | [UID:000079][List](by-class/List.md) | unclassified |  |  | no |  | `by-class/List.md` |  |
 | [UID:00007A][ListPane](by-class/ListPane.md) | unclassified |  |  | no |  | `by-class/ListPane.md` |  |

@@ -1,8 +1,8 @@
 *** UID:000075 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,7 +14,7 @@
 
 - Confidence: strong for lifecycle and intensity methods.
 - Likely source file: [UID:0000KO][LightingObjectPane](by-file/LightingObjectPane.md)
-- Current recovered file: `source-3/simroot_v2/class_LightingObjectPane.cpp`
+- Evidence basis: live IDA MCP function, caller, disassembly, vtable-data, and boundary checks through 2026-06-04.
 
 ## Class Purpose
 
@@ -35,6 +35,9 @@
 - Constructor callers include map/effect paths at `0x0050a940` and `0x00530d00`.
 - `SetIntensity` callers are `0x00530d00` and [UID:000049][EffectObjectPane](by-class/EffectObjectPane.md) animation update at `0x005389d0`.
 - `0x0053c700-0x0053c92e` is adjacent but belongs to [UID:00000O][AttachmentAnchorResolver](by-class/AttachmentAnchorResolver.md), not this class.
+- 2026-06-04 live IDA confirms constructor writes light state at `+0x128`, `+0x12c`, `+0x130`, stores the attached object/light-binding pointer at `+0x134`, and installs vtables `0x00620a3c`, `0x00620aac`, and `0x00620adc`.
+- Live IDA confirms ordinary and scalar destructors restore the same three vtable slots, call virtual slot `+0x4c` through `+0x134`, and then call `ObjectPane` teardown at `0x005373a0`.
+- Vtable data refs tie the primary slot to scalar deleting destructor `0x0053d380` and the two secondary slots to adjustor thunks `0x0053cf28` and `0x0053cf33`.
 
 ## Cross-References
 
@@ -52,3 +55,7 @@
 - Completion/confidence score update: existed before as `0/0`; changed to `80/84`. Summary: lifecycle, intensity mutation, owned interface teardown/rebind, caller evidence, and adjacent non-owner split are documented well, but one probable light-manager virtual still needs final owner confirmation. Evidence: constructor/destructor/set-intensity memory pages, `EffectObjectPane` caller evidence, object type `10`, interface slots `18`/`19`, and `AttachmentAnchorResolver` exclusion note.
 - 2026-06-01 `+0x134` wording correction: existed before as an owned lighting interface claim; changed to constructor-supplied attached object/light-binding interface pointer. Evidence: IDA MCP constructor stores the first constructor argument at `+0x134`, creator paths pass the source object pane, and SetIntensity/destructors invoke slots `18`/`19` through that pointer.
 - 2026-06-03 neighbor resolution update: existed before with `0x0053c9c0-0x0053c9eb` as a probable unresolved LightingObjectPane virtual; changed to link [UID:0002TZ][0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight](by-memory/0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight.md) as an AttachmentAnchorResolver-adjacent helper. Evidence: restarted IDA MCP caller-context checks show `0x0053c9c0` follows attachment bounds/intersection and anchor resolution, not the `SetIntensity` caller set.
+- 2026-06-04 reconstructable attachment update:
+  - What existed before: the class was `80/84` with no reconstructable flag or parent attachment.
+  - Changed to: `COMPLETION:84`, `CONFIDENCE:88`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000KO`.
+  - Evidence: live IDA confirms exact lifecycle, intensity, thunk, scalar destructor, vtable, caller, and boundary evidence. Reconstructed C++ remains blank because final field/interface names are not final-source quality.
