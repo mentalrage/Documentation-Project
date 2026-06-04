@@ -29,9 +29,9 @@ This file should own the reusable archive/index helper and its small support rec
 | Range | Symbol | Role |
 | --- | --- | --- |
 | [UID:0000WW][0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill](by-memory/0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill.md) | `DATIndexVector::ResizeAndFill` | Value-table capacity/initialization helper. |
-| [UID:0000XS][0x00457100-0x0045730e.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md) | `DATIndexVector::InsertNode` | Bucket/list insert, duplicate collapse, load-factor rehash. |
-| [UID:0000XT][0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md) | private cleanup/remove helper | Bucket/list unlink and node free used from `InsertNode` EH cleanup. |
-| [UID:0000XU][0x004573d0-0x00457428.DATIndexVectorDestructor](by-memory/0x004573d0-0x00457428.DATIndexVectorDestructor.md) | `DATIndexVector::~DATIndexVector` | Frees value storage and list state. |
+| [UID:0000XS][0x00457100-0x0045730f.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730f.DATIndexVectorInsertNode.md) | `DATIndexVector::InsertNode` | Bucket/list insert, duplicate collapse, load-factor rehash. |
+| [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md) | private cleanup/remove helper | Bucket/list unlink and node free used from `InsertNode` EH cleanup. |
+| [UID:0000XU][0x004573d0-0x00457429.DATIndexVectorDestructor](by-memory/0x004573d0-0x00457429.DATIndexVectorDestructor.md) | `DATIndexVector::~DATIndexVector` | Frees value storage and list state. |
 | [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md) | `DATIndexVector::FindNodeByKey` | Key lookup in selected bucket range. |
 
 ## File-Level Rationale

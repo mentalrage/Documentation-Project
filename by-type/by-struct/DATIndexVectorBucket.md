@@ -41,8 +41,8 @@ IDA decompilation of `0x00457580` starts lookup from the bucket first pointer an
 
 ## Consumers
 
-- [UID:0000XS][0x00457100-0x0045730e.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md) updates `first` and `last` while inserting or moving nodes.
-- [UID:0000XT][0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md) repairs boundary links when a bucket's first or last node is removed.
+- [UID:0000XS][0x00457100-0x0045730f.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730f.DATIndexVectorInsertNode.md) updates `first` and `last` while inserting or moving nodes.
+- [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md) repairs boundary links when a bucket's first or last node is removed.
 - [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md) scans from `first` through `last->next`.
 
 ## Open Questions

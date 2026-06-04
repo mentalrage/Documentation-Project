@@ -50,7 +50,7 @@
 - 2026-05-25 `callers` confirms `0x004570b0` is used by `MiniMapRenderer::PrepareMapFileAndCheckVersion` and `MiniMapRenderer::HasCurrentVersion`.
 - 2026-05-26 IDA MCP reconfirms these boundaries and callers. IDA decompilation identifies singleton storage as `dword_67A7DC`; `xrefs_to 0x0067a7dc` ties it to the manager lifetime helpers, startup, update-check code, and renderer version checks.
 - `callees` for `0x004563c0` include internal helpers at `0x00457550` and `0x00423b00`, consistent with storage/list initialization.
-- 2026-05-24 IDA MCP caller checks show `0x00456a90` calls [UID:0000XS][0x00457100-0x0045730e.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md), and construction/teardown paths call `DATIndexVector` storage helpers.
+- 2026-05-24 IDA MCP caller checks show `0x00456a90` calls [UID:0000XS][0x00457100-0x0045730f.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730f.DATIndexVectorInsertNode.md), and construction/teardown paths call `DATIndexVector` storage helpers.
 - 2026-05-25 IDA MCP checks place `0x00457550`, `0x004570e0`, and `0x00457430` in the shared [UID:0000KR][LinkedList](by-file/LinkedList.md) helper family rather than minimap-owned source.
 
 ## Ownership Notes

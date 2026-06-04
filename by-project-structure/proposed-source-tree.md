@@ -2003,7 +2003,7 @@ See [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md). This standalone hel
 
 - `DATIndexVector`, the reusable value-table and FNV-1a keyed bucket/list helper.
 - `DATIndexVectorNode` and `DATIndexVectorBucket` support structs.
-- The private [UID:0000XT][0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md) at `0x00457310`, currently evidenced only from `InsertNode` EH cleanup.
+- The private [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md) at `0x00457310`, currently evidenced only from `InsertNode` EH cleanup.
 
 Rationale: the imported source name is `DATIndexVector.cpp`, and IDA MCP caller checks on 2026-05-24 and 2026-05-25 show use from DAT manager code, minimap version state, fitting-room item-state helpers, and `MonsterImageLib`. That breadth rules out a private `DATFileMgr.cpp` placement. The final folder could still become `common/` or `utility/` if more source-layout evidence shows the original project grouped this helper outside `archive/`. Generic sentinel-list allocation and teardown support is now separated into [UID:0000KR][LinkedList](by-file/LinkedList.md).
 

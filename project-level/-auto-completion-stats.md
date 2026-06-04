@@ -98,12 +98,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0000XN` | 70 | 85 | 77.5 | `by-memory/0x00453910-0x00453def.MiniMapDownloader.md` |
-| `0000XP` | 70 | 85 | 77.5 | `by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md` |
-| `0000XS` | 70 | 85 | 77.5 | `by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md` |
-| `0000XT` | 70 | 85 | 77.5 | `by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md` |
-| `0000XU` | 70 | 85 | 77.5 | `by-memory/0x004573d0-0x00457428.DATIndexVectorDestructor.md` |
-| `0000XX` | 70 | 85 | 77.5 | `by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md` |
 | `0000XY` | 70 | 85 | 77.5 | `by-memory/0x00457a60-0x00458610.EPFTileContext.md` |
 | `000200` | 70 | 85 | 77.5 | `by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md` |
 | `0000Y2` | 70 | 85 | 77.5 | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |

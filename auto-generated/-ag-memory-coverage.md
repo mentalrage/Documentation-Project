@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1403
+Total_Reconstructable: 1408
 Total_Not_Reconstructable: 23
 Total_Reconstructed_Assigned: 870
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 528
-Total_Unclassified: 822
+Total_Reconstructable_Unassigned: 533
+Total_Unclassified: 817
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -938,14 +938,19 @@ Total_Error: 5
 | [UID:0000XB][0x0043e0b0-0x0043e241.DequeEnsureCapacity](by-memory/0x0043e0b0-0x0043e241.DequeEnsureCapacity.md) | unassigned |  |  | no |  | `by-memory/0x0043e0b0-0x0043e241.DequeEnsureCapacity.md` |  |
 | [UID:0000XL][0x00452260-0x0045239a.GetControlLayout_452260](by-memory/0x00452260-0x0045239a.GetControlLayout_452260.md) | unassigned |  |  | no |  | `by-memory/0x00452260-0x0045239a.GetControlLayout_452260.md` |  |
 | [UID:0001ZY][0x00453820-0x00453904.WideStringMapNodeSupport](by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md) | unassigned |  |  | no |  | `by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md` |  |
+| [UID:0000XN][0x00453910-0x00453def.MiniMapDownloader](by-memory/0x00453910-0x00453def.MiniMapDownloader.md) | unassigned |  |  | no |  | `by-memory/0x00453910-0x00453def.MiniMapDownloader.md` |  |
 | [UID:0000XO][0x00453df0-0x004563b5.MiniMapRendererAndControls](by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md) | unassigned |  |  | no |  | `by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md` |  |
 | [UID:0000XP][0x004563c0-0x00457547.MiniMapVersionManager](by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md) | unassigned |  |  | no |  | `by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md` |  |
 | [UID:0002JL][0x00456a90-0x0045709e.MiniMapVersionManagerUpdateHashList](by-memory/0x00456a90-0x0045709e.MiniMapVersionManagerUpdateHashList.md) | unassigned |  |  | no |  | `by-memory/0x00456a90-0x0045709e.MiniMapVersionManagerUpdateHashList.md` |  |
 | [UID:0002JM][0x004570a0-0x004570a4.MiniMapVersionManagerGetVersionString](by-memory/0x004570a0-0x004570a4.MiniMapVersionManagerGetVersionString.md) | unassigned |  |  | no |  | `by-memory/0x004570a0-0x004570a4.MiniMapVersionManagerGetVersionString.md` |  |
 | [UID:0000XQ][0x004570b0-0x004570e0.MiniMapVersionLookupByMapId](by-memory/0x004570b0-0x004570e0.MiniMapVersionLookupByMapId.md) | unassigned |  |  | no |  | `by-memory/0x004570b0-0x004570e0.MiniMapVersionLookupByMapId.md` |  |
 | [UID:0000XR][0x004570e0-0x004570ff.CreateListNodeWithPayload](by-memory/0x004570e0-0x004570ff.CreateListNodeWithPayload.md) | unassigned |  |  | no |  | `by-memory/0x004570e0-0x004570ff.CreateListNodeWithPayload.md` |  |
+| [UID:0000XS][0x00457100-0x0045730f.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730f.DATIndexVectorInsertNode.md) | unassigned |  |  | no |  | `by-memory/0x00457100-0x0045730f.DATIndexVectorInsertNode.md` |  |
+| [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md) | unassigned |  |  | no |  | `by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md` |  |
+| [UID:0000XU][0x004573d0-0x00457429.DATIndexVectorDestructor](by-memory/0x004573d0-0x00457429.DATIndexVectorDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004573d0-0x00457429.DATIndexVectorDestructor.md` |  |
 | [UID:0000XV][0x00457430-0x00457473.LinkedListStateCleanup](by-memory/0x00457430-0x00457473.LinkedListStateCleanup.md) | unassigned |  |  | no |  | `by-memory/0x00457430-0x00457473.LinkedListStateCleanup.md` |  |
 | [UID:0000XW][0x00457550-0x0045757d.CreateListNode](by-memory/0x00457550-0x0045757d.CreateListNode.md) | unassigned |  |  | no |  | `by-memory/0x00457550-0x0045757d.CreateListNode.md` |  |
+| [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md) | unassigned |  |  | no |  | `by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md` |  |
 | [UID:0001ZZ][0x00457620-0x00457a5d.MiniMapFileLoaderHelpers](by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |  |
 | [UID:0002NM][0x004623c0-0x00462514.InitAlphaSurfaceView](by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md) | unassigned |  |  | no |  | `by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md` |  |
 | [UID:0000YP][0x00463270-0x004632b1.IntAlphaSurface](by-memory/0x00463270-0x004632b1.IntAlphaSurface.md) | unassigned |  |  | no |  | `by-memory/0x00463270-0x004632b1.IntAlphaSurface.md` |  |
@@ -1552,11 +1557,6 @@ Total_Error: 5
 | [UID:0000XJ][0x00450030-0x0045007b.LodePngLowerBoundHelper](by-memory/0x00450030-0x0045007b.LodePngLowerBoundHelper.md) | unclassified |  |  | no |  | `by-memory/0x00450030-0x0045007b.LodePngLowerBoundHelper.md` |  |
 | [UID:0000XK][0x00450ca0-0x0045381b.MiniMapDialog](by-memory/0x00450ca0-0x0045381b.MiniMapDialog.md) | unclassified |  |  | no |  | `by-memory/0x00450ca0-0x0045381b.MiniMapDialog.md` |  |
 | [UID:0000XM][0x004536e0-0x00453732.FontStyleClearRules](by-memory/0x004536e0-0x00453732.FontStyleClearRules.md) | unclassified |  |  | no |  | `by-memory/0x004536e0-0x00453732.FontStyleClearRules.md` |  |
-| [UID:0000XN][0x00453910-0x00453def.MiniMapDownloader](by-memory/0x00453910-0x00453def.MiniMapDownloader.md) | unclassified |  |  | no |  | `by-memory/0x00453910-0x00453def.MiniMapDownloader.md` |  |
-| [UID:0000XS][0x00457100-0x0045730e.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md) | unclassified |  |  | no |  | `by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md` |  |
-| [UID:0000XT][0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md) | unclassified |  |  | no |  | `by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md` |  |
-| [UID:0000XU][0x004573d0-0x00457428.DATIndexVectorDestructor](by-memory/0x004573d0-0x00457428.DATIndexVectorDestructor.md) | unclassified |  |  | no |  | `by-memory/0x004573d0-0x00457428.DATIndexVectorDestructor.md` |  |
-| [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md) | unclassified |  |  | no |  | `by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md` |  |
 | [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md) | unclassified |  |  | no |  | `by-memory/0x00457a60-0x00458610.EPFTileContext.md` |  |
 | [UID:000200][0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels](by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md) | unclassified |  |  | no |  | `by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md` |  |
 | [UID:0000Y0][0x00459810-0x0045981a.RankingDialogClearSingletonHelper](by-memory/0x00459810-0x0045981a.RankingDialogClearSingletonHelper.md) | unclassified |  |  | no |  | `by-memory/0x00459810-0x0045981a.RankingDialogClearSingletonHelper.md` |  |

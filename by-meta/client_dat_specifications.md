@@ -10,7 +10,7 @@
 - Scope: DAT archives, DAT-backed resource lookup, PCX/DIB loading, EPF/EPD image metadata, palette/image-library ownership, DAT-backed audio resource use, and adjacent loose resource/cache formats that must not be confused with packed DAT archives.
 - Primary source modules: [UID:0000IN][DATFile](by-file/DATFile.md), [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), and [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md), with [UID:0000IM][DATArchive](by-file/DATArchive.md) as the umbrella resource note
 - Core class docs: [UID:00003G][DATFile](by-class/DATFile.md), [UID:00003I][DATFileMgr](by-class/DATFileMgr.md), [UID:00003K][DATIndexVector](by-class/DATIndexVector.md)
-- Core address docs: [UID:00012D][0x0049c130-0x0049d2cb.DATFile](by-memory/0x0049c130-0x0049d2cb.DATFile.md), [UID:00012B][0x0049bd30-0x0049d6ed.DATManagers](by-memory/0x0049bd30-0x0049d6ed.DATManagers.md), [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md), [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md), exact [UID:00003K][DATIndexVector](by-class/DATIndexVector.md), and the DATIndexVector [UID:0000XT][0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md)
+- Core address docs: [UID:00012D][0x0049c130-0x0049d2cb.DATFile](by-memory/0x0049c130-0x0049d2cb.DATFile.md), [UID:00012B][0x0049bd30-0x0049d6ed.DATManagers](by-memory/0x0049bd30-0x0049d6ed.DATManagers.md), [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md), [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md), exact [UID:00003K][DATIndexVector](by-class/DATIndexVector.md), and the DATIndexVector [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md)
 
 ## Observed Archive Model
 
@@ -343,8 +343,8 @@ Application startup is a DAT consumer too. [UID:0001R6][application-startup-dat-
 - [UID:0000UF][DestroyDATFileMgr_467380](by-item/DestroyDATFileMgr_467380.md)
 - [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md)
 - [UID:0000WW][0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill](by-memory/0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill.md)
-- [UID:0000XS][0x00457100-0x0045730e.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md)
-- [UID:0000XT][0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md)
+- [UID:0000XS][0x00457100-0x0045730f.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730f.DATIndexVectorInsertNode.md)
+- [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md)
 - [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md)
 - [UID:0001QJ][client_old_redering_mode](by-meta/client_old_redering_mode.md)
 - [UID:0001QI][client_new_rendering_mode](by-meta/client_new_rendering_mode.md)

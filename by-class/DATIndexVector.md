@@ -36,9 +36,9 @@ The class is archive-named and used by DAT-manager code, but callers also includ
 | Range | Method/helper | Notes |
 | --- | --- | --- |
 | [UID:0000WW][0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill](by-memory/0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill.md) | `ResizeAndFill` | Ensures `entryCount * 2` 32-bit slots, fills with the stored default value, and updates `lastIndex`/`entryCount`. |
-| [UID:0000XS][0x00457100-0x0045730e.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md) | `InsertNode` | Inserts an intrusive node into a bucket range, coalesces duplicate keys, and rehashes when load factor exceeds `maxLoadFactor`. |
-| [UID:0000XT][0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md) | private cleanup/remove helper | Detaches and frees a node, updates bucket first/last links, and returns the next node. IDA shows only the `InsertNode` EH/unwind cleanup block calling it. |
-| [UID:0000XU][0x004573d0-0x00457428.DATIndexVectorDestructor](by-memory/0x004573d0-0x00457428.DATIndexVectorDestructor.md) | destructor | Frees value storage, clears begin/end/capacity, then tail-jumps into shared [UID:0000XV][0x00457430-0x00457473.LinkedListStateCleanup](by-memory/0x00457430-0x00457473.LinkedListStateCleanup.md). |
+| [UID:0000XS][0x00457100-0x0045730f.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730f.DATIndexVectorInsertNode.md) | `InsertNode` | Inserts an intrusive node into a bucket range, coalesces duplicate keys, and rehashes when load factor exceeds `maxLoadFactor`. |
+| [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md) | private cleanup/remove helper | Detaches and frees a node, updates bucket first/last links, and returns the next node. IDA shows only the `InsertNode` EH/unwind cleanup block calling it. |
+| [UID:0000XU][0x004573d0-0x00457429.DATIndexVectorDestructor](by-memory/0x004573d0-0x00457429.DATIndexVectorDestructor.md) | destructor | Frees value storage, clears begin/end/capacity, then tail-jumps into shared [UID:0000XV][0x00457430-0x00457473.LinkedListStateCleanup](by-memory/0x00457430-0x00457473.LinkedListStateCleanup.md). |
 | [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md) | `FindNodeByKey` | Uses the same four-byte FNV-1a hash as `InsertNode` and scans the selected bucket range for an exact integer key. |
 
 ## Layout Notes
