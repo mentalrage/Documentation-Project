@@ -21,7 +21,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000HK` | blank | `(blank)` | `by-file/AttachedObjectPaneHelper_53AEC0.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000IA` | blank | `(blank)` | `by-file/ClanDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IB` | blank | `(blank)` | `by-file/CollectionDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IL` | blank | `(blank)` | `by-file/CursorManager.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IM` | blank | `(blank)` | `by-file/DATArchive.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -91,9 +90,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000FQ` | 82 | 76 | 79.0 | `by-class/UserPane.md` |
-| `0000IA` | 82 | 76 | 79.0 | `by-file/ClanDialogs.md` |
-| `0000JA` | 82 | 76 | 79.0 | `by-file/FieldMapPane.md` |
 | `0000LL` | 82 | 76 | 79.0 | `by-file/Motion.md` |
 | `0000DZ` | 84 | 76 | 80.0 | `by-class/StartupWindow.md` |
 | `0000EG` | 84 | 76 | 80.0 | `by-class/TerminalPane.md` |
@@ -187,8 +183,6 @@ _No scored files._
 | `0000L4` | 78 | 80 | 79.0 | `by-file/MapRefreshDimmer.md` |
 | `0000MI` | 78 | 80 | 79.0 | `by-file/PathUtil.md` |
 | `0000NU` | 80 | 78 | 79.0 | `by-file/SortedList.md` |
-| `0000IA` | 82 | 76 | 79.0 | `by-file/ClanDialogs.md` |
-| `0000JA` | 82 | 76 | 79.0 | `by-file/FieldMapPane.md` |
 | `0000LL` | 82 | 76 | 79.0 | `by-file/Motion.md` |
 | `0000HI` | 76 | 84 | 80.0 | `by-file/ArgumentedMenuDialogs.md` |
 | `0000HL` | 76 | 84 | 80.0 | `by-file/AttachmentAnchorResolver.md` |

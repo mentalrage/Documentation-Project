@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 293
+Total_Reconstructable: 294
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 222
+Total_Reconstructed_Assigned: 223
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 71
-Total_Unclassified: 292
+Total_Unclassified: 291
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -225,6 +225,7 @@ Total_Error: 0
 | [UID:0000FD][UInt32Vector](by-class/UInt32Vector.md) | assigned | `0000P3` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-class/UInt32Vector.md` |  |
 | [UID:0000FI][UserFaceColorSelectListPane](by-class/UserFaceColorSelectListPane.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-class/UserFaceColorSelectListPane.md` |  |
 | [UID:0000FK][UserHairColorSelectListPane](by-class/UserHairColorSelectListPane.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-class/UserHairColorSelectListPane.md` |  |
+| [UID:0000FQ][UserPane](by-class/UserPane.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-class/UserPane.md` |  |
 | [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/VersatileAlertPane.md` |  |
 | [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md) | assigned | `0000P4` |  | no | `auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp` | `by-class/VideoPlayerPane.md` |  |
 | [UID:0000GB][WSAError](by-class/WSAError.md) | assigned | `0000J5` | 160 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-class/WSAError.md` |  |
@@ -583,7 +584,6 @@ Total_Error: 0
 | [UID:0000FN][UserListDialogPane](by-class/UserListDialogPane.md) | unclassified |  |  | no |  | `by-class/UserListDialogPane.md` |  |
 | [UID:0000FO][UserListPane](by-class/UserListPane.md) | unclassified |  |  | no |  | `by-class/UserListPane.md` |  |
 | [UID:0000FP][UserLookPane](by-class/UserLookPane.md) | unclassified |  |  | no |  | `by-class/UserLookPane.md` |  |
-| [UID:0000FQ][UserPane](by-class/UserPane.md) | unclassified |  |  | no |  | `by-class/UserPane.md` |  |
 | [UID:0000FR][UserShapeSelectControlPane](by-class/UserShapeSelectControlPane.md) | unclassified |  |  | no |  | `by-class/UserShapeSelectControlPane.md` |  |
 | [UID:0000FT][UserStatusPane2](by-class/UserStatusPane2.md) | unclassified |  |  | no |  | `by-class/UserStatusPane2.md` |  |
 | [UID:0000FZ][WaterFilterEffecter](by-class/WaterFilterEffecter.md) | unclassified |  |  | no |  | `by-class/WaterFilterEffecter.md` |  |
