@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 22:49:11
+Generated: 2026-06-04 13:07:51
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -9,8 +9,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 ## Summary
 
 - Tracked files: 3723
-- Scored files: 3555
-- Ignored files: 168
+- Scored files: 3554
+- Ignored files: 169
 
 ## projected_path_completion
 
@@ -87,20 +87,122 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
+| `0001ZF` | 70 | 85 | 77.5 | `by-memory/0x0045d7e0-0x0045db54.RankingRewardEntryParseAndAccessors.md` |
+| `0001ZG` | 70 | 85 | 77.5 | `by-memory/0x0045dba0-0x0045f12c.RankingRewardInfoDialogCore.md` |
+| `0001ZH` | 70 | 85 | 77.5 | `by-memory/0x0045ddd0-0x0045df8c.RankingRewardInfoPacketHandler.md` |
+| `0000YF` | 70 | 85 | 77.5 | `by-memory/0x00460b00-0x00460c0a.AlphaBlendSpan16Blocks.md` |
+| `0000YH` | 70 | 85 | 77.5 | `by-memory/0x004610f0-0x0046178a.AboveFrame.md` |
+| `0002GU` | 70 | 85 | 77.5 | `by-memory/0x00465b70-0x00465b89.ApplicationCopyWorldName.md` |
+| `0002GV` | 70 | 85 | 77.5 | `by-memory/0x00465b90-0x00465bac.ApplicationCopyPlayerName.md` |
+| `0000YZ` | 70 | 85 | 77.5 | `by-memory/0x00467b30-0x0046904e.BalloonObjectPane.md` |
+| `0000Z1` | 70 | 85 | 77.5 | `by-memory/0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion.md` |
+| `0000Z3` | 70 | 85 | 77.5 | `by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md` |
+| `0000Z4` | 70 | 85 | 77.5 | `by-memory/0x00469640-0x0046a39c.BrowserWindowCore.md` |
+| `0000Z6` | 70 | 85 | 77.5 | `by-memory/0x0046b520-0x0046cfe0.BrowserControlPaneCore.md` |
+| `0000Z8` | 70 | 85 | 77.5 | `by-memory/0x0046d480-0x0046d4a3.WebBoardDialogPacketForwarder.md` |
+| `0000Z9` | 70 | 85 | 77.5 | `by-memory/0x0046d580-0x0046da63.WebBoardDialogHandleBoardResponse.md` |
+| `0000ZB` | 70 | 85 | 77.5 | `by-memory/0x0046e640-0x0046e8be.WebBoardDialogOldConstructor.md` |
+| `0000ZC` | 70 | 85 | 77.5 | `by-memory/0x0046ea00-0x0046ea23.WebBoardDialogOldPacketForwarder.md` |
+| `0000ZD` | 70 | 85 | 77.5 | `by-memory/0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse.md` |
+| `0000ZE` | 70 | 85 | 77.5 | `by-memory/0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor.md` |
+| `0000ZH` | 70 | 85 | 77.5 | `by-memory/0x00471150-0x00471ff1.BulletinSessionCore.md` |
+| `0000ZO` | 70 | 85 | 77.5 | `by-memory/0x00479110-0x0047ec2b.MailDialogs.md` |
+| `0000ZP` | 70 | 85 | 77.5 | `by-memory/0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks.md` |
+| `0000ZX` | 70 | 85 | 77.5 | `by-memory/0x0047ed50-0x0047ee18.ChangeManRegistrationMethods.md` |
+| `000101` | 70 | 85 | 77.5 | `by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md` |
+| `000102` | 70 | 85 | 77.5 | `by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md` |
 
 ## Low_Confidence
 
-_No scored files._
+| UID | Completion | Confidence | Combined | Path |
+| --- | ---: | ---: | ---: | --- |
+| `0000DT` | 80 | 76 | 78.0 | `by-class/SpellSpellInputPane.md` |
+| `0000F9` | 80 | 76 | 78.0 | `by-class/Tree_struct_FolderTreePane__TreeElem_.md` |
+| `00007U` | 82 | 76 | 79.0 | `by-class/MemoryMan.md` |
+| `0000AQ` | 82 | 76 | 79.0 | `by-class/PowerListPane.md` |
+| `0000BY` | 82 | 76 | 79.0 | `by-class/ResourceLayoutTable.md` |
+| `0000D0` | 82 | 76 | 79.0 | `by-class/ServerItemMenuItemList.md` |
+| `0000D7` | 82 | 76 | 79.0 | `by-class/SimpleHelpPane2.md` |
+| `0000DB` | 82 | 76 | 79.0 | `by-class/SliderControlPane.md` |
+| `0000EB` | 82 | 76 | 79.0 | `by-class/TabPane.md` |
+| `0000EK` | 82 | 76 | 79.0 | `by-class/TextButtonExControlPane.md` |
+| `0000FQ` | 82 | 76 | 79.0 | `by-class/UserPane.md` |
+| `0000IA` | 82 | 76 | 79.0 | `by-file/ClanDialogs.md` |
+| `0000JA` | 82 | 76 | 79.0 | `by-file/FieldMapPane.md` |
+| `0000LL` | 82 | 76 | 79.0 | `by-file/Motion.md` |
+| `0000DZ` | 84 | 76 | 80.0 | `by-class/StartupWindow.md` |
+| `0000EG` | 84 | 76 | 80.0 | `by-class/TerminalPane.md` |
+| `0000P5` | 84 | 76 | 80.0 | `by-file/VirusChecker.md` |
+| `0000IM` | 88 | 76 | 82.0 | `by-file/DATArchive.md` |
+| `0000OC` | 88 | 76 | 82.0 | `by-file/Surface.md` |
+| `00004N` | 74 | 78 | 76.0 | `by-class/EventHandler.md` |
+| `00007S` | 74 | 78 | 76.0 | `by-class/MapRefreshDimmer.md` |
+| `0000C6` | 74 | 78 | 76.0 | `by-class/SayToUserMessageInputPane.md` |
+| `000210` | 74 | 78 | 76.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
+| `000214` | 74 | 78 | 76.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
+| `00007P` | 76 | 78 | 77.0 | `by-class/MapNamePane.md` |
 
 ## Low_Both
 
-_No scored files._
+| UID | Completion | Confidence | Combined | Path |
+| --- | ---: | ---: | ---: | --- |
+| `00006C` | 72 | 80 | 76.0 | `by-class/IdleWatcher.md` |
+| `00009D` | 72 | 80 | 76.0 | `by-class/NewUserDialogPane.md` |
+| `00009S` | 72 | 80 | 76.0 | `by-class/ObjectStatusBlob.md` |
+| `0002QG` | 72 | 80 | 76.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
+| `0001AZ` | 72 | 80 | 76.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
+| `00023C` | 72 | 80 | 76.0 | `by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md` |
+| `0001GO` | 72 | 80 | 76.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
+| `0001H1` | 72 | 80 | 76.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
+| `0001HC` | 72 | 80 | 76.0 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
+| `0001HV` | 72 | 80 | 76.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
+| `000279` | 72 | 80 | 76.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
+| `00027I` | 72 | 80 | 76.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
+| `0002B7` | 72 | 80 | 76.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
+| `0001SK` | 72 | 80 | 76.0 | `by-type/by-enum/BrowserInitFlags.md` |
+| `00004N` | 74 | 78 | 76.0 | `by-class/EventHandler.md` |
+| `00007S` | 74 | 78 | 76.0 | `by-class/MapRefreshDimmer.md` |
+| `0000C6` | 74 | 78 | 76.0 | `by-class/SayToUserMessageInputPane.md` |
+| `000210` | 74 | 78 | 76.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
+| `000214` | 74 | 78 | 76.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
+| `00000Y` | 72 | 82 | 77.0 | `by-class/BlueAlertPane.md` |
+| `000018` | 72 | 82 | 77.0 | `by-class/BrowserDialogOld.md` |
+| `00001C` | 72 | 82 | 77.0 | `by-class/BulletinDialog.md` |
+| `00001E` | 72 | 82 | 77.0 | `by-class/ButtonControlPane.md` |
+| `000022` | 72 | 82 | 77.0 | `by-class/CheckBoxTextControlPane.md` |
+| `000023` | 72 | 82 | 77.0 | `by-class/ClanAppearNameInputDialog.md` |
 
 ## By Folder
 
 ### by-class
 
-_No scored files._
+| UID | Completion | Confidence | Combined | Path |
+| --- | ---: | ---: | ---: | --- |
+| `00006C` | 72 | 80 | 76.0 | `by-class/IdleWatcher.md` |
+| `00009D` | 72 | 80 | 76.0 | `by-class/NewUserDialogPane.md` |
+| `00009S` | 72 | 80 | 76.0 | `by-class/ObjectStatusBlob.md` |
+| `00004N` | 74 | 78 | 76.0 | `by-class/EventHandler.md` |
+| `00007S` | 74 | 78 | 76.0 | `by-class/MapRefreshDimmer.md` |
+| `0000C6` | 74 | 78 | 76.0 | `by-class/SayToUserMessageInputPane.md` |
+| `00000Y` | 72 | 82 | 77.0 | `by-class/BlueAlertPane.md` |
+| `000018` | 72 | 82 | 77.0 | `by-class/BrowserDialogOld.md` |
+| `00001C` | 72 | 82 | 77.0 | `by-class/BulletinDialog.md` |
+| `00001E` | 72 | 82 | 77.0 | `by-class/ButtonControlPane.md` |
+| `000022` | 72 | 82 | 77.0 | `by-class/CheckBoxTextControlPane.md` |
+| `000023` | 72 | 82 | 77.0 | `by-class/ClanAppearNameInputDialog.md` |
+| `000028` | 72 | 82 | 77.0 | `by-class/ClanChangeNameInputDialog.md` |
+| `00002A` | 72 | 82 | 77.0 | `by-class/ClanDepMoneyInputDialog.md` |
+| `00002D` | 72 | 82 | 77.0 | `by-class/ClanExpelNameInputDialog.md` |
+| `00002M` | 72 | 82 | 77.0 | `by-class/ClanSummonNameInputDialog.md` |
+| `00002O` | 72 | 82 | 77.0 | `by-class/ClanWidMoneyInputDialog.md` |
+| `00002T` | 72 | 82 | 77.0 | `by-class/CloudFilterEffecter.md` |
+| `00003W` | 72 | 82 | 77.0 | `by-class/DIError.md` |
+| `000045` | 72 | 82 | 77.0 | `by-class/DSError.md` |
+| `00004K` | 72 | 82 | 77.0 | `by-class/ErrorMessage.md` |
+| `00009X` | 72 | 82 | 77.0 | `by-class/OverlayFrameImageEffecter.md` |
+| `0000A0` | 72 | 82 | 77.0 | `by-class/OverlayMovingImageEffecter.md` |
+| `000019` | 74 | 80 | 77.0 | `by-class/BrowserPane.md` |
+| `00003Q` | 74 | 80 | 77.0 | `by-class/DescPane.md` |
 
 ### by-external-research
 
@@ -110,7 +212,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000KQ` | 78 | 78 | 78.0 | `by-file/LineIterator.md` |
 | `0000HM` | 72 | 86 | 79.0 | `by-file/AUTOBUF.md` |
 | `0000HU` | 74 | 84 | 79.0 | `by-file/BowGaugeObjectPane.md` |
 | `0000K8` | 74 | 84 | 79.0 | `by-file/IntAlphaSurface.md` |
@@ -120,6 +221,22 @@ _No scored files._
 | `0000NY` | 76 | 82 | 79.0 | `by-file/SpecializedButtonPanes.md` |
 | `0000L4` | 78 | 80 | 79.0 | `by-file/MapRefreshDimmer.md` |
 | `0000MI` | 78 | 80 | 79.0 | `by-file/PathUtil.md` |
+| `0000NU` | 80 | 78 | 79.0 | `by-file/SortedList.md` |
+| `0000IA` | 82 | 76 | 79.0 | `by-file/ClanDialogs.md` |
+| `0000JA` | 82 | 76 | 79.0 | `by-file/FieldMapPane.md` |
+| `0000LL` | 82 | 76 | 79.0 | `by-file/Motion.md` |
+| `0000HI` | 76 | 84 | 80.0 | `by-file/ArgumentedMenuDialogs.md` |
+| `0000HL` | 76 | 84 | 80.0 | `by-file/AttachmentAnchorResolver.md` |
+| `0000HW` | 76 | 84 | 80.0 | `by-file/BulletinReplyAlerts.md` |
+| `0000HX` | 76 | 84 | 80.0 | `by-file/BulletinSession.md` |
+| `0000JI` | 76 | 84 | 80.0 | `by-file/FontStyle.md` |
+| `0000HY` | 78 | 82 | 80.0 | `by-file/ButtonControlPane.md` |
+| `0000LE` | 78 | 82 | 80.0 | `by-file/MiniMap.md` |
+| `0000M6` | 78 | 82 | 80.0 | `by-file/ObjectStatusBlob.md` |
+| `0000O9` | 78 | 82 | 80.0 | `by-file/StdioFile.md` |
+| `0000LS` | 80 | 80 | 80.0 | `by-file/NewInventoryPane.md` |
+| `0000LV` | 80 | 80 | 80.0 | `by-file/NewUserDialogPane.md` |
+| `0000MV` | 80 | 80 | 80.0 | `by-file/ProtocolSend.md` |
 
 ### by-function
 
@@ -151,6 +268,9 @@ _No scored files._
 | `0000SS` | 74 | 86 | 80.0 | `by-global/g_pWillBeChangedItemPane.md` |
 | `0000PN` | 76 | 84 | 80.0 | `by-global/FrameChromeSlots.md` |
 | `0000PV` | 76 | 84 | 80.0 | `by-global/g_browserWindowCaption.md` |
+| `0000SG` | 76 | 84 | 80.0 | `by-global/g_pTextFilter.md` |
+| `0000SL` | 76 | 84 | 80.0 | `by-global/g_pTransferServerDialog.md` |
+| `0000SP` | 76 | 84 | 80.0 | `by-global/g_pVoteMenuPane.md` |
 
 ### by-item
 
@@ -179,10 +299,38 @@ _No scored files._
 | `0000UV` | 78 | 86 | 82.0 | `by-item/InitializeMainUiGraph_004F7D10.md` |
 | `0000TU` | 80 | 84 | 82.0 | `by-item/AILFileOpenCallback_0057B630.md` |
 | `0000U0` | 80 | 84 | 82.0 | `by-item/BlendRgb565Pair_004C60D0.md` |
+| `0000U2` | 80 | 86 | 83.0 | `by-item/BuildAboveFrameBorder_00461310.md` |
+| `0000UI` | 82 | 86 | 84.0 | `by-item/DrawFrameWithBlendMode_00462E10.md` |
 
 ### by-memory
 
-_No scored files._
+| UID | Completion | Confidence | Combined | Path |
+| --- | ---: | ---: | ---: | --- |
+| `0002QG` | 72 | 80 | 76.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
+| `0001AZ` | 72 | 80 | 76.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
+| `00023C` | 72 | 80 | 76.0 | `by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md` |
+| `0001GO` | 72 | 80 | 76.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
+| `0001H1` | 72 | 80 | 76.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
+| `0001HC` | 72 | 80 | 76.0 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
+| `0001HV` | 72 | 80 | 76.0 | `by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md` |
+| `000279` | 72 | 80 | 76.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
+| `00027I` | 72 | 80 | 76.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
+| `0002B7` | 72 | 80 | 76.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
+| `000210` | 74 | 78 | 76.0 | `by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md` |
+| `000214` | 74 | 78 | 76.0 | `by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md` |
+| `0002D8` | 72 | 82 | 77.0 | `by-memory/0x0041e1d0-0x0041e4ed.FittingRoomScrollPaneHitTestPart.md` |
+| `0002DI` | 72 | 82 | 77.0 | `by-memory/0x0041f100-0x0041f219.FittingRoomListPaneResetScrollPosition.md` |
+| `0000WX` | 72 | 82 | 77.0 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
+| `0002JV` | 72 | 82 | 77.0 | `by-memory/0x00465120-0x00465124.ApplicationGetOsCode.md` |
+| `0002GP` | 72 | 82 | 77.0 | `by-memory/0x00465300-0x00465308.ApplicationGetVersionMajor.md` |
+| `0002GQ` | 72 | 82 | 77.0 | `by-memory/0x00465310-0x00465318.ApplicationGetVersionMinor.md` |
+| `0000YS` | 72 | 82 | 77.0 | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |
+| `0002GJ` | 72 | 82 | 77.0 | `by-memory/0x004669c0-0x00466a69.BaramAppOnActivate.md` |
+| `0002GK` | 72 | 82 | 77.0 | `by-memory/0x00466a70-0x00466b23.BaramAppOnDeactivate.md` |
+| `0002ET` | 72 | 82 | 77.0 | `by-memory/0x0047f6f0-0x0047f890.ChattingPaneKeyboardScrollHandler.md` |
+| `0002EV` | 72 | 82 | 77.0 | `by-memory/0x0047f8d0-0x0047fbc5.ChattingPaneOnPaint.md` |
+| `0002EZ` | 72 | 82 | 77.0 | `by-memory/0x0047fd70-0x0047ff80.ChatPacketType13Handler.md` |
+| `0002F2` | 72 | 82 | 77.0 | `by-memory/0x004806a0-0x004806c9.ChattingBackPaneDestructor.md` |
 
 ### by-meta
 
@@ -249,3 +397,5 @@ _No scored files._
 | `0001VJ` | 76 | 84 | 80.0 | `by-type/by-struct/PatchPane2Layout.md` |
 | `0001W3` | 76 | 84 | 80.0 | `by-type/by-struct/SimpleListPaneLayout.md` |
 | `0001UI` | 74 | 87 | 80.5 | `by-type/by-struct/FittingRoomDownloadProgressState.md` |
+| `0001SL` | 74 | 88 | 81.0 | `by-type/by-enum/BrowserMessageId.md` |
+| `0001SP` | 74 | 88 | 81.0 | `by-type/by-enum/MiscWorkThreadMessageId.md` |

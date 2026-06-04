@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 282
+Total_Reconstructable: 283
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 207
+Total_Reconstructed_Assigned: 209
 Total_Reconstructed_Coded: 2
-Total_Reconstructable_Unassigned: 75
-Total_Unclassified: 303
+Total_Reconstructable_Unassigned: 74
+Total_Unclassified: 302
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -113,6 +113,7 @@ Total_Error: 0
 | [UID:000070][LakeEffecter](by-class/LakeEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/LakeEffecter.md` |  |
 | [UID:000074][LegendPane](by-class/LegendPane.md) | assigned | `0000KM` | 5 | no | `auto-generated/NexusTK/ui/panels/LegendPane.cpp` | `by-class/LegendPane.md` |  |
 | [UID:000075][LightingObjectPane](by-class/LightingObjectPane.md) | assigned | `0000KO` |  | no | `auto-generated/NexusTK/map/LightingObjectPane.cpp` | `by-class/LightingObjectPane.md` |  |
+| [UID:000078][LineIterator](by-class/LineIterator.md) | assigned | `0000KQ` |  | no | `auto-generated/NexusTK/ui/panels/LineIterator.cpp` | `by-class/LineIterator.md` |  |
 | [UID:00007C][LivingObjectPane__BoxRotator](by-class/LivingObjectPane__BoxRotator.md) | assigned | `0000KU` |  | no | `auto-generated/NexusTK/map/LivingObjectPane.cpp` | `by-class/LivingObjectPane__BoxRotator.md` |  |
 | [UID:00007G][LogoPane](by-class/LogoPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPane.md` |  |
 | [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md) | assigned | `0000O4` |  | no | `auto-generated/NexusTK/app/StartupLogoPanes.cpp` | `by-class/LogoPlayerPane.md` |  |
@@ -162,6 +163,7 @@ Total_Error: 0
 | [UID:0000BE][PursuitMessageDialogPane](by-class/PursuitMessageDialogPane.md) | assigned | `0000LA` |  | no | `auto-generated/NexusTK/ui/dialogs/MessageDialogs.cpp` | `by-class/PursuitMessageDialogPane.md` |  |
 | [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md) | assigned | `0000MX` |  | no | `auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp` | `by-class/QuitInputPane.md` |  |
 | [UID:0000BJ][RainingLayerPane](by-class/RainingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/RainingLayerPane.md` |  |
+| [UID:0000BK][RankingCategoryCollection](by-class/RankingCategoryCollection.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingCategoryCollection.md` |  |
 | [UID:0000BL][RankingCategoryRecord](by-class/RankingCategoryRecord.md) | assigned | `0000MZ` | 50 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingCategoryRecord.md` |  |
 | [UID:0000BO][RankingEventScrollPane](by-class/RankingEventScrollPane.md) | assigned | `0000MZ` | 20 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingEventScrollPane.md` |  |
 | [UID:0000BQ][RankingUserListPane](by-class/RankingUserListPane.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-class/RankingUserListPane.md` |  |
@@ -264,7 +266,6 @@ Total_Error: 0
 | [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md) | unassigned |  |  | no |  | `by-class/IntAlphaSurface.md` |  |
 | [UID:00006W][ItemObjImageLib](by-class/ItemObjImageLib.md) | unassigned |  |  | no |  | `by-class/ItemObjImageLib.md` |  |
 | [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md) | unassigned |  |  | no |  | `by-class/KeySpeedMgr.md` |  |
-| [UID:000078][LineIterator](by-class/LineIterator.md) | unassigned |  |  | no |  | `by-class/LineIterator.md` |  |
 | [UID:00007T][MapTileImageLib](by-class/MapTileImageLib.md) | unassigned |  |  | no |  | `by-class/MapTileImageLib.md` |  |
 | [UID:00007U][MemoryMan](by-class/MemoryMan.md) | unassigned |  |  | no |  | `by-class/MemoryMan.md` |  |
 | [UID:000087][MessageShowPane](by-class/MessageShowPane.md) | unassigned |  |  | no |  | `by-class/MessageShowPane.md` |  |
@@ -494,7 +495,6 @@ Total_Error: 0
 | [UID:0000BF][Queue](by-class/Queue.md) | unclassified |  |  | no |  | `by-class/Queue.md` |  |
 | [UID:0000BG][QuitDialog](by-class/QuitDialog.md) | unclassified |  |  | no |  | `by-class/QuitDialog.md` |  |
 | [UID:0000BI][RadioGroupControlPane](by-class/RadioGroupControlPane.md) | unclassified |  |  | no |  | `by-class/RadioGroupControlPane.md` |  |
-| [UID:0000BK][RankingCategoryCollection](by-class/RankingCategoryCollection.md) | unclassified |  |  | no |  | `by-class/RankingCategoryCollection.md` |  |
 | [UID:0000BM][RankingDialog](by-class/RankingDialog.md) | unclassified |  |  | no |  | `by-class/RankingDialog.md` |  |
 | [UID:0000BN][RankingEventListPane](by-class/RankingEventListPane.md) | unclassified |  |  | no |  | `by-class/RankingEventListPane.md` |  |
 | [UID:0000BP][RankingRewardInfoDialog](by-class/RankingRewardInfoDialog.md) | unclassified |  |  | no |  | `by-class/RankingRewardInfoDialog.md` |  |

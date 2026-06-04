@@ -5,9 +5,9 @@
 Total_Type: 198
 Total_Reconstructable: 190
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 18
+Total_Reconstructed_Assigned: 20
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 172
+Total_Reconstructable_Unassigned: 170
 Total_Unclassified: 5
 Total_Error: 0
 
@@ -21,6 +21,7 @@ Total_Error: 0
 | [UID:0001TU][CachedHashTableLayout](by-type/by-struct/CachedHashTableLayout.md) | assigned | `0000HZ` |  | no | `auto-generated/NexusTK/util/CachedHashTable.cpp` | `by-type/by-struct/CachedHashTableLayout.md` |  |
 | [UID:0001TZ][CollectionPlayerDataLayout](by-type/by-struct/CollectionPlayerDataLayout.md) | assigned | `0000P1` |  | no | `auto-generated/NexusTK/ui/panels/UserPane.cpp` | `by-type/by-struct/CollectionPlayerDataLayout.md` |  |
 | [UID:0001UA][EffectPixMapInfo](by-type/by-struct/EffectPixMapInfo.md) | assigned | `0000IY` |  | no | `auto-generated/NexusTK/render/EffectObjImageLib.cpp` | `by-type/by-struct/EffectPixMapInfo.md` |  |
+| [UID:0001UY][LineIteratorLayout](by-type/by-struct/LineIteratorLayout.md) | assigned | `0000KQ` |  | no | `auto-generated/NexusTK/ui/panels/LineIterator.cpp` | `by-type/by-struct/LineIteratorLayout.md` |  |
 | [UID:0001VI][ParcelNotificationPaneLayouts](by-type/by-struct/ParcelNotificationPaneLayouts.md) | assigned | `0000MF` | 5 | no | `auto-generated/NexusTK/ui/panels/ParcelPane.cpp` | `by-type/by-struct/ParcelNotificationPaneLayouts.md` |  |
 | [UID:0001VJ][PatchPane2Layout](by-type/by-struct/PatchPane2Layout.md) | assigned | `0000AA` |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-type/by-struct/PatchPane2Layout.md` |  |
 | [UID:0001VN][RankingCategoryRecordLayout](by-type/by-struct/RankingCategoryRecordLayout.md) | assigned | `0000BL` | 5 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-struct/RankingCategoryRecordLayout.md` |  |
@@ -29,6 +30,7 @@ Total_Error: 0
 | [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md) | assigned | `0000HM` | 20 | no | `auto-generated/NexusTK/util/AUTOBUF.cpp` | `by-type/by-template/AUTOBUF_unsigned_char.md` |  |
 | [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md) | assigned | `0000HQ` | 20 | no | `auto-generated/NexusTK/util/BinaryCodec.cpp` | `by-type/by-vtable/BinaryCodecVtables.md` |  |
 | [UID:0001X4][BoardArticleDialogVtableFamily](by-type/by-vtable/BoardArticleDialogVtableFamily.md) | assigned | `0000HT` |  | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |  |
+| [UID:0001XZ][LineIterator_vtable](by-type/by-vtable/LineIterator_vtable.md) | assigned | `0000KQ` |  | no | `auto-generated/NexusTK/ui/panels/LineIterator.cpp` | `by-type/by-vtable/LineIterator_vtable.md` |  |
 | [UID:0001YI][PursuitMessageDialogPaneVtables](by-type/by-vtable/PursuitMessageDialogPaneVtables.md) | assigned | `0000LA` |  | no | `auto-generated/NexusTK/ui/dialogs/MessageDialogs.cpp` | `by-type/by-vtable/PursuitMessageDialogPaneVtables.md` |  |
 | [UID:0001YK][RankingEventScrollPaneVtables](by-type/by-vtable/RankingEventScrollPaneVtables.md) | assigned | `0000BO` | 6 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-type/by-vtable/RankingEventScrollPaneVtables.md` |  |
 | [UID:0001VS][ResourceLayoutBucket](by-type/by-struct/ResourceLayoutBucket.md) | not_reconstructable |  |  | no |  | `by-type/by-struct/ResourceLayoutBucket.md` |  |
@@ -80,7 +82,6 @@ Total_Error: 0
 | [UID:0001UV][KeySpeedMgrLayout](by-type/by-struct/KeySpeedMgrLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/KeySpeedMgrLayout.md` |  |
 | [UID:0001UW][LightInfo](by-type/by-struct/LightInfo.md) | unassigned |  |  | no |  | `by-type/by-struct/LightInfo.md` |  |
 | [UID:0001UX][LightObjImageLibLayout](by-type/by-struct/LightObjImageLibLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/LightObjImageLibLayout.md` |  |
-| [UID:0001UY][LineIteratorLayout](by-type/by-struct/LineIteratorLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/LineIteratorLayout.md` |  |
 | [UID:0001UZ][LinkedListState](by-type/by-struct/LinkedListState.md) | unassigned |  |  | no |  | `by-type/by-struct/LinkedListState.md` |  |
 | [UID:0001V0][ListNode](by-type/by-struct/ListNode.md) | unassigned |  |  | no |  | `by-type/by-struct/ListNode.md` |  |
 | [UID:0001V1][MacroHotkeyRecord](by-type/by-struct/MacroHotkeyRecord.md) | unassigned |  |  | no |  | `by-type/by-struct/MacroHotkeyRecord.md` |  |
@@ -168,7 +169,6 @@ Total_Error: 0
 | [UID:0001XW][ItemObjImageLibVtable](by-type/by-vtable/ItemObjImageLibVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/ItemObjImageLibVtable.md` |  |
 | [UID:0001XX][KeySpeedMgrVtable](by-type/by-vtable/KeySpeedMgrVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/KeySpeedMgrVtable.md` |  |
 | [UID:0001XY][LightObjImageLibVtable](by-type/by-vtable/LightObjImageLibVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/LightObjImageLibVtable.md` |  |
-| [UID:0001XZ][LineIterator_vtable](by-type/by-vtable/LineIterator_vtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/LineIterator_vtable.md` |  |
 | [UID:0001Y0][LookPaneVtableFamily](by-type/by-vtable/LookPaneVtableFamily.md) | unassigned |  |  | no |  | `by-type/by-vtable/LookPaneVtableFamily.md` |  |
 | [UID:0001Y1][MacroDialogFamilyVtables](by-type/by-vtable/MacroDialogFamilyVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/MacroDialogFamilyVtables.md` |  |
 | [UID:0001Y2][MailDialogVtableFamily](by-type/by-vtable/MailDialogVtableFamily.md) | unassigned |  |  | no |  | `by-type/by-vtable/MailDialogVtableFamily.md` |  |

@@ -1,8 +1,8 @@
 *** UID:0001XZ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KQ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,7 @@
 - Address: `0x00624784`
 - Proposed owner: [UID:0001UY][LineIteratorLayout](by-type/by-struct/LineIteratorLayout.md)
 - Confidence: strong for the one real slot and adjacent string boundary.
-- Evidence basis: IDA MCP disassembly/xref/data-neighborhood checks on 2026-05-25, 2026-05-26, and 2026-05-31, plus generated-data caveats where current `simroot_v2` crosses the vtable/string boundary.
+- Evidence basis: IDA MCP disassembly/xref/data-neighborhood checks on 2026-05-25, 2026-05-26, 2026-05-31, and 2026-06-04.
 
 ## Slots
 
@@ -39,7 +39,7 @@ IDA disassembly of the data neighborhood shows:
 0x006247c0  UTF-16LE "LOOK.EPF",0
 ```
 
-`0x00624788` is not a second vtable slot. It is the start of the adjacent `LOOKEXT.EPF` wide string used by self-look rendering paths. Any generated view that treats the string bytes as part of `LineIterator::vftable_00624784` is crossing the vtable/data boundary.
+`0x00624788` is not a second vtable slot. It is the start of the adjacent `LOOKEXT.EPF` wide string used by self-look rendering paths. Any analysis view that treats the string bytes as part of `LineIterator::vftable_00624784` is crossing the vtable/data boundary.
 
 ## Xrefs
 
@@ -55,7 +55,9 @@ IDA MCP `xrefs_to 0x00624784` reports:
 
 2026-05-31 recheck: IDA MCP `xrefs_to 0x00624784` again reports only the stack construction at `0x0056c13c`, ordinary destructor store at `0x00573240`, and scalar deleting destructor store at `0x0057354a`. IDA MCP `py_eval` reads dword `0x00573540` at `0x00624784`; bytes at `0x00624788` decode as UTF-16 `LOOKEXT.EPF`, followed by `LOOKEXT.PAL` at `0x006247a0`.
 
-This vtable is reconstructable as source-declared/generated-binary data, but no C++ block is emitted here because the final declaration and parent placement are still below the 95+ autogen threshold.
+2026-06-04 recheck: live IDA MCP reports `0x00624780 -> ??_R4LineIterator@@6B@`, `0x00624784 -> 0x00573540`, and `0x00624788` as `aLookextEpf`. `XrefsTo(0x00624784)` remains limited to `0x0056c13c`, `0x00573240`, and `0x0057354a`; `XrefsTo(0x00624788)` remains the self-look `LOOKEXT.EPF` string references at `0x005674fa`, `0x00567529`, and `0x0056755d`.
+
+This vtable is reconstructable as compiler-emitted RTTI/vtable data, but no C++ block is emitted here because the final declaration and parent placement are still below the 95+ autogen threshold.
 
 ## Cross-References
 
@@ -65,7 +67,6 @@ This vtable is reconstructable as source-declared/generated-binary data, but no 
 - [UID:0001HL][0x00573240-0x00573247.LineIteratorDestructor](by-memory/0x00573240-0x00573247.LineIteratorDestructor.md)
 - [UID:0001HO][0x00573540-0x00573564.LineIteratorScalarDeletingDestructor](by-memory/0x00573540-0x00573564.LineIteratorScalarDeletingDestructor.md)
 - [UID:0000NZ][SpelledPane](by-file/SpelledPane.md)
-- [Wave3 data issues](../../wave3_data_issues.md)
 
 ## Changes
 
@@ -73,3 +74,7 @@ This vtable is reconstructable as source-declared/generated-binary data, but no 
   - What existed before: metadata was `COMPLETION:0`, `CONFIDENCE:0`, and blank `RECONSTRUCTABLE`, while the coverage row already described the vtable as reconstructable with strong confidence.
   - Changed to: `COMPLETION:82`, `CONFIDENCE:90`, and `RECONSTRUCTABLE:TRUE`.
   - Summary/evidence: current IDA MCP xrefs and byte reads prove the one-slot vtable boundary and adjacent string start. Scores remain below 95 because final source declaration placement is not yet fully audited.
+- 2026-06-04 parent and evidence update:
+  - What existed before: scored `82/90`, reconstructable, with blank `AUTOGEN_PARENT_UID`.
+  - Changed to: scored `86/92` and attached to [UID:0000KQ][LineIterator](by-file/LineIterator.md).
+  - Summary/evidence: live IDA MCP reverified the RTTI dword at `0x00624780`, one slot at `0x00624784`, `0x00624784 -> 0x00573540`, the limited vtable xrefs, and the `0x00624788` string boundary. Final C++ remains blank because final declaration/source placement is not 95+.

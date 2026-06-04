@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1428
+Total_Reconstructable: 1429
 Total_Not_Reconstructable: 24
-Total_Reconstructed_Assigned: 895
+Total_Reconstructed_Assigned: 899
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 527
-Total_Unclassified: 796
+Total_Reconstructable_Unassigned: 524
+Total_Unclassified: 795
 Total_Error: 6
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -70,6 +70,7 @@ Total_Error: 6
 | [UID:0002K8][0x0045c100-0x0045c1a8.RankingCategoryRecordSetEndTimeFromPackedDateTime](by-memory/0x0045c100-0x0045c1a8.RankingCategoryRecordSetEndTimeFromPackedDateTime.md) | assigned | `0000BL` | 90 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045c100-0x0045c1a8.RankingCategoryRecordSetEndTimeFromPackedDateTime.md` |  |
 | [UID:0002K9][0x0045c1e0-0x0045c238.RankingCategoryRecordAppendUserEntry](by-memory/0x0045c1e0-0x0045c238.RankingCategoryRecordAppendUserEntry.md) | assigned | `0000BL` | 100 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045c1e0-0x0045c238.RankingCategoryRecordAppendUserEntry.md` |  |
 | [UID:0002KA][0x0045c240-0x0045c256.RankingCategoryRecordResetUserEntries](by-memory/0x0045c240-0x0045c256.RankingCategoryRecordResetUserEntries.md) | assigned | `0000BL` | 110 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045c240-0x0045c256.RankingCategoryRecordResetUserEntries.md` |  |
+| [UID:0001ZC][0x0045c260-0x0045d4f8.RankingCategoryCollection](by-memory/0x0045c260-0x0045d4f8.RankingCategoryCollection.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045c260-0x0045d4f8.RankingCategoryCollection.md` |  |
 | [UID:0001ZD][0x0045d530-0x0045d740.RankingCategoryVectorStorageHelpers](by-memory/0x0045d530-0x0045d740.RankingCategoryVectorStorageHelpers.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045d530-0x0045d740.RankingCategoryVectorStorageHelpers.md` |  |
 | [UID:0001ZE][0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper](by-memory/0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045d750-0x0045d78a.RankingCategoryRecordVectorFreeHelper.md` |  |
 | [UID:000202][0x0045d790-0x0045d7c2.RankingRewardEntryVectorInit](by-memory/0x0045d790-0x0045d7c2.RankingRewardEntryVectorInit.md) | assigned | `0000MZ` |  | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x0045d790-0x0045d7c2.RankingRewardEntryVectorInit.md` |  |
@@ -399,6 +400,7 @@ Total_Error: 6
 | [UID:00018S][0x004f0290-0x004f0310.LanguageManCleanupDestructor](by-memory/0x004f0290-0x004f0310.LanguageManCleanupDestructor.md) | assigned | `0000KK` |  | no | `auto-generated/NexusTK/localization/LanguageMan.cpp` | `by-memory/0x004f0290-0x004f0310.LanguageManCleanupDestructor.md` |  |
 | [UID:00018U][0x004f0350-0x004f03cb.LanguageManLookupAndSingletonHelpers](by-memory/0x004f0350-0x004f03cb.LanguageManLookupAndSingletonHelpers.md) | assigned | `0000KK` |  | no | `auto-generated/NexusTK/localization/LanguageMan.cpp` | `by-memory/0x004f0350-0x004f03cb.LanguageManLookupAndSingletonHelpers.md` |  |
 | [UID:00018V][0x004f03d0-0x004f0477.LanguageManScalarDeletingDestructor](by-memory/0x004f03d0-0x004f0477.LanguageManScalarDeletingDestructor.md) | assigned | `0000KK` |  | no | `auto-generated/NexusTK/localization/LanguageMan.cpp` | `by-memory/0x004f03d0-0x004f0477.LanguageManScalarDeletingDestructor.md` |  |
+| [UID:000190][0x004f3020-0x004f3060.LineIteratorReadNextLine](by-memory/0x004f3020-0x004f3060.LineIteratorReadNextLine.md) | assigned | `0000KQ` |  | no | `auto-generated/NexusTK/ui/panels/LineIterator.cpp` | `by-memory/0x004f3020-0x004f3060.LineIteratorReadNextLine.md` |  |
 | [UID:000192][0x004f30e0-0x004f3139.ListNonDeletingDestructor](by-memory/0x004f30e0-0x004f3139.ListNonDeletingDestructor.md) | assigned | `0000KS` |  | no | `auto-generated/NexusTK/util/List.cpp` | `by-memory/0x004f30e0-0x004f3139.ListNonDeletingDestructor.md` |  |
 | [UID:00022S][0x004f3140-0x004f35fd.ListCoreMethods](by-memory/0x004f3140-0x004f35fd.ListCoreMethods.md) | assigned | `0000KS` |  | no | `auto-generated/NexusTK/util/List.cpp` | `by-memory/0x004f3140-0x004f35fd.ListCoreMethods.md` |  |
 | [UID:000198][0x004f4b30-0x004f4b4c.ApplicationRegisterChangeListener](by-memory/0x004f4b30-0x004f4b4c.ApplicationRegisterChangeListener.md) | assigned | `00000D` |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f4b30-0x004f4b4c.ApplicationRegisterChangeListener.md` |  |
@@ -695,6 +697,8 @@ Total_Error: 6
 | [UID:0001HI][0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk](by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md) | assigned | `0000IC` | 60 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056fdc0-0x0056fdcc.CollectionPane2ForwardingThunk.md` |  |
 | [UID:0001HJ][0x0056fe70-0x0056fe75.CollectionPane2FalseStub](by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md) | assigned | `0000IC` | 70 | no | `auto-generated/NexusTK/ui/panels/CollectionPane.cpp` | `by-memory/0x0056fe70-0x0056fe75.CollectionPane2FalseStub.md` |  |
 | [UID:0001HK][0x0056fe80-0x005729c3.SelfLookPane2](by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md) | assigned | `0000NL` | 20 | no | `auto-generated/NexusTK/ui/panels/SelfLookPane.cpp` | `by-memory/0x0056fe80-0x005729c3.SelfLookPane2.md` |  |
+| [UID:0001HL][0x00573240-0x00573247.LineIteratorDestructor](by-memory/0x00573240-0x00573247.LineIteratorDestructor.md) | assigned | `0000KQ` |  | no | `auto-generated/NexusTK/ui/panels/LineIterator.cpp` | `by-memory/0x00573240-0x00573247.LineIteratorDestructor.md` |  |
+| [UID:0001HO][0x00573540-0x00573564.LineIteratorScalarDeletingDestructor](by-memory/0x00573540-0x00573564.LineIteratorScalarDeletingDestructor.md) | assigned | `0000KQ` |  | no | `auto-generated/NexusTK/ui/panels/LineIterator.cpp` | `by-memory/0x00573540-0x00573564.LineIteratorScalarDeletingDestructor.md` |  |
 | [UID:0001HP][0x005739a0-0x005739f6.SimpleListPaneConstructor](by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md) | assigned | `0000NQ` |  | no | `auto-generated/NexusTK/ui/controls/SimpleListPane.cpp` | `by-memory/0x005739a0-0x005739f6.SimpleListPaneConstructor.md` |  |
 | [UID:0001HR][0x00573d20-0x005747df.ServerSelectPane](by-memory/0x00573d20-0x005747df.ServerSelectPane.md) | assigned | `0000NO` | 10 | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-memory/0x00573d20-0x005747df.ServerSelectPane.md` |  |
 | [UID:0001HZ][0x00575380-0x00575abb.PacketBufferHelpers](by-memory/0x00575380-0x00575abb.PacketBufferHelpers.md) | assigned | `0000M8` |  | no | `auto-generated/NexusTK/network/PacketBuffer.cpp` | `by-memory/0x00575380-0x00575abb.PacketBufferHelpers.md` |  |
@@ -1175,7 +1179,6 @@ Total_Error: 6
 | [UID:00018Q][0x004effa0-0x004effbd.ApplyFastKeyboardRepeatSettings](by-memory/0x004effa0-0x004effbd.ApplyFastKeyboardRepeatSettings.md) | unassigned |  |  | no |  | `by-memory/0x004effa0-0x004effbd.ApplyFastKeyboardRepeatSettings.md` |  |
 | [UID:0002IT][0x004effc0-0x004f0008.KeySpeedMgrScalarDeletingDestructor](by-memory/0x004effc0-0x004f0008.KeySpeedMgrScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004effc0-0x004f0008.KeySpeedMgrScalarDeletingDestructor.md` |  |
 | [UID:00018T][0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer](by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md) | unassigned |  |  | no |  | `by-memory/0x004f0310-0x004f0342.LocalizationAdjacentZeroInitializer.md` |  |
-| [UID:000190][0x004f3020-0x004f3060.LineIteratorReadNextLine](by-memory/0x004f3020-0x004f3060.LineIteratorReadNextLine.md) | unassigned |  |  | no |  | `by-memory/0x004f3020-0x004f3060.LineIteratorReadNextLine.md` |  |
 | [UID:000195][0x004f4a80-0x004f4c0d.LObjectRuntimeShell](by-memory/0x004f4a80-0x004f4c0d.LObjectRuntimeShell.md) | unassigned |  |  | no |  | `by-memory/0x004f4a80-0x004f4c0d.LObjectRuntimeShell.md` |  |
 | [UID:00019F][0x004f5ad0-0x004f5ad4.StdioFileGetSize](by-memory/0x004f5ad0-0x004f5ad4.StdioFileGetSize.md) | unassigned |  |  | no |  | `by-memory/0x004f5ad0-0x004f5ad4.StdioFileGetSize.md` |  |
 | [UID:00019I][0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs](by-memory/0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs.md) | unassigned |  |  | no |  | `by-memory/0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs.md` |  |
@@ -1254,8 +1257,6 @@ Total_Error: 6
 | [UID:0001H0][0x00564520-0x005646ad.ScrollInventoryPaneUpdateFromDrag](by-memory/0x00564520-0x005646ad.ScrollInventoryPaneUpdateFromDrag.md) | unassigned |  |  | no |  | `by-memory/0x00564520-0x005646ad.ScrollInventoryPaneUpdateFromDrag.md` |  |
 | [UID:0001H1][0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw](by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md) | unassigned |  |  | no |  | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |  |
 | [UID:00023X][0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers](by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md) | unassigned |  |  | no |  | `by-memory/0x005729e0-0x00573232.LookPanePacketAndEntryVectorHelpers.md` |  |
-| [UID:0001HL][0x00573240-0x00573247.LineIteratorDestructor](by-memory/0x00573240-0x00573247.LineIteratorDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00573240-0x00573247.LineIteratorDestructor.md` |  |
-| [UID:0001HO][0x00573540-0x00573564.LineIteratorScalarDeletingDestructor](by-memory/0x00573540-0x00573564.LineIteratorScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x00573540-0x00573564.LineIteratorScalarDeletingDestructor.md` |  |
 | [UID:000240][0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers](by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00573570-0x0057399e.LookGroupSpelledDestructorVectorHelpers.md` |  |
 | [UID:0002LE][0x00573a00-0x00573a98.SimpleListPaneDestroyEntryBuffers](by-memory/0x00573a00-0x00573a98.SimpleListPaneDestroyEntryBuffers.md) | unassigned |  |  | no |  | `by-memory/0x00573a00-0x00573a98.SimpleListPaneDestroyEntryBuffers.md` |  |
 | [UID:0001HQ][0x00573c38-0x00573d15.SimpleListPaneDestructorThunks](by-memory/0x00573c38-0x00573d15.SimpleListPaneDestructorThunks.md) | unassigned |  |  | no |  | `by-memory/0x00573c38-0x00573d15.SimpleListPaneDestructorThunks.md` |  |
@@ -1572,7 +1573,6 @@ Total_Error: 6
 | [UID:0000Y0][0x00459810-0x0045981a.RankingDialogClearSingletonHelper](by-memory/0x00459810-0x0045981a.RankingDialogClearSingletonHelper.md) | unclassified |  |  | no |  | `by-memory/0x00459810-0x0045981a.RankingDialogClearSingletonHelper.md` |  |
 | [UID:0000Y1][0x0045981b-0x00459830.RankingDialogAdjustorThunks](by-memory/0x0045981b-0x00459830.RankingDialogAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0045981b-0x00459830.RankingDialogAdjustorThunks.md` |  |
 | [UID:0000Y8][0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks](by-memory/0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks.md` |  |
-| [UID:0001ZC][0x0045c260-0x0045d4f8.RankingCategoryCollection](by-memory/0x0045c260-0x0045d4f8.RankingCategoryCollection.md) | unclassified |  |  | no |  | `by-memory/0x0045c260-0x0045d4f8.RankingCategoryCollection.md` |  |
 | [UID:000203][0x0045d7d0-0x0045d7db.RankingRewardEntryItemVectorUnwindThunk](by-memory/0x0045d7d0-0x0045d7db.RankingRewardEntryItemVectorUnwindThunk.md) | unclassified |  |  | no |  | `by-memory/0x0045d7d0-0x0045d7db.RankingRewardEntryItemVectorUnwindThunk.md` |  |
 | [UID:0001ZF][0x0045d7e0-0x0045db54.RankingRewardEntryParseAndAccessors](by-memory/0x0045d7e0-0x0045db54.RankingRewardEntryParseAndAccessors.md) | unclassified |  |  | no |  | `by-memory/0x0045d7e0-0x0045db54.RankingRewardEntryParseAndAccessors.md` |  |
 | [UID:0001ZG][0x0045dba0-0x0045f12c.RankingRewardInfoDialogCore](by-memory/0x0045dba0-0x0045f12c.RankingRewardInfoDialogCore.md) | unclassified |  |  | no |  | `by-memory/0x0045dba0-0x0045f12c.RankingRewardInfoDialogCore.md` |  |
