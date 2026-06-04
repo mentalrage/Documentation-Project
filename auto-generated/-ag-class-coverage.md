@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 300
+Total_Reconstructable: 301
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 230
+Total_Reconstructed_Assigned: 231
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 70
-Total_Unclassified: 285
+Total_Unclassified: 284
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -145,6 +145,7 @@ Total_Error: 0
 | [UID:00009H][NexonclubProxyDialog](by-class/NexonclubProxyDialog.md) | assigned | `0000LZ` |  | no | `auto-generated/NexusTK/ui/dialogs/NexonclubProxyDialog.cpp` | `by-class/NexonclubProxyDialog.md` |  |
 | [UID:00009J][NumberArgsInputPane](by-class/NumberArgsInputPane.md) | assigned | `0000K7` |  | no | `auto-generated/NexusTK/ui/dialogs/InputPanes.cpp` | `by-class/NumberArgsInputPane.md` |  |
 | [UID:00009L][NumberInputPane](by-class/NumberInputPane.md) | assigned | `0000K7` |  | no | `auto-generated/NexusTK/ui/dialogs/InputPanes.cpp` | `by-class/NumberInputPane.md` |  |
+| [UID:00009S][ObjectStatusBlob](by-class/ObjectStatusBlob.md) | assigned | `0000M6` |  | no | `auto-generated/NexusTK/map/ObjectStatusBlob.cpp` | `by-class/ObjectStatusBlob.md` |  |
 | [UID:00009V][OptionPane](by-class/OptionPane.md) | assigned | `0000M7` |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-class/OptionPane.md` |  |
 | [UID:00009W][OverlayEffecter](by-class/OverlayEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/OverlayEffecter.md` |  |
 | [UID:00009Y][OverlayImageEffecter](by-class/OverlayImageEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/OverlayImageEffecter.md` |  |
@@ -470,7 +471,6 @@ Total_Error: 0
 | [UID:00009N][ObjectImageButtonPane](by-class/ObjectImageButtonPane.md) | unclassified |  |  | no |  | `by-class/ObjectImageButtonPane.md` |  |
 | [UID:00009O][ObjectImageControlPane](by-class/ObjectImageControlPane.md) | unclassified |  |  | no |  | `by-class/ObjectImageControlPane.md` |  |
 | [UID:00009P][ObjectInfoObjectPane](by-class/ObjectInfoObjectPane.md) | unclassified |  |  | no |  | `by-class/ObjectInfoObjectPane.md` |  |
-| [UID:00009S][ObjectStatusBlob](by-class/ObjectStatusBlob.md) | unclassified |  |  | no |  | `by-class/ObjectStatusBlob.md` |  |
 | [UID:00009T][OldSystemMessagePane](by-class/OldSystemMessagePane.md) | unclassified |  |  | no |  | `by-class/OldSystemMessagePane.md` |  |
 | [UID:00009U][OldUserStatusPane](by-class/OldUserStatusPane.md) | unclassified |  |  | no |  | `by-class/OldUserStatusPane.md` |  |
 | [UID:00009X][OverlayFrameImageEffecter](by-class/OverlayFrameImageEffecter.md) | unclassified |  |  | no |  | `by-class/OverlayFrameImageEffecter.md` |  |

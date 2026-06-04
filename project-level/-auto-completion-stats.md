@@ -54,7 +54,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000M0` | blank | `(blank)` | `by-file/NexonclubRegistrationDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M2` | blank | `(blank)` | `by-file/NumericStringControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000M5` | blank | `(blank)` | `by-file/ObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000M6` | blank | `(blank)` | `by-file/ObjectStatusBlob.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MB` | blank | `(blank)` | `by-file/PaletteLib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000MD` | blank | `(blank)` | `by-file/PaneChildRegistry.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000ME` | blank | `(blank)` | `by-file/PanelPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -90,11 +89,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00009D` | 72 | 80 | 76.0 | `by-class/NewUserDialogPane.md` |
-| `00009S` | 72 | 80 | 76.0 | `by-class/ObjectStatusBlob.md` |
-| `0002QG` | 72 | 80 | 76.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
-| `0001AZ` | 72 | 80 | 76.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
-| `00023C` | 72 | 80 | 76.0 | `by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md` |
 | `0001GO` | 72 | 80 | 76.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
 | `0001H1` | 72 | 80 | 76.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
 | `0001HC` | 72 | 80 | 76.0 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |
@@ -116,8 +110,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00009D` | 72 | 80 | 76.0 | `by-class/NewUserDialogPane.md` |
-| `00009S` | 72 | 80 | 76.0 | `by-class/ObjectStatusBlob.md` |
 | `00000Y` | 72 | 82 | 77.0 | `by-class/BlueAlertPane.md` |
 | `000018` | 72 | 82 | 77.0 | `by-class/BrowserDialogOld.md` |
 | `00001C` | 72 | 82 | 77.0 | `by-class/BulletinDialog.md` |
@@ -162,10 +154,8 @@ _No scored files._
 | `0000JI` | 76 | 84 | 80.0 | `by-file/FontStyle.md` |
 | `0000HY` | 78 | 82 | 80.0 | `by-file/ButtonControlPane.md` |
 | `0000LE` | 78 | 82 | 80.0 | `by-file/MiniMap.md` |
-| `0000M6` | 78 | 82 | 80.0 | `by-file/ObjectStatusBlob.md` |
 | `0000O9` | 78 | 82 | 80.0 | `by-file/StdioFile.md` |
 | `0000LS` | 80 | 80 | 80.0 | `by-file/NewInventoryPane.md` |
-| `0000LV` | 80 | 80 | 80.0 | `by-file/NewUserDialogPane.md` |
 | `0000MV` | 80 | 80 | 80.0 | `by-file/ProtocolSend.md` |
 
 ### by-function
@@ -236,9 +226,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002QG` | 72 | 80 | 76.0 | `by-memory/0x005046d0-0x005047e8.MapPaneQueuedMotionMessage.md` |
-| `0001AZ` | 72 | 80 | 76.0 | `by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md` |
-| `00023C` | 72 | 80 | 76.0 | `by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md` |
 | `0001GO` | 72 | 80 | 76.0 | `by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md` |
 | `0001H1` | 72 | 80 | 76.0 | `by-memory/0x005646b0-0x0056470c.ScrollInventoryPaneResetScrollStateRaw.md` |
 | `0001HC` | 72 | 80 | 76.0 | `by-memory/0x0056c4c0-0x0056e939.GroupPanes.md` |

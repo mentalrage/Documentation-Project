@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 228
+Total_Reconstructed_Assigned: 229
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 60
+Total_Error: 59
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -148,6 +148,7 @@ Total_Error: 60
 | [UID:0000M1][NumberInputDialog](by-file/NumberInputDialog.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/NumberInputDialog.cpp` | `by-file/NumberInputDialog.md` | by-file generated root |
 | [UID:0000M3][ObjectImageControlPane](by-file/ObjectImageControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/ObjectImageControlPane.cpp` | `by-file/ObjectImageControlPane.md` | by-file generated root |
 | [UID:0000M4][ObjectList](by-file/ObjectList.md) | assigned |  |  | no | `auto-generated/NexusTK/map/ObjectList.cpp` | `by-file/ObjectList.md` | by-file generated root |
+| [UID:0000M6][ObjectStatusBlob](by-file/ObjectStatusBlob.md) | assigned |  |  | no | `auto-generated/NexusTK/map/ObjectStatusBlob.cpp` | `by-file/ObjectStatusBlob.md` | by-file generated root |
 | [UID:0000M7][OptionPane](by-file/OptionPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/OptionPane.cpp` | `by-file/OptionPane.md` | by-file generated root |
 | [UID:0000M8][PacketBuffer](by-file/PacketBuffer.md) | assigned |  |  | no | `auto-generated/NexusTK/network/PacketBuffer.cpp` | `by-file/PacketBuffer.md` | by-file generated root |
 | [UID:0000M9][PacketTransform](by-file/PacketTransform.md) | assigned |  |  | no | `auto-generated/NexusTK/network/PacketTransform.cpp` | `by-file/PacketTransform.md` | by-file generated root |
@@ -277,7 +278,6 @@ Total_Error: 60
 | [UID:0000M0][NexonclubRegistrationDialog](by-file/NexonclubRegistrationDialog.md) | error |  |  | no |  | `by-file/NexonclubRegistrationDialog.md` | by-file generated root |
 | [UID:0000M2][NumericStringControlPane](by-file/NumericStringControlPane.md) | error |  |  | no |  | `by-file/NumericStringControlPane.md` | by-file generated root |
 | [UID:0000M5][ObjectPane](by-file/ObjectPane.md) | error |  |  | no |  | `by-file/ObjectPane.md` | by-file generated root |
-| [UID:0000M6][ObjectStatusBlob](by-file/ObjectStatusBlob.md) | error |  |  | no |  | `by-file/ObjectStatusBlob.md` | by-file generated root |
 | [UID:0000MB][PaletteLib](by-file/PaletteLib.md) | error |  |  | no |  | `by-file/PaletteLib.md` | by-file generated root |
 | [UID:0000MD][PaneChildRegistry](by-file/PaneChildRegistry.md) | error |  |  | no |  | `by-file/PaneChildRegistry.md` | by-file generated root |
 | [UID:0000ME][PanelPane](by-file/PanelPane.md) | error |  |  | no |  | `by-file/PanelPane.md` | by-file generated root |

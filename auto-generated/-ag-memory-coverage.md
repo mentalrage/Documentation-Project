@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1451
+Total_Reconstructable: 1452
 Total_Not_Reconstructable: 29
-Total_Reconstructed_Assigned: 923
+Total_Reconstructed_Assigned: 926
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 522
-Total_Unclassified: 768
+Total_Reconstructable_Unassigned: 520
+Total_Unclassified: 767
 Total_Error: 6
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -380,6 +380,7 @@ Total_Error: 6
 | [UID:0002P4][0x004d0f50-0x004d15c5.LoadImageFrameTable](by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md) | assigned | `0000K1` | 10 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md` |  |
 | [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md) | assigned | `0000K1` | 30 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md` |  |
 | [UID:0002J1][0x004d1b80-0x004d1f22.LoadTileEpfMetadata](by-memory/0x004d1b80-0x004d1f22.LoadTileEpfMetadata.md) | assigned | `0000L5` |  | no | `auto-generated/NexusTK/render/MapTileImageLib.cpp` | `by-memory/0x004d1b80-0x004d1f22.LoadTileEpfMetadata.md` |  |
+| [UID:000179][0x004d1f30-0x004d2697.ObjectStatusBlobParsers](by-memory/0x004d1f30-0x004d2697.ObjectStatusBlobParsers.md) | assigned | `0000M6` |  | no | `auto-generated/NexusTK/map/ObjectStatusBlob.cpp` | `by-memory/0x004d1f30-0x004d2697.ObjectStatusBlobParsers.md` |  |
 | [UID:0002TO][0x004d2720-0x004d4aca.HumanImageLibConstructor](by-memory/0x004d2720-0x004d4aca.HumanImageLibConstructor.md) | assigned | `0000JY` |  | no | `auto-generated/NexusTK/render/HumanImageLib.cpp` | `by-memory/0x004d2720-0x004d4aca.HumanImageLibConstructor.md` |  |
 | [UID:00017A][0x004d2720-0x004e649b.HumanImageLib](by-memory/0x004d2720-0x004e649b.HumanImageLib.md) | assigned | `0000JY` |  | no | `auto-generated/NexusTK/render/HumanImageLib.cpp` | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |  |
 | [UID:0002JN][0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables](by-memory/0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables.md) | assigned | `0000LJ` |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-memory/0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables.md` |  |
@@ -457,6 +458,7 @@ Total_Error: 6
 | [UID:00019Q][0x004f9060-0x004f90b4.OpenChangePasswordDialog](by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md` |  |
 | [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md` |  |
 | [UID:00019S][0x004f91c0-0x004f927d.OpenTerminalPane](by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md` |  |
+| [UID:0002Q3][0x004f9d30-0x004fa7a0.NewUserDialogPaneCoreAndPacketHelpers](by-memory/0x004f9d30-0x004fa7a0.NewUserDialogPaneCoreAndPacketHelpers.md) | assigned | `0000LV` |  | no | `auto-generated/NexusTK/login/NewUserDialogPane.cpp` | `by-memory/0x004f9d30-0x004fa7a0.NewUserDialogPaneCoreAndPacketHelpers.md` |  |
 | [UID:0002Q7][0x004fb630-0x004fccee.NewUserMiscDialogPaneCoreAndPacketHelpers](by-memory/0x004fb630-0x004fccee.NewUserMiscDialogPaneCoreAndPacketHelpers.md) | assigned | `0000LX` | 10 | no | `auto-generated/NexusTK/login/NewUserMiscDialogPane.cpp` | `by-memory/0x004fb630-0x004fccee.NewUserMiscDialogPaneCoreAndPacketHelpers.md` |  |
 | [UID:0002Q8][0x004fce80-0x004fd520.UserShapeSelectControlPaneCore](by-memory/0x004fce80-0x004fd520.UserShapeSelectControlPaneCore.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-memory/0x004fce80-0x004fd520.UserShapeSelectControlPaneCore.md` |  |
 | [UID:0002Q9][0x004fd520-0x004fdd33.NewUserShapeSelectControlPaneCore](by-memory/0x004fd520-0x004fdd33.NewUserShapeSelectControlPaneCore.md) | assigned | `0000LY` |  | no | `auto-generated/NexusTK/login/NewUserShapeSelectControlPane.cpp` | `by-memory/0x004fd520-0x004fdd33.NewUserShapeSelectControlPaneCore.md` |  |
@@ -564,6 +566,7 @@ Total_Error: 6
 | [UID:0002C5][0x005270c0-0x005270d5.MidiParseSuccessWrapper](by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x005270c0-0x005270d5.MidiParseSuccessWrapper.md` |  |
 | [UID:0001CI][0x005270e0-0x005271a3.MidiDocumentRelease](by-memory/0x005270e0-0x005271a3.MidiDocumentRelease.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x005270e0-0x005271a3.MidiDocumentRelease.md` |  |
 | [UID:0002C6][0x005271b0-0x005273a0.MidiStreamBufferFillHelper](by-memory/0x005271b0-0x005273a0.MidiStreamBufferFillHelper.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x005271b0-0x005273a0.MidiStreamBufferFillHelper.md` |  |
+| [UID:00023C][0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers](by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md` |  |
 | [UID:0002C7][0x005273a0-0x005277bb.MidiSMFDocumentLoadHelper](by-memory/0x005273a0-0x005277bb.MidiSMFDocumentLoadHelper.md) | assigned | `0000LD` |  | no | `auto-generated/NexusTK/audio/MidiPlayer.cpp` | `by-memory/0x005273a0-0x005277bb.MidiSMFDocumentLoadHelper.md` |  |
 | [UID:0001CJ][0x005277c0-0x005285dd.MiscWorkThreadAndNotifications](by-memory/0x005277c0-0x005285dd.MiscWorkThreadAndNotifications.md) | assigned | `0000LG` |  | no | `auto-generated/NexusTK/app/MiscWorkThread.cpp` | `by-memory/0x005277c0-0x005285dd.MiscWorkThreadAndNotifications.md` |  |
 | [UID:0001CM][0x00528930-0x00528d51.MonsterImageLibTables](by-memory/0x00528930-0x00528d51.MonsterImageLibTables.md) | assigned | `0000LK` |  | no | `auto-generated/NexusTK/render/MonsterImageLibTables.cpp` | `by-memory/0x00528930-0x00528d51.MonsterImageLibTables.md` |  |
@@ -1169,7 +1172,6 @@ Total_Error: 6
 | [UID:000177][0x004d1860-0x004e6748.MapTileImageLib](by-memory/0x004d1860-0x004e6748.MapTileImageLib.md) | unassigned |  |  | no |  | `by-memory/0x004d1860-0x004e6748.MapTileImageLib.md` |  |
 | [UID:000178][0x004d19a0-0x004d1a1c.MapTileImageLibDestructor](by-memory/0x004d19a0-0x004d1a1c.MapTileImageLibDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004d19a0-0x004d1a1c.MapTileImageLibDestructor.md` |  |
 | [UID:0002J0][0x004d1a20-0x004d1b72.MapTileImageLibDrawTile](by-memory/0x004d1a20-0x004d1b72.MapTileImageLibDrawTile.md) | unassigned |  |  | no |  | `by-memory/0x004d1a20-0x004d1b72.MapTileImageLibDrawTile.md` |  |
-| [UID:000179][0x004d1f30-0x004d2697.ObjectStatusBlobParsers](by-memory/0x004d1f30-0x004d2697.ObjectStatusBlobParsers.md) | unassigned |  |  | no |  | `by-memory/0x004d1f30-0x004d2697.ObjectStatusBlobParsers.md` |  |
 | [UID:00017B][0x004d4ad0-0x004d4f67.HumanImageLibDestructor](by-memory/0x004d4ad0-0x004d4f67.HumanImageLibDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004d4ad0-0x004d4f67.HumanImageLibDestructor.md` |  |
 | [UID:0002LA][0x004dc420-0x004dc68c.RidingImageLibLoadRidingDefinitions](by-memory/0x004dc420-0x004dc68c.RidingImageLibLoadRidingDefinitions.md) | unassigned |  |  | no |  | `by-memory/0x004dc420-0x004dc68c.RidingImageLibLoadRidingDefinitions.md` |  |
 | [UID:00017F][0x004dc420-0x004e6980.RidingImageLib](by-memory/0x004dc420-0x004e6980.RidingImageLib.md) | unassigned |  |  | no |  | `by-memory/0x004dc420-0x004e6980.RidingImageLib.md` |  |
@@ -1210,7 +1212,6 @@ Total_Error: 6
 | [UID:000195][0x004f4a80-0x004f4c0d.LObjectRuntimeShell](by-memory/0x004f4a80-0x004f4c0d.LObjectRuntimeShell.md) | unassigned |  |  | no |  | `by-memory/0x004f4a80-0x004f4c0d.LObjectRuntimeShell.md` |  |
 | [UID:00019F][0x004f5ad0-0x004f5ad4.StdioFileGetSize](by-memory/0x004f5ad0-0x004f5ad4.StdioFileGetSize.md) | unassigned |  |  | no |  | `by-memory/0x004f5ad0-0x004f5ad4.StdioFileGetSize.md` |  |
 | [UID:00019I][0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs](by-memory/0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs.md) | unassigned |  |  | no |  | `by-memory/0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs.md` |  |
-| [UID:0002Q3][0x004f9d30-0x004fa7a0.NewUserDialogPaneCoreAndPacketHelpers](by-memory/0x004f9d30-0x004fa7a0.NewUserDialogPaneCoreAndPacketHelpers.md) | unassigned |  |  | no |  | `by-memory/0x004f9d30-0x004fa7a0.NewUserDialogPaneCoreAndPacketHelpers.md` |  |
 | [UID:0002Q4][0x004fa7a0-0x004fb2d0.LoginDialogPaneCore](by-memory/0x004fa7a0-0x004fb2d0.LoginDialogPaneCore.md) | unassigned |  |  | no |  | `by-memory/0x004fa7a0-0x004fb2d0.LoginDialogPaneCore.md` |  |
 | [UID:0002Q5][0x004fb2d0-0x004fb62a.SendLoginRequest](by-memory/0x004fb2d0-0x004fb62a.SendLoginRequest.md) | unassigned |  |  | no |  | `by-memory/0x004fb2d0-0x004fb62a.SendLoginRequest.md` |  |
 | [UID:00019U][0x004fb630-0x004fe782.NewUserMiscShapeAndPasswordDialogs](by-memory/0x004fb630-0x004fe782.NewUserMiscShapeAndPasswordDialogs.md) | unassigned |  |  | no |  | `by-memory/0x004fb630-0x004fe782.NewUserMiscShapeAndPasswordDialogs.md` |  |
@@ -1865,7 +1866,6 @@ Total_Error: 6
 | [UID:0001C5][0x005226f0-0x005226fb.MessageShowPaneClearSingletonEH](by-memory/0x005226f0-0x005226fb.MessageShowPaneClearSingletonEH.md) | unclassified |  |  | no |  | `by-memory/0x005226f0-0x005226fb.MessageShowPaneClearSingletonEH.md` |  |
 | [UID:0001C6][0x005226fb-0x00522711.MessageShowPaneAdjustorThunks](by-memory/0x005226fb-0x00522711.MessageShowPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x005226fb-0x00522711.MessageShowPaneAdjustorThunks.md` |  |
 | [UID:0001C7][0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor](by-memory/0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor.md` |  |
-| [UID:00023C][0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers](by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md) | unclassified |  |  | no |  | `by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md` |  |
 | [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md) | unclassified |  |  | no |  | `by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md` |  |
 | [UID:0001CL][0x005285e0-0x00528929.MonitorAndConditions](by-memory/0x005285e0-0x00528929.MonitorAndConditions.md) | unclassified |  |  | no |  | `by-memory/0x005285e0-0x00528929.MonitorAndConditions.md` |  |
 | [UID:0001CO][0x00528de0-0x00528deb.BrowserControlPaneOldDispatch](by-memory/0x00528de0-0x00528deb.BrowserControlPaneOldDispatch.md) | unclassified |  |  | no |  | `by-memory/0x00528de0-0x00528deb.BrowserControlPaneOldDispatch.md` |  |
