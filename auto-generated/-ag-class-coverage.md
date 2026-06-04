@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 286
+Total_Reconstructable: 287
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 213
+Total_Reconstructed_Assigned: 215
 Total_Reconstructed_Coded: 2
-Total_Reconstructable_Unassigned: 73
-Total_Unclassified: 299
+Total_Reconstructable_Unassigned: 72
+Total_Unclassified: 298
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -123,6 +123,7 @@ Total_Error: 0
 | [UID:00007J][MailDeleteReplyAlert](by-class/MailDeleteReplyAlert.md) | assigned | `0000HW` |  | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/MailDeleteReplyAlert.md` |  |
 | [UID:00007N][MailTransferReplyAlert](by-class/MailTransferReplyAlert.md) | assigned | `0000HW` | 30 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/MailTransferReplyAlert.md` |  |
 | [UID:00007Q][MapPane](by-class/MapPane.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-class/MapPane.md` |  |
+| [UID:00007U][MemoryMan](by-class/MemoryMan.md) | assigned | `0000L7` |  | no | `auto-generated/NexusTK/util/MemoryMan.cpp` | `by-class/MemoryMan.md` |  |
 | [UID:00007V][MenuItem](by-class/MenuItem.md) | assigned | `0000MN` |  | no | `auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp` | `by-class/MenuItem.md` |  |
 | [UID:000083][MerchantDialogPane](by-class/MerchantDialogPane.md) | assigned | `0000L9` |  | no | `auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp` | `by-class/MerchantDialogPane.md` |  |
 | [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md) | assigned | `0000LJ` |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-class/MonsterImageLib.md` |  |
@@ -213,6 +214,7 @@ Total_Error: 0
 | [UID:0000FB][TreeItor_struct_FolderTreePane__TreeElem_](by-class/TreeItor_struct_FolderTreePane__TreeElem_.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-class/TreeItor_struct_FolderTreePane__TreeElem_.md` |  |
 | [UID:0000FC][TreeStorage_struct_FolderTreePane__TreeElem_](by-class/TreeStorage_struct_FolderTreePane__TreeElem_.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-class/TreeStorage_struct_FolderTreePane__TreeElem_.md` |  |
 | [UID:0000F8][Tree_near_class_EventHandler___](by-class/Tree_near_class_EventHandler___.md) | assigned | `0000J7` |  | no | `auto-generated/NexusTK/ui/core/EventDispatcher.cpp` | `by-class/Tree_near_class_EventHandler___.md` |  |
+| [UID:0000F9][Tree_struct_FolderTreePane__TreeElem_](by-class/Tree_struct_FolderTreePane__TreeElem_.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-class/Tree_struct_FolderTreePane__TreeElem_.md` |  |
 | [UID:0000FD][UInt32Vector](by-class/UInt32Vector.md) | assigned | `0000P3` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-class/UInt32Vector.md` |  |
 | [UID:0000FI][UserFaceColorSelectListPane](by-class/UserFaceColorSelectListPane.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-class/UserFaceColorSelectListPane.md` |  |
 | [UID:0000FK][UserHairColorSelectListPane](by-class/UserHairColorSelectListPane.md) | assigned | `0000OX` |  | no | `auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp` | `by-class/UserHairColorSelectListPane.md` |  |
@@ -270,7 +272,6 @@ Total_Error: 0
 | [UID:00006W][ItemObjImageLib](by-class/ItemObjImageLib.md) | unassigned |  |  | no |  | `by-class/ItemObjImageLib.md` |  |
 | [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md) | unassigned |  |  | no |  | `by-class/KeySpeedMgr.md` |  |
 | [UID:00007T][MapTileImageLib](by-class/MapTileImageLib.md) | unassigned |  |  | no |  | `by-class/MapTileImageLib.md` |  |
-| [UID:00007U][MemoryMan](by-class/MemoryMan.md) | unassigned |  |  | no |  | `by-class/MemoryMan.md` |  |
 | [UID:000087][MessageShowPane](by-class/MessageShowPane.md) | unassigned |  |  | no |  | `by-class/MessageShowPane.md` |  |
 | [UID:00008F][MiniMapRenderer](by-class/MiniMapRenderer.md) | unassigned |  |  | no |  | `by-class/MiniMapRenderer.md` |  |
 | [UID:00008H][MiniMapVersionManager](by-class/MiniMapVersionManager.md) | unassigned |  |  | no |  | `by-class/MiniMapVersionManager.md` |  |
@@ -572,7 +573,6 @@ Total_Error: 0
 | [UID:0000F4][TotemFrame](by-class/TotemFrame.md) | unclassified |  |  | no |  | `by-class/TotemFrame.md` |  |
 | [UID:0000F5][TransferReplyAlert](by-class/TransferReplyAlert.md) | unclassified |  |  | no |  | `by-class/TransferReplyAlert.md` |  |
 | [UID:0000F7][TransferServerDialogPane](by-class/TransferServerDialogPane.md) | unclassified |  |  | no |  | `by-class/TransferServerDialogPane.md` |  |
-| [UID:0000F9][Tree_struct_FolderTreePane__TreeElem_](by-class/Tree_struct_FolderTreePane__TreeElem_.md) | unclassified |  |  | no |  | `by-class/Tree_struct_FolderTreePane__TreeElem_.md` |  |
 | [UID:0000FE][UniAPIInit](by-class/UniAPIInit.md) | unclassified |  |  | no |  | `by-class/UniAPIInit.md` |  |
 | [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md) | unclassified |  |  | no |  | `by-class/UrlAlertPane.md` |  |
 | [UID:0000FG][UseInputPane](by-class/UseInputPane.md) | unclassified |  |  | no |  | `by-class/UseInputPane.md` |  |

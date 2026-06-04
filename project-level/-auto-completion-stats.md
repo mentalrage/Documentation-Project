@@ -91,8 +91,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000F9` | 80 | 76 | 78.0 | `by-class/Tree_struct_FolderTreePane__TreeElem_.md` |
-| `00007U` | 82 | 76 | 79.0 | `by-class/MemoryMan.md` |
 | `0000AQ` | 82 | 76 | 79.0 | `by-class/PowerListPane.md` |
 | `0000BY` | 82 | 76 | 79.0 | `by-class/ResourceLayoutTable.md` |
 | `0000D0` | 82 | 76 | 79.0 | `by-class/ServerItemMenuItemList.md` |

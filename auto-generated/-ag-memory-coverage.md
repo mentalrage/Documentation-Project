@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1447
-Total_Not_Reconstructable: 28
-Total_Reconstructed_Assigned: 919
+Total_Reconstructable: 1449
+Total_Not_Reconstructable: 29
+Total_Reconstructed_Assigned: 922
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 522
-Total_Unclassified: 773
+Total_Reconstructable_Unassigned: 521
+Total_Unclassified: 770
 Total_Error: 6
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -304,6 +304,7 @@ Total_Error: 6
 | [UID:000156][0x004b3210-0x004b32c9.FolderTreePaneSetSelection](by-memory/0x004b3210-0x004b32c9.FolderTreePaneSetSelection.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-memory/0x004b3210-0x004b32c9.FolderTreePaneSetSelection.md` |  |
 | [UID:00022D][0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper](by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md) | assigned | `0000AA` | 55 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-memory/0x004b32d0-0x004b3344.PatchPane2DownloadPathJoinHelper.md` |  |
 | [UID:000158][0x004b5650-0x004b5668.FolderTreePaneTreeDestructorCleanup](by-memory/0x004b5650-0x004b5668.FolderTreePaneTreeDestructorCleanup.md) | assigned | `0000JG` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-memory/0x004b5650-0x004b5668.FolderTreePaneTreeDestructorCleanup.md` |  |
+| [UID:0002MY][0x004b5b00-0x004b5bae.FolderTreeResetToSingleRoot](by-memory/0x004b5b00-0x004b5bae.FolderTreeResetToSingleRoot.md) | assigned | `0000F9` |  | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-memory/0x004b5b00-0x004b5bae.FolderTreeResetToSingleRoot.md` |  |
 | [UID:00022E][0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers](by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md) | assigned | `0000JG` | 55 | no | `auto-generated/NexusTK/ui/controls/FolderTreePane.cpp` | `by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md` |  |
 | [UID:00015C][0x004b6410-0x004b646b.FpsPaneConstructorRaw](by-memory/0x004b6410-0x004b646b.FpsPaneConstructorRaw.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-memory/0x004b6410-0x004b646b.FpsPaneConstructorRaw.md` |  |
 | [UID:00015D][0x004b6410-0x004b6caf.FpsPaneDiagnostics](by-memory/0x004b6410-0x004b6caf.FpsPaneDiagnostics.md) | assigned | `0000JK` |  | no | `auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp` | `by-memory/0x004b6410-0x004b6caf.FpsPaneDiagnostics.md` |  |
@@ -911,7 +912,9 @@ Total_Error: 6
 | [UID:0001PE][0x0069ae0c-0x0069ae10.g_activeUserStatusPane](by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md) | assigned | `0000P2` |  | no | `auto-generated/NexusTK/ui/panels/UserStatusPane.cpp` | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |  |
 | [UID:0001PG][0x0069b374-0x0069b378.g_layoutContext_69B374](by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md) | assigned | `0000L1` |  | no | `auto-generated/NexusTK/ui/MainUiGraph.cpp` | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |  |
 | [UID:0001PH][0x0069b380-0x0069b381.g_activeDialogCount](by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md) | assigned | `0000IT` |  | no | `auto-generated/NexusTK/ui/core/DialogPane.cpp` | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |  |
+| [UID:00029R][0x0069b3a8-0x0069b3ac.MemoryManStaticObjectStorage](by-memory/0x0069b3a8-0x0069b3ac.MemoryManStaticObjectStorage.md) | assigned | `0000L7` |  | no | `auto-generated/NexusTK/util/MemoryMan.cpp` | `by-memory/0x0069b3a8-0x0069b3ac.MemoryManStaticObjectStorage.md` |  |
 | [UID:0002AZ][0x0069b4f8-0x0069b4f9.MapPaneRenderScratchFlag](by-memory/0x0069b4f8-0x0069b4f9.MapPaneRenderScratchFlag.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x0069b4f8-0x0069b4f9.MapPaneRenderScratchFlag.md` |  |
+| [UID:0002B0][0x0069b4fc-0x0069b500.g_pMemoryMan](by-memory/0x0069b4fc-0x0069b500.g_pMemoryMan.md) | assigned | `0000L7` |  | no | `auto-generated/NexusTK/util/MemoryMan.cpp` | `by-memory/0x0069b4fc-0x0069b500.g_pMemoryMan.md` |  |
 | [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md) | assigned | `0000ML` |  | no | `auto-generated/NexusTK/platform/PlatformApi.cpp` | `by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md` |  |
 | [UID:0002A8][0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot](by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md) | assigned | `0000P0` |  | no | `auto-generated/NexusTK/ui/panels/UserLookPane.cpp` | `by-memory/0x0069bed4-0x0069bed8.MoreInfoPaneSingletonSlot.md` |  |
 | [UID:0002A9][0x0069bed8-0x0069bee0.TargetSelectionModeFlags](by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-memory/0x0069bed8-0x0069bee0.TargetSelectionModeFlags.md` |  |
@@ -966,6 +969,7 @@ Total_Error: 6
 | [UID:00018F][0x004e9710-0x004e97a3.CandidateStringQueueAppendOwnedString](by-memory/0x004e9710-0x004e97a3.CandidateStringQueueAppendOwnedString.md) | not_reconstructable |  |  | no |  | `by-memory/0x004e9710-0x004e97a3.CandidateStringQueueAppendOwnedString.md` |  |
 | [UID:0002I5][0x00504090-0x00504093.MapPaneNullCallback40](by-memory/0x00504090-0x00504093.MapPaneNullCallback40.md) | not_reconstructable |  |  | no |  | `by-memory/0x00504090-0x00504093.MapPaneNullCallback40.md` |  |
 | [UID:0001MO][0x005b6120-0x005b62c8.SpellSpellInputPane](by-memory/0x005b6120-0x005b62c8.SpellSpellInputPane.md) | not_reconstructable |  |  | no |  | `by-memory/0x005b6120-0x005b62c8.SpellSpellInputPane.md` |  |
+| [UID:0001O7][0x0060c260-0x0060c26a.MemoryManAtexitResetThunk](by-memory/0x0060c260-0x0060c26a.MemoryManAtexitResetThunk.md) | not_reconstructable |  |  | no |  | `by-memory/0x0060c260-0x0060c26a.MemoryManAtexitResetThunk.md` |  |
 | [UID:0000W8][0x00419ee0-0x00419ef4.InitializeOleSupport](by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md) | unassigned |  |  | no |  | `by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md` |  |
 | [UID:0000WG][0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers](by-memory/0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers.md) | unassigned |  |  | no |  | `by-memory/0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers.md` |  |
 | [UID:0000WL][0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual](by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md) | unassigned |  |  | no |  | `by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md` |  |
@@ -1109,7 +1113,6 @@ Total_Error: 6
 | [UID:0002MV][0x004b3d50-0x004b3fa4.FolderTreeStorageInsertAt](by-memory/0x004b3d50-0x004b3fa4.FolderTreeStorageInsertAt.md) | unassigned |  |  | no |  | `by-memory/0x004b3d50-0x004b3fa4.FolderTreeStorageInsertAt.md` |  |
 | [UID:0002MW][0x004b55e0-0x004b564d.FolderTreeElemCopyConstruct](by-memory/0x004b55e0-0x004b564d.FolderTreeElemCopyConstruct.md) | unassigned |  |  | no |  | `by-memory/0x004b55e0-0x004b564d.FolderTreeElemCopyConstruct.md` |  |
 | [UID:0002MX][0x004b56e0-0x004b575f.FolderTreeStorageDestructor](by-memory/0x004b56e0-0x004b575f.FolderTreeStorageDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004b56e0-0x004b575f.FolderTreeStorageDestructor.md` |  |
-| [UID:0002MY][0x004b5b00-0x004b5bae.FolderTreeResetToSingleRoot](by-memory/0x004b5b00-0x004b5bae.FolderTreeResetToSingleRoot.md) | unassigned |  |  | no |  | `by-memory/0x004b5b00-0x004b5bae.FolderTreeResetToSingleRoot.md` |  |
 | [UID:0002MZ][0x004b5bb0-0x004b5bd0.FolderTreeIteratorMoveToFirstChild](by-memory/0x004b5bb0-0x004b5bd0.FolderTreeIteratorMoveToFirstChild.md) | unassigned |  |  | no |  | `by-memory/0x004b5bb0-0x004b5bd0.FolderTreeIteratorMoveToFirstChild.md` |  |
 | [UID:0002N0][0x004b5bd0-0x004b5c13.FolderTreeIteratorMoveToNextVisibleSibling](by-memory/0x004b5bd0-0x004b5c13.FolderTreeIteratorMoveToNextVisibleSibling.md) | unassigned |  |  | no |  | `by-memory/0x004b5bd0-0x004b5c13.FolderTreeIteratorMoveToNextVisibleSibling.md` |  |
 | [UID:0002N1][0x004b5c20-0x004b5c3f.FolderTreeIteratorMoveToParent](by-memory/0x004b5c20-0x004b5c3f.FolderTreeIteratorMoveToParent.md) | unassigned |  |  | no |  | `by-memory/0x004b5c20-0x004b5c3f.FolderTreeIteratorMoveToParent.md` |  |
@@ -2052,7 +2055,6 @@ Total_Error: 6
 | [UID:00024E][0x0060c0a0-0x0060c0f0.StaticCleanupThunksBeforeAutoInit](by-memory/0x0060c0a0-0x0060c0f0.StaticCleanupThunksBeforeAutoInit.md) | unclassified |  |  | no |  | `by-memory/0x0060c0a0-0x0060c0f0.StaticCleanupThunksBeforeAutoInit.md` |  |
 | [UID:0001O6][0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk](by-memory/0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk.md) | unclassified |  |  | no |  | `by-memory/0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk.md` |  |
 | [UID:00024F][0x0060c100-0x0060c260.StaticStringContainerCleanupThunks](by-memory/0x0060c100-0x0060c260.StaticStringContainerCleanupThunks.md) | unclassified |  |  | no |  | `by-memory/0x0060c100-0x0060c260.StaticStringContainerCleanupThunks.md` |  |
-| [UID:0001O7][0x0060c260-0x0060c26a.MemoryManAtexitResetThunk](by-memory/0x0060c260-0x0060c26a.MemoryManAtexitResetThunk.md) | unclassified |  |  | no |  | `by-memory/0x0060c260-0x0060c26a.MemoryManAtexitResetThunk.md` |  |
 | [UID:00024G][0x0060c26a-0x0060c320.StaticDestructorWrappersBeforePoolAllocators](by-memory/0x0060c26a-0x0060c320.StaticDestructorWrappersBeforePoolAllocators.md) | unclassified |  |  | no |  | `by-memory/0x0060c26a-0x0060c320.StaticDestructorWrappersBeforePoolAllocators.md` |  |
 | [UID:0001O8][0x0060c320-0x0060c43a.PoolAllocatorStaticDestructorWrappers](by-memory/0x0060c320-0x0060c43a.PoolAllocatorStaticDestructorWrappers.md) | unclassified |  |  | no |  | `by-memory/0x0060c320-0x0060c43a.PoolAllocatorStaticDestructorWrappers.md` |  |
 | [UID:00024H][0x0060c43a-0x0060c440.AlignmentPaddingBeforeUniAPIInitCleanup](by-memory/0x0060c43a-0x0060c440.AlignmentPaddingBeforeUniAPIInitCleanup.md) | unclassified |  |  | no |  | `by-memory/0x0060c43a-0x0060c440.AlignmentPaddingBeforeUniAPIInitCleanup.md` |  |
@@ -2206,7 +2208,6 @@ Total_Error: 6
 | [UID:00029N][0x0069b370-0x0069b374.UnreferencedInitializedDword_69B370](by-memory/0x0069b370-0x0069b374.UnreferencedInitializedDword_69B370.md) | unclassified |  |  | no |  | `by-memory/0x0069b370-0x0069b374.UnreferencedInitializedDword_69B370.md` |  |
 | [UID:00029O][0x0069b378-0x0069b380.MainUiLayerSlotsTail](by-memory/0x0069b378-0x0069b380.MainUiLayerSlotsTail.md) | unclassified |  |  | no |  | `by-memory/0x0069b378-0x0069b380.MainUiLayerSlotsTail.md` |  |
 | [UID:00029P][0x0069b381-0x0069b39c.UnreferencedInitializedBytes_69B381](by-memory/0x0069b381-0x0069b39c.UnreferencedInitializedBytes_69B381.md) | unclassified |  |  | no |  | `by-memory/0x0069b381-0x0069b39c.UnreferencedInitializedBytes_69B381.md` |  |
-| [UID:00029R][0x0069b3a8-0x0069b3ac.MemoryManStaticObjectStorage](by-memory/0x0069b3a8-0x0069b3ac.MemoryManStaticObjectStorage.md) | unclassified |  |  | no |  | `by-memory/0x0069b3a8-0x0069b3ac.MemoryManStaticObjectStorage.md` |  |
 | [UID:00029S][0x0069b3ac-0x0069b3d0.TimerMgrStaticObjectStorage](by-memory/0x0069b3ac-0x0069b3d0.TimerMgrStaticObjectStorage.md) | unclassified |  |  | no |  | `by-memory/0x0069b3ac-0x0069b3d0.TimerMgrStaticObjectStorage.md` |  |
 | [UID:00029V][0x0069b3d8-0x0069b3e0.SurfaceAlphaLookupTablePointers](by-memory/0x0069b3d8-0x0069b3e0.SurfaceAlphaLookupTablePointers.md) | unclassified |  |  | no |  | `by-memory/0x0069b3d8-0x0069b3e0.SurfaceAlphaLookupTablePointers.md` |  |
 | [UID:0001PJ][0x0069b410-0x0069b414.g_pMetaMan](by-memory/0x0069b410-0x0069b414.g_pMetaMan.md) | unclassified |  |  | no |  | `by-memory/0x0069b410-0x0069b414.g_pMetaMan.md` |  |
@@ -2230,7 +2231,6 @@ Total_Error: 6
 | [UID:00029X][0x0069b4b4-0x0069b4c8.MapNameMiniMapAndGameServerGlobals](by-memory/0x0069b4b4-0x0069b4c8.MapNameMiniMapAndGameServerGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0069b4b4-0x0069b4c8.MapNameMiniMapAndGameServerGlobals.md` |  |
 | [UID:00029Y][0x0069b4c8-0x0069b4f0.MessageStatusAndMenuPaneGlobals](by-memory/0x0069b4c8-0x0069b4f0.MessageStatusAndMenuPaneGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0069b4c8-0x0069b4f0.MessageStatusAndMenuPaneGlobals.md` |  |
 | [UID:00029Z][0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton](by-memory/0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton.md) | unclassified |  |  | no |  | `by-memory/0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton.md` |  |
-| [UID:0002B0][0x0069b4fc-0x0069b500.g_pMemoryMan](by-memory/0x0069b4fc-0x0069b500.g_pMemoryMan.md) | unclassified |  |  | no |  | `by-memory/0x0069b4fc-0x0069b500.g_pMemoryMan.md` |  |
 | [UID:0002B1][0x0069b500-0x0069b870.MidiPlayerWinMMStateGlobals](by-memory/0x0069b500-0x0069b870.MidiPlayerWinMMStateGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0069b500-0x0069b870.MidiPlayerWinMMStateGlobals.md` |  |
 | [UID:0002B2][0x0069b870-0x0069b890.MidiSMFParserScratchGlobals](by-memory/0x0069b870-0x0069b890.MidiSMFParserScratchGlobals.md) | unclassified |  |  | no |  | `by-memory/0x0069b870-0x0069b890.MidiSMFParserScratchGlobals.md` |  |
 | [UID:0002B3][0x0069b890-0x0069b894.CreateUserDialogPaneSingletonSlot](by-memory/0x0069b890-0x0069b894.CreateUserDialogPaneSingletonSlot.md) | unclassified |  |  | no |  | `by-memory/0x0069b890-0x0069b894.CreateUserDialogPaneSingletonSlot.md` |  |
