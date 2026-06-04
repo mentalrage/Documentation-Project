@@ -12,11 +12,11 @@
 
 ## Status
 
-- Confidence: strong for behavior and local layout, medium for final field names.
-- Current Wave3 file: `class_EPFTileContext.cpp`
+- Confidence: strong for behavior, boundaries, and local layout, medium for final field names.
 - Likely source module: [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md)
 - Current relevant range: `0x00457a60-0x00458610`
 - Main address doc: [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md)
+- Evidence basis: live IDA MCP and Hex-Rays review of the aggregate on 2026-06-04.
 
 ## Responsibility
 
@@ -24,7 +24,7 @@
 
 ## Inferred Layout
 
-Wave3 has no formal fields for this class yet, but generated code consistently uses this layout:
+Live EPFTileContext bodies consistently use this compact 0x28-byte layout:
 
 ```text
 EPFTileContext
@@ -46,10 +46,16 @@ This implies a 0x28-byte context. Field names are working names until the class 
 
 | Address | Name | Notes |
 | --- | --- | --- |
-| `0x00457a60` | `InitTileContext` | Initializes 8-bit mode, null buffers, zero bounds, and no mask. |
-| `0x00457ab0` | `BuildRleMask8` | Builds a row-wise transparency mask from 8-bit pixels; nonzero runs are stored with the high bit set. |
-| `0x00457c60` | `BuildRleMask16` | Same mask encoding for 16-bit pixels. |
+| `0x00457a60` | `InitTileContext` | Initializes the context header, zero rectangle, and empty buffers. |
+| `0x00457ab0` | `BuildRleMask8` | Builds a row-wise transparency mask from byte pixels; nonzero runs are stored with the high bit set. |
+| `0x00457c60` | `BuildRleMask16` | Same mask encoding for word pixels. |
 | `0x00457e00` | `CopyTo` | Releases destination buffers, copies layout fields, and deep-copies pixel/aux/mask buffers. |
+| `0x00457f30` | raw 16-bit copy body | IDA-typed code with no function object or direct start xrefs; releases the destination argument and deep-copies word-sized buffers. |
+| `0x00457ff0` | `CreateHalfScaleCopy` | Allocates a new context and samples every other source pixel/row into a half-size output. |
+| `0x00458260` | `CreateHalfScaleWordCopy` | Similar word-pixel half-size copy helper; no direct live callers. |
+| `0x004583d0` | `AllocateBytePixels` | Releases current buffers and allocates a zero-origin byte-pixel primary buffer. |
+| `0x00458430` | `AllocateWordPixels` | Releases current buffers and allocates a zero-origin word-pixel primary buffer. |
+| `0x00458490` | `AllocateWordPixelsWithAux` | Releases current buffers and allocates separate zero-origin primary and auxiliary word-pixel buffers. |
 | `0x00458500` | `ReleaseBuffers` | Frees pixel, auxiliary, and encoded-mask buffers. |
 | `0x00458560` | `NormalizePostDecodePixels` | Applies the compatibility pixel transform to decoded 16-bit buffers when the surface pixel-format flag requires it. |
 | `0x00458590` | `HasPixelInRanges` | Scans byte pixels for any value inside caller-supplied inclusive byte ranges. |
@@ -79,14 +85,20 @@ This implies a 0x28-byte context. Field names are working names until the class 
 
 ## Changes
 
+### 2026-06-04 - Expanded live method inventory
+
+- Before: the method table listed the initializer, two mask builders, copy, release, and two tail helpers only.
+- Changed to: added the live middle bodies at `0x00457f30`, `0x00457ff0`, `0x00458260`, `0x004583d0`, `0x00458430`, and `0x00458490`, and replaced stale evidence wording with the live IDA/Hex-Rays basis.
+- Summary/evidence: [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md) now records exact boundaries, padding, caller/callee evidence, and behavior for every body in the aggregate. Class metadata is unchanged because final field and method names remain provisional.
+
 - 2026-06-02:
   - Before: reconstructability and parent were blank despite `80/82` scoring and a high-confidence source-file page.
   - After: marked reconstructable and attached to [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md) with C++ blank.
-  - Summary/evidence: existing docs establish the render-support file owner and seven-method context shape, but final field names and source-quality declarations remain below the C++ emission threshold.
+  - Summary/evidence: existing docs establish the render-support file owner and context shape, but final field names and source-quality declarations remain below the C++ emission threshold.
 
 ### 2026-05-27 - Added IDA-confirmed tail helpers
 
-- Before: the class page used the generated/Wave3 range `0x00457a60-0x00458556` and listed only five generated methods.
+- Before: the class page used the older range `0x00457a60-0x00458556` and listed only five modeled methods.
 - Changed to: expanded the relevant range to `0x00457a60-0x00458610` and added the two exact tail helpers at `0x00458560` and `0x00458590`.
 - Summary/evidence: IDA MCP confirms the first helper is called by image decode wrappers after filling decoded pixels, and the second scans decoded byte pixels from raw image-library/light-generation code before the RankingDialog start at `0x00458610`.
 - 2026-05-30:

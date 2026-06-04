@@ -155,7 +155,7 @@ EPF/EPD image work appears to sit between archive and rendering. `EPFTileContext
 
 Important helpers and classes:
 
-- `EPFTileContext` `0x00457a60-0x00458557`
+- `EPFTileContext` `0x00457a60-0x00458610`
 - `ImageLib` `0x004cffb0-0x004e6571`
 - `ResourceLayoutTable` `0x004d0120-0x004d182e`
 - `LoadImageFrameTable` `0x004d0f50-0x004d15c5`

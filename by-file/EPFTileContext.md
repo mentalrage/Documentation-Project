@@ -9,8 +9,7 @@
 
 - Confidence: strong for source-file ownership and method boundaries, medium for final field names.
 - Proposed module: `render/EPFTileContext.cpp`
-- Current recovered source: `source-3/simroot_v2/class_EPFTileContext.cpp`
-- Evidence basis: Wave3 class summary and missing-ref check, generated `simroot_v2` source, existing memory docs, and IDA MCP boundary/caller checks on 2026-05-23.
+- Evidence basis: live IDA MCP and Hex-Rays review of EPFTileContext boundaries, bodies, callers, and callees through 2026-06-04.
 
 ## File Role
 
@@ -30,17 +29,23 @@ IDA MCP confirms these exact function starts and half-open ranges:
 
 | Range | Method | Role |
 | --- | --- | --- |
-| `0x00457a60-0x00457aa4` | `InitTileContext` | Initializes 8-bit mode, null buffers, zero bounds, and no encoded mask. |
-| `0x00457ab0-0x00457c53` | `BuildRleMask8` | Builds a row-wise transparency mask from 8-bit/indexed pixels. |
-| `0x00457c60-0x00457df2` | `BuildRleMask16` | Builds the same transparency mask from 16-bit pixels. |
+| `0x00457a60-0x00457aa4` | `InitTileContext` | Initializes the context header, null buffers, zero bounds, and no encoded mask. |
+| `0x00457ab0-0x00457c53` | `BuildRleMask8` | Builds a row-wise transparency mask from byte pixels. |
+| `0x00457c60-0x00457df2` | `BuildRleMask16` | Builds the same transparency mask from word pixels. |
 | `0x00457e00-0x00457f2b` | `CopyTo` | Releases the destination context and deep-copies pixel, auxiliary, and mask buffers. |
+| `0x00457f30-0x00457fe9` | raw 16-bit copy body | IDA-typed code without a function object or direct start xrefs; releases the destination argument and deep-copies word-sized buffers. |
+| `0x00457ff0-0x00458253` | `CreateHalfScaleCopy` | Allocates a new context and samples every other source pixel/row into a half-size output. |
+| `0x00458260-0x004583c8` | `CreateHalfScaleWordCopy` | Similar word-pixel half-size copy helper; no direct live callers. |
+| `0x004583d0-0x00458423` | `AllocateBytePixels` | Releases existing buffers and allocates a zero-origin byte-pixel primary buffer. |
+| `0x00458430-0x00458485` | `AllocateWordPixels` | Releases existing buffers and allocates a zero-origin word-pixel primary buffer. |
+| `0x00458490-0x004584fa` | `AllocateWordPixelsWithAux` | Releases existing buffers and allocates zero-origin primary and auxiliary word-pixel buffers. |
 | `0x00458500-0x00458557` | `ReleaseBuffers` | Frees pixel, auxiliary, and encoded-mask buffers. |
 | `0x00458560-0x00458585` | [UID:000200][0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels](by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md) | Post-decode pixel-format normalization helper called by shared image loaders. |
 | `0x00458590-0x00458610` | [UID:000201][0x00458590-0x00458610.EPFTileContextPixelRangeTest](by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md) | Byte-pixel range scan helper used by raw image-library/light-generation code. |
 
 ## Layout
 
-Current generated code consistently uses a 0x28-byte layout:
+Live body access consistently uses a 0x28-byte layout:
 
 ```text
 0x00  int pixelMode
@@ -59,11 +64,12 @@ Current generated code consistently uses a 0x28-byte layout:
 
 ## Evidence
 
-- Wave3 `show class EPFTileContext --summary` reports manual grade `95.8`, auto grade `96.0`, five methods, no memory conflicts, and aggregate coverage; IDA adds two tail helpers that active generated output has not modeled yet.
-- Wave3 `list missing-ref --class EPFTileContext --limit 25` returns zero entries.
-- IDA MCP confirms all seven method/helper starts and ranges listed above.
-- IDA MCP caller checks show `EPFTileContext::CopyTo` is called by `ResourceLayoutTable::CopyEntryTileContext` at `0x004d04d0` and pane/effect copy paths at `0x004ff040` and `0x004ff400`.
-- IDA MCP caller checks show `ReleaseBuffers` has broad fan-in from controls, font/image loaders, render support, and pane/effect cleanup paths, supporting a shared render support owner.
+- Live IDA MCP confirms the exact input identity recorded in [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md), the aggregate start at `0x00457a60`, and the half-open end at `0x00458610`.
+- Live function inventory confirms all defined starts and ranges listed above, plus the code-typed raw body at `0x00457f30-0x00457fe9`.
+- Live boundary bytes confirm `0xcc` alignment between all neighboring function/body ranges.
+- Live caller checks show `CopyTo` is called by [UID:0002KR][ResourceLayoutTableCopyEntryTileContext](by-memory/0x004d04d0-0x004d0521.ResourceLayoutTableCopyEntryTileContext.md) at `0x004d050a` and pane/effect copy paths at `0x004ff226` and `0x004ff5e6`.
+- Live caller checks show the allocation helpers are used by shared image decode wrappers: `0x004d0a16` for byte pixels, `0x004d06c8`/`0x004d076d`/`0x004d08ad`/`0x004d0b65` for word pixels, and `0x004d0c9e`/`0x004d0e34` for word-plus-auxiliary buffers.
+- Live caller checks show `ReleaseBuffers` has 71 direct call sites across controls, image loaders, render support, copy helpers, and cleanup paths, supporting a shared render support owner.
 
 ## Dependencies
 
@@ -91,6 +97,12 @@ Current generated code consistently uses a 0x28-byte layout:
 
 ## Changes
 
+### 2026-06-04 - Live aggregate inventory correction
+
+- Before: the file page listed seven EPFTileContext methods and did not account for the middle copy, decimation, and allocation helpers inside `0x00457f30-0x004584fa`.
+- Changed to: replaced the stale evidence basis with live IDA/Hex-Rays evidence and expanded the method table to include the raw copy body, two decimation helpers, and three allocation/reset helpers.
+- Summary/evidence: [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md) records the exact function/body inventory, padding, caller/callee evidence, and behavior. File metadata is unchanged because this page already had high file-level completion and final names remain provisional.
+
 ### 2026-06-02 - Projected render path
 
 - Before: the page text proposed `render/EPFTileContext.cpp`, but `PROPOSED_RECONSTRUCTION_PATH` was blank.
@@ -99,7 +111,7 @@ Current generated code consistently uses a 0x28-byte layout:
 
 ### 2026-05-27 - Added EPFTileContext tail helpers
 
-- Before: the proposed module listed the generated five-method EPFTileContext coverage and an aggregate ending before `0x00458610`.
+- Before: the proposed module listed a five-method EPFTileContext coverage shape and an aggregate ending before `0x00458610`.
 - Changed to: expanded the aggregate to `0x00457a60-0x00458610` and added the post-decode normalization and pixel-range query helpers.
 - Summary/evidence: IDA MCP confirms exact helper boundaries at `0x00458560-0x00458585` and `0x00458590-0x00458610`; callers tie the first to shared image decode wrappers and the second to raw image-library/light-generation code.
 - 2026-05-30 completion/confidence scoring:

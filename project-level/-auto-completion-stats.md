@@ -98,8 +98,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0000XY` | 70 | 85 | 77.5 | `by-memory/0x00457a60-0x00458610.EPFTileContext.md` |
-| `000200` | 70 | 85 | 77.5 | `by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md` |
 | `0000Y2` | 70 | 85 | 77.5 | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |
 | `0000Y3` | 70 | 85 | 77.5 | `by-memory/0x00459a60-0x00459ccd.RankingEventScrollPaneOnMouseEvent.md` |
 | `0001Z9` | 70 | 85 | 77.5 | `by-memory/0x00459cd0-0x00459cd4.RankingEventScrollPaneHasActiveEffect.md` |

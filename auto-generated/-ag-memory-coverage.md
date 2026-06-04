@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1408
+Total_Reconstructable: 1410
 Total_Not_Reconstructable: 23
-Total_Reconstructed_Assigned: 870
+Total_Reconstructed_Assigned: 871
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 533
-Total_Unclassified: 817
+Total_Reconstructable_Unassigned: 534
+Total_Unclassified: 815
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -38,6 +38,7 @@ Total_Error: 5
 | [UID:0002EG][0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile](by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md) | assigned | `000051` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x004229f0-0x00422b25.FittingRoomDialogItemStateLoadEncodedCacheFile.md` |  |
 | [UID:0002ED][0x00422ec0-0x00422ff1.FittingRoomItemShopTestJsonLoader](by-memory/0x00422ec0-0x00422ff1.FittingRoomItemShopTestJsonLoader.md) | assigned | `000051` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00422ec0-0x00422ff1.FittingRoomItemShopTestJsonLoader.md` |  |
 | [UID:0002SC][0x00424020-0x004242e4.FittingRoomTextButtonControlPane](by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md) | assigned | `000055` |  | no | `auto-generated/NexusTK/cashshop/FittingRoom.cpp` | `by-memory/0x00424020-0x004242e4.FittingRoomTextButtonControlPane.md` |  |
+| [UID:000200][0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels](by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md) | assigned | `00004I` |  | no | `auto-generated/NexusTK/render/EPFTileContext.cpp` | `by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md` |  |
 | [UID:000201][0x00458590-0x00458610.EPFTileContextPixelRangeTest](by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md) | assigned | `00004I` |  | no | `auto-generated/NexusTK/render/EPFTileContext.cpp` | `by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md` |  |
 | [UID:0000XZ][0x00458610-0x0045f9f5.RankingDialog](by-memory/0x00458610-0x0045f9f5.RankingDialog.md) | assigned | `0000MZ` | 1 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x00458610-0x0045f9f5.RankingDialog.md` |  |
 | [UID:0000Y2][0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters](by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md) | assigned | `0000BO` | 10 | no | `auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp` | `by-memory/0x004598b0-0x00459a59.RankingEventScrollPaneRawCtorAndSetters.md` |  |
@@ -952,6 +953,7 @@ Total_Error: 5
 | [UID:0000XW][0x00457550-0x0045757d.CreateListNode](by-memory/0x00457550-0x0045757d.CreateListNode.md) | unassigned |  |  | no |  | `by-memory/0x00457550-0x0045757d.CreateListNode.md` |  |
 | [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md) | unassigned |  |  | no |  | `by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md` |  |
 | [UID:0001ZZ][0x00457620-0x00457a5d.MiniMapFileLoaderHelpers](by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md) | unassigned |  |  | no |  | `by-memory/0x00457620-0x00457a5d.MiniMapFileLoaderHelpers.md` |  |
+| [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md) | unassigned |  |  | no |  | `by-memory/0x00457a60-0x00458610.EPFTileContext.md` |  |
 | [UID:0002NM][0x004623c0-0x00462514.InitAlphaSurfaceView](by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md) | unassigned |  |  | no |  | `by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md` |  |
 | [UID:0000YP][0x00463270-0x004632b1.IntAlphaSurface](by-memory/0x00463270-0x004632b1.IntAlphaSurface.md) | unassigned |  |  | no |  | `by-memory/0x00463270-0x004632b1.IntAlphaSurface.md` |  |
 | [UID:0002JX][0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo](by-memory/0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo.md) | unassigned |  |  | no |  | `by-memory/0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo.md` |  |
@@ -1557,8 +1559,6 @@ Total_Error: 5
 | [UID:0000XJ][0x00450030-0x0045007b.LodePngLowerBoundHelper](by-memory/0x00450030-0x0045007b.LodePngLowerBoundHelper.md) | unclassified |  |  | no |  | `by-memory/0x00450030-0x0045007b.LodePngLowerBoundHelper.md` |  |
 | [UID:0000XK][0x00450ca0-0x0045381b.MiniMapDialog](by-memory/0x00450ca0-0x0045381b.MiniMapDialog.md) | unclassified |  |  | no |  | `by-memory/0x00450ca0-0x0045381b.MiniMapDialog.md` |  |
 | [UID:0000XM][0x004536e0-0x00453732.FontStyleClearRules](by-memory/0x004536e0-0x00453732.FontStyleClearRules.md) | unclassified |  |  | no |  | `by-memory/0x004536e0-0x00453732.FontStyleClearRules.md` |  |
-| [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md) | unclassified |  |  | no |  | `by-memory/0x00457a60-0x00458610.EPFTileContext.md` |  |
-| [UID:000200][0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels](by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md) | unclassified |  |  | no |  | `by-memory/0x00458560-0x00458585.EPFTileContextNormalizePostDecodePixels.md` |  |
 | [UID:0000Y0][0x00459810-0x0045981a.RankingDialogClearSingletonHelper](by-memory/0x00459810-0x0045981a.RankingDialogClearSingletonHelper.md) | unclassified |  |  | no |  | `by-memory/0x00459810-0x0045981a.RankingDialogClearSingletonHelper.md` |  |
 | [UID:0000Y1][0x0045981b-0x00459830.RankingDialogAdjustorThunks](by-memory/0x0045981b-0x00459830.RankingDialogAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0045981b-0x00459830.RankingDialogAdjustorThunks.md` |  |
 | [UID:0000Y8][0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks](by-memory/0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0045bddd-0x0045bdf2.RankingEventListPaneAdjustorThunks.md` |  |

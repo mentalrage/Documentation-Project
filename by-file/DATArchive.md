@@ -40,7 +40,7 @@ This page remains the umbrella for adjacent archive/resource research. Do not us
 
 | Class | Range | Current file | Reason to review with archive module |
 | --- | --- | --- | --- |
-| [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md) | `0x00457a60-0x00458557` | `render/EPFTileContext.cpp` | Shared decoded EPF/EPD tile context used by frame, minimap, dialog, and image controls. |
+| [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md) | `0x00457a60-0x00458610` | `render/EPFTileContext.cpp` | Shared decoded EPF/EPD tile context used by frame, minimap, dialog, and image controls. |
 | `ImageLib` | `0x004cffb0-0x004e6571` | `class_ImageLib.cpp` | EPF image/cache manager singleton behind `g_pEPFLib`; render/resource owner, not raw DAT parsing. |
 | `ResourceLayoutTable` | `0x004d0120-0x004d182e` | `class_ResourceLayoutTable.cpp` | Shared EPF/EPD layout lookup method family used by `g_pEPFLib`; likely part of or adjacent to `ImageLib`. |
 | `DIBitmap` | `0x004a1600-0x004a1b5d` | `class_DIBitmap.cpp` | DIB wrapper used by PCX/image loading. |
