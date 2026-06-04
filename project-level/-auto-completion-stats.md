@@ -85,18 +85,12 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 ## Low_Completion
 
-| UID | Completion | Confidence | Combined | Path |
-| --- | ---: | ---: | ---: | --- |
-| `0000ZP` | 70 | 85 | 77.5 | `by-memory/0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks.md` |
-| `0000ZX` | 70 | 85 | 77.5 | `by-memory/0x0047ed50-0x0047ee18.ChangeManRegistrationMethods.md` |
-| `000101` | 70 | 85 | 77.5 | `by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md` |
-| `000102` | 70 | 85 | 77.5 | `by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md` |
+_No scored files._
 
 ## Low_Confidence
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000DT` | 80 | 76 | 78.0 | `by-class/SpellSpellInputPane.md` |
 | `0000F9` | 80 | 76 | 78.0 | `by-class/Tree_struct_FolderTreePane__TreeElem_.md` |
 | `00007U` | 82 | 76 | 79.0 | `by-class/MemoryMan.md` |
 | `0000AQ` | 82 | 76 | 79.0 | `by-class/PowerListPane.md` |

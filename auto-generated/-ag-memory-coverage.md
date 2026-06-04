@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1445
-Total_Not_Reconstructable: 24
-Total_Reconstructed_Assigned: 915
+Total_Reconstructable: 1447
+Total_Not_Reconstructable: 28
+Total_Reconstructed_Assigned: 919
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 524
-Total_Unclassified: 779
+Total_Reconstructable_Unassigned: 522
+Total_Unclassified: 773
 Total_Error: 6
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -842,6 +842,9 @@ Total_Error: 6
 | [UID:0001MJ][0x005b5440-0x005b5547.GroupInputPane](by-memory/0x005b5440-0x005b5547.GroupInputPane.md) | assigned | `0000ID` |  | no | `auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp` | `by-memory/0x005b5440-0x005b5547.GroupInputPane.md` |  |
 | [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md` |  |
 | [UID:0001MM][0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor](by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md) | assigned | `0000EZ` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md` |  |
+| [UID:0001MN][0x005b6120-0x005b61e7.SpellSpellInputPaneConstructor](by-memory/0x005b6120-0x005b61e7.SpellSpellInputPaneConstructor.md) | assigned | `0000DT` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-memory/0x005b6120-0x005b61e7.SpellSpellInputPaneConstructor.md` |  |
+| [UID:0001MP][0x005b61f0-0x005b625c.SpellSpellInputPaneKeyInput](by-memory/0x005b61f0-0x005b625c.SpellSpellInputPaneKeyInput.md) | assigned | `0000DT` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-memory/0x005b61f0-0x005b625c.SpellSpellInputPaneKeyInput.md` |  |
+| [UID:0001MQ][0x005b6260-0x005b62c8.SpellSpellInputPaneAccept](by-memory/0x005b6260-0x005b62c8.SpellSpellInputPaneAccept.md) | assigned | `0000DT` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-memory/0x005b6260-0x005b62c8.SpellSpellInputPaneAccept.md` |  |
 | [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md) | assigned | `0000NM` |  | no | `auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp` | `by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md` |  |
 | [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md` |  |
 | [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md` |  |
@@ -877,6 +880,7 @@ Total_Error: 6
 | [UID:000262][0x0062179c-0x006219e8.PaletteReadOnlyData](by-memory/0x0062179c-0x006219e8.PaletteReadOnlyData.md) | assigned | `0000MA` |  | no | `auto-generated/NexusTK/render/Palette.cpp` | `by-memory/0x0062179c-0x006219e8.PaletteReadOnlyData.md` |  |
 | [UID:0002OM][0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData](by-memory/0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData.md) | assigned | `0000LA` |  | no | `auto-generated/NexusTK/ui/dialogs/MessageDialogs.cpp` | `by-memory/0x00622424-0x006224c0.PursuitMessageDialogPaneVtableData.md` |  |
 | [UID:00026H][0x00625008-0x0062ce60.ServerPacketNameTable](by-memory/0x00625008-0x0062ce60.ServerPacketNameTable.md) | assigned | `0000NS` |  | no | `auto-generated/NexusTK/network/Socket.cpp` | `by-memory/0x00625008-0x0062ce60.ServerPacketNameTable.md` |  |
+| [UID:0002N7][0x0063041c-0x006304a4.SpellSpellInputPaneVtableData](by-memory/0x0063041c-0x006304a4.SpellSpellInputPaneVtableData.md) | assigned | `0000DT` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-memory/0x0063041c-0x006304a4.SpellSpellInputPaneVtableData.md` |  |
 | [UID:000272][0x00631570-0x00632560.BrowserComGuidReadOnlyData](by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md` |  |
 | [UID:000276][0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks](by-memory/0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks.md) | assigned | `0000HJ` |  | no | `auto-generated/NexusTK/map/AttachedObjectPane.cpp` | `by-memory/0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks.md` |  |
 | [UID:000278][0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets](by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md) | assigned | `0000P9` |  | no | `auto-generated/NexusTK/ui/dialogs/WebBoardDialog.cpp` | `by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md` |  |
@@ -946,7 +950,10 @@ Total_Error: 6
 | [UID:0001ZW][0x0043e250-0x004417dd.MsvcStlJsonCppStringSupport](by-memory/0x0043e250-0x004417dd.MsvcStlJsonCppStringSupport.md) | not_reconstructable |  |  | no |  | `by-memory/0x0043e250-0x004417dd.MsvcStlJsonCppStringSupport.md` |  |
 | [UID:0001ZX][0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport](by-memory/0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport.md) | not_reconstructable |  |  | no |  | `by-memory/0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport.md` |  |
 | [UID:0000Z2][0x00469180-0x004691fa.PaneChildRegistry](by-memory/0x00469180-0x004691fa.PaneChildRegistry.md) | not_reconstructable |  |  | no |  | `by-memory/0x00469180-0x004691fa.PaneChildRegistry.md` |  |
+| [UID:0000ZP][0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks](by-memory/0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks.md) | not_reconstructable |  |  | no |  | `by-memory/0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks.md` |  |
+| [UID:0000ZQ][0x0047e931-0x0047e947.NewPredefinedFormArticleDialogAdjustorThunks](by-memory/0x0047e931-0x0047e947.NewPredefinedFormArticleDialogAdjustorThunks.md) | not_reconstructable |  |  | no |  | `by-memory/0x0047e931-0x0047e947.NewPredefinedFormArticleDialogAdjustorThunks.md` |  |
 | [UID:0000ZV][0x0047ed20-0x0047ed50.ChangeManConstructorCleanup](by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md) | not_reconstructable |  |  | no |  | `by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md` |  |
+| [UID:000102][0x0047ef40-0x0047ef4b.ClearChangeManSingleton](by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md) | not_reconstructable |  |  | no |  | `by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md` |  |
 | [UID:0002FE][0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder](by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md) | not_reconstructable |  |  | no |  | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |  |
 | [UID:0002FV][0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder](by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md) | not_reconstructable |  |  | no |  | `by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md` |  |
 | [UID:00010I][0x00488610-0x004888f0.ClanListPaneVirtuals](by-memory/0x00488610-0x004888f0.ClanListPaneVirtuals.md) | not_reconstructable |  |  | no |  | `by-memory/0x00488610-0x004888f0.ClanListPaneVirtuals.md` |  |
@@ -958,6 +965,7 @@ Total_Error: 6
 | [UID:0002MU][0x004e8a00-0x004e8ae6.CandidateStringQueueClear](by-memory/0x004e8a00-0x004e8ae6.CandidateStringQueueClear.md) | not_reconstructable |  |  | no |  | `by-memory/0x004e8a00-0x004e8ae6.CandidateStringQueueClear.md` |  |
 | [UID:00018F][0x004e9710-0x004e97a3.CandidateStringQueueAppendOwnedString](by-memory/0x004e9710-0x004e97a3.CandidateStringQueueAppendOwnedString.md) | not_reconstructable |  |  | no |  | `by-memory/0x004e9710-0x004e97a3.CandidateStringQueueAppendOwnedString.md` |  |
 | [UID:0002I5][0x00504090-0x00504093.MapPaneNullCallback40](by-memory/0x00504090-0x00504093.MapPaneNullCallback40.md) | not_reconstructable |  |  | no |  | `by-memory/0x00504090-0x00504093.MapPaneNullCallback40.md` |  |
+| [UID:0001MO][0x005b6120-0x005b62c8.SpellSpellInputPane](by-memory/0x005b6120-0x005b62c8.SpellSpellInputPane.md) | not_reconstructable |  |  | no |  | `by-memory/0x005b6120-0x005b62c8.SpellSpellInputPane.md` |  |
 | [UID:0000W8][0x00419ee0-0x00419ef4.InitializeOleSupport](by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md) | unassigned |  |  | no |  | `by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md` |  |
 | [UID:0000WG][0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers](by-memory/0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers.md) | unassigned |  |  | no |  | `by-memory/0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers.md` |  |
 | [UID:0000WL][0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual](by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md) | unassigned |  |  | no |  | `by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md` |  |
@@ -1032,7 +1040,6 @@ Total_Error: 6
 | [UID:0000ZZ][0x0047ee20-0x0047ee95.ChangeManDispatchMessage](by-memory/0x0047ee20-0x0047ee95.ChangeManDispatchMessage.md) | unassigned |  |  | no |  | `by-memory/0x0047ee20-0x0047ee95.ChangeManDispatchMessage.md` |  |
 | [UID:000100][0x0047eea0-0x0047eedf.ChangeManUnregisterObject](by-memory/0x0047eea0-0x0047eedf.ChangeManUnregisterObject.md) | unassigned |  |  | no |  | `by-memory/0x0047eea0-0x0047eedf.ChangeManUnregisterObject.md` |  |
 | [UID:000101][0x0047ef20-0x0047ef3f.CompareChangeEntries](by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md) | unassigned |  |  | no |  | `by-memory/0x0047ef20-0x0047ef3f.CompareChangeEntries.md` |  |
-| [UID:000102][0x0047ef40-0x0047ef4b.ClearChangeManSingleton](by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md) | unassigned |  |  | no |  | `by-memory/0x0047ef40-0x0047ef4b.ClearChangeManSingleton.md` |  |
 | [UID:000103][0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor](by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0047ef50-0x0047efae.ChangeManScalarDeletingDestructor.md` |  |
 | [UID:0002F7][0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys](by-memory/0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys.md) | unassigned |  |  | no |  | `by-memory/0x00480a80-0x00480ac5.ChattingModifyHeightPaneCancelHotkeys.md` |  |
 | [UID:00010A][0x00484030-0x00484221.ClanStatusPaneConstructor](by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md) | unassigned |  |  | no |  | `by-memory/0x00484030-0x00484221.ClanStatusPaneConstructor.md` |  |
@@ -1454,7 +1461,6 @@ Total_Error: 6
 | [UID:0002N4][0x0062f9b8-0x0062fa40.EmotionInputPaneVtableData](by-memory/0x0062f9b8-0x0062fa40.EmotionInputPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0062f9b8-0x0062fa40.EmotionInputPaneVtableData.md` |  |
 | [UID:0002N5][0x0062fad0-0x0062fb58.ChangeSpellSlotInputPaneVtableData](by-memory/0x0062fad0-0x0062fb58.ChangeSpellSlotInputPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0062fad0-0x0062fb58.ChangeSpellSlotInputPaneVtableData.md` |  |
 | [UID:0002N6][0x006300d4-0x006301e8.GroupPostInputPaneVtableData](by-memory/0x006300d4-0x006301e8.GroupPostInputPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x006300d4-0x006301e8.GroupPostInputPaneVtableData.md` |  |
-| [UID:0002N7][0x0063041c-0x006304a4.SpellSpellInputPaneVtableData](by-memory/0x0063041c-0x006304a4.SpellSpellInputPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0063041c-0x006304a4.SpellSpellInputPaneVtableData.md` |  |
 | [UID:0002N8][0x006305c0-0x00630648.SelfSaveInputPaneVtableData](by-memory/0x006305c0-0x00630648.SelfSaveInputPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x006305c0-0x00630648.SelfSaveInputPaneVtableData.md` |  |
 | [UID:0002N9][0x0063064c-0x006307ec.BlockListenInputPaneVtableData](by-memory/0x0063064c-0x006307ec.BlockListenInputPaneVtableData.md) | unassigned |  |  | no |  | `by-memory/0x0063064c-0x006307ec.BlockListenInputPaneVtableData.md` |  |
 | [UID:00026X][0x006307f4-0x00630bd8.UserPaneInputStrings](by-memory/0x006307f4-0x00630bd8.UserPaneInputStrings.md) | unassigned |  |  | no |  | `by-memory/0x006307f4-0x00630bd8.UserPaneInputStrings.md` |  |
@@ -1621,8 +1627,6 @@ Total_Error: 6
 | [UID:0002EL][0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm](by-memory/0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm.md) | unclassified |  |  | no |  | `by-memory/0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm.md` |  |
 | [UID:0002EM][0x00479050-0x00479098.TransferReplyPredefinedAlertRawConstructor](by-memory/0x00479050-0x00479098.TransferReplyPredefinedAlertRawConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00479050-0x00479098.TransferReplyPredefinedAlertRawConstructor.md` |  |
 | [UID:0000ZN][0x004790a0-0x0047910f.TransferReplyPredefinedAlertOnAlertAction](by-memory/0x004790a0-0x0047910f.TransferReplyPredefinedAlertOnAlertAction.md) | unclassified |  |  | no |  | `by-memory/0x004790a0-0x0047910f.TransferReplyPredefinedAlertOnAlertAction.md` |  |
-| [UID:0000ZP][0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks](by-memory/0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks.md` |  |
-| [UID:0000ZQ][0x0047e931-0x0047e947.NewPredefinedFormArticleDialogAdjustorThunks](by-memory/0x0047e931-0x0047e947.NewPredefinedFormArticleDialogAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0047e931-0x0047e947.NewPredefinedFormArticleDialogAdjustorThunks.md` |  |
 | [UID:0000ZR][0x0047ea50-0x0047ea8b.SharedListPaneScalarDeletingDestructor](by-memory/0x0047ea50-0x0047ea8b.SharedListPaneScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0047ea50-0x0047ea8b.SharedListPaneScalarDeletingDestructor.md` |  |
 | [UID:0000ZS][0x0047ec30-0x0047ec6b.NewPredefinedFormArticleDialogScalarDeletingDestructor](by-memory/0x0047ec30-0x0047ec6b.NewPredefinedFormArticleDialogScalarDeletingDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0047ec30-0x0047ec6b.NewPredefinedFormArticleDialogScalarDeletingDestructor.md` |  |
 | [UID:0002EO][0x0047efb0-0x0047f1ce.ChattingPaneConstructor](by-memory/0x0047efb0-0x0047f1ce.ChattingPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x0047efb0-0x0047f1ce.ChattingPaneConstructor.md` |  |
@@ -2013,10 +2017,6 @@ Total_Error: 6
 | [UID:0001MD][0x005b3cb0-0x005b4219.SayToUserNameInputPane](by-memory/0x005b3cb0-0x005b4219.SayToUserNameInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b3cb0-0x005b4219.SayToUserNameInputPane.md` |  |
 | [UID:0001ME][0x005b3e80-0x005b4071.LineInputPaneHistoryNavigation](by-memory/0x005b3e80-0x005b4071.LineInputPaneHistoryNavigation.md) | unclassified |  |  | no |  | `by-memory/0x005b3e80-0x005b4071.LineInputPaneHistoryNavigation.md` |  |
 | [UID:0001MK][0x005b5630-0x005b5830.PostInputPane](by-memory/0x005b5630-0x005b5830.PostInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b5630-0x005b5830.PostInputPane.md` |  |
-| [UID:0001MN][0x005b6120-0x005b61e7.SpellSpellInputPaneConstructor](by-memory/0x005b6120-0x005b61e7.SpellSpellInputPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x005b6120-0x005b61e7.SpellSpellInputPaneConstructor.md` |  |
-| [UID:0001MO][0x005b6120-0x005b62c8.SpellSpellInputPane](by-memory/0x005b6120-0x005b62c8.SpellSpellInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b6120-0x005b62c8.SpellSpellInputPane.md` |  |
-| [UID:0001MP][0x005b61f0-0x005b625c.SpellSpellInputPaneKeyInput](by-memory/0x005b61f0-0x005b625c.SpellSpellInputPaneKeyInput.md) | unclassified |  |  | no |  | `by-memory/0x005b61f0-0x005b625c.SpellSpellInputPaneKeyInput.md` |  |
-| [UID:0001MQ][0x005b6260-0x005b62c8.SpellSpellInputPaneAccept](by-memory/0x005b6260-0x005b62c8.SpellSpellInputPaneAccept.md) | unclassified |  |  | no |  | `by-memory/0x005b6260-0x005b62c8.SpellSpellInputPaneAccept.md` |  |
 | [UID:0001MR][0x005b62d0-0x005b64fa.WieldInputPane](by-memory/0x005b62d0-0x005b64fa.WieldInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b62d0-0x005b64fa.WieldInputPane.md` |  |
 | [UID:0001MS][0x005b6500-0x005b6560.SendWieldPacket](by-memory/0x005b6500-0x005b6560.SendWieldPacket.md) | unclassified |  |  | no |  | `by-memory/0x005b6500-0x005b6560.SendWieldPacket.md` |  |
 | [UID:0001MT][0x005b6560-0x005b6760.WearInputPane](by-memory/0x005b6560-0x005b6760.WearInputPane.md) | unclassified |  |  | no |  | `by-memory/0x005b6560-0x005b6760.WearInputPane.md` |  |

@@ -502,7 +502,7 @@
 - [UID:0000DQ][SpellMacroEditControlPane](by-class/SpellMacroEditControlPane.md) : reconstructable : 84% : medium-high : - Confidence: strong for behavior; medium for helper/thunk completeness.
 - [UID:0000DR][SpellOneArgInputPane](by-class/SpellOneArgInputPane.md) : reconstructable : 86% : strong : - Confidence: strong for spell argument behavior; strong that generated panel helpers and `__wtol` are not spell-input class ownership.
 - [UID:0000DS][SpellSlotInputPane](by-class/SpellSlotInputPane.md) : reconstructable : 86% : strong : - Confidence: strong for behavior and IDA boundaries.
-- [UID:0000DT][SpellSpellInputPane](by-class/SpellSpellInputPane.md) : reconstructable : 80% : medium-high : - Confidence: strong for behavior; medium for final spell vs command-input file placement.
+- [UID:0000DT][SpellSpellInputPane](by-class/SpellSpellInputPane.md) : reconstructable : 86% : strong : Live IDA ties constructor/key/accept ranges, three vtable bases and slots, factory refs, and `SpellInputPanes` parentage; C++ remains blank below the final-source bar.
 - [UID:0000DU][SpellStringInputPane](by-class/SpellStringInputPane.md) : reconstructable : 84% : medium-high : - Confidence: strong for behavior and IDA boundaries; medium for exact source split.
 - [UID:0000DV][SpellThreeArgsInputPane](by-class/SpellThreeArgsInputPane.md) : reconstructable : 86% : strong : - Confidence: strong for behavior and IDA boundaries.
 - [UID:0000DW][SpellTwoArgsInputPane](by-class/SpellTwoArgsInputPane.md) : reconstructable : 86% : strong : - Confidence: strong for behavior and IDA boundaries.

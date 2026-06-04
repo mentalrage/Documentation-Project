@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 285
+Total_Reconstructable: 286
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 212
+Total_Reconstructed_Assigned: 213
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 73
-Total_Unclassified: 300
+Total_Unclassified: 299
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -197,6 +197,7 @@ Total_Error: 0
 | [UID:0000DC][SnowingLayerPane](by-class/SnowingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SnowingLayerPane.md` |  |
 | [UID:0000DM][SpellInputPaneState](by-class/SpellInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellInputPaneState.md` |  |
 | [UID:0000DO][SpellInventoryPane2](by-class/SpellInventoryPane2.md) | assigned | `0000O1` |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-class/SpellInventoryPane2.md` |  |
+| [UID:0000DT][SpellSpellInputPane](by-class/SpellSpellInputPane.md) | assigned | `0000O0` |  | no | `auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp` | `by-class/SpellSpellInputPane.md` |  |
 | [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellWhoInputPane.md` |  |
 | [UID:0000E0][StaticCloudFilterEffecter](by-class/StaticCloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/StaticCloudFilterEffecter.md` |  |
 | [UID:0000E3][StaticTextControlPane](by-class/StaticTextControlPane.md) | assigned | `0000O8` |  | no | `auto-generated/NexusTK/ui/controls/StaticTextControlPane.cpp` | `by-class/StaticTextControlPane.md` |  |
@@ -535,7 +536,6 @@ Total_Error: 0
 | [UID:0000DQ][SpellMacroEditControlPane](by-class/SpellMacroEditControlPane.md) | unclassified |  |  | no |  | `by-class/SpellMacroEditControlPane.md` |  |
 | [UID:0000DR][SpellOneArgInputPane](by-class/SpellOneArgInputPane.md) | unclassified |  |  | no |  | `by-class/SpellOneArgInputPane.md` |  |
 | [UID:0000DS][SpellSlotInputPane](by-class/SpellSlotInputPane.md) | unclassified |  |  | no |  | `by-class/SpellSlotInputPane.md` |  |
-| [UID:0000DT][SpellSpellInputPane](by-class/SpellSpellInputPane.md) | unclassified |  |  | no |  | `by-class/SpellSpellInputPane.md` |  |
 | [UID:0000DU][SpellStringInputPane](by-class/SpellStringInputPane.md) | unclassified |  |  | no |  | `by-class/SpellStringInputPane.md` |  |
 | [UID:0000DV][SpellThreeArgsInputPane](by-class/SpellThreeArgsInputPane.md) | unclassified |  |  | no |  | `by-class/SpellThreeArgsInputPane.md` |  |
 | [UID:0000DW][SpellTwoArgsInputPane](by-class/SpellTwoArgsInputPane.md) | unclassified |  |  | no |  | `by-class/SpellTwoArgsInputPane.md` |  |
