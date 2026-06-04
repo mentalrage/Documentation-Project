@@ -91,8 +91,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000D7` | 82 | 76 | 79.0 | `by-class/SimpleHelpPane2.md` |
-| `0000DB` | 82 | 76 | 79.0 | `by-class/SliderControlPane.md` |
 | `0000EB` | 82 | 76 | 79.0 | `by-class/TabPane.md` |
 | `0000EK` | 82 | 76 | 79.0 | `by-class/TextButtonExControlPane.md` |
 | `0000FQ` | 82 | 76 | 79.0 | `by-class/UserPane.md` |

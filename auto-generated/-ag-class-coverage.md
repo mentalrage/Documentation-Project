@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 289
+Total_Reconstructable: 291
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 218
+Total_Reconstructed_Assigned: 220
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 71
-Total_Unclassified: 296
+Total_Unclassified: 294
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -196,8 +196,10 @@ Total_Error: 0
 | [UID:0000D0][ServerItemMenuItemList](by-class/ServerItemMenuItemList.md) | assigned | `0000KF` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemMenuDialogs.cpp` | `by-class/ServerItemMenuItemList.md` |  |
 | [UID:0000D1][ServerSelectMenuItemList](by-class/ServerSelectMenuItemList.md) | assigned | `0000NO` |  | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-class/ServerSelectMenuItemList.md` |  |
 | [UID:0000D5][ShoutInputPane](by-class/ShoutInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/ShoutInputPane.md` |  |
+| [UID:0000D7][SimpleHelpPane2](by-class/SimpleHelpPane2.md) | assigned | `0000JU` |  | no | `auto-generated/NexusTK/ui/controls/HelpPanes.cpp` | `by-class/SimpleHelpPane2.md` |  |
 | [UID:0000D9][SimpleUString](by-class/SimpleUString.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/SimpleUString.md` |  |
 | [UID:0000DA][SimpleUStringVector](by-class/SimpleUStringVector.md) | assigned | `0000OB` |  | no | `auto-generated/NexusTK/util/StringUtil.cpp` | `by-class/SimpleUStringVector.md` |  |
+| [UID:0000DB][SliderControlPane](by-class/SliderControlPane.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-class/SliderControlPane.md` |  |
 | [UID:0000DC][SnowingLayerPane](by-class/SnowingLayerPane.md) | assigned | `0000P8` |  | no | `auto-generated/NexusTK/map/WeatherLayerPane.cpp` | `by-class/SnowingLayerPane.md` |  |
 | [UID:0000DM][SpellInputPaneState](by-class/SpellInputPaneState.md) | assigned | `0000OH` |  | no | `auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp` | `by-class/SpellInputPaneState.md` |  |
 | [UID:0000DO][SpellInventoryPane2](by-class/SpellInventoryPane2.md) | assigned | `0000O1` |  | no | `auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp` | `by-class/SpellInventoryPane2.md` |  |
@@ -522,8 +524,6 @@ Total_Error: 0
 | [UID:0000D3][ServerSpellMenuDialog](by-class/ServerSpellMenuDialog.md) | unclassified |  |  | no |  | `by-class/ServerSpellMenuDialog.md` |  |
 | [UID:0000D4][ServerSpellMenuItemList](by-class/ServerSpellMenuItemList.md) | unclassified |  |  | no |  | `by-class/ServerSpellMenuItemList.md` |  |
 | [UID:0000D6][SimpleHelpPane](by-class/SimpleHelpPane.md) | unclassified |  |  | no |  | `by-class/SimpleHelpPane.md` |  |
-| [UID:0000D7][SimpleHelpPane2](by-class/SimpleHelpPane2.md) | unclassified |  |  | no |  | `by-class/SimpleHelpPane2.md` |  |
-| [UID:0000DB][SliderControlPane](by-class/SliderControlPane.md) | unclassified |  |  | no |  | `by-class/SliderControlPane.md` |  |
 | [UID:0000DD][Socket](by-class/Socket.md) | unclassified |  |  | no |  | `by-class/Socket.md` |  |
 | [UID:0000DE][SolidColorFilterEffecter](by-class/SolidColorFilterEffecter.md) | unclassified |  |  | no |  | `by-class/SolidColorFilterEffecter.md` |  |
 | [UID:0000DF][SortedList](by-class/SortedList.md) | unclassified |  |  | no |  | `by-class/SortedList.md` |  |
