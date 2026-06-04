@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 254
+Total_Reconstructable: 256
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 177
+Total_Reconstructed_Assigned: 179
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 331
+Total_Unclassified: 329
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -27,8 +27,10 @@ Total_Error: 0
 | [UID:000010][BoardListPane](by-class/BoardListPane.md) | assigned | `0000HT` | 30 | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-class/BoardListPane.md` |  |
 | [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md) | assigned | `0000HU` |  | no | `auto-generated/NexusTK/ui/panels/BowGaugeObjectPane.cpp` | `by-class/BowGaugeObjectPane.md` |  |
 | [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserControlPaneOld.md` |  |
+| [UID:000017][BrowserDialog](by-class/BrowserDialog.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserDialog.md` |  |
 | [UID:000018][BrowserDialogOld](by-class/BrowserDialogOld.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserDialogOld.md` |  |
 | [UID:000019][BrowserPane](by-class/BrowserPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserPane.md` |  |
+| [UID:00001A][BrowserThread](by-class/BrowserThread.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-class/BrowserThread.md` |  |
 | [UID:00003D][CScrollBarBackPane](by-class/CScrollBarBackPane.md) | assigned | `0000NF` |  | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/CScrollBarBackPane.md` |  |
 | [UID:00001H][CashShopRequest](by-class/CashShopRequest.md) | assigned | `0000I0` |  | no | `auto-generated/NexusTK/cashshop/CashShopRequest.cpp` | `by-class/CashShopRequest.md` |  |
 | [UID:00001I][CashShopVersionRequest](by-class/CashShopVersionRequest.md) | assigned | `0000I1` | 10 | no | `auto-generated/NexusTK/cashshop/CashShopVersionRequest.cpp` | `by-class/CashShopVersionRequest.md` |  |
@@ -285,8 +287,6 @@ Total_Error: 0
 | [UID:00000U][BalloonObjectPane](by-class/BalloonObjectPane.md) | unclassified |  |  | no |  | `by-class/BalloonObjectPane.md` |  |
 | [UID:000013][Browser](by-class/Browser.md) | unclassified |  |  | no |  | `by-class/Browser.md` |  |
 | [UID:000015][BrowserControlPane](by-class/BrowserControlPane.md) | unclassified |  |  | no |  | `by-class/BrowserControlPane.md` |  |
-| [UID:000017][BrowserDialog](by-class/BrowserDialog.md) | unclassified |  |  | no |  | `by-class/BrowserDialog.md` |  |
-| [UID:00001A][BrowserThread](by-class/BrowserThread.md) | unclassified |  |  | no |  | `by-class/BrowserThread.md` |  |
 | [UID:00001B][BrowserWindow](by-class/BrowserWindow.md) | unclassified |  |  | no |  | `by-class/BrowserWindow.md` |  |
 | [UID:00001D][BulletinSession](by-class/BulletinSession.md) | unclassified |  |  | no |  | `by-class/BulletinSession.md` |  |
 | [UID:00001E][ButtonControlPane](by-class/ButtonControlPane.md) | unclassified |  |  | no |  | `by-class/ButtonControlPane.md` |  |

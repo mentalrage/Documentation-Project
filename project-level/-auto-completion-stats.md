@@ -124,9 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
-| `00001A` | 72 | 80 | 76.0 | `by-class/BrowserThread.md` |
-| `00001H` | 72 | 80 | 76.0 | `by-class/CashShopRequest.md` |
 | `000029` | 72 | 80 | 76.0 | `by-class/ClanDepItemDialog.md` |
 | `00002G` | 72 | 80 | 76.0 | `by-class/ClanItemListPane.md` |
 | `000037` | 72 | 80 | 76.0 | `by-class/ConnStatusPane.md` |
@@ -139,9 +136,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
-| `00001A` | 72 | 80 | 76.0 | `by-class/BrowserThread.md` |
-| `00001H` | 72 | 80 | 76.0 | `by-class/CashShopRequest.md` |
 | `000029` | 72 | 80 | 76.0 | `by-class/ClanDepItemDialog.md` |
 | `00002G` | 72 | 80 | 76.0 | `by-class/ClanItemListPane.md` |
 | `000037` | 72 | 80 | 76.0 | `by-class/ConnStatusPane.md` |

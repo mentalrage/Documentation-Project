@@ -1,8 +1,8 @@
 *** UID:000017 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -18,26 +18,39 @@
 
 - Source: [UID:0000HV][Browser](by-file/Browser.md)
 - Proposed path: `browser/Browser.cpp` or `browser/BrowserDialog.cpp`
-- Confidence: strong for browser folder, medium for exact file split
+- Confidence: strong for the browser module and parent attachment; medium-high for exact file split between a monolithic `Browser.cpp` and a separate `BrowserDialog.cpp`
 
 ## Methods
 
-- `0x0046a8c0` `NavigateToUrl` - forwards a URL into the embedded control pane if the dialog is open.
-- `0x0046aa40-0x0046ad0a` constructor - creates the singleton dialog, title pane, and embedded browser pane.
-- `0x0046ad10-0x0046b51d` destructor and virtual helpers - clears the singleton, handles close/teardown, resized input, EPF frame/chrome drawing, and child control rectangles.
+| Range | Current interpretation | Notes |
+| --- | --- | --- |
+| `0x0046a8c0-0x0046a8d7` | `BrowserDialog::NavigateToUrl` | Thin singleton/dialog wrapper that forwards the URL into the embedded browser control through `0x0046bd30`. |
+| `0x0046aa40-0x0046ad0a` | constructor | Creates the singleton dialog, installs BrowserPane and BrowserDialog vtables, builds title/browser child panes, and calls the child-rect helper twice. |
+| `0x0046ad10-0x0046ad39` | destructor body | Clears `dword_67AB98`, restores BrowserPane vtables, and chains to the base dialog teardown. |
+| `0x0046ad40-0x0046ad7b` | close/teardown virtual | Shuts down the embedded `BrowserControlPane`, refreshes/closes the dialog, and unregisters it from the pane registry when the action argument is zero. |
+| `0x0046ad80-0x0046aea8` | browser-window resize/input virtual | Handles resize/input, calls `GetClientRect`/`MoveWindow`, and refreshes the active screen. |
+| `0x0046aeb0-0x0046b02d` | visual refresh helper | Draws state-dependent browser-dialog UI pieces after clearing transient pane state. |
+| `0x0046b030-0x0046b0c3` | title/content draw helper | Uses `off_60DB5C` and `off_60DB78` to draw browser-dialog title/content art. |
+| `0x0046b0d0-0x0046b4af` | frame/chrome draw helper | Tiles the EPF frame/chrome using the `off_60DB94` and `off_60DBB0` resource tables. |
+| `0x0046b4b0-0x0046b51d` | child-rect helper | Computes slot `0` title bounds and slot `1` browser-content bounds from the dialog width/height fields. |
 
 ## Evidence
 
-- Wave3 records this as restored from a stale `UserPaneTable_46AA40` projection, with singleton global `0x0067AB98`.
-- IDA MCP confirms `NavigateToUrl` at `0x0046a8c0-0x0046a8d7`.
-- IDA MCP confirms constructor at `0x0046aa40-0x0046ad0a`, with callers at `0x00513ebe` and `0x005a7079`.
-- IDA MCP shows the constructor calls `BrowserControlPane::BrowserControlPane` at `0x0046b520`.
-- IDA MCP confirms the adjacent `0x0046ad10-0x0046b51d` virtual-method cluster is tied to BrowserDialog vtable entries around `0x006133e0-0x00613414`.
+- Live IDA MCP recheck on 2026-06-04 used `C:\Users\admin\Desktop\Clone\NexusTK\NexusTK.exe`, image base `0x00400000`, MD5 `4247e04e20b65d6414c7238aa8ff5515`.
+- IDA confirms `NavigateToUrl` at `0x0046a8c0-0x0046a8d7`; it is called from `0x00513e7f` inside the `0x00513da0` MapPane packet helper and calls the embedded browser-control navigation helper at `0x0046bd30`.
+- IDA confirms the constructor at `0x0046aa40-0x0046ad0a`, with direct callers at `0x00513ebe` inside the MapPane packet helper and `0x005a7079` inside `UserPane::OnKeyEvent`.
+- Constructor data refs install BrowserPane vtables at `0x006132ec`, `0x00613360`, and `0x00613390`, then BrowserDialog vtables at `0x0061339c`, `0x00613410`, and `0x00613440`.
+- Constructor refs write `dword_67AB98` at `0x0046aab7` and `0x0046aabe`, call the child-rect helper at `0x0046ab1d` and `0x0046ab5f`, and call the embedded `BrowserControlPane` constructor at `0x0046ab86`.
+- Singleton `dword_67AB98` xrefs are now mapped: constructor writes at `0x0046aab7`/`0x0046aabe`, destructor clear at `0x0046ad10`, Browser-family clears at `0x00470220` and `0x00470586`, and reads from MapPane/UserPane/browser-launch paths at `0x00508d68`, `0x00513e67`, `0x005145ac`, `0x005a7005`, and `0x005a7037`.
+- Vtable slots in the `0x0061339c-0x00613440` BrowserDialog group point to the destructor/delete thunks and virtual helpers; the key source-behavior slots include `0x006133e0 -> 0x0046aeb0`, `0x006133e4 -> 0x0046ad40`, `0x006133ec -> 0x0046b030`, `0x006133f0 -> 0x0046b0d0`, and `0x00613414 -> 0x0046ad80`.
+- IDA confirms the child-rect helper returns title bounds `(width - 63) / 2, height - 32, 63, 24` for slot `0`, and browser content bounds `11, 42, width - 22, height - 82` for slot `1`.
+- Byte checks confirm `0x0046ad0a-0x0046ad10` and `0x0046b51d-0x0046b520` are `0xcc` alignment padding between the constructor, virtual cluster, and `BrowserControlPane` constructor.
 
 ## Open Questions
 
-- Type the singleton global currently named `dword_67AB98`.
-- Determine whether the stale class projection has left any wrong source-line ownership in Wave3.
+- Add a dedicated global page for the newer `BrowserDialog *g_pBrowserDialog` singleton if final header placement needs it.
+- Finalize source-facing names for the frame/chrome helpers and resource-table globals before writing C++.
+- Decide whether the original source split was one `Browser.cpp` or a separate `BrowserDialog.cpp` inside the browser module.
 
 ## Cross-References
 
@@ -47,6 +60,10 @@
 
 ## Changes
 
+- 2026-06-04: Raised completion/confidence from `72/80` to `84/88`, marked reconstructable, and attached to [UID:0000HV][Browser](by-file/Browser.md).
+  - Before: the page identified the constructor and virtual cluster but still carried stale provenance wording, was not attached to the Browser parent, and did not record the singleton/vtable/child-rect evidence in enough detail to justify leaving the low-score queue.
+  - After: live IDA evidence records the binary identity, exact method ranges, MapPane/UserPane callers, BrowserDialog vtable stores/slots, singleton reads and clears, embedded `BrowserControlPane` construction, child-rect arithmetic, and alignment padding.
+  - Reasoning: the class is clearly source-authored browser-module code and the parent file is already high-confidence enough for attachment. Final C++ remains blank because frame-resource typing, exact virtual names, and the one-file versus split-file decision are still below the 95/95 reconstruction bar.
 - Before: this page only listed `NavigateToUrl` and the constructor, and its memory reference pointed at a range ending in `0x0046ad09`.
 - Changed to: the constructor endpoint is now `0x0046ad0a`, and the adjacent destructor/virtual helper cluster at `0x0046ad10-0x0046b51d` is included.
 - Summary/evidence: IDA MCP reports `sub_46AA40` ends at `0x0046ad0a`, and vtable xrefs place `sub_46AD40`, `sub_46AD80`, `sub_46AEB0`, `sub_46B030`, and `sub_46B0D0` in the BrowserDialog vtable region.
