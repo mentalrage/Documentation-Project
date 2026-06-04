@@ -9,8 +9,8 @@
 
 - Confidence: strong for `DATFile.cpp` ownership and for `ParseEntries` as a private/static-style helper in that module.
 - Proposed module: `NexusTK/archive/DATFile.cpp`
-- Current recovered files: `source-3/simroot_v2/class_DATFile.cpp` plus helper files for `LoadDatFileBuffer_004BB120` and `ParseEntries_004A5E60`.
-- Evidence basis: Wave3 class summaries and missing-ref checks, generated `simroot_v2` source, existing DAT format notes, and targeted IDA MCP function/caller/callee/decompile checks through 2026-05-25.
+- Related helper pages: [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md) and [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md).
+- Evidence basis: existing DAT format notes and targeted IDA MCP function/caller/callee/decompile checks; `ParseEntries` ownership was rechecked live on 2026-06-03.
 - Type docs: [UID:0001XK][FileStreamVtables](by-type/by-vtable/FileStreamVtables.md), [UID:0001UG][FileStreamLayouts](by-type/by-struct/FileStreamLayouts.md)
 
 ## Proposed Contents
@@ -95,3 +95,6 @@ IDA MCP confirms these exact function starts and half-open ranges:
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, scores were `86/88`, and the module path used `archive/DATFile.cpp` without an explicit generated root.
   - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/archive/"`, scores `87/89`, and proposed module `NexusTK/archive/DATFile.cpp`.
   - Summary/evidence: IDA MCP reconfirmed the per-entry stream reader, `DATFile` vtable, `ParseEntries` caller restriction, and `LoadDatFileBuffer` lifecycle wrapper. No C++ reconstruction code is emitted yet because individual method source rewrites and neighboring-range confidence are below the `95+` final-code gate.
+- 2026-06-03 ParseEntries evidence cleanup:
+  - What changed: status provenance was narrowed to live IDA MCP and DAT-format evidence; scores and reconstruction path are unchanged.
+  - Summary/evidence: live IDA MCP reconfirmed `ParseEntries` range `0x004a5e60-0x004a609f`, the two direct DATFile wrapper call sites, wrapper decompile behavior, lack of project callees, and the padding split after the helper.

@@ -5,9 +5,9 @@
 Total_Type: 64
 Total_Reconstructable: 30
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 16
+Total_Reconstructed_Assigned: 19
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 14
+Total_Reconstructable_Unassigned: 11
 Total_Unclassified: 31
 Total_Error: 0
 
@@ -26,20 +26,20 @@ Total_Error: 0
 | [UID:0000V2][PacketDigest_00515380](by-item/PacketDigest_00515380.md) | assigned | `0000L6` |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-item/PacketDigest_00515380.md` |  |
 | [UID:0000V3][PacketTransformHelpers](by-item/PacketTransformHelpers.md) | assigned | `0000M9` |  | no | `auto-generated/NexusTK/network/PacketTransform.cpp` | `by-item/PacketTransformHelpers.md` |  |
 | [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md) | assigned | `0000MA` |  | no | `auto-generated/NexusTK/render/Palette.cpp` | `by-item/PaletteSlotTable.md` |  |
+| [UID:0000V5][ParseEntries_004A5E60](by-item/ParseEntries_004A5E60.md) | assigned | `0000IN` |  | no | `auto-generated/NexusTK/archive/DATFile.cpp` | `by-item/ParseEntries_004A5E60.md` |  |
 | [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md) | assigned | `0000MI` |  | no | `auto-generated/NexusTK/util/PathUtil.cpp` | `by-item/PathExistsViaStat_00582460.md` |  |
+| [UID:0000V8][PopupMenuSelectionCallback_0049AF00](by-item/PopupMenuSelectionCallback_0049AF00.md) | assigned | `0000AK` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-item/PopupMenuSelectionCallback_0049AF00.md` |  |
 | [UID:0000V9][ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90](by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md` |  |
+| [UID:0000VC][ScaleDirectionOffsetToPixels_00505100](by-item/ScaleDirectionOffsetToPixels_00505100.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-item/ScaleDirectionOffsetToPixels_00505100.md` |  |
 | [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |  |
 | [UID:0000U5][BuildFramePartPanes_004B7120](by-item/BuildFramePartPanes_004B7120.md) | not_reconstructable |  |  | no |  | `by-item/BuildFramePartPanes_004B7120.md` |  |
 | [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md) | not_reconstructable |  |  | no |  | `by-item/InitAlphaSurfaceView_004623C0.md` |  |
 | [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) | not_reconstructable |  |  | no |  | `by-item/ScopedMarkerMissingMethodBodies.md` |  |
 | [UID:0000UJ][DrawTextInRect_004BAD70](by-item/DrawTextInRect_004BAD70.md) | unassigned |  |  | no |  | `by-item/DrawTextInRect_004BAD70.md` |  |
 | [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) | unassigned |  |  | no |  | `by-item/LoadFrameDrawRecord_004D1600.md` |  |
-| [UID:0000V5][ParseEntries_004A5E60](by-item/ParseEntries_004A5E60.md) | unassigned |  |  | no |  | `by-item/ParseEntries_004A5E60.md` |  |
 | [UID:0000V7][PhoneBookListHelpers_58cfa0_58dcb0](by-item/PhoneBookListHelpers_58cfa0_58dcb0.md) | unassigned |  |  | no |  | `by-item/PhoneBookListHelpers_58cfa0_58dcb0.md` |  |
-| [UID:0000V8][PopupMenuSelectionCallback_0049AF00](by-item/PopupMenuSelectionCallback_0049AF00.md) | unassigned |  |  | no |  | `by-item/PopupMenuSelectionCallback_0049AF00.md` |  |
 | [UID:0000VA][ResolveSpritePartPath_004E19D0](by-item/ResolveSpritePartPath_004E19D0.md) | unassigned |  |  | no |  | `by-item/ResolveSpritePartPath_004E19D0.md` |  |
 | [UID:0000VB][ResourceLayoutEntry](by-item/ResourceLayoutEntry.md) | unassigned |  |  | no |  | `by-item/ResourceLayoutEntry.md` |  |
-| [UID:0000VC][ScaleDirectionOffsetToPixels_00505100](by-item/ScaleDirectionOffsetToPixels_00505100.md) | unassigned |  |  | no |  | `by-item/ScaleDirectionOffsetToPixels_00505100.md` |  |
 | [UID:0000VE][ScreenEffecterSmallConstructorBoundaries](by-item/ScreenEffecterSmallConstructorBoundaries.md) | unassigned |  |  | no |  | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |  |
 | [UID:0000VF][ScreenshotProofPacket_00558240](by-item/ScreenshotProofPacket_00558240.md) | unassigned |  |  | no |  | `by-item/ScreenshotProofPacket_00558240.md` |  |
 | [UID:0000VG][ServerSelectHelpers_574510_5745b0](by-item/ServerSelectHelpers_574510_5745b0.md) | unassigned |  |  | no |  | `by-item/ServerSelectHelpers_574510_5745b0.md` |  |

@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2245
-Total_Reconstructable: 1391
+Total_Reconstructable: 1393
 Total_Not_Reconstructable: 15
-Total_Reconstructed_Assigned: 865
+Total_Reconstructed_Assigned: 867
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 521
-Total_Unclassified: 839
+Total_Unclassified: 837
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -226,6 +226,7 @@ Total_Error: 5
 | [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md) | assigned | `00013Q` | 10 | no | `auto-generated/NexusTK/util/Decoder.cpp` | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |  |
 | [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md) | assigned | `00003M` | 30 | no | `auto-generated/NexusTK/util/Decoder.cpp` | `by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md` |  |
 | [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md) | assigned | `00013Q` | 20 | no | `auto-generated/NexusTK/util/Decoder.cpp` | `by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md` |  |
+| [UID:00013W][0x004a5e60-0x004a609f.ParseEntries](by-memory/0x004a5e60-0x004a609f.ParseEntries.md) | assigned | `0000IN` |  | no | `auto-generated/NexusTK/archive/DATFile.cpp` | `by-memory/0x004a5e60-0x004a609f.ParseEntries.md` |  |
 | [UID:0002HJ][0x004a60d0-0x004a60f5.Win32ErrorConstructor](by-memory/0x004a60d0-0x004a60f5.Win32ErrorConstructor.md) | assigned | `0000G7` | 10 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a60d0-0x004a60f5.Win32ErrorConstructor.md` |  |
 | [UID:00013X][0x004a60d0-0x004a6a76.ErrorWrappers](by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md) | assigned | `0000J5` | 20 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md` |  |
 | [UID:0002HK][0x004a6260-0x004a6284.DDErrorConstructor](by-memory/0x004a6260-0x004a6284.DDErrorConstructor.md) | assigned | `00003L` | 10 | no | `auto-generated/NexusTK/util/Error.cpp` | `by-memory/0x004a6260-0x004a6284.DDErrorConstructor.md` |  |
@@ -445,6 +446,7 @@ Total_Error: 5
 | [UID:0002QI][0x00504b70-0x00504b8f.MapPaneTagDetachMessage](by-memory/0x00504b70-0x00504b8f.MapPaneTagDetachMessage.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00504b70-0x00504b8f.MapPaneTagDetachMessage.md` |  |
 | [UID:0002QJ][0x00504b90-0x00504df1.MapPaneLoadCompressedMapFile](by-memory/0x00504b90-0x00504df1.MapPaneLoadCompressedMapFile.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00504b90-0x00504df1.MapPaneLoadCompressedMapFile.md` |  |
 | [UID:0002QK][0x00504e00-0x00505075.MapPaneSaveCompressedMapFile](by-memory/0x00504e00-0x00505075.MapPaneSaveCompressedMapFile.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00504e00-0x00505075.MapPaneSaveCompressedMapFile.md` |  |
+| [UID:0001AQ][0x00505100-0x00505123.ScaleDirectionOffsetToPixels](by-memory/0x00505100-0x00505123.ScaleDirectionOffsetToPixels.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x00505100-0x00505123.ScaleDirectionOffsetToPixels.md` |  |
 | [UID:0001AR][0x005051c0-0x00505228.DrawVisibleTilesHelper](by-memory/0x005051c0-0x00505228.DrawVisibleTilesHelper.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x005051c0-0x00505228.DrawVisibleTilesHelper.md` |  |
 | [UID:0002QL][0x005058b0-0x0050593e.MapPaneScrollViewportByDirection](by-memory/0x005058b0-0x0050593e.MapPaneScrollViewportByDirection.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x005058b0-0x0050593e.MapPaneScrollViewportByDirection.md` |  |
 | [UID:0002QM][0x005059d0-0x00505bf8.MapPaneRecenterAndSendPosition](by-memory/0x005059d0-0x00505bf8.MapPaneRecenterAndSendPosition.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-memory/0x005059d0-0x00505bf8.MapPaneRecenterAndSendPosition.md` |  |
@@ -1740,7 +1742,6 @@ Total_Error: 5
 | [UID:00013I][0x004a5480-0x004a54c6.EncoderWriteBytes](by-memory/0x004a5480-0x004a54c6.EncoderWriteBytes.md) | unclassified |  |  | no |  | `by-memory/0x004a5480-0x004a54c6.EncoderWriteBytes.md` |  |
 | [UID:00013J][0x004a55c0-0x004a55de.EncoderInitialize](by-memory/0x004a55c0-0x004a55de.EncoderInitialize.md) | unclassified |  |  | no |  | `by-memory/0x004a55c0-0x004a55de.EncoderInitialize.md` |  |
 | [UID:00013K][0x004a55e0-0x004a5621.EncoderFinalize](by-memory/0x004a55e0-0x004a5621.EncoderFinalize.md) | unclassified |  |  | no |  | `by-memory/0x004a55e0-0x004a5621.EncoderFinalize.md` |  |
-| [UID:00013W][0x004a5e60-0x004a609f.ParseEntries](by-memory/0x004a5e60-0x004a609f.ParseEntries.md) | unclassified |  |  | no |  | `by-memory/0x004a5e60-0x004a609f.ParseEntries.md` |  |
 | [UID:000229][0x004a60a0-0x004a60cb.MsvcInt64RuntimeHelpers](by-memory/0x004a60a0-0x004a60cb.MsvcInt64RuntimeHelpers.md) | unclassified |  |  | no |  | `by-memory/0x004a60a0-0x004a60cb.MsvcInt64RuntimeHelpers.md` |  |
 | [UID:00014B][0x004a8a90-0x004ab434.EventObjects](by-memory/0x004a8a90-0x004ab434.EventObjects.md) | unclassified |  |  | no |  | `by-memory/0x004a8a90-0x004ab434.EventObjects.md` |  |
 | [UID:00014C][0x004a8b40-0x004ab476.EventMan](by-memory/0x004a8b40-0x004ab476.EventMan.md) | unclassified |  |  | no |  | `by-memory/0x004a8b40-0x004ab476.EventMan.md` |  |
@@ -1829,7 +1830,6 @@ Total_Error: 5
 | [UID:0001AL][0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes](by-memory/0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes.md) | unclassified |  |  | no |  | `by-memory/0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes.md` |  |
 | [UID:0001AM][0x00503620-0x00503648.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503648.MiniMapButtonPaneCleanup.md) | unclassified |  |  | no |  | `by-memory/0x00503620-0x00503648.MiniMapButtonPaneCleanup.md` |  |
 | [UID:0001AN][0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks.md) | unclassified |  |  | no |  | `by-memory/0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks.md` |  |
-| [UID:0001AQ][0x00505100-0x00505123.ScaleDirectionOffsetToPixels](by-memory/0x00505100-0x00505123.ScaleDirectionOffsetToPixels.md) | unclassified |  |  | no |  | `by-memory/0x00505100-0x00505123.ScaleDirectionOffsetToPixels.md` |  |
 | [UID:0001AX][0x00510400-0x005104c7.MapPaneDayNightPacketRawBody](by-memory/0x00510400-0x005104c7.MapPaneDayNightPacketRawBody.md) | unclassified |  |  | no |  | `by-memory/0x00510400-0x005104c7.MapPaneDayNightPacketRawBody.md` |  |
 | [UID:0001B1][0x00514920-0x00514e5b.MapRefreshDimmer](by-memory/0x00514920-0x00514e5b.MapRefreshDimmer.md) | unclassified |  |  | no |  | `by-memory/0x00514920-0x00514e5b.MapRefreshDimmer.md` |  |
 | [UID:0001B3][0x00514ae0-0x00514d1e.ObjectPanePoolFreeUnwindWrappers](by-memory/0x00514ae0-0x00514d1e.ObjectPanePoolFreeUnwindWrappers.md) | unclassified |  |  | no |  | `by-memory/0x00514ae0-0x00514d1e.ObjectPanePoolFreeUnwindWrappers.md` |  |
