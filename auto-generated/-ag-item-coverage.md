@@ -5,9 +5,9 @@
 Total_Type: 64
 Total_Reconstructable: 30
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 12
+Total_Reconstructed_Assigned: 14
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 18
+Total_Reconstructable_Unassigned: 16
 Total_Unclassified: 31
 Total_Error: 0
 
@@ -18,8 +18,10 @@ Total_Error: 0
 | [UID:0000US][HalfBlendSpan16Blocks_00460C10](by-item/HalfBlendSpan16Blocks_00460C10.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-item/HalfBlendSpan16Blocks_00460C10.md` |  |
 | [UID:0000UT][HasDATEntry_0049C700](by-item/HasDATEntry_0049C700.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-item/HasDATEntry_0049C700.md` |  |
 | [UID:0000UV][InitializeMainUiGraph_004F7D10](by-item/InitializeMainUiGraph_004F7D10.md) | assigned | `0000L1` |  | no | `auto-generated/NexusTK/ui/MainUiGraph.cpp` | `by-item/InitializeMainUiGraph_004F7D10.md` |  |
+| [UID:0000UW][LoadDatFileBuffer_004BB120](by-item/LoadDatFileBuffer_004BB120.md) | assigned | `0000IN` |  | no | `auto-generated/NexusTK/archive/DATFile.cpp` | `by-item/LoadDatFileBuffer_004BB120.md` |  |
 | [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) | assigned | `0000K1` |  | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-item/LoadImageFrameTable_004D0F50.md` |  |
 | [UID:0000UZ][LoadPcxImage_004A17B0](by-item/LoadPcxImage_004A17B0.md) | assigned | `0000K3` |  | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-item/LoadPcxImage_004A17B0.md` |  |
+| [UID:0000V0][LoadTileEpfMetadata_004D1B80](by-item/LoadTileEpfMetadata_004D1B80.md) | assigned | `0000L5` |  | no | `auto-generated/NexusTK/render/MapTileImageLib.cpp` | `by-item/LoadTileEpfMetadata_004D1B80.md` |  |
 | [UID:0000V2][PacketDigest_00515380](by-item/PacketDigest_00515380.md) | assigned | `0000L6` |  | no | `auto-generated/NexusTK/util/MD5.cpp` | `by-item/PacketDigest_00515380.md` |  |
 | [UID:0000V3][PacketTransformHelpers](by-item/PacketTransformHelpers.md) | assigned | `0000M9` |  | no | `auto-generated/NexusTK/network/PacketTransform.cpp` | `by-item/PacketTransformHelpers.md` |  |
 | [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md) | assigned | `0000MI` |  | no | `auto-generated/NexusTK/util/PathUtil.cpp` | `by-item/PathExistsViaStat_00582460.md` |  |
@@ -29,9 +31,7 @@ Total_Error: 0
 | [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md) | not_reconstructable |  |  | no |  | `by-item/InitAlphaSurfaceView_004623C0.md` |  |
 | [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) | not_reconstructable |  |  | no |  | `by-item/ScopedMarkerMissingMethodBodies.md` |  |
 | [UID:0000UJ][DrawTextInRect_004BAD70](by-item/DrawTextInRect_004BAD70.md) | unassigned |  |  | no |  | `by-item/DrawTextInRect_004BAD70.md` |  |
-| [UID:0000UW][LoadDatFileBuffer_004BB120](by-item/LoadDatFileBuffer_004BB120.md) | unassigned |  |  | no |  | `by-item/LoadDatFileBuffer_004BB120.md` |  |
 | [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) | unassigned |  |  | no |  | `by-item/LoadFrameDrawRecord_004D1600.md` |  |
-| [UID:0000V0][LoadTileEpfMetadata_004D1B80](by-item/LoadTileEpfMetadata_004D1B80.md) | unassigned |  |  | no |  | `by-item/LoadTileEpfMetadata_004D1B80.md` |  |
 | [UID:0000V1][PacketBufferHelpers](by-item/PacketBufferHelpers.md) | unassigned |  |  | no |  | `by-item/PacketBufferHelpers.md` |  |
 | [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md) | unassigned |  |  | no |  | `by-item/PaletteSlotTable.md` |  |
 | [UID:0000V5][ParseEntries_004A5E60](by-item/ParseEntries_004A5E60.md) | unassigned |  |  | no |  | `by-item/ParseEntries_004A5E60.md` |  |

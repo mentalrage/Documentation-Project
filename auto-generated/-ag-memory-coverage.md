@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2245
-Total_Reconstructable: 1388
+Total_Reconstructable: 1389
 Total_Not_Reconstructable: 15
-Total_Reconstructed_Assigned: 861
+Total_Reconstructed_Assigned: 863
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 522
-Total_Unclassified: 842
+Total_Reconstructable_Unassigned: 521
+Total_Unclassified: 841
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -300,6 +300,7 @@ Total_Error: 5
 | [UID:000166][0x004b99f0-0x004b9a62.ForwardToTileFrameBlitHelper](by-memory/0x004b99f0-0x004b9a62.ForwardToTileFrameBlitHelper.md) | assigned | `0000OC` |  | no | `auto-generated/NexusTK/render/Surface.cpp` | `by-memory/0x004b99f0-0x004b9a62.ForwardToTileFrameBlitHelper.md` |  |
 | [UID:00016B][0x004ba820-0x004ba991.TextFitAndSuffixHelpers](by-memory/0x004ba820-0x004ba991.TextFitAndSuffixHelpers.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-memory/0x004ba820-0x004ba991.TextFitAndSuffixHelpers.md` |  |
 | [UID:00016C][0x004ba9a0-0x004bad66.GrafPortTextRunHelpers](by-memory/0x004ba9a0-0x004bad66.GrafPortTextRunHelpers.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-memory/0x004ba9a0-0x004bad66.GrafPortTextRunHelpers.md` |  |
+| [UID:00016G][0x004bb120-0x004bb1d2.LoadDatFileBuffer](by-memory/0x004bb120-0x004bb1d2.LoadDatFileBuffer.md) | assigned | `0000IN` |  | no | `auto-generated/NexusTK/archive/DATFile.cpp` | `by-memory/0x004bb120-0x004bb1d2.LoadDatFileBuffer.md` |  |
 | [UID:00016H][0x004bb2e0-0x004bb5a5.LineClipHelpers](by-memory/0x004bb2e0-0x004bb5a5.LineClipHelpers.md) | assigned | `0000OC` |  | no | `auto-generated/NexusTK/render/Surface.cpp` | `by-memory/0x004bb2e0-0x004bb5a5.LineClipHelpers.md` |  |
 | [UID:00016I][0x004bb5e0-0x004bb7df.GrafPortDrawGlyph](by-memory/0x004bb5e0-0x004bb7df.GrafPortDrawGlyph.md) | assigned | `0000JR` |  | no | `auto-generated/NexusTK/render/GrafPort.cpp` | `by-memory/0x004bb5e0-0x004bb7df.GrafPortDrawGlyph.md` |  |
 | [UID:00016O][0x004c6160-0x004c659c.CachedHashTableLifecycle](by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md) | assigned | `0000HZ` |  | no | `auto-generated/NexusTK/util/CachedHashTable.cpp` | `by-memory/0x004c6160-0x004c659c.CachedHashTableLifecycle.md` |  |
@@ -342,6 +343,7 @@ Total_Error: 5
 | [UID:0002TN][0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext](by-memory/0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext.md) | assigned | `0000K3` | 70 | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-memory/0x004d0a90-0x004d0c58.DecodeJpegBufferToTileContext.md` |  |
 | [UID:0002P4][0x004d0f50-0x004d15c5.LoadImageFrameTable](by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md) | assigned | `0000K1` | 10 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md` |  |
 | [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md) | assigned | `0000K1` | 30 | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md` |  |
+| [UID:0002J1][0x004d1b80-0x004d1f22.LoadTileEpfMetadata](by-memory/0x004d1b80-0x004d1f22.LoadTileEpfMetadata.md) | assigned | `0000L5` |  | no | `auto-generated/NexusTK/render/MapTileImageLib.cpp` | `by-memory/0x004d1b80-0x004d1f22.LoadTileEpfMetadata.md` |  |
 | [UID:0002TO][0x004d2720-0x004d4aca.HumanImageLibConstructor](by-memory/0x004d2720-0x004d4aca.HumanImageLibConstructor.md) | assigned | `0000JY` |  | no | `auto-generated/NexusTK/render/HumanImageLib.cpp` | `by-memory/0x004d2720-0x004d4aca.HumanImageLibConstructor.md` |  |
 | [UID:00017A][0x004d2720-0x004e649b.HumanImageLib](by-memory/0x004d2720-0x004e649b.HumanImageLib.md) | assigned | `0000JY` |  | no | `auto-generated/NexusTK/render/HumanImageLib.cpp` | `by-memory/0x004d2720-0x004e649b.HumanImageLib.md` |  |
 | [UID:0002JN][0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables](by-memory/0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables.md) | assigned | `0000LJ` |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-memory/0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables.md` |  |
@@ -1085,7 +1087,6 @@ Total_Error: 5
 | [UID:000177][0x004d1860-0x004e6748.MapTileImageLib](by-memory/0x004d1860-0x004e6748.MapTileImageLib.md) | unassigned |  |  | no |  | `by-memory/0x004d1860-0x004e6748.MapTileImageLib.md` |  |
 | [UID:000178][0x004d19a0-0x004d1a1c.MapTileImageLibDestructor](by-memory/0x004d19a0-0x004d1a1c.MapTileImageLibDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004d19a0-0x004d1a1c.MapTileImageLibDestructor.md` |  |
 | [UID:0002J0][0x004d1a20-0x004d1b72.MapTileImageLibDrawTile](by-memory/0x004d1a20-0x004d1b72.MapTileImageLibDrawTile.md) | unassigned |  |  | no |  | `by-memory/0x004d1a20-0x004d1b72.MapTileImageLibDrawTile.md` |  |
-| [UID:0002J1][0x004d1b80-0x004d1f22.LoadTileEpfMetadata](by-memory/0x004d1b80-0x004d1f22.LoadTileEpfMetadata.md) | unassigned |  |  | no |  | `by-memory/0x004d1b80-0x004d1f22.LoadTileEpfMetadata.md` |  |
 | [UID:000179][0x004d1f30-0x004d2697.ObjectStatusBlobParsers](by-memory/0x004d1f30-0x004d2697.ObjectStatusBlobParsers.md) | unassigned |  |  | no |  | `by-memory/0x004d1f30-0x004d2697.ObjectStatusBlobParsers.md` |  |
 | [UID:00017B][0x004d4ad0-0x004d4f67.HumanImageLibDestructor](by-memory/0x004d4ad0-0x004d4f67.HumanImageLibDestructor.md) | unassigned |  |  | no |  | `by-memory/0x004d4ad0-0x004d4f67.HumanImageLibDestructor.md` |  |
 | [UID:0002LA][0x004dc420-0x004dc68c.RidingImageLibLoadRidingDefinitions](by-memory/0x004dc420-0x004dc68c.RidingImageLibLoadRidingDefinitions.md) | unassigned |  |  | no |  | `by-memory/0x004dc420-0x004dc68c.RidingImageLibLoadRidingDefinitions.md` |  |
@@ -1769,7 +1770,6 @@ Total_Error: 5
 | [UID:00016A][0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground](by-memory/0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground.md) | unclassified |  |  | no |  | `by-memory/0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground.md` |  |
 | [UID:00016E][0x004bafa0-0x004bb0da.SimpleHelpTextPartPaneTextEffects](by-memory/0x004bafa0-0x004bb0da.SimpleHelpTextPartPaneTextEffects.md) | unclassified |  |  | no |  | `by-memory/0x004bafa0-0x004bb0da.SimpleHelpTextPartPaneTextEffects.md` |  |
 | [UID:00016F][0x004bb070-0x004bb078.ConstantLineCountHelper](by-memory/0x004bb070-0x004bb078.ConstantLineCountHelper.md) | unclassified |  |  | no |  | `by-memory/0x004bb070-0x004bb078.ConstantLineCountHelper.md` |  |
-| [UID:00016G][0x004bb120-0x004bb1d2.LoadDatFileBuffer](by-memory/0x004bb120-0x004bb1d2.LoadDatFileBuffer.md) | unclassified |  |  | no |  | `by-memory/0x004bb120-0x004bb1d2.LoadDatFileBuffer.md` |  |
 | [UID:00016K][0x004c0710-0x004c076d.BlendRgb555](by-memory/0x004c0710-0x004c076d.BlendRgb555.md) | unclassified |  |  | no |  | `by-memory/0x004c0710-0x004c076d.BlendRgb555.md` |  |
 | [UID:00016M][0x004c6050-0x004c60c7.BlendRgb565Pixel](by-memory/0x004c6050-0x004c60c7.BlendRgb565Pixel.md) | unclassified |  |  | no |  | `by-memory/0x004c6050-0x004c60c7.BlendRgb565Pixel.md` |  |
 | [UID:00016R][0x004c65a0-0x004c6ea9.HelpPaneCore](by-memory/0x004c65a0-0x004c6ea9.HelpPaneCore.md) | unclassified |  |  | no |  | `by-memory/0x004c65a0-0x004c6ea9.HelpPaneCore.md` |  |
