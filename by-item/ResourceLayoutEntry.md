@@ -1,8 +1,8 @@
 *** UID:0000VB | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000K2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,10 +12,11 @@
 
 ## Status
 
-- Confidence: strong for in-memory field order, medium for original type name.
+- Confidence: strong for in-memory field order and lookup semantics, medium for original type name.
 - Entity kind: EPF/EPD frame record used by `ResourceLayoutTable`.
-- Likely source file: [UID:0000K2][ImageLib](by-file/ImageLib.md) or [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md)
-- Rebuild handling: `source-authored`/`source-declared` resource-layout data structure. The type needs to be reconstructed, but parent attachment and C++ declaration are blank until the surrounding resource table pages and naming are 95% audited.
+- Autogen parent: [UID:0000K2][ImageLib](by-file/ImageLib.md). Live IDA evidence shows the `ResourceLayoutTable` method cluster is a non-virtual layout facet operating through the `ImageLib`/`g_pEPFLib` singleton and its `+0x0c` list.
+- Related source file: [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md) tracks the method-cluster facet, but `ImageLib` is the stronger autogen owner.
+- Rebuild handling: `source-authored`/`source-declared` resource-layout data structure. The type needs to be reconstructed, but the C++ declaration remains blank until the surrounding resource table pages and final naming are 95% audited.
 
 ## In-Memory Layout
 
@@ -63,12 +64,17 @@ The size calculation means the following row, including the sentinel, is a requi
 
 ## IDA MCP Evidence
 
-Rechecked on 2026-05-31:
+Rechecked with live IDA MCP on 2026-06-03:
 
-- `ResourceLayoutTable` loader neighborhood includes `sub_4D0120` at `0x004d0120-0x004d02e4` inclusive (IDA exclusive end `0x004d02e5`), plus table lookup/helper functions through `0x004d182e`.
-- `sub_4D0120` allocates `24 * (entryCount + 1)` bytes, matching a 24-byte `ResourceLayoutEntry` row plus sentinel.
-- `sub_4D0120` reads a raw record order consistent with 16-bit bounds and 32-bit payload/mask offsets, then stores converted fields into the allocated 24-byte rows.
-- `sub_4D1600` maps a selected row into an output tile/frame context: it copies payload offset, computes stride from `right - left`, copies a 16-byte bounds block, copies encoded-mask offset, and derives encoded-mask size from the next row's pixel-data boundary. This directly confirms the next-row/sentinel boundary semantics.
+- Exact function boundaries: `sub_4D0120` is `0x004d0120-0x004d02e5`, `sub_4D02F0` is `0x004d02f0-0x004d039e`, `sub_4D04D0` is `0x004d04d0-0x004d0522`, `sub_4D0530` is `0x004d0530-0x004d059b`, and `sub_4D05A0` is `0x004d05a0-0x004d05e6`.
+- `sub_4D0120` constructs and opens a `DATFile`, reads an 8-byte header and a dword record-table offset, seeks to that table, and allocates `24 * (entryCount + 1)` bytes.
+- The loader reads each raw row as 16-bit `top`, `left`, `bottom`, `right`, then two dword offsets. It stores the bounds through `sub_4B7C50(row, left, top, right, bottom)`, so the in-memory row order is `left/top/right/bottom`.
+- After seeking back to the archive base, `sub_4D0120` calls the data-base helper, adds `base + 0xc` to each row's payload and mask offsets, and appends a sentinel row with zero bounds and both offsets set to `base + 0xc + recordTableOffset`.
+- `sub_4D02F0` finds or lazy-loads the resource bucket, validates the entry index, copies row payload data into an `EPFTileContext`-style output, computes `rowStride = right - left`, and computes `encodedMaskSize = nextEntry.pixelData - entry.encodedMaskData`.
+- `sub_4D04D0` builds a temporary `EPFTileContext`, calls `sub_4D02F0`, and optionally copies the result through the tile-context copy helper.
+- `sub_4D0530` finds or lazy-loads the same bucket and copies the selected row's first 16 bytes into a rectangle output; invalid indexes zero the rectangle through `sub_4B7C50`.
+- `sub_4D05A0` is the raw-table rectangle helper: if the index is in range it copies the first 16 bytes from `recordBase + 24 * index`; otherwise it zeroes the rectangle.
+- Parent evidence: `sub_4CFFB0` initializes the `ImageLib` singleton, writes `g_pEPFLib` at `0x0067a744`, allocates the `+0x0c` list, and the layout methods fetch buckets from that same list. The ResourceLayoutTable naming is therefore a non-virtual facet rather than a stronger autogen owner than `ImageLib`.
 
 ## Relation To ArchiveMetadataTable
 
@@ -88,3 +94,4 @@ Rechecked on 2026-05-31:
 - What existed before: the page was unevaluated (`COMPLETION:0`, `CONFIDENCE:0`) and had no reconstructable classification.
 - What it was changed to: the page is now marked reconstructable with moderate completion and strong confidence, while parent attachment and C++ remain blank.
 - Summary and evidence: IDA MCP verification on 2026-05-31 confirmed the 24-byte row allocation, sentinel pattern, and lookup semantics through `sub_4D0120` and `sub_4D1600`. The score remains below 95 because final type name, owner file, and related table/entry pages still need a full audit.
+- 2026-06-03 update: live IDA MCP rechecked the loader, lookup, copy, rectangle, raw-table helper, and `ImageLib` constructor/global evidence. Completion increased from 70 to 84 and confidence from 85 to 90 because the row layout, raw read order, absolute-offset rebasing, sentinel boundary, `EPFTileContext` mapping, helper copy semantics, and `ImageLib` parent assignment are now directly documented from current IDA output. The score remains below 95 because the exact original type name and final source declaration are still not proven.

@@ -5,9 +5,9 @@
 Total_Type: 64
 Total_Reconstructable: 30
 Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 21
+Total_Reconstructed_Assigned: 25
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 9
+Total_Reconstructable_Unassigned: 5
 Total_Unclassified: 31
 Total_Error: 0
 
@@ -32,17 +32,17 @@ Total_Error: 0
 | [UID:0000V8][PopupMenuSelectionCallback_0049AF00](by-item/PopupMenuSelectionCallback_0049AF00.md) | assigned | `0000AK` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-item/PopupMenuSelectionCallback_0049AF00.md` |  |
 | [UID:0000V9][ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90](by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md) | assigned | `0000MR` |  | no | `auto-generated/NexusTK/profile/ProfileDialog.cpp` | `by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md` |  |
 | [UID:0000VA][ResolveSpritePartPath_004E19D0](by-item/ResolveSpritePartPath_004E19D0.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-item/ResolveSpritePartPath_004E19D0.md` |  |
+| [UID:0000VB][ResourceLayoutEntry](by-item/ResourceLayoutEntry.md) | assigned | `0000K2` |  | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-item/ResourceLayoutEntry.md` |  |
 | [UID:0000VC][ScaleDirectionOffsetToPixels_00505100](by-item/ScaleDirectionOffsetToPixels_00505100.md) | assigned | `0000L3` |  | no | `auto-generated/NexusTK/map/MapPane.cpp` | `by-item/ScaleDirectionOffsetToPixels_00505100.md` |  |
+| [UID:0000VE][ScreenEffecterSmallConstructorBoundaries](by-item/ScreenEffecterSmallConstructorBoundaries.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |  |
+| [UID:0000VF][ScreenshotProofPacket_00558240](by-item/ScreenshotProofPacket_00558240.md) | assigned | `0000ND` |  | no | `auto-generated/NexusTK/render/ScreenshotCapture.cpp` | `by-item/ScreenshotProofPacket_00558240.md` |  |
+| [UID:0000VG][ServerSelectHelpers_574510_5745b0](by-item/ServerSelectHelpers_574510_5745b0.md) | assigned | `0000NO` |  | no | `auto-generated/NexusTK/login/ServerSelectPane.cpp` | `by-item/ServerSelectHelpers_574510_5745b0.md` |  |
 | [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |  |
 | [UID:0000U5][BuildFramePartPanes_004B7120](by-item/BuildFramePartPanes_004B7120.md) | not_reconstructable |  |  | no |  | `by-item/BuildFramePartPanes_004B7120.md` |  |
 | [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md) | not_reconstructable |  |  | no |  | `by-item/InitAlphaSurfaceView_004623C0.md` |  |
 | [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) | not_reconstructable |  |  | no |  | `by-item/ScopedMarkerMissingMethodBodies.md` |  |
 | [UID:0000UJ][DrawTextInRect_004BAD70](by-item/DrawTextInRect_004BAD70.md) | unassigned |  |  | no |  | `by-item/DrawTextInRect_004BAD70.md` |  |
 | [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) | unassigned |  |  | no |  | `by-item/LoadFrameDrawRecord_004D1600.md` |  |
-| [UID:0000VB][ResourceLayoutEntry](by-item/ResourceLayoutEntry.md) | unassigned |  |  | no |  | `by-item/ResourceLayoutEntry.md` |  |
-| [UID:0000VE][ScreenEffecterSmallConstructorBoundaries](by-item/ScreenEffecterSmallConstructorBoundaries.md) | unassigned |  |  | no |  | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |  |
-| [UID:0000VF][ScreenshotProofPacket_00558240](by-item/ScreenshotProofPacket_00558240.md) | unassigned |  |  | no |  | `by-item/ScreenshotProofPacket_00558240.md` |  |
-| [UID:0000VG][ServerSelectHelpers_574510_5745b0](by-item/ServerSelectHelpers_574510_5745b0.md) | unassigned |  |  | no |  | `by-item/ServerSelectHelpers_574510_5745b0.md` |  |
 | [UID:0000VH][SpellMenuActionButtonState_51d6c0_51e600](by-item/SpellMenuActionButtonState_51d6c0_51e600.md) | unassigned |  |  | no |  | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |  |
 | [UID:0000VJ][TransferServerDialogPaneThunks_599220_5993e0](by-item/TransferServerDialogPaneThunks_599220_5993e0.md) | unassigned |  |  | no |  | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |  |
 | [UID:0000VK][VectorGrowArchiveIndex_004E5990](by-item/VectorGrowArchiveIndex_004E5990.md) | unassigned |  |  | no |  | `by-item/VectorGrowArchiveIndex_004E5990.md` |  |

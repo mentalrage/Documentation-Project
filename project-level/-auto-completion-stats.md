@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 21:15:13
+Generated: 2026-06-03 21:43:22
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -101,10 +101,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
-| `0000VB` | 70 | 85 | 77.5 | `by-item/ResourceLayoutEntry.md` |
-| `0000VE` | 70 | 85 | 77.5 | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |
-| `0000VF` | 70 | 85 | 77.5 | `by-item/ScreenshotProofPacket_00558240.md` |
-| `0000VG` | 70 | 85 | 77.5 | `by-item/ServerSelectHelpers_574510_5745b0.md` |
 | `0000VH` | 70 | 85 | 77.5 | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |
 | `0000VJ` | 70 | 85 | 77.5 | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |
 | `0000VK` | 70 | 85 | 77.5 | `by-item/VectorGrowArchiveIndex_004E5990.md` |
@@ -124,6 +120,10 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001ZY` | 70 | 85 | 77.5 | `by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md` |
 | `0000XN` | 70 | 85 | 77.5 | `by-memory/0x00453910-0x00453def.MiniMapDownloader.md` |
 | `0000XP` | 70 | 85 | 77.5 | `by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md` |
+| `0000XS` | 70 | 85 | 77.5 | `by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md` |
+| `0000XT` | 70 | 85 | 77.5 | `by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md` |
+| `0000XU` | 70 | 85 | 77.5 | `by-memory/0x004573d0-0x00457428.DATIndexVectorDestructor.md` |
+| `0000XX` | 70 | 85 | 77.5 | `by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md` |
 
 ## Low_Confidence
 
@@ -291,10 +291,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000UB` | 72 | 82 | 77.0 | `by-item/DATAudioResources.md` |
-| `0000VB` | 70 | 85 | 77.5 | `by-item/ResourceLayoutEntry.md` |
-| `0000VE` | 70 | 85 | 77.5 | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |
-| `0000VF` | 70 | 85 | 77.5 | `by-item/ScreenshotProofPacket_00558240.md` |
-| `0000VG` | 70 | 85 | 77.5 | `by-item/ServerSelectHelpers_574510_5745b0.md` |
 | `0000VH` | 70 | 85 | 77.5 | `by-item/SpellMenuActionButtonState_51d6c0_51e600.md` |
 | `0000VJ` | 70 | 85 | 77.5 | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |
 | `0000VK` | 70 | 85 | 77.5 | `by-item/VectorGrowArchiveIndex_004E5990.md` |
@@ -314,6 +310,10 @@ _No scored files._
 | `0000UZ` | 78 | 84 | 81.0 | `by-item/LoadPcxImage_004A17B0.md` |
 | `0000U4` | 78 | 86 | 82.0 | `by-item/BuildEffectArchiveTable_004DE420.md` |
 | `0000U6` | 78 | 86 | 82.0 | `by-item/BuildTilecArchiveTable_004DDA60.md` |
+| `0000UK` | 78 | 86 | 82.0 | `by-item/DrawTextRunCallback_00593DB0.md` |
+| `0000UL` | 78 | 86 | 82.0 | `by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md` |
+| `0000UP` | 78 | 86 | 82.0 | `by-item/FriendNameListSyncOpcodes.md` |
+| `0000UR` | 78 | 86 | 82.0 | `by-item/GetSpriteBounds_004DE2A0.md` |
 
 ### by-memory
 
