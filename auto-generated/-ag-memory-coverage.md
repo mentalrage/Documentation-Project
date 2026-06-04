@@ -2,13 +2,13 @@
 
 # ag-memory-coverage
 
-Total_Type: 2245
-Total_Reconstructable: 1393
+Total_Type: 2246
+Total_Reconstructable: 1395
 Total_Not_Reconstructable: 15
-Total_Reconstructed_Assigned: 867
+Total_Reconstructed_Assigned: 869
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 521
-Total_Unclassified: 837
+Total_Unclassified: 836
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -358,6 +358,7 @@ Total_Error: 5
 | [UID:0002JR][0x004dfd10-0x004e024a.NewHumanImageLibConstructor](by-memory/0x004dfd10-0x004e024a.NewHumanImageLibConstructor.md) | assigned | `000092` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004dfd10-0x004e024a.NewHumanImageLibConstructor.md` |  |
 | [UID:00017R][0x004dfd10-0x004e68a7.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md` |  |
 | [UID:00017S][0x004e0250-0x004e05c4.NewHumanImageLibDestructor](by-memory/0x004e0250-0x004e05c4.NewHumanImageLibDestructor.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004e0250-0x004e05c4.NewHumanImageLibDestructor.md` |  |
+| [UID:0002VD][0x004e19d0-0x004e1f27.ResolveSpritePartPath](by-memory/0x004e19d0-0x004e1f27.ResolveSpritePartPath.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004e19d0-0x004e1f27.ResolveSpritePartPath.md` |  |
 | [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md` |  |
 | [UID:00017T][0x004e5240-0x004e5415.VectorGrowMotion](by-memory/0x004e5240-0x004e5415.VectorGrowMotion.md) | assigned | `0000LR` |  | no | `auto-generated/NexusTK/render/NewHumanImageLib.cpp` | `by-memory/0x004e5240-0x004e5415.VectorGrowMotion.md` |  |
 | [UID:00017U][0x004e57c0-0x004e5989.RecordVectorInsert](by-memory/0x004e57c0-0x004e5989.RecordVectorInsert.md) | assigned | `0000BS` |  | no | `auto-generated/NexusTK/util/VectorHelpers.cpp` | `by-memory/0x004e57c0-0x004e5989.RecordVectorInsert.md` |  |
@@ -714,6 +715,7 @@ Total_Error: 5
 | [UID:0001JB][0x0058af50-0x0058c350.TerminalPaneAndSetup](by-memory/0x0058af50-0x0058c350.TerminalPaneAndSetup.md) | assigned | `0000OI` |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-memory/0x0058af50-0x0058c350.TerminalPaneAndSetup.md` |  |
 | [UID:0001JC][0x0058b130-0x0058b44b.TerminalPaneStreamParser](by-memory/0x0058b130-0x0058b44b.TerminalPaneStreamParser.md) | assigned | `0000OI` |  | no | `auto-generated/NexusTK/login/TerminalPane.cpp` | `by-memory/0x0058b130-0x0058b44b.TerminalPaneStreamParser.md` |  |
 | [UID:0001JE][0x0058c350-0x0058d74c.PhoneBookDialogs](by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058c350-0x0058d74c.PhoneBookDialogs.md` |  |
+| [UID:0001JF][0x0058cfa0-0x0058cfdb.PhoneBookSelectedEntryHelper](by-memory/0x0058cfa0-0x0058cfdb.PhoneBookSelectedEntryHelper.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058cfa0-0x0058cfdb.PhoneBookSelectedEntryHelper.md` |  |
 | [UID:0001JG][0x0058d750-0x0058dc5b.DialDialog](by-memory/0x0058d750-0x0058dc5b.DialDialog.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058d750-0x0058dc5b.DialDialog.md` |  |
 | [UID:0001JH][0x0058da20-0x0058db94.DialDialogModemResponseParser](by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058da20-0x0058db94.DialDialogModemResponseParser.md` |  |
 | [UID:0001JL][0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper](by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-memory/0x0058dcb0-0x0058dcd3.PhoneBookFormattedWriteHelper.md` |  |
@@ -1961,7 +1963,6 @@ Total_Error: 5
 | [UID:0001J9][0x0058aadb-0x0058aaf1.ForcedInformMessageDialogDestructorThunks](by-memory/0x0058aadb-0x0058aaf1.ForcedInformMessageDialogDestructorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0058aadb-0x0058aaf1.ForcedInformMessageDialogDestructorThunks.md` |  |
 | [UID:0001JA][0x0058abf0-0x0058acb2.ForcedInformMessageDialogDestructor](by-memory/0x0058abf0-0x0058acb2.ForcedInformMessageDialogDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0058abf0-0x0058acb2.ForcedInformMessageDialogDestructor.md` |  |
 | [UID:0001JD][0x0058b620-0x0058b64e.TerminalPaneReconnectLeaveCallback](by-memory/0x0058b620-0x0058b64e.TerminalPaneReconnectLeaveCallback.md) | unclassified |  |  | no |  | `by-memory/0x0058b620-0x0058b64e.TerminalPaneReconnectLeaveCallback.md` |  |
-| [UID:0001JF][0x0058cfa0-0x0058cfdb.PhoneBookSelectedEntryHelper](by-memory/0x0058cfa0-0x0058cfdb.PhoneBookSelectedEntryHelper.md) | unclassified |  |  | no |  | `by-memory/0x0058cfa0-0x0058cfdb.PhoneBookSelectedEntryHelper.md` |  |
 | [UID:0001JI][0x0058dbe0-0x0058dbea.ClearTerminalPaneSingletonEH](by-memory/0x0058dbe0-0x0058dbea.ClearTerminalPaneSingletonEH.md) | unclassified |  |  | no |  | `by-memory/0x0058dbe0-0x0058dbea.ClearTerminalPaneSingletonEH.md` |  |
 | [UID:0001JJ][0x0058dbeb-0x0058dc00.DialDialogAdjustorThunks](by-memory/0x0058dbeb-0x0058dc00.DialDialogAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0058dbeb-0x0058dc00.DialDialogAdjustorThunks.md` |  |
 | [UID:0001JK][0x0058dc01-0x0058dc16.TerminalPaneAdjustorThunks](by-memory/0x0058dc01-0x0058dc16.TerminalPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0058dc01-0x0058dc16.TerminalPaneAdjustorThunks.md` |  |

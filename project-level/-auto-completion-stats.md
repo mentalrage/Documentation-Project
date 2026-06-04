@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 21:00:37
+Generated: 2026-06-03 21:15:13
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,8 +8,8 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3720
-- Scored files: 3552
+- Tracked files: 3721
+- Scored files: 3553
 - Ignored files: 168
 
 ## projected_path_completion
@@ -101,8 +101,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
-| `0000V7` | 70 | 85 | 77.5 | `by-item/PhoneBookListHelpers_58cfa0_58dcb0.md` |
-| `0000VA` | 70 | 85 | 77.5 | `by-item/ResolveSpritePartPath_004E19D0.md` |
 | `0000VB` | 70 | 85 | 77.5 | `by-item/ResourceLayoutEntry.md` |
 | `0000VE` | 70 | 85 | 77.5 | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |
 | `0000VF` | 70 | 85 | 77.5 | `by-item/ScreenshotProofPacket_00558240.md` |
@@ -124,6 +122,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0001ZX` | 70 | 85 | 77.5 | `by-memory/0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport.md` |
 | `0000XL` | 70 | 85 | 77.5 | `by-memory/0x00452260-0x0045239a.GetControlLayout_452260.md` |
 | `0001ZY` | 70 | 85 | 77.5 | `by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md` |
+| `0000XN` | 70 | 85 | 77.5 | `by-memory/0x00453910-0x00453def.MiniMapDownloader.md` |
+| `0000XP` | 70 | 85 | 77.5 | `by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md` |
 
 ## Low_Confidence
 
@@ -291,8 +291,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000UB` | 72 | 82 | 77.0 | `by-item/DATAudioResources.md` |
-| `0000V7` | 70 | 85 | 77.5 | `by-item/PhoneBookListHelpers_58cfa0_58dcb0.md` |
-| `0000VA` | 70 | 85 | 77.5 | `by-item/ResolveSpritePartPath_004E19D0.md` |
 | `0000VB` | 70 | 85 | 77.5 | `by-item/ResourceLayoutEntry.md` |
 | `0000VE` | 70 | 85 | 77.5 | `by-item/ScreenEffecterSmallConstructorBoundaries.md` |
 | `0000VF` | 70 | 85 | 77.5 | `by-item/ScreenshotProofPacket_00558240.md` |
@@ -314,6 +312,8 @@ _No scored files._
 | `0000UJ` | 76 | 84 | 80.0 | `by-item/DrawTextInRect_004BAD70.md` |
 | `0000UX` | 76 | 86 | 81.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
 | `0000UZ` | 78 | 84 | 81.0 | `by-item/LoadPcxImage_004A17B0.md` |
+| `0000U4` | 78 | 86 | 82.0 | `by-item/BuildEffectArchiveTable_004DE420.md` |
+| `0000U6` | 78 | 86 | 82.0 | `by-item/BuildTilecArchiveTable_004DDA60.md` |
 
 ### by-memory
 
