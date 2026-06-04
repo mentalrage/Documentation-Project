@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1415
+Total_Reconstructable: 1416
 Total_Not_Reconstructable: 24
-Total_Reconstructed_Assigned: 877
+Total_Reconstructed_Assigned: 878
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 533
-Total_Unclassified: 809
+Total_Unclassified: 808
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -620,6 +620,7 @@ Total_Error: 5
 | [UID:0001EX][0x00549080-0x00549214.PatchPane2CloseAndRenameDownloadedFile](by-memory/0x00549080-0x00549214.PatchPane2CloseAndRenameDownloadedFile.md) | assigned | `0000AA` | 70 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-memory/0x00549080-0x00549214.PatchPane2CloseAndRenameDownloadedFile.md` |  |
 | [UID:0001F2][0x00549620-0x00549bc5.PhotoAndPicturePanes](by-memory/0x00549620-0x00549bc5.PhotoAndPicturePanes.md) | assigned | `0000MK` | 40 | no | `auto-generated/NexusTK/map/PhotoPane.cpp` | `by-memory/0x00549620-0x00549bc5.PhotoAndPicturePanes.md` |  |
 | [UID:0002R8][0x00549920-0x00549950.PhotoPaneCleanupDestructorBodyRaw](by-memory/0x00549920-0x00549950.PhotoPaneCleanupDestructorBodyRaw.md) | assigned | `0000MK` | 38 | no | `auto-generated/NexusTK/map/PhotoPane.cpp` | `by-memory/0x00549920-0x00549950.PhotoPaneCleanupDestructorBodyRaw.md` |  |
+| [UID:0001F3][0x00549b00-0x00549b63.PictureViewPaneCloseHandlersAndThunks](by-memory/0x00549b00-0x00549b63.PictureViewPaneCloseHandlersAndThunks.md) | assigned | `0000MK` |  | no | `auto-generated/NexusTK/map/PhotoPane.cpp` | `by-memory/0x00549b00-0x00549b63.PictureViewPaneCloseHandlersAndThunks.md` |  |
 | [UID:0001F7][0x0054a480-0x0054a4b6.PowerDialogPaneSingletonHelpers](by-memory/0x0054a480-0x0054a4b6.PowerDialogPaneSingletonHelpers.md) | assigned | `0000MO` | 25 | no | `auto-generated/NexusTK/ui/dialogs/PowerDialogPane.cpp` | `by-memory/0x0054a480-0x0054a4b6.PowerDialogPaneSingletonHelpers.md` |  |
 | [UID:0001F9][0x0054b5e0-0x0054bcbd.PrettyButtonControls](by-memory/0x0054b5e0-0x0054bcbd.PrettyButtonControls.md) | assigned | `0000MP` |  | no | `auto-generated/NexusTK/ui/controls/PrettyButtonControlPane.cpp` | `by-memory/0x0054b5e0-0x0054bcbd.PrettyButtonControls.md` |  |
 | [UID:0001FA][0x0054bcc0-0x0054bcec.PrimeNumberGeneratorGetPrimeAt](by-memory/0x0054bcc0-0x0054bcec.PrimeNumberGeneratorGetPrimeAt.md) | assigned | `0000MQ` | 20 | no | `auto-generated/NexusTK/util/PrimeNumberGenerator.cpp` | `by-memory/0x0054bcc0-0x0054bcec.PrimeNumberGeneratorGetPrimeAt.md` |  |
@@ -1908,7 +1909,6 @@ Total_Error: 5
 | [UID:0001EZ][0x00549340-0x0054934b.ClearPatchPane2Singleton](by-memory/0x00549340-0x0054934b.ClearPatchPane2Singleton.md) | unclassified |  |  | no |  | `by-memory/0x00549340-0x0054934b.ClearPatchPane2Singleton.md` |  |
 | [UID:0001F0][0x0054934b-0x00549360.PatchPane2AdjustorThunks](by-memory/0x0054934b-0x00549360.PatchPane2AdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0054934b-0x00549360.PatchPane2AdjustorThunks.md` |  |
 | [UID:0001F1][0x00549410-0x00549616.DecodePcxToRgb565Buffer](by-memory/0x00549410-0x00549616.DecodePcxToRgb565Buffer.md) | unclassified |  |  | no |  | `by-memory/0x00549410-0x00549616.DecodePcxToRgb565Buffer.md` |  |
-| [UID:0001F3][0x00549b00-0x00549b63.PictureViewPaneCloseHandlersAndThunks](by-memory/0x00549b00-0x00549b63.PictureViewPaneCloseHandlersAndThunks.md) | unclassified |  |  | no |  | `by-memory/0x00549b00-0x00549b63.PictureViewPaneCloseHandlersAndThunks.md` |  |
 | [UID:0001F5][0x00549c20-0x0054a472.PowerDialogPaneConstructor](by-memory/0x00549c20-0x0054a472.PowerDialogPaneConstructor.md) | unclassified |  |  | no |  | `by-memory/0x00549c20-0x0054a472.PowerDialogPaneConstructor.md` |  |
 | [UID:0001F6][0x00549c20-0x0054b5d5.PowerDialogPane](by-memory/0x00549c20-0x0054b5d5.PowerDialogPane.md) | unclassified |  |  | no |  | `by-memory/0x00549c20-0x0054b5d5.PowerDialogPane.md` |  |
 | [UID:0001F8][0x0054b4f0-0x0054b51c.PowerDialogPaneAndPowerListPaneAdjustorThunks](by-memory/0x0054b4f0-0x0054b51c.PowerDialogPaneAndPowerListPaneAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0054b4f0-0x0054b51c.PowerDialogPaneAndPowerListPaneAdjustorThunks.md` |  |

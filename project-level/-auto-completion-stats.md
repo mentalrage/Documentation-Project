@@ -97,9 +97,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000AD` | 78 | 76 | 77.0 | `by-class/PhoneBookDialog.md` |
-| `0000AH` | 78 | 76 | 77.0 | `by-class/PictureViewPane.md` |
-| `0000CD` | 78 | 76 | 77.0 | `by-class/ScreenshotCapture.md` |
 | `0000CZ` | 78 | 76 | 77.0 | `by-class/ServerItemMenuDialog.md` |
 | `0000D1` | 78 | 76 | 77.0 | `by-class/ServerSelectMenuItemList.md` |
 | `0000E3` | 78 | 76 | 77.0 | `by-class/StaticTextControlPane.md` |

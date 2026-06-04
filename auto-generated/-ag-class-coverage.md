@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 265
+Total_Reconstructable: 268
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 188
+Total_Reconstructed_Assigned: 191
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 320
+Total_Unclassified: 317
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -143,7 +143,9 @@ Total_Error: 0
 | [UID:0000AA][PatchPane2](by-class/PatchPane2.md) | assigned | `0000MH` | 20 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane2.md` |  |
 | [UID:0000AB][PatchPane__PatchFileData](by-class/PatchPane__PatchFileData.md) | assigned | `0000MH` | 15 | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane__PatchFileData.md` |  |
 | [UID:0000AC][PatchPane__PatchFileSlice](by-class/PatchPane__PatchFileSlice.md) | assigned | `0000MH` |  | no | `auto-generated/NexusTK/patch/PatchPane.cpp` | `by-class/PatchPane__PatchFileSlice.md` |  |
+| [UID:0000AD][PhoneBookDialog](by-class/PhoneBookDialog.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-class/PhoneBookDialog.md` |  |
 | [UID:0000AE][PhoneBookListPane](by-class/PhoneBookListPane.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-class/PhoneBookListPane.md` |  |
+| [UID:0000AH][PictureViewPane](by-class/PictureViewPane.md) | assigned | `0000MK` |  | no | `auto-generated/NexusTK/map/PhotoPane.cpp` | `by-class/PictureViewPane.md` |  |
 | [UID:0000AI][PixelEffecter](by-class/PixelEffecter.md) | assigned | `0000IZ` | 20 | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/PixelEffecter.md` |  |
 | [UID:0000AJ][PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_](by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/PlainMemberFunctionObject0_void____thiscall_Application_____void____class_Application_.md` |  |
 | [UID:0000AK][PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_](by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md) | assigned | `0000JO` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-class/PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.md` |  |
@@ -167,6 +169,7 @@ Total_Error: 0
 | [UID:0000C4][SayToGroupMessageInputPane](by-class/SayToGroupMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToGroupMessageInputPane.md` |  |
 | [UID:0000C5][SayToPlanMessageInputPane](by-class/SayToPlanMessageInputPane.md) | assigned | `0000N9` |  | no | `auto-generated/NexusTK/social/SayInputPanes.cpp` | `by-class/SayToPlanMessageInputPane.md` |  |
 | [UID:0000C9][ScreenEffecter](by-class/ScreenEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/ScreenEffecter.md` |  |
+| [UID:0000CD][ScreenshotCapture](by-class/ScreenshotCapture.md) | assigned | `0000ND` |  | no | `auto-generated/NexusTK/render/ScreenshotCapture.cpp` | `by-class/ScreenshotCapture.md` |  |
 | [UID:0000CM][ScrollPane](by-class/ScrollPane.md) | assigned | `0000NF` | 10 | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/ScrollPane.md` |  |
 | [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md) | assigned | `0000NK` | 10 | no | `auto-generated/NexusTK/ui/controls/ScrollVolumePane.cpp` | `by-class/ScrollVolumePane.md` |  |
 | [UID:0000CP][ScrollWidget](by-class/ScrollWidget.md) | assigned | `0000NF` | 20 | no | `auto-generated/NexusTK/ui/core/ScrollBar.cpp` | `by-class/ScrollWidget.md` |  |
@@ -453,10 +456,8 @@ Total_Error: 0
 | [UID:0000A3][PaneChildRegistry](by-class/PaneChildRegistry.md) | unclassified |  |  | no |  | `by-class/PaneChildRegistry.md` |  |
 | [UID:0000A4][PanelPane](by-class/PanelPane.md) | unclassified |  |  | no |  | `by-class/PanelPane.md` |  |
 | [UID:0000A7][PartySearchEditPane](by-class/PartySearchEditPane.md) | unclassified |  |  | no |  | `by-class/PartySearchEditPane.md` |  |
-| [UID:0000AD][PhoneBookDialog](by-class/PhoneBookDialog.md) | unclassified |  |  | no |  | `by-class/PhoneBookDialog.md` |  |
 | [UID:0000AF][PhoneEntryDialog](by-class/PhoneEntryDialog.md) | unclassified |  |  | no |  | `by-class/PhoneEntryDialog.md` |  |
 | [UID:0000AG][PhotoPane](by-class/PhotoPane.md) | unclassified |  |  | no |  | `by-class/PhotoPane.md` |  |
-| [UID:0000AH][PictureViewPane](by-class/PictureViewPane.md) | unclassified |  |  | no |  | `by-class/PictureViewPane.md` |  |
 | [UID:0000AM][PoolAllocator](by-class/PoolAllocator.md) | unclassified |  |  | no |  | `by-class/PoolAllocator.md` |  |
 | [UID:0000AN][PopupMenuControlPane](by-class/PopupMenuControlPane.md) | unclassified |  |  | no |  | `by-class/PopupMenuControlPane.md` |  |
 | [UID:0000AO][PostInputPane](by-class/PostInputPane.md) | unclassified |  |  | no |  | `by-class/PostInputPane.md` |  |
@@ -496,7 +497,6 @@ Total_Error: 0
 | [UID:0000C7][SayToUserNameInputPane](by-class/SayToUserNameInputPane.md) | unclassified |  |  | no |  | `by-class/SayToUserNameInputPane.md` |  |
 | [UID:0000CB][ScreenPane](by-class/ScreenPane.md) | unclassified |  |  | no |  | `by-class/ScreenPane.md` |  |
 | [UID:0000CC][ScreenPanePaletteState_543D30](by-class/ScreenPanePaletteState_543D30.md) | unclassified |  |  | no |  | `by-class/ScreenPanePaletteState_543D30.md` |  |
-| [UID:0000CD][ScreenshotCapture](by-class/ScreenshotCapture.md) | unclassified |  |  | no |  | `by-class/ScreenshotCapture.md` |  |
 | [UID:0000CL][ScrollNewGroupPane](by-class/ScrollNewGroupPane.md) | unclassified |  |  | no |  | `by-class/ScrollNewGroupPane.md` |  |
 | [UID:0000CE][ScrollableControlPane](by-class/ScrollableControlPane.md) | unclassified |  |  | no |  | `by-class/ScrollableControlPane.md` |  |
 | [UID:0000CH][ScrolledPictureControlPane](by-class/ScrolledPictureControlPane.md) | unclassified |  |  | no |  | `by-class/ScrolledPictureControlPane.md` |  |

@@ -1,8 +1,8 @@
 *** UID:0000AH | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MK | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,10 +12,10 @@
 
 ## Status
 
-- Confidence: strong for behavior, medium for final owner names in message handlers.
+- Confidence: strong for class identity, function boundaries, vtable slots, close-handler behavior, destructor/thunk endpoints, and parent placement; medium for the final owner-close helper name and containing-object type.
 - Likely source file: [UID:0000MK][PhotoPane](by-file/PhotoPane.md)
 - Main address range: `0x00549a30-0x00549bc5`
-- Current recovered file: `source-3/simroot_v2/class_PictureViewPane.cpp`
+- Parent attachment: [UID:0000MK][PhotoPane](by-file/PhotoPane.md) is `86/80` with projected path `NexusTK/map/`; this class is attached because live IDA confirms it is the viewer base used by the adjacent `PhotoPane` island.
 
 ## Class Purpose
 
@@ -33,11 +33,19 @@
 
 ## Ownership Notes
 
-Current generated source labels the close helper as `BulletinSession::MarkForDeletion`. Treat that as suspect. The behavior is a generic owner-close/delete path reached by subtracting `0xa0` from the `PictureViewPane` subobject, and the body does not inspect bulletin-specific article/session state.
+Earlier non-authoritative handler labels name the close helper as `BulletinSession::MarkForDeletion`. Treat that as suspect. The behavior is a generic owner-close/delete path reached by subtracting `0xa0` from the `PictureViewPane` subobject, and the body does not inspect bulletin-specific article/session state.
 
 `PictureViewPane` should stay linked to [UID:0000AG][PhotoPane](by-class/PhotoPane.md) until another derived viewer class is confirmed. The destructor chain and contiguous memory island make a shared or adjacent source file likely.
 
-2026-05-25 recheck: IDA decompilation still shows `0x00549b00` handling message codes `3` and `6`, `0x00549b30` handling code `8`, and both paths dispatching only `sub_544690(this - 160)`. Current simroot still emits the polluted `BulletinSession` owner name. IDA lookup/disassembly also confirms the adjacent `0x00549b4d` and `0x00549b58` starts are adjustor thunks that jump to the scalar deleting destructor.
+2026-06-04 live IDA MCP recheck confirms `0x00549b00` handles message codes `3` and `6`, `0x00549b30` handles code `8`, and both paths dispatch only `sub_544690(this - 160)`. IDA lookup/disassembly also confirms the adjacent `0x00549b4d` and `0x00549b58` starts are adjustor thunks that jump to the scalar deleting destructor.
+
+## Evidence Notes
+
+- Live IDA MCP reports the PictureView functions as `0x00549a30-0x00549ad6`, `0x00549b00-0x00549b22`, `0x00549b30-0x00549b4d`, `0x00549b4d-0x00549b58`, `0x00549b58-0x00549b63`, and scalar deleting destructor `0x00549b70-0x00549bc5`.
+- The constructor is called by [UID:0000AG][PhotoPane](by-class/PhotoPane.md) at `0x0054965d`, installs PictureViewPane vtables `0x006220d0`, `0x0062211c`, and `0x0062214c`, reads the active view/root pane global `0x0067a764`, and uses root/sprite state `0x0069b364`.
+- Vtable data references place close handlers at slots `0x00622084`, `0x00622088`, `0x00622120`, and `0x00622124`; the secondary/tertiary destructor thunks are referenced at `0x0062211c` and `0x0062214c`.
+- The scalar deleting destructor resets the same three PictureViewPane vtables, calls pane teardown `0x00544580`, and optionally frees storage through `0x004f4ac0`.
+- Remaining uncertainty is limited to the final source name of the owner-close helper and the exact containing-object type for the `this - 0xa0` adjustment, so final reconstruction C++ stays blank.
 
 ## Cross-References
 
@@ -57,3 +65,6 @@ Current generated source labels the close helper as `BulletinSession::MarkForDel
 - Before: completion/confidence metadata were `0/0` even though the page already documented constructor, close handlers, adjustor thunks, destructor, ownership caveat, and endpoint correction.
 - Changed to: `COMPLETION:78` and `CONFIDENCE:76`.
 - Evidence: full-screen viewer role, active/root pane bounds setup, message codes `3`, `6`, and `8`, generic deletion path, thunk/destructor ranges, and polluted `BulletinSession` owner label are documented; confidence remains medium-high because final owner names in message handlers are unresolved.
+- 2026-06-04: raised from `78/76` to `82/84`, marked `RECONSTRUCTABLE:TRUE`, and attached to [UID:0000MK][PhotoPane](by-file/PhotoPane.md).
+  - Summary/evidence: live IDA MCP confirms exact function boundaries, constructor caller from `PhotoPane`, PictureViewPane vtable installs and vtable slots, active-view/root globals, message-code tests, adjusted owner-close helper calls, destructor thunks, and scalar deleting destructor behavior; parent file [UID:0000MK][PhotoPane](by-file/PhotoPane.md) is already `86/80` with valid `NexusTK/map/` placement.
+  - Remaining gaps: final C++ remains blank because the owner-close helper name and containing-object type for the adjusted close path are not yet at the 95/95 threshold.
