@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 284
+Total_Reconstructable: 285
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 211
+Total_Reconstructed_Assigned: 212
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 73
-Total_Unclassified: 301
+Total_Unclassified: 300
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -24,6 +24,7 @@ Total_Error: 0
 | [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md) | assigned | `0000HI` | 20 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` | `by-class/ArgumentedMenuMenuItemList.md` |  |
 | [UID:00000O][AttachmentAnchorResolver](by-class/AttachmentAnchorResolver.md) | assigned | `0000HL` | 10 | no | `auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp` | `by-class/AttachmentAnchorResolver.md` |  |
 | [UID:00000Q][AutoInit](by-class/AutoInit.md) | assigned | `0000HN` |  | no | `auto-generated/NexusTK/platform/AutoInit.cpp` | `by-class/AutoInit.md` |  |
+| [UID:00000U][BalloonObjectPane](by-class/BalloonObjectPane.md) | assigned | `0000HJ` |  | no | `auto-generated/NexusTK/map/AttachedObjectPane.cpp` | `by-class/BalloonObjectPane.md` |  |
 | [UID:00000X][BlockListenInputPane](by-class/BlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/BlockListenInputPane.md` |  |
 | [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md) | assigned | `0000HE` |  | no | `auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp` | `by-class/BlueAlertPane.md` |  |
 | [UID:00000Z][BoardListDialog](by-class/BoardListDialog.md) | assigned | `0000HT` | 20 | no | `auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp` | `by-class/BoardListDialog.md` |  |
@@ -310,7 +311,6 @@ Total_Error: 0
 | [UID:00000R][BackGroundPane](by-class/BackGroundPane.md) | unclassified |  |  | no |  | `by-class/BackGroundPane.md` |  |
 | [UID:00000S][BackPane](by-class/BackPane.md) | unclassified |  |  | no |  | `by-class/BackPane.md` |  |
 | [UID:00000T][BackStoryDialogPane](by-class/BackStoryDialogPane.md) | unclassified |  |  | no |  | `by-class/BackStoryDialogPane.md` |  |
-| [UID:00000U][BalloonObjectPane](by-class/BalloonObjectPane.md) | unclassified |  |  | no |  | `by-class/BalloonObjectPane.md` |  |
 | [UID:000013][Browser](by-class/Browser.md) | unclassified |  |  | no |  | `by-class/Browser.md` |  |
 | [UID:000015][BrowserControlPane](by-class/BrowserControlPane.md) | unclassified |  |  | no |  | `by-class/BrowserControlPane.md` |  |
 | [UID:00001B][BrowserWindow](by-class/BrowserWindow.md) | unclassified |  |  | no |  | `by-class/BrowserWindow.md` |  |
