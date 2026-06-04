@@ -98,17 +98,11 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0001ZB` | 70 | 85 | 77.5 | `by-memory/0x0045a710-0x0045a98a.RankingEventScrollPaneGetScrollRegionRect.md` |
-| `0000Y5` | 70 | 85 | 77.5 | `by-memory/0x0045a990-0x0045ac0f.RankingEventScrollPaneRawHoverDragHelpers.md` |
-| `0000Y6` | 70 | 85 | 77.5 | `by-memory/0x0045ac10-0x0045adc3.RankingEventScrollPaneDragToPosition.md` |
-| `0000Y7` | 70 | 85 | 77.5 | `by-memory/0x0045add0-0x0045ae2b.RankingEventScrollPaneRawResetState.md` |
 
 ## Low_Confidence
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000099` | 74 | 76 | 75.0 | `by-class/NewSayToUserMessageInputPane.md` |
-| `0000A7` | 74 | 76 | 75.0 | `by-class/PartySearchEditPane.md` |
 | `0000B4` | 74 | 76 | 75.0 | `by-class/ProtectedArray_struct_GameServerConfig__NationEntry_.md` |
 | `0000G8` | 74 | 76 | 75.0 | `by-class/WorldMapNodeEntryVector.md` |
 | `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
@@ -148,8 +142,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000014` | 72 | 78 | 75.0 | `by-class/browser__Notification.md` |
 | `000220` | 72 | 78 | 75.0 | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |
 | `0001G6` | 72 | 78 | 75.0 | `by-memory/0x00557140-0x00559aef.SurfacePresentation.md` |
-| `000099` | 74 | 76 | 75.0 | `by-class/NewSayToUserMessageInputPane.md` |
-| `0000A7` | 74 | 76 | 75.0 | `by-class/PartySearchEditPane.md` |
 | `0000B4` | 74 | 76 | 75.0 | `by-class/ProtectedArray_struct_GameServerConfig__NationEntry_.md` |
 | `0000G8` | 74 | 76 | 75.0 | `by-class/WorldMapNodeEntryVector.md` |
 | `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
@@ -178,8 +170,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |
 | `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
 | `000014` | 72 | 78 | 75.0 | `by-class/browser__Notification.md` |
-| `000099` | 74 | 76 | 75.0 | `by-class/NewSayToUserMessageInputPane.md` |
-| `0000A7` | 74 | 76 | 75.0 | `by-class/PartySearchEditPane.md` |
 | `0000B4` | 74 | 76 | 75.0 | `by-class/ProtectedArray_struct_GameServerConfig__NationEntry_.md` |
 | `0000G8` | 74 | 76 | 75.0 | `by-class/WorldMapNodeEntryVector.md` |
 | `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
