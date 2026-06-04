@@ -102,7 +102,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000012` | 76 | 76 | 76.0 | `by-class/brdir__Notification.md` |
 | `00007D` | 78 | 76 | 77.0 | `by-class/LObject.md` |
 | `000091` | 78 | 76 | 77.0 | `by-class/NewHistoryDialogPane.md` |
 | `00009T` | 78 | 76 | 77.0 | `by-class/OldSystemMessagePane.md` |
@@ -125,7 +124,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000013` | 72 | 78 | 75.0 | `by-class/Browser.md` |
 | `00002Y` | 72 | 78 | 75.0 | `by-class/CollectionPane2.md` |
 | `00004U` | 72 | 78 | 75.0 | `by-class/FieldMapPane.md` |
 | `00005G` | 72 | 78 | 75.0 | `by-class/FrameHandler.md` |
@@ -133,7 +131,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009Y` | 72 | 78 | 75.0 | `by-class/OverlayImageEffecter.md` |
 | `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |
 | `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
-| `000014` | 72 | 78 | 75.0 | `by-class/browser__Notification.md` |
 | `000220` | 72 | 78 | 75.0 | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |
 | `0001G6` | 72 | 78 | 75.0 | `by-memory/0x00557140-0x00559aef.SurfacePresentation.md` |
 | `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
@@ -151,7 +148,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000013` | 72 | 78 | 75.0 | `by-class/Browser.md` |
 | `00002Y` | 72 | 78 | 75.0 | `by-class/CollectionPane2.md` |
 | `00004U` | 72 | 78 | 75.0 | `by-class/FieldMapPane.md` |
 | `00005G` | 72 | 78 | 75.0 | `by-class/FrameHandler.md` |
@@ -159,7 +155,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009Y` | 72 | 78 | 75.0 | `by-class/OverlayImageEffecter.md` |
 | `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |
 | `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
-| `000014` | 72 | 78 | 75.0 | `by-class/browser__Notification.md` |
 | `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
 | `00001A` | 72 | 80 | 76.0 | `by-class/BrowserThread.md` |
 | `00001H` | 72 | 80 | 76.0 | `by-class/CashShopRequest.md` |
