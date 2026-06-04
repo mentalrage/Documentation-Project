@@ -98,9 +98,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
-| `0001ZX` | 70 | 85 | 77.5 | `by-memory/0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport.md` |
-| `0000XL` | 70 | 85 | 77.5 | `by-memory/0x00452260-0x0045239a.GetControlLayout_452260.md` |
-| `0001ZY` | 70 | 85 | 77.5 | `by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md` |
 | `0000XN` | 70 | 85 | 77.5 | `by-memory/0x00453910-0x00453def.MiniMapDownloader.md` |
 | `0000XP` | 70 | 85 | 77.5 | `by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md` |
 | `0000XS` | 70 | 85 | 77.5 | `by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md` |

@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1401
-Total_Not_Reconstructable: 22
+Total_Reconstructable: 1403
+Total_Not_Reconstructable: 23
 Total_Reconstructed_Assigned: 870
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 526
-Total_Unclassified: 825
+Total_Reconstructable_Unassigned: 528
+Total_Unclassified: 822
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -897,6 +897,7 @@ Total_Error: 5
 | [UID:0001ZU][0x00439eb0-0x00439ed5.JsonCppValueCoreEhCleanupChunk](by-memory/0x00439eb0-0x00439ed5.JsonCppValueCoreEhCleanupChunk.md) | not_reconstructable |  |  | no |  | `by-memory/0x00439eb0-0x00439ed5.JsonCppValueCoreEhCleanupChunk.md` |  |
 | [UID:0001ZV][0x00439ee0-0x0043e0a3.MsvcStlIostreamNumericSupport](by-memory/0x00439ee0-0x0043e0a3.MsvcStlIostreamNumericSupport.md) | not_reconstructable |  |  | no |  | `by-memory/0x00439ee0-0x0043e0a3.MsvcStlIostreamNumericSupport.md` |  |
 | [UID:0001ZW][0x0043e250-0x004417dd.MsvcStlJsonCppStringSupport](by-memory/0x0043e250-0x004417dd.MsvcStlJsonCppStringSupport.md) | not_reconstructable |  |  | no |  | `by-memory/0x0043e250-0x004417dd.MsvcStlJsonCppStringSupport.md` |  |
+| [UID:0001ZX][0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport](by-memory/0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport.md) | not_reconstructable |  |  | no |  | `by-memory/0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport.md` |  |
 | [UID:0000Z2][0x00469180-0x004691fa.PaneChildRegistry](by-memory/0x00469180-0x004691fa.PaneChildRegistry.md) | not_reconstructable |  |  | no |  | `by-memory/0x00469180-0x004691fa.PaneChildRegistry.md` |  |
 | [UID:0000ZV][0x0047ed20-0x0047ed50.ChangeManConstructorCleanup](by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md) | not_reconstructable |  |  | no |  | `by-memory/0x0047ed20-0x0047ed50.ChangeManConstructorCleanup.md` |  |
 | [UID:0002FE][0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder](by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md) | not_reconstructable |  |  | no |  | `by-memory/0x00481000-0x0048100a.ChattingVarietyPaneRefreshForwarder.md` |  |
@@ -935,6 +936,8 @@ Total_Error: 5
 | [UID:0000WW][0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill](by-memory/0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill.md) | unassigned |  |  | no |  | `by-memory/0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill.md` |  |
 | [UID:0000XA][0x00439e00-0x00439ea3.DequeDestroy](by-memory/0x00439e00-0x00439ea3.DequeDestroy.md) | unassigned |  |  | no |  | `by-memory/0x00439e00-0x00439ea3.DequeDestroy.md` |  |
 | [UID:0000XB][0x0043e0b0-0x0043e241.DequeEnsureCapacity](by-memory/0x0043e0b0-0x0043e241.DequeEnsureCapacity.md) | unassigned |  |  | no |  | `by-memory/0x0043e0b0-0x0043e241.DequeEnsureCapacity.md` |  |
+| [UID:0000XL][0x00452260-0x0045239a.GetControlLayout_452260](by-memory/0x00452260-0x0045239a.GetControlLayout_452260.md) | unassigned |  |  | no |  | `by-memory/0x00452260-0x0045239a.GetControlLayout_452260.md` |  |
+| [UID:0001ZY][0x00453820-0x00453904.WideStringMapNodeSupport](by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md) | unassigned |  |  | no |  | `by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md` |  |
 | [UID:0000XO][0x00453df0-0x004563b5.MiniMapRendererAndControls](by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md) | unassigned |  |  | no |  | `by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md` |  |
 | [UID:0000XP][0x004563c0-0x00457547.MiniMapVersionManager](by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md) | unassigned |  |  | no |  | `by-memory/0x004563c0-0x00457547.MiniMapVersionManager.md` |  |
 | [UID:0002JL][0x00456a90-0x0045709e.MiniMapVersionManagerUpdateHashList](by-memory/0x00456a90-0x0045709e.MiniMapVersionManagerUpdateHashList.md) | unassigned |  |  | no |  | `by-memory/0x00456a90-0x0045709e.MiniMapVersionManagerUpdateHashList.md` |  |
@@ -1541,7 +1544,6 @@ Total_Error: 5
 | [UID:0001ZS][0x00434890-0x004361ae.JsonCppOurReaderUnicodeAndBuiltStyledStreamWriter](by-memory/0x00434890-0x004361ae.JsonCppOurReaderUnicodeAndBuiltStyledStreamWriter.md) | unclassified |  |  | no |  | `by-memory/0x00434890-0x004361ae.JsonCppOurReaderUnicodeAndBuiltStyledStreamWriter.md` |  |
 | [UID:0000XC][0x004417e0-0x00441d24.JsonCppValidReaderKeys](by-memory/0x004417e0-0x00441d24.JsonCppValidReaderKeys.md) | unclassified |  |  | no |  | `by-memory/0x004417e0-0x00441d24.JsonCppValidReaderKeys.md` |  |
 | [UID:0000XD][0x00441d30-0x00442084.JsonCppValidWriterKeys](by-memory/0x00441d30-0x00442084.JsonCppValidWriterKeys.md) | unclassified |  |  | no |  | `by-memory/0x00441d30-0x00442084.JsonCppValidWriterKeys.md` |  |
-| [UID:0001ZX][0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport](by-memory/0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport.md) | unclassified |  |  | no |  | `by-memory/0x00442090-0x00443a55.JsonCppWriterRuntimeTailSupport.md` |  |
 | [UID:0000XE][0x00443a60-0x00450c9f.LodePngHelperIslandInventory](by-memory/0x00443a60-0x00450c9f.LodePngHelperIslandInventory.md) | unclassified |  |  | no |  | `by-memory/0x00443a60-0x00450c9f.LodePngHelperIslandInventory.md` |  |
 | [UID:0000XF][0x00443c80-0x00443e5d.LodePngEncodeFrontEnd](by-memory/0x00443c80-0x00443e5d.LodePngEncodeFrontEnd.md) | unclassified |  |  | no |  | `by-memory/0x00443c80-0x00443e5d.LodePngEncodeFrontEnd.md` |  |
 | [UID:0000XG][0x00444740-0x00444be0.LodePngRawErrorAndSettingsHelpers](by-memory/0x00444740-0x00444be0.LodePngRawErrorAndSettingsHelpers.md) | unclassified |  |  | no |  | `by-memory/0x00444740-0x00444be0.LodePngRawErrorAndSettingsHelpers.md` |  |
@@ -1549,9 +1551,7 @@ Total_Error: 5
 | [UID:0000XI][0x00448520-0x00448557.LodePNGStateDestructors](by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md) | unclassified |  |  | no |  | `by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md` |  |
 | [UID:0000XJ][0x00450030-0x0045007b.LodePngLowerBoundHelper](by-memory/0x00450030-0x0045007b.LodePngLowerBoundHelper.md) | unclassified |  |  | no |  | `by-memory/0x00450030-0x0045007b.LodePngLowerBoundHelper.md` |  |
 | [UID:0000XK][0x00450ca0-0x0045381b.MiniMapDialog](by-memory/0x00450ca0-0x0045381b.MiniMapDialog.md) | unclassified |  |  | no |  | `by-memory/0x00450ca0-0x0045381b.MiniMapDialog.md` |  |
-| [UID:0000XL][0x00452260-0x0045239a.GetControlLayout_452260](by-memory/0x00452260-0x0045239a.GetControlLayout_452260.md) | unclassified |  |  | no |  | `by-memory/0x00452260-0x0045239a.GetControlLayout_452260.md` |  |
 | [UID:0000XM][0x004536e0-0x00453732.FontStyleClearRules](by-memory/0x004536e0-0x00453732.FontStyleClearRules.md) | unclassified |  |  | no |  | `by-memory/0x004536e0-0x00453732.FontStyleClearRules.md` |  |
-| [UID:0001ZY][0x00453820-0x00453904.WideStringMapNodeSupport](by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md) | unclassified |  |  | no |  | `by-memory/0x00453820-0x00453904.WideStringMapNodeSupport.md` |  |
 | [UID:0000XN][0x00453910-0x00453def.MiniMapDownloader](by-memory/0x00453910-0x00453def.MiniMapDownloader.md) | unclassified |  |  | no |  | `by-memory/0x00453910-0x00453def.MiniMapDownloader.md` |  |
 | [UID:0000XS][0x00457100-0x0045730e.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md) | unclassified |  |  | no |  | `by-memory/0x00457100-0x0045730e.DATIndexVectorInsertNode.md` |  |
 | [UID:0000XT][0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md) | unclassified |  |  | no |  | `by-memory/0x00457310-0x004573b2.DATIndexVectorRemoveNodeHelper.md` |  |
