@@ -103,9 +103,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000B4` | 74 | 76 | 75.0 | `by-class/ProtectedArray_struct_GameServerConfig__NationEntry_.md` |
-| `0000G8` | 74 | 76 | 75.0 | `by-class/WorldMapNodeEntryVector.md` |
-| `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
 | `0000CC` | 76 | 76 | 76.0 | `by-class/ScreenPanePaletteState_543D30.md` |
 | `0000CH` | 76 | 76 | 76.0 | `by-class/ScrolledPictureControlPane.md` |
 | `000012` | 76 | 76 | 76.0 | `by-class/brdir__Notification.md` |
@@ -142,9 +139,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `000014` | 72 | 78 | 75.0 | `by-class/browser__Notification.md` |
 | `000220` | 72 | 78 | 75.0 | `by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md` |
 | `0001G6` | 72 | 78 | 75.0 | `by-memory/0x00557140-0x00559aef.SurfacePresentation.md` |
-| `0000B4` | 74 | 76 | 75.0 | `by-class/ProtectedArray_struct_GameServerConfig__NationEntry_.md` |
-| `0000G8` | 74 | 76 | 75.0 | `by-class/WorldMapNodeEntryVector.md` |
-| `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
 | `00001A` | 72 | 80 | 76.0 | `by-class/BrowserThread.md` |
@@ -170,9 +164,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `00009Z` | 72 | 78 | 75.0 | `by-class/OverlayImageOnPointEffecter.md` |
 | `0000BQ` | 72 | 78 | 75.0 | `by-class/RankingUserListPane.md` |
 | `000014` | 72 | 78 | 75.0 | `by-class/browser__Notification.md` |
-| `0000B4` | 74 | 76 | 75.0 | `by-class/ProtectedArray_struct_GameServerConfig__NationEntry_.md` |
-| `0000G8` | 74 | 76 | 75.0 | `by-class/WorldMapNodeEntryVector.md` |
-| `0000GA` | 74 | 76 | 75.0 | `by-class/WorldMapReachabilityBitSet.md` |
 | `000017` | 72 | 80 | 76.0 | `by-class/BrowserDialog.md` |
 | `00001A` | 72 | 80 | 76.0 | `by-class/BrowserThread.md` |
 | `00001H` | 72 | 80 | 76.0 | `by-class/CashShopRequest.md` |
