@@ -227,11 +227,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002FH` | 72 | 80 | 76.0 | `by-memory/0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw.md` |
-| `0002FP` | 72 | 80 | 76.0 | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |
-| `0002FQ` | 72 | 80 | 76.0 | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |
-| `0002G9` | 72 | 80 | 76.0 | `by-memory/0x00483260-0x0048326f.ChattingColorListPaneGetSelectedColorValueRaw.md` |
-| `0002BG` | 72 | 80 | 76.0 | `by-memory/0x0048f400-0x0048f4cf.CommandLineArgumentCounter.md` |
 | `0002BH` | 72 | 80 | 76.0 | `by-memory/0x0048f4d0-0x0048f6cb.StartupHostPortCommandLineParser.md` |
 | `0002BI` | 72 | 80 | 76.0 | `by-memory/0x0048f6d0-0x0048fc96.NetsgoStartupAuthenticationParser.md` |
 | `0002BK` | 72 | 80 | 76.0 | `by-memory/0x00490200-0x0049050a.LgInternetSessionLauncherParser.md` |

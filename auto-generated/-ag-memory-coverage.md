@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2248
-Total_Reconstructable: 1413
+Total_Reconstructable: 1414
 Total_Not_Reconstructable: 24
-Total_Reconstructed_Assigned: 875
+Total_Reconstructed_Assigned: 876
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 533
-Total_Unclassified: 811
+Total_Unclassified: 810
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -136,6 +136,7 @@ Total_Error: 5
 | [UID:0002EY][0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw](by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md) | assigned | `00001X` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x0047fd40-0x0047fd68.ChattingPaneResetScrollRangeRaw.md` |  |
 | [UID:0002FF][0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper](by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md) | assigned | `00001Y` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md` |  |
 | [UID:0002FG][0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest](by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md) | assigned | `00001Y` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md` |  |
+| [UID:0002FH][0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw](by-memory/0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw.md` |  |
 | [UID:0002FP][0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper](by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00481b60-0x00481bb9.ChattingVarietySelectPaneStateCompareHelper.md` |  |
 | [UID:0002FQ][0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper](by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00481bc0-0x00481c05.ChattingVarietySelectPaneStateSnapshotHelper.md` |  |
 | [UID:0002FW][0x00482310-0x00482400.ChatButtonRectHelperRaw](by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-memory/0x00482310-0x00482400.ChatButtonRectHelperRaw.md` |  |
@@ -1644,7 +1645,6 @@ Total_Error: 5
 | [UID:0002FB][0x00480ca0-0x00480cc9.ChattingVarietyPaneDestructor](by-memory/0x00480ca0-0x00480cc9.ChattingVarietyPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00480ca0-0x00480cc9.ChattingVarietyPaneDestructor.md` |  |
 | [UID:0002FC][0x00480cd0-0x00480e80.ChattingVarietyPaneOnMouseEvent](by-memory/0x00480cd0-0x00480e80.ChattingVarietyPaneOnMouseEvent.md) | unclassified |  |  | no |  | `by-memory/0x00480cd0-0x00480e80.ChattingVarietyPaneOnMouseEvent.md` |  |
 | [UID:0002FD][0x00480e80-0x00480ff1.ChattingVarietyPaneOnPaint](by-memory/0x00480e80-0x00480ff1.ChattingVarietyPaneOnPaint.md) | unclassified |  |  | no |  | `by-memory/0x00480e80-0x00480ff1.ChattingVarietyPaneOnPaint.md` |  |
-| [UID:0002FH][0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw](by-memory/0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw.md) | unclassified |  |  | no |  | `by-memory/0x004810f0-0x00481146.ChattingVarietySelectPaneConstructorRaw.md` |  |
 | [UID:0002FI][0x00481150-0x004811bc.ChattingVarietySelectPaneDestructor](by-memory/0x00481150-0x004811bc.ChattingVarietySelectPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x00481150-0x004811bc.ChattingVarietySelectPaneDestructor.md` |  |
 | [UID:0002FJ][0x004811c0-0x00481461.ChattingVarietySelectPaneOnMouseEvent](by-memory/0x004811c0-0x00481461.ChattingVarietySelectPaneOnMouseEvent.md) | unclassified |  |  | no |  | `by-memory/0x004811c0-0x00481461.ChattingVarietySelectPaneOnMouseEvent.md` |  |
 | [UID:0002FK][0x00481470-0x0048148f.ChattingVarietySelectPaneOnDismiss](by-memory/0x00481470-0x0048148f.ChattingVarietySelectPaneOnDismiss.md) | unclassified |  |  | no |  | `by-memory/0x00481470-0x0048148f.ChattingVarietySelectPaneOnDismiss.md` |  |
