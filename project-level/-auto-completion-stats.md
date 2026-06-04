@@ -26,7 +26,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000IB` | blank | `(blank)` | `by-file/CollectionDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IL` | blank | `(blank)` | `by-file/CursorManager.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IM` | blank | `(blank)` | `by-file/DATArchive.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000J2` | blank | `(blank)` | `by-file/EPFImageControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000J3` | blank | `(blank)` | `by-file/EPFImageResources.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000IX` | blank | `(blank)` | `by-file/EditablePaperPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000J6` | blank | `(blank)` | `by-file/Event.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -121,10 +120,7 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 ## Low_Both
 
-| UID | Completion | Confidence | Combined | Path |
-| --- | ---: | ---: | ---: | --- |
-| `00003R` | 72 | 80 | 76.0 | `by-class/DialDialog.md` |
-| `00004G` | 72 | 80 | 76.0 | `by-class/EPFImageControlPane.md` |
+_No scored files._
 
 ## By Folder
 
@@ -132,8 +128,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00003R` | 72 | 80 | 76.0 | `by-class/DialDialog.md` |
-| `00004G` | 72 | 80 | 76.0 | `by-class/EPFImageControlPane.md` |
 | `00004H` | 72 | 80 | 76.0 | `by-class/EPFTextEditObject.md` |
 | `00004L` | 72 | 80 | 76.0 | `by-class/Event.md` |
 | `000055` | 72 | 80 | 76.0 | `by-class/FittingRoomTextButtonControlPane.md` |
@@ -157,7 +151,6 @@ _No scored files._
 | `0000JC` | 72 | 84 | 78.0 | `by-file/FileDownloader.md` |
 | `0000OB` | 72 | 84 | 78.0 | `by-file/StringUtil.md` |
 | `0000LP` | 76 | 80 | 78.0 | `by-file/NewCreateUserDialogPane.md` |
-| `0000J2` | 78 | 78 | 78.0 | `by-file/EPFImageControlPane.md` |
 | `0000KO` | 78 | 78 | 78.0 | `by-file/LightingObjectPane.md` |
 | `0000KQ` | 78 | 78 | 78.0 | `by-file/LineIterator.md` |
 | `0000KV` | 80 | 76 | 78.0 | `by-file/LObject.md` |

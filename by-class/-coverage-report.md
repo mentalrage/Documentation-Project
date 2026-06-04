@@ -144,7 +144,7 @@
 - [UID:00003O][DeleteReplyAlert](by-class/DeleteReplyAlert.md) : reconstructable : 78% : strong : - Confidence: strong for reply-list deletion behavior, methods, and singleton lifecycle.
 - [UID:00003P][Deque](by-class/Deque.md) : reconstructable : 80% : strong : Reusable 4-byte-entry deque; IDA-corrected layout, core methods, caller fan-in, and omitted element-address helper are documented.
 - [UID:00003Q][DescPane](by-class/DescPane.md) : reconstructable : 74% : strong : - Confidence: strong for class identity and field tail; medium for raw helper naming and caller coverage.
-- [UID:00003R][DialDialog](by-class/DialDialog.md) : reconstructable : 72% : strong : - Confidence: strong for core dialog behavior, medium for nearby unowned modem parser.
+- [UID:00003R][DialDialog](by-class/DialDialog.md) : reconstructable : 84% : strong : Live IDA confirms exact function bounds, constructor caller, vtable stores/slots, dial command strings, modem parser state behavior, and TerminalPane thunk exclusions.
 - [UID:00003S][DialogInSession](by-class/DialogInSession.md) : reconstructable : 78% : strong : - Confidence: strong for role, tail layout, vtables, constructor/destructor family, and session-dialog ownership.
 - [UID:00003T][DialogPane](by-class/DialogPane.md) : reconstructable : 82% : strong : - Confidence: strong for base dialog role, major layout offsets, lifecycle/animation/control families, and corrected derived input-owner split.
 - [UID:00003U][DialogSession](by-class/DialogSession.md) : reconstructable : 80% : strong : - Confidence: strong for core behavior and layout/vtables; medium for final source-folder placement.
@@ -169,7 +169,7 @@
 - [UID:00004D][EmployeeItemPropertyDialogPane](by-class/EmployeeItemPropertyDialogPane.md) : reconstructable : 76% : strong : - Confidence: strong for constructor/action behavior, exact vtable child, and source placement; medium for destructor base label.
 - [UID:00004E][EmployeeQuantityInputDialogPane](by-class/EmployeeQuantityInputDialogPane.md) : reconstructable : 78% : strong : - Confidence: strong for behavior, boundaries, exact vtable child, and caller evidence.
 - [UID:00004F][Encoder](by-class/Encoder.md) : reconstructable : 82% : strong : - Confidence: strong for binary-writer layout, method family, vtable identity, and caller evidence.
-- [UID:00004G][EPFImageControlPane](by-class/EPFImageControlPane.md) : reconstructable : 72% : strong : - Confidence: strong for observed behavior, medium for final member names and callback signature cleanup.
+- [UID:00004G][EPFImageControlPane](by-class/EPFImageControlPane.md) : reconstructable : 84% : strong : Live IDA confirms exact bounds, 66-constructor-caller fanout, vtable stores/slots, render callback dependencies, default palette behavior, and TargetOption exclusion.
 - [UID:00004H][EPFTextEditObject](by-class/EPFTextEditObject.md) : reconstructable : 72% : strong : - Confidence: strong for behavior; medium for exact original file split and embedded frame detail.
 - [UID:00004I][EPFTileContext](by-class/EPFTileContext.md) : reconstructable : 80% : strong : - Confidence: strong for behavior and local layout, medium for final field names.
 - [UID:00004J][Error](by-class/Error.md) : reconstructable : 76% : strong : Base error class with IDA-confirmed base vtable slot map, separated destructor-family ownership, common name helper evidence, and Error.cpp parent attachment.

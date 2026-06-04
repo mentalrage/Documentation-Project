@@ -3,12 +3,12 @@
 # ag-class-coverage
 
 Total_Type: 586
-Total_Reconstructable: 259
+Total_Reconstructable: 261
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 182
+Total_Reconstructed_Assigned: 184
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 77
-Total_Unclassified: 326
+Total_Unclassified: 324
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -59,8 +59,10 @@ Total_Error: 0
 | [UID:00003M][Decoder](by-class/Decoder.md) | assigned | `0000IQ` |  | no | `auto-generated/NexusTK/util/Decoder.cpp` | `by-class/Decoder.md` |  |
 | [UID:00003N][DeleteFromBlockListenInputPane](by-class/DeleteFromBlockListenInputPane.md) | assigned | `0000HS` |  | no | `auto-generated/NexusTK/social/BlockListenInputPanes.cpp` | `by-class/DeleteFromBlockListenInputPane.md` |  |
 | [UID:00003Q][DescPane](by-class/DescPane.md) | assigned | `0000IS` |  | no | `auto-generated/NexusTK/ui/controls/DescPane.cpp` | `by-class/DescPane.md` |  |
+| [UID:00003R][DialDialog](by-class/DialDialog.md) | assigned | `0000MJ` |  | no | `auto-generated/NexusTK/login/PhoneBookDialog.cpp` | `by-class/DialDialog.md` |  |
 | [UID:00003X][DirectionButtonControlPane](by-class/DirectionButtonControlPane.md) | assigned | `0000NY` | 10 | no | `auto-generated/NexusTK/ui/controls/SpecializedButtonPanes.cpp` | `by-class/DirectionButtonControlPane.md` |  |
 | [UID:000043][DropGoldInputPane](by-class/DropGoldInputPane.md) | assigned | `0000KC` |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-class/DropGoldInputPane.md` |  |
+| [UID:00004G][EPFImageControlPane](by-class/EPFImageControlPane.md) | assigned | `0000J2` |  | no | `auto-generated/NexusTK/ui/controls/EPFImageControlPane.cpp` | `by-class/EPFImageControlPane.md` |  |
 | [UID:00004I][EPFTileContext](by-class/EPFTileContext.md) | assigned | `0000J4` |  | no | `auto-generated/NexusTK/render/EPFTileContext.cpp` | `by-class/EPFTileContext.md` |  |
 | [UID:000046][EarthquakeEffecter](by-class/EarthquakeEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/EarthquakeEffecter.md` |  |
 | [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md) | assigned | `0000IY` | 10 | no | `auto-generated/NexusTK/render/EffectObjImageLib.cpp` | `by-class/EffectObjImageLib.md` |  |
@@ -332,12 +334,10 @@ Total_Error: 0
 | [UID:00003H][DATFileContainer](by-class/DATFileContainer.md) | unclassified |  |  | no |  | `by-class/DATFileContainer.md` |  |
 | [UID:00003F][DamageNumberObjectPane](by-class/DamageNumberObjectPane.md) | unclassified |  |  | no |  | `by-class/DamageNumberObjectPane.md` |  |
 | [UID:00003O][DeleteReplyAlert](by-class/DeleteReplyAlert.md) | unclassified |  |  | no |  | `by-class/DeleteReplyAlert.md` |  |
-| [UID:00003R][DialDialog](by-class/DialDialog.md) | unclassified |  |  | no |  | `by-class/DialDialog.md` |  |
 | [UID:000040][DoubleParamMemberFunctionObject0_void____thiscall_UserPane_____signed_char__h43ff6c8e0528](by-class/DoubleParamMemberFunctionObject0_void____thiscall_UserPane_____signed_char__h43ff6c8e0528.md) | unclassified |  |  | no |  | `by-class/DoubleParamMemberFunctionObject0_void____thiscall_UserPane_____signed_char__h43ff6c8e0528.md` |  |
 | [UID:000041][DoubleParamMemberFunctionObject_void____thiscall_MixItemDialog_____unsigne__h9ece1f1df45d](by-class/DoubleParamMemberFunctionObject_void____thiscall_MixItemDialog_____unsigne__h9ece1f1df45d.md) | unclassified |  |  | no |  | `by-class/DoubleParamMemberFunctionObject_void____thiscall_MixItemDialog_____unsigne__h9ece1f1df45d.md` |  |
 | [UID:000042][DropAllInputPane](by-class/DropAllInputPane.md) | unclassified |  |  | no |  | `by-class/DropAllInputPane.md` |  |
 | [UID:000044][DropInputPane](by-class/DropInputPane.md) | unclassified |  |  | no |  | `by-class/DropInputPane.md` |  |
-| [UID:00004G][EPFImageControlPane](by-class/EPFImageControlPane.md) | unclassified |  |  | no |  | `by-class/EPFImageControlPane.md` |  |
 | [UID:00004H][EPFTextEditObject](by-class/EPFTextEditObject.md) | unclassified |  |  | no |  | `by-class/EPFTextEditObject.md` |  |
 | [UID:000047][EatInputPane](by-class/EatInputPane.md) | unclassified |  |  | no |  | `by-class/EatInputPane.md` |  |
 | [UID:000048][EditablePaperPane](by-class/EditablePaperPane.md) | unclassified |  |  | no |  | `by-class/EditablePaperPane.md` |  |

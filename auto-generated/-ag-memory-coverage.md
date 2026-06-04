@@ -5,9 +5,9 @@
 Total_Type: 2248
 Total_Reconstructable: 1413
 Total_Not_Reconstructable: 23
-Total_Reconstructed_Assigned: 874
+Total_Reconstructed_Assigned: 875
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 534
+Total_Reconstructable_Unassigned: 533
 Total_Unclassified: 812
 Total_Error: 5
 
@@ -197,6 +197,7 @@ Total_Error: 5
 | [UID:00011A][0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder](by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md) | assigned | `0000AW` | 50 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md` |  |
 | [UID:00011C][0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar](by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md) | assigned | `0000AW` | 60 | no | `auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp` | `by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md` |  |
 | [UID:00011D][0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh](by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md) | assigned | `0000CR` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md` |  |
+| [UID:00011J][0x004991f0-0x0049b24f.EPFImageControlPane](by-memory/0x004991f0-0x0049b24f.EPFImageControlPane.md) | assigned | `00004G` |  | no | `auto-generated/NexusTK/ui/controls/EPFImageControlPane.cpp` | `by-memory/0x004991f0-0x0049b24f.EPFImageControlPane.md` |  |
 | [UID:00011X][0x0049af00-0x0049af11.PopupMenuSelectionCallbackInvoke](by-memory/0x0049af00-0x0049af11.PopupMenuSelectionCallbackInvoke.md) | assigned | `0000AK` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-memory/0x0049af00-0x0049af11.PopupMenuSelectionCallbackInvoke.md` |  |
 | [UID:000123][0x0049b090-0x0049b28e.FunctionObjectDestructors](by-memory/0x0049b090-0x0049b28e.FunctionObjectDestructors.md) | assigned | `00005K` |  | no | `auto-generated/NexusTK/util/FunctionObjects.cpp` | `by-memory/0x0049b090-0x0049b28e.FunctionObjectDestructors.md` |  |
 | [UID:000223][0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers](by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md) | assigned | `0000HY` |  | no | `auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp` | `by-memory/0x0049b930-0x0049ba2b.ControlPaneScrollOffsetHelpers.md` |  |
@@ -1029,7 +1030,6 @@ Total_Error: 5
 | [UID:00011E][0x004964a0-0x0049662f.RadioGroupControlPaneOptionHelpers](by-memory/0x004964a0-0x0049662f.RadioGroupControlPaneOptionHelpers.md) | unassigned |  |  | no |  | `by-memory/0x004964a0-0x0049662f.RadioGroupControlPaneOptionHelpers.md` |  |
 | [UID:0002OA][0x00498c10-0x00498c1f.TextEditControlPaneReadTextForwarder](by-memory/0x00498c10-0x00498c1f.TextEditControlPaneReadTextForwarder.md) | unassigned |  |  | no |  | `by-memory/0x00498c10-0x00498c1f.TextEditControlPaneReadTextForwarder.md` |  |
 | [UID:00011I][0x00498dd0-0x004991ec.StaticTextControlPane](by-memory/0x00498dd0-0x004991ec.StaticTextControlPane.md) | unassigned |  |  | no |  | `by-memory/0x00498dd0-0x004991ec.StaticTextControlPane.md` |  |
-| [UID:00011J][0x004991f0-0x0049b24f.EPFImageControlPane](by-memory/0x004991f0-0x0049b24f.EPFImageControlPane.md) | unassigned |  |  | no |  | `by-memory/0x004991f0-0x0049b24f.EPFImageControlPane.md` |  |
 | [UID:00011S][0x00499d40-0x00499f0e.CheckBoxControlPaneCore](by-memory/0x00499d40-0x00499f0e.CheckBoxControlPaneCore.md) | unassigned |  |  | no |  | `by-memory/0x00499d40-0x00499f0e.CheckBoxControlPaneCore.md` |  |
 | [UID:00011Y][0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors](by-memory/0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors.md) | unassigned |  |  | no |  | `by-memory/0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors.md` |  |
 | [UID:000126][0x0049b4f0-0x0049b557.ScrollableControlPaneScalarDeletingDestructor](by-memory/0x0049b4f0-0x0049b557.ScrollableControlPaneScalarDeletingDestructor.md) | unassigned |  |  | no |  | `by-memory/0x0049b4f0-0x0049b557.ScrollableControlPaneScalarDeletingDestructor.md` |  |

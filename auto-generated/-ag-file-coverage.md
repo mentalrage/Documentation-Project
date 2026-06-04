@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 214
+Total_Reconstructed_Assigned: 215
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 74
+Total_Error: 73
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -60,6 +60,7 @@ Total_Error: 74
 | [UID:0000IT][DialogPane](by-file/DialogPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/core/DialogPane.cpp` | `by-file/DialogPane.md` | by-file generated root |
 | [UID:0000IU][DialogSession](by-file/DialogSession.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/DialogSession.cpp` | `by-file/DialogSession.md` | by-file generated root |
 | [UID:0000IW][DirectX](by-file/DirectX.md) | assigned |  |  | no | `auto-generated/NexusTK/render/DirectX.cpp` | `by-file/DirectX.md` | by-file generated root |
+| [UID:0000J2][EPFImageControlPane](by-file/EPFImageControlPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/controls/EPFImageControlPane.cpp` | `by-file/EPFImageControlPane.md` | by-file generated root |
 | [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md) | assigned |  |  | no | `auto-generated/NexusTK/render/EPFTileContext.cpp` | `by-file/EPFTileContext.md` | by-file generated root |
 | [UID:0000IY][EffectObjImageLib](by-file/EffectObjImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/EffectObjImageLib.cpp` | `by-file/EffectObjImageLib.md` | by-file generated root |
 | [UID:0000IZ][Effects](by-file/Effects.md) | assigned |  |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-file/Effects.md` | by-file generated root |
@@ -235,7 +236,6 @@ Total_Error: 74
 | [UID:0000IB][CollectionDialogPane](by-file/CollectionDialogPane.md) | error |  |  | no |  | `by-file/CollectionDialogPane.md` | by-file generated root |
 | [UID:0000IL][CursorManager](by-file/CursorManager.md) | error |  |  | no |  | `by-file/CursorManager.md` | by-file generated root |
 | [UID:0000IM][DATArchive](by-file/DATArchive.md) | error |  |  | no |  | `by-file/DATArchive.md` | by-file generated root |
-| [UID:0000J2][EPFImageControlPane](by-file/EPFImageControlPane.md) | error |  |  | no |  | `by-file/EPFImageControlPane.md` | by-file generated root |
 | [UID:0000J3][EPFImageResources](by-file/EPFImageResources.md) | error |  |  | no |  | `by-file/EPFImageResources.md` | by-file generated root |
 | [UID:0000IX][EditablePaperPane](by-file/EditablePaperPane.md) | error |  |  | no |  | `by-file/EditablePaperPane.md` | by-file generated root |
 | [UID:0000J6][Event](by-file/Event.md) | error |  |  | no |  | `by-file/Event.md` | by-file generated root |
