@@ -57,6 +57,11 @@ Use the narrowest durable home for each fact, then connect related pages with UI
 
 Before creating or editing a page in a `by-*` folder, read that folder's `-guidance.md`. For nested `by-type/by-*` subtype folders, read both `by-type/-guidance.md` and the subtype `-guidance.md`.
 
+
+### Frequent Documentation/MCP Issues
+
+1. IDA's string typing is frequently wrong for Korean UTF-16 messages; decode the byte sequences directly before recording UI text.
+
 ### Rebuild Handling Classification
 
 When documenting code or data, distinguish the source semantics that must be recreated from binary artifacts that the compiler/linker should regenerate. Do not assume non-`.text` ranges are disposable compiler output.

@@ -761,13 +761,13 @@ For each ignored range, include:
 
 - `0x004cf8d5-0x004cf8e0` - `IconsPane` core to raw action-dispatch alignment padding.
   - Why ignored: IDA disassembly shows `IconsPane::SetIconHighlight` ends with `C2 04 00` at `0x004cf8d2-0x004cf8d4`; bytes `0x004cf8d5-0x004cf8df` are `0xcc` alignment before the raw action-dispatch body at `0x004cf8e0`.
-  - Evidence: [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md) and [UID:00022Q][0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md) record the adjacent executable ranges.
+  - Evidence: [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md) and [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md) record the adjacent executable ranges.
   - Replacement/procurement: no external dependency; compiler/linker alignment padding only.
   - Owner docs: [UID:0000JZ][IconsPane](by-file/IconsPane.md), [UID:00006B][IconsPane](by-class/IconsPane.md).
 
-- `0x004cf975-0x004cf980` - raw `IconsPane` action dispatch to `TabPane` alignment padding.
-  - Why ignored: IDA disassembly shows the raw dispatch jump table ends at `0x004cf974`; bytes `0x004cf975-0x004cf97f` are `0xcc` alignment before `TabPane` code begins at `0x004cf980`.
-  - Evidence: [UID:00022Q][0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md) records the raw dispatcher and jump-table bytes; [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md) records the following `TabPane` constructor.
+- `0x004cf974-0x004cf980` - raw `IconsPane` action dispatch to `TabPane` alignment padding.
+  - Why ignored: IDA disassembly shows the raw dispatch jump table ends before `0x004cf974`; bytes `0x004cf974-0x004cf97f` are `0xcc` alignment before `TabPane` code begins at `0x004cf980`.
+  - Evidence: [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md) records the raw dispatcher and jump-table bytes; [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md) records the following `TabPane` constructor.
   - Replacement/procurement: no external dependency; compiler/linker alignment padding only.
   - Owner docs: [UID:0000JZ][IconsPane](by-file/IconsPane.md), [UID:0000OF][TabPane](by-file/TabPane.md).
 
@@ -2666,9 +2666,9 @@ For each ignored range, include:
   - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
   - Owner docs: [UID:00015N][0x004b7320-0x004b73a3.FramePartPaneSlotCleanup](by-memory/0x004b7320-0x004b73a3.FramePartPaneSlotCleanup.md), [UID:00015O][0x004b73b0-0x004b7661.FramePartPane](by-memory/0x004b73b0-0x004b7661.FramePartPane.md).
 
-- `0x004b7661-0x004b7670`, `0x004b7685-0x004b7690`, `0x004b76c8-0x004b76d0`, `0x004b76f8-0x004b7700`, `0x004b7774-0x004b7780`, `0x004b7828-0x004b7830`, and `0x004b78c8-0x004b78d0` - alignment padding around and inside `RectBoundsPredicateAndCombinationMethods`.
+- `0x004b7661-0x004b7670`, `0x004b7685-0x004b7690`, `0x004b76c8-0x004b76d0`, `0x004b76f8-0x004b7700`, `0x004b7775-0x004b7780`, `0x004b782a-0x004b7830`, and `0x004b78c8-0x004b78d0` - alignment padding around and inside `RectBoundsPredicateAndCombinationMethods`.
   - Why ignored: confirmed `0xcc` compiler/linker alignment bytes between the corrected `FramePartPane` end, RectBounds predicate/combination helper bodies, and the next RectBounds method page.
-  - Evidence: 2026-05-28 IDA MCP `lookup_funcs` and raw-byte review identify code at `0x004b7670-0x004b7685`, `0x004b7690-0x004b76c8`, `0x004b76d0-0x004b76f8`, `0x004b7700-0x004b7774`, `0x004b7780-0x004b7828`, and `0x004b7830-0x004b78c8`; all listed intervening spans are `0xcc`.
+  - Evidence: 2026-06-04 live IDA MCP `lookup_funcs` and raw-byte review identify code at `0x004b7670-0x004b7685`, `0x004b7690-0x004b76c8`, `0x004b76d0-0x004b76f8`, `0x004b7700-0x004b7775`, `0x004b7780-0x004b782a`, and `0x004b7830-0x004b78c8`; the corrected intervening spans are `0xcc`, while `0x004b7774` is the final `retn 4` immediate byte and `0x004b7828-0x004b7829` are the final `retn 8` immediate bytes.
   - Replacement/procurement: no source replacement; compiler/linker alignment bytes.
   - Owner docs: [UID:00015O][0x004b73b0-0x004b7661.FramePartPane](by-memory/0x004b73b0-0x004b7661.FramePartPane.md), [UID:00022G][0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods](by-memory/0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods.md), [UID:00015Q][0x004b78d0-0x004b7ae8.RectBoundsMethods](by-memory/0x004b78d0-0x004b7ae8.RectBoundsMethods.md).
 

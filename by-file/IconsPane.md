@@ -12,11 +12,11 @@
 - Current generated source: `class_IconsPane.cpp`
 - Main class: [UID:00006B][IconsPane](by-class/IconsPane.md)
 - Core address doc: [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md)
-- Raw action-dispatch candidate: [UID:00022Q][0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md)
+- Raw action-dispatch candidate: [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md)
 - Shared tail doc: [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
 - Singleton global: [UID:0000R6][g_pIconsPane](by-global/g_pIconsPane.md)
 - Resource doc: [UID:0001RD][iconspane-icon-resources](by-resource/iconspane-icon-resources.md)
-- Evidence basis: `simroot_v2`, Wave2 report notes, and IDA MCP decompilation/function/caller/xref checks on 2026-05-24.
+- Evidence basis: IDA MCP decompilation/function/caller/xref checks, current generated source, and linked exact memory pages.
 
 ## File Role
 
@@ -33,7 +33,7 @@ The projected path is now `NexusTK/ui/panels/` because [UID:0001R1][proposed-sou
 | Entity | Address evidence | Role |
 | --- | --- | --- |
 | `IconsPane` core | [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md), split into [UID:0002SW][0x004cf1f0-0x004cf25d.IconsPaneConstructor](by-memory/0x004cf1f0-0x004cf25d.IconsPaneConstructor.md), [UID:0002SX][0x004cf260-0x004cf289.IconsPaneCleanupHelper](by-memory/0x004cf260-0x004cf289.IconsPaneCleanupHelper.md), [UID:0002SY][0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons](by-memory/0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons.md), [UID:0002SZ][0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons](by-memory/0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons.md), [UID:0002T0][0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons](by-memory/0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons.md), [UID:0002T1][0x004cf300-0x004cf3d3.IconsPaneOnPaint](by-memory/0x004cf300-0x004cf3d3.IconsPaneOnPaint.md), [UID:0002T2][0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent](by-memory/0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent.md), [UID:0002T3][0x004cf7d0-0x004cf862.IconsPaneHitTestIcon](by-memory/0x004cf7d0-0x004cf862.IconsPaneHitTestIcon.md), and [UID:0002T4][0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight](by-memory/0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight.md) | Constructor, cleanup helper, show-all/reduced state methods, paint, mouse handling, hit test, pressed-state invalidation. |
-| `IconsPane` raw action dispatch candidate | `0x004cf8e0-0x004cf975` | Function-shaped duplicate/candidate of the click-action switch, with local jump table and no IDA function object/direct external xrefs. |
+| `IconsPane` raw action dispatch candidate | `0x004cf8e0-0x004cf974` | Function-shaped duplicate/candidate of the click-action switch, with local jump table and no IDA function object/direct external xrefs. |
 | `IconsPane` destructor glue | `0x004cfd6c-0x004cfd81`, `0x004cfda0-0x004cfdff` | Adjustor thunks and scalar deleting destructor interleaved after `TabPane` core code. |
 | `g_pIconsPane` | `0x0069b41c` | Singleton pointer registered by constructor, cleared by cleanup/destructor paths, and read during main UI shutdown plus option UI paths. |
 | Vtable set | `0x0061b448`, `0x0061b494`, `0x0061b4c4` | Main and adjustor vtables installed at object offsets `0x0`, `0xa0`, and `0xa4`. |
@@ -57,7 +57,7 @@ The `IconsPane` destructor glue is physically interleaved with [UID:0000OF][TabP
 
 - [UID:00006B][IconsPane](by-class/IconsPane.md)
 - [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md)
-- [UID:00022Q][0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md)
+- [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md)
 - [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
 - [UID:0000R6][g_pIconsPane](by-global/g_pIconsPane.md)
 - [UID:0001RD][iconspane-icon-resources](by-resource/iconspane-icon-resources.md)

@@ -227,9 +227,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002BQ` | 72 | 80 | 76.0 | `by-memory/0x00491790-0x004918dc.GameBillLauncherGate.md` |
-| `00022G` | 72 | 80 | 76.0 | `by-memory/0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods.md` |
-| `00022Q` | 72 | 80 | 76.0 | `by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md` |
 | `00019Q` | 72 | 80 | 76.0 | `by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md` |
 | `00019R` | 72 | 80 | 76.0 | `by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md` |
 | `0001A5` | 72 | 80 | 76.0 | `by-memory/0x005008c0-0x0050114d.BlueAlertPaneCore.md` |

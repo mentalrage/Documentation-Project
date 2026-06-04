@@ -16,11 +16,11 @@
 - Current generated file: `class_IconsPane.cpp`
 - Likely source module: [UID:0000JZ][IconsPane](by-file/IconsPane.md)
 - Core range: [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md)
-- Raw action-dispatch candidate: [UID:00022Q][0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md)
+- Raw action-dispatch candidate: [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md)
 - Shared destructor tail: [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
 - Singleton global: [UID:0000R6][g_pIconsPane](by-global/g_pIconsPane.md)
 - Resource doc: [UID:0001RD][iconspane-icon-resources](by-resource/iconspane-icon-resources.md)
-- Evidence basis: `simroot_v2`, Wave2 report notes, and IDA MCP checks on 2026-05-24.
+- Evidence basis: IDA MCP checks, current generated source, and linked exact memory pages.
 
 ## Responsibility
 
@@ -48,7 +48,7 @@
 | [UID:0002T2][0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent](by-memory/0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent.md) | `OnMouseEvent` | Handles capture, pressed state, click actions, and tooltips. |
 | [UID:0002T3][0x004cf7d0-0x004cf862.IconsPaneHitTestIcon](by-memory/0x004cf7d0-0x004cf862.IconsPaneHitTestIcon.md) | `HitTestIcon` | Converts coordinates to icon index; reduced mode starts at icon `6`. |
 | [UID:0002T4][0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight](by-memory/0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight.md) | `SetIconHighlight` | Invalidates the selected icon rectangle when highlight state changes. |
-| `0x004cf8e0-0x004cf975` | raw action dispatch candidate | Function-shaped duplicate/candidate of the click-action switch, with local jump table and no IDA function object/direct external xrefs. |
+| `0x004cf8e0-0x004cf974` | raw action dispatch candidate | Function-shaped duplicate/candidate of the click-action switch, with local jump table and no IDA function object/direct external xrefs. |
 | `0x004cfd6c-0x004cfd81` | adjustor thunks | Subtract `0xa0`/`0xa4` and forward to scalar deleting destructor. |
 | `0x004cfda0-0x004cfdff` | scalar deleting destructor | Clears singleton, calls shared pane cleanup, optionally frees `this` unless `flags & 4` is set. |
 
@@ -64,7 +64,7 @@
 ## Open Questions
 
 - Name each of the eight click actions from the helper callees at `0x005a4db0`, `0x005a4e40`, `0x005a4f70`, `0x005a5010`, `0x005a50a0`, `0x005a5110`, `0x005a5340`, and `0x005a5a80`.
-- Decide whether [UID:00022Q][0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md) is live unmodeled code or an unreferenced duplicate emitted near the icon-pane class block.
+- Decide whether [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md) is live unmodeled code or an unreferenced duplicate emitted near the icon-pane class block.
 - Decide whether original source kept `IconsPane` and [UID:0000EB][TabPane](by-class/TabPane.md) in separate `.cpp` files or a single old-HUD controls file. Current evidence supports separate class docs but adjacent file placement.
 
 ## Autogen Status
@@ -77,7 +77,7 @@
 
 - [UID:0000JZ][IconsPane](by-file/IconsPane.md)
 - [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md)
-- [UID:00022Q][0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf975.IconsPaneActionDispatchRawBody.md)
+- [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md)
 - [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
 - [UID:0000R6][g_pIconsPane](by-global/g_pIconsPane.md)
 - [UID:0001RD][iconspane-icon-resources](by-resource/iconspane-icon-resources.md)
