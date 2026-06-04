@@ -3,12 +3,12 @@
 # ag-memory-coverage
 
 Total_Type: 2245
-Total_Reconstructable: 1386
+Total_Reconstructable: 1388
 Total_Not_Reconstructable: 15
-Total_Reconstructed_Assigned: 859
+Total_Reconstructed_Assigned: 861
 Total_Reconstructed_Coded: 17
 Total_Reconstructable_Unassigned: 522
-Total_Unclassified: 844
+Total_Unclassified: 842
 Total_Error: 5
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -202,6 +202,7 @@ Total_Error: 5
 | [UID:000227][0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder](by-memory/0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-memory/0x0049bd20-0x0049bd2c.DATFileMgrFindEntryForwarder.md` |  |
 | [UID:00012B][0x0049bd30-0x0049d6ed.DATManagers](by-memory/0x0049bd30-0x0049d6ed.DATManagers.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-memory/0x0049bd30-0x0049d6ed.DATManagers.md` |  |
 | [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md` |  |
+| [UID:00012E][0x0049c700-0x0049c71d.HasDATEntry](by-memory/0x0049c700-0x0049c71d.HasDATEntry.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-memory/0x0049c700-0x0049c71d.HasDATEntry.md` |  |
 | [UID:00012F][0x0049c750-0x0049c7f6._DATFileMgrRawDestructor](by-memory/0x0049c750-0x0049c7f6._DATFileMgrRawDestructor.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-memory/0x0049c750-0x0049c7f6._DATFileMgrRawDestructor.md` |  |
 | [UID:00012H][0x0049d190-0x0049d26c.DATFileResolverDestroy](by-memory/0x0049d190-0x0049d26c.DATFileResolverDestroy.md) | assigned | `00003J` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-memory/0x0049d190-0x0049d26c.DATFileResolverDestroy.md` |  |
 | [UID:00012J][0x0049d6f0-0x0049d73c.DescPaneConstructorRaw](by-memory/0x0049d6f0-0x0049d73c.DescPaneConstructorRaw.md) | assigned | `00003Q` |  | no | `auto-generated/NexusTK/ui/controls/DescPane.cpp` | `by-memory/0x0049d6f0-0x0049d73c.DescPaneConstructorRaw.md` |  |
@@ -408,6 +409,7 @@ Total_Error: 5
 | [UID:0002H8][0x004f6490-0x004f66a5.ApplicationShutdown](by-memory/0x004f6490-0x004f66a5.ApplicationShutdown.md) | assigned | `00000D` | 160 | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f6490-0x004f66a5.ApplicationShutdown.md` |  |
 | [UID:0002Q1][0x004f66b5-0x004f66bd.BaramAppDeletingDestructorThunk](by-memory/0x004f66b5-0x004f66bd.BaramAppDeletingDestructorThunk.md) | assigned | `00000V` |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f66b5-0x004f66bd.BaramAppDeletingDestructorThunk.md` |  |
 | [UID:0002Q2][0x004f66c0-0x004f66fb.BaramAppScalarDeletingDestructor](by-memory/0x004f66c0-0x004f66fb.BaramAppScalarDeletingDestructor.md) | assigned | `00000V` |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-memory/0x004f66c0-0x004f66fb.BaramAppScalarDeletingDestructor.md` |  |
+| [UID:00019K][0x004f7d10-0x004f8b2a.InitializeMainUiGraph](by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md) | assigned | `0000L1` |  | no | `auto-generated/NexusTK/ui/MainUiGraph.cpp` | `by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md` |  |
 | [UID:00019O][0x004f8d00-0x004f8f02.LegacyMainMenuPacket](by-memory/0x004f8d00-0x004f8f02.LegacyMainMenuPacket.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f8d00-0x004f8f02.LegacyMainMenuPacket.md` |  |
 | [UID:0002Q6][0x004f8f10-0x004f8f95.OpenTransferServerDialog](by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |  |
 | [UID:00019P][0x004f8fa0-0x004f9055.OpenCreateUserDialog](by-memory/0x004f8fa0-0x004f9055.OpenCreateUserDialog.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-memory/0x004f8fa0-0x004f9055.OpenCreateUserDialog.md` |  |
@@ -1713,7 +1715,6 @@ Total_Error: 5
 | [UID:000222][0x0049b920-0x0049b925.StaticTextControlPaneTypeId](by-memory/0x0049b920-0x0049b925.StaticTextControlPaneTypeId.md) | unclassified |  |  | no |  | `by-memory/0x0049b920-0x0049b925.StaticTextControlPaneTypeId.md` |  |
 | [UID:000224][0x0049ba30-0x0049bad9.MsvcAlignedArrayAllocationHelpers](by-memory/0x0049ba30-0x0049bad9.MsvcAlignedArrayAllocationHelpers.md) | unclassified |  |  | no |  | `by-memory/0x0049ba30-0x0049bad9.MsvcAlignedArrayAllocationHelpers.md` |  |
 | [UID:00012D][0x0049c130-0x0049d2cb.DATFile](by-memory/0x0049c130-0x0049d2cb.DATFile.md) | unclassified |  |  | no |  | `by-memory/0x0049c130-0x0049d2cb.DATFile.md` |  |
-| [UID:00012E][0x0049c700-0x0049c71d.HasDATEntry](by-memory/0x0049c700-0x0049c71d.HasDATEntry.md) | unclassified |  |  | no |  | `by-memory/0x0049c700-0x0049c71d.HasDATEntry.md` |  |
 | [UID:00012L][0x0049d740-0x0049d769.DescPaneDestructor](by-memory/0x0049d740-0x0049d769.DescPaneDestructor.md) | unclassified |  |  | no |  | `by-memory/0x0049d740-0x0049d769.DescPaneDestructor.md` |  |
 | [UID:00012M][0x0049d770-0x0049d776.DescPaneGetSingleton](by-memory/0x0049d770-0x0049d776.DescPaneGetSingleton.md) | unclassified |  |  | no |  | `by-memory/0x0049d770-0x0049d776.DescPaneGetSingleton.md` |  |
 | [UID:00012P][0x0049d81e-0x0049d834.DescPaneDestructorAdjustorThunks](by-memory/0x0049d81e-0x0049d834.DescPaneDestructorAdjustorThunks.md) | unclassified |  |  | no |  | `by-memory/0x0049d81e-0x0049d834.DescPaneDestructorAdjustorThunks.md` |  |
@@ -1797,7 +1798,6 @@ Total_Error: 5
 | [UID:000196][0x004f4aa0-0x004f4ab4.OperatorNewWrapper](by-memory/0x004f4aa0-0x004f4ab4.OperatorNewWrapper.md) | unclassified |  |  | no |  | `by-memory/0x004f4aa0-0x004f4ab4.OperatorNewWrapper.md` |  |
 | [UID:000197][0x004f4ac0-0x004f4b00.OperatorDeleteWrapper](by-memory/0x004f4ac0-0x004f4b00.OperatorDeleteWrapper.md) | unclassified |  |  | no |  | `by-memory/0x004f4ac0-0x004f4b00.OperatorDeleteWrapper.md` |  |
 | [UID:00019J][0x004f69a0-0x004f6a31.CloseMainMenuDialogSingletons](by-memory/0x004f69a0-0x004f6a31.CloseMainMenuDialogSingletons.md) | unclassified |  |  | no |  | `by-memory/0x004f69a0-0x004f6a31.CloseMainMenuDialogSingletons.md` |  |
-| [UID:00019K][0x004f7d10-0x004f8b2a.InitializeMainUiGraph](by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md) | unclassified |  |  | no |  | `by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md` |  |
 | [UID:00019L][0x004f8b30-0x004f8b8d.EnsureLoginDialogPane](by-memory/0x004f8b30-0x004f8b8d.EnsureLoginDialogPane.md) | unclassified |  |  | no |  | `by-memory/0x004f8b30-0x004f8b8d.EnsureLoginDialogPane.md` |  |
 | [UID:00019M][0x004f8b90-0x004f8c07.ComputeMenuItemRect](by-memory/0x004f8b90-0x004f8c07.ComputeMenuItemRect.md) | unclassified |  |  | no |  | `by-memory/0x004f8b90-0x004f8c07.ComputeMenuItemRect.md` |  |
 | [UID:00019N][0x004f8c10-0x004f8cfa.MainMenuHitTest](by-memory/0x004f8c10-0x004f8cfa.MainMenuHitTest.md) | unclassified |  |  | no |  | `by-memory/0x004f8c10-0x004f8cfa.MainMenuHitTest.md` |  |

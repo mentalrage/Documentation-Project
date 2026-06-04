@@ -1,8 +1,8 @@
 *** UID:0000UV | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,7 +15,7 @@
 - Confidence: strong for boundary, caller, and high-level behavior.
 - Current address range: IDA half-open `0x004f7d10-0x004f8b2b` (`0x004f8b2a` last covered byte)
 - Proposed owner file: [UID:0000L1][MainUiGraph](by-file/MainUiGraph.md)
-- Current generated source: `simroot_v2/recovered/InitializeMainUiGraph_004F7D10.cpp`
+- Autogen parent: [UID:0000L1][MainUiGraph](by-file/MainUiGraph.md)
 
 ## Summary
 
@@ -31,7 +31,7 @@ IDA MCP confirms one executable caller:
 | --- | --- | --- |
 | `0x004fac9b` | [UID:0000KX][LoginDialogPane](by-file/LoginDialogPane.md) / `LoginDialogPane::OnServerMessage` | Success path closes/slides the login dialog, loads `dword_67ABA4` into `ecx`, calls `InitializeMainUiGraph`, then persists the remembered account text. |
 
-IDA MCP recheck on 2026-05-31 confirms `sub_4F7D10` starts at `0x004f7d10`, ends half-open at `0x004f8b2b`, has the same single caller at `0x004fac9b` inside `sub_4FAB10`, and fans out to more than one hundred pane/helper calls. This supports the current broad UI-graph bootstrap interpretation but is still below the final C++ gate because many callees and global state names remain unresolved or only partially named.
+IDA MCP recheck on 2026-06-04 confirms `sub_4F7D10` starts at `0x004f7d10`, ends half-open at `0x004f8b2b`, has the same single caller at `0x004fac9b` inside `sub_4FAB10`, and has 282 direct code-reference sites to 183 unique out-of-body targets. This supports the current broad UI-graph bootstrap interpretation but is still below the final C++ gate because many callees and global state names remain unresolved or only partially named.
 
 ## Newer Layout Construction
 
@@ -85,12 +85,22 @@ After either branch, the function:
 - arms a `3000` ms delayed path at `0x004f8afe`;
 - writes the application main-UI-ready flag through `dword_67AB1C`.
 
-## Data And Generated-Source Caveats
+## Live IDA Evidence
 
-- `simroot_v2` provides useful allocation/order/bounds evidence, but it is generated Wave3-derived output. Treat its helper names as evidence to verify, not ground truth.
-- Generated helpers named `CreatePane`, `InitializePane`, `CallOptionalReadyHook`, and `NotifyLoginNameIfNeeded` are source-normalization wrappers over repeated binary patterns.
+Checked on 2026-06-04:
+
+- `lookup_funcs` reports `sub_4F7D10` at `0x004f7d10`, size `0xe1b`; the function ends half-open at `0x004f8b2b`, and the next function starts at `0x004f8b30` after five `0xcc` padding bytes.
+- `xrefs_to 0x004f7d10` reports one executable caller: `0x004fac9b` inside `sub_4FAB10`.
+- Caller context shows `mov ecx, dword_67ABA4` at `0x004fac95` immediately before `call sub_4F7D10`, matching the [UID:0000RF][g_pMainUiGraph](by-global/g_pMainUiGraph.md) handoff.
+- Direct code-reference enumeration reports 282 direct code-ref sites to 183 unique out-of-body targets.
+- Key live target sites include BackPane construction at `0x004f7d7d` and `0x004f8573`, MapPane setup at `0x004f7dfa` and `0x004f85ef`, frame-border construction at `0x004f802c` and `0x004f8670`, SoundStatusPane construction at `0x004f8460` and `0x004f89c7`, UserPane setup at `0x004f84e2` and `0x004f8a49`, profile load at `0x004f8a83`, deferred-deletion queue touch at `0x004f8a9a`, input retarget at `0x004f8aee`, and old-layout InterfaceEfxMgr construction at `0x004f8ad8`.
+- Data refs from the body include `byte_66DA97` at `0x004f7d40` and `0x004f8aaf`, `word_66DAA0` at `0x004f7e11` and `0x004f8606`, `word_66DA9C` at `0x004f7e18` and `0x004f860d`, `dword_69B364` at 12 pane-setup push sites, `dword_69B368` at 10 pane-setup push sites, `dword_67A74C` at `0x004f8a93`, `dword_69AE08` at `0x004f8a9f`, `dword_67AB44` at `0x004f8ae4`, and `dword_67AB1C` at `0x004f8b03`.
+
+## Data And Naming Caveats
+
+- Helper names such as `CreatePane`, `InitializePane`, `CallOptionalReadyHook`, and `NotifyLoginNameIfNeeded` are local analysis labels over repeated allocation, virtual-slot, and conversion patterns. Do not promote them to original standalone functions without separate IDA evidence.
 - `off_61E100` and `off_61E114` are confirmed frame-resource pointer inputs to `BackPane`, but their filenames are not decoded here.
-- The layer/context globals `dword_69B364`, `dword_69B368`, `dword_69B36C`, `dword_69B374`, `dword_69B378`, and `dword_69B37C` are tracked in [UID:0000T6][MainUiLayerSlots](by-global/MainUiLayerSlots.md). `dword_69B364` was previously mislabeled by generated output as [UID:0000S6][g_pScreenEffecterList](by-global/g_pScreenEffecterList.md).
+- The layer/context globals `dword_69B364`, `dword_69B368`, `dword_69B36C`, `dword_69B374`, `dword_69B378`, and `dword_69B37C` are tracked in [UID:0000T6][MainUiLayerSlots](by-global/MainUiLayerSlots.md). `dword_69B364` has a stale alias at [UID:0000S6][g_pScreenEffecterList](by-global/g_pScreenEffecterList.md).
 - `word_66DA9C` and `word_66DAA0` are now documented as [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md), not anonymous MainUiGraph locals.
 
 ## Cross-References
@@ -110,3 +120,7 @@ After either branch, the function:
   - Before: the page body documented the main UI bootstrap, but the validator metadata still showed `0/0` and no reconstruction status.
   - After: the metadata now reflects the researched bootstrap function. Parent UID and C++ remain blank because the fan-out contains many not-yet-final callees and global names, and the source-level body is not ready for the `95+` final-code gate.
   - Evidence: IDA MCP confirms the function boundary, the sole login-success caller, and the large pane/helper call fan-out matching the documented new/old layout construction tables.
+- 2026-06-04: Raised completion/confidence from `70/85` to `78/86` and attached [UID:0000L1][MainUiGraph](by-file/MainUiGraph.md) as the autogen parent.
+  - Before: the page had the high-level layout tables but no parent metadata and still carried stale provenance wording.
+  - After: the page records current live IDA boundary, padding, single caller, caller handoff through `g_pMainUiGraph`, direct-code-ref counts, key constructor/helper call sites, data-ref inventory, and MainUiGraph parent attachment. C++ remains blank because the function's 183 direct targets and unresolved graph/global names keep it below the `95/95` final-code gate.
+  - Evidence: live IDA MCP `lookup_funcs`, `xrefs_to`, and `py_eval` on 2026-06-04.

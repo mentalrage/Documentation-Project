@@ -1,8 +1,8 @@
 *** UID:0000T0 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,7 @@
 - Symbol kind: global helper function
 - Signature hypothesis: `bool __cdecl HasDATEntry_49C700(const wchar_t* entryName)`
 - Likely owner file: [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md)
-- Current generated file: `source-3/simroot_v2/recovered/HasDATEntry_0049C700.cpp`
+- Autogen parent: [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md)
 - Confidence: strong
 
 ## Function Role
@@ -25,16 +25,15 @@
 
 ## Evidence Notes
 
-- Current `simroot_v2` emits this as a standalone recovered global helper from Wave2/Wave3 recovery data.
-- IDA MCP `lookup_funcs` on 2026-05-25 confirms `0x0049c700` as a real function of size `0x1d`, ending half-open at `0x0049c71d`.
-- IDA MCP `callees` confirms the only callee is `_DATFileMgr::FindEntryByName` at `0x0049cad0`.
-- IDA MCP `callers` confirms 17 direct callers spread across resource/image/audio consumers, supporting manager-module ownership rather than caller ownership.
+- IDA MCP `lookup_funcs` on 2026-06-04 confirms `0x0049c700` as `sub_49C700`, size `0x1d`, ending half-open at `0x0049c71d`.
+- `0x0049c71d` is not a function, the next function begins at `0x0049c720`, and the gap is three `0xcc` alignment bytes.
+- IDA MCP `disasm` shows the helper reads `dword_67AB40`, loads the inner manager pointer from `+0x04`, calls `sub_49CAD0` with a null output-location pointer, and returns `setnz al`.
+- IDA MCP `decompile` renders the body as `sub_49CAD0(*(_DWORD **)(dword_67AB40 + 4), String, 0) != 0`.
+- IDA MCP `xrefs_to` confirms 17 direct callers spread across resource/image/audio consumers, supporting manager-module ownership rather than caller ownership.
 
 ## Source Layout Decision
 
 Declare this helper beside the DAT manager API in `archive/DATFileMgr.cpp`. It is not private to a resource-loader caller even though many loaders depend on it.
-
-The generated standalone file should be folded into the manager module during source-layout migration.
 
 ## Cross-References
 
@@ -53,3 +52,7 @@ The generated standalone file should be folded into the manager module during so
   - Before: page documented the public DAT-entry probe, exact range, signature hypothesis, owner, callee, and broad caller set but remained unevaluated.
   - After: score reflects near-complete behavior and source-placement documentation for this small manager helper.
   - Evidence: IDA notes confirm function size, sole `_DATFileMgr::FindEntryByName` callee, and 17 callers across resource/image/audio consumers.
+- 2026-06-04: Set `RECONSTRUCTABLE:TRUE` and attached [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md) as the autogen parent without changing the `84/90` score.
+  - Before: the page had strong behavior and owner evidence but blank reconstructable/parent metadata and older evidence notes.
+  - After: the page records current live IDA boundary, padding, disassembly, decompile, singleton access, sole lookup callee, 17 direct callers, and DAT manager parent attachment. C++ remains blank because source-facing signature and original name proof are still below the `95/95` final-code gate.
+  - Evidence: live IDA MCP `lookup_funcs`, `disasm`, `decompile`, `xrefs_to`, and `py_eval` on 2026-06-04.

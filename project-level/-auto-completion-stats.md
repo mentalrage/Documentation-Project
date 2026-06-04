@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-03 19:39:07
+Generated: 2026-06-03 19:56:16
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -101,8 +101,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0001X4` | 70 | 84 | 77.0 | `by-type/by-vtable/BoardArticleDialogVtableFamily.md` |
-| `0000UT` | 70 | 85 | 77.5 | `by-item/HasDATEntry_0049C700.md` |
-| `0000UV` | 70 | 85 | 77.5 | `by-item/InitializeMainUiGraph_004F7D10.md` |
 | `0000UW` | 70 | 85 | 77.5 | `by-item/LoadDatFileBuffer_004BB120.md` |
 | `0000V0` | 70 | 85 | 77.5 | `by-item/LoadTileEpfMetadata_004D1B80.md` |
 | `0000V1` | 70 | 85 | 77.5 | `by-item/PacketBufferHelpers.md` |
@@ -124,6 +122,8 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000WM` | 70 | 85 | 77.5 | `by-memory/0x0041b6c0-0x0041b6c3.LObjectDefaultNoOpVirtual.md` |
 | `0000WP` | 70 | 85 | 77.5 | `by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md` |
 | `0000WQ` | 70 | 85 | 77.5 | `by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md` |
+| `0000WZ` | 70 | 85 | 77.5 | `by-memory/0x00428b4b-0x004298f0.JsonCppValuePathIteratorAndCrtNumericSupport.md` |
+| `0000X1` | 70 | 85 | 77.5 | `by-memory/0x0042acdf-0x0042ae90.JsonCppLegacyReaderRawLexicalHelpers.md` |
 
 ## Low_Confidence
 
@@ -291,8 +291,6 @@ _No scored files._
 | --- | ---: | ---: | ---: | --- |
 | `0000VD` | 70 | 82 | 76.0 | `by-item/ScopedMarkerMissingMethodBodies.md` |
 | `0000UB` | 72 | 82 | 77.0 | `by-item/DATAudioResources.md` |
-| `0000UT` | 70 | 85 | 77.5 | `by-item/HasDATEntry_0049C700.md` |
-| `0000UV` | 70 | 85 | 77.5 | `by-item/InitializeMainUiGraph_004F7D10.md` |
 | `0000UW` | 70 | 85 | 77.5 | `by-item/LoadDatFileBuffer_004BB120.md` |
 | `0000V0` | 70 | 85 | 77.5 | `by-item/LoadTileEpfMetadata_004D1B80.md` |
 | `0000V1` | 70 | 85 | 77.5 | `by-item/PacketBufferHelpers.md` |
@@ -314,6 +312,8 @@ _No scored files._
 | `0000U7` | 74 | 82 | 78.0 | `by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md` |
 | `0000V3` | 74 | 82 | 78.0 | `by-item/PacketTransformHelpers.md` |
 | `0000UO` | 72 | 86 | 79.0 | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |
+| `0000TY` | 76 | 82 | 79.0 | `by-item/ArgumentedItemPurchaseHelpers_51f450_51f640.md` |
+| `0000V2` | 76 | 82 | 79.0 | `by-item/PacketDigest_00515380.md` |
 
 ### by-memory
 
