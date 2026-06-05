@@ -95,10 +95,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000045` | 72 | 82 | 77.0 | `by-class/DSError.md` |
-| `00004K` | 72 | 82 | 77.0 | `by-class/ErrorMessage.md` |
-| `00009X` | 72 | 82 | 77.0 | `by-class/OverlayFrameImageEffecter.md` |
-| `0000A0` | 72 | 82 | 77.0 | `by-class/OverlayMovingImageEffecter.md` |
 | `000019` | 74 | 80 | 77.0 | `by-class/BrowserPane.md` |
 | `00003Q` | 74 | 80 | 77.0 | `by-class/DescPane.md` |
 
