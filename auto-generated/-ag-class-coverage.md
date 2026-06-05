@@ -5,9 +5,9 @@
 Total_Type: 586
 Total_Reconstructable: 301
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 232
+Total_Reconstructed_Assigned: 234
 Total_Reconstructed_Coded: 2
-Total_Reconstructable_Unassigned: 69
+Total_Reconstructable_Unassigned: 67
 Total_Unclassified: 284
 Total_Error: 0
 
@@ -48,6 +48,8 @@ Total_Error: 0
 | [UID:00001Y][ChattingVarietyPane](by-class/ChattingVarietyPane.md) | assigned | `0000I5` |  | no | `auto-generated/NexusTK/social/Chatting.cpp` | `by-class/ChattingVarietyPane.md` |  |
 | [UID:000020][CheatDetector](by-class/CheatDetector.md) | assigned | `0000I6` |  | no | `auto-generated/NexusTK/security/CheatDetector.cpp` | `by-class/CheatDetector.md` |  |
 | [UID:000022][CheckBoxTextControlPane](by-class/CheckBoxTextControlPane.md) | assigned | `0000NY` | 30 | no | `auto-generated/NexusTK/ui/controls/SpecializedButtonPanes.cpp` | `by-class/CheckBoxTextControlPane.md` |  |
+| [UID:000023][ClanAppearNameInputDialog](by-class/ClanAppearNameInputDialog.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-class/ClanAppearNameInputDialog.md` |  |
+| [UID:000028][ClanChangeNameInputDialog](by-class/ClanChangeNameInputDialog.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-class/ClanChangeNameInputDialog.md` |  |
 | [UID:000029][ClanDepItemDialog](by-class/ClanDepItemDialog.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-class/ClanDepItemDialog.md` |  |
 | [UID:00002G][ClanItemListPane](by-class/ClanItemListPane.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-class/ClanItemListPane.md` |  |
 | [UID:00002T][CloudFilterEffecter](by-class/CloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/CloudFilterEffecter.md` |  |
@@ -250,9 +252,7 @@ Total_Error: 0
 | [UID:00000W][BlackHole](by-class/BlackHole.md) | unassigned |  |  | no |  | `by-class/BlackHole.md` |  |
 | [UID:00001K][ChangeMan](by-class/ChangeMan.md) | unassigned |  |  | no |  | `by-class/ChangeMan.md` |  |
 | [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md) | unassigned |  |  | no |  | `by-class/CheckBoxControlPane.md` |  |
-| [UID:000023][ClanAppearNameInputDialog](by-class/ClanAppearNameInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanAppearNameInputDialog.md` |  |
 | [UID:000027][ClanChangeInputDialog](by-class/ClanChangeInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanChangeInputDialog.md` |  |
-| [UID:000028][ClanChangeNameInputDialog](by-class/ClanChangeNameInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanChangeNameInputDialog.md` |  |
 | [UID:00002A][ClanDepMoneyInputDialog](by-class/ClanDepMoneyInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanDepMoneyInputDialog.md` |  |
 | [UID:00002B][ClanEnlistInputDialog](by-class/ClanEnlistInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanEnlistInputDialog.md` |  |
 | [UID:00002D][ClanExpelNameInputDialog](by-class/ClanExpelNameInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanExpelNameInputDialog.md` |  |

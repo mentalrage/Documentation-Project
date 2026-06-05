@@ -87,11 +87,7 @@ _No scored files._
 
 ## Low_Both
 
-| UID | Completion | Confidence | Combined | Path |
-| --- | ---: | ---: | ---: | --- |
-| `00001E` | 72 | 82 | 77.0 | `by-class/ButtonControlPane.md` |
-| `000022` | 72 | 82 | 77.0 | `by-class/CheckBoxTextControlPane.md` |
-| `000023` | 72 | 82 | 77.0 | `by-class/ClanAppearNameInputDialog.md` |
+_No scored files._
 
 ## By Folder
 
@@ -99,10 +95,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00001E` | 72 | 82 | 77.0 | `by-class/ButtonControlPane.md` |
-| `000022` | 72 | 82 | 77.0 | `by-class/CheckBoxTextControlPane.md` |
-| `000023` | 72 | 82 | 77.0 | `by-class/ClanAppearNameInputDialog.md` |
-| `000028` | 72 | 82 | 77.0 | `by-class/ClanChangeNameInputDialog.md` |
 | `00002A` | 72 | 82 | 77.0 | `by-class/ClanDepMoneyInputDialog.md` |
 | `00002D` | 72 | 82 | 77.0 | `by-class/ClanExpelNameInputDialog.md` |
 | `00002M` | 72 | 82 | 77.0 | `by-class/ClanSummonNameInputDialog.md` |
