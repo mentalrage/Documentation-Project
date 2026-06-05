@@ -89,10 +89,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001SK` | 72 | 80 | 76.0 | `by-type/by-enum/BrowserInitFlags.md` |
-| `00000Y` | 72 | 82 | 77.0 | `by-class/BlueAlertPane.md` |
-| `000018` | 72 | 82 | 77.0 | `by-class/BrowserDialogOld.md` |
-| `00001C` | 72 | 82 | 77.0 | `by-class/BulletinDialog.md` |
 | `00001E` | 72 | 82 | 77.0 | `by-class/ButtonControlPane.md` |
 | `000022` | 72 | 82 | 77.0 | `by-class/CheckBoxTextControlPane.md` |
 | `000023` | 72 | 82 | 77.0 | `by-class/ClanAppearNameInputDialog.md` |
@@ -103,9 +99,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00000Y` | 72 | 82 | 77.0 | `by-class/BlueAlertPane.md` |
-| `000018` | 72 | 82 | 77.0 | `by-class/BrowserDialogOld.md` |
-| `00001C` | 72 | 82 | 77.0 | `by-class/BulletinDialog.md` |
 | `00001E` | 72 | 82 | 77.0 | `by-class/ButtonControlPane.md` |
 | `000022` | 72 | 82 | 77.0 | `by-class/CheckBoxTextControlPane.md` |
 | `000023` | 72 | 82 | 77.0 | `by-class/ClanAppearNameInputDialog.md` |
@@ -275,7 +268,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001SK` | 72 | 80 | 76.0 | `by-type/by-enum/BrowserInitFlags.md` |
 | `0001W7` | 72 | 82 | 77.0 | `by-type/by-struct/SpecializedButtonPaneLayouts.md` |
 | `0001YP` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollCollectionPaneVtables.md` |
 | `0001YQ` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollInventoryPaneVtables.md` |

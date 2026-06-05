@@ -1,6 +1,6 @@
 *** UID:0001SK | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,8 +12,8 @@
 
 ## Status
 
-- Confidence: strong for the observed initialization value and owner function, medium for the final declaration form.
-- Current source evidence: IDA MCP decompilation/disassembly of [UID:0002P3][0x0046ff50-0x00470159.BrowserControlPaneOldConstructor](by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md); generated source names are lead material only.
+- Confidence: strong for the observed initialization value, owner function, and Browser object placement; medium for the final declaration form.
+- Current evidence: live IDA MCP function lookup and disassembly of [UID:0002P3][0x0046ff50-0x00470159.BrowserControlPaneOldConstructor](by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md), plus scoped Browser/OLE-cluster scans for the `+0x22c` field and `0x0101` immediate.
 - Proposed owner: [UID:0000HV][Browser](by-file/Browser.md), likely browser-private constants.
 - Reconstructable: yes if this survives as a source-level state initializer, but do not emit C++ yet because the field meaning and declaration form are still open.
 - Classification: provisional constant/bitmask candidate. Keep this page in `by-enum` only as a current inventory item; the evidence now leans toward a Browser object state word rather than a complete standalone enum.
@@ -26,13 +26,12 @@
 
 ## Evidence
 
-- IDA MCP `lookup_funcs 0x0046ff50` reports the constructor as `sub_46FF50`, range `0x0046ff50-0x00470159`, size `0x209`.
-- IDA MCP decompilation of [UID:0002P3][0x0046ff50-0x00470159.BrowserControlPaneOldConstructor](by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md) shows the embedded `Browser` object allocation/initialization path.
-- Disassembly at `0x0047004d` is `mov word ptr [esi+22Ch], 101h`, equivalent to Browser object offset `+0x22c`.
-- A local IDA scan of the browser/OLE cluster `0x0046f010-0x004710b7` found no other `+0x22c` access. This suggests the value is an initial state word, but it does not yet prove the original source declaration.
-- The same object has nearby initialization of fields at `+0x228` and `+0x230`; `+0x228` is the copied URL pointer and `+0x230` is a constructed string/container member. This placement supports an internal Browser state-field interpretation.
-- The old control-pane overlay path at `0x0046f232` reads Browser offset `+0x222`, and `BrowserThread::InitializeBrowserHost` sets `+0x222` at `0x00470d45`. That is a separate byte flag and should not be merged with this `+0x22c` word.
-- The same numeric value overlaps Win32 `WM_KEYUP` in `BrowserControlPaneOld::HandleBrowserMessage` at `0x0046f310`, but that message-id use comes from the event packet switch and is unrelated to the Browser object initializer.
+- 2026-06-05 live IDA MCP `lookup_funcs 0x0046ff50` reports the constructor as `sub_46FF50`, range `0x0046ff50-0x00470159`, size `0x209`.
+- 2026-06-05 live constructor-window disassembly shows the embedded Browser subobject begins at `esi+0x10`: `0x00470024` installs the Browser vtable at `[esi+10h]`, `0x0047002b` and `0x00470032` clear `[esi+14h]` and `[esi+18h]`, `0x00470039` takes `[esi+230h]` for member construction, `0x00470043` clears `[esi+228h]`, and `0x0047004d` writes `mov word ptr [esi+22Ch], 101h`.
+- A scoped live IDA scan of the Browser/OLE cluster `0x0046f010-0x004710b7` found only one `0x0101` immediate: the `0x0047004d` constructor write to `[esi+22Ch]`.
+- The same scoped scan found nearby Browser-state references at `+0x222`, `+0x224`, `+0x228`, and `+0x230`: `0x0046f232` reads `+0x222`, `0x00470d45` sets `+0x222`, `0x00470d4f` sets `+0x224`, several paths use `+0x228` as a pointer/string argument, and `+0x230` is constructed/destructed as a member object. This separates the `+0x22c` word from the adjacent byte flag and pointer/string members.
+- A broad text scan for `22Ch` across the executable produced 37 hits, including unrelated stack-frame offsets, other object layouts, immediates such as `push 22Ch`, and the Browser constructor write. Those broad hits are not evidence of the same Browser field and are why this page remains below final confidence.
+- The same numeric value overlaps Win32 message handling in `sub_46F310`: the dispatch window around `0x0046f310` uses switch cases including `256`, `257`, `260`, and `261` from the event packet. That message-id use is separate from the Browser object initializer.
 
 ## Classification Decision
 
@@ -46,7 +45,7 @@ The current best classification is "source-level Browser initial state constant 
 
 ## Score Rationale
 
-Completion is raised for the parent attachment and clearer classification: the initializer value, exact write address, object offset, owner function, and non-overlap with the separate `+0x222` flag and `WM_KEYUP` message use are documented. Confidence stays at `80` because this may ultimately be a field initializer or bitmask constant rather than an enum declaration.
+Completion is raised to `82` because live IDA now documents the constructor-window context, the Browser vtable/subobject placement, the exact `+0x22c` write, the scoped cluster-only `0x0101` hit, and the adjacent `+0x222/+0x224/+0x228/+0x230` field separation. Confidence is raised to `84` because the evidence is stronger for a Browser-owned state initializer, but remains below final because the original field name and declaration form are still unknown and this may not be a real enum.
 
 ## Open Questions
 
@@ -70,3 +69,7 @@ Completion is raised for the parent attachment and clearer classification: the i
   - What existed before: the page was `68/80`, reconstructable, but had no parent attachment.
   - Changed to: completion `72` and `AUTOGEN_PARENT_UID:0000HV`.
   - Summary/evidence: the Browser source root is already validated at `NexusTK/browser/`, and this page's own evidence identifies the initializer as Browser-object state rather than a separate message-id enum.
+- 2026-06-05:
+  - What existed before: the page was `72/80` and still relied on summary-level constructor evidence plus an older local scan description.
+  - Changed to: completion `82`, confidence `84`, and refreshed live IDA evidence for the constructor window, Browser subobject placement, scoped `0x0101` scan, adjacent field references, and broad `22Ch` false-positive limits.
+  - Summary/evidence: IDA MCP confirms `sub_46FF50` range `0x0046ff50-0x00470159`; the constructor installs the Browser vtable at `[esi+10h]`, initializes nearby Browser members, and writes `0x0101` only at `[esi+22Ch]` inside the Browser/OLE cluster. The score is capped because this still appears to be a Browser state word or bitmask candidate rather than a proven source enum.
