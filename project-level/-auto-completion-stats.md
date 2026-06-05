@@ -102,7 +102,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000MG` | 74 | 84 | 79.0 | `by-file/PasswordGuard.md` |
 | `0000HO` | 76 | 82 | 79.0 | `by-file/BackPane.md` |
 | `0000NY` | 76 | 82 | 79.0 | `by-file/SpecializedButtonPanes.md` |
 | `0000MI` | 78 | 80 | 79.0 | `by-file/PathUtil.md` |
@@ -126,12 +125,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000T6` | 72 | 82 | 77.0 | `by-global/MainUiLayerSlots.md` |
-| `0000TB` | 72 | 82 | 77.0 | `by-global/OpenCreateUserDialog_4F8FA0.md` |
-| `0000TF` | 72 | 82 | 77.0 | `by-global/OpenTerminalPane_4F91C0.md` |
-| `0000SJ` | 72 | 84 | 78.0 | `by-global/g_pTimerPane.md` |
-| `0000SN` | 72 | 84 | 78.0 | `by-global/g_pUserStatusPane2.md` |
-| `0000QW` | 72 | 84 | 78.0 | `by-global/g_pfnLockSurface.md` |
 | `0000SZ` | 74 | 82 | 78.0 | `by-global/HandleLegacyMainMenuPacket_4F8D00.md` |
 | `0000T2` | 74 | 82 | 78.0 | `by-global/IID_BrowserEventSink.md` |
 | `0000SH` | 74 | 82 | 78.0 | `by-global/g_pThreadMan.md` |

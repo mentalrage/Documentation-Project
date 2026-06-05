@@ -1,17 +1,16 @@
 *** UID:0000MG | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/auth/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PasswordGuard
 
 ## Status
 
-- Confidence: strong for function behavior and current `auth/PasswordGuard.cpp` placement; medium-high for the exact original folder/name.
-- Proposed module: `auth/PasswordGuard.cpp`.
-- Current Wave3 files: `SetProtectedPasswordToken_004657D0.cpp`, `ValidateChatInputOrThrowPasswordError_00465890.cpp`, and `class_PasswordError.cpp`
+- Confidence: strong for exact function boundaries, guard globals, decompiled transform behavior, and caller split; medium-high for the exact original folder/name.
+- Proposed module: `NexusTK/auth/PasswordGuard.cpp`.
 - Main address docs: [UID:0000YS][0x004657d0-0x00467406.PasswordGuardAndFatalError](by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md), [UID:000275][0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals](by-memory/0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals.md), and [UID:000290][0x0067a940-0x0067a980.PasswordGuardProtectedToken](by-memory/0x0067a940-0x0067a980.PasswordGuardProtectedToken.md)
-- Evidence basis: `simroot_v2/recovered`, Wave3 global summaries, and IDA MCP lookup/xref checks on 2026-05-23.
+- Evidence basis: live IDA MCP lookup, caller, xref, decompile, and data reads on 2026-06-04.
 
 ## Responsibility
 
@@ -39,11 +38,16 @@ This module caches the active login password in an XOR-obfuscated wide-character
 
 ## Evidence
 
-- Wave3 summarizes `SetProtectedPasswordToken` as copying up to 32 wide characters and XOR-obfuscating each character with an incrementing seed.
-- Wave3 summarizes `ValidateChatInputOrThrowPasswordError` as rejecting outbound text containing the cached login password and throwing a `PasswordError` built from `PASS_ENG.STR`.
-- IDA MCP confirms `0x004657d0-0x00465827` and `0x00465890-0x00465ae2` as real function ranges.
-- IDA caller samples for `0x00465890` include multiple text/chat input submit paths, consistent with a shared input guard rather than one dialog class.
+- IDA MCP lookup confirms `SetProtectedPasswordToken` at `0x004657d0-0x00465827`, `ValidateChatInputOrThrowPasswordError` at `0x00465890-0x00465ae2`, and the adjacent-but-separate `FatalError` helper at `0x00465cb0-0x00465ce0`.
+- IDA decompilation of `0x004657d0` copies up to 32 wide characters into `word_67A940`, sets `word_67A97E = 0`, loads `word_66D410`, and XOR-obfuscates each nonzero wchar with the incrementing seed.
+- IDA decompilation of `0x00465890` copies `word_67A940` into a local 32-wchar buffer, decodes it with the same `word_66D410` incrementing-seed loop, checks `wcsstr(Str, SubStr)`, loads `PASS_ENG.STR` via `off_612E8C`, converts/appends resource lines into a wide message, constructs `PasswordError`, and throws it with `_CxxThrowException`.
+- IDA caller evidence for `0x004657d0` is a single login caller at `0x004fb60b` in `sub_4FB2D0`, matching token capture after login submission.
+- IDA caller evidence for `0x00465890` includes 13 text/social submit sites: `0x00477606`, `0x00477612`, `0x0047de03`, `0x0047de0f`, `0x0059e480`, `0x005ae0a0`, `0x005b1680`, `0x005b1aa0`, `0x005b1fc0`, `0x005b23d0`, `0x005b36d1`, `0x005b3aa1`, and `0x005b42b2`, consistent with a shared outbound-input guard rather than one pane method.
 - IDA MCP xrefs tie `word_66D410` at [UID:000275][0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals](by-memory/0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals.md) to both encode/decode loops: `SetProtectedPasswordToken` loads it at `0x004657e5`, and `ValidateChatInputOrThrowPasswordError` loads it at `0x004658d2` before XORing each wchar with the incrementing seed.
+- IDA xrefs tie the protected token buffer at `word_67A940` to setter accesses `0x004657db`, `0x004657f7`, `0x004657fe` and validator access `0x004658c5`; the setter writes the terminal word at `word_67A97E` via `0x004657ee`.
+- IDA data reads identify `off_612E8C` as the wide string `PASS_ENG.STR`, `word_66D410` as initialized to `0xd544`, and `0x006125bc` as the `Password Warning` descriptor returned by `PasswordError`'s descriptor virtual.
+- IDA lookup/decompile confirms `PasswordError` constructor `0x00467160-0x00467181` is called from `0x00465abe` inside the guard throw path, while the destructor `0x00467300-0x00467338` and descriptor helper `0x00467400-0x00467406` are class/error-hierarchy members.
+- IDA caller evidence for `FatalError` is application/error oriented (`Application__Constructor` at `0x00463964`, repeated `sub_4639D0` startup/error sites, `sub_467410`, and `sub_4918E0` sites), supporting its exclusion from `PasswordGuard.cpp`.
 - [UID:0002Q5][0x004fb2d0-0x004fb62a.SendLoginRequest](by-memory/0x004fb2d0-0x004fb62a.SendLoginRequest.md) records `0x004657d0` as the post-submit password-token helper after the login packet is queued.
 - Chat/social input pages record `0x00465890` as a callee before message sanitizer/packet send paths, establishing this as a shared outbound-text guard rather than a single chat-pane method.
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) already stages `PasswordGuard.cpp` under `auth/` and separately documents the final-folder caveat.
@@ -79,3 +83,8 @@ Use a dedicated file during reconstruction. Keeping this code separate from gene
 - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank and the page kept `auth/` versus chat/login placement fully open.
 - After: the page stages `NexusTK/auth/`, raises the score to `74/84`, and records a source-split table separating guard helpers/globals from `PasswordError` and `FatalError`.
 - Evidence: `proposed-source-tree.md` already places `PasswordGuard.cpp` under `auth/`; `SendLoginRequest` records the `0x004657d0` post-submit token call, and chat/social input pages record `0x00465890` as the shared outbound-text validation guard.
+
+- 2026-06-04 live IDA refresh:
+  - Before: the page still relied on older non-IDA summaries for the two guard functions and had not recorded the full live caller/global split.
+  - Changed to: `COMPLETION:84` and `CONFIDENCE:88`.
+  - Summary/evidence: live IDA MCP verified exact function ranges, the single login caller for `0x004657d0`, the 13 outbound-input callers for `0x00465890`, the `word_67A940`/`word_67A97E` token-buffer xrefs, the `word_66D410 = 0xd544` seed, the `PASS_ENG.STR` resource path, the `PasswordError` throw path, and the separate `FatalError` caller fanout. The score remains below reconstruction-ready because original source filename/folder and the local resource helper shape are still not proven.

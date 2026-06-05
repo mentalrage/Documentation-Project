@@ -1,6 +1,6 @@
 *** UID:0000T6 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,10 +12,10 @@
 
 ## Status
 
-- Confidence: medium for layer/context role, strong for startup/shutdown ownership.
+- Confidence: strong for lifecycle, storage set, and broad UI-layer role; medium-high for final per-slot role names.
 - Symbol kind: global pointer set.
 - Proposed owner: [UID:0000L1][MainUiGraph](by-file/MainUiGraph.md) / UI layer infrastructure.
-- Key backing storage: `dword_69B364` at `0x0069b364`, formerly mislabeled by generated output as [UID:0000S6][g_pScreenEffecterList](by-global/g_pScreenEffecterList.md).
+- Key backing storage: `dword_69B364` at `0x0069b364`, formerly tracked under stale alias [UID:0000S6][g_pScreenEffecterList](by-global/g_pScreenEffecterList.md).
 
 ## Summary
 
@@ -36,6 +36,12 @@ The main UI bootstrap allocates a small set of eight-byte layer/context objects,
 
 - `0x004f5fb0` allocates and constructs the slot objects, then stores them into the adjacent globals.
 - `0x004f6490` releases the same slots and clears each pointer.
+- Live IDA MCP on 2026-06-04 confirms startup `sub_4F5FB0` as `0x004f5fb0-0x004f6490`, shutdown `sub_4F6490` as `0x004f6490-0x004f66a5`, and `InitializeMainUiGraph` as `sub_4F7D10` with size `0xe1b`.
+- `sub_4F5FB0` and `sub_4F6490` each have one live caller from `_WinMain@16` (`0x004f5e78` and `0x004f5e8e`), while `InitializeMainUiGraph` has one live caller at `0x004fac9b` in the login-success path.
+- IDA decompilation of `sub_4F5FB0` shows six repeated `sub_4F4AA0(8)` allocation paths, each followed by `sub_4F0480`, storage into one of the `0x0069b36x/0x0069b37x` globals, and registration via `sub_556CE0(slot, 0)`.
+- IDA decompilation of `sub_4F6490` shows the reverse lifecycle: each slot is passed through `sub_556D20` when `dword_67A7CC` is live, then vtable-released and cleared to zero.
+- IDA xref counts remain broad and UI-oriented: `dword_69B368` has 60 refs across 36 functions, `dword_69B364` has 35 refs across 19 functions, `dword_69B36C` has 101 refs across 92 functions, `dword_69B374` has 13 refs across 8 functions, `dword_69B378` has 14 refs across 9 functions, and `dword_69B37C` has 11 refs across 6 functions.
+- IDA reports no name and no xrefs for `0x0069b370`, supporting the six-slot model rather than an undocumented seventh slot between `dword_69B36C` and `dword_69B374`.
 - [UID:00019K][0x004f7d10-0x004f8b2a.InitializeMainUiGraph](by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md) passes these globals into pane initialization virtual calls across both new and old UI layout branches.
 - IDA xrefs to `0x0069b364` are broad and include `InitializeMainUiGraph`, root/UI panes, chat/browser/status/user panes, and effecter pane setup. [UID:0000DE][SolidColorFilterEffecter](by-class/SolidColorFilterEffecter.md) is one consumer, not the owner.
 
@@ -57,3 +63,8 @@ Recover these as main UI graph layer/context globals or as fields of a recovered
   - Before: page documented the UI layer/context slot set, startup/shutdown writes, stale alias, and reconstruction guidance but remained unevaluated.
   - After: score reflects strong lifecycle/ownership evidence while preserving lower completion for unresolved final role names and object-vs-global modeling.
   - Evidence: startup `0x004f5fb0`, shutdown `0x004f6490`, `InitializeMainUiGraph`, and xrefs around `0x0069b364` tie the slots to UI graph setup rather than screen-effect ownership.
+
+- 2026-06-04 live IDA refresh:
+  - Before: the page had the correct ownership direction but lacked exact live function ranges, caller roots, per-slot xref counts, and the `0x0069b370` no-ref check.
+  - Changed to: `COMPLETION:82` and `CONFIDENCE:88`.
+  - Summary/evidence: live IDA MCP confirmed startup/shutdown/initializer boundaries, `_WinMain@16` lifecycle callers, login-success initializer caller, six repeated 8-byte slot allocations and `sub_556CE0` registrations, mirrored `sub_556D20` release/clear logic, broad UI-oriented xref counts for all six slots, and no xrefs for `0x0069b370`. The score stays below reconstruction-ready because the original per-slot semantic names and object-vs-global modeling are still not proven.
