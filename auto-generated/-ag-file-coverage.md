@@ -5,11 +5,11 @@
 Total_Type: 288
 Total_Reconstructable: 288
 Total_Not_Reconstructable: 0
-Total_Reconstructed_Assigned: 229
+Total_Reconstructed_Assigned: 230
 Total_Reconstructed_Coded: 2
 Total_Reconstructable_Unassigned: 0
 Total_Unclassified: 0
-Total_Error: 59
+Total_Error: 58
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -97,6 +97,7 @@ Total_Error: 59
 | [UID:0000K2][ImageLib](by-file/ImageLib.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ImageLib.cpp` | `by-file/ImageLib.md` | by-file generated root |
 | [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md) | assigned |  |  | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-file/ImageLoaders.md` | by-file generated root |
 | [UID:0000K7][InputPanes](by-file/InputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/InputPanes.cpp` | `by-file/InputPanes.md` | by-file generated root |
+| [UID:0000K8][IntAlphaSurface](by-file/IntAlphaSurface.md) | assigned |  |  | no | `auto-generated/NexusTK/render/IntAlphaSurface.cpp` | `by-file/IntAlphaSurface.md` | by-file generated root |
 | [UID:0000KA][InventoryPane](by-file/InventoryPane.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/inventory/InventoryPane.cpp` | `by-file/InventoryPane.md` | by-file generated root |
 | [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md) | assigned |  |  | no | `auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp` | `by-file/ItemActionInputPanes.md` | by-file generated root |
 | [UID:0000KD][ItemCatalog](by-file/ItemCatalog.md) | assigned |  |  | no | `auto-generated/NexusTK/cashshop/ItemCatalog.cpp` | `by-file/ItemCatalog.md` | by-file generated root |
@@ -260,7 +261,6 @@ Total_Error: 59
 | [UID:0000K5][IMEPanes](by-file/IMEPanes.md) | error |  |  | no |  | `by-file/IMEPanes.md` | by-file generated root |
 | [UID:0000K4][ImageWriters](by-file/ImageWriters.md) | error |  |  | no |  | `by-file/ImageWriters.md` | by-file generated root |
 | [UID:0000K6][InputMan](by-file/InputMan.md) | error |  |  | no |  | `by-file/InputMan.md` | by-file generated root |
-| [UID:0000K8][IntAlphaSurface](by-file/IntAlphaSurface.md) | error |  |  | no |  | `by-file/IntAlphaSurface.md` | by-file generated root |
 | [UID:0000K9][InterfaceEfx](by-file/InterfaceEfx.md) | error |  |  | no |  | `by-file/InterfaceEfx.md` | by-file generated root |
 | [UID:0000KB][InventoryScrollPane](by-file/InventoryScrollPane.md) | error |  |  | no |  | `by-file/InventoryScrollPane.md` | by-file generated root |
 | [UID:0000KG][ItemObjectPane](by-file/ItemObjectPane.md) | error |  |  | no |  | `by-file/ItemObjectPane.md` | by-file generated root |

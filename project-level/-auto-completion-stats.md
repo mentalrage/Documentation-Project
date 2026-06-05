@@ -36,7 +36,6 @@ By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
 | `0000K5` | blank | `(blank)` | `by-file/IMEPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K4` | blank | `(blank)` | `by-file/ImageWriters.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K6` | blank | `(blank)` | `by-file/InputMan.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000K8` | blank | `(blank)` | `by-file/IntAlphaSurface.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000K9` | blank | `(blank)` | `by-file/InterfaceEfx.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KB` | blank | `(blank)` | `by-file/InventoryScrollPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
 | `0000KG` | blank | `(blank)` | `by-file/ItemObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
@@ -103,8 +102,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000K8` | 74 | 84 | 79.0 | `by-file/IntAlphaSurface.md` |
-| `0000M4` | 74 | 84 | 79.0 | `by-file/ObjectList.md` |
 | `0000MG` | 74 | 84 | 79.0 | `by-file/PasswordGuard.md` |
 | `0000HO` | 76 | 82 | 79.0 | `by-file/BackPane.md` |
 | `0000NY` | 76 | 82 | 79.0 | `by-file/SpecializedButtonPanes.md` |

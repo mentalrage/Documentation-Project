@@ -1,16 +1,15 @@
 *** UID:0000M4 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ObjectList
 
 ## Status
 
-- Proposed module: `map/ObjectList.cpp`
-- Proposed header: `map/ObjectList.h`
-- Confidence: strong for map-specific module ownership, medium for exact original folder.
-- Current generated sources: `class_ObjectList.cpp`, `class_MapPaneSpatialIndex.cpp`, and `ObjectList::*` references inside `class_MapPane.cpp`.
+- Proposed module: `NexusTK/map/ObjectList.cpp`
+- Proposed header: `NexusTK/map/ObjectList.h`
+- Confidence: strong for map-specific module ownership, lifecycle/vtable boundaries, helper ranges, and layout agreement; medium-high for final source-facing helper names.
 
 ## File Role
 
@@ -27,18 +26,18 @@ with `MapPane.h` holding an `ObjectList*` member around the current `MapPane + 0
 
 ## Proposed Contents
 
-| Entity | Current range | Current generated owner | Proposed ownership |
+| Entity | Current range | Evidence/source-facing caveat | Proposed ownership |
 | --- | --- | --- | --- |
-| ObjectList static-object lighting sync helper | `0x00530d00-0x00530ed9` | currently unowned by generated output | `map/ObjectList.cpp` |
-| [UID:00009Q][ObjectList](by-class/ObjectList.md) lifecycle | [UID:0002JS][0x00530ee0-0x0053125d.ObjectListConstructor](by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md), [UID:0002JT][0x00531260-0x00531473.ObjectListDestructor](by-memory/0x00531260-0x00531473.ObjectListDestructor.md), `0x00537290-0x005372c8` | `class_ObjectList.cpp` | `map/ObjectList.cpp` |
-| ObjectList categorize/lookup helpers | `0x00531480-0x00532530` | currently unowned or MapPane-adjacent in generated output | `map/ObjectList.cpp` |
-| ObjectList list accessors | `0x00532530-0x00532660` | `class_MapPaneSpatialIndex.cpp` | `map/ObjectList.cpp` |
-| ObjectList row-bucket accessors | `0x00532550-0x005326d0` | `class_MapPaneSpatialIndex.cpp` | `map/ObjectList.cpp` |
+| ObjectList static-object lighting sync helper | `0x00530d00-0x00530ed9` | Real IDA function with a single observed caller at `0x0050e30e`; final source-facing name provisional. | `map/ObjectList.cpp` |
+| [UID:00009Q][ObjectList](by-class/ObjectList.md) lifecycle | [UID:0002JS][0x00530ee0-0x0053125d.ObjectListConstructor](by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md), [UID:0002JT][0x00531260-0x00531473.ObjectListDestructor](by-memory/0x00531260-0x00531473.ObjectListDestructor.md), `0x00537290-0x005372c8` | Constructor/destructor/vtable stores are exact; scalar deleting destructor is vtable-only. | `map/ObjectList.cpp` |
+| ObjectList categorize/lookup helpers | `0x00531480-0x00532530` | IDA-modeled helper cluster plus raw `0x00532450` switch helper with no function object. | `map/ObjectList.cpp` |
+| ObjectList list accessors | `0x00532530-0x00532660` | Provisional `MapPaneSpatialIndex` alias surface over ObjectList fields. | `map/ObjectList.cpp` |
+| ObjectList row-bucket accessors | `0x00532550-0x0053272e` | Provisional accessor alias surface over ObjectList row-list fields. | `map/ObjectList.cpp` |
 | `ObjectList::ShiftAll` candidate | `0x00532730-0x00532b72` | anonymous/MapPane call surface | `map/ObjectList.cpp` |
-| `ObjectList::DetachAll` candidate | `0x00532b80-0x00532e11` | generated callers use `ObjectList::DetachAll` | `map/ObjectList.cpp` |
+| `ObjectList::DetachAll` candidate | `0x00532b80-0x00532e11` | Three current callers from MapPane cleanup/change/effect paths; final public name provisional. | `map/ObjectList.cpp` |
 | object-prune helper | `0x00532e20-0x00532eae` | anonymous/MapPane call surface | `map/ObjectList.cpp` |
-| `ObjectList::FindObjectAt` candidate | `0x00532eb0-0x00532f67` | generated callers use `ObjectList::FindObjectAt` | `map/ObjectList.cpp` |
-| ObjectList extended type lookup helpers | `0x00532f70-0x0053728e` | mostly unowned or MapPane-adjacent in generated output | `map/ObjectList.cpp` |
+| `ObjectList::FindObjectAt` candidate | `0x00532eb0-0x00532f67` | Two current callers from MapPane hit-test/render-neighbor paths; final public name provisional. | `map/ObjectList.cpp` |
+| ObjectList extended type lookup helpers | `0x00532f70-0x0053728e` | Mixed modeled/raw helper family; IDA still has no function object at `0x00532f70` or `0x00536270`. | `map/ObjectList.cpp` |
 | [UID:0001VG][ObjectListLayout](by-type/by-struct/ObjectListLayout.md) | data layout | type doc | `map/ObjectList.h` |
 
 ## Evidence
@@ -50,13 +49,16 @@ with `MapPane.h` holding an `ObjectList*` member around the current `MapPane + 0
 - 2026-05-30 IDA MCP revalidated `0x00531480-0x00532530` and the aggregate now has nested child by-memory pages for each method-level helper and switch-table-backed dispatch unit.
 - `MapPane` destructor, map change, effect packet handling, rendering, scroll, and hit-test methods all call into this helper surface.
 - `FpsPane::UpdateStatistics` calls read-only ObjectList accessors for diagnostics, which is a consumer relationship and not source ownership.
-- 2026-05-25 IDA MCP recheck confirms the current generated split is still lifecycle-only `class_ObjectList.cpp` plus early accessor-only `class_MapPaneSpatialIndex.cpp`; source migration should use the memory pages as the complete method inventory.
+- 2026-06-04 live IDA MCP recheck confirms exact boundaries for `0x00530d00-0x00530ed9`, `0x00530ee0-0x0053125d`, `0x00531260-0x00531473`, `0x00531480-0x00531498`, `0x005314a0-0x00531bdc`, `0x00531c10-0x00532142`, `0x00532180-0x0053229e`, `0x005322d0-0x00532341`, `0x00532370-0x00532443`, `0x00532530-0x0053272e`, `0x00532730-0x00532b72`, `0x00532b80-0x00532e11`, `0x00532e20-0x00532eae`, `0x00532eb0-0x00532f67`, and `0x00537290-0x005372c8`. The same check reports no function object at raw helper starts `0x00532450`, `0x00532f70`, or `0x00536270`.
+- 2026-06-04 live IDA MCP recheck confirms constructor callers at `0x0050bc55` and `0x005106e2`, static-object lighting helper caller `0x0050e30e`, `ShiftAll` caller `0x005058f9`, `DetachAll` callers `0x005045e6`, `0x0050bc1a`, and `0x005106a4`, and `FindObjectAt` callers `0x0050583e` and `0x0050f191`.
+- 2026-06-04 live IDA MCP reads `0x00620284 -> ??_R4ObjectList@@6B@`, `0x00620288 -> 0x00537290`, `0x0062028c -> 0x004f4b10`, `0x00620290 -> 0x0041b6c0`, and `0x00620294 -> ??_R4ObjectPane@@6B@`; xrefs to `0x00620288` are the constructor/destructor vptr stores at `0x00530f19` and `0x00531288`.
+- 2026-06-04 live IDA MCP byte reads confirm alignment padding at `0x0053125d-0x00531260`, `0x0053272e-0x00532730`, `0x0053728e-0x00537290`, and `0x005372c8-0x005372d0`.
 
 ## Source-Structure Decision
 
 Use `map/ObjectList.cpp` as a separate companion module beside `map/MapPane.cpp`. Folding the class into `MapPane.cpp` would hide a coherent 68-byte class with constructor, destructor, vtable, and a contiguous helper island. Placing it under `util/` would over-generalize a container whose callers and stored objects are map-world specific.
 
-`MapPaneSpatialIndex` should remain a temporary documentation alias only while Wave3 still emits `class_MapPaneSpatialIndex.cpp`. The final original-source model should collapse that accessor surface back onto `ObjectList`, or document it as a private view of the same layout rather than as a separate allocated class.
+`MapPaneSpatialIndex` should remain a temporary documentation alias for the early accessor surface. The final original-source model should collapse that accessor surface back onto `ObjectList`, or document it as a private view of the same layout rather than as a separate allocated class.
 
 ## Migration Notes
 
@@ -132,3 +134,9 @@ Use `map/ObjectList.cpp` as a separate companion module beside `map/MapPane.cpp`
 - What existed before: the scalar deleting destructor range was listed as `0x00537290-0x005372c7`.
 - What changed: the endpoint is now `0x005372c8`.
 - Why: IDA MCP function review reports the wrapper ending at exclusive address `0x005372c8`; the following `0x005372c8-0x005372d0` bytes are padding.
+
+### 2026-06-04 - Live IDA Consolidation And Score Update
+
+- What existed before: the page carried `74/84`, stale active-output/source-split wording, and older evidence that did not include the current vtable/padding/caller snapshot.
+- What changed: scores are now `84/88`, proposed module/header names use the `NexusTK/map/` path, importer-derived ownership wording was replaced with IDA evidence/source-facing caveats, and the evidence section records current function boundaries, raw-start caveats, caller sets, vtable dwords, and padding ranges.
+- Why: live IDA MCP confirms the ObjectList lifecycle, vtable, layout, map-only caller surface, and helper-island boundaries strongly enough to move this out of the low-score queue. Completion/confidence remain below final reconstruction levels because several helper names are still provisional and the extended helper family includes raw starts that IDA does not model as functions.

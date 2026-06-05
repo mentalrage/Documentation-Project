@@ -37,7 +37,7 @@
 
 ## Naming Notes
 
-The current generated class name `IntAlphaSurface` is useful for the destructor/vtable anchor, but the same vtable is written by `AlphaMaskSurface` constructor/helper code. Treat this as an alpha-surface family vtable until constructor recovery resolves whether the original source had a separate `IntAlphaSurface` class or a shared/base surface type.
+The current placeholder class name `IntAlphaSurface` is useful for the destructor/vtable anchor, but the same vtable is written by `AlphaMaskSurface` constructor/helper code. Treat this as an alpha-surface family vtable until constructor recovery resolves whether the original source had a separate `IntAlphaSurface` class or a shared/base surface type.
 
 ## Cross-References
 
@@ -58,3 +58,9 @@ The current generated class name `IntAlphaSurface` is useful for the destructor/
 - Before: validator metadata still marked this page `COMPLETION:0`, `CONFIDENCE:0`, and left `RECONSTRUCTABLE` blank even though the page had IDA-backed slot and xref evidence.
 - Changed to: `COMPLETION:82`, `CONFIDENCE:87`, and `RECONSTRUCTABLE:TRUE`. No parent attachment or C++ reconstruction code was added because the final source-level class split between `IntAlphaSurface` and `AlphaMaskSurface` remains open.
 - Evidence: IDA MCP `py_eval`, `xrefs_to`, `lookup_funcs`, `list_globals`, and `decompile` checks on 2026-05-31 confirmed the locator/vtable dwords, vtable-store xrefs, destructor/release behavior, method bounds, and neighboring non-alpha-surface boundary.
+
+### 2026-06-04 - Wording refresh from live IDA recheck
+
+- Score unchanged at `82/87`.
+- Updated naming wording from importer-derived name evidence to a placeholder-name caveat.
+- Evidence: live IDA MCP reconfirmed the first four vtable dwords at `0x006112ec`, vtable stores from `0x0046212c`, `0x0046217b`, `0x00462237`, `0x00462415`, and `0x0046327a`, and vtable-only xrefs to `0x00463270` and `0x00462260`. The source-level class split remains unresolved, so no score change was made.

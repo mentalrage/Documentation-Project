@@ -15,7 +15,7 @@
 - Entity kind: class layout support struct
 - Confidence: strong for offsets, allocation/cleanup agreement, and ObjectList ownership; medium for final source-facing tier/list names.
 - Proposed owner: [UID:0000M4][ObjectList](by-file/ObjectList.md)
-- Evidence basis: IDA MCP decompilation of `ObjectList` lifecycle/accessor methods and generated `class_ObjectList.cpp` / `class_MapPaneSpatialIndex.cpp`.
+- Evidence basis: IDA MCP decompilation of `ObjectList` lifecycle/accessor methods and the linked ObjectList/MapPaneSpatialIndex alias documentation.
 
 ## Layout
 
@@ -79,3 +79,9 @@ The `primary/secondary/tertiary` names are structural placeholders. Existing `Ma
 - What existed before: the layout page listed ObjectList offsets and allocation rules but did not link to exact child lifecycle pages or record the constructor/destructor boundary evidence.
 - What changed: the page now links the exact constructor and destructor pages, records the IDA-confirmed ranges, and ties allocation/cleanup behavior directly to the field offsets.
 - Why: IDA MCP decompilation and byte checks show the constructor populates each listed field, the destructor cleans up the same layout, and the `0x0053125d-0x00531260` gap is padding rather than source-authored code.
+
+### 2026-06-04 - Wording Refresh
+
+- Score unchanged at `82/88`.
+- What changed: replaced importer/output wording in the evidence-basis line with current documentation evidence.
+- Why: the layout evidence comes from live IDA lifecycle/accessor analysis plus the linked ObjectList alias docs; importer-derived filenames are not needed to support the layout.
