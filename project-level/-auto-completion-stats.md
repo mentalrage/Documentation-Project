@@ -93,10 +93,7 @@ _No scored files._
 
 ### by-class
 
-| UID | Completion | Confidence | Combined | Path |
-| --- | ---: | ---: | ---: | --- |
-| `000019` | 74 | 80 | 77.0 | `by-class/BrowserPane.md` |
-| `00003Q` | 74 | 80 | 77.0 | `by-class/DescPane.md` |
+_No scored files._
 
 ### by-external-research
 
@@ -106,8 +103,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000HM` | 72 | 86 | 79.0 | `by-file/AUTOBUF.md` |
-| `0000HU` | 74 | 84 | 79.0 | `by-file/BowGaugeObjectPane.md` |
 | `0000K8` | 74 | 84 | 79.0 | `by-file/IntAlphaSurface.md` |
 | `0000M4` | 74 | 84 | 79.0 | `by-file/ObjectList.md` |
 | `0000MG` | 74 | 84 | 79.0 | `by-file/PasswordGuard.md` |

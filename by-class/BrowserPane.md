@@ -1,6 +1,6 @@
 *** UID:000019 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -14,7 +14,7 @@
 
 `BrowserPane` is a `DialogPane`-derived UI pane for browser-related command handling and selection behavior. It handles browser command codes, keyboard filtering, selection state, timer/sound delegation, and item activation.
 
-Current confidence is strong for browser-module ownership, the command/key/sound methods, alert-string usage, and source parent placement under [UID:0000HV][Browser](by-file/Browser.md). It remains capped at 80 because Wave3's projected constructor start at `0x0046a860` is still not an IDA-modeled function, and several control-list helpers used by BrowserPane are shared `DialogPane` infrastructure rather than Browser-private methods.
+Current confidence is high for browser-module ownership, the command/key/sound methods, alert-string usage, vtable placement, and source parent placement under [UID:0000HV][Browser](by-file/Browser.md). It remains capped below final-reconstruction quality because the constructor-shaped block at `0x0046a860` is still not an IDA-modeled function or referenced call target, and several control-list helpers used by BrowserPane are shared `DialogPane` infrastructure rather than Browser-private methods.
 
 ## Likely Original Placement
 
@@ -24,7 +24,8 @@ Current confidence is strong for browser-module ownership, the command/key/sound
 
 ## Methods
 
-- `0x0046a860` Wave3-projected constructor - initializes `DialogPane` base and three vtable pointers; IDA currently has no function at this start.
+- `0x0046a860` constructor-shaped raw block - initializes the `DialogPane` base and installs the three BrowserPane vtable views; IDA currently has no function at this start.
+- `0x0046a8a0` vtable reset / base cleanup wrapper.
 - `0x0046a8e0` `OnKeyEvent`.
 - `0x0046a910` `OnCommand` - handles command codes including `BCdp`, `BCfl`, and `BCto`, using direct alert strings at [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md).
 - `0x0046ad80` resized input handler installed through the BrowserDialog/BrowserPane vtable cluster.
@@ -37,13 +38,19 @@ Current confidence is strong for browser-module ownership, the command/key/sound
 - [UID:00012S][0x0049dae0-0x0049dfc4.DialogControlPaneHelpers](by-memory/0x0049dae0-0x0049dfc4.DialogControlPaneHelpers.md) owns the shared item lookup, selection, pending-item update, and activation helpers around `0x0049dd20-0x0049dfc4`.
 - Treat the Browser call sites as consumers of that helper cluster, not as proof that those helper bodies are BrowserPane-private methods.
 
-## Evidence
+## Live IDA Evidence
 
-- Wave3 notes a 617-byte `DialogPane`-derived structure, triple vtable installation, and command codes `BCdp`, `BCfl`, and `BCto`.
-- IDA MCP confirms `OnKeyEvent` at `0x0046a8e0-0x0046a901`, `OnCommand` at `0x0046a910-0x0046aa34`, and helper methods under `0x0049dd20-0x0049dfc3`.
-- IDA MCP confirms `PlaySound` at `0x004710d0-0x004710df`, with BrowserPane vtable refs at `0x00613350`, `0x00613400`, `0x00613640`, and `0x006136f0`.
-- IDA MCP reports no function at Wave3's `0x0046a860` constructor start. The previous function is `0x0046a630-0x0046a6ea`, and the next function is `0x0046a8a0-0x0046a8bf`.
-- `OnCommand` uses direct UTF-16 string literals for alert text. Current generated names [UID:0000QC][g_pBrowserFileLoadText](by-global/g_pBrowserFileLoadText.md) and [UID:0000QF][g_pBrowserTimeoutText](by-global/g_pBrowserTimeoutText.md) resolve to `Navigation Failed` at `0x00613a30` and `Navigation Timeout` at `0x00613a54`; no separate pointer-global storage is confirmed.
+- IDA MCP reports no function at `0x0046a860`. The previous function is `sub_46A630` at `0x0046a630-0x0046a6ea`, and the next modeled function is `sub_46A8A0` at `0x0046a8a0-0x0046a8bf`.
+- Raw disassembly for `0x0046a860-0x0046a898` calls `sub_49D8A0` with `word_60DB20`, then stores BrowserPane vtable views at `this+0x00 -> 0x006132ec`, `this+0xa0 -> 0x00613360`, and `this+0xa4 -> 0x00613390`, returning with `retn 8`. IDA finds no refs to `0x0046a860` and no pointer slots containing that address in the browser vtable region.
+- `sub_46A8A0` at `0x0046a8a0-0x0046a8bf` restores the same three BrowserPane vtable views and calls `sub_49D9F0` / `boost::exception::~exception`.
+- `sub_46A8E0` at `0x0046a8e0-0x0046a901` consumes the key event when `a2[4] == 8` and `a2[8] == 0x90`; otherwise it delegates to `sub_49E6E0(this, a2)`. Vtable data refs place it at `0x00613368`, `0x00613418`, and `0x00613708`.
+- `sub_46A910` at `0x0046a910-0x0046aa34` handles commands `1111712880` (`BCdp`), `1111713388` (`BCfl`), `1111716975` (`BCto`), and `1394`; each handled case allocates `624` bytes via `sub_4F4AA0`, calls `sub_49FEB0` with a direct alert string and the shared `OK` text at `0x00613a18`, then closes through `sub_49DF20(this)`.
+- Direct alert string refs from `sub_46A910` are `0x0046a97e -> 0x00613a20` (`Dispose`), `0x0046a9d5 -> 0x00613a30` (`Navigation Failed`), `0x0046aa06 -> 0x00613a54` (`Navigation Timeout`), and `0x0046a9ab -> 0x00613a7c` (`Web Board Request Timeout`).
+- BrowserPane vtable slots confirm `OnCommand` at `0x00613348`, `0x006133f8`, `0x00613638`, and `0x006136e8`; timer delegation at `0x0061334c`, `0x006133fc`, `0x0061363c`, and `0x006136ec`; sound delegation at `0x00613350`, `0x00613400`, `0x00613640`, and `0x006136f0`.
+- `sub_470FC0` at `0x00470fc0-0x00470fdc` delegates timer scheduling through `sub_5975E0(this+0xa4, a2, a3, 0, 0)`, and `sub_4710D0` at `0x004710d0-0x004710df` delegates sound through `sub_597610(this+0xa4, a2)`.
+- `sub_470690` at `0x00470690-0x004706e5` is the scalar deleting destructor slot at `0x006132ec`; it restores all three BrowserPane vtable views, calls `sub_49D9F0`, and conditionally frees through `sub_4F4AC0` when the delete flag permits.
+- [UID:0000HV][Browser](by-file/Browser.md) is scored `84/88`, has `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/browser/"`, and groups BrowserPane with the dense browser/OLE module after IDA-backed boundary, helper, and global ownership checks.
+- [UID:00012S][0x0049dae0-0x0049dfc4.DialogControlPaneHelpers](by-memory/0x0049dae0-0x0049dfc4.DialogControlPaneHelpers.md) is scored `74/84`, attached to [UID:0000IT][DialogPane](by-file/DialogPane.md), and records broad non-browser caller distribution for the selection helpers.
 - [UID:0000HV][Browser](by-file/Browser.md) is scored `84/88`, has `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/browser/"`, and groups BrowserPane with the dense browser/OLE module after IDA-backed boundary, helper, and global ownership checks.
 - [UID:00012S][0x0049dae0-0x0049dfc4.DialogControlPaneHelpers](by-memory/0x0049dae0-0x0049dfc4.DialogControlPaneHelpers.md) is scored `74/84`, attached to [UID:0000IT][DialogPane](by-file/DialogPane.md), and records broad non-browser caller distribution for the selection helpers.
 
@@ -72,3 +79,7 @@ Current confidence is strong for browser-module ownership, the command/key/sound
   - What existed before: the page was reconstructable in substance but had blank autogen metadata, still listed shared selection helpers as BrowserPane methods, and kept `70/76` scoring.
   - Changed to: `COMPLETION:74`, `CONFIDENCE:80`, `RECONSTRUCTABLE:TRUE`, and parent [UID:0000HV][Browser](by-file/Browser.md); the `0x0049dd20-0x0049dfc4` helpers are now explicitly treated as shared [UID:00012S][0x0049dae0-0x0049dfc4.DialogControlPaneHelpers](by-memory/0x0049dae0-0x0049dfc4.DialogControlPaneHelpers.md) consumers rather than Browser-private bodies.
   - Summary/evidence: Browser parent placement is supported by the `84/88` Browser file doc, command/key/sound methods and alert strings remain Browser-specific, while the shared-helper page records broad dialog/control caller evidence. C++ remains blank because the projected constructor boundary and final source split are below the 95+ reconstruction gate.
+- 2026-06-04 live IDA refresh:
+  - What existed before: BrowserPane was scored `74/80` and still depended on stale constructor phrasing while omitting several exact vtable slots and method-body facts.
+  - Changed to: `COMPLETION:82`, `CONFIDENCE:84`, with the C++ reconstruction intentionally left blank.
+  - Summary/evidence: live IDA confirms the raw constructor-shaped block at `0x0046a860-0x0046a898`, the three BrowserPane vtable writes at `0x006132ec`, `0x00613360`, and `0x00613390`, method ranges for `sub_46A8A0`, `sub_46A8E0`, `sub_46A910`, `sub_470690`, `sub_470FC0`, and `sub_4710D0`, command-to-alert-string refs, and vtable slots for command/timer/sound dispatch. The score remains capped because `0x0046a860` is still not an IDA-modeled function or referenced call target, helper ownership remains partly shared with `DialogPane`, and the original source split is not proven to the final reconstruction bar.
