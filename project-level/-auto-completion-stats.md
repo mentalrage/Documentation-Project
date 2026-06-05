@@ -89,9 +89,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000279` | 72 | 80 | 76.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
-| `00027I` | 72 | 80 | 76.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
-| `0002B7` | 72 | 80 | 76.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
 | `0001SK` | 72 | 80 | 76.0 | `by-type/by-enum/BrowserInitFlags.md` |
 | `00000Y` | 72 | 82 | 77.0 | `by-class/BlueAlertPane.md` |
 | `000018` | 72 | 82 | 77.0 | `by-class/BrowserDialogOld.md` |
@@ -222,9 +219,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `000279` | 72 | 80 | 76.0 | `by-memory/0x0066d468-0x0066d47c.CommandLineAndConfigStringPointers.md` |
-| `00027I` | 72 | 80 | 76.0 | `by-memory/0x0066daa2-0x0066daec.MapPaneCoordinateClampConstants.md` |
-| `0002B7` | 72 | 80 | 76.0 | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |
 | `0002D8` | 72 | 82 | 77.0 | `by-memory/0x0041e1d0-0x0041e4ed.FittingRoomScrollPaneHitTestPart.md` |
 | `0002DI` | 72 | 82 | 77.0 | `by-memory/0x0041f100-0x0041f219.FittingRoomListPaneResetScrollPosition.md` |
 | `0000WX` | 72 | 82 | 77.0 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |

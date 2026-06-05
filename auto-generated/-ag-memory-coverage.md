@@ -5,9 +5,9 @@
 Total_Type: 2248
 Total_Reconstructable: 1452
 Total_Not_Reconstructable: 29
-Total_Reconstructed_Assigned: 926
+Total_Reconstructed_Assigned: 927
 Total_Reconstructed_Coded: 17
-Total_Reconstructable_Unassigned: 520
+Total_Reconstructable_Unassigned: 519
 Total_Unclassified: 767
 Total_Error: 6
 
@@ -913,6 +913,7 @@ Total_Error: 6
 | [UID:0001P4][0x0067ab2c-0x0067ab30.g_pChangeMan](by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md) | assigned | `0000I2` |  | no | `auto-generated/NexusTK/app/ChangeMan.cpp` | `by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md` |  |
 | [UID:0001P9][0x0067ab84-0x0067ab88.g_activeBrowserPane](by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0067ab84-0x0067ab88.g_activeBrowserPane.md` |  |
 | [UID:0002T5][0x0067ab94-0x0067ab98.g_pActiveBrowserWindow](by-memory/0x0067ab94-0x0067ab98.g_pActiveBrowserWindow.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-memory/0x0067ab94-0x0067ab98.g_pActiveBrowserWindow.md` |  |
+| [UID:0002B7][0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer](by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |  |
 | [UID:0001PE][0x0069ae0c-0x0069ae10.g_activeUserStatusPane](by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md) | assigned | `0000P2` |  | no | `auto-generated/NexusTK/ui/panels/UserStatusPane.cpp` | `by-memory/0x0069ae0c-0x0069ae10.g_activeUserStatusPane.md` |  |
 | [UID:0001PG][0x0069b374-0x0069b378.g_layoutContext_69B374](by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md) | assigned | `0000L1` |  | no | `auto-generated/NexusTK/ui/MainUiGraph.cpp` | `by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md` |  |
 | [UID:0001PH][0x0069b380-0x0069b381.g_activeDialogCount](by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md) | assigned | `0000IT` |  | no | `auto-generated/NexusTK/ui/core/DialogPane.cpp` | `by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md` |  |
@@ -1481,7 +1482,6 @@ Total_Error: 6
 | [UID:0001P7][0x0067ab48-0x0067ab4c.g_pKeySpeedMgr](by-memory/0x0067ab48-0x0067ab4c.g_pKeySpeedMgr.md) | unassigned |  |  | no |  | `by-memory/0x0067ab48-0x0067ab4c.g_pKeySpeedMgr.md` |  |
 | [UID:0002AE][0x0067ab90-0x0067aba4.BrowserAndWebBoardDialogSingletons](by-memory/0x0067ab90-0x0067aba4.BrowserAndWebBoardDialogSingletons.md) | unassigned |  |  | no |  | `by-memory/0x0067ab90-0x0067aba4.BrowserAndWebBoardDialogSingletons.md` |  |
 | [UID:0002B5][0x0067adc4-0x0067adec.UiChatClanSingletonSlots](by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md) | unassigned |  |  | no |  | `by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md` |  |
-| [UID:0002B7][0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer](by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md) | unassigned |  |  | no |  | `by-memory/0x0067adf0-0x0069adf0.WideCharStrGlobalBuffer.md` |  |
 | [UID:0002AV][0x0069ae18-0x0069af20.KeyboardStateGlobals](by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md) | unassigned |  |  | no |  | `by-memory/0x0069ae18-0x0069af20.KeyboardStateGlobals.md` |  |
 | [UID:0002AW][0x0069af20-0x0069af21.KeyboardChordGateFlag](by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md) | unassigned |  |  | no |  | `by-memory/0x0069af20-0x0069af21.KeyboardChordGateFlag.md` |  |
 | [UID:00029Q][0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C](by-memory/0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C.md) | unassigned |  |  | no |  | `by-memory/0x0069b39c-0x0069b3a8.StaticStringVectorStorage_69B39C.md` |  |
