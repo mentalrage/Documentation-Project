@@ -3,12 +3,12 @@
 # ag-type-coverage
 
 Total_Type: 198
-Total_Reconstructable: 190
+Total_Reconstructable: 195
 Total_Not_Reconstructable: 3
 Total_Reconstructed_Assigned: 20
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 170
-Total_Unclassified: 5
+Total_Reconstructable_Unassigned: 175
+Total_Unclassified: 0
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
@@ -46,6 +46,8 @@ Total_Error: 0
 | [UID:0001SR][ThreadManMessageId](by-type/by-enum/ThreadManMessageId.md) | unassigned |  |  | no |  | `by-type/by-enum/ThreadManMessageId.md` |  |
 | [UID:0001TN][AddEmployeeItemDialogLayout](by-type/by-struct/AddEmployeeItemDialogLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/AddEmployeeItemDialogLayout.md` |  |
 | [UID:0001TO][AlertPaneLayout](by-type/by-struct/AlertPaneLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/AlertPaneLayout.md` |  |
+| [UID:0001TP][AlphaMaskSurfaceLayout](by-type/by-struct/AlphaMaskSurfaceLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/AlphaMaskSurfaceLayout.md` |  |
+| [UID:0001TQ][AlphaSurfaceBufferView](by-type/by-struct/AlphaSurfaceBufferView.md) | unassigned |  |  | no |  | `by-type/by-struct/AlphaSurfaceBufferView.md` |  |
 | [UID:0001TT][BlackHoleLayout](by-type/by-struct/BlackHoleLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/BlackHoleLayout.md` |  |
 | [UID:0001TV][ChangeManEntry](by-type/by-struct/ChangeManEntry.md) | unassigned |  |  | no |  | `by-type/by-struct/ChangeManEntry.md` |  |
 | [UID:0001TW][ChangeManLayout](by-type/by-struct/ChangeManLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/ChangeManLayout.md` |  |
@@ -67,11 +69,13 @@ Total_Error: 0
 | [UID:0001UE][ErrorObjectLayouts](by-type/by-struct/ErrorObjectLayouts.md) | unassigned |  |  | no |  | `by-type/by-struct/ErrorObjectLayouts.md` |  |
 | [UID:0001UF][EventDispatcherHandlerTreeLayouts](by-type/by-struct/EventDispatcherHandlerTreeLayouts.md) | unassigned |  |  | no |  | `by-type/by-struct/EventDispatcherHandlerTreeLayouts.md` |  |
 | [UID:0001UG][FileStreamLayouts](by-type/by-struct/FileStreamLayouts.md) | unassigned |  |  | no |  | `by-type/by-struct/FileStreamLayouts.md` |  |
+| [UID:0001UH][FittingEquipmentStateLayout](by-type/by-struct/FittingEquipmentStateLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/FittingEquipmentStateLayout.md` |  |
 | [UID:0001UI][FittingRoomDownloadProgressState](by-type/by-struct/FittingRoomDownloadProgressState.md) | unassigned |  |  | no |  | `by-type/by-struct/FittingRoomDownloadProgressState.md` |  |
 | [UID:0001UJ][FolderTreePane__TreeElem](by-type/by-struct/FolderTreePane__TreeElem.md) | unassigned |  |  | no |  | `by-type/by-struct/FolderTreePane__TreeElem.md` |  |
 | [UID:0001UK][FontGlyphRecord](by-type/by-struct/FontGlyphRecord.md) | unassigned |  |  | no |  | `by-type/by-struct/FontGlyphRecord.md` |  |
 | [UID:0001UL][FontImageLibLayout](by-type/by-struct/FontImageLibLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/FontImageLibLayout.md` |  |
 | [UID:0001UM][FontSlotStorage](by-type/by-struct/FontSlotStorage.md) | unassigned |  |  | no |  | `by-type/by-struct/FontSlotStorage.md` |  |
+| [UID:0001UN][FontStyleLayout](by-type/by-struct/FontStyleLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/FontStyleLayout.md` |  |
 | [UID:0001UO][FpsPaneLayout](by-type/by-struct/FpsPaneLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/FpsPaneLayout.md` |  |
 | [UID:0001UP][GameServerNationEntry](by-type/by-struct/GameServerNationEntry.md) | unassigned |  |  | no |  | `by-type/by-struct/GameServerNationEntry.md` |  |
 | [UID:0001UQ][HierListNode](by-type/by-struct/HierListNode.md) | unassigned |  |  | no |  | `by-type/by-struct/HierListNode.md` |  |
@@ -117,6 +121,7 @@ Total_Error: 0
 | [UID:0001W2][ScrollVolumePaneLayout](by-type/by-struct/ScrollVolumePaneLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/ScrollVolumePaneLayout.md` |  |
 | [UID:0001W3][SimpleListPaneLayout](by-type/by-struct/SimpleListPaneLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/SimpleListPaneLayout.md` |  |
 | [UID:0001W4][SimpleUStringPointerBackedLayout](by-type/by-struct/SimpleUStringPointerBackedLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/SimpleUStringPointerBackedLayout.md` |  |
+| [UID:0001W5][SimpleUStringSso7Layout](by-type/by-struct/SimpleUStringSso7Layout.md) | unassigned |  |  | no |  | `by-type/by-struct/SimpleUStringSso7Layout.md` |  |
 | [UID:0001W6][SimpleUStringVectorLayout](by-type/by-struct/SimpleUStringVectorLayout.md) | unassigned |  |  | no |  | `by-type/by-struct/SimpleUStringVectorLayout.md` |  |
 | [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md) | unassigned |  |  | no |  | `by-type/by-struct/SpecializedButtonPaneLayouts.md` |  |
 | [UID:0001W8][StaticObjEntry](by-type/by-struct/StaticObjEntry.md) | unassigned |  |  | no |  | `by-type/by-struct/StaticObjEntry.md` |  |
@@ -206,8 +211,3 @@ Total_Error: 0
 | [UID:0001Z0][VersatileAlertPaneVtables](by-type/by-vtable/VersatileAlertPaneVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/VersatileAlertPaneVtables.md` |  |
 | [UID:0001Z1][VoteMenuPaneVtables](by-type/by-vtable/VoteMenuPaneVtables.md) | unassigned |  |  | no |  | `by-type/by-vtable/VoteMenuPaneVtables.md` |  |
 | [UID:0001Z2][WaitableTimerVtable](by-type/by-vtable/WaitableTimerVtable.md) | unassigned |  |  | no |  | `by-type/by-vtable/WaitableTimerVtable.md` |  |
-| [UID:0001TP][AlphaMaskSurfaceLayout](by-type/by-struct/AlphaMaskSurfaceLayout.md) | unclassified |  |  | no |  | `by-type/by-struct/AlphaMaskSurfaceLayout.md` |  |
-| [UID:0001TQ][AlphaSurfaceBufferView](by-type/by-struct/AlphaSurfaceBufferView.md) | unclassified |  |  | no |  | `by-type/by-struct/AlphaSurfaceBufferView.md` |  |
-| [UID:0001UH][FittingEquipmentStateLayout](by-type/by-struct/FittingEquipmentStateLayout.md) | unclassified |  |  | no |  | `by-type/by-struct/FittingEquipmentStateLayout.md` |  |
-| [UID:0001UN][FontStyleLayout](by-type/by-struct/FontStyleLayout.md) | unclassified |  |  | no |  | `by-type/by-struct/FontStyleLayout.md` |  |
-| [UID:0001W5][SimpleUStringSso7Layout](by-type/by-struct/SimpleUStringSso7Layout.md) | unclassified |  |  | no |  | `by-type/by-struct/SimpleUStringSso7Layout.md` |  |

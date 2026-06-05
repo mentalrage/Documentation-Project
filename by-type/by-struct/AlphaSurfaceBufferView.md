@@ -1,7 +1,7 @@
 *** UID:0001TQ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Likely owner header: `render/AlphaMaskSurface.h` or a shared render surface header.
 - Entity kind: POD buffer-view record.
 - Primary memory docs: [UID:0000YL][0x00462170-0x00462e03.AlphaMaskSurface](by-memory/0x00462170-0x00462e03.AlphaMaskSurface.md)
+- Reconstructable: true as a source-level POD/view declaration; C++ body remains blank because this page documents data layout only.
 
 ## Layout
 
@@ -48,3 +49,5 @@
 ## Changes
 
 - 2026-05-30: Raised completion/confidence from `0/0` to `86/90`. Previously this page documented the layout but had no score; it now records the current IDA MCP clipped-view recheck and concrete output offsets.
+- 2026-06-04: Marked `RECONSTRUCTABLE:TRUE` without changing scores.
+  - Reasoning: IDA-backed `GetBufferInfo` and clipped-view writes prove a real 0x14-byte POD buffer-view record; final original type name and owner header remain below the parent-attachment threshold.

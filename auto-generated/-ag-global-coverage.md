@@ -3,17 +3,18 @@
 # ag-global-coverage
 
 Total_Type: 158
-Total_Reconstructable: 44
+Total_Reconstructable: 45
 Total_Not_Reconstructable: 2
-Total_Reconstructed_Assigned: 35
+Total_Reconstructed_Assigned: 36
 Total_Reconstructed_Coded: 0
 Total_Reconstructable_Unassigned: 9
-Total_Unclassified: 112
+Total_Unclassified: 111
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | [UID:00020K][AesBlockCipherStateAndTables](by-global/AesBlockCipherStateAndTables.md) | assigned | `00020J` | 80 | no | `auto-generated/NexusTK/util/AesBlockCipher.cpp` | `by-global/AesBlockCipherStateAndTables.md` |  |
+| [UID:0000SZ][HandleLegacyMainMenuPacket_4F8D00](by-global/HandleLegacyMainMenuPacket_4F8D00.md) | assigned | `0000L0` |  | no | `auto-generated/NexusTK/login/MainMenuPane.cpp` | `by-global/HandleLegacyMainMenuPacket_4F8D00.md` |  |
 | [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-global/HasDATEntry_49C700.md` |  |
 | [UID:0000T2][IID_BrowserEventSink](by-global/IID_BrowserEventSink.md) | assigned | `0000HV` |  | no | `auto-generated/NexusTK/browser/Browser.cpp` | `by-global/IID_BrowserEventSink.md` |  |
 | [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md) | assigned | `0000IN` |  | no | `auto-generated/NexusTK/archive/DATFile.cpp` | `by-global/LoadDatFileBuffer_4BB120.md` |  |
@@ -68,7 +69,6 @@ Total_Error: 0
 | [UID:0000PN][FrameChromeSlots](by-global/FrameChromeSlots.md) | unclassified |  |  | no |  | `by-global/FrameChromeSlots.md` |  |
 | [UID:0000SX][GetChatButtonAtPoint](by-global/GetChatButtonAtPoint.md) | unclassified |  |  | no |  | `by-global/GetChatButtonAtPoint.md` |  |
 | [UID:0000SY][GetControlLayout_452260](by-global/GetControlLayout_452260.md) | unclassified |  |  | no |  | `by-global/GetControlLayout_452260.md` |  |
-| [UID:0000SZ][HandleLegacyMainMenuPacket_4F8D00](by-global/HandleLegacyMainMenuPacket_4F8D00.md) | unclassified |  |  | no |  | `by-global/HandleLegacyMainMenuPacket_4F8D00.md` |  |
 | [UID:0000T1][HitTestMenuItem_4F8C10](by-global/HitTestMenuItem_4F8C10.md) | unclassified |  |  | no |  | `by-global/HitTestMenuItem_4F8C10.md` |  |
 | [UID:0000T5][LoadIndexedDATSeries](by-global/LoadIndexedDATSeries.md) | unclassified |  |  | no |  | `by-global/LoadIndexedDATSeries.md` |  |
 | [UID:0000T6][MainUiLayerSlots](by-global/MainUiLayerSlots.md) | unclassified |  |  | no |  | `by-global/MainUiLayerSlots.md` |  |

@@ -125,7 +125,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000SZ` | 74 | 82 | 78.0 | `by-global/HandleLegacyMainMenuPacket_4F8D00.md` |
 | `0000T2` | 74 | 82 | 78.0 | `by-global/IID_BrowserEventSink.md` |
 | `0000SH` | 74 | 82 | 78.0 | `by-global/g_pThreadMan.md` |
 | `0000SO` | 74 | 82 | 78.0 | `by-global/g_pVirusChecker.md` |

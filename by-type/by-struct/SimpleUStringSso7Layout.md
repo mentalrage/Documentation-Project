@@ -1,7 +1,7 @@
 *** UID:0001W5 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Likely owner: [UID:0000D9][SimpleUString](by-class/SimpleUString.md)
 - Proposed header: `util/StringUtil.h`
 - Confidence: strong for the 24-byte SSO-7 layout in the two endpoint helpers, medium for how it relates to the later pointer-backed string family.
+- Reconstructable: true as a source-level string-layout declaration; C++ body remains blank because the final original class/template relationship is still unresolved.
 
 ## Layout Hypothesis
 
@@ -48,4 +49,6 @@ The early `SimpleUString` helper pair uses a 24-byte UTF-16 small-string layout 
 
 ## Changes
 
-- 2026-05-30: Existing layout evidence cited only raw endpoint addresses and the broad `0x00421310-0x004216cb` aggregate. Changed this to link the exact endpoint helper pages and warn that the aggregate middle is not layout evidence. Evidence: IDA MCP split of the mixed helper island and `simroot_v2/class_SimpleUString.cpp` emitting only the endpoint helpers.
+- 2026-05-30: Existing layout evidence cited only raw endpoint addresses and the broad `0x00421310-0x004216cb` aggregate. Changed this to link the exact endpoint helper pages and warn that the aggregate middle is not layout evidence. Evidence: IDA MCP split of the mixed helper island and endpoint-helper decompilation.
+- 2026-06-04: Marked `RECONSTRUCTABLE:TRUE` without changing scores.
+  - Reasoning: the exact clear and counted-assign helper pages prove the 24-byte UTF-16 SSO-7 data layout as source-level structure information; parent attachment remains blank until this layout's relationship to the pointer-backed string family is resolved.

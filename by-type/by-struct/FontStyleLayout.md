@@ -1,7 +1,7 @@
 *** UID:0001UN | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -15,7 +15,8 @@
 - Confidence: strong for object size and vector triplet; medium for semantic names of scalar style fields.
 - Owner: [UID:00005C][FontStyle](by-class/FontStyle.md)
 - Source candidate: [UID:0000JI][FontStyle](by-file/FontStyle.md)
-- Evidence: `source-3/simroot_v2/class_FontStyle.cpp` and IDA MCP decompilation of `0x00499f10`, `0x00499f90`, and `0x004c6960`.
+- Evidence: IDA MCP decompilation of `0x00499f10`, `0x00499f90`, and `0x004c6960`.
+- Reconstructable: true as a source-level class-layout declaration; C++ body remains blank because final scalar field names and text-rendering consumers still need a broader audit.
 
 ## Object Layout
 
@@ -42,15 +43,14 @@ Recovered rule size: 0x10 bytes.
 | `+0x00` | 4 | `firstValue` | First `Configure` argument. |
 | `+0x04` | 4 | `secondValue` | Second `Configure` argument. |
 | `+0x08` | 1 | `selectorLowByte` | Third `Configure` argument; IDA only proves the low byte is explicitly written. |
-| `+0x09` | 3 | `selectorPadding` | Generated C++ widens this to `uint32_t`, but rendering consumers should be checked before relying on high bytes. |
+| `+0x09` | 3 | `selectorPadding` | Current reconstruction should treat only the low byte as proven until rendering consumers are checked. |
 | `+0x0c` | 4 | `fourthValue` | Fourth `Configure` argument. |
 
 ## Notes
 
-- The generated source currently names the vector entry `FontStyleRule` and uses three pointer fields exactly like `std::vector<FontStyleRule>`.
+- The vector entry is provisionally named `FontStyleRule`; the three pointer fields match the usual `std::vector<FontStyleRule>` storage pattern.
 - `ClearRules` uses the same large-allocation validation pattern seen in MSVC vector destructors before calling the shared free helper.
 - [UID:00011W][0x0049ac60-0x0049ad74.FontStyleRuleVectorGrowth](by-memory/0x0049ac60-0x0049ad74.FontStyleRuleVectorGrowth.md) grows a vector of 16-byte entries and is currently called only from `FontStyle::Configure` in IDA caller output. Treat it as compiler/template support, not an extra source-facing method.
-- Current generated output repeats this layout declaration inside each `class_FontStyle.cpp` method body. Keep one shared declaration in source reconstruction.
 - More semantic field names should wait until `StaticTextControlPane2`, `HelpPane`, and text rendering consumers are typed together.
 
 ## Cross-References
@@ -64,3 +64,5 @@ Recovered rule size: 0x10 bytes.
 ## Changes
 
 - 2026-05-30: Scored the layout page from 0/0 to 76/84 after rechecking the cleanup method and confirming the vector triplet offsets. Evidence: IDA MCP decompilation of `0x004536e0` reads/writes `this[5]`, `this[6]`, and `this[7]` as `+0x14/+0x18/+0x1c`; existing constructor/configure docs support the remaining scalar and 16-byte rule layout.
+- 2026-06-04: Marked `RECONSTRUCTABLE:TRUE` without changing scores.
+  - Reasoning: IDA-backed constructor, configure, cleanup, and vector-growth evidence proves a real source-level `FontStyle` layout and rule-record declaration; parent attachment and C++ emission stay blank because final field semantics remain below the 95/95 bar.
