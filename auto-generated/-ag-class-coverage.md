@@ -5,9 +5,9 @@
 Total_Type: 586
 Total_Reconstructable: 301
 Total_Not_Reconstructable: 1
-Total_Reconstructed_Assigned: 234
+Total_Reconstructed_Assigned: 238
 Total_Reconstructed_Coded: 2
-Total_Reconstructable_Unassigned: 67
+Total_Reconstructable_Unassigned: 63
 Total_Unclassified: 284
 Total_Error: 0
 
@@ -51,7 +51,11 @@ Total_Error: 0
 | [UID:000023][ClanAppearNameInputDialog](by-class/ClanAppearNameInputDialog.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-class/ClanAppearNameInputDialog.md` |  |
 | [UID:000028][ClanChangeNameInputDialog](by-class/ClanChangeNameInputDialog.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-class/ClanChangeNameInputDialog.md` |  |
 | [UID:000029][ClanDepItemDialog](by-class/ClanDepItemDialog.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-class/ClanDepItemDialog.md` |  |
+| [UID:00002A][ClanDepMoneyInputDialog](by-class/ClanDepMoneyInputDialog.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-class/ClanDepMoneyInputDialog.md` |  |
+| [UID:00002D][ClanExpelNameInputDialog](by-class/ClanExpelNameInputDialog.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-class/ClanExpelNameInputDialog.md` |  |
 | [UID:00002G][ClanItemListPane](by-class/ClanItemListPane.md) | assigned | `0000I9` |  | no | `auto-generated/NexusTK/social/ClanBank.cpp` | `by-class/ClanItemListPane.md` |  |
+| [UID:00002M][ClanSummonNameInputDialog](by-class/ClanSummonNameInputDialog.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-class/ClanSummonNameInputDialog.md` |  |
+| [UID:00002O][ClanWidMoneyInputDialog](by-class/ClanWidMoneyInputDialog.md) | assigned | `0000I8` |  | no | `auto-generated/NexusTK/social/Clan.cpp` | `by-class/ClanWidMoneyInputDialog.md` |  |
 | [UID:00002T][CloudFilterEffecter](by-class/CloudFilterEffecter.md) | assigned | `0000IZ` |  | no | `auto-generated/NexusTK/render/Effects.cpp` | `by-class/CloudFilterEffecter.md` |  |
 | [UID:000033][ConfirmDeleteAlert](by-class/ConfirmDeleteAlert.md) | assigned | `0000HW` | 40 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteAlert.md` |  |
 | [UID:000034][ConfirmDeleteMailAlert](by-class/ConfirmDeleteMailAlert.md) | assigned | `0000HW` | 60 | no | `auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp` | `by-class/ConfirmDeleteMailAlert.md` |  |
@@ -253,14 +257,10 @@ Total_Error: 0
 | [UID:00001K][ChangeMan](by-class/ChangeMan.md) | unassigned |  |  | no |  | `by-class/ChangeMan.md` |  |
 | [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md) | unassigned |  |  | no |  | `by-class/CheckBoxControlPane.md` |  |
 | [UID:000027][ClanChangeInputDialog](by-class/ClanChangeInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanChangeInputDialog.md` |  |
-| [UID:00002A][ClanDepMoneyInputDialog](by-class/ClanDepMoneyInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanDepMoneyInputDialog.md` |  |
 | [UID:00002B][ClanEnlistInputDialog](by-class/ClanEnlistInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanEnlistInputDialog.md` |  |
-| [UID:00002D][ClanExpelNameInputDialog](by-class/ClanExpelNameInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanExpelNameInputDialog.md` |  |
 | [UID:00002F][ClanItemDialog](by-class/ClanItemDialog.md) | unassigned |  |  | no |  | `by-class/ClanItemDialog.md` |  |
 | [UID:00002I][ClanLeaveConfirmDialog](by-class/ClanLeaveConfirmDialog.md) | unassigned |  |  | no |  | `by-class/ClanLeaveConfirmDialog.md` |  |
 | [UID:00002K][ClanStatusPane](by-class/ClanStatusPane.md) | unassigned |  |  | no |  | `by-class/ClanStatusPane.md` |  |
-| [UID:00002M][ClanSummonNameInputDialog](by-class/ClanSummonNameInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanSummonNameInputDialog.md` |  |
-| [UID:00002O][ClanWidMoneyInputDialog](by-class/ClanWidMoneyInputDialog.md) | unassigned |  |  | no |  | `by-class/ClanWidMoneyInputDialog.md` |  |
 | [UID:000038][ControlPane](by-class/ControlPane.md) | unassigned |  |  | no |  | `by-class/ControlPane.md` |  |
 | [UID:00003G][DATFile](by-class/DATFile.md) | unassigned |  |  | no |  | `by-class/DATFile.md` |  |
 | [UID:00003I][DATFileMgr](by-class/DATFileMgr.md) | unassigned |  |  | no |  | `by-class/DATFileMgr.md` |  |

@@ -95,12 +95,6 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `00002A` | 72 | 82 | 77.0 | `by-class/ClanDepMoneyInputDialog.md` |
-| `00002D` | 72 | 82 | 77.0 | `by-class/ClanExpelNameInputDialog.md` |
-| `00002M` | 72 | 82 | 77.0 | `by-class/ClanSummonNameInputDialog.md` |
-| `00002O` | 72 | 82 | 77.0 | `by-class/ClanWidMoneyInputDialog.md` |
-| `00002T` | 72 | 82 | 77.0 | `by-class/CloudFilterEffecter.md` |
-| `00003W` | 72 | 82 | 77.0 | `by-class/DIError.md` |
 | `000045` | 72 | 82 | 77.0 | `by-class/DSError.md` |
 | `00004K` | 72 | 82 | 77.0 | `by-class/ErrorMessage.md` |
 | `00009X` | 72 | 82 | 77.0 | `by-class/OverlayFrameImageEffecter.md` |
