@@ -1,8 +1,8 @@
 *** UID:0000U0 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,8 +14,8 @@
 
 - Confidence: medium-high for behavior, medium for final original name.
 - Entity kind: free render helper.
-- Current Wave3 owner file: `source-3/simroot_v2/recovered/BlendRgb565Pair_004C60D0.cpp`
 - Likely source module: [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md)
+- Autogen parent: [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md)
 - Exact range: `0x004c60d0-0x004c6151`
 
 ## Behavior
@@ -24,8 +24,8 @@
 
 ## Evidence
 
-- Wave3 imports this as a recovered global, but the current metadata has no summary or grade.
-- IDA MCP reports four callers in `0x004c0850`, `0x004c0f80`, and `0x004c4380` render neighborhoods.
+- Live IDA MCP `lookup_funcs 0x004c60d0` reports `sub_4C60D0` size `0x81`.
+- Live IDA MCP reports four callers in `0x004c0850`, `0x004c0f80`, and `0x004c4380` render neighborhoods.
 - It is adjacent to `BlendRgb565Pixel`, supporting a shared original helper file.
 
 ## Cross-References
@@ -36,6 +36,11 @@
 - [UID:0001QI][client_new_rendering_mode](by-meta/client_new_rendering_mode.md)
 
 ## Changes
+
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE`, attached to [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md), and stale generated-source evidence wording was replaced with live IDA evidence.
+  - Before: the item was unclassified and the evidence section still cited generated import metadata.
+  - After: it is marked as a NexusTK-owned packed RGB565 render helper under the validated SoftwareBlend16 file root; C++ remains blank because final helper naming/signature is not at the 95/95 final-code bar.
+  - Evidence: live IDA MCP confirms `sub_4C60D0` at `0x004c60d0`, size `0x81`, with direct callers in `sub_4C0850`, `sub_4C0F80`, and `sub_4C4380`; the helper has no project callees.
 
 - 2026-05-30: Grading changed from `0/0` to `80/84`.
   - Before: page documented packed RGB565 pair blending behavior, ownership, callers, and adjacent pixel helper but remained unevaluated.

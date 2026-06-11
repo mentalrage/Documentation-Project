@@ -1,7 +1,7 @@
 *** UID:0000PT | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -13,12 +13,10 @@
 ## Status
 
 - Confidence: strong for address, stale browser alias, and actual `SendMessageW` dispatch role; medium-high for final source-level symbol name.
-- Current Wave3 kind: `global-data`
-- Current generated owner file: `class_BrowserControlPaneOld.cpp`
 - IDA storage candidate: `0x0069bec4` (`dword_69BEC4`)
 - Memory doc: [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md)
 - Owner: [UID:0000ML][PlatformApi](by-file/PlatformApi.md) / [UID:0000TQ][WideApiDispatchTable](by-global/WideApiDispatchTable.md).
-- Status of this name: stale generated browser/transport alias for the `SendMessageW` dispatch entry.
+- Status of this name: stale browser/transport alias for the `SendMessageW` dispatch entry.
 
 ## Observed Evidence
 
@@ -44,19 +42,19 @@ This is not a browser-owned global. Browser code uses the platform dispatch entr
 
 ## Type Hypothesis
 
-Generated browser source previously implied:
+Browser alias analysis previously implied:
 
 ```cpp
 using BrowserControlKeyCallback = int (*)(int ownerHandle, unsigned int messageId, int keyCode, unsigned int keyFlags);
 ```
 
-BrowserThread generated source also names the same role `g_pTransportCallback`. Keep both names under review.
+Browser-thread alias analysis also names the same role `g_pTransportCallback`. Keep both names under review.
 
 Current IDA evidence instead supports a `SendMessageW`-compatible dispatch entry, likely declared with a Win32 API function-pointer type inside the wide API dispatch table.
 
 ## Follow-Up
 
-- Rename or supersede this generated alias when the wide API dispatch table receives final source-level symbol names.
+- Rename or supersede this alias when the wide API dispatch table receives final source-level symbol names.
 - Keep browser and socket call sites as consumers only.
 
 ## Cross-References
@@ -68,12 +66,13 @@ Current IDA evidence instead supports a `SendMessageW`-compatible dispatch entry
 - [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md)
 - [UID:00001A][BrowserThread](by-class/BrowserThread.md)
 - [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md)
-- [Wave3 data issues](../wave3_data_issues.md)
 
 ## Changes
 
-- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `82/76`. Summary/evidence: the page documents storage, browser and transport xrefs, initialization value, generated callback type, owner hypothesis, and follow-up writer sites; final owner/name remains unresolved.
+- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `82/76`. Summary/evidence: the page documents storage, browser and transport xrefs, initialization value, callback type aliases, owner hypothesis, and follow-up writer sites; final owner/name remains unresolved.
 - 2026-06-02 dispatch reclassification:
   - What existed before: the page treated `0x0069bec4` as unresolved browser/app/transport callback storage.
-  - Changed to: the page now treats `g_browserControlKeyCallback` as a stale generated alias for the [UID:0000TQ][WideApiDispatchTable](by-global/WideApiDispatchTable.md) `SendMessageW` entry.
+  - Changed to: the page now treats `g_browserControlKeyCallback` as a stale alias for the [UID:0000TQ][WideApiDispatchTable](by-global/WideApiDispatchTable.md) `SendMessageW` entry.
   - Summary/evidence: IDA MCP decompilation of [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) writes `SendMessageW` at `0x0041a474`, and raw writer sites are duplicate `UniAPIInit` table-assignment bodies.
+- 2026-06-05: Marked not reconstructable as a standalone global.
+  - Reason: live IDA MCP recheck confirms `0x0069bec4` is the `SendMessageW` slot in [UID:0000TQ][WideApiDispatchTable](by-global/WideApiDispatchTable.md); the source declaration belongs to the table, not to this stale browser/transport alias page.

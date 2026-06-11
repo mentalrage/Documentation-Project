@@ -1,7 +1,7 @@
 *** UID:0000IX | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # EditablePaperPane
 
@@ -10,7 +10,7 @@
 - Confidence: strong for the class/module boundary, medium for the final placement of the tiny uncalled paper-open wrappers near `0x005128a0`.
 - Proposed module: `ui/dialogs/EditablePaperPane.cpp`
 - Proposed header: `ui/dialogs/EditablePaperPane.h`
-- Current recovered source: `source-3/simroot_v2/class_EditablePaperPane.cpp`
+- Projected reconstruction path: `NexusTK/ui/dialogs/EditablePaperPane.cpp`
 - Main memory range: [UID:0001EE][0x00545170-0x00545e3b.EditablePaperPane](by-memory/0x00545170-0x00545e3b.EditablePaperPane.md)
 - Type docs: [UID:0001XF][EditablePaperPaneVtables](by-type/by-vtable/EditablePaperPaneVtables.md)
 - Exact vtable data: [UID:0002NC][0x00621afc-0x00621b98.EditablePaperPaneVtableData](by-memory/0x00621afc-0x00621b98.EditablePaperPaneVtableData.md)
@@ -51,8 +51,8 @@ Keep this separate from [UID:0000OQ][TextPad](by-file/TextPad.md). `TextPad` is 
 
 - `MapPane::HandlePacket` constructs the pane for opcode `0x1b` in editable mode and opcode `0x35` in read-only mode.
 - IDA also confirms small wrappers at `0x005128a0` and `0x00512900` that allocate and construct the same class, but both currently have no direct callers. Keep them as review targets near [UID:0000L3][MapPane](by-file/MapPane.md) packet handling or this file; do not use them alone to infer a separate source file.
-- Disabled generated `0x0045004e` is not an `EditablePaperPane` method. IDA places it inside [UID:0000XJ][0x00450030-0x0045007b.LodePngLowerBoundHelper](by-memory/0x00450030-0x0045007b.LodePngLowerBoundHelper.md), a binary-search/lower-bound helper with callers in the LodePNG helper island.
-- The generated disabled rows `0x00545ddd` and `0x00545de8` are real compiler adjustor thunks, not missing code; see [UID:0001EF][0x00545ddd-0x00545df3.EditablePaperPaneAdjustorThunks](by-memory/0x00545ddd-0x00545df3.EditablePaperPaneAdjustorThunks.md). These adjustor wrappers are excluded through [UID:0000VN][-ignored](by-memory/-ignored.md), while the scalar deleting destructor remains reconstructable.
+- Recovered disabled row `0x0045004e` is not an `EditablePaperPane` method. IDA places it inside [UID:0000XJ][0x00450030-0x0045007b.LodePngLowerBoundHelper](by-memory/0x00450030-0x0045007b.LodePngLowerBoundHelper.md), a binary-search/lower-bound helper with callers in the LodePNG helper island.
+- The recovered disabled rows `0x00545ddd` and `0x00545de8` are real compiler adjustor thunks, not missing code; see [UID:0001EF][0x00545ddd-0x00545df3.EditablePaperPaneAdjustorThunks](by-memory/0x00545ddd-0x00545df3.EditablePaperPaneAdjustorThunks.md). These adjustor wrappers are excluded through [UID:0000VN][-ignored](by-memory/-ignored.md), while the scalar deleting destructor remains reconstructable.
 - 2026-05-26 IDA MCP recheck confirms `0x0045004e` is still an interior instruction of the LodePNG lower-bound helper, confirms the `EditablePaperPane` adjustor pair as `this - 0xa0` / `this - 0xa4` wrappers into `0x00545e00`, and confirms `TextPad` owns the only direct caller to `0x00595be0`.
 - 2026-05-26 IDA MCP vtable recheck confirms the tertiary table at `0x00621b90` owns only `0x00545de8` and inherited `0x00544e90`; the following dword at `0x00621b98` begins adjacent `LINE001.EPD` string/data, not another paper-pane virtual.
 
@@ -72,6 +72,10 @@ Keep this separate from [UID:0000OQ][TextPad](by-file/TextPad.md). `TextPad` is 
 
 ## Changes
 
+- 2026-06-05: Assigned projected reconstruction path `NexusTK/ui/dialogs/` to resolve the by-file generated-root coverage error.
+  - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though the page already proposed `ui/dialogs/EditablePaperPane.cpp`.
+  - After: set the validator path to `NexusTK/ui/dialogs/` without changing completion/confidence or writing reconstruction C++.
+  - Evidence: `by-project-structure/proposed-source-tree.md` lists `EditablePaperPane.cpp` under `ui/dialogs`, and live IDA MCP lookup on 2026-06-05 confirms the main constructor anchor at `0x00545170` as a real function of size `0xa7`.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:86` and `CONFIDENCE:82`.

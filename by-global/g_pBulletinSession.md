@@ -1,8 +1,8 @@
 *** UID:0000QG | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,7 +14,7 @@
 
 - Symbol kind: process-wide singleton pointer / global data
 - Address: [UID:0001PA][0x0067adc0-0x0067adc4.g_pBulletinSession](by-memory/0x0067adc0-0x0067adc4.g_pBulletinSession.md)
-- Current generated aliases: `g_pBulletinSession`, `DAT_0067adc0`, `dword_67ADC0`
+- Observed aliases: `g_pBulletinSession`, `DAT_0067adc0`, `dword_67ADC0`
 - Proposed owner module: [UID:0000HX][BulletinSession](by-file/BulletinSession.md)
 - Confidence: strong.
 
@@ -46,4 +46,5 @@ IDA MCP xrefs on 2026-05-24 show consumers from:
 
 ## Changes
 
-- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `86/84`. Summary/evidence: the page documents address/memory page, generated aliases, singleton role, constructor/destructor/clear lifetime, lazy initializer, consumer families, and file/class refs.
+- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `86/84`. Summary/evidence: the page documents address/memory page, observed aliases, singleton role, constructor/destructor/clear lifetime, lazy initializer, consumer families, and file/class refs.
+- 2026-06-05: Marked reconstructable under [UID:0000HX][BulletinSession](by-file/BulletinSession.md). Evidence: live IDA MCP reports xrefs to `0x0067adc0` from the `BulletinSession` constructor/clear body, packet/dialog consumers, and `EnsureBulletinSession_5A50A0`; decompilation confirms `0x00471150` writes `dword_67ADC0`, `0x00471270` clears it, and `0x005a50a0` lazily constructs the session when the pointer is null.

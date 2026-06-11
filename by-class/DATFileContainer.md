@@ -1,8 +1,8 @@
 *** UID:00003H | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -62,3 +62,7 @@
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `80/86`.
   - Summary/evidence: mapped-file responsibility, full field layout, constructor/destructor ranges, archive-entry boundary evidence, and manager ownership are documented; remaining work is mostly final original field names.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving the class coverage row unclassified.
+  - After: `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000IO`.
+  - Evidence: live IDA MCP confirms modeled starts at `0x0049be80` and `0x0049d2d0`, with container construction called from `_DATFileMgr::LoadDATFileIndex` at `0x0049c8bd`; this class and the parent file both meet the 80% completion/confidence attachment gate.

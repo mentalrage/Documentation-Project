@@ -1,8 +1,8 @@
 *** UID:0000S1 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -31,6 +31,7 @@
 - `0x005adcc0` constructs [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md), then stores the adjusted object pointer into `dword_69BF5C`.
 - `0x005adcf2` is not currently inside an IDA function, but the instruction window around it stores `eax` into `dword_69BF5C` immediately before `QuitInputPane` vftable writes at `0x005adcf9`, `0x005adcff`, and `0x005add09`.
 - `0x005b7b30` clears `dword_69BF5C` at `0x005b7b36` before calling `sub_4F2010` and honoring the scalar-deleting destructor flag.
+- Live IDA decompilation on 2026-06-05 confirms `0x005a94b0` checks `dword_69BF5C`, stores the constructed `QuitInputPane` pointer into the slot, and installs the `QuitInputPane` vtables; `0x005b7b30` clears the singleton during scalar deleting destruction.
 
 ## Caveat
 
@@ -48,3 +49,8 @@ Do not confuse this singleton with `0x0069b504`. Live IDA names `0x0069b504` as 
 ## Changes
 
 - 2026-05-30: What existed before: the page had the correct singleton address and high-level behavior but no completion/confidence grade and only a compact xref summary. What changed: set completion/confidence to `82/88` and expanded the evidence with live IDA MCP storage, xref, allocation, constructor, and destructor details. Summary/evidence: IDA reports `0x0069bf5c` as a 4-byte `.data` item with five data xrefs; the checked instruction windows show duplicate-prevention, assignment after construction, null-path clearing, and destructor clearing. The score is below 100 because `0x005adcf2` is not currently attached to an IDA function and source-level file/function names still need final reconstruction.
+
+- 2026-06-05 autogen classification:
+  - What existed before: autogen metadata was blank, so the singleton was reported as unclassified.
+  - Changed to: `RECONSTRUCTABLE:TRUE` with `AUTOGEN_PARENT_UID:0000MX`; `RECONSTRUCTION_CPP CODE` remains empty.
+  - Summary/evidence: live IDA MCP `xrefs_to 0x0069bf5c` and decompilation of `0x005a94b0` / `0x005b7b30` prove NexusTK-owned `QuitInputPane` singleton storage owned by [UID:0000MX][QuitDialogs](by-file/QuitDialogs.md). No final C++ body was added because the page is below the 95/95 reconstruction gate.

@@ -1,6 +1,6 @@
 *** UID:0000MF | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ParcelPane
@@ -9,7 +9,7 @@
 
 - Proposed module: `ui/panels/ParcelPane.cpp` or original flat `ParcelPane.cpp`
 - Proposed header: `ui/panels/ParcelPane.h`
-- Confidence: strong for parcel notification family grouping, medium for final folder.
+- Confidence: strong for parcel notification family grouping and source-root ownership, medium-high for final folder spelling.
 - Current generated sources: `class_ParcelPane.cpp`, `class_FlyingParcelPane.cpp`, `class_ParcelIconPane.cpp`
 - Vtable/type evidence: [UID:0001YE][ParcelNotificationVtableFamily](by-type/by-vtable/ParcelNotificationVtableFamily.md)
 - Layout evidence: [UID:0001VI][ParcelNotificationPaneLayouts](by-type/by-struct/ParcelNotificationPaneLayouts.md)
@@ -42,6 +42,13 @@ This is a HUD/panel module, not mail-dialog body UI and not the patch/update scr
 - IDA raw disassembly confirms omitted `FlyingParcelPane` cleanup/start bodies at `0x00546b80-0x00546d64`. Current IDA does not wrap these starts as functions, but 2026-06-01 bounded IDA disassembly splits them into [UID:0002R5][0x00546b80-0x00546bb5.FlyingParcelPaneCleanupDestructorBody](by-memory/0x00546b80-0x00546bb5.FlyingParcelPaneCleanupDestructorBody.md) and [UID:0002R6][0x00546bc0-0x00546d64.FlyingParcelPaneStartAnimation](by-memory/0x00546bc0-0x00546d64.FlyingParcelPaneStartAnimation.md), with `0xcc` padding before, between, and after.
 - `FlyingParcelPane::AnimateStep` calls back into `g_pParcelPane`, updates parcel slot data, marks the pane dirty, and invalidates the notification bounds.
 - Resource strings and calls use `ALERTBTN.EPF`, `ALERTBTN.PAL`, `LETTER.EPF`, and `LETTER.PAL`, matching a parcel/letter alert UI family.
+
+## 2026-06-07 Parent-Gate Refresh
+
+- Batch061 reviewed this file as the direct source parent for [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md) after generated memory coverage reported the nested vtable-family UID as an unknown autogen parent.
+- The existing evidence now supports the strict parent gate: [UID:0001YE][ParcelNotificationVtableFamily](by-type/by-vtable/ParcelNotificationVtableFamily.md) and [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md) both document the exact three-class RTTI/vtable island, constructor/destructor vtable-store xrefs, adjustor/scalar-destructor boundaries, and the `0x00621d50` `ALERTBTN.EPF` successor string.
+- The same file-level grouping evidence ties those vtables to this source root: `ParcelIconPane`, `ParcelPane`, and `FlyingParcelPane` are adjacent in the `0x00545e40-0x005470ac` executable island, share parcel globals and parcel alert resources, and end immediately before [UID:0000MH][PatchPane](by-file/PatchPane.md) at `0x005470b0`.
+- Confidence is raised to `85`, not higher, because final source folder spelling and private-helper-class exposure still have caveats; however, the direct ownership of the parcel notification vtable data by this file is now strong enough for child attachment under the corrected 85/85 gate.
 
 ## Source-Structure Decision
 
@@ -94,3 +101,7 @@ Keep [UID:0000JK][FpsPane](by-file/FpsPane.md) separate. Active `class_FpsPane.c
 - Before: the raw `FlyingParcelPane` lifecycle/start bodies were mentioned only as one broad `0x00546b80-0x00546d64` aggregate.
 - Changed to: the file page now references exact child method pages for cleanup and start/configure bodies.
 - Summary/evidence: 2026-06-01 IDA MCP bounded disassembly and byte checks prove `0x00546b80-0x00546bb5`, `0x00546bb5-0x00546bc0`, `0x00546bc0-0x00546d64`, and `0x00546d64-0x00546d70` boundaries.
+- 2026-06-07 A001 Batch061 parent-gate refresh:
+  - Before: `COMPLETION:86`, `CONFIDENCE:80`.
+  - After: `COMPLETION:86`, `CONFIDENCE:85`.
+  - Evidence: the exact parcel notification vtable-data child and vtable-family page document the same three parcel classes, lifecycle-store xrefs, adjustor/destructor boundaries, and `ALERTBTN.EPF` successor boundary; combined with the executable island, shared globals/resources, and PatchPane successor boundary, the file now clears the corrected 85/85 gate as the direct source parent for parcel vtable data. Confidence remains below 90 because original folder/private-helper exposure is still not final.

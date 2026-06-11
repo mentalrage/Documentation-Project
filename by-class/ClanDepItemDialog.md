@@ -38,7 +38,7 @@
 - Constructor vtable stores are `0x0048a21a -> 0x0061607c`, `0x0048a220 -> 0x006160e0`, and `0x0048a22a -> 0x00616110`. The primary vtable places `OnButtonClick` in slot 18 (`0x006160c4 -> 0x0048a6b0`) and `SendDepositItemPacket` in slot 23 (`0x006160d8 -> 0x0048a790`).
 - The dialog allocates the reusable [UID:00008W][MyItemListPane](by-class/MyItemListPane.md) at constructor call site `0x0048a50d`. Live caller fanout for `0x004aeb30` is `ClanDepItemDialog`, `AddItemDialog`, and `MixItemDialog`, so the picker remains shared item UI support.
 - `OnButtonClick` branches on button ids `1` and `2`; the OK path reads the selected item from the list, parses the amount text, dispatches through virtual slot `0x5c`, and then calls the shared close helper at `0x0049ed60`.
-- `SendDepositItemPacket` writes byte sequence pieces for opcode `0x4b`, subtype `5`, action `1`, deposit mode, and amount, then reads `dword_67A7EC` and calls `0x00574bb0` with length `6`.
+- `SendDepositItemPacket` writes byte sequence pieces for opcode `0x4b`, subtype `5`, action `1`, deposit mode, and amount, then reads the packet-sender global at `0x0067a7ec` and calls `0x00574bb0` with length `6`.
 - The slide helpers are intentionally kept as shared dependencies: `0x0049ec80` also has sibling clan-dialog callers, and `0x0049ed60` is called from clan money/item dialogs plus `ClanBankPane`.
 
 ## Cross-References
@@ -57,3 +57,4 @@
   - Before: page had strong behavior notes but lacked live boundary/caller/vtable evidence, had no reconstructable/parent metadata, and still included a recovered-file provenance line.
   - After: live IDA evidence records the executable identity, exact function ranges and padding, constructor callers, three vtable stores, virtual slots for button handling and packet send, `MyItemListPane` reuse, packet byte layout, and shared slide-helper caller caveat.
   - Reasoning: this is enough for reconstructable class-level documentation and parent attachment because [UID:0000I9][ClanBank](by-file/ClanBank.md) is already `86/80` with a valid `NexusTK/social/` path. Completion stays below the high-reconstruction threshold because final field names, signatures, and shared animation helper ownership remain provisional.
+- 2026-06-05: Replaced the remaining generated packet-sender global label with address-based live IDA wording; score remains `82/86`.

@@ -11,7 +11,7 @@
 - Proposed module: `login/UserCreateAppearanceControls.cpp`, or a private section inside `login/CreateUserDialogPane.cpp`
 - Current recovered sources: `class_UserShapeSelectControlPane.cpp`, `class_UserHairSelectControlPane.cpp`, `class_UserFaceSelectControlPane.cpp`, `class_UserCreatePreviewControlPane.cpp`, `class_UserHairColorSelectListPane.cpp`, and `class_UserFaceColorSelectListPane.cpp`
 - Main memory doc: [UID:0001A6][0x00501150-0x00502383.UserCreateAppearanceSelectorControls](by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md)
-- Related support docs: [UID:000163][0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers](by-memory/0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers.md), [UID:0001AF][0x005025a8-0x005025ff.UserCreateAppearanceAdjustorThunks](by-memory/0x005025a8-0x005025ff.UserCreateAppearanceAdjustorThunks.md), [UID:00022X][0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors](by-memory/0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors.md), and [UID:0000VN][-ignored](by-memory/-ignored.md)
+- Related support docs: [UID:000163][0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers](by-memory/0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers.md), [UID:0001AF][0x005025a8-0x00502600.UserCreateAppearanceAdjustorThunks](by-memory/0x005025a8-0x00502600.UserCreateAppearanceAdjustorThunks.md), [UID:00022X][0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors](by-memory/0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors.md), and [UID:0000VN][-ignored](by-memory/-ignored.md)
 
 ## File Role
 
@@ -42,7 +42,7 @@ The controls could have lived in `CreateUserDialogPane.cpp` in the original code
 
 - Keep this cluster with login/create-user UI, not generic controls. It depends on create-user state and human-image resources.
 - The brush helpers [UID:000163][0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers](by-memory/0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers.md) are currently emitted under `UserHairColorSelectListPane`, but IDA caller evidence is broader than this class. Treat those as generic draw-context/pane brush helpers until re-owned.
-- The dense destructor/adjustor thunk area around [UID:0001AF][0x005025a8-0x005025ff.UserCreateAppearanceAdjustorThunks](by-memory/0x005025a8-0x005025ff.UserCreateAppearanceAdjustorThunks.md) and [UID:00022X][0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors](by-memory/0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors.md) is compiler support for these controls and adjacent create-user panes; do not use the thunk pile as evidence for a separate source module. The adjustor range is excluded from source reconstruction through [UID:0000VN][-ignored](by-memory/-ignored.md), while the scalar deleting destructors remain reconstructable.
+- The dense destructor/adjustor thunk area around [UID:0001AF][0x005025a8-0x00502600.UserCreateAppearanceAdjustorThunks](by-memory/0x005025a8-0x00502600.UserCreateAppearanceAdjustorThunks.md) and [UID:00022X][0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors](by-memory/0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors.md) is compiler support for these controls and adjacent create-user panes; do not use the thunk pile as evidence for a separate source module. The adjustor range is excluded from source reconstruction through [UID:0000VN][-ignored](by-memory/-ignored.md), while the scalar deleting destructors remain reconstructable.
 - 2026-05-26 IDA MCP recheck confirms the appearance adjustor thunks as `this - 0xa0` / `this - 0xa4` destructor wrappers. The same pass reconfirmed `0x004b96a0` and `0x004b96b0` as broad draw-context brush helpers, not hair-color-list-owned methods.
 
 ## Cross-References
@@ -56,7 +56,7 @@ The controls could have lived in `CreateUserDialogPane.cpp` in the original code
 - [UID:0000FI][UserFaceColorSelectListPane](by-class/UserFaceColorSelectListPane.md)
 - [UID:0001A6][0x00501150-0x00502383.UserCreateAppearanceSelectorControls](by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md)
 - [UID:000163][0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers](by-memory/0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers.md)
-- [UID:0001AF][0x005025a8-0x005025ff.UserCreateAppearanceAdjustorThunks](by-memory/0x005025a8-0x005025ff.UserCreateAppearanceAdjustorThunks.md)
+- [UID:0001AF][0x005025a8-0x00502600.UserCreateAppearanceAdjustorThunks](by-memory/0x005025a8-0x00502600.UserCreateAppearanceAdjustorThunks.md)
 - [UID:00022X][0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors](by-memory/0x00502d10-0x00502e0b.UserCreateAppearanceScalarDeletingDestructors.md)
 
 ## Changes

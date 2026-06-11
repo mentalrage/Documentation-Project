@@ -1,8 +1,8 @@
 *** UID:00004Q | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000J9 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,7 +15,10 @@
 - Likely source file: [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md)
 - Address range: [UID:00014V][0x004b0490-0x004b0ba5.ExchangeDialogTail](by-memory/0x004b0490-0x004b0ba5.ExchangeDialogTail.md)
 - Vtables: [UID:0001XJ][ExchangeAlertPaneVtables](by-type/by-vtable/ExchangeAlertPaneVtables.md) at `0x0061a1c0`, `0x0061a228`, and `0x0061a258`; exact data child [UID:0002NF][0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData](by-memory/0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData.md).
+- Exact core page: [UID:00033W][0x004b0490-0x004b086b.ExchangeAlertPaneCore](by-memory/0x004b0490-0x004b086b.ExchangeAlertPaneCore.md).
+- Exact close-active helper page: [UID:00033Z][0x004b0b20-0x004b0b31.ExchangeAlertPaneCloseActiveHelper](by-memory/0x004b0b20-0x004b0b31.ExchangeAlertPaneCloseActiveHelper.md).
 - Current recovered file: `source-3/simroot_v2/class_ExchangeAlertPane.cpp`
+- Reconstruction parent: attached to [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md), which has valid `NexusTK/ui/dialogs/` placement and clears the parent-side `80/80` gate.
 - Confidence: strong.
 
 ## Class Purpose
@@ -26,13 +29,13 @@
 
 | Method | Address | Role |
 | --- | --- | --- |
-| `ExchangeAlertPane` | `0x004b0490-0x004b0818` | Constructs a variable-size alert with message text, optional buttons, centered placement, and parent pointer. |
-| `OnButtonClick` | `0x004b0820-0x004b085f` | Handles button ids `1` and `2`, slides closed, invokes primary/secondary callback slots, and closes the dialog. |
-| `ClearExchangeAlertPane` | `0x004b0860-0x004b086a` | Tiny helper that clears [UID:0000QV][g_pExchangeAlertPane](by-global/g_pExchangeAlertPane.md). |
+| `ExchangeAlertPane` | [UID:00033W][0x004b0490-0x004b086b.ExchangeAlertPaneCore](by-memory/0x004b0490-0x004b086b.ExchangeAlertPaneCore.md) row `0x004b0490-0x004b0819` | Constructs a variable-size alert with message text, optional buttons, centered placement, and parent pointer. |
+| `OnButtonClick` | [UID:00033W][0x004b0490-0x004b086b.ExchangeAlertPaneCore](by-memory/0x004b0490-0x004b086b.ExchangeAlertPaneCore.md) row `0x004b0820-0x004b0860` | Handles button ids `1` and `2`, slides closed, invokes primary/secondary callback slots, and closes the dialog. |
+| `ClearExchangeAlertPane` | [UID:00033W][0x004b0490-0x004b086b.ExchangeAlertPaneCore](by-memory/0x004b0490-0x004b086b.ExchangeAlertPaneCore.md) row `0x004b0860-0x004b086b` | Tiny helper that clears [UID:0000QV][g_pExchangeAlertPane](by-global/g_pExchangeAlertPane.md). |
 | interleaved [UID:00014W][0x004b0880-0x004b08a1.MixItemDialogDoubleParamCallback](by-memory/0x004b0880-0x004b08a1.MixItemDialogDoubleParamCallback.md) | `0x004b0880-0x004b08a1` | Not an `ExchangeAlertPane` method; kept visible here only because it sits between alert helper rows in the interleaved tail island. |
 | `AdjustorThunk` | [UID:00014X][0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks](by-memory/0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks.md) | Compiler-generated secondary/tertiary vtable destructor adjustor thunks. |
 | `ScalarDeletingDestructor` | `0x004b09d0-0x004b0a14` | Clears `g_pExchangeAlertPane`, chains through dialog teardown, and optionally frees storage. |
-| `CloseActiveExchangeAlert` | `0x004b0b20-0x004b0b30` | Closes the active alert if `g_pExchangeAlertPane` is set. |
+| `CloseActiveExchangeAlert` | [UID:00033Z][0x004b0b20-0x004b0b31.ExchangeAlertPaneCloseActiveHelper](by-memory/0x004b0b20-0x004b0b31.ExchangeAlertPaneCloseActiveHelper.md) | Closes the active alert if `g_pExchangeAlertPane` is set. |
 
 ## Evidence Notes
 
@@ -44,6 +47,8 @@
 - IDA MCP decompilation on 2026-05-25 confirms `OnButtonClick` at `0x004b0820` performs alert button dispatch directly. The neighboring callback wrapper at `0x004b0880` is constructed by MixItemDialog quantity paths, not by ExchangeAlertPane.
 - Constructor calls are at `0x004ad656`, `0x004ad775`, `0x004ade18`, and `0x004adf8d` inside the exchange packet alert paths.
 - `0x004b0870` clears `dword_69B32C` and belongs to the neighboring mix-dialog singleton, not this class.
+- 2026-06-10 B001-026 added exact core child [UID:00033W][0x004b0490-0x004b086b.ExchangeAlertPaneCore](by-memory/0x004b0490-0x004b086b.ExchangeAlertPaneCore.md), confirming constructor callers from ExchangeDialog packet alert paths, action-slot ref `0x0061a208`, and the `dword_69B330` clear helper boundary before the MixItemDialog clear helper at `0x004b0870`.
+- 2026-06-10 B001-027 added exact close-active helper child [UID:00033Z][0x004b0b20-0x004b0b31.ExchangeAlertPaneCloseActiveHelper](by-memory/0x004b0b20-0x004b0b31.ExchangeAlertPaneCloseActiveHelper.md). Live IDA confirms callers at `0x004ad741` and `0x004adf59`, singleton read at `0x004b0b20`, indirect close virtual call with argument `1`, and `0xcc` padding before/after the helper.
 
 ## Cross-References
 
@@ -53,7 +58,10 @@
 - [UID:00014V][0x004b0490-0x004b0ba5.ExchangeDialogTail](by-memory/0x004b0490-0x004b0ba5.ExchangeDialogTail.md)
 - [UID:0001XJ][ExchangeAlertPaneVtables](by-type/by-vtable/ExchangeAlertPaneVtables.md)
 - [UID:0002NF][0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData](by-memory/0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData.md)
+- [UID:00033W][0x004b0490-0x004b086b.ExchangeAlertPaneCore](by-memory/0x004b0490-0x004b086b.ExchangeAlertPaneCore.md)
+- [UID:00033Z][0x004b0b20-0x004b0b31.ExchangeAlertPaneCloseActiveHelper](by-memory/0x004b0b20-0x004b0b31.ExchangeAlertPaneCloseActiveHelper.md)
 - [UID:00014X][0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks](by-memory/0x004b08cd-0x004b08e3.ExchangeAlertPaneAdjustorThunks.md)
+- [UID:00033Y][0x004b08a1-0x004b0b15.ItemExchangeDestructorAndThunkStrip](by-memory/0x004b08a1-0x004b0b15.ItemExchangeDestructorAndThunkStrip.md)
 - [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md)
 
 ## Changes
@@ -66,3 +74,15 @@
   - Before: vtable evidence named the three table bases but did not link an exact by-memory child range and the class metadata did not explicitly mark the class reconstructable.
   - After: linked exact vtable-data child [UID:0002NF][0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData](by-memory/0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData.md), marked the class reconstructable, and raised scoring to `82/88`.
   - Summary/evidence: IDA MCP confirms the constructor stores, `OnButtonClick` slot, adjustor-thunk slots, scalar destructor slot, and the boundary before `ExchangeMoneyEditControlPane` RTTI.
+- 2026-06-07 parent attachment:
+  - Before: the class was reconstructable but parentless even though [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md) already documented the feature file and valid path.
+  - Changed to: `AUTOGEN_PARENT_UID:0000J9`; final class C++ remains blank.
+  - Evidence: [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md) is `86/80` with `NexusTK/ui/dialogs/` placement and explicitly owns the exchange alert helper class. The mixed [UID:00014V][0x004b0490-0x004b0ba5.ExchangeDialogTail](by-memory/0x004b0490-0x004b0ba5.ExchangeDialogTail.md) aggregate remains parentless because it crosses exchange, item/mix, and compiler-thunk ownership, but this class is a single-owner exchange child.
+- 2026-06-10 B001-026 gate repair:
+  - Before: class completion was `82`, below the strict reconstructable direct-parent threshold for the new exact core child.
+  - After: `85/88`; exact core child [UID:00033W][0x004b0490-0x004b086b.ExchangeAlertPaneCore](by-memory/0x004b0490-0x004b086b.ExchangeAlertPaneCore.md) is `85/88`.
+  - Evidence: constructor callers, vtable stores, action-slot ref, singleton clear/store refs, and negative boundary evidence against `0x004b0870` support direct ExchangeAlertPane ownership. Final callback/control names remain below C++ emission quality.
+- 2026-06-10 B001-027 tail split:
+  - Before: the close-active helper was listed only as a raw row under [UID:00014V][0x004b0490-0x004b0ba5.ExchangeDialogTail](by-memory/0x004b0490-0x004b0ba5.ExchangeDialogTail.md).
+  - After: `86/89`; exact helper child [UID:00033Z][0x004b0b20-0x004b0b31.ExchangeAlertPaneCloseActiveHelper](by-memory/0x004b0b20-0x004b0b31.ExchangeAlertPaneCloseActiveHelper.md) is assigned to this class.
+  - Evidence: IDA confirms the helper reads `dword_69B330`, calls the active alert virtual close slot with argument `1`, has only exchange packet/ready helper callers, and is separated from the following control helper by `0xcc` padding.

@@ -1,13 +1,13 @@
 *** UID:0000P6 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/menu/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # VoteMenuPane
 
 ## Status
 
-- Confidence: strong for behavior and VoteMenuPane source ownership; medium cap remains for exact original source split and final source names.
+- Confidence: strong for behavior, VoteMenuPane source ownership, layout/vtable anchors, and helper routing; medium cap remains for exact original source split and final source names.
 - Proposed module: `ui/menu/VoteMenuPane.cpp`
 - Alternative compact placement: [UID:0000N7][RightButtonMenuPane](by-file/RightButtonMenuPane.md)
 - Current recovered source: `source-3/simroot_v2/class_VoteMenuPane.cpp`
@@ -50,6 +50,7 @@ Keep `VoteMenuPane` as menu UI:
 - 2026-05-26 recheck: current `simroot_v2/class_VoteMenuPane.cpp` still omits the helper bodies at `0x00556070` and `0x00556100`; current `class_BulletinSession.cpp` still owns `0x00556070` under a generated `BulletinSession` method name.
 - 2026-05-26 recheck: IDA decompiles the thunk pair at `0x00556228` and `0x00556233` as `this - 0xa0` / `this - 0xa4` adjustors that jump to `0x00556320`; these are now recorded in [UID:0000VN][-ignored](by-memory/-ignored.md).
 - 2026-05-31 IDA MCP recheck split the core and helper aggregates into exact memory pages. `0x00556070` and `0x00556100` remain direct callees from [UID:0002LS][0x005559c0-0x00555ad5.VoteMenuPaneOnMouseEvent](by-memory/0x005559c0-0x00555ad5.VoteMenuPaneOnMouseEvent.md), confirming they belong in this source module rather than `BulletinSession`.
+- 2026-06-08 A008 IDA MCP recheck reconfirmed raw constructor stores for `g_pVoteMenuPane`, three vtable bases, and the tail layout fields, plus destructor/scalar-destructor vtable restores, singleton refs, and direct `OnMouseEvent` calls to `0x00556070`/`0x00556100`. This is enough to bring file confidence to the current parent-gate threshold while retaining the final-source caveats.
 
 ## Cross-References
 
@@ -80,3 +81,7 @@ Keep `VoteMenuPane` as menu UI:
   - Before: the page scored `86/80` and referenced several items by raw address only.
   - After: the page scores `88/84` and links the core, hit-test, and submit contents to exact by-memory pages.
   - Evidence: IDA MCP verified the child function boundaries, the two helper xrefs from `OnMouseEvent`, and the split between executable helper bodies and `0xcc` alignment bytes.
+- 2026-06-08 A008 Batch 128 strict-gate refresh:
+  - Before: score was `88/84`, below the current 85 confidence gate for serving as the direct parent of [UID:0000FX][VoteMenuPane](by-class/VoteMenuPane.md).
+  - After: confidence is `85`; completion remains `88`.
+  - Evidence: live IDA MCP rechecked raw constructor stores, vtable install/restore refs, singleton refs, and direct hit-test/submit helper xrefs. The score stays below higher final-audit levels because original source split and final field/helper names remain open.

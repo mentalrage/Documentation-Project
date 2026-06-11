@@ -1,6 +1,6 @@
 *** UID:0000LG | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/app/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MiscWorkThread
@@ -45,6 +45,7 @@ Keep it under `app/` for the current source-layout map because [UID:0000HG][Appl
 - 2026-06-01 IDA MCP recheck confirms the source-family boundaries and owner evidence: `0x005277c0` size `0x3e6`, `0x00527bb0` size `0x2f4`, `0x00527eb0` size `0x12f`, `0x00527fe0` size `0x1c1`, `0x005281b0` size `0x75`, `0x00528230` size `0x51`, `0x00528290` size `0x74`, `0x00528310` size `0x96`, `0x005283e0` size `0xb`, `0x005283f0` size `0x8f`, `0x00528480` size `0x3b`, `0x005284c0` size `0x5a`, `0x00528520` size `0x38`, and `0x00528560` size `0x7d`.
 - 2026-06-01 IDA MCP caller checks confirm `Application::Initialize` calls the constructor at `0x00464715`; `ProcessWorkItem` calls the HTTP and NCA helpers; the request wrappers are called by patch/download and registration/NCA paths; and `PostNCAStatus` is called only from the NCA helper.
 - 2026-06-01 IDA MCP xrefs confirm `g_pMiscWorkThread` lifecycle writes in constructor/destructor/clear/scalar-delete paths and consumers at application cleanup, registration/NCA, and patch download paths. Vtable refs confirm `MiscWorkThread`, `brdir::Notification`, `httpget::Notification`, and `ncauth::Notification` all belong to this source family.
+- 2026-06-07 Batch 097 live IDA recheck against `NexusTK.exe` md5 `4247e04e20b65d6414c7238aa8ff5515` reconfirmed `ProcessWorkItem` at `0x00527fe0-0x005281a1`, the `0x47654874` (`GeHt`) dispatch to `FetchHTTPContent`, `FetchHTTPContent` at `0x005277c0-0x00527ba6`, the `httpget::Notification` destructor at `0x005284c0-0x0052851a`, the `0x68747470` notification channel, and state-specific payload ownership. This supports retaining [UID:000069][httpget__Notification](by-class/httpget__Notification.md) as a direct child under the strict parent gate.
 
 ## Source-Structure Decision
 
@@ -71,10 +72,14 @@ Keep [UID:0000JC][FileDownloader](by-file/FileDownloader.md) separate. `MiscWork
 - [UID:0000OR][Thread](by-file/Thread.md)
 - [UID:0000HG][Application](by-file/Application.md)
 - [UID:0000MH][PatchPane](by-file/PatchPane.md)
-- [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md)
+- [UID:0001CK][0x00528290-0x005283d5.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d5.CashShopRequestAuthDirectory.md)
 
 ## Changes
 
+- 2026-06-07 A004 Batch 097 confidence refresh:
+  - Before: `COMPLETION:86`, `CONFIDENCE:84`.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:85`.
+  - Summary/evidence: live IDA rechecked the HTTP-get worker dispatch, producer helper, notification destructor, state enum ownership, and notification channel. Confidence is raised just enough to satisfy the strict direct-parent gate for [UID:000069][httpget__Notification](by-class/httpget__Notification.md); completion remains unchanged because request-wrapper names, exact source path, and notification-class layout spelling remain provisional.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `84`, confidence `78`.
 - Summary/evidence: the page identifies the worker class, singleton, notification classes, request/message ids, helper families, IDA evidence, ownership decisions, and open questions; confidence remains medium-high because original placement and wrapper names are still provisional.

@@ -1,8 +1,8 @@
 *** UID:0001XD | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Likely source file: [UID:0000IU][DialogSession](by-file/DialogSession.md).
 - Layout docs: [UID:0001U5][DialogSessionLayouts](by-type/by-struct/DialogSessionLayouts.md).
 - Exact vtable-data page: [UID:0002NB][0x00618d30-0x00618e50.DialogSessionVtableData](by-memory/0x00618d30-0x00618e50.DialogSessionVtableData.md).
+- Autogen status: attached under the file-level [UID:0000IU][DialogSession](by-file/DialogSession.md) parent because this vtable cluster spans both session classes; final C++ remains blank under the `95/95` gate.
 - Confidence: strong for vtable bases, constructor/destructor stores, thunk slots, and table extents.
 - Verification: IDA MCP `list_globals`, `py_eval`, `xrefs_to`, `lookup_funcs`, and `disasm` checks on 2026-05-26. `wave3.py` was not executed for this pass.
 
@@ -75,6 +76,10 @@
 
 Keep `DialogSession` and `DialogInSession` in one source module unless later historical source evidence proves a split. `DialogSession` is a `Pane`-derived session stack owner, while `DialogInSession` is a `DialogPane`-derived base for dialogs stored inside that stack. Their concrete state offsets are recorded in [UID:0001U5][DialogSessionLayouts](by-type/by-struct/DialogSessionLayouts.md). The four adjustor thunks are compiler ABI glue and should remain documented with [UID:000134][0x004a146f-0x004a149b.DialogSessionAdjustorThunks](by-memory/0x004a146f-0x004a149b.DialogSessionAdjustorThunks.md), not rewritten as handwritten methods.
 
+## Parent Rationale
+
+Attach the cluster to [UID:0000IU][DialogSession](by-file/DialogSession.md), not to a single class page. The six-view vtable range covers both [UID:00003U][DialogSession](by-class/DialogSession.md) and [UID:00003S][DialogInSession](by-class/DialogInSession.md), the file page already owns both classes and clears the `80/80` attachment gate, and the `DialogInSession` class page is still below the completion gate. Keeping the autogen parent at file scope preserves the documented one-module relationship while avoiding a misleading single-class ownership claim.
+
 ## Cross-References
 
 - [UID:0000IU][DialogSession](by-file/DialogSession.md)
@@ -87,6 +92,10 @@ Keep `DialogSession` and `DialogInSession` in one source module unless later his
 
 ## Changes
 
+- 2026-06-07 parent attachment update:
+  - What existed before: the page had strong vtable evidence and an exact by-memory child, but no autogen parent, so generated output left the cluster unassigned.
+  - Changed to: `COMPLETION:86` and `AUTOGEN_PARENT_UID:0000IU`, with an explicit file-level parent rationale.
+  - Summary/evidence: the cluster spans both `DialogSession` and `DialogInSession`, while [UID:0000IU][DialogSession](by-file/DialogSession.md) documents that shared source module and clears the attachment gate; final C++ remains blank because the vtable page is below the `95/95` reconstruction threshold.
 - 2026-05-31 exact child split:
   - What existed before: the page had `COMPLETION:0`, `CONFIDENCE:0`, blank reconstructability metadata, and no exact `by-memory` vtable-data child.
   - Changed to: `COMPLETION:84`, `CONFIDENCE:90`, `RECONSTRUCTABLE:TRUE`, and the exact [UID:0002NB][0x00618d30-0x00618e50.DialogSessionVtableData](by-memory/0x00618d30-0x00618e50.DialogSessionVtableData.md) child page.

@@ -1,7 +1,7 @@
 *** UID:0000QK | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -20,7 +20,7 @@
 
 ## Purpose
 
-Wave3 currently emits collection users of `0x0067a748` under several aliases:
+Existing collection and player-state docs use `0x0067a748` under several aliases:
 
 - `g_pCollectionData` in `CollectionPane`;
 - `g_pPlayerData` in `CollectionDialogPane` and `CollectionEntryControlPane`;
@@ -85,3 +85,4 @@ Non-collection consumers currently observed through this same pointer:
 ## Changes
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `88/80`. Summary/evidence: the page documents the backing address, broad alias set, 505-xref player/client-state role, collection layout offsets, non-collection spell/item/gold views, and many class/memory refs; final canonical owner/name remains medium-confidence.
+- 2026-06-05: Marked reconstructable and intentionally left unassigned. Evidence: live IDA MCP xrefs confirm broad reads of `0x0067a748`; decompilation of `0x0056fc80` shows the collection-pane detail/request path indexing collection data through `dword_67A748`. The storage is recoverable, but source ownership remains broader than [UID:0000IC][CollectionPane](by-file/CollectionPane.md) because spell-slot, item, gold, and player-name paths also read the same client-state pointer.

@@ -1,6 +1,6 @@
 *** UID:0000LL | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Motion
@@ -9,7 +9,7 @@
 
 - Proposed module: `NexusTK/render/Motion.cpp` for the timer-driven animation object.
 - Split-owner guard: keep [UID:0000N3][Region](by-file/Region.md) / `NexusTK/ui/core/Region.cpp` for dirty rectangles, [UID:0000LA][MessageDialogs](by-file/MessageDialogs.md) / `NexusTK/ui/dialogs/MessageDialogs.cpp` for the dialog packet dispatcher, and [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) / `NexusTK/render/NewHumanImageLib.cpp` for `Motion.tbl` vector helpers.
-- Confidence: strong for the live IDA-backed source split; medium-high for the final original filename because the animation object may have lived in a nearby render/game animation unit.
+- Confidence: strong for the live IDA-backed source split and direct Motion animation parent role; medium-high for the final original filename because the animation object may have lived in a nearby render/game animation unit.
 
 ## File Role
 
@@ -66,6 +66,8 @@ The exact original animation filename remains open. The important reconstruction
 - Dialog ownership is separate: `0x0054c200-0x0054c511` has callers at `0x00507e2e` and `0x0051287f`, and calls dialog/menu-question constructors and allocation wrappers including `0x0054ce10`, `0x0054fb30`, `0x0054c870`, `0x0054c8d0`, `0x0054c930`, `0x0054c990`, `0x0054c9f0`, and `0x0054ca50`.
 - `Motion.tbl` vector helpers are separate render asset-table support: `0x004e5240-0x004e5415` is called at `0x004e0ff2` from `0x004e0e20`, while `0x004e5dd0-0x004e5e39` is referenced at `0x004e0547` and `0x0060025a` from the `NewHumanImageLib` constructor/destructor family.
 - `0x004f4a90` is a seven-byte base destructor function with `366` code refs, so it is not Motion-specific ownership evidence.
+- 2026-06-07 A001 Batch094 parent-gate refresh reconfirmed the Motion animation functions at `0x00539bc0` size `0x183`, `0x00539de0` size `0x172`, `0x00539fe0` size `0x12c`, and `0x0053d590` size `0x84`; the constructor xref remains `0x0053b5f9`, timer/destructor vtable refs remain `0x00620968` and `0x00620954`, and the Motion pool root `0x0069b984` is still referenced from initialization, creator, unwind, destructor, and cleanup paths.
+- This file is now reliable enough as the direct parent for the Motion class at the corrected `85/85` gate. The remaining filename caveat is about exact final source naming, not about whether the timer-driven animation class belongs in this Motion source bucket.
 
 ## Cross-References
 
@@ -85,6 +87,10 @@ The exact original animation filename remains open. The important reconstruction
   - Before: scored `82/76` with a blank proposed path and stale evidence phrasing.
   - After: scored `86/84`, set `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/"`, and rewrote the evidence around live IDA function, vtable, caller, callee, and source-split checks.
   - Why: the live IDA pass proves the timer-driven Motion animation class is the only Motion-owned source candidate, while Region rectangle helpers, message dialog packet dispatch, `Motion.tbl` vector helpers, and `LObject` base destruction have separate owners. Confidence remains below 90 because the exact original animation filename is still not proven.
+- 2026-06-07 A001 Batch094 parent-gate refresh:
+  - Before: `86/84`; the file was one confidence point below the corrected strict parent gate for the Motion class.
+  - After: `86/85`.
+  - Why: live IDA reconfirmed the exact Motion animation ranges, constructor/vtable/pool xrefs, callees, and explicit exclusions. The final filename remains provisional, but direct source-bucket ownership for the timer-driven Motion class is now strong enough for parent routing.
 
 - Before: the non-Motion dialog packet dispatcher was listed only as `0x0054c200-0x0054c510`.
 - Changed to: the non-Motion dialog dispatcher/wrapper island is `0x0054c200-0x0054caa9`.

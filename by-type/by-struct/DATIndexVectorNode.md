@@ -1,8 +1,8 @@
 *** UID:0001U1 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00003K | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Entity kind: support struct
 - Confidence: strong for observed fields and intrusive-list behavior, medium for final name/header visibility.
 - Proposed owner: [UID:00003K][DATIndexVector](by-class/DATIndexVector.md)
+- Parent attachment: attached to [UID:00003K][DATIndexVector](by-class/DATIndexVector.md), which is scored `82/80`; this node page is now at the `80/80` child attachment gate.
 - Proposed header/module: [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md)
 - Evidence basis: IDA MCP lookup/decompile checks on 2026-05-31 for `0x00457100`, `0x00457310`, and `0x00457580`; generated `simroot_v2` output is retained only as context.
 
@@ -47,6 +48,10 @@ IDA decompilation of `0x00457580` scans `v6` nodes from the selected bucket, com
 - [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md) detaches/frees nodes.
 - [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md) scans nodes in the selected bucket range.
 
+## Score Rationale
+
+The page is scored at the attachment threshold because the 16-byte allocation, intrusive `next`/`prev` links, four-byte key offset, key hashing, duplicate-key collapse, removal, and lookup behavior are documented. Completion remains lower than the companion bucket page because the payload slot at `+0x0c` still needs caller-focused naming/type confirmation.
+
 ## Open Questions
 
 - Whether `value` is always a pointer-sized payload or a union of pointer/integer fields in some callers.
@@ -61,3 +66,7 @@ IDA decompilation of `0x00457580` scans `v6` nodes from the selected bucket, com
 ## Changes
 
 - Reclassified the page from unevaluated to reconstructable layout documentation with conservative scores. Evidence: IDA MCP decompilation on 2026-05-31 verifies the `next`, `prev`, and `key` offsets through insert, remove, and lookup paths; payload type and final header visibility remain below near-final confidence.
+- 2026-06-06: Completion changed from `74` to `80`, and `AUTOGEN_PARENT_UID` was set to [UID:00003K][DATIndexVector](by-class/DATIndexVector.md). Confidence remains `88`.
+  - Before: the intrusive-node field evidence was documented, but the page remained below the parent-child attachment gate and the manual by-struct row still showed a stale `50%`.
+  - After: the page records the parent gate, score rationale, and coverage report sync while preserving the payload-type caveat.
+  - Evidence: `0x00457100`, `0x00457310`, and `0x00457580` verify the 16-byte node, `next`/`prev`, and four-byte key behavior; caller-specific payload semantics remain open.

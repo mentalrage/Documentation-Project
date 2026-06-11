@@ -1,6 +1,6 @@
 # Auto Completion Stats
 
-Generated: 2026-06-04 13:07:51
+Generated: 2026-06-10 20:41:26
 
 Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Markdown files.
 `0` means unevaluated. `-1` means ignored and is excluded from low-score lists.
@@ -8,91 +8,135 @@ Scores use `COMPLETION` and `CONFIDENCE` metadata from validator-scanned by-* Ma
 
 ## Summary
 
-- Tracked files: 3723
-- Scored files: 3554
-- Ignored files: 169
+- Tracked files: 4087
+- Scored files: 3916
+- Ignored files: 171
 
 ## projected_path_completion
 
-By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.
+By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid. `NONE` marks a reviewed non-standalone page and is excluded.
 
-| UID | Status | Proposed Path | Path | Detail |
-| --- | --- | --- | --- | --- |
-| `0000HK` | blank | `(blank)` | `by-file/AttachedObjectPaneHelper_53AEC0.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000HX` | blank | `(blank)` | `by-file/BulletinSession.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000I4` | blank | `(blank)` | `by-file/CharacterSummaryRecord.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000IB` | blank | `(blank)` | `by-file/CollectionDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000IL` | blank | `(blank)` | `by-file/CursorManager.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000J3` | blank | `(blank)` | `by-file/EPFImageResources.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000IX` | blank | `(blank)` | `by-file/EditablePaperPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JD` | blank | `(blank)` | `by-file/FileIO.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JH` | blank | `(blank)` | `by-file/FontImageLib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JI` | blank | `(blank)` | `by-file/FontStyle.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JM` | blank | `(blank)` | `by-file/FrameMgr.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JN` | blank | `(blank)` | `by-file/FriendListDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JQ` | blank | `(blank)` | `by-file/GeneralPurposePanel.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JW` | blank | `(blank)` | `by-file/HistoryViewingPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000JX` | blank | `(blank)` | `by-file/HourPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000K5` | blank | `(blank)` | `by-file/IMEPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000K4` | blank | `(blank)` | `by-file/ImageWriters.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000K6` | blank | `(blank)` | `by-file/InputMan.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000K9` | blank | `(blank)` | `by-file/InterfaceEfx.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KB` | blank | `(blank)` | `by-file/InventoryScrollPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KG` | blank | `(blank)` | `by-file/ItemObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KI` | blank | `(blank)` | `by-file/JsonCpp.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KL` | blank | `(blank)` | `by-file/Layer.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KN` | blank | `(blank)` | `by-file/LibJPEG.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KT` | blank | `(blank)` | `by-file/ListPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KW` | blank | `(blank)` | `by-file/LodePNG.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KX` | blank | `(blank)` | `by-file/LoginDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000KZ` | blank | `(blank)` | `by-file/MailDialogs.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000L8` | blank | `(blank)` | `by-file/MenuVarietyPanes.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LB` | blank | `(blank)` | `by-file/MessageShowPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LE` | blank | `(blank)` | `by-file/MiniMap.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000LF` | blank | `(blank)` | `by-file/MiniMapVersionManager.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000M0` | blank | `(blank)` | `by-file/NexonclubRegistrationDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000M2` | blank | `(blank)` | `by-file/NumericStringControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000M5` | blank | `(blank)` | `by-file/ObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000MB` | blank | `(blank)` | `by-file/PaletteLib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000MD` | blank | `(blank)` | `by-file/PaneChildRegistry.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000ME` | blank | `(blank)` | `by-file/PanelPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000N1` | blank | `(blank)` | `by-file/RectangleControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000N5` | blank | `(blank)` | `by-file/ResourceLayoutTable.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NA` | blank | `(blank)` | `by-file/ScreenDimmer.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NB` | blank | `(blank)` | `by-file/ScreenPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NC` | blank | `(blank)` | `by-file/ScreenPanePaletteState.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NE` | blank | `(blank)` | `by-file/ScrollableControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NI` | blank | `(blank)` | `by-file/ScrolledTextControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NP` | blank | `(blank)` | `by-file/Session.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NU` | blank | `(blank)` | `by-file/SortedList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NW` | blank | `(blank)` | `by-file/SoundObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NX` | blank | `(blank)` | `by-file/SoundStatusPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000NZ` | blank | `(blank)` | `by-file/SpelledPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000O3` | blank | `(blank)` | `by-file/StaffsDialogPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000O6` | blank | `(blank)` | `by-file/StaticObjectPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000OG` | blank | `(blank)` | `by-file/TargetOptionDialog.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000OK` | blank | `(blank)` | `by-file/TextButtonControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000OM` | blank | `(blank)` | `by-file/TextEditControlPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000OS` | blank | `(blank)` | `by-file/ThreadSafeNodeList.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000PB` | blank | `(blank)` | `by-file/WorldMapPane.md` | missing PROPOSED_RECONSTRUCTION_PATH |
-| `0000PC` | blank | `(blank)` | `by-file/Zlib.md` | missing PROPOSED_RECONSTRUCTION_PATH |
+_All by-file documents have valid projected reconstruction paths or reviewed non-standalone dispositions._
 ## Low_Completion
 
-_No scored files._
+| UID | Completion | Confidence | Combined | Path |
+| --- | ---: | ---: | ---: | --- |
+| `0001Z5` | 72 | 88 | 80.0 | `by-memory/0x00401000-0x0060d000.MasterCodeTextSection.md` |
+| `00022S` | 72 | 88 | 80.0 | `by-memory/0x004f3140-0x004f35fd.ListCoreMethods.md` |
+| `00022T` | 72 | 88 | 80.0 | `by-memory/0x004f5710-0x004f5ac7.StartupLogoBinkPlaybackLoop.md` |
+| `00022U` | 72 | 88 | 80.0 | `by-memory/0x004f5ae0-0x004f5b1e.StartupLogoBinkMidpointRestart.md` |
+| `0001E5` | 72 | 88 | 80.0 | `by-memory/0x00542fa0-0x00543020.ApplyPaletteEntryMovesToSlotState.md` |
+| `0001HE` | 72 | 88 | 80.0 | `by-memory/0x0056f800-0x0056f805.CollectionPaneFalseStub.md` |
+| `000276` | 72 | 88 | 80.0 | `by-memory/0x0066d414-0x0066d42c.BalloonObjectPaneStaticMasks.md` |
+| `00027Z` | 72 | 88 | 80.0 | `by-memory/0x0066df00-0x0066ed20.HeadSelectDialogLayoutTablePrimary.md` |
+| `000281` | 72 | 88 | 80.0 | `by-memory/0x0066eea0-0x0066fce4.HeadSelectDialogLayoutTableSecondary.md` |
+| `0001Z7` | 72 | 89 | 80.5 | `by-memory/0x0060d670-0x0066d000.ReadOnlyDataSection.md` |
+| `0001Z8` | 72 | 89 | 80.5 | `by-memory/0x0066d000-0x0069d000.DataSection.md` |
+| `0001AW` | 74 | 82 | 78.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
+| `00012S` | 74 | 84 | 79.0 | `by-memory/0x0049dae0-0x0049dfc4.DialogControlPaneHelpers.md` |
+| `000138` | 74 | 84 | 79.0 | `by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md` |
+| `00013P` | 74 | 84 | 79.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
+| `00013R` | 74 | 84 | 79.0 | `by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md` |
+| `00015N` | 74 | 84 | 79.0 | `by-memory/0x004b7320-0x004b73a3.FramePartPaneSlotCleanup.md` |
+| `0002PN` | 74 | 84 | 79.0 | `by-memory/0x004f4f30-0x004f50a1.LogoPaneAdvanceAndBlitHandlers.md` |
+| `0002Q6` | 74 | 84 | 79.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
+| `0002QB` | 74 | 84 | 79.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
+| `0001AU` | 74 | 84 | 79.0 | `by-memory/0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane.md` |
+| `0001E3` | 74 | 84 | 79.0 | `by-memory/0x00542680-0x005426d5.CScrollBarBackPaneDestructor.md` |
+| `0001E7` | 74 | 84 | 79.0 | `by-memory/0x00543450-0x00543665.PaletteListAndEntryMoveHelpers.md` |
+| `0002KG` | 74 | 84 | 79.0 | `by-memory/0x00546890-0x0054696f.ParcelPaneOnPaint.md` |
+| `0002KJ` | 74 | 84 | 79.0 | `by-memory/0x00546ac0-0x00546b74.FlyingParcelPaneConstructor.md` |
 
 ## Low_Confidence
 
-_No scored files._
+| UID | Completion | Confidence | Combined | Path |
+| --- | ---: | ---: | ---: | --- |
+| `00005O` | 82 | 80 | 81.0 | `by-class/GameServerConfig.md` |
+| `00009I` | 82 | 80 | 81.0 | `by-class/NexonclubRegistrationDialog.md` |
+| `00009U` | 82 | 80 | 81.0 | `by-class/OldUserStatusPane.md` |
+| `0000CG` | 82 | 80 | 81.0 | `by-class/ScrollCollectionPane.md` |
+| `0000CL` | 82 | 80 | 81.0 | `by-class/ScrollNewGroupPane.md` |
+| `0000EU` | 82 | 80 | 81.0 | `by-class/TextPad.md` |
+| `00007B` | 84 | 80 | 82.0 | `by-class/LivingObjectPane.md` |
+| `00007H` | 84 | 80 | 82.0 | `by-class/LogoPlayerPane.md` |
+| `000089` | 84 | 80 | 82.0 | `by-class/MetaTable.md` |
+| `000098` | 84 | 80 | 82.0 | `by-class/NewPredefinedFormArticleDialog.md` |
+| `0000A6` | 84 | 80 | 82.0 | `by-class/ParcelPane.md` |
+| `0000CT` | 84 | 80 | 82.0 | `by-class/SelectObjectWithKeyboardPane.md` |
+| `0000JJ` | 84 | 80 | 82.0 | `by-file/ForcedInformMessageDialog.md` |
+| `0000JW` | 84 | 80 | 82.0 | `by-file/HistoryViewingPane.md` |
+| `0000KB` | 84 | 80 | 82.0 | `by-file/InventoryScrollPane.md` |
+| `0000NJ` | 84 | 80 | 82.0 | `by-file/ScrollSpellInventoryPane.md` |
+| `0000NX` | 84 | 80 | 82.0 | `by-file/SoundStatusPane.md` |
+| `0000OQ` | 84 | 80 | 82.0 | `by-file/TextPad.md` |
+| `0000OV` | 84 | 80 | 82.0 | `by-file/TotemFrame.md` |
+| `0000P4` | 84 | 80 | 82.0 | `by-file/VideoPlayerPane.md` |
+| `000088` | 86 | 80 | 83.0 | `by-class/MetaMan.md` |
+| `00008U` | 86 | 80 | 83.0 | `by-class/MusicControlDialog.md` |
+| `0000DG` | 86 | 80 | 83.0 | `by-class/SoundManager.md` |
+| `0000DX` | 86 | 80 | 83.0 | `by-class/SpellWhoInputPane.md` |
 
 ## Low_Both
 
-_No scored files._
+| UID | Completion | Confidence | Combined | Path |
+| --- | ---: | ---: | ---: | --- |
+| `0001AW` | 74 | 82 | 78.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
+| `00012S` | 74 | 84 | 79.0 | `by-memory/0x0049dae0-0x0049dfc4.DialogControlPaneHelpers.md` |
+| `000138` | 74 | 84 | 79.0 | `by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md` |
+| `00013P` | 74 | 84 | 79.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
+| `00013R` | 74 | 84 | 79.0 | `by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md` |
+| `00015N` | 74 | 84 | 79.0 | `by-memory/0x004b7320-0x004b73a3.FramePartPaneSlotCleanup.md` |
+| `0002PN` | 74 | 84 | 79.0 | `by-memory/0x004f4f30-0x004f50a1.LogoPaneAdvanceAndBlitHandlers.md` |
+| `0002Q6` | 74 | 84 | 79.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
+| `0002QB` | 74 | 84 | 79.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
+| `0001AU` | 74 | 84 | 79.0 | `by-memory/0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane.md` |
+| `0001E3` | 74 | 84 | 79.0 | `by-memory/0x00542680-0x005426d5.CScrollBarBackPaneDestructor.md` |
+| `0001E7` | 74 | 84 | 79.0 | `by-memory/0x00543450-0x00543665.PaletteListAndEntryMoveHelpers.md` |
+| `0002KG` | 74 | 84 | 79.0 | `by-memory/0x00546890-0x0054696f.ParcelPaneOnPaint.md` |
+| `0002KJ` | 74 | 84 | 79.0 | `by-memory/0x00546ac0-0x00546b74.FlyingParcelPaneConstructor.md` |
+| `0002KK` | 74 | 84 | 79.0 | `by-memory/0x00546d70-0x00546dee.FlyingParcelPaneAnimateStep.md` |
+| `0002KL` | 74 | 84 | 79.0 | `by-memory/0x00546df0-0x00546e6b.FlyingParcelPaneDrawParcelOrLetter.md` |
+| `0002R8` | 74 | 84 | 79.0 | `by-memory/0x00549920-0x00549950.PhotoPaneCleanupDestructorBodyRaw.md` |
+| `0002RE` | 74 | 84 | 79.0 | `by-memory/0x0056b7c0-0x0056b946.SelfLookPaneSummaryStatUpdate.md` |
+| `0002RF` | 74 | 84 | 79.0 | `by-memory/0x0056b950-0x0056b9ef.SelfLookPaneSpelledTextDispatch.md` |
+| `0001H8` | 74 | 84 | 79.0 | `by-memory/0x0056baa0-0x0056bb00.GroupListPaneRawConstructor.md` |
+| `0002RM` | 74 | 84 | 79.0 | `by-memory/0x00582500-0x005829b6.StringBaseConversionConstructors.md` |
+| `0002RT` | 74 | 84 | 79.0 | `by-memory/0x005832f0-0x00583714.StringBaseReleaseAndCapacity.md` |
+| `0002RS` | 74 | 84 | 79.0 | `by-memory/0x00584160-0x005845af.StringBaseAppendAndFind.md` |
+| `0001JO` | 74 | 84 | 79.0 | `by-memory/0x00591300-0x005954b3.TextBoxPane.md` |
+| `0002L2` | 74 | 84 | 79.0 | `by-memory/0x00597fd0-0x00597fda.ClearGlobalTimerMgr.md` |
 
 ## By Folder
 
 ### by-class
 
-_No scored files._
+| UID | Completion | Confidence | Combined | Path |
+| --- | ---: | ---: | ---: | --- |
+| `00009W` | 76 | 82 | 79.0 | `by-class/OverlayEffecter.md` |
+| `0000C9` | 76 | 82 | 79.0 | `by-class/ScreenEffecter.md` |
+| `000034` | 76 | 84 | 80.0 | `by-class/ConfirmDeleteMailAlert.md` |
+| `00007V` | 76 | 84 | 80.0 | `by-class/MenuItem.md` |
+| `0000AR` | 76 | 84 | 80.0 | `by-class/PrettyButtonControlPane.md` |
+| `0000AS` | 76 | 84 | 80.0 | `by-class/PrettyButtonControlPane2.md` |
+| `0000BO` | 78 | 82 | 80.0 | `by-class/RankingEventScrollPane.md` |
+| `0000C4` | 78 | 82 | 80.0 | `by-class/SayToGroupMessageInputPane.md` |
+| `0000CM` | 78 | 82 | 80.0 | `by-class/ScrollPane.md` |
+| `00000A` | 76 | 86 | 81.0 | `by-class/AddToBlockListenInputPane.md` |
+| `000060` | 76 | 86 | 81.0 | `by-class/HandlerFindFunc.md` |
+| `00006R` | 76 | 86 | 81.0 | `by-class/InventoryPane.md` |
+| `00006Y` | 76 | 86 | 81.0 | `by-class/ItemWhoInputPaneState.md` |
+| `0000DM` | 76 | 86 | 81.0 | `by-class/SpellInputPaneState.md` |
+| `00003D` | 78 | 84 | 81.0 | `by-class/CScrollBarBackPane.md` |
+| `00003B` | 78 | 84 | 81.0 | `by-class/CreateUserDialogPane.md` |
+| `00003E` | 78 | 84 | 81.0 | `by-class/CursorManager.md` |
+| `000046` | 78 | 84 | 81.0 | `by-class/EarthquakeEffecter.md` |
+| `00004S` | 78 | 84 | 81.0 | `by-class/ExchangeItemListPane.md` |
+| `000059` | 78 | 84 | 81.0 | `by-class/FolderSelectDialog.md` |
+| `0000CF` | 78 | 84 | 81.0 | `by-class/ScrollablePane.md` |
+| `0000E7` | 78 | 84 | 81.0 | `by-class/StringIter.md` |
+| `0000FA` | 78 | 84 | 81.0 | `by-class/TreeItor_near_class_EventHandler___.md` |
+| `0000F8` | 78 | 84 | 81.0 | `by-class/Tree_near_class_EventHandler___.md` |
+| `0000GB` | 78 | 84 | 81.0 | `by-class/WSAError.md` |
 
 ### by-external-research
 
@@ -102,20 +146,31 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000HO` | 76 | 82 | 79.0 | `by-file/BackPane.md` |
-| `0000NY` | 76 | 82 | 79.0 | `by-file/SpecializedButtonPanes.md` |
-| `0000MI` | 78 | 80 | 79.0 | `by-file/PathUtil.md` |
-| `0000NU` | 80 | 78 | 79.0 | `by-file/SortedList.md` |
-| `0000HI` | 76 | 84 | 80.0 | `by-file/ArgumentedMenuDialogs.md` |
-| `0000HL` | 76 | 84 | 80.0 | `by-file/AttachmentAnchorResolver.md` |
-| `0000HW` | 76 | 84 | 80.0 | `by-file/BulletinReplyAlerts.md` |
-| `0000HX` | 76 | 84 | 80.0 | `by-file/BulletinSession.md` |
-| `0000JI` | 76 | 84 | 80.0 | `by-file/FontStyle.md` |
-| `0000HY` | 78 | 82 | 80.0 | `by-file/ButtonControlPane.md` |
-| `0000LE` | 78 | 82 | 80.0 | `by-file/MiniMap.md` |
-| `0000O9` | 78 | 82 | 80.0 | `by-file/StdioFile.md` |
-| `0000LS` | 80 | 80 | 80.0 | `by-file/NewInventoryPane.md` |
-| `0000MV` | 80 | 80 | 80.0 | `by-file/ProtocolSend.md` |
+| `0000LS` | 82 | 82 | 82.0 | `by-file/NewInventoryPane.md` |
+| `0000LU` | 82 | 82 | 82.0 | `by-file/NewSpellInventoryPane.md` |
+| `0000LZ` | 82 | 82 | 82.0 | `by-file/NexonclubProxyDialog.md` |
+| `0000NG` | 82 | 82 | 82.0 | `by-file/ScrollCollectionPane.md` |
+| `0000O1` | 82 | 82 | 82.0 | `by-file/SpellInventoryPane.md` |
+| `0000JJ` | 84 | 80 | 82.0 | `by-file/ForcedInformMessageDialog.md` |
+| `0000JW` | 84 | 80 | 82.0 | `by-file/HistoryViewingPane.md` |
+| `0000KB` | 84 | 80 | 82.0 | `by-file/InventoryScrollPane.md` |
+| `0000NJ` | 84 | 80 | 82.0 | `by-file/ScrollSpellInventoryPane.md` |
+| `0000NX` | 84 | 80 | 82.0 | `by-file/SoundStatusPane.md` |
+| `0000OQ` | 84 | 80 | 82.0 | `by-file/TextPad.md` |
+| `0000OV` | 84 | 80 | 82.0 | `by-file/TotemFrame.md` |
+| `0000P4` | 84 | 80 | 82.0 | `by-file/VideoPlayerPane.md` |
+| `0000HQ` | 80 | 86 | 83.0 | `by-file/BinaryCodec.md` |
+| `0000LD` | 80 | 86 | 83.0 | `by-file/MidiPlayer.md` |
+| `0000MD` | 80 | 86 | 83.0 | `by-file/PaneChildRegistry.md` |
+| `0000HL` | 82 | 84 | 83.0 | `by-file/AttachmentAnchorResolver.md` |
+| `0000KM` | 82 | 84 | 83.0 | `by-file/LegendPane.md` |
+| `0000LY` | 82 | 84 | 83.0 | `by-file/NewUserShapeSelectControlPane.md` |
+| `0000NP` | 82 | 84 | 83.0 | `by-file/Session.md` |
+| `0000O9` | 82 | 84 | 83.0 | `by-file/StdioFile.md` |
+| `0000OJ` | 82 | 84 | 83.0 | `by-file/TextBoxPane.md` |
+| `0000I7` | 84 | 82 | 83.0 | `by-file/CheckBoxControlPane.md` |
+| `0000IB` | 84 | 82 | 83.0 | `by-file/CollectionDialogPane.md` |
+| `0000J6` | 84 | 82 | 83.0 | `by-file/Event.md` |
 
 ### by-function
 
@@ -125,72 +180,90 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000T2` | 74 | 82 | 78.0 | `by-global/IID_BrowserEventSink.md` |
-| `0000SH` | 74 | 82 | 78.0 | `by-global/g_pThreadMan.md` |
-| `0000SO` | 74 | 82 | 78.0 | `by-global/g_pVirusChecker.md` |
-| `0000QO` | 78 | 78 | 78.0 | `by-global/g_pCurrentBrowserHost.md` |
-| `0002CF` | 75 | 82 | 78.5 | `by-global/g_movementSubstepScale.md` |
-| `0000S5` | 74 | 84 | 79.0 | `by-global/g_pScreenDimmer.md` |
-| `0000SF` | 74 | 84 | 79.0 | `by-global/g_pTerminalPane.md` |
-| `0000SK` | 74 | 84 | 79.0 | `by-global/g_pTotemFrame.md` |
-| `0000RQ` | 76 | 82 | 79.0 | `by-global/g_pMiscWorkThread.md` |
-| `0000RF` | 78 | 80 | 79.0 | `by-global/g_pMainUiGraph.md` |
-| `0000RM` | 78 | 80 | 79.0 | `by-global/g_pMidiPlayer.md` |
-| `00020K` | 72 | 88 | 80.0 | `by-global/AesBlockCipherStateAndTables.md` |
-| `0000SS` | 74 | 86 | 80.0 | `by-global/g_pWillBeChangedItemPane.md` |
-| `0000PN` | 76 | 84 | 80.0 | `by-global/FrameChromeSlots.md` |
-| `0000PV` | 76 | 84 | 80.0 | `by-global/g_browserWindowCaption.md` |
-| `0000SG` | 76 | 84 | 80.0 | `by-global/g_pTextFilter.md` |
-| `0000SL` | 76 | 84 | 80.0 | `by-global/g_pTransferServerDialog.md` |
-| `0000SP` | 76 | 84 | 80.0 | `by-global/g_pVoteMenuPane.md` |
+| `0000R9` | 82 | 85 | 83.5 | `by-global/g_pItemHelpPane.md` |
+| `0002CG` | 82 | 86 | 84.0 | `by-global/g_selfLookLastHoverEquipmentSlotId.md` |
+| `0000R2` | 84 | 84 | 84.0 | `by-global/g_pHeightModifyPane.md` |
+| `0000QT` | 86 | 82 | 84.0 | `by-global/g_pEffectObjImageLib.md` |
+| `0000QK` | 88 | 80 | 84.0 | `by-global/g_pCollectionData.md` |
+| `0000T3` | 80 | 90 | 85.0 | `by-global/InitializeOleSupport.md` |
+| `0000PH` | 82 | 88 | 85.0 | `by-global/CloseMainMenuDialogSingletons_4F69A0.md` |
+| `0000PJ` | 82 | 88 | 85.0 | `by-global/CreateScreenDimmer_4A12B0.md` |
+| `0000PL` | 82 | 88 | 85.0 | `by-global/EnsureLoginDialogPane_4F8B30.md` |
+| `0000TD` | 82 | 88 | 85.0 | `by-global/OpenQuitPrompt_5A94B0.md` |
+| `0000RX` | 82 | 88 | 85.0 | `by-global/g_pParcelIconPane.md` |
+| `0000S1` | 82 | 88 | 85.0 | `by-global/g_pQuitInputPane.md` |
+| `0000S4` | 82 | 88 | 85.0 | `by-global/g_pRidingImageLib.md` |
+| `0000SO` | 82 | 88 | 85.0 | `by-global/g_pVirusChecker.md` |
+| `0000SV` | 82 | 88 | 85.0 | `by-global/g_uiTileRenderer.md` |
+| `0000QL` | 84 | 86 | 85.0 | `by-global/g_pCollectionDialogPane.md` |
+| `0000Q5` | 85 | 85 | 85.0 | `by-global/g_packetSender.md` |
+| `0000PG` | 86 | 84 | 85.0 | `by-global/byte_66DEE0.md` |
+| `0000QA` | 86 | 84 | 85.0 | `by-global/g_pBowGaugeObjectPane.md` |
+| `0000QG` | 86 | 84 | 85.0 | `by-global/g_pBulletinSession.md` |
+| `0000QV` | 86 | 84 | 85.0 | `by-global/g_pExchangeAlertPane.md` |
+| `0000QY` | 86 | 84 | 85.0 | `by-global/g_pForcedInformMessageDialog.md` |
+| `0000R3` | 86 | 84 | 85.0 | `by-global/g_pHistoryViewingPane.md` |
+| `0000RG` | 86 | 84 | 85.0 | `by-global/g_pMapTileImageLib.md` |
 
 ### by-item
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0000UB` | 72 | 82 | 77.0 | `by-item/DATAudioResources.md` |
-| `0000UN` | 72 | 84 | 78.0 | `by-item/EPFArchiveMetadataTable.md` |
-| `0000UM` | 72 | 84 | 78.0 | `by-item/EncodeTextEditState_0058E490.md` |
-| `0000U7` | 74 | 82 | 78.0 | `by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md` |
-| `0000V3` | 74 | 82 | 78.0 | `by-item/PacketTransformHelpers.md` |
-| `0000UO` | 72 | 86 | 79.0 | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |
-| `0000V2` | 76 | 82 | 79.0 | `by-item/PacketDigest_00515380.md` |
-| `0000VI` | 76 | 82 | 79.0 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
-| `0000V6` | 74 | 85 | 79.5 | `by-item/PathExistsViaStat_00582460.md` |
-| `0000V9` | 72 | 88 | 80.0 | `by-item/ProfileDialogDestructorAndRefreshHelpers_53fda0_53fe90.md` |
-| `0000UC` | 76 | 84 | 80.0 | `by-item/DATEntryRecord.md` |
-| `0000UJ` | 76 | 84 | 80.0 | `by-item/DrawTextInRect_004BAD70.md` |
-| `0000UX` | 76 | 86 | 81.0 | `by-item/LoadFrameDrawRecord_004D1600.md` |
-| `0000UZ` | 78 | 84 | 81.0 | `by-item/LoadPcxImage_004A17B0.md` |
-| `0000U4` | 78 | 86 | 82.0 | `by-item/BuildEffectArchiveTable_004DE420.md` |
+| `0000VI` | 79 | 84 | 81.5 | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |
+| `0000UO` | 76 | 88 | 82.0 | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |
 | `0000U6` | 78 | 86 | 82.0 | `by-item/BuildTilecArchiveTable_004DDA60.md` |
+| `0000U7` | 78 | 86 | 82.0 | `by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md` |
 | `0000UK` | 78 | 86 | 82.0 | `by-item/DrawTextRunCallback_00593DB0.md` |
 | `0000UL` | 78 | 86 | 82.0 | `by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md` |
 | `0000UP` | 78 | 86 | 82.0 | `by-item/FriendNameListSyncOpcodes.md` |
-| `0000UR` | 78 | 86 | 82.0 | `by-item/GetSpriteBounds_004DE2A0.md` |
 | `0000UV` | 78 | 86 | 82.0 | `by-item/InitializeMainUiGraph_004F7D10.md` |
 | `0000TU` | 80 | 84 | 82.0 | `by-item/AILFileOpenCallback_0057B630.md` |
 | `0000U0` | 80 | 84 | 82.0 | `by-item/BlendRgb565Pair_004C60D0.md` |
+| `0000V2` | 80 | 84 | 82.0 | `by-item/PacketDigest_00515380.md` |
 | `0000U2` | 80 | 86 | 83.0 | `by-item/BuildAboveFrameBorder_00461310.md` |
+| `0000UC` | 80 | 86 | 83.0 | `by-item/DATEntryRecord.md` |
+| `0000UJ` | 80 | 86 | 83.0 | `by-item/DrawTextInRect_004BAD70.md` |
 | `0000UI` | 82 | 86 | 84.0 | `by-item/DrawFrameWithBlendMode_00462E10.md` |
+| `0000UY` | 82 | 86 | 84.0 | `by-item/LoadImageFrameTable_004D0F50.md` |
+| `0000V3` | 82 | 86 | 84.0 | `by-item/PacketTransformHelpers.md` |
+| `0000TT` | 82 | 88 | 85.0 | `by-item/AddEmployeeItemDialogInlineConstruction_004A339F.md` |
+| `0000TY` | 82 | 88 | 85.0 | `by-item/ArgumentedItemPurchaseHelpers_51f450_51f640.md` |
+| `0000U4` | 82 | 88 | 85.0 | `by-item/BuildEffectArchiveTable_004DE420.md` |
+| `0000U8` | 82 | 88 | 85.0 | `by-item/CheckTimerSkewAndSendHeartbeat_466CA0.md` |
+| `0000U9` | 82 | 88 | 85.0 | `by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md` |
+| `0000UD` | 82 | 88 | 85.0 | `by-item/DecodePcxToRgb565Buffer_00549410.md` |
+| `0000UN` | 82 | 88 | 85.0 | `by-item/EPFArchiveMetadataTable.md` |
+| `0000UQ` | 82 | 88 | 85.0 | `by-item/GetItemGlyphBounds_004DF460.md` |
 
 ### by-memory
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0002D8` | 72 | 82 | 77.0 | `by-memory/0x0041e1d0-0x0041e4ed.FittingRoomScrollPaneHitTestPart.md` |
-| `0002DI` | 72 | 82 | 77.0 | `by-memory/0x0041f100-0x0041f219.FittingRoomListPaneResetScrollPosition.md` |
-| `0000WX` | 72 | 82 | 77.0 | `by-memory/0x00424600-0x00424629.JsonCppPreExceptionFlagInitializers.md` |
-| `0002JV` | 72 | 82 | 77.0 | `by-memory/0x00465120-0x00465124.ApplicationGetOsCode.md` |
-| `0002GP` | 72 | 82 | 77.0 | `by-memory/0x00465300-0x00465308.ApplicationGetVersionMajor.md` |
-| `0002GQ` | 72 | 82 | 77.0 | `by-memory/0x00465310-0x00465318.ApplicationGetVersionMinor.md` |
-| `0000YS` | 72 | 82 | 77.0 | `by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md` |
-| `0002GJ` | 72 | 82 | 77.0 | `by-memory/0x004669c0-0x00466a69.BaramAppOnActivate.md` |
-| `0002GK` | 72 | 82 | 77.0 | `by-memory/0x00466a70-0x00466b23.BaramAppOnDeactivate.md` |
-| `0002ET` | 72 | 82 | 77.0 | `by-memory/0x0047f6f0-0x0047f890.ChattingPaneKeyboardScrollHandler.md` |
-| `0002EV` | 72 | 82 | 77.0 | `by-memory/0x0047f8d0-0x0047fbc5.ChattingPaneOnPaint.md` |
-| `0002EZ` | 72 | 82 | 77.0 | `by-memory/0x0047fd70-0x0047ff80.ChatPacketType13Handler.md` |
-| `0002F2` | 72 | 82 | 77.0 | `by-memory/0x004806a0-0x004806c9.ChattingBackPaneDestructor.md` |
+| `0001AW` | 74 | 82 | 78.0 | `by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md` |
+| `00012S` | 74 | 84 | 79.0 | `by-memory/0x0049dae0-0x0049dfc4.DialogControlPaneHelpers.md` |
+| `000138` | 74 | 84 | 79.0 | `by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md` |
+| `00013P` | 74 | 84 | 79.0 | `by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md` |
+| `00013R` | 74 | 84 | 79.0 | `by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md` |
+| `00015N` | 74 | 84 | 79.0 | `by-memory/0x004b7320-0x004b73a3.FramePartPaneSlotCleanup.md` |
+| `0002PN` | 74 | 84 | 79.0 | `by-memory/0x004f4f30-0x004f50a1.LogoPaneAdvanceAndBlitHandlers.md` |
+| `0002Q6` | 74 | 84 | 79.0 | `by-memory/0x004f8f10-0x004f8f95.OpenTransferServerDialog.md` |
+| `0002QB` | 74 | 84 | 79.0 | `by-memory/0x004fe790-0x004fe9d1.RawPasswordChangePacketWithAccount.md` |
+| `0001AU` | 74 | 84 | 79.0 | `by-memory/0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane.md` |
+| `0001E3` | 74 | 84 | 79.0 | `by-memory/0x00542680-0x005426d5.CScrollBarBackPaneDestructor.md` |
+| `0001E7` | 74 | 84 | 79.0 | `by-memory/0x00543450-0x00543665.PaletteListAndEntryMoveHelpers.md` |
+| `0002KG` | 74 | 84 | 79.0 | `by-memory/0x00546890-0x0054696f.ParcelPaneOnPaint.md` |
+| `0002KJ` | 74 | 84 | 79.0 | `by-memory/0x00546ac0-0x00546b74.FlyingParcelPaneConstructor.md` |
+| `0002KK` | 74 | 84 | 79.0 | `by-memory/0x00546d70-0x00546dee.FlyingParcelPaneAnimateStep.md` |
+| `0002KL` | 74 | 84 | 79.0 | `by-memory/0x00546df0-0x00546e6b.FlyingParcelPaneDrawParcelOrLetter.md` |
+| `0002R8` | 74 | 84 | 79.0 | `by-memory/0x00549920-0x00549950.PhotoPaneCleanupDestructorBodyRaw.md` |
+| `0002RE` | 74 | 84 | 79.0 | `by-memory/0x0056b7c0-0x0056b946.SelfLookPaneSummaryStatUpdate.md` |
+| `0002RF` | 74 | 84 | 79.0 | `by-memory/0x0056b950-0x0056b9ef.SelfLookPaneSpelledTextDispatch.md` |
+| `0001H8` | 74 | 84 | 79.0 | `by-memory/0x0056baa0-0x0056bb00.GroupListPaneRawConstructor.md` |
+| `0002RM` | 74 | 84 | 79.0 | `by-memory/0x00582500-0x005829b6.StringBaseConversionConstructors.md` |
+| `0002RT` | 74 | 84 | 79.0 | `by-memory/0x005832f0-0x00583714.StringBaseReleaseAndCapacity.md` |
+| `0002RS` | 74 | 84 | 79.0 | `by-memory/0x00584160-0x005845af.StringBaseAppendAndFind.md` |
+| `0001JO` | 74 | 84 | 79.0 | `by-memory/0x00591300-0x005954b3.TextBoxPane.md` |
+| `0002L2` | 74 | 84 | 79.0 | `by-memory/0x00597fd0-0x00597fda.ClearGlobalTimerMgr.md` |
 
 ### by-meta
 
@@ -204,29 +277,29 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001R8` | 70 | 85 | 77.5 | `by-resource/collection-ui-resources.md` |
-| `0001RC` | 70 | 85 | 77.5 | `by-resource/hourpane-time-resources.md` |
-| `0001RD` | 70 | 85 | 77.5 | `by-resource/iconspane-icon-resources.md` |
-| `0001RE` | 70 | 85 | 77.5 | `by-resource/interface-efx-resources.md` |
-| `0001RM` | 70 | 86 | 78.0 | `by-resource/staff-dialog-resources.md` |
-| `0001R5` | 72 | 84 | 78.0 | `by-resource/alert-dialog-resources.md` |
-| `0001RS` | 72 | 84 | 78.0 | `by-resource/user-status-resources.md` |
-| `0001RA` | 70 | 88 | 79.0 | `by-resource/exchange-dialog-resources.md` |
-| `0001RB` | 70 | 88 | 79.0 | `by-resource/forced-inform-message-resources.md` |
-| `0001RR` | 70 | 88 | 79.0 | `by-resource/totem-frame-resources.md` |
-| `0001RH` | 72 | 86 | 79.0 | `by-resource/meta-dat-metadata-cache.md` |
-| `0001R7` | 72 | 88 | 80.0 | `by-resource/backpane-background-resources.md` |
-| `0001R9` | 72 | 88 | 80.0 | `by-resource/employee-dialog-resources.md` |
-| `0001RI` | 72 | 88 | 80.0 | `by-resource/new-human-motion-tables.md` |
-| `0001RQ` | 72 | 88 | 80.0 | `by-resource/timerpane-number-resources.md` |
-| `0001RF` | 75 | 85 | 80.0 | `by-resource/main-menu-history-resources.md` |
-| `0001RG` | 75 | 85 | 80.0 | `by-resource/main-menu-story-resources.md` |
-| `0001RK` | 75 | 85 | 80.0 | `by-resource/ranking-ui-resources.md` |
-| `0001RO` | 75 | 88 | 81.5 | `by-resource/startup-update-notice-resources.md` |
+| `0001RF` | 78 | 85 | 81.5 | `by-resource/main-menu-history-resources.md` |
+| `0001RG` | 78 | 85 | 81.5 | `by-resource/main-menu-story-resources.md` |
+| `0001RS` | 78 | 86 | 82.0 | `by-resource/user-status-resources.md` |
+| `0001RC` | 78 | 87 | 82.5 | `by-resource/hourpane-time-resources.md` |
+| `0001RD` | 78 | 87 | 82.5 | `by-resource/iconspane-icon-resources.md` |
+| `0001RE` | 78 | 87 | 82.5 | `by-resource/interface-efx-resources.md` |
+| `0001RK` | 80 | 85 | 82.5 | `by-resource/ranking-ui-resources.md` |
+| `0001R7` | 78 | 88 | 83.0 | `by-resource/backpane-background-resources.md` |
+| `0001RA` | 78 | 88 | 83.0 | `by-resource/exchange-dialog-resources.md` |
+| `0001RH` | 78 | 88 | 83.0 | `by-resource/meta-dat-metadata-cache.md` |
 | `0001RL` | 78 | 88 | 83.0 | `by-resource/sobj-tbl.md` |
+| `0001RM` | 78 | 88 | 83.0 | `by-resource/staff-dialog-resources.md` |
 | `0001RN` | 78 | 88 | 83.0 | `by-resource/startup-logo-media.md` |
-| `0001RJ` | 78 | 90 | 84.0 | `by-resource/number-input-dialog-resources.md` |
-| `0001RT` | 78 | 90 | 84.0 | `by-resource/webboard-dialog-resources.md` |
+| `0001RO` | 78 | 88 | 83.0 | `by-resource/startup-update-notice-resources.md` |
+| `0001R5` | 80 | 86 | 83.0 | `by-resource/alert-dialog-resources.md` |
+| `0001RI` | 78 | 89 | 83.5 | `by-resource/new-human-motion-tables.md` |
+| `0001RR` | 78 | 90 | 84.0 | `by-resource/totem-frame-resources.md` |
+| `0001R8` | 80 | 88 | 84.0 | `by-resource/collection-ui-resources.md` |
+| `0001R9` | 80 | 90 | 85.0 | `by-resource/employee-dialog-resources.md` |
+| `0001RJ` | 80 | 90 | 85.0 | `by-resource/number-input-dialog-resources.md` |
+| `0001RQ` | 80 | 90 | 85.0 | `by-resource/timerpane-number-resources.md` |
+| `0001RT` | 80 | 90 | 85.0 | `by-resource/webboard-dialog-resources.md` |
+| `0001RB` | 82 | 88 | 85.0 | `by-resource/forced-inform-message-resources.md` |
 | `0001RP` | 82 | 90 | 86.0 | `by-resource/str-res-localized-strings.md` |
 | `0001R6` | 88 | 90 | 89.0 | `by-resource/application-startup-dat-archives.md` |
 
@@ -234,27 +307,28 @@ _No scored files._
 
 | UID | Completion | Confidence | Combined | Path |
 | --- | ---: | ---: | ---: | --- |
-| `0001W7` | 72 | 82 | 77.0 | `by-type/by-struct/SpecializedButtonPaneLayouts.md` |
-| `0001YP` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollCollectionPaneVtables.md` |
-| `0001YQ` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollInventoryPaneVtables.md` |
-| `0001YS` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollSpellInventoryPaneVtables.md` |
-| `0001YT` | 70 | 86 | 78.0 | `by-type/by-vtable/ScrollVolumePaneVtables.md` |
-| `0001SM` | 72 | 84 | 78.0 | `by-type/by-enum/BrowserOverlayStyle.md` |
-| `0001TZ` | 72 | 84 | 78.0 | `by-type/by-struct/CollectionPlayerDataLayout.md` |
-| `0001U7` | 72 | 84 | 78.0 | `by-type/by-struct/EffectFrameRecord.md` |
-| `0001W5` | 72 | 84 | 78.0 | `by-type/by-struct/SimpleUStringSso7Layout.md` |
-| `0001SO` | 74 | 82 | 78.0 | `by-type/by-enum/MapServerPacketOpcode.md` |
-| `0001VR` | 74 | 82 | 78.0 | `by-type/by-struct/RegistryConfigUserProfileBlock.md` |
-| `0001W4` | 74 | 82 | 78.0 | `by-type/by-struct/SimpleUStringPointerBackedLayout.md` |
-| `0001VL` | 72 | 86 | 79.0 | `by-type/by-struct/PrimeNumberGeneratorLayout.md` |
-| `0001UH` | 74 | 84 | 79.0 | `by-type/by-struct/FittingEquipmentStateLayout.md` |
-| `0001SF` | 72 | 88 | 80.0 | `by-type/by-constant/DownloaderMessageIds.md` |
-| `0001VY` | 74 | 86 | 80.0 | `by-type/by-struct/ScreenOverlayPaneLayouts.md` |
 | `0001WC` | 74 | 86 | 80.0 | `by-type/by-struct/TileClassEntry.md` |
-| `0001WD` | 74 | 86 | 80.0 | `by-type/by-struct/TimerMgrLayout.md` |
-| `0001UN` | 76 | 84 | 80.0 | `by-type/by-struct/FontStyleLayout.md` |
+| `0001YP` | 74 | 86 | 80.0 | `by-type/by-vtable/ScrollCollectionPaneVtables.md` |
+| `0001YQ` | 74 | 86 | 80.0 | `by-type/by-vtable/ScrollInventoryPaneVtables.md` |
+| `0001YS` | 74 | 86 | 80.0 | `by-type/by-vtable/ScrollSpellInventoryPaneVtables.md` |
+| `0001YT` | 74 | 86 | 80.0 | `by-type/by-vtable/ScrollVolumePaneVtables.md` |
 | `0001VJ` | 76 | 84 | 80.0 | `by-type/by-struct/PatchPane2Layout.md` |
-| `0001W3` | 76 | 84 | 80.0 | `by-type/by-struct/SimpleListPaneLayout.md` |
 | `0001UI` | 74 | 87 | 80.5 | `by-type/by-struct/FittingRoomDownloadProgressState.md` |
-| `0001SL` | 74 | 88 | 81.0 | `by-type/by-enum/BrowserMessageId.md` |
 | `0001SP` | 74 | 88 | 81.0 | `by-type/by-enum/MiscWorkThreadMessageId.md` |
+| `0001SR` | 74 | 88 | 81.0 | `by-type/by-enum/ThreadManMessageId.md` |
+| `0001SV` | 76 | 86 | 81.0 | `by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md` |
+| `0001TN` | 76 | 86 | 81.0 | `by-type/by-struct/AddEmployeeItemDialogLayout.md` |
+| `0001U8` | 76 | 86 | 81.0 | `by-type/by-struct/EffectInfo.md` |
+| `0001UF` | 76 | 86 | 81.0 | `by-type/by-struct/EventDispatcherHandlerTreeLayouts.md` |
+| `0001UL` | 76 | 86 | 81.0 | `by-type/by-struct/FontImageLibLayout.md` |
+| `0001W8` | 76 | 86 | 81.0 | `by-type/by-struct/StaticObjEntry.md` |
+| `0001VI` | 78 | 84 | 81.0 | `by-type/by-struct/ParcelNotificationPaneLayouts.md` |
+| `0001VV` | 78 | 84 | 81.0 | `by-type/by-struct/RidingDefinition.md` |
+| `0001VZ` | 78 | 84 | 81.0 | `by-type/by-struct/ScrollCollectionPaneLayout.md` |
+| `0001W0` | 78 | 84 | 81.0 | `by-type/by-struct/ScrollInventoryPaneLayout.md` |
+| `0001W1` | 78 | 84 | 81.0 | `by-type/by-struct/ScrollSpellInventoryPaneLayout.md` |
+| `0001W7` | 78 | 84 | 81.0 | `by-type/by-struct/SpecializedButtonPaneLayouts.md` |
+| `0001TR` | 76 | 88 | 82.0 | `by-type/by-struct/AttachedObjectRegistryLayout.md` |
+| `0001TY` | 76 | 88 | 82.0 | `by-type/by-struct/ClanInputDialogLayouts.md` |
+| `0001UC` | 76 | 88 | 82.0 | `by-type/by-struct/EmployeeQuantityInputDialogPaneLayout.md` |
+| `0001V8` | 76 | 88 | 82.0 | `by-type/by-struct/MiniMapVersionNode.md` |

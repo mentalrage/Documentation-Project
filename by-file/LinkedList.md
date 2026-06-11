@@ -1,6 +1,6 @@
 *** UID:0000KR | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # LinkedList
@@ -9,7 +9,7 @@
 
 - Proposed module: `util/LinkedList.cpp`
 - Proposed header: `util/LinkedList.h`
-- Confidence: medium for standalone file, strong for utility ownership.
+- Confidence: strong for shared utility ownership and current source-root placement; medium for exact original filename/header granularity.
 - Current recovered sources:
   - `source-3/simroot_v2/recovered/CreateListNode_00457550.cpp`
   - `source-3/simroot_v2/recovered/CreateListNodeWithPayload_004570E0.cpp`
@@ -20,6 +20,12 @@
 `LinkedList.cpp` is the current reconstruction target for a tiny sentinel-based intrusive doubly-linked-list helper family. It is separate from [UID:0000KS][List](by-file/List.md), which is the fixed-width dynamic array container, and from [UID:0000OS][ThreadSafeNodeList](by-file/ThreadSafeNodeList.md), which is a lock-protected free-list style helper.
 
 The helper allocates 16-byte nodes, optionally copies a two-word payload, and destroys a list state by freeing every node and the sentinel. It is used by unrelated systems, so it should not be owned by [UID:0000JM][FrameMgr](by-file/FrameMgr.md), [UID:00008H][MiniMapVersionManager](by-class/MiniMapVersionManager.md), [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md), or [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md) just because those modules embed or call it.
+
+## Batch 129 Parent-Gate Audit
+
+This file now clears the strict `85/85` gate for shared linked-list support types. The direct ownership evidence is the complete helper family rather than a single caller: [UID:0000XR][0x004570e0-0x004570ff.CreateListNodeWithPayload](by-memory/0x004570e0-0x004570ff.CreateListNodeWithPayload.md), [UID:0000XV][0x00457430-0x00457473.LinkedListStateCleanup](by-memory/0x00457430-0x00457473.LinkedListStateCleanup.md), and [UID:0000XW][0x00457550-0x0045757d.CreateListNode](by-memory/0x00457550-0x0045757d.CreateListNode.md) form a small utility island that is used by frame scheduling, minimap, monster-image archive bounds, and DAT-index cleanup. The type pages [UID:0001V0][ListNode](by-type/by-struct/ListNode.md) and [UID:0001UZ][LinkedListState](by-type/by-struct/LinkedListState.md) describe the node/state declarations consumed by those helpers.
+
+2026-06-08 live IDA MCP rechecked the three helper starts: `0x004570e0` is `sub_4570E0` size `0x20`, `0x00457430` is `sub_457430` size `0x43`, and `0x00457550` is `sub_457550` size `0x2d`. `callers 0x00457430` still reports the modeled `FrameMgr` destructor caller at `0x004b70cf`, while the existing [UID:0000XV][0x00457430-0x00457473.LinkedListStateCleanup](by-memory/0x00457430-0x00457473.LinkedListStateCleanup.md) page records the additional tail-jump and EH-cleanup xrefs that tie the same cleanup helper to DATIndexVector, MiniMapVersionManager, and MonsterImageLib. That caller spread makes feature-local ownership less direct than the shared `LinkedList` utility root.
 
 ## Likely Contents
 
@@ -80,3 +86,7 @@ Keep [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md)'s bucket/list-speci
   - What existed before: the cleanup helper table and references used `0x00457430-0x00457472`.
   - Changed to: `0x00457430-0x00457473`.
   - Summary/evidence: IDA MCP reports `sub_457430` size `0x43`, and disassembly shows the final `retn` at `0x00457472`, making `0x00457473` the correct end-exclusive bound.
+- 2026-06-08 A002 Batch129 parent-gate refresh:
+  - Before: `COMPLETION:84`, `CONFIDENCE:80`; below the strict parent gate for [UID:0001UZ][LinkedListState](by-type/by-struct/LinkedListState.md).
+  - After: `COMPLETION:85`, `CONFIDENCE:85`.
+  - Summary/evidence: added the parent-gate audit tying the node allocator, payload-node allocator, and state cleanup helper into one shared utility owner. Live IDA MCP reconfirmed the three helper starts and sizes on 2026-06-08, and the exact memory pages document the cross-feature caller/xref spread. The score remains at the gate, not higher, because the final original filename/header split (`LinkedList.cpp` versus a broader `List.cpp` or header utility) is still open.

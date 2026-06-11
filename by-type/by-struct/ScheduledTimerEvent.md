@@ -1,8 +1,8 @@
 *** UID:0001VX | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000F2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -13,8 +13,16 @@
 ## Status
 
 - Type kind: inferred struct/layout.
-- Likely owner: [UID:0000OT][TimerMgr](by-file/TimerMgr.md)
+- Direct owner: [UID:0000F2][TimerMgrTimerQueue](by-class/TimerMgrTimerQueue.md). The queue class owns storage, allocation, copying, insertion, and removal of this record type; [UID:0000OT][TimerMgr](by-file/TimerMgr.md) remains the source-module owner.
 - Confidence: strong for field order and size from IDA decompilation of schedule/dispatch/insert/splice paths.
+- Parent assignment: attached to [UID:0000F2][TimerMgrTimerQueue](by-class/TimerMgrTimerQueue.md) after Batch 141 raised the child to `85/90` and refreshed the direct queue-class parent to `85/85`.
+
+## Score Rationale
+
+| Metric | Value | Rationale |
+| --- | --- | --- |
+| Completion | `85` | The page now records the exact `0x14` record size, five dword fields, schedule/dispatch/lookup/insert/splice evidence, queue-class ownership, source-module context, and parent-gate rationale. It remains below final-audit level because the two callback argument names and final source typedef/class declaration shape are still provisional. |
+| Confidence | `90` | Multiple independently documented IDA-backed paths use the same five-field record: `TimerMgr::ScheduleTimer` creates it, dispatch copies it before callback, lookup reads the first three dwords, and queue splice/insert copy exactly 16 bytes plus the trailing dword. Confidence is capped below final source because the final callback signature is not fully recovered. |
 
 ## Layout
 
@@ -33,21 +41,27 @@ IDA decompilation of the TimerMgr scheduler repeatedly reconstructs a 20-byte sc
 - [UID:0002L7][0x00598480-0x005986d9.TimerMgrTimerQueueInsertTimer](by-memory/0x00598480-0x005986d9.TimerMgrTimerQueueInsertTimer.md) allocates/copies exactly `0x14` bytes per queued record: a 16-byte block plus trailing dword.
 - `TimerMgr::ScheduleTimer` at `0x00597910` fills five dwords before calling the insert helper: owner, event id, due tick, and two callback arguments.
 - `TimerMgr::DispatchDueTimers` at `0x005977b0` copies a 16-byte block plus trailing dword from the due record, removes that queue entry, then dispatches the owner callback through virtual slot `+4`.
-- [UID:0002KX][0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick](by-memory/0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick.md) compares `record[0]` and `record[1]` and returns `record[2]`, confirming the first three fields.
+- [UID:0002KX][0x00597dc0-0x00597e3f.TimerMgrFindQueuedTimerDueTick](by-memory/0x00597dc0-0x00597e3f.TimerMgrFindQueuedTimerDueTick.md) compares `record[0]` and `record[1]` and returns `record[2]`, confirming the first three fields.
 - [UID:0002L6][0x00598290-0x00598471.TimerMgrTimerQueueSpliceTimerRange](by-memory/0x00598290-0x00598471.TimerMgrTimerQueueSpliceTimerRange.md) copies each record as `*(_OWORD *)dst = *(_OWORD *)src` plus `*(dst + 16)`, confirming `0x14` byte stride.
+- 2026-06-08 live IDA MCP rechecked the queue-helper caller chain in `NexusTK.exe` md5 `4247e04e20b65d6414c7238aa8ff5515`: `0x00598480` is called from `TimerMgr::ScheduleTimer` at `0x005979c5`, `0x00598290` is called from dispatch/removal helpers at `0x0059789f`, `0x00597b05`, `0x00597c7f`, and `0x00597d9f`, and all queue-helper gaps around the splice/insert functions remain `0xcc` padding.
 
 ## Cross-References
 
 - [UID:0000OT][TimerMgr](by-file/TimerMgr.md)
 - [UID:0000F1][TimerMgr](by-class/TimerMgr.md)
+- [UID:0000F2][TimerMgrTimerQueue](by-class/TimerMgrTimerQueue.md)
 - [UID:0001K6][0x00597570-0x005986da.TimerMgrAndTimerQueue](by-memory/0x00597570-0x005986da.TimerMgrAndTimerQueue.md)
 - [UID:0001WD][TimerMgrLayout](by-type/by-struct/TimerMgrLayout.md)
 - [UID:0001KA][0x00597dc0-0x005986da.TimerMgrQueueHelpers](by-memory/0x00597dc0-0x005986da.TimerMgrQueueHelpers.md)
-- [UID:0002KX][0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick](by-memory/0x00597dc0-0x00597e3e.TimerMgrFindQueuedTimerDueTick.md)
+- [UID:0002KX][0x00597dc0-0x00597e3f.TimerMgrFindQueuedTimerDueTick](by-memory/0x00597dc0-0x00597e3f.TimerMgrFindQueuedTimerDueTick.md)
 - [UID:0002L7][0x00598480-0x005986d9.TimerMgrTimerQueueInsertTimer](by-memory/0x00598480-0x005986d9.TimerMgrTimerQueueInsertTimer.md)
 
 ## Changes
 
+- 2026-06-08 Batch 141 parent-gate refresh:
+  - Before: `COMPLETION:78`, `CONFIDENCE:88`, and no parent assignment.
+  - Changed to: `COMPLETION:85`, `CONFIDENCE:90`, and `AUTOGEN_PARENT_UID:0000F2`.
+  - Summary/evidence: live IDA MCP rechecked queue-helper boundaries, caller chains, and `0xcc` padding around the splice/insert helpers; [UID:0000F2][TimerMgrTimerQueue](by-class/TimerMgrTimerQueue.md) was refreshed to `85/85`, making it the actual direct owner of the queued `0x14` event records while [UID:0000OT][TimerMgr](by-file/TimerMgr.md) remains source-module context.
 - 2026-05-31: Replaced generated-code-only evidence with IDA-backed record-layout evidence.
   - What existed before: page scored `0/0` and described the 20-byte record mainly from generated TimerMgr code.
   - Changed to: `COMPLETION:78`, `CONFIDENCE:88`, marked reconstructable, and added IDA-backed evidence from schedule, dispatch, lookup, insert, and splice helpers.

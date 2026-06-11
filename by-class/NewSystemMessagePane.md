@@ -1,8 +1,8 @@
 *** UID:00009C | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -56,3 +56,4 @@
 - Before: completion/confidence metadata were `0/0` while the page already documented class role, constructor partition issue, child-pane rebuild behavior, singleton evidence, and destructor support.
 - Changed to: `COMPLETION:82` and `CONFIDENCE:82`.
 - Evidence: the page contains IDA-backed function starts, constructor caller evidence, singleton xrefs, method roles, and generated-file caveats; remaining gaps are the tiny virtual helper names and final source-file partition correction.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000OE][SystemMessagePanes](by-file/SystemMessagePanes.md) because the class is `82/82` and the parent is `88/82`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts at `0x00588560`, `0x00588800`, `0x00588d50`, `0x00588d90`, `0x00588e00`, `0x0058aab0`, `0x0058ab07`, and `0x0058ad20`; current `callers` confirms the constructor reference at `0x004b88ae`.

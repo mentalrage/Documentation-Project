@@ -1,6 +1,6 @@
 *** UID:0000NO | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ServerSelectPane
@@ -34,6 +34,7 @@ This belongs under `login/` rather than generic dialogs because it is part of th
 - IDA MCP confirms real helper functions at `0x00574510-0x0057454d` and `0x005745b0-0x0057465d`; Wave3 currently owns the first as `ChattingColorListPane::ApplySelectedColor`, which is not consistent with server-select caller and data-flow context.
 - 2026-05-24 MCP recheck: `xrefs_to 0x00574510` reports only the two `ServerSelectPane::OnDialogAction` branch calls at `0x00574399` and `0x005743db`. Decompilation shows the helper copying the selected server name into the config/current-server buffer before calling `0x005745b0`, which sends the `0x57` select-server packet and records selected endpoint state.
 - `xrefs_to 0x0069b4ac` supports [UID:0000S8][g_pServerSelectPane](by-global/g_pServerSelectPane.md): main-menu cleanup/startup, constructor, non-deleting destructor helper, thunk, and scalar deleting destructor all touch the same pointer.
+- 2026-06-07 Batch 043 live IDA MCP reconfirmed `g_pServerSelectPane` as a clean four-byte `0xffffffff` slot with seven xrefs, and the split exact memory page [UID:0002XN][0x0069b4ac-0x0069b4b0.g_pServerSelectPane](by-memory/0x0069b4ac-0x0069b4b0.g_pServerSelectPane.md) now isolates the singleton storage from neighboring create-user and transfer-server globals.
 
 ## Ownership Notes
 
@@ -61,3 +62,7 @@ This belongs under `login/` rather than generic dialogs because it is part of th
   - Before: the page text proposed `login/ServerSelectPane.cpp`, but validator metadata had no projected path.
   - After: `PROPOSED_RECONSTRUCTION_PATH` is `NexusTK/login/`.
   - Evidence: source-tree docs already place `ServerSelectPane.cpp` under `login/`, and live IDA MCP reconfirmed the constructor caller, main-menu singleton xrefs, dialog resources, and selected-server helpers as pre-login/login code.
+- 2026-06-07 Batch 043 parent-gate refresh:
+  - Before: `84/80`; helper-boundary and alias caveats kept the file below the stricter parent gate.
+  - After: `85/86`.
+  - Evidence: the exact singleton storage is now split and live-reconfirmed, while the existing method, list-pane, helper, resource, and login/startup evidence supports `NexusTK/login/ServerSelectPane.cpp` as the source owner. Remaining helper cleanup still blocks final C++, not parent routing.

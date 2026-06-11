@@ -1,13 +1,13 @@
 *** UID:0000IP | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/archive/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # DATIndexVector
 
 ## Status
 
-- Confidence: medium for `archive/DATIndexVector.cpp`, strong that the helper should be standalone rather than folded into `DATFileMgr.cpp`.
+- Confidence: medium-high for `archive/DATIndexVector.cpp`, strong that the helper should be standalone rather than folded into `DATFileMgr.cpp`.
 - Proposed module: `NexusTK/archive/DATIndexVector.cpp`
 - Proposed header: `NexusTK/archive/DATIndexVector.h`
 - Current recovered file: `source-3/simroot_v2/class_DATIndexVector.cpp`
@@ -22,7 +22,7 @@ This file should own the reusable archive/index helper and its small support rec
 | [UID:00003K][DATIndexVector](by-class/DATIndexVector.md) | discontiguous | `archive/DATIndexVector.cpp` | FNV-1a keyed intrusive hash/list plus value-table resize helper. |
 | [UID:0001U1][DATIndexVectorNode](by-type/by-struct/DATIndexVectorNode.md) | type-only | `archive/DATIndexVector.h` or private source struct | Intrusive node: next, prev, integer key, payload pointer. |
 | [UID:0001U0][DATIndexVectorBucket](by-type/by-struct/DATIndexVectorBucket.md) | type-only | `archive/DATIndexVector.h` or private source struct | Per-bucket first/last pair over the shared intrusive list. |
-| `RemoveNodeForInsertUnwind` / private remove helper | `0x00457310-0x004573b2` | `archive/DATIndexVector.cpp` internal helper | Detaches/frees one keyed node; IDA-observed caller is only the `DATIndexVector::InsertNode` EH/unwind cleanup block. |
+| `RemoveNodeForInsertUnwind` / private remove helper | `0x00457310-0x004573b3` | `archive/DATIndexVector.cpp` internal helper | Detaches/frees one keyed node; IDA-observed caller is only the `DATIndexVector::InsertNode` EH/unwind cleanup block. |
 
 ## Method Ranges
 
@@ -48,6 +48,8 @@ That caller mix rules out a manager-private placement in [UID:0000IO][DATFileMgr
 Because this helper has non-DAT callers, it is also tracked in [UID:0001QA][client_containers](by-meta/client_containers.md) as a possible utility-container candidate. Generic sentinel-list allocation and cleanup support is tracked separately in [UID:0000KR][LinkedList](by-file/LinkedList.md); keep only DATIndexVector's bucket-aware keyed helpers here.
 
 2026-05-31 IDA MCP recheck confirms the resize/fill helper at `0x00423b00`, insert/remove/destructor/find helpers at `0x00457100`, `0x00457310`, `0x004573d0`, and `0x00457580`, and caller fan-in from DAT manager code plus minimap, fitting-room, and monster-image code. This supports a standalone source file and rules out folding the helper into `DATFileMgr.cpp`; the `NexusTK/archive/` projected path follows current proposed-source-tree ownership but remains reviewable if later evidence proves the original project placed it in a common container folder.
+
+Batch076 parent-gate review raises the file to `86/85` for routing purposes: every current exact DATIndexVector method page is documented at `85+` completion and high confidence, and the class page now captures the shared object identity, support structs, and linked-list boundary. The confidence cap remains the projected `archive/` folder and final public/private header split, not the standalone ownership itself.
 
 ## Exclusions
 
@@ -95,3 +97,13 @@ Before applying ownership changes, review whether the value-table/bucket-table f
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, scores were `84/78`, and module/header paths used `archive/` without an explicit generated root.
   - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/archive/"`, scores `85/80`, and proposed paths `NexusTK/archive/DATIndexVector.cpp/.h`.
   - Summary/evidence: IDA MCP reconfirmed exact helper starts and broad non-DAT caller fan-in. The path is assigned to match current `proposed-source-tree.md`, but the confidence remains below high because a future common-container folder remains plausible. No C++ reconstruction code is emitted yet because method rewrites, field names, and original folder confidence are below the `95+` final-code gate.
+
+- 2026-06-07 A007 Batch 076 parent-gate repair:
+  - What existed before: `85/80`; the standalone file was plausible but below the corrected `85/85` confidence gate for class/file routing.
+  - Changed to: `86/85`.
+  - Summary/evidence: exact method pages for resize/fill, insert, remove cleanup, destructor, and find now form a coherent DATIndexVector method inventory with broad non-DAT caller fan-in and a clear boundary against generic linked-list cleanup. The `archive/` folder remains provisional, so no C++ reconstruction code is emitted.
+
+- 2026-06-07 A007 Batch 087 range-reference repair:
+  - What existed before: the proposed-contents row for the private remove helper still used stale end-exclusive range `0x00457310-0x004573b2`.
+  - Changed to: `0x00457310-0x004573b3`, matching [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md).
+  - Summary/evidence: no score change; this only syncs the file-level inventory with the exact already-documented helper boundary.

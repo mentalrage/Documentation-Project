@@ -2,7 +2,7 @@
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HN | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,8 +17,10 @@
 - Address: `0x00419ee0`
 - Paired shutdown thunk: [UID:0001O6][0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk](by-memory/0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk.md)
 - Likely source module: [UID:0000HN][AutoInit](by-file/AutoInit.md) / [UID:0000ML][PlatformApi](by-file/PlatformApi.md)
+- Autogen parent: [UID:0000HN][AutoInit](by-file/AutoInit.md), matching the attached by-memory initializer page and the AutoInit class/file source-root chain.
 - Current generated source: `source-3/simroot_v2/recovered/InitializeOleSupport_00419EE0.cpp`
 - Startup table entry: `0x0060d6a4 -> 0x00419ee0`
+- Reconstruction status: attach as the source-authored startup side of the `AutoInit` OLE lifetime helper; keep final C++ blank until standalone `AutoInit.cpp` versus a `PlatformApi.cpp` fold and source-facing object spelling are proven.
 
 ## Role
 
@@ -53,9 +55,13 @@ At source level this is best reconstructed as an anonymous/static OLE lifetime o
 - Do not attach it to [UID:0000HV][Browser](by-file/Browser.md) solely because browser code is the largest COM consumer. The evidence shows process-wide startup OLE support.
 - Do not treat `AutoInit` as missing constructor evidence anymore; this global plus the `atexit` thunk provide the static lifetime evidence.
 
+## Parent Attachment Guidance
+
+Use [UID:0000HN][AutoInit](by-file/AutoInit.md) as the autogen parent for this startup helper. The matching by-memory page [UID:0000W8][0x00419ee0-0x00419ef4.InitializeOleSupport](by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md), [UID:00000Q][AutoInit](by-class/AutoInit.md), the one-slot vtable, static object slot, ordinary destructor, scalar deleting destructor, and static shutdown thunk already form a consistent AutoInit source-root chain. `PlatformApi` remains a possible final fold target, but that is a later source-layout decision rather than a reason to leave the autogen parent blank.
+
 ## Cross-References
 
-- Memory: [UID:0000W8][0x00419ee0-0x00419ef4.InitializeOleSupport](by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md), [UID:0000ZE][0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor](by-memory/0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor.md), [UID:0000ZG][0x00470300-0x00470329.AutoInit](by-memory/0x00470300-0x00470329.AutoInit.md), [UID:0001O6][0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk](by-memory/0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk.md)
+- Memory: [UID:0000W8][0x00419ee0-0x00419ef4.InitializeOleSupport](by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md), [UID:0000ZE][0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor](by-memory/0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor.md), [UID:0000ZG][0x00470300-0x0047032a.AutoInit](by-memory/0x00470300-0x0047032a.AutoInit.md), [UID:0001O6][0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk](by-memory/0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk.md)
 - Vtable: [UID:0001X0][AutoInitVtable](by-type/by-vtable/AutoInitVtable.md)
 - File: [UID:0000HN][AutoInit](by-file/AutoInit.md), [UID:0000ML][PlatformApi](by-file/PlatformApi.md), [UID:0000HV][Browser](by-file/Browser.md)
 - Class: [UID:00000Q][AutoInit](by-class/AutoInit.md)
@@ -71,3 +77,7 @@ At source level this is best reconstructed as an anonymous/static OLE lifetime o
   - Before: the validator reconstructability field was blank even though the global describes source-authored startup policy.
   - After: the global is explicitly reconstructable, with no autogen parent/code assignment until source placement reaches final-source confidence.
   - Evidence: IDA MCP confirms `0x00419ee0` calls `OleInitialize(0)` and registers the `0x0060c0f0` shutdown thunk that installs the `AutoInit` vtable and calls `OleUninitialize`.
+- 2026-06-07 A007 parent attachment:
+  - Before: `AUTOGEN_PARENT_UID` was blank, while the matching by-memory page and class page were already attached to [UID:0000HN][AutoInit](by-file/AutoInit.md).
+  - After: set `AUTOGEN_PARENT_UID:0000HN`, added explicit autogen-parent/reconstruction status bullets, and recorded parent attachment guidance.
+  - Evidence: [UID:0000HN][AutoInit](by-file/AutoInit.md), [UID:00000Q][AutoInit](by-class/AutoInit.md), [UID:0000W8][0x00419ee0-0x00419ef4.InitializeOleSupport](by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md), [UID:0001O6][0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk](by-memory/0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk.md), and [UID:0001X0][AutoInitVtable](by-type/by-vtable/AutoInitVtable.md) all document the same process-wide OLE lifetime helper. No score or final C++ change was made because final file folding and source-facing object spelling remain open.

@@ -1,8 +1,8 @@
 *** UID:0000AM | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MM | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -78,6 +78,11 @@ Observed object size is `0x28` bytes.
 - Related: [UID:0000OB][StringUtil](by-file/StringUtil.md), [UID:0000EX][ThreadSafeNodeList](by-class/ThreadSafeNodeList.md)
 
 ## Changes
+
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and assigned parent `0000MM`.
+  - Before: reconstruction autogen classification and parent were blank despite allocator mechanics, helper, static-instance, and layout documentation.
+  - After: classified as reconstructable source attached to [UID:0000MM][PoolAllocator](by-file/PoolAllocator.md).
+  - Evidence: live IDA MCP `lookup_funcs` confirms modeled starts at `0x004b13d0`, `0x004b1400`, `0x004b14c0`, `0x004b1520`, `0x00549bd0`, and `0x00549c00`; the page documents fixed-block allocation/free/destruction behavior and source placement under `NexusTK/util/`. The class score is `86/82` and parent file score is `86/80`, satisfying the 80/80 attach gate.
 
 - Before: completion/confidence metadata were `0/0` even though the page documented allocator responsibility, layout, methods, helpers, static instances, constructor/destructor wrappers, and open questions.
 - Changed to: `COMPLETION:86` and `CONFIDENCE:82`.

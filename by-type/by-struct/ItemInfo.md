@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KH | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for size, owner, constructor read order, fallback initialization, and draw-method consumption; medium-high overall because final source-facing field names remain provisional.
 - Owner file: [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md).
+- Autogen parent: attached to [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md); the file scores `88/84` and this row page scores `82/86`, so both sides satisfy the 80/80 parent gate.
 - Source resources: `ITEM.TBL` / `ITEM.TBD`.
 - Size: `0x14` bytes.
 - Primary IDA evidence: 2026-05-31 decompilation of `ItemObjImageLib::ItemObjImageLib` and draw methods at `0x004dee50`, `0x004defc0`, `0x004df1e0`, and `0x004df2c0`.
@@ -58,6 +59,7 @@ ItemInfo
 
 ## Changes
 
+- 2026-06-06: Attached the row layout to [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md) because the page documents it as the render-table row owned by that module and both pages clear the parent gate. No score changes were made.
 - 2026-05-31 IDA-backed scoring update:
   - What existed before: `COMPLETION:0`, `CONFIDENCE:0`, and `RECONSTRUCTABLE:` blank despite a usable layout sketch.
   - Changed to: `COMPLETION:82`, `CONFIDENCE:86`, and `RECONSTRUCTABLE:TRUE`.

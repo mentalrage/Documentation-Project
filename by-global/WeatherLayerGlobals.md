@@ -2,7 +2,7 @@
 *** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,9 +14,11 @@
 
 - Confidence: strong for observed table starts and weather-layer use; medium for final source-level names.
 - Likely owner: [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md) source family.
+- Autogen parent: [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md), the weather-layer source-family parent that clears the parent gate and lists these static rain/snow data ranges.
 - Current generated owners: mostly `class_RainingLayerPane.cpp` and `class_SnowingLayerPane.cpp`, with unresolved `global-data` rows.
 - Type/layout notes: [UID:0001WJ][WeatherLayerDataLayouts](by-type/by-struct/WeatherLayerDataLayouts.md)
 - Exact memory docs: [UID:0001ON][0x006702c8-0x00670784.RainCoordinateTables](by-memory/0x006702c8-0x00670784.RainCoordinateTables.md), [UID:0001OO][0x00670784-0x006707d0.SnowPatternByteTables](by-memory/0x00670784-0x006707d0.SnowPatternByteTables.md), [UID:0001Q4][0x0069bf98-0x0069c044.SnowLookupDescriptorStorage](by-memory/0x0069bf98-0x0069c044.SnowLookupDescriptorStorage.md), and [UID:0001OW][0x0067a764-0x0067a768.ActiveMapPaneSingleton](by-memory/0x0067a764-0x0067a768.ActiveMapPaneSingleton.md)
+- Reconstruction status: attach as source-declared weather-layer static data; keep final C++ blank until final names, render-callback ownership, and the one-file versus per-layer split are settled.
 
 ## Role
 
@@ -75,6 +77,10 @@ These callback pointers look like shared render/GrafPort hooks rather than weath
 
 Current generated `class_RainingLayerPane.cpp` emits `g_pWeatherState` as if it were a separate global. IDA decompilation shows the storage is `dword_67A764`, the same address documented as [UID:0000PR][g_activeMapPane](by-global/g_activeMapPane.md). Weather drawing checks byte `g_activeMapPane + 0x3f0` (`+1008`) before rendering. Do not create a separate `g_pWeatherState` singleton without proving a distinct storage address.
 
+## Parent Attachment Guidance
+
+Use [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md) as the autogen parent for this grouped static data. The parent file intentionally represents the weather-layer source family while final migration decides whether the original source used one `WeatherLayerPane.cpp` file or separate `RainingLayerPane.cpp`, `SnowingLayerPane.cpp`, and `SwallowLayerPane.cpp` files. The rain coordinate tables, snow byte tables, snow descriptor storage, weather-layer data layouts, and active-map alias caveat are all documented from that family root. Do not attach the shared render callback slots here; they remain dependencies pending the broader render callback/global pass.
+
 ## Cross-References
 
 - [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md)
@@ -97,3 +103,7 @@ Current generated `class_RainingLayerPane.cpp` emits `g_pWeatherState` as if it 
   - What existed before: `CONFIDENCE:82` and blank `RECONSTRUCTABLE`.
   - Changed to: `CONFIDENCE:84` and `RECONSTRUCTABLE:TRUE`.
   - Summary/evidence: IDA MCP reverified rain/snow static data users, table starts, descriptor/guard refs, byte-table boundary, and active-map aliasing. The global/table data is source-authored or source-declared weather-layer data that must be reconstructed, but parent attachment and C++ emission remain deferred below the final-source gate.
+- 2026-06-07 A007 parent attachment:
+  - Before: `AUTOGEN_PARENT_UID` was blank even though [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md) already documents this static data as part of the weather-layer source family.
+  - After: set `AUTOGEN_PARENT_UID:0000P8`, added explicit autogen-parent/reconstruction status bullets, and recorded parent attachment guidance.
+  - Evidence: [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md), [UID:0000MY][RainingLayerPane](by-file/RainingLayerPane.md), [UID:0000NR][SnowingLayerPane](by-file/SnowingLayerPane.md), [UID:0001ON][0x006702c8-0x00670784.RainCoordinateTables](by-memory/0x006702c8-0x00670784.RainCoordinateTables.md), [UID:0001OO][0x00670784-0x006707d0.SnowPatternByteTables](by-memory/0x00670784-0x006707d0.SnowPatternByteTables.md), and [UID:0001Q4][0x0069bf98-0x0069c044.SnowLookupDescriptorStorage](by-memory/0x0069bf98-0x0069c044.SnowLookupDescriptorStorage.md) support the family parent. Scores and final C++ remain unchanged because final source split and render callback ownership remain open.

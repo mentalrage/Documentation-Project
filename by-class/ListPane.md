@@ -1,8 +1,8 @@
 *** UID:00007A | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -42,7 +42,7 @@ Feature panes such as [UID:00000L][ArticleListPane](by-class/ArticleListPane.md)
 | Mouse/key input | `0x004f4190-0x004f43cd` | Handles drag selection, click/double-click, mouse capture through `g_pEventManager`, arrow keys, and page navigation. |
 | Paint/hit testing | `0x004f43e0-0x004f45a2` | Iterates visible items, computes item rectangles, hit-tests, and dispatches row drawing through virtual methods. |
 | Selection update | `0x004f45b0-0x004f47b1` | Updates single/multi/range selection state and invalidates the dirty selection rectangle. |
-| Navigation helpers | `0x004f47c0-0x004f4907` | Moves selection up/down or by page, ensures visibility, and invokes the selection virtual. |
+| Navigation helpers and raw fragments | `0x004f47c0-0x004f4919` | Moves selection up/down or by page, ensures visibility, and invokes the selection virtual. The refreshed by-memory audit also records unpromoted raw code at `0x004f4820-0x004f487c` and a frame shim at `0x004f4910-0x004f4919`. |
 | `EnsureItemVisible` | `0x004f4920-0x004f49e0` | Scrolls the containing `ScrollablePane` so a target item rectangle is visible. |
 | Destructor and thunks | `0x004f49e0-0x004f4a77` | Two adjustor thunks plus the scalar deleting destructor. |
 
@@ -52,7 +52,7 @@ Feature panes such as [UID:00000L][ArticleListPane](by-class/ArticleListPane.md)
 - Constructor callers include board/article lists, chat color lists, clan lists, exchange lists, item/spell menu lists, server-select lists, phone-book lists, and user-list panes.
 - Caller fanout for `GetItemCount`, append, selected-entry, selection-count, selected-indices, and `IsItemSelected` spans many list subclasses. That fanout supports reusable `ListPane` ownership over feature-specific ownership.
 - 2026-05-26 IDA `py_eval` recheck confirms the `GetSelectionCount` helper at `0x004f3e20-0x004f3e74` has 14 xrefs and no `SelectionState` RTTI/name evidence; IDA does expose `ListPane` vtables and RTTI, so the generated `SelectionState` class record is an alias.
-- IDA reports `0x004f4820` is not a function even though current disabled `class_ListPane.cpp` lists a missing method there.
+- 2026-06-06 by-memory audit confirms IDA still does not model `0x004f4820` as a function object, but raw disassembly shows a real `ListPane` selection clamp/notify body at `0x004f4820-0x004f487c`; treat it as unpromoted raw `ListPane` material needing split/name follow-up, not as empty padding.
 
 ## Source Layout Decision
 
@@ -73,3 +73,8 @@ Keep `ListPane` in `ui/controls/ListPane.cpp` or a neighboring reusable UI-contr
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `90/88`. Summary: the reusable selectable list control is documented in high detail across construction, owned lists, selection, scrolling, hit testing, virtual dispatch, generated ownership pollution, and source layout decision. Evidence: linked full by-memory range, IDA-confirmed helper starts, vtable/RTTI evidence, broad subclass caller fanout, and `SelectionState` alias analysis.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000KT][ListPane](by-file/ListPane.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving the reusable selectable list control unclassified in generated class coverage.
+  - After: set `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000KT`; left the C++ block blank because the page is below the final reconstruction bar.
+  - Summary/evidence: live IDA MCP reconfirms the core starts at `0x004f3a50`, `0x004f3b60`, `0x004f3bd0`, `0x004f3c00`, `0x004f3c50`, `0x004f3d60`, `0x004f3e20`, and `0x004f49e0`, with broad subclass caller fanout. The class score `90/88` and parent score `88/84` meet the 80/80 attachment gate.
+- 2026-06-06 A007: Synchronized the method/evidence notes with [UID:000194][0x004f3a50-0x004f4a77.ListPane](by-memory/0x004f3a50-0x004f4a77.ListPane.md) after live IDA disassembly confirmed `0x004f4820-0x004f487c` is unpromoted raw ListPane code rather than padding or a purely stale disabled-source lead. No score or C++ changes.

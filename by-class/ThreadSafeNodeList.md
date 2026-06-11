@@ -1,7 +1,7 @@
 *** UID:0000EX | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -51,6 +51,10 @@ The same machine-code behavior is strongly valid as [UID:0000AM][PoolAllocator](
 
 ## Changes
 
+- 2026-06-05: Changed autogen reconstructability from blank to `FALSE`.
+  - Before: the page was already excluded from score queues as a generated class identity, but class autogen still reported it as unclassified.
+  - After: the standalone `ThreadSafeNodeList` class identity is explicitly non-reconstructable; the underlying function remains tracked through [UID:0000AM][PoolAllocator](by-class/PoolAllocator.md) and [UID:000153][0x004b14c0-0x004b14ef.ThreadSafeNodeListPushFront](by-memory/0x004b14c0-0x004b14ef.ThreadSafeNodeListPushFront.md).
+  - Evidence: live IDA MCP on 2026-06-05 confirms `sub_4B14C0` at `0x004b14c0` (`0x2f` bytes) and caller fan-in consistent with allocator/free-list use, not proof of a standalone class declaration.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:-1` and `CONFIDENCE:-1`.

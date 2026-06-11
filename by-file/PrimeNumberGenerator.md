@@ -1,6 +1,6 @@
 *** UID:0000MQ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PrimeNumberGenerator
@@ -43,6 +43,7 @@ Current IDA caller checks show no direct constructor callers in the database, so
 - 2026-05-26 IDA `py_eval` recheck confirms `0x00622420` is a one-slot table with RTTI pointer at `0x0062241c`, deleting destructor slot `0x0054c110`, and the next class RTTI pointer at `0x00622424`.
 - 2026-05-31 IDA MCP recheck: the raw accessor at `0x0054bcc0` is still not a modeled IDA function, constructor `0x0054bcf0-0x0054c062` and scalar deleting destructor `0x0054c110-0x0054c15a` remain modeled functions, and `0x0054c160-0x0054c1f1` remains the shared Deque clear helper called by both constructor/destructor paths. The vtable slot at `0x00622420` still points to `0x0054c110`, with writes from the constructor/destructor family. No direct constructor/destructor callers are modeled, so active-use confidence remains capped.
 - 2026-06-01 IDA MCP recheck confirms the raw accessor exact instruction body at `0x0054bcc0-0x0054bcec`, the modeled constructor/destructor ranges, vtable writes at `0x0054bd20`, `0x0054c074`, and `0x0054c11a`, and raw cleanup helper bodies at `0x0054c070-0x0054c09c` and `0x0054c0a0-0x0054c0bc`. Confidence is now strong enough for source ownership and autogen parenting, though active runtime use remains unresolved.
+- 2026-06-07 A001 IDA MCP `py_eval` recheck reconfirms the source-file anchor data needed for direct child routing: the constructor remains modeled at `0x0054bcf0-0x0054c062`, the scalar deleting destructor remains modeled at `0x0054c110-0x0054c15a`, the one-slot vtable island reads `0x0062241c -> ??_R4PrimeNumberGenerator@@6B@` and `0x00622420 -> 0x0054c110`, the next RTTI dword at `0x00622424` belongs to `PursuitMessageDialogPane`, and vtable-base stores still come from `0x0054bd20`, `0x0054c074`, and `0x0054c11a`.
 
 ## Generated Output Caveats
 
@@ -54,6 +55,13 @@ Current IDA caller checks show no direct constructor callers in the database, so
 ## Source-Structure Decision
 
 Keep this under `util/` beside [UID:0000IR][Deque](by-file/Deque.md), [UID:0000KS][List](by-file/List.md), [UID:0000HZ][CachedHashTable](by-file/CachedHashTable.md), and other reusable containers/algorithm helpers. Nothing in current caller evidence ties it to UI, map, archive, or audio.
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 85 | The page now documents the proposed `NexusTK/util/` root, class/layout/vtable contents, raw accessor split, Deque helper dependency, modeled constructor/destructor boundaries, vtable-data child boundary, generated-output caveats, and current no-direct-caller limitation. |
+| Confidence | 85 | Utility source ownership is directly supported by the class, layout, vtable, memory-range, and repeated IDA MCP rechecks. Confidence stays at the assignment threshold rather than higher because active runtime construction remains unresolved and some helper names/layout details still need final-source review. |
 
 ## Cross-References
 
@@ -80,3 +88,7 @@ Keep this under `util/` beside [UID:0000IR][Deque](by-file/Deque.md), [UID:0000K
   - What existed before: confidence was `78`, which was below the threshold used for child autogen parenting even though utility ownership was already strong.
   - Changed to: confidence `82`.
   - Summary/evidence: IDA MCP reconfirmed exact raw accessor behavior, constructor/destructor ranges, raw cleanup helper boundaries, vtable writes, DequeClear calls, and source placement under `NexusTK/util/`; confidence remains capped below class/method pages because there are still no modeled runtime construction callers.
+- 2026-06-07 A001 direct-parent gate update:
+  - What existed before: score `84/82`; this was below the supervisor's corrected `85/85` direct-parent assignment gate for the exact PrimeNumberGenerator vtable child.
+  - Changed to: score `85/85`.
+  - Summary/evidence: fresh IDA MCP `py_eval` reconfirmed constructor/destructor boundaries, one-slot vtable bytes, vtable-store xrefs, and neighboring RTTI boundaries. The score is only raised to the gate because source ownership and generated-binary vtable routing are well supported, while unresolved active runtime construction still caps confidence above the gate.

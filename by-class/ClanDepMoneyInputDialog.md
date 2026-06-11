@@ -1,6 +1,6 @@
 *** UID:00002A | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000I8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -25,26 +25,27 @@
 
 | Method | Address | Role |
 | --- | --- | --- |
-| raw/projected constructor | [UID:00021V][0x00488fa0-0x00488fd5.ClanDepMoneyInputDialogRawConstructor](by-memory/0x00488fa0-0x00488fd5.ClanDepMoneyInputDialogRawConstructor.md) `0x00488fa0-0x00488fd5` | Constructor-shaped bytes; IDA reports no function, inbound xrefs, or raw pointer hits at this start. |
+| raw constructor-shaped body | [UID:00021V][0x00488fa0-0x00488fd5.ClanDepMoneyInputDialogRawConstructor](by-memory/0x00488fa0-0x00488fd5.ClanDepMoneyInputDialogRawConstructor.md) `0x00488fa0-0x00488fd5` | Constructor-shaped bytes; IDA reports no function, inbound xrefs, pointer-byte matches, immediate matches, or data-reference matches at this start. |
 | `OnSubmitText` / deposit request | [UID:0002NS][0x00488fe0-0x00489062.ClanDepMoneyInputDialogSubmitDepositMoney](by-memory/0x00488fe0-0x00489062.ClanDepMoneyInputDialogSubmitDepositMoney.md) `0x00488fe0-0x00489062` | Converts the input amount and sends opcode `0x4b`, subtype `4`, action `1`, and the amount. |
 
 ## Evidence Notes
 
 - 2026-06-05 live IDA MCP reports no function object at `0x00488fa0`; `xrefs_to(0x00488fa0)` is empty and a little-endian pointer-byte search for `0x00488fa0` found no matches.
-- Direct disassembly still shows constructor-shaped bytes ending in `retn 4` at `0x00488fd2`.
-- The raw constructor pushes its single argument, calls the shared `ClanNameInputDialog` base constructor `sub_488B40` at `0x00488fad`, and writes primary/secondary/tertiary `ClanDepMoneyInputDialog` vtables at `0x00488fb2`, `0x00488fba`, and `0x00488fc4`.
-- 2026-06-05 live IDA MCP reports `sub_488FE0` as a real function at `0x00488fe0-0x00489062`, with the submit callback referenced from vtable slot `0x006159f4`.
-- The submitter converts the submitted text with the CRT conversion helper that IDA labels `unknown_libname_24`, writes packet bytes through `sub_575380` for opcode `0x4b`, subtype `4`, and action `1`, writes the four-byte amount through `sub_5753F0`, then sends seven bytes through `dword_67A7EC` and `sub_574BB0`.
-- Live vtable data confirms RTTI at `0x00615994`, primary destructor slot `0x00615998 -> sub_48C350`, submit slot `0x006159f4 -> sub_488FE0`, secondary adjustor slot `0x006159fc -> sub_48C27B`, and tertiary adjustor slot `0x00615a2c -> sub_48C286`.
-- Xrefs to the three vtable bases come from Clan dialog code at `0x00485120`/`0x00485126`/`0x00485130`, from `sub_487D70` at `0x00487de4`/`0x00487dea`/`0x00487df4`, and from the raw constructor stores at `0x00488fb2`/`0x00488fba`/`0x00488fc4`.
+- 2026-06-05 live IDA MCP reports zero immediate matches and zero data-reference matches for `0x00488fa0`; byte search for little-endian pointer bytes `a0 8f 48 00` also returns zero matches.
+- Direct disassembly shows constructor-shaped bytes ending in `retn 4` at `0x00488fd2`, followed by eleven `0xcc` padding bytes before the submitter.
+- The raw constructor pushes its single argument, calls the shared `ClanNameInputDialog` base constructor at `0x00488fad`, and writes primary/secondary/tertiary `ClanDepMoneyInputDialog` vtables at `0x00488fb2`, `0x00488fba`, and `0x00488fc4`.
+- 2026-06-05 live IDA MCP reports the submitter as a real function at `0x00488fe0-0x00489062`, with the submit callback referenced from vtable slot `0x006159f4`.
+- The submitter converts the submitted text with the CRT conversion helper at `0x005cea43`, writes packet bytes through `0x00575380` for opcode `0x4b`, subtype `4`, and action `1`, writes the four-byte amount through `0x005753f0`, then sends seven bytes through `0x00574bb0` using packet sender `0x0067a7ec`.
+- Live vtable data confirms RTTI at `0x00615994`, primary destructor slot `0x00615998 -> 0x0048c350`, submit slot `0x006159f4 -> 0x00488fe0`, secondary adjustor slot `0x006159fc -> 0x0048c27b`, and tertiary adjustor slot `0x00615a2c -> 0x0048c286`.
+- Xrefs to the three vtable bases come from Clan dialog code at `0x00485120`/`0x00485126`/`0x00485130`, from the function beginning at `0x00487d70` via instructions `0x00487de4`/`0x00487dea`/`0x00487df4`, and from the raw constructor stores at `0x00488fb2`/`0x00488fba`/`0x00488fc4`.
 - Live IDA still reports no xrefs to the raw constructor start `0x00488fa0`, so constructor reachability remains an explicit cap even though the byte body, submitter, packet shape, and vtable identity are coherent.
 
 ## Score Rationale
 
 | Field | Value | Rationale |
 | --- | ---: | --- |
-| Completion | 82 | The page now records the raw constructor body, exact submitter range, packet bytes, conversion/send path, vtable slots, Clan parent ownership, and remaining constructor caveat. |
-| Confidence | 86 | Confidence is strong for the submitter, packet shape, vtable identity, and Clan ownership, with live IDA xrefs tying the class to the Clan dialog family. It is capped below the reconstruction-code threshold because the constructor start is still raw/non-IDA-modeled and has no direct xrefs. |
+| Completion | 84 | The page now records the raw constructor body, exact submitter range, packet bytes, conversion/send path, vtable slots, pointer-search caveat, Clan parent ownership, and child page routing. |
+| Confidence | 88 | Confidence is strong for the submitter, packet shape, vtable identity, and Clan ownership, with live IDA xrefs tying the class to the Clan dialog family. It is capped below the reconstruction-code threshold because the constructor start is still raw/non-IDA-modeled and has no direct xrefs or pointer matches. |
 | Reconstructable | true | The class represents source-authored clan-bank deposit behavior. C++ remains blank until the raw constructor and class declaration are final enough for the 95/95 gate. |
 
 ## Cross-References
@@ -60,7 +61,7 @@
 ## Changes
 
 - 2026-05-27: The constructor row previously referenced only raw `0x00488fa0`. Replaced it with [UID:00021V][0x00488fa0-0x00488fd5.ClanDepMoneyInputDialogRawConstructor](by-memory/0x00488fa0-0x00488fd5.ClanDepMoneyInputDialogRawConstructor.md), the focused `0x00488fa0-0x00488fd5` raw-constructor page, and clarified that constructor shape is strong while reachability remains unresolved. Evidence: IDA MCP raw-head audit confirms the base-constructor call and vtable stores, with no function object or inbound xrefs at `0x00488fa0`.
-- 2026-05-31: The submitter row previously used the raw inclusive-looking range `0x00488fe0-0x00489061`. Replaced it with exact child page [UID:0002NS][0x00488fe0-0x00489062.ClanDepMoneyInputDialogSubmitDepositMoney](by-memory/0x00488fe0-0x00489062.ClanDepMoneyInputDialogSubmitDepositMoney.md). Evidence: IDA MCP `lookup_funcs` reports `sub_488FE0` size `0x82`, vtable xref `0x006159f4`, and padding beginning at `0x00489062`.
+- 2026-05-31: The submitter row previously used the raw inclusive-looking range `0x00488fe0-0x00489061`. Replaced it with exact child page [UID:0002NS][0x00488fe0-0x00489062.ClanDepMoneyInputDialogSubmitDepositMoney](by-memory/0x00488fe0-0x00489062.ClanDepMoneyInputDialogSubmitDepositMoney.md). Evidence: IDA MCP `lookup_funcs` reports a modeled function at `0x00488fe0`, size `0x82`, vtable xref `0x006159f4`, and padding beginning at `0x00489062`.
 - What existed before: the page documented deposit-money submit behavior, raw constructor page linkage, vtable anchors, and reachability caveats, but metadata still read `0/0`.
 - What it was changed to: scores were set to `68/76`.
 - Summary and evidence: submitter behavior and raw constructor shape are documented; no-xref constructor reachability and final layout/header detail remain unresolved.
@@ -68,3 +69,7 @@
   - What existed before: the page had `72/82` scores, no autogen parent, and only summarized the constructor caveat and submitter.
   - Changed to: scores `82/86`, `AUTOGEN_PARENT_UID:0000I8`, direct live IDA evidence for constructor-shaped bytes, vtable stores/slots, submit packet construction, conversion path, and send path.
   - Summary/evidence: completion increased because the page now documents the full submitter behavior, vtable identity, raw constructor body, and parent ownership. Confidence increased because live IDA MCP confirms the exact function range, vtable data refs, packet byte sequence, and Clan-family ownership while preserving the no-function/no-xref raw constructor cap. C++ remains blank because the constructor and class declaration are not 95/95 quality.
+- 2026-06-05 constructor/class evidence cleanup:
+  - What existed before: `82/86`, stale raw helper/global labels, no live pointer-search evidence in the class summary, and stale by-class coverage at `72%`.
+  - Changed to: `84/88`, address-based live IDA evidence, synced by-class coverage, and child routing that places the raw constructor under this class once both pages are above the parent gate.
+  - Summary/evidence: live IDA MCP reconfirmed the constructor no-function/no-xref status, zero pointer/immediate/data-reference matches for `0x00488fa0`, vtable stores, submitter bounds and packet/send dependencies, and class-family vtable xrefs while preserving the no-code rationale.

@@ -54,7 +54,7 @@ Targeted checks on 2026-05-24 confirmed:
 
 2026-06-02 IDA MCP refresh confirmed:
 
-- `OpenQuitPrompt_5A94B0` remains `0x005a94b0-0x005a95d2`, called from `0x005a5cc8`; it chooses the modal `QuitDialog` path when `byte_66DA97 == 1` and otherwise creates a singleton typed `QuitInputPane`.
+- `OpenQuitPrompt_5A94B0` remains `0x005a94b0-0x005a95d2`, called from `0x005a5cc8`; it chooses the modal `QuitDialog` path when [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97` is `1` and otherwise creates a singleton typed `QuitInputPane`.
 - `lookup_funcs` still reports `0x005adcc0` and `0x005add18` as `Not a function`, while `0x005add20` is `sub_5ADD20`, size `0x6a`, ending at `0x005add8a`.
 - `disasm 0x005adcc0` shows constructor-shaped bytes through `0x005add17`, then `0xcc` alignment bytes through the modeled handler start at `0x005add20`.
 - `decompile 0x005add20` confirms one-character `Y/y` handling, timer unregister through `0x00597a10`, and main-menu/parcel transition through `0x005047f0`; non-confirming input calls `0x00544690`.
@@ -65,8 +65,8 @@ Targeted checks on 2026-05-24 confirmed:
 
 - `ReadInputText` at `0x004f2300` and `GetInputLength` at `0x004f2310` are shared [UID:000077][LineInputPane](by-class/LineInputPane.md) helpers with broad caller fanout. They are emitted in `class_QuitInputPane.cpp`, but they should remain in [UID:0000K7][InputPanes](by-file/InputPanes.md).
 - `QuitDialog` is launched from [UID:000082][MenuVarietySelectPane](by-class/MenuVarietySelectPane.md) and from `OpenQuitPrompt_5A94B0`. The selector owns the menu row and click dispatch, not the dialog implementation.
-- `OpenQuitPrompt_5A94B0` chooses the modal dialog path when `byte_66DA97 == 1`; otherwise it creates the older typed input prompt if `g_pQuitInputPane` is null.
-- The generated constructor code labels `dword_67A740` as `g_pReconnectServer`. Treat that parent/context pointer name as provisional until the broader main-menu/global pass confirms it.
+- `OpenQuitPrompt_5A94B0` chooses the modal dialog path when [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97` is `1`; otherwise it creates the older typed input prompt if `g_pQuitInputPane` is null.
+- The generated constructor code labels [UID:00028J][0x0067a740-0x0067a744.g_pBackPane](by-memory/0x0067a740-0x0067a744.g_pBackPane.md) / `dword_67A740` as `g_pReconnectServer`. Treat that parent/context pointer name as provisional until the broader main-menu/global pass confirms it.
 
 ## Cross-References
 
@@ -78,11 +78,18 @@ Targeted checks on 2026-05-24 confirmed:
 - [UID:0001N7][0x005b7836-0x005b784c.QuitInputPaneDestructorThunks](by-memory/0x005b7836-0x005b784c.QuitInputPaneDestructorThunks.md)
 - [UID:0001NC][0x005b7b30-0x005b7b75.QuitInputPaneScalarDeletingDestructor](by-memory/0x005b7b30-0x005b7b75.QuitInputPaneScalarDeletingDestructor.md)
 - [UID:0001Q2][0x0069bf5c-0x0069bf60.g_pQuitInputPane](by-memory/0x0069bf5c-0x0069bf60.g_pQuitInputPane.md)
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
+- [UID:00028J][0x0067a740-0x0067a744.g_pBackPane](by-memory/0x0067a740-0x0067a744.g_pBackPane.md)
 - [UID:0000L8][MenuVarietyPanes](by-file/MenuVarietyPanes.md)
 - [UID:0000K7][InputPanes](by-file/InputPanes.md)
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: quit-dialog source grouping notes used only historical `dword_67A740`.
+  - After: the page records canonical `g_pBackPane` beside the historical label and cross-links the global page.
+  - Evidence: generated resolved-name report maps `dword_67A740` to `g_pBackPane`; existing source grouping notes already identify the value as the quit-dialog parent/context pointer.
+- 2026-06-07 A008 alias cleanup: normalized the `OpenQuitPrompt_5A94B0` `byte_66DA97` branch to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the IDA lookup alias.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `84`, confidence `78`.
 - Summary/evidence: the page documents quit prompt grouping, modal/typed paths, global singleton, IDA evidence, shared input helper boundary, generated-name caveat, and cross-references; confidence remains capped by final folder/name uncertainty.

@@ -1,22 +1,24 @@
 *** UID:0000P2 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # UserStatusPane
 
 ## Status
 
-- Confidence: strong for class grouping and UI role, medium for final split between one source file and small companion files.
+- Confidence: strong for class grouping, UI role, `ui/panels/` placement, and direct ownership of the newer `UserStatusPane` class; medium-high for the final split between one source file and small companion files.
 - Proposed module: `ui/panels/UserStatusPane.cpp`
 - Proposed header: `ui/panels/UserStatusPane.h`
 - Current recovered sources: `source-3/simroot_v2/class_UserStatusPane.cpp`, `class_UserStatusPane2.cpp`, and `class_OldUserStatusPane.cpp`.
 
 ## File Role
 
-`UserStatusPane.cpp` should own the local player status HUD panes. The code supports both the newer/high-resolution layout and the older compact/legacy layout selected through the global layout mode (`byte_66DA97` in IDA, emitted in some generated code as `g_uiLayoutMode`).
+`UserStatusPane.cpp` should own the local player status HUD panes. The code supports both the newer/high-resolution layout and the older compact/legacy layout selected through [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97`; some generated code emitted this same global as `g_uiLayoutMode`.
 
 The strongest source-layout evidence is `InitializeMainUiGraph` at `0x004f7d10`: in the newer layout it constructs both `UserStatusPane` and `UserStatusPane2`; in the older layout it constructs `OldUserStatusPane`. All three load the same `9X11FONT.BIN` numeric glyph table and share status-field update patterns, icon ids, resource families, and destructor thunk layout.
+
+For the corrected parent gate, this file is now strong enough to act as the direct parent for [UID:0000FS][UserStatusPane](by-class/UserStatusPane.md): the class page is `88/88`, this file is `88/85`, and the class is one of the named top-level contents of this source module. This file confidence update does not by itself make every related child eligible; lower-scored children still need their own `85/85` checks.
 
 ## Proposed Contents
 
@@ -56,6 +58,14 @@ The strongest source-layout evidence is `InitializeMainUiGraph` at `0x004f7d10`:
 - `class_OldUserStatusPane.cpp` currently contains literal `` `n`n`` text in the generated constructor body. This is a generated-data problem, not source evidence.
 - Some item/inventory generated output still aliases `0x0069ae0c` as `g_pEffectObjImageLib`, `g_pLocalPlayer`, or raw `DAT_0069ae0c`. IDA evidence keeps the storage with [UID:0000PS][g_activeUserStatusPane](by-global/g_activeUserStatusPane.md); consumer docs should describe the accessed field rather than adopting the wrong global owner.
 - A 2026-05-27 IDA xref audit counted 67 direct xrefs to `dword_69AE0C` across 44 containing-function buckets. This breadth is expected because the active status-pane object exposes local player/status fields, including the inventory slot count at `+0x284`, to multiple UI and item-command subsystems.
+- 2026-06-07 A005 Batch 059 parent-gate recheck used the already documented class and memory evidence to raise confidence from `80` to `85`: [UID:0000FS][UserStatusPane](by-class/UserStatusPane.md) is `88/88`, [UID:0000FT][UserStatusPane2](by-class/UserStatusPane2.md) is `86/88`, [UID:0001NM][0x005b83b0-0x005baafe.UserStatusPane](by-memory/0x005b83b0-0x005baafe.UserStatusPane.md) independently records the 21-function newer status-pane inventory at `88` confidence, and the sibling class docs agree on the shared `InitializeMainUiGraph`, singleton, resource, and status-payload family evidence. Remaining uncertainty now caps final-source completeness, not the direct file ownership of the newer `UserStatusPane` class.
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 88 | The page identifies the status-HUD source family, three pane variants, resource/global/type dependencies, method-family anchors, generated-output caveats, and source-boundary exclusions. It stays below 95 because several large methods and the final one-file-versus-companion split are not source-final. |
+| Confidence | 85 | The direct `UserStatusPane.cpp` file ownership is now supported by class pages, memory aggregates, singleton/global docs, resource docs, and UI-construction evidence. Confidence remains at the threshold, not higher, because `OldUserStatusPane` still has lower confidence and some generated output remains incomplete or malformed. |
 
 ## Cross-References
 
@@ -68,9 +78,15 @@ The strongest source-layout evidence is `InitializeMainUiGraph` at `0x004f7d10`:
 - [UID:0001RS][user-status-resources](by-resource/user-status-resources.md)
 - [UID:0000OV][TotemFrame](by-file/TotemFrame.md)
 - [UID:0000L8][MenuVarietyPanes](by-file/MenuVarietyPanes.md)
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
 
 ## Changes
 
+- 2026-06-07 A005 Batch 059 parent-gate repair:
+  - Before: `COMPLETION:88`, `CONFIDENCE:80`.
+  - After: `COMPLETION:88`, `CONFIDENCE:85`.
+  - Evidence: rechecked the direct source-file ownership evidence for [UID:0000FS][UserStatusPane](by-class/UserStatusPane.md), including the `88/88` class page, `88`-confidence executable aggregate, `InitializeMainUiGraph` construction sites, shared status resources, singleton globals, and sibling `UserStatusPane2` family documentation. This enables the `UserStatusPane` class parent route while leaving lower-scored children subject to their own gates.
+- 2026-06-07 A008 alias cleanup: normalized the layout-mode `byte_66DA97` / `g_uiLayoutMode` wording to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the IDA lookup alias.
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `88/80`. Summary/evidence: the page documents the status-HUD source family, likely classes, resources, globals, memory refs, and source-boundary notes, with remaining uncertainty around exact split and some generated global names.
 - 2026-05-31: Assigned validator reconstruction path.
   - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank.

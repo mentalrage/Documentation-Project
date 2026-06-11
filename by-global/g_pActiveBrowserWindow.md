@@ -1,6 +1,6 @@
 *** UID:0000Q6 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -26,6 +26,8 @@ The active window sits in the same static browser data neighborhood as `g_pBrows
 
 The exact storage child [UID:0002T5][0x0067ab94-0x0067ab98.g_pActiveBrowserWindow](by-memory/0x0067ab94-0x0067ab98.g_pActiveBrowserWindow.md) records the aggregate IDA evidence for `dword_67AB94`, the `BrowserWindow` constructor/destructor ownership trail, and the accelerator helper that reads this slot before querying the active browser object.
 
+A004 live IDA MCP on 2026-06-07 reconfirmed the storage child as an initialized four-byte `.data` slot with 5 refs across 4 functions: constructor/set refs at `0x004696a3` and `0x004696aa`, lifetime ref at `0x00469a71`, accelerator-helper read at `0x0046a535`, and cleanup clear at `0x00470240`.
+
 ## Ownership Hypothesis
 
 This is browser module state for the currently constructed or active embedded browser host window. It should migrate with `BrowserWindow` in `browser/Browser.cpp` or a split `browser/BrowserWindow.cpp`.
@@ -39,6 +41,8 @@ static BrowserWindow* g_pActiveBrowserWindow;
 ```
 
 Keep `static` provisional until linkage is reviewed.
+
+The exact storage child [UID:0002T5][0x0067ab94-0x0067ab98.g_pActiveBrowserWindow](by-memory/0x0067ab94-0x0067ab98.g_pActiveBrowserWindow.md) is now attached here rather than directly to [UID:0000HV][Browser](by-file/Browser.md). This page and its Browser file parent both meet the corrected `85/85` gate after the 2026-06-07 refresh.
 
 ## Cross-References
 
@@ -54,3 +58,7 @@ Keep `static` provisional until linkage is reviewed.
 - Before: the page depended on generated constructor/destructor notes and a storage candidate, leaving confidence at `72` and autogen metadata blank.
 - Changed to: exact storage child [UID:0002T5][0x0067ab94-0x0067ab98.g_pActiveBrowserWindow](by-memory/0x0067ab94-0x0067ab98.g_pActiveBrowserWindow.md), score `82/84`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000HV`.
 - Summary/evidence: the exact child records the aggregate IDA `dword_67AB94` evidence and the IDA-backed accelerator helper read, while BrowserWindow and Browser source-root docs support browser ownership. Final linkage/type spelling remains below final-source confidence.
+- 2026-06-07 A004 split-rule correction:
+  - Before: `COMPLETION:82`, `CONFIDENCE:84`, with exact storage child evidence but below the corrected assignment gate.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:88`.
+  - Summary/evidence: live IDA MCP reconfirmed exact initialized storage and five constructor/read/clear refs for [UID:0002T5][0x0067ab94-0x0067ab98.g_pActiveBrowserWindow](by-memory/0x0067ab94-0x0067ab98.g_pActiveBrowserWindow.md). The refreshed Browser parent and direct child evidence justify the exact child assignment under the corrected gate.

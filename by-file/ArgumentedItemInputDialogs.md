@@ -68,7 +68,7 @@ Behavior evidence from live decompilation/disassembly:
 
 - `0x0051f450` checks the selected row index, fetches the row context, uses the buy/price-confirm prompt string, and calls the confirm-dialog constructor at `0x005200d0`.
 - `0x0051f510` branches on quantity `<= 1`: it calls `0x0051f640` with quantity `1`, otherwise allocates class id `628`, reads prompt resource id `246` through `dword_67A750`, and calls `0x0051fc90`.
-- `0x0051f640` writes opcode `0x39`, context fields from offsets `+0x14c`, `+0x150`, and `+0x154`, the selected argument id, and the quantity byte, then sends 14 bytes through `dword_67A7EC`.
+- `0x0051f640` writes opcode `0x39`, context fields from offsets `+0x14c`, `+0x150`, and `+0x154`, the selected argument id, and the quantity byte, then sends 14 bytes through [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / historical `dword_67A7EC`.
 - `0x0051ff70` parses decimal input, rejects values above `100` with the `You can't buy more than 100.` alert string, rejects zero with the `How much?` alert string, and calls `0x0051f640` for valid nonzero quantities.
 - `0x005203c0` parses the typed price, compares it with the expected price stored in the confirm dialog, uses the `Price is different.` alert string on mismatch, and otherwise dispatches to `0x0051f640` or `0x0051fc90`.
 
@@ -101,11 +101,17 @@ Do not write final reconstruction C++ yet. The behavior and boundaries are stron
 - [UID:0000TY][ArgumentedItemPurchaseHelpers_51f450_51f640](by-item/ArgumentedItemPurchaseHelpers_51f450_51f640.md)
 - [UID:0001BT][0x0051fc90-0x00520539.ArgumentedItemInputDialogs](by-memory/0x0051fc90-0x00520539.ArgumentedItemInputDialogs.md)
 - [UID:0001BS][0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs](by-memory/0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs.md)
+- [UID:0000Q5][g_packetSender](by-global/g_packetSender.md)
 - [UID:0000OP][TextMenuDialogs](by-file/TextMenuDialogs.md)
 - [UID:00000H][ArgumentedMenuMenuDialog](by-class/ArgumentedMenuMenuDialog.md)
 - [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md)
 
 ## Changes
+
+- 2026-06-07: Replaced the raw `dword_67A7EC` packet-send reference with canonical [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) wording.
+  - Before: the argumented item packet helper evidence described the 14-byte send through the historical generated global only.
+  - After: the page links the resolved packet sender while retaining the historical label for IDA traceability.
+  - Evidence: the generated resolved-name report maps `dword_67A7EC` to `g_packetSender`, and the existing live IDA notes tie the `0x0051f640` helper to the final `0x39` argumented item purchase packet send.
 
 - 2026-06-04: Raised grading from `72/82` to `82/88` and set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/ui/dialogs/`.
   - Before: the page relied on stale non-live provenance and older IDA notes, had inclusive endpoint wording for several ranges, and left the proposed path blank.

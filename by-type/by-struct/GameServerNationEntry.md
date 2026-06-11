@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00005O | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Confidence: strong for size, field offsets, stride, parser writes, lookup copies, and resize behavior; medium for final source-facing type name.
 - Likely owner header: [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md) or a private `MapPane` helper header.
 - Current generated spelling: `GameServerConfig::NationEntry`.
+- Autogen parent: attached to [UID:00005O][GameServerConfig](by-class/GameServerConfig.md); the class scores `82/80` and this record scores `84/88`, so both sides satisfy the 80/80 parent gate.
 - Evidence basis: IDA MCP function lookup, decompile, raw disassembly, xrefs, and byte checks on 2026-05-31. Generated data is only a naming/ownership lead.
 
 ## Layout
@@ -67,5 +68,6 @@ Keep this type with the map/gameplay nation table, not with the general configur
 
 ## Changes
 
+- 2026-06-06: Attached the record to [UID:00005O][GameServerConfig](by-class/GameServerConfig.md) because the generated nested spelling, parser/copy/resize evidence, and `GameServerConfig` class score now clear the parent gate. No completion/confidence score change was made.
 - 2026-05-31: Raised from unevaluated `0/0` to `COMPLETION:84` and `CONFIDENCE:88`, and marked `RECONSTRUCTABLE:TRUE`.
   Evidence: IDA MCP confirmed `0x00503a80` record lookup/copy, `0x00503d10` packet parser writes, `0x00514ee0` 68-byte resize helper, destructor cleanup, and raw default-entry seeding at `0x00503b60`. Score remains below `95` because final type/source names and packet/sentinel semantics are not fully proven.

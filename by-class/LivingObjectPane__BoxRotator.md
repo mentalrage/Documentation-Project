@@ -39,7 +39,7 @@ The original source should probably model this as a nested/private helper declar
 - IDA xref sample points to `??_7BoxRotator@LivingObjectPane@@6B@`, making it a `LivingObjectPane` nested helper rather than unrelated frame infrastructure.
 - [UID:0000KU][LivingObjectPane](by-file/LivingObjectPane.md) records the same vtable and method boundary in the proposed `LivingObjectPane.cpp` source bucket.
 - [UID:0001DE][0x0053a110-0x0053d818.LivingObjectPaneCore](by-memory/0x0053a110-0x0053d818.LivingObjectPaneCore.md) keeps this destructor with the LivingObjectPane core while documenting non-Living object-pane overlap boundaries.
-- [UID:0002SN][0x00620954-0x00620b88.MotionLivingLightSoundObjectPaneVtableData](by-memory/0x00620954-0x00620b88.MotionLivingLightSoundObjectPaneVtableData.md) records the grouped read-only vtable data containing `LivingObjectPane::BoxRotator`.
+- [UID:000357][0x0062096c-0x00620978.LivingObjectPaneBoxRotatorVtableData](by-memory/0x0062096c-0x00620978.LivingObjectPaneBoxRotatorVtableData.md) records the exact read-only vtable data containing `LivingObjectPane::BoxRotator`.
 
 ## Autogen Status
 
@@ -58,7 +58,7 @@ The original source should probably model this as a nested/private helper declar
 - [UID:0000KU][LivingObjectPane](by-file/LivingObjectPane.md)
 - [UID:0001DE][0x0053a110-0x0053d818.LivingObjectPaneCore](by-memory/0x0053a110-0x0053d818.LivingObjectPaneCore.md)
 - [UID:0002T6][0x0053d030-0x0053d053.LivingObjectPaneBoxRotatorScalarDeletingDestructor](by-memory/0x0053d030-0x0053d053.LivingObjectPaneBoxRotatorScalarDeletingDestructor.md)
-- [UID:0002SN][0x00620954-0x00620b88.MotionLivingLightSoundObjectPaneVtableData](by-memory/0x00620954-0x00620b88.MotionLivingLightSoundObjectPaneVtableData.md)
+- [UID:000357][0x0062096c-0x00620978.LivingObjectPaneBoxRotatorVtableData](by-memory/0x0062096c-0x00620978.LivingObjectPaneBoxRotatorVtableData.md)
 
 ## Changes
 

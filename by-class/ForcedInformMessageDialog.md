@@ -1,8 +1,8 @@
 *** UID:00005E | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JJ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -72,3 +72,4 @@ Place this as `login/ForcedInformMessageDialog.cpp` or a nearby pre-login dialog
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `86/84`. Summary: dialog behavior, EPF/EPD modes, singleton, login teardown path, constructor/destructor/button/key methods, layout offsets, resource ownership, and IDA evidence are documented in detail; remaining uncertainty is exact original filename and unresolved direct reachability. Evidence: core range `0x00587bb0-0x005881ed`, singleton/global cross-references, destructor/support ranges, IDA xrefs to `g_pForcedInformMessageDialog`, and forced-inform resource page.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000JJ][ForcedInformMessageDialog](by-file/ForcedInformMessageDialog.md) because the class is `86/84` and the parent is `84/80`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts at `0x00587bb0`, `0x00588080`, `0x00588110`, `0x00588160`, `0x0058aa90`, `0x0058aadb`, `0x0058aae6`, and `0x0058abf0`; current `callers` still reports no direct constructor/callback callers, matching the existing reachability caveat.

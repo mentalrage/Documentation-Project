@@ -1,6 +1,6 @@
 *** UID:0000P9 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # WebBoardDialog
@@ -26,11 +26,16 @@
 
 - IDA MCP on 2026-05-24 confirms `0x0046d050` size `0x2d4`, `0x0046d480` size `0x23`, and `0x0046d580` size `0x4e3`.
 - IDA MCP confirms `0x0046e2a0` size `0x216`, `0x0046e640` size `0x27e`, `0x0046ea00` size `0x23`, and `0x0046eaa0` size `0x3da`.
+- A004 live IDA MCP on 2026-06-07 reconfirmed the active constructor at `0x0046d050` size `0x2d4`, the old constructor at `0x0046e640` size `0x27e`, the old response handler at `0x0046eaa0` size `0x3da`, and the old raw URL escape helper bytes beginning at `0x0046ee80` without an IDA function object.
+- A004 live IDA MCP on 2026-06-07 reconfirmed singleton storage xrefs for `0x0067ab9c` / [UID:0000SQ][g_pWebBoardDialog](by-global/g_pWebBoardDialog.md) and `0x0067aba0` / [UID:0000SR][g_pWebBoardDialogOld](by-global/g_pWebBoardDialogOld.md), including constructor stores and destructor/unwind clears.
+- A004 live IDA MCP on 2026-06-07 reconfirmed [UID:0002AH][0x0067acb0-0x0067adb8.WebBoardDialogOldUrlEscapeState](by-memory/0x0067acb0-0x0067adb8.WebBoardDialogOldUrlEscapeState.md) as the old URL escape guard/table state: guard refs at `0x0046ec27`/`0x0046ecf4`, 24 table refs through the response/raw helper paths, and old character-set refs at `0x0046ec5c`, `0x0046ece0`, `0x0046eebd`, and `0x0046ef40`.
 - IDA MCP on 2026-05-27 confirms [UID:000210][0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers](by-memory/0x0046da70-0x0046e294.WebBoardDialogRenderEscapeAndOldTeardownHelpers.md): active vtable slots at `0x00613620`, `0x0061362c`, and `0x00613630`, raw active URL escape helper at `0x0046da70`, and raw old teardown-like helper at `0x0046e260`.
 - IDA MCP on 2026-05-27 confirms [UID:000211][0x0046e4c0-0x0046e63c.WebBoardDialogOldModeRectHelper](by-memory/0x0046e4c0-0x0046e63c.WebBoardDialogOldModeRectHelper.md), a raw old-mode rectangle helper with embedded switch tables before the old constructor.
+- A006 Batch 105 parent/source recheck confirms [UID:0000ZA][0x0046e2a0-0x0046e4b6.WebBoardDialogOldLayoutRefresh](by-memory/0x0046e2a0-0x0046e4b6.WebBoardDialogOldLayoutRefresh.md) as direct [UID:0000G3][WebBoardDialogOld](by-class/WebBoardDialogOld.md) code. The modeled no-xref helper prepares old mode/control rectangles, resets/rebuilds the BrowserControlPane child, and tails into old refresh paths between the active/old teardown island and the raw old mode-rect helper; generic Browser and generated RankingDialog ownership are rejected for this child.
 - IDA MCP on 2026-05-27 confirms [UID:000212][0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks](by-memory/0x0046e8c0-0x0046e9f5.WebBoardDialogOldDestructionAndMouseCallbacks.md), a destructor plus old-dialog vtable callbacks at `0x006136d4` and `0x00613704` for browser-control shutdown/reposition behavior.
 - IDA MCP on 2026-05-27 confirms [UID:000213][0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper](by-memory/0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper.md), a raw old-dialog request helper that sends opcode `0x73`/zero payload and starts timer `0x572`.
 - IDA MCP on 2026-05-27 confirms [UID:000214][0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper](by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md), a raw old-dialog URL escape helper using the old `0x0067acb0+` escape table state.
+- IDA MCP on 2026-06-06 confirms [UID:000278][0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets](by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md), the duplicated active/old URL escape character-set table pairs consumed by `sub_46D580`, raw helper `0x0046da70`, `sub_46EAA0`, and raw helper `0x0046ee80`.
 - `simroot_v2/class_WebBoardDialog.cpp` currently emits only the active constructor and globals, so it is incomplete for source migration.
 - `simroot_v2/class_RankingDialog.cpp` currently emits `WebBoardDialogOld_Constructor` and `HandleWebBoardResponse` under `RankingDialog`; this is generated owner pollution, not original ranking source ownership.
 
@@ -53,6 +58,10 @@ Behavior is board-specific, while implementation dependencies are browser-specif
 - [UID:000213][0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper](by-memory/0x0046ea30-0x0046ea99.WebBoardDialogOldInitialRequestHelper.md)
 - [UID:0000ZD][0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse](by-memory/0x0046eaa0-0x0046ee7a.WebBoardDialogOldHandleBoardResponse.md)
 - [UID:000214][0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper](by-memory/0x0046ee80-0x0046efda.WebBoardDialogOldUrlEscapeHelper.md)
+- [UID:000278][0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets](by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md)
+- [UID:0002WJ][0x0067ab9c-0x0067aba0.g_pWebBoardDialog](by-memory/0x0067ab9c-0x0067aba0.g_pWebBoardDialog.md)
+- [UID:0002WK][0x0067aba0-0x0067aba4.g_pWebBoardDialogOld](by-memory/0x0067aba0-0x0067aba4.g_pWebBoardDialogOld.md)
+- [UID:0002AH][0x0067acb0-0x0067adb8.WebBoardDialogOldUrlEscapeState](by-memory/0x0067acb0-0x0067adb8.WebBoardDialogOldUrlEscapeState.md)
 - [UID:0000SQ][g_pWebBoardDialog](by-global/g_pWebBoardDialog.md)
 - [UID:0000SR][g_pWebBoardDialogOld](by-global/g_pWebBoardDialogOld.md)
 - [UID:0001RT][webboard-dialog-resources](by-resource/webboard-dialog-resources.md)
@@ -75,3 +84,17 @@ Behavior is board-specific, while implementation dependencies are browser-specif
   - Before: validator reported the by-file root as missing `PROPOSED_RECONSTRUCTION_PATH`.
   - After: the page stages as `auto-generated/NexusTK/ui/dialogs/WebBoardDialog.cpp`.
   - Evidence: `by-project-structure/proposed-source-tree.md` lists `ui/dialogs/WebBoardDialog.cpp`, and this page's boundary notes keep the board-specific browser-backed dialog implementation under `ui/dialogs/`.
+- 2026-06-06: Added explicit evidence and cross-reference for the URL escape character-set data child.
+  - Before: the file page covered active/old URL escape helpers but did not inventory the static character-set table pairs.
+  - After: [UID:000278][0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets](by-memory/0x0066d430-0x0066d468.BrowserUrlEscapeCharacterSets.md) is linked from evidence and cross-references, matching the by-memory parent attachment.
+- 2026-06-07 A004 Batch 036 parent-gate refresh:
+  - Before: `COMPLETION:80`, `CONFIDENCE:84`.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:88`.
+  - Summary/evidence: live IDA MCP reconfirmed active and old constructor sizes, old response-handler size, raw old URL escape helper placement, active/old singleton lifecycle refs, and exact old URL escape state child [UID:0002AH][0x0067acb0-0x0067adb8.WebBoardDialogOldUrlEscapeState](by-memory/0x0067acb0-0x0067adb8.WebBoardDialogOldUrlEscapeState.md). This raises the direct by-file parent above the corrected assignment gate for the old escape state child while keeping final source output blocked by incomplete old-helper naming/layout.
+- 2026-06-07 A004 Batch 046 split:
+  - Before: active/old singleton lifecycle evidence was documented through by-global pages but lacked exact storage child links from the file page.
+  - Changed to: linked [UID:0002WJ][0x0067ab9c-0x0067aba0.g_pWebBoardDialog](by-memory/0x0067ab9c-0x0067aba0.g_pWebBoardDialog.md) and [UID:0002WK][0x0067aba0-0x0067aba4.g_pWebBoardDialogOld](by-memory/0x0067aba0-0x0067aba4.g_pWebBoardDialogOld.md).
+  - Summary/evidence: the split children carry the initialized storage and per-slot xref evidence for active and old web-board singleton storage.
+- 2026-06-08 A006 Batch105 continuation:
+  - Changed to: added explicit source-owner evidence for [UID:0000ZA][0x0046e2a0-0x0046e4b6.WebBoardDialogOldLayoutRefresh](by-memory/0x0046e2a0-0x0046e4b6.WebBoardDialogOldLayoutRefresh.md).
+  - Summary/evidence: the helper belongs to [UID:0000G3][WebBoardDialogOld](by-class/WebBoardDialogOld.md) inside this file's old web-board family, not generic Browser or generated RankingDialog output. Score remains `86/88`.

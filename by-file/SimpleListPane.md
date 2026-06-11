@@ -1,13 +1,13 @@
 *** UID:0000NQ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SimpleListPane
 
 ## Status
 
-- Confidence: medium-high for standalone source-file identity; strong for class behavior and `ListPane` inheritance.
+- Confidence: strong enough for current source-root ownership; final standalone-versus-`ListPane.cpp` split remains below final-source confidence.
 - Proposed module: `ui/controls/SimpleListPane.cpp`
 - Alternative compact placement: [UID:0000KT][ListPane](by-file/ListPane.md)
 - Current recovered source: `source-3/simroot_v2/class_SimpleListPane.cpp`
@@ -37,6 +37,12 @@ Keep `SimpleListPane` as a reusable control source or a small companion to `List
 - It has no current direct constructor callers in IDA, so feature ownership cannot be inferred from caller fanout.
 - Its destructor is virtual/destructor infrastructure reached through vtables rather than ordinary calls.
 - Active generated output labels the base destructor call as `ClientItemMenuItemList::~ClientItemMenuItemList()`, but the called function is the shared `ListPane` destructor family. Treat the client-item-menu name as owner pollution.
+
+## Batch 129 Parent-Gate Audit
+
+This file now clears the strict `85/85` gate as the direct source root for [UID:0000D8][SimpleListPane](by-class/SimpleListPane.md). The confidence increase is narrow: it establishes current source-root ownership, not a final proof that the original project definitely used a separate `SimpleListPane.cpp` instead of folding the small adapter into `ListPane.cpp`. The direct evidence is the coherent class-local body cluster, exact copied-text helper children, and the separate projected controls source root already documented here.
+
+2026-06-08 live IDA MCP rechecked the relevant starts: `0x005739a0` remains `Not a function` for the raw constructor caveat; `0x00573a00` is `sub_573A00` size `0x98`; `0x00573c38` and `0x00573c43` are the two `0xb` adjustor thunks; and `0x00573c50` is the `0xc5` main destructor. `callees` for both destructor bodies still route through `ListPane` selected-entry/base cleanup helpers and copied-text allocation/free helpers, matching a thin reusable list-control adapter rather than a feature module.
 
 ## Evidence Notes
 
@@ -82,3 +88,7 @@ Keep `SimpleListPane` as a reusable control source or a small companion to `List
   - Before: the file page linked old short ranges `0x00573aa0-0x00573b05` and `0x00573b10-0x00573b6a`.
   - After: the file page links `0x00573aa0-0x00573b08` and `0x00573b10-0x00573b6d`, matching the full return-instruction boundaries.
   - Evidence: IDA MCP raw disassembly shows `retn 4` bytes at `0x00573b05-0x00573b08` and `retn 8` bytes at `0x00573b6a-0x00573b6d`.
+- 2026-06-08 A002 Batch129 parent-gate refresh:
+  - Before: `COMPLETION:86`, `CONFIDENCE:82`.
+  - After: `COMPLETION:86`, `CONFIDENCE:85`.
+  - Evidence: added the parent-gate audit for [UID:0000D8][SimpleListPane](by-class/SimpleListPane.md). Live IDA MCP reconfirmed the raw-constructor caveat, modeled destructor/thunk starts, destructor callee sets, and copied-text/list-base cleanup behavior. The score stays at `85` confidence because the final standalone source split versus folding into [UID:0000KT][ListPane](by-file/ListPane.md) remains open.

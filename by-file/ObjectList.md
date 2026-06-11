@@ -30,9 +30,8 @@ with `MapPane.h` holding an `ObjectList*` member around the current `MapPane + 0
 | --- | --- | --- | --- |
 | ObjectList static-object lighting sync helper | `0x00530d00-0x00530ed9` | Real IDA function with a single observed caller at `0x0050e30e`; final source-facing name provisional. | `map/ObjectList.cpp` |
 | [UID:00009Q][ObjectList](by-class/ObjectList.md) lifecycle | [UID:0002JS][0x00530ee0-0x0053125d.ObjectListConstructor](by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md), [UID:0002JT][0x00531260-0x00531473.ObjectListDestructor](by-memory/0x00531260-0x00531473.ObjectListDestructor.md), `0x00537290-0x005372c8` | Constructor/destructor/vtable stores are exact; scalar deleting destructor is vtable-only. | `map/ObjectList.cpp` |
-| ObjectList categorize/lookup helpers | `0x00531480-0x00532530` | IDA-modeled helper cluster plus raw `0x00532450` switch helper with no function object. | `map/ObjectList.cpp` |
-| ObjectList list accessors | `0x00532530-0x00532660` | Provisional `MapPaneSpatialIndex` alias surface over ObjectList fields. | `map/ObjectList.cpp` |
-| ObjectList row-bucket accessors | `0x00532550-0x0053272e` | Provisional accessor alias surface over ObjectList row-list fields. | `map/ObjectList.cpp` |
+| [UID:00023E][0x00531480-0x00532530.ObjectListCategorizeLookupHelpers](by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md) | `0x00531480-0x00532530` | IDA-modeled helper cluster plus raw `0x00532450` switch helper, now synced with immediate child pages through [UID:0002CE][0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper](by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md). | `map/ObjectList.cpp` |
+| [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md) compatibility alias subset | `0x00532530-0x0053272e` | Provisional alias over ObjectList flat/global and row-bucket accessor methods; do not promote as a separate source class without new allocation/layout evidence. | `map/ObjectList.cpp` |
 | `ObjectList::ShiftAll` candidate | `0x00532730-0x00532b72` | anonymous/MapPane call surface | `map/ObjectList.cpp` |
 | `ObjectList::DetachAll` candidate | `0x00532b80-0x00532e11` | Three current callers from MapPane cleanup/change/effect paths; final public name provisional. | `map/ObjectList.cpp` |
 | object-prune helper | `0x00532e20-0x00532eae` | anonymous/MapPane call surface | `map/ObjectList.cpp` |
@@ -47,6 +46,7 @@ with `MapPane.h` holding an `ObjectList*` member around the current `MapPane + 0
 - IDA MCP caller checks show constructor calls only from `MapPane::ChangeMap` and `MapPane::HandleEffectPacket`.
 - `0x00530d00-0x00530ed9`, `0x00531480-0x00532530`, `0x00532530-0x00532f67`, and `0x00532f70-0x0053728e` are adjacent/discontiguous object-list helper islands. The first walks ObjectList row/global fields by static object id to remove, update, or create attached lighting companions; the middle clusters categorize, remove, and look up object panes through type-dispatch helpers; the accessor island returns fields at the exact offsets initialized by the constructor; and the extended helper family handles encoded-key and type-specific list lookup/removal work.
 - 2026-05-30 IDA MCP revalidated `0x00531480-0x00532530` and the aggregate now has nested child by-memory pages for each method-level helper and switch-table-backed dispatch unit.
+- 2026-06-06 documentation sync records the categorize/lookup aggregate's immediate children through [UID:0002CE][0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper](by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md), updates [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md) as the parent accessor/sweep island, and treats [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md) as a compatibility alias rather than a separate source file.
 - `MapPane` destructor, map change, effect packet handling, rendering, scroll, and hit-test methods all call into this helper surface.
 - `FpsPane::UpdateStatistics` calls read-only ObjectList accessors for diagnostics, which is a consumer relationship and not source ownership.
 - 2026-06-04 live IDA MCP recheck confirms exact boundaries for `0x00530d00-0x00530ed9`, `0x00530ee0-0x0053125d`, `0x00531260-0x00531473`, `0x00531480-0x00531498`, `0x005314a0-0x00531bdc`, `0x00531c10-0x00532142`, `0x00532180-0x0053229e`, `0x005322d0-0x00532341`, `0x00532370-0x00532443`, `0x00532530-0x0053272e`, `0x00532730-0x00532b72`, `0x00532b80-0x00532e11`, `0x00532e20-0x00532eae`, `0x00532eb0-0x00532f67`, and `0x00537290-0x005372c8`. The same check reports no function object at raw helper starts `0x00532450`, `0x00532f70`, or `0x00536270`.
@@ -58,7 +58,7 @@ with `MapPane.h` holding an `ObjectList*` member around the current `MapPane + 0
 
 Use `map/ObjectList.cpp` as a separate companion module beside `map/MapPane.cpp`. Folding the class into `MapPane.cpp` would hide a coherent 68-byte class with constructor, destructor, vtable, and a contiguous helper island. Placing it under `util/` would over-generalize a container whose callers and stored objects are map-world specific.
 
-`MapPaneSpatialIndex` should remain a temporary documentation alias for the early accessor surface. The final original-source model should collapse that accessor surface back onto `ObjectList`, or document it as a private view of the same layout rather than as a separate allocated class.
+`MapPaneSpatialIndex` should remain only a temporary documentation alias for the early accessor surface. The final original-source model should collapse that accessor surface back onto `ObjectList`, or document it as a private view of the same layout rather than as a separate allocated class.
 
 ## Migration Notes
 
@@ -66,7 +66,7 @@ Use `map/ObjectList.cpp` as a separate companion module beside `map/MapPane.cpp`
 - Keep [UID:00023D][0x00530d00-0x00530ed9.ObjectListRemoveByObjectIdHelper](by-memory/0x00530d00-0x00530ed9.ObjectListRemoveByObjectIdHelper.md) with `ObjectList`, but leave the final public method name provisional until the caller-side MapPane object update path at `0x0050e300` is split out and reviewed.
 - Keep [UID:00023E][0x00531480-0x00532530.ObjectListCategorizeLookupHelpers](by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md) with `ObjectList`; its embedded switch tables are compiler output for ObjectList dispatch helpers, not separate source files.
 - Keep [UID:00023F][0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers](by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md) with `ObjectList`; the page includes IDA-modeled functions plus IDA-missed helper starts and internal switch/key-table logic.
-- Preserve the existing `MapPaneSpatialIndex` names as provisional method aliases until render-layer names are resolved.
+- Preserve the existing `MapPaneSpatialIndex` names only as provisional method/search aliases until render-layer names are resolved; current documentation does not support promoting it as a separate `map/` source module.
 - After merging ownership, update `MapPane` field naming from mixed `m_pObjectGrid` / `m_pObjectList` / `MapPaneSpatialIndex` wording to one `ObjectList*` field.
 
 ## Cross-References
@@ -77,6 +77,7 @@ Use `map/ObjectList.cpp` as a separate companion module beside `map/MapPane.cpp`
 - [UID:0002JS][0x00530ee0-0x0053125d.ObjectListConstructor](by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md)
 - [UID:0002JT][0x00531260-0x00531473.ObjectListDestructor](by-memory/0x00531260-0x00531473.ObjectListDestructor.md)
 - [UID:00023E][0x00531480-0x00532530.ObjectListCategorizeLookupHelpers](by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md)
+- [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md)
 - [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md)
 - [UID:00023F][0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers](by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md)
 - [UID:0001D4][0x00537290-0x005372c8.ObjectListScalarDeletingDestructor](by-memory/0x00537290-0x005372c8.ObjectListScalarDeletingDestructor.md)
@@ -87,6 +88,12 @@ Use `map/ObjectList.cpp` as a separate companion module beside `map/MapPane.cpp`
 - [UID:0000KS][List](by-file/List.md)
 
 ## Changes
+
+### 2026-06-06 - Synced Accessor Alias With ObjectList Ownership
+
+- What existed before: the proposed contents table still split the early accessor surface into list and row-bucket rows under the `MapPaneSpatialIndex` wording, and the file page did not mention the latest child-boundary sync for the categorize aggregate.
+- What changed: the table now links the exact categorize aggregate and compatibility alias subset pages, the evidence section records the synchronized child and accessor parent relationship, and migration notes keep `MapPaneSpatialIndex` as a search alias only.
+- Why: the current by-memory documentation supports `map/ObjectList.cpp` ownership for both the categorize/lookup aggregate and the `0x00532530-0x0053272e` accessor subset; it does not support a separate original `MapPaneSpatialIndex` source module.
 
 ### 2026-05-31 - Added Reconstruction Path And Exact Lifecycle Children
 

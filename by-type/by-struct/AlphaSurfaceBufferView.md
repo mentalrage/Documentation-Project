@@ -2,7 +2,7 @@
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Likely owner header: `render/AlphaMaskSurface.h` or a shared render surface header.
 - Entity kind: POD buffer-view record.
 - Primary memory docs: [UID:0000YL][0x00462170-0x00462e03.AlphaMaskSurface](by-memory/0x00462170-0x00462e03.AlphaMaskSurface.md)
+- Parent attachment: attached to [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md), which is scored `82/89`; this file-level POD view is scored `86/90`, so both sides clear the `80/80` child attachment gate.
 - Reconstructable: true as a source-level POD/view declaration; C++ body remains blank because this page documents data layout only.
 
 ## Layout
@@ -51,3 +52,7 @@
 - 2026-05-30: Raised completion/confidence from `0/0` to `86/90`. Previously this page documented the layout but had no score; it now records the current IDA MCP clipped-view recheck and concrete output offsets.
 - 2026-06-04: Marked `RECONSTRUCTABLE:TRUE` without changing scores.
   - Reasoning: IDA-backed `GetBufferInfo` and clipped-view writes prove a real 0x14-byte POD buffer-view record; final original type name and owner header remain below the parent-attachment threshold.
+- 2026-06-06: Set `AUTOGEN_PARENT_UID` to [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md) without changing scores.
+  - Before: the POD view page had strong IDA-backed field evidence but no parent.
+  - After: the view record is attached to the file-level alpha surface module because it is a helper declaration for the surface/blitter cluster rather than a standalone class.
+  - Evidence: the file page is scored `82/89`, links this view layout, and owns the `GetBufferInfo`/clipped-view helper family that constructs the 0x14-byte record.

@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00005F | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Covered class: [UID:00005F][FpsPane](by-class/FpsPane.md).
 - Likely owner source: [UID:0000JK][FpsPane](by-file/FpsPane.md).
 - Confidence: strong for normalized offsets below; medium for final source-facing field names and exact allocation size.
+- Autogen parent: attached to [UID:00005F][FpsPane](by-class/FpsPane.md); the class scores `82/80` and this layout scores `82/88`, so both sides satisfy the 80/80 parent gate.
 
 ## Layout Notes
 
@@ -75,6 +76,7 @@ Current `source-3/simroot_v2/class_FpsPane.meta_wave3` reports only `Pane`, synt
 
 ## Changes
 
+- 2026-06-06: Attached layout to [UID:00005F][FpsPane](by-class/FpsPane.md) as its autogen parent. Scores were left at `82/88`; this is a metadata cleanup only because the documented three-vtable diagnostic pane layout already matched the class page's validated `82/80` parent gate.
 - 2026-05-31: Reconstructable status and score updated.
   - Before: `RECONSTRUCTABLE` was blank and completion/confidence were `0/0`.
   - After: marked `RECONSTRUCTABLE:TRUE` with completion/confidence `82/88`.

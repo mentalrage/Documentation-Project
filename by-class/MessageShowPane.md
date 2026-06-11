@@ -1,8 +1,8 @@
 *** UID:000087 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LB | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Likely source file: [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md), or a compact section of [UID:0000LA][MessageDialogs](by-file/MessageDialogs.md).
 - Main address range: [UID:0001C3][0x00520e30-0x005227c6.MessageAndMessageShowPane](by-memory/0x00520e30-0x005227c6.MessageAndMessageShowPane.md)
 - Generated recovered file lead: `source-3/simroot_v2/class_MessageShowPane.cpp` (not authoritative; IDA MCP is the evidence source for boundaries/behavior).
+- Parent/C++ status: reconstructable and attached to [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md). Keep final class C++ blank until the `MessageShowPane.cpp` versus `MessageDialogs.cpp` source split, base/interface names, and helper names reach final-source quality.
 
 ## Class Purpose
 
@@ -55,6 +56,10 @@
 
 ## Changes
 
+- 2026-06-06 A008:
+  - Before: the class was reconstructable but unassigned even though its exact methods, singleton lifecycle, and packet-handler consumer path were documented.
+  - After: changed completion/confidence to `85/85`, set `AUTOGEN_PARENT_UID` to [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md), and kept final C++ blank under the documented final-source gate.
+  - Evidence: the file page now clears the 80/80 parent gate at `85/80` with exact method, destructor, vtable/read-only, singleton, and packet-handler evidence while preserving the open final split caveat.
 - Completion/confidence score update: existed before as `0/0`; changed to `84/82`. Summary: the floating message overlay has detailed construction, wrapping, redraw, singleton, layer, text-button, helper, thunk, and global evidence, but final source-file grouping remains medium confidence. Evidence: linked `MessageAndMessageShowPane` range, exact helper/destructor memory pages, IDA-confirmed starts, `g_pMessageShowPane`, `g_pRenderLayer1`, and corrected ownership of `SetWrappedText`.
 - 2026-05-31 metadata/evidence update: changed `RECONSTRUCTABLE` from blank to `TRUE` and confidence from `82` to `84`. Summary/evidence: live IDA MCP xrefs/decompilation verified the class-owned singleton lifecycle and packet-handler consumer path. Parent/code autogen fields remain blank because the final source-file split and final C++ source shape are not at the `95+` gate.
 - 2026-05-31 SetWrappedText ownership clarification: updated the method row to rely on IDA caller/xref evidence instead of generated owner output. Summary/evidence: [UID:0001C4][0x00522530-0x005226ea.MessageShowPaneSetWrappedText](by-memory/0x00522530-0x005226ea.MessageShowPaneSetWrappedText.md) now records live IDA `lookup_funcs`, `callers`, `xrefs_to`, `callees`, and `decompile` evidence.

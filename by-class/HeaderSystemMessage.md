@@ -1,6 +1,6 @@
 *** UID:000061 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000OE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:30 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -17,11 +17,15 @@
 - Main address range: [UID:0001J6][0x00584ea0-0x0058af3b.SystemMessagePanes](by-memory/0x00584ea0-0x0058af3b.SystemMessagePanes.md)
 - Non-contiguous destructor helper: [UID:0001B5][0x00514e60-0x00514e98.SystemMessageMarkerScalarDeletingDestructor](by-memory/0x00514e60-0x00514e98.SystemMessageMarkerScalarDeletingDestructor.md)
 - Tiny virtual helpers: [UID:0001GG][0x0055c1b0-0x0055c1c2.SystemMessageBooleanVirtuals](by-memory/0x0055c1b0-0x0055c1c2.SystemMessageBooleanVirtuals.md)
-- Current recovered file: `source-3/simroot_v2/class_HeaderSystemMessage.cpp`
+- Default true helper: [UID:000246][0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual](by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md)
+- Source-facing placement: tiny marker-entry class in `social/SystemMessagePanes.cpp`, with shared scalar-delete and constant-boolean helper caveats.
+- Reconstructable: true; C++ remains blank until final virtual slot names and marker-entry declaration shape are audit-ready.
 
 ## Class Purpose
 
 `HeaderSystemMessage` is a tiny marker entry used by the system-message pane list. The object is only four bytes in the recovered constructor path: it constructs the `LObject` shell and installs the `HeaderSystemMessage` vtable.
+
+The class is paired with [UID:00005D][FooterSystemMessage](by-class/FooterSystemMessage.md). The two marker entries differ primarily by factory address and vtable pointer; they share the tiny scalar-deleting destructor glue, boolean virtual bodies, and default true helper.
 
 ## Method Map
 
@@ -33,6 +37,20 @@
 | `0x00587890-0x005878ff` | `CreateInstance` | Allocates four bytes, constructs `LObject`, installs `HeaderSystemMessage` vtable, and returns the marker object. |
 | `0x0058af40-0x0058af48` | default true virtual | Returns true and consumes two stack arguments; used by both header/footer marker vtables. |
 
+## Vtable Layout
+
+The marker vtable starts at `0x0062d6ac` inside [UID:00026M][0x0062d5fc-0x0062da10.SystemMessageReadOnlyData](by-memory/0x0062d5fc-0x0062da10.SystemMessageReadOnlyData.md):
+
+| Slot | Target | Meaning |
+| --- | --- | --- |
+| `+0x00` | `0x00514e60` | Shared `LObject` scalar deleting destructor. |
+| `+0x04` / `+0x08` | inherited/empty slots | Runtime-class/no-op inherited marker slots. |
+| `+0x0c` | `0x0055c1b0` | Constant true boolean virtual. |
+| `+0x10` | `0x0055c1c0` | Constant false boolean virtual. |
+| `+0x14` | `0x00587890` | Header marker factory. |
+| `+0x18` | `0x0058af40` | Default true helper using `retn 8`. |
+| `+0x1c` | null/inherited slot | End marker before the footer vtable. |
+
 ## Evidence Notes
 
 - IDA names the vtable at `0x0062d6ac` as `HeaderSystemMessage`.
@@ -41,12 +59,22 @@
 - Vtable slot order from IDA data words is destructor `+0x00`, inherited/empty slots at `+0x04`/`+0x08`, true/false boolean stubs at `+0x0c`/`+0x10`, factory `+0x14`, default true helper `+0x18`, and another null slot at `+0x1c`.
 - The shared destructor `0x00514e60` is also referenced by `MerchantDialogCreator` and `PursuitMessageDialogCreator` vtables, so it is LObject scalar-delete glue reused by several tiny marker/creator classes rather than an exclusive header/footer body.
 - Generated output currently exposes only the destructor wrapper and factory; the boolean virtual slots are not in `class_HeaderSystemMessage.cpp`.
+- [UID:00026M][0x0062d5fc-0x0062da10.SystemMessageReadOnlyData](by-memory/0x0062d5fc-0x0062da10.SystemMessageReadOnlyData.md) places the `HeaderSystemMessage`, `FooterSystemMessage`, and `ColorStringSystemMessage` vtables in the `0x0062d6ac-0x0062d6f4` marker/color-message block.
+
+## Score Rationale
+
+- Completion is `82` because the page now records source placement, exact factory endpoint, shared destructor, boolean/default helper children, vtable layout, read-only-data block, sibling marker relationship, and final-C++ gate.
+- Confidence is `86` because the factory, vtable slots, helper refs, and parent file are IDA-backed; it remains below final-source quality because the virtual slot names are still semantic placeholders and the shared destructor/boolean helpers are compiler-folded across more than one source family.
 
 ## Cross-References
 
 - [UID:0000OE][SystemMessagePanes](by-file/SystemMessagePanes.md)
 - [UID:000030][ColorStringSystemMessage](by-class/ColorStringSystemMessage.md)
 - [UID:00005D][FooterSystemMessage](by-class/FooterSystemMessage.md)
+- [UID:0001B5][0x00514e60-0x00514e98.SystemMessageMarkerScalarDeletingDestructor](by-memory/0x00514e60-0x00514e98.SystemMessageMarkerScalarDeletingDestructor.md)
+- [UID:0001GG][0x0055c1b0-0x0055c1c2.SystemMessageBooleanVirtuals](by-memory/0x0055c1b0-0x0055c1c2.SystemMessageBooleanVirtuals.md)
+- [UID:000246][0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual](by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md)
+- [UID:00026M][0x0062d5fc-0x0062da10.SystemMessageReadOnlyData](by-memory/0x0062d5fc-0x0062da10.SystemMessageReadOnlyData.md)
 
 ## Changes
 
@@ -56,3 +84,7 @@
   - Before: completion/confidence `70/78`, reconstructable/parent metadata blank.
   - After: completion/confidence `76/82`, reconstructable true, attached to [UID:0000OE][SystemMessagePanes](by-file/SystemMessagePanes.md) at position 30.
   - C++ remains blank because final source names for the boolean/default virtual slots are not at the 95% reconstruction threshold.
+- 2026-06-07 A001 marker evidence refresh:
+  - Before: the page summarized the factory/vtable evidence but still carried generated-file wording and did not link the read-only-data block or exact helper child pages.
+  - After: raised to `82/86`, added source-facing placement, vtable layout, helper/read-only-data links, sibling relationship, and score rationale.
+  - Summary/evidence: [UID:0000OE][SystemMessagePanes](by-file/SystemMessagePanes.md), [UID:0001B5][0x00514e60-0x00514e98.SystemMessageMarkerScalarDeletingDestructor](by-memory/0x00514e60-0x00514e98.SystemMessageMarkerScalarDeletingDestructor.md), [UID:0001GG][0x0055c1b0-0x0055c1c2.SystemMessageBooleanVirtuals](by-memory/0x0055c1b0-0x0055c1c2.SystemMessageBooleanVirtuals.md), [UID:000246][0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual](by-memory/0x0058af40-0x0058af48.HeaderFooterSystemMessageDefaultTrueVirtual.md), and [UID:00026M][0x0062d5fc-0x0062da10.SystemMessageReadOnlyData](by-memory/0x0062d5fc-0x0062da10.SystemMessageReadOnlyData.md) agree on the tiny marker-entry role and shared helper caveats.

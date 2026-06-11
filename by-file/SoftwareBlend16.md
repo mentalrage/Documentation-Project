@@ -1,13 +1,13 @@
 *** UID:0000NT | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SoftwareBlend16
 
 ## Status
 
-- Confidence: strong for RGB565/RGB555 helper behavior, medium for final original filename.
+- Confidence: strong for RGB565/RGB555 helper behavior and stateless render-math grouping; medium-high for final original filename/source split.
 - Proposed module: `render/SoftwareBlend16.cpp`, `render/Blend16.cpp`, or a local helper block in a broader surface/blitter file.
 - Current recovered sources: `source-3/simroot_v2/recovered/*Blend*00460500..004C60D0.cpp`
 
@@ -32,6 +32,7 @@ The larger software-render callback families live nearby but are not owned here 
 | `HalfBlendSpan16Blocks` | [UID:0000YG][0x00460c10-0x00460c8c.HalfBlendSpan16Blocks](by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md) | Four-pixel 50 percent RGB565 block blender. |
 | `BlitTransparentShadow555` / `ApplyAlphaMap555` / `BlendRgb555Span` | [UID:0000YD][0x0045fa00-0x004604f4.Rgb555565BlitHelpers](by-memory/0x0045fa00-0x004604f4.Rgb555565BlitHelpers.md) | RGB555 transparent copy, alpha-map, weighted blend, and transparent weighted-blend helpers. |
 | `BlitTransparentShadow565` / `ApplyAlphaMap565` | [UID:0000YD][0x0045fa00-0x004604f4.Rgb555565BlitHelpers](by-memory/0x0045fa00-0x004604f4.Rgb555565BlitHelpers.md), [UID:00020A][0x00460c90-0x00460d51.Rgb565AlphaMapMmxBlocks](by-memory/0x00460c90-0x00460d51.Rgb565AlphaMapMmxBlocks.md) | RGB565 transparent-shadow and alpha-map helpers consumed by RGB565 callbacks. |
+| `SoftwareBlend16ReadOnlyConstants` | [UID:0002OO][0x00610e38-0x00610ed8.SoftwareBlend16ReadOnlyConstants](by-memory/0x00610e38-0x00610ed8.SoftwareBlend16ReadOnlyConstants.md) | RGB555/RGB565 qword mask constants used by the MMX/block helper paths. |
 | `ByteSpanFillRows` / copy/add/subtract byte helpers | [UID:00020B][0x00460d60-0x00460dee.ByteSpanFillRows](by-memory/0x00460d60-0x00460dee.ByteSpanFillRows.md), [UID:00020C][0x00460df0-0x00460e79.ByteSpanCopyRows](by-memory/0x00460df0-0x00460e79.ByteSpanCopyRows.md), [UID:00020D][0x00460e80-0x00460f09.ByteSpanAddRows](by-memory/0x00460e80-0x00460f09.ByteSpanAddRows.md), [UID:00020E][0x00460f10-0x00460f99.ByteSpanSubtractRows](by-memory/0x00460f10-0x00460f99.ByteSpanSubtractRows.md) | Byte alpha-mask/span helpers with scalar tails and eight-byte block helpers. |
 | `ByteSpanFill8Blocks` / copy/add/subtract block helpers | [UID:00020F][0x00460fa0-0x00460ffe.ByteSpanFill8Blocks](by-memory/0x00460fa0-0x00460ffe.ByteSpanFill8Blocks.md), [UID:00020G][0x00461000-0x0046104b.ByteSpanCopy8Blocks](by-memory/0x00461000-0x0046104b.ByteSpanCopy8Blocks.md), [UID:00020H][0x00461050-0x0046109e.ByteSpanAdd8Blocks](by-memory/0x00461050-0x0046109e.ByteSpanAdd8Blocks.md), [UID:00020I][0x004610a0-0x004610ee.ByteSpanSubtract8Blocks](by-memory/0x004610a0-0x004610ee.ByteSpanSubtract8Blocks.md) | Eight-byte block helpers for byte-span fill/copy/add/subtract operations. |
 | `BlendRgb555_4C0710` | [UID:00016K][0x004c0710-0x004c076d.BlendRgb555](by-memory/0x004c0710-0x004c076d.BlendRgb555.md) | Single-pixel RGB555 weighted blend helper. |
@@ -44,6 +45,21 @@ The larger software-render callback families live nearby but are not owned here 
 Keep these as free render helpers. Caller locality shows they are shared by drawing code in the `0x004bb...` and `0x004c...` render neighborhoods rather than belonging to any one pane or image library.
 
 The `0x0045fa00-0x004604f4` helper island is a render-support cluster even though current generated output does not emit standalone recovered files for it. The `0x00460500-0x004610ee` span/block family follows immediately after that island and contains both modeled and raw helpers. The `0x004c6050` pixel/pair helpers are adjacent to the `CachedHashTable` utility range but belong here by behavior and callback use. `BlendRgb555_4C0710` is not adjacent to the RGB565 pixel/pair helpers, but caller evidence keeps it in the same 16-bit color math source group.
+
+[UID:0002OO][0x00610e38-0x00610ed8.SoftwareBlend16ReadOnlyConstants](by-memory/0x00610e38-0x00610ed8.SoftwareBlend16ReadOnlyConstants.md) is attached here even though it is physically adjacent to Ranking and AboveFrame `.rdata`. Its qword masks are referenced by the RGB555/RGB565 block helpers owned by this file, while the neighboring [UID:00024R][0x006104f4-0x00610ed8.MiniMapRankingReadOnlyData](by-memory/0x006104f4-0x00610ed8.MiniMapRankingReadOnlyData.md) row is only the physical container.
+
+## Corrected Assignment Gate
+
+This page now clears the corrected direct-parent gate for stateless 16-bit blend/math helpers only: completion/confidence are `86/88`, the page has a valid `NexusTK/render/` reconstruction path, and the proposed contents inventory links exact by-memory helpers for the RGB555/RGB565 span, block, pixel, and byte-span primitives.
+
+The gate support is strongest for [UID:00016M][0x004c6050-0x004c60c7.BlendRgb565Pixel](by-memory/0x004c6050-0x004c60c7.BlendRgb565Pixel.md) and [UID:00016N][0x004c60d0-0x004c6151.BlendRgb565Pair](by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md): both are pure no-global RGB565 arithmetic helpers, are adjacent, and are called by the RGB565 callback family as reusable math. This does not make `SoftwareBlend16` the direct parent for the broader software-render callback bodies, which remain Surface/render-dispatch ownership candidates until their own pages and parent candidates clear the gate.
+
+## Evidence Notes
+
+- Live IDA MCP on 2026-06-07 reconfirmed [UID:00016N][0x004c60d0-0x004c6151.BlendRgb565Pair](by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md) as `sub_4C60D0`, an exact `0x81`-byte no-callee/no-data-reference packed RGB565 helper with callers from the RGB565 line, sprite blit, and fill callbacks.
+- The same check reconfirmed [UID:00016M][0x004c6050-0x004c60c7.BlendRgb565Pixel](by-memory/0x004c6050-0x004c60c7.BlendRgb565Pixel.md) as the adjacent single-pixel RGB565 helper with seventeen callback-family callers and no data references.
+- Byte review on 2026-06-07 reconfirmed `0xcc` alignment around the pixel/pair helper island: `0x004c6044-0x004c6050`, `0x004c60c7-0x004c60d0`, and `0x004c6151-0x004c6160`.
+- The by-memory pages now document complementary scalar and packed-pair 0..32 weighted blend formulas, so this source-root page is strong enough to serve as the direct parent for those helpers while staying conservative on final original file naming.
 
 ## Cross-References
 
@@ -67,6 +83,7 @@ The `0x0045fa00-0x004604f4` helper island is a render-support cluster even thoug
 - [UID:00020G][0x00461000-0x0046104b.ByteSpanCopy8Blocks](by-memory/0x00461000-0x0046104b.ByteSpanCopy8Blocks.md)
 - [UID:00020H][0x00461050-0x0046109e.ByteSpanAdd8Blocks](by-memory/0x00461050-0x0046109e.ByteSpanAdd8Blocks.md)
 - [UID:00020I][0x004610a0-0x004610ee.ByteSpanSubtract8Blocks](by-memory/0x004610a0-0x004610ee.ByteSpanSubtract8Blocks.md)
+- [UID:0002OO][0x00610e38-0x00610ed8.SoftwareBlend16ReadOnlyConstants](by-memory/0x00610e38-0x00610ed8.SoftwareBlend16ReadOnlyConstants.md)
 - [UID:0000TZ][BlendRgb555_004C0710](by-item/BlendRgb555_004C0710.md)
 - [UID:00016K][0x004c0710-0x004c076d.BlendRgb555](by-memory/0x004c0710-0x004c076d.BlendRgb555.md)
 - [UID:0000U1][BlendRgb565Pixel_004C6050](by-item/BlendRgb565Pixel_004C6050.md)
@@ -89,3 +106,10 @@ The `0x0045fa00-0x004604f4` helper island is a render-support cluster even thoug
   - Before: page described the source family and linked the helper inventory but had no completion/confidence score.
   - After: score reflects strong ownership and behavior evidence for the low-level 16-bit software blend helpers, with remaining work in final original filename, exact source split, and cleanup of broader generated render callback artifacts.
   - Evidence: the page links exact by-memory rows for RGB555/RGB565 span, block, pixel, and byte-span helpers; `simroot_v2/render/SoftwareBlend16.cpp` now exists as a generated active view with high but incomplete file/ownership scores and visible generated-code artifacts.
+- 2026-06-07 A006 Batch005 direct-parent gate pass:
+  - Changed completion/confidence from `82/86` to `86/88`.
+  - Evidence: live IDA MCP reconfirmed the adjacent RGB565 pixel/pair helper island, [UID:00016M][0x004c6050-0x004c60c7.BlendRgb565Pixel](by-memory/0x004c6050-0x004c60c7.BlendRgb565Pixel.md) is already documented and parented at `90/92`, and [UID:00016N][0x004c60d0-0x004c6151.BlendRgb565Pair](by-memory/0x004c60d0-0x004c6151.BlendRgb565Pair.md) now documents exact boundaries, no callees, no data refs, caller sites, padding, and packed RGB565 blend math.
+  - Assignment scope: parent is valid for stateless blend/math helpers such as `BlendRgb565Pair`; broader callback bodies remain under Surface/render-dispatch review and are not assigned here.
+- 2026-06-07 A004 Batch010 parent sync:
+  - Added [UID:0002OO][0x00610e38-0x00610ed8.SoftwareBlend16ReadOnlyConstants](by-memory/0x00610e38-0x00610ed8.SoftwareBlend16ReadOnlyConstants.md) to the proposed contents and cross-references.
+  - Evidence: the constants page records all RGB555/RGB565 qword masks and their render-helper data refs, and the direct parent gate is satisfied by child `86/90` plus this file root at `86/88`.

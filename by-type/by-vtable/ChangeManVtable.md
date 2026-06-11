@@ -1,8 +1,8 @@
 *** UID:0001X7 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00001K | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,7 +17,9 @@
 - RTTI pointer: `0x00614ccc -> 0x00644090` (`??_R4ChangeMan@@6B@`).
 - Exact data page: [UID:0002M8][0x00614cd0-0x00614cdc.ChangeManVtableData](by-memory/0x00614cd0-0x00614cdc.ChangeManVtableData.md).
 - Confidence: strong for table base, slot boundary, and inherited `LObject` slot meanings.
-- Owner: [UID:0000I2][ChangeMan](by-file/ChangeMan.md).
+- Owning class: [UID:00001K][ChangeMan](by-class/ChangeMan.md).
+- Source owner: [UID:0000I2][ChangeMan](by-file/ChangeMan.md).
+- Autogen status: attached to the `ChangeMan` class page; final C++ remains blank under the `95/95` reconstruction gate.
 
 ## Slots
 
@@ -38,6 +40,10 @@ The table stops after `+0x08`. The next dword at `0x00614cdc` is RTTI data for `
 - IDA MCP decompilation of the constructor and scalar deleting destructor both names `ChangeMan::\`vftable'` at this address.
 - Current `source-3/simroot_v2/class_ChangeMan.meta_wave3` still reports `vtable_count: 0`, so this page is the reconstruction anchor until generated vtable inventory is fixed.
 
+## Parent Rationale
+
+Attach this vtable type to [UID:00001K][ChangeMan](by-class/ChangeMan.md) because it is the primary virtual surface for the `ChangeMan` class. The class page is already reconstructable, attached to [UID:0000I2][ChangeMan](by-file/ChangeMan.md), and records the same `0x00614cd0` table, singleton router methods, sorted-list storage, and exact vtable-data child. The vtable page should remain separate for slot order and `.rdata` boundary evidence, but generated type coverage should route it through the class owner.
+
 ## Cross-References
 
 - [UID:00001K][ChangeMan](by-class/ChangeMan.md)
@@ -50,6 +56,11 @@ The table stops after `+0x08`. The next dword at `0x00614cdc` is RTTI data for `
 - [Wave3 data issues](../../wave3_data_issues.md)
 
 ## Changes
+
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable page was reconstructable but unassigned in generated type coverage despite established class/file ownership.
+  - What changed: attached the vtable to [UID:00001K][ChangeMan](by-class/ChangeMan.md), raised completion to `86`, and added a parent rationale.
+  - Summary/evidence: IDA-confirmed constructor/destructor vptr stores, the scalar-deleting-destructor slot at `0x0047ef50`, and exact [UID:0002M8][0x00614cd0-0x00614cdc.ChangeManVtableData](by-memory/0x00614cd0-0x00614cdc.ChangeManVtableData.md) boundary evidence tie the vtable directly to the reconstructable class; confidence stays below final-audit level because final public API and source C++ remain open.
 
 - 2026-05-31: Grading changed from `0/0` to `84/91`, and `RECONSTRUCTABLE` was set to `TRUE`.
   - Before: the vtable page had strong slot notes but remained unevaluated and did not point to an exact by-memory data slice.

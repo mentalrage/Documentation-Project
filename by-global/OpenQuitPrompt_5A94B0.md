@@ -1,8 +1,8 @@
 *** UID:0000TD | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,6 @@
 - Address range: [UID:0001KP][0x005a94b0-0x005a95d2.QuitPromptLauncher](by-memory/0x005a94b0-0x005a95d2.QuitPromptLauncher.md)
 - Symbol kind: free helper / quit prompt launcher.
 - Likely owner file: [UID:0000MX][QuitDialogs](by-file/QuitDialogs.md)
-- Current generated owner: not emitted as a standalone active class body during this pass.
 
 ## Behavior
 
@@ -24,7 +23,7 @@
 
 Observed behavior:
 
-- reads mode byte `byte_66DA97`;
+- reads [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97`;
 - when the byte is `1`, allocates `0x270` bytes and constructs [UID:0000BG][QuitDialog](by-class/QuitDialog.md);
 - otherwise checks [UID:0000S1][g_pQuitInputPane](by-global/g_pQuitInputPane.md) and avoids creating a duplicate typed prompt;
 - allocates `0x108` bytes, constructs [UID:0000BH][QuitInputPane](by-class/QuitInputPane.md), stores the singleton, and installs its vtables;
@@ -36,6 +35,7 @@ Observed behavior:
 - IDA MCP `callers 0x005a94b0` reports a direct call from `0x005a5cc8` inside `sub_5A5BD0`.
 - IDA MCP `xrefs_to 0x005a94b0` also reports a code thunk/reference at `0x005a5a80`.
 - IDA decompilation shows explicit `QuitDialog` and `QuitInputPane` vtable installation and singleton writes to `dword_69BF5C`.
+- IDA MCP recheck on 2026-06-05 confirmed `sub_5A94B0`, size `0x122`, direct caller `0x005a5cc8`, and constructor/setup callees in the quit-dialog family.
 
 ## Source Placement
 
@@ -55,3 +55,7 @@ Keep this helper with `QuitDialogs.cpp`. It owns the choice between the modal al
   - Before: page documented quit prompt launcher behavior, caller/xref evidence, vtable/singleton writes, and source placement but remained unevaluated.
   - After: score reflects documented mode-gated prompt selection, constructor targets, singleton handling, localized string use, and QuitDialogs ownership.
   - Evidence: IDA notes confirm function size, call/reference sites, explicit `QuitDialog`/`QuitInputPane` vtable installation, and `dword_69BF5C` singleton writes.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000MX][QuitDialogs](by-file/QuitDialogs.md).
+  - Reason: live IDA MCP recheck confirms a source-authored quit prompt launcher with quit-dialog constructor/setup behavior and a quit-menu caller, so the helper belongs with QuitDialogs.
+- 2026-06-07 A008 alias cleanup:
+  - Normalized the mode-byte evidence to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), retaining `byte_66DA97` as the historical IDA lookup alias.

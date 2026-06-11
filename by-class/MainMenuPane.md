@@ -1,8 +1,8 @@
 *** UID:00007O | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -67,4 +67,5 @@
 
 ## Changes
 
+- 2026-06-05: Marked reconstructable and attached to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) because the class is `84/88` and the parent is `88/82`, satisfying the 80/80 parent gate. Live IDA MCP evidence: `lookup_funcs` confirms exact starts for the constructor/destructor, mouse/key/server/timer/paint handlers, activation helper, retained launch helpers, and scalar deleting destructor at `0x004f6700`, `0x004f6910`, `0x004f6af0`, `0x004f6bf0`, `0x004f6d80`, `0x004f7660`, `0x004f76d0`, `0x004f7a10`, `0x004f8c10`, `0x004f8d00`, `0x004f8fa0`, `0x004f91c0`, and `0x00502850`; `callers` confirms constructor calls from `0x00504b35` and `0x0058b3de`.
 - Completion/confidence score update: existed before as `0/0`; changed to `84/88`. Summary: the pre-login menu controller has detailed purpose, method inventory, dialog-launch dependencies, local helper ownership, retained launcher caveats, singleton cleanup, resource branches, and high-resolution behavior documented, with final source-level rewrite detail still incomplete. Evidence: IDA-confirmed method starts, `ActivateMenuItem` callees, menu geometry/helper globals, story/history resource references, and retained no-xref launcher notes.

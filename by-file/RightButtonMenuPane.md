@@ -1,5 +1,5 @@
 *** UID:0000N7 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/menu/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
@@ -28,9 +28,10 @@ ui/menu/RightButtonMenuPane.cpp
 | Entity | Current range | Current file | Role |
 | --- | --- | --- | --- |
 | `RightButtonMenuPane` core | `0x00554b40-0x0055577b` | `class_RightButtonMenuPane.cpp`, helper currently under `class_BulletinSession.cpp` | Right-click target context menu and five-row hit-test helper. |
-| packet helpers | `0x00555780-0x005558c2` | raw helper island | Packet builders adjacent to the right-click menu core; no direct caller xrefs yet, but behavior and placement match right-click menu action support. |
+| packet helpers | `0x00555780-0x005558c2` | raw helper island | Packet builders adjacent to the right-click menu core; no direct caller xrefs yet, but behavior and placement match right-click menu action support through [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / historical `dword_67A7EC`. |
 | destructor thunks | `0x00556212-0x00556228` | disabled `class_RightButtonMenuPane.cpp` | Compiler-generated secondary-base deleting-destructor adjustor thunks; track for vtable layout but ignore as handwritten source. |
 | scalar deleting destructor | `0x00556240-0x00556314` | `class_RightButtonMenuPane.cpp` | Destructor wrapper and optional delete. |
+| [UID:00029Z][0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton](by-memory/0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton.md) | `0x0069b4f0-0x0069b4f4` | source-declared singleton storage | Active right-button menu singleton pointer set by constructor, cleared by destructor/scalar-deleting destructor, and read by menu open/lifetime handlers. |
 
 ## IDA MCP Evidence
 
@@ -45,7 +46,7 @@ Targeted checks on 2026-05-23 confirmed:
 - `0x00555370-0x00555692` border draw.
 - `0x005556a0-0x005556ed` menu-item rectangle helper.
 - `0x005556f0-0x0055577b` five-row hit-test helper; current generated owner is `BulletinSession`, but IDA callers are only from `RightButtonMenuPane::OnEvent`.
-- `0x00555780-0x005558c2` raw packet helper island; IDA does not model the starts as functions, but disassembly confirms packet construction through `dword_67A7EC`, with a six-byte `0xcc` internal alignment span at `0x005557da-0x005557e0`.
+- `0x00555780-0x005558c2` raw packet helper island; IDA does not model the starts as functions, but disassembly confirms packet construction through [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / historical `dword_67A7EC`, with a six-byte `0xcc` internal alignment span at `0x005557da-0x005557e0`.
 - `0x00556212-0x00556228` destructor adjustor/thunk helpers.
 - `0x00556240-0x00556314` scalar deleting destructor.
 
@@ -59,6 +60,7 @@ Targeted checks on 2026-05-23 confirmed:
 - 2026-05-26 recheck: current `class_RightButtonMenuPane.cpp` still calls the five-row helper through generated `BulletinSession::HitTestMenuItem`, and current `class_BulletinSession.cpp` still emits that helper body at `0x005556f0`.
 - 2026-05-26 recheck: IDA decompiles `0x00556212` and `0x0055621d` as `this - 0xa0` / `this - 0xa4` adjustors that jump to `0x00556240`; these are now recorded in [UID:0000VN][-ignored](by-memory/-ignored.md).
 - 2026-06-01 recheck: IDA caller/pointer scans found no direct references to `0x00555780` or `0x005557e0`; keep the packet helper island under this file by adjacency and packet-helper behavior, not by proven direct calls.
+- 2026-06-07 A010 parent-gate refresh: [UID:00029Z][0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton](by-memory/0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton.md) now records the exact singleton storage, initialized bytes, ten direct xrefs, and neighboring singleton boundaries. This strengthens the source root enough to clear the corrected 85/85 gate for class/global storage routing while preserving the raw packet-helper caveat.
 
 ## Cross-References
 
@@ -67,6 +69,7 @@ Targeted checks on 2026-05-23 confirmed:
 - [UID:00023Q][0x00555780-0x005558c2.RightButtonMenuPacketHelpers](by-memory/0x00555780-0x005558c2.RightButtonMenuPacketHelpers.md)
 - [UID:0001G0][0x00556212-0x00556228.RightButtonMenuPaneDestructorThunks](by-memory/0x00556212-0x00556228.RightButtonMenuPaneDestructorThunks.md)
 - [UID:0001G2][0x00556240-0x00556314.RightButtonMenuPaneScalarDeletingDestructor](by-memory/0x00556240-0x00556314.RightButtonMenuPaneScalarDeletingDestructor.md)
+- [UID:0000Q5][g_packetSender](by-global/g_packetSender.md)
 - [UID:0000P6][VoteMenuPane](by-file/VoteMenuPane.md)
 - [UID:0000SP][g_pVoteMenuPane](by-global/g_pVoteMenuPane.md)
 - [UID:0001Q0][0x0069ba38-0x0069ba3c.g_pVoteMenuPane](by-memory/0x0069ba38-0x0069ba3c.g_pVoteMenuPane.md)
@@ -75,9 +78,17 @@ Targeted checks on 2026-05-23 confirmed:
 
 ## Changes
 
+- 2026-06-07: Replaced the raw `dword_67A7EC` right-click packet-helper reference with canonical [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) wording.
+  - Before: the packet helper island evidence named only the historical generated sender global.
+  - After: the page links the resolved packet sender while retaining the historical label and raw-helper caveat.
+  - Evidence: the generated resolved-name report maps `dword_67A7EC` to `g_packetSender`, and this page's existing IDA disassembly note ties the raw helper island to packet construction adjacent to `RightButtonMenuPane`.
+
 - 2026-05-30: Scored documentation completeness/confidence.
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `84` and confidence to `86`.
   - Evidence: document contains IDA-confirmed method boundaries, proposed source owner, ownership exclusions against neighboring popup/menu classes, generated-owner pollution notes, destructor thunk handling, and cross-references; confidence is high because the role and boundaries are strongly verified.
 - 2026-06-01: Added the adjacent raw packet helper island and set proposed reconstruction path to `NexusTK/ui/menu/`.
   - Evidence: IDA MCP confirms `0x00555780-0x005558c2` as packet-building raw bytes with no direct function model, plus an internal `0xcc` alignment gap; placement between the right-click core and vote menu keeps it with this file until caller evidence proves another owner.
+- 2026-06-07 A010 Batch044 parent-gate update:
+  - Before: `84/86`; the file had strong method-boundary and packet-helper evidence but omitted the exact singleton storage as a proposed child.
+  - After: `85/86`; added [UID:00029Z][0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton](by-memory/0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton.md) to proposed contents and evidence notes, allowing the class and singleton storage chain to satisfy the corrected 85/85 gate. Final C++ remains blank.

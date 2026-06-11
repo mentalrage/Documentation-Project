@@ -1,8 +1,8 @@
 *** UID:0000TQ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000ML | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,11 +12,11 @@
 
 ## Status
 
-- Confidence: strong for the concrete `_wfopen` / `_wstat64i32` entries and NT wide-API initializer; medium for final symbol names.
-- Address ranges: `0x0069be14-0x0069bed0` for currently confirmed dispatch-pointer storage, with [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md) documenting the `SendMessageW` slot that older generated output mislabeled as a browser/transport callback.
+- Confidence: strong for the concrete dispatch storage, NT wide-API initializer, and PlatformApi ownership; medium-high for final symbol and typedef names.
+- Address ranges: `0x0069be14-0x0069bed0` for currently confirmed dispatch-pointer storage, with [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md) documenting the `SendMessageW` slot that older aliases mislabeled as a browser/transport callback.
 - Initializer: [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md)
 - Likely owner file: [UID:0000ML][PlatformApi](by-file/PlatformApi.md)
-- Current generated caveat: `simroot_v2` emits some entries as local-looking `dword_69BE*` globals inside consumer files, but the table is process-wide platform support.
+- Current alias caveat: some entries appear as local-looking `dword_69BE*` globals inside consumer files, but the table is process-wide platform support.
 
 ## Role
 
@@ -30,6 +30,14 @@ The file I/O layer consumes two entries:
 | `0x0069be18` | `g_pfnWideStat` / `dword_69BE18` | `_wstat64i32` | [UID:0001IT][0x005820d0-0x005821c9.StdioFileOpen](by-memory/0x005820d0-0x005821c9.StdioFileOpen.md) and [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md) |
 
 Other confirmed entries include wide `FindWindow`, `CreateFile`, `CreateWindowEx`, `DispatchMessage`, registry APIs, `SetCurrentDirectory`, version APIs, IME APIs, `SendMessageW`, `GetLocaleInfo`, and `SetFileAttributes` pointers.
+
+The current exact memory split is:
+
+| Range | Memory page | Role |
+| --- | --- | --- |
+| `0x0069be14-0x0069bec4` | [UID:0002AS][0x0069be14-0x0069bec4.WideApiDispatchPointerTable](by-memory/0x0069be14-0x0069bec4.WideApiDispatchPointerTable.md) | Main dispatch pointer body up to the `SendMessageW` slot. |
+| `0x0069bec4-0x0069bec8` | [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md) | Separately retained `SendMessageW` slot because stale generated aliases made it a high-risk reference target. |
+| `0x0069bec8-0x0069bed0` | [UID:0002A6][0x0069bec8-0x0069bed0.WideApiDispatchTailPointers](by-memory/0x0069bec8-0x0069bed0.WideApiDispatchTailPointers.md) | Tail dispatch entries for `GetLocaleInfoW` and `SetFileAttributesW`. |
 
 Timer/threading consumers also use the dispatch table:
 
@@ -45,18 +53,20 @@ Checked on 2026-05-25 and 2026-05-26:
 - `decompile 0x0041a280` calls `GetVersionExA`, assigns `dword_69BE1C = sub_599570`, and when `dwPlatformId == 2` writes the wide API pointer table.
 - The same decompilation assigns `dword_69BE14 = _wfopen` at `0x0041a42e` and `dword_69BE18 = _wstat64i32` at `0x0041a438`.
 - `disasm 0x0041a280` assigns `CreateEventW` to `dword_69BE3C` at `0x0041a30c`; this is the event-creation dispatch used by [UID:0001NX][0x005c0ff0-0x005c129a.WaitableTimer](by-memory/0x005c0ff0-0x005c129a.WaitableTimer.md).
-- `decompile 0x0041a280` assigns `SendMessageW` to `dword_69BEC4` at `0x0041a474`; the slot is documented by [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md) because older generated output attached browser/transport aliases to its consumers.
+- `decompile 0x0041a280` assigns `SendMessageW` to `dword_69BEC4` at `0x0041a474`; the slot is documented by [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md) because older aliases attached browser/transport names to its consumers.
 - `xrefs_to 0x0069be18` reports the initializer write at `0x0041a438`, reads from [UID:0001IT][0x005820d0-0x005821c9.StdioFileOpen](by-memory/0x005820d0-0x005821c9.StdioFileOpen.md) at `0x00582104`, reads from [UID:0001IZ][0x00582460-0x00582495.PathExistsViaStat](by-memory/0x00582460-0x00582495.PathExistsViaStat.md) at `0x00582478`, and two raw data refs near the generated `UniAPIInit` region.
 - `xrefs_to 0x0069be14` reports the initializer write at `0x0041a42e`, the [UID:0001IT][0x005820d0-0x005821c9.StdioFileOpen](by-memory/0x005820d0-0x005821c9.StdioFileOpen.md) read at `0x00582118`, and many additional direct file-open consumers.
 - 2026-05-26 IDA MCP recheck reconfirmed the same initializer writes and consumer pattern. The broad `0x0069be14` xrefs include screenshot file-open paths, profile/config I/O, startup/resource loads, and `StdioFile::Open`, reinforcing platform-table ownership rather than any one consumer module.
-- 2026-05-26 current `simroot_v2/class_UniAPIInit.cpp` still emits many table entries as `g_pfn*` global-data declarations with low completeness, while consumer files can still expose raw `dword_69BE*` names.
 - 2026-05-26 IDA MCP confirms [UID:0001O9][0x0060c440-0x0060c44b.UniAPIInitStaticCleanupWrapper](by-memory/0x0060c440-0x0060c44b.UniAPIInitStaticCleanupWrapper.md) is the static cleanup wrapper registered by the initializer. It writes the `UniAPIInit` vtable pointer at `0x006702c4` and is not part of the adjacent pool cleanup wrappers.
+- 2026-06-05 IDA MCP recheck confirmed `sub_41A280`, size `0x228`, no direct callers, `GetVersionExA`/`atexit`/security-cookie callees, and xrefs to dispatch entries including `_wfopen`, `_wstat64i32`, `CreateEventW`, and `SendMessageW` slots.
 
 ## Ownership Decision
 
 Keep the dispatch table with [UID:0000ML][PlatformApi](by-file/PlatformApi.md), not with `StdioFile`, `PathUtil`, screenshot/image writers, map loading, startup-logo loading, or audio. Those modules consume specific entries through the platform abstraction; they do not own the process-wide compatibility table.
 
-This table is closely related to [UID:0000FE][UniAPIInit](by-class/UniAPIInit.md), but current IDA evidence says the generated `0x005995b0` initializer boundary is not a real function. Use [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) as the exact code evidence for the table until Wave3 ownership/boundaries are corrected.
+This table is closely related to [UID:0000FE][UniAPIInit](by-class/UniAPIInit.md), but current IDA evidence says the `0x005995b0` initializer boundary is not a real function. Use [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) as the exact code evidence for the table until ownership/boundaries are corrected.
+
+As of the 2026-06-07 A010 Batch057 parent-gate review, this page is the direct by-global parent for the split table-body memory pages. Child pages [UID:0002AS][0x0069be14-0x0069bec4.WideApiDispatchPointerTable](by-memory/0x0069be14-0x0069bec4.WideApiDispatchPointerTable.md) and [UID:0002A6][0x0069bec8-0x0069bed0.WideApiDispatchTailPointers](by-memory/0x0069bec8-0x0069bed0.WideApiDispatchTailPointers.md) can attach here because the child pages clear `85/85` and this table page now clears `90/86`; this page can retain [UID:0000ML][PlatformApi](by-file/PlatformApi.md) because the file page now clears `88/85`.
 
 ## Cross-References
 
@@ -79,5 +89,11 @@ This table is closely related to [UID:0000FE][UniAPIInit](by-class/UniAPIInit.md
   - Summary/evidence: IDA MCP xref audit of the former `0x0069ba3c-0x0069bec4` UNKNOWN row and prior `g_browserControlKeyCallback` review show `0x0069bec4` is browser/transport callback storage, while [UID:0002AS][0x0069be14-0x0069bec4.WideApiDispatchPointerTable](by-memory/0x0069be14-0x0069bec4.WideApiDispatchPointerTable.md) and [UID:0002A6][0x0069bec8-0x0069bed0.WideApiDispatchTailPointers](by-memory/0x0069bec8-0x0069bed0.WideApiDispatchTailPointers.md) hold the dispatch pointers.
 - 2026-06-02 SendMessageW slot correction:
   - What existed before: the page described [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md) as an intervening non-dispatch browser/transport callback slot.
-  - Changed to: the page now includes it as the `SendMessageW` dispatch slot in the wide API table, while preserving the separate memory page because generated aliases make it a high-risk reference target.
+  - Changed to: the page now includes it as the `SendMessageW` dispatch slot in the wide API table, while preserving the separate memory page because stale aliases make it a high-risk reference target.
   - Summary/evidence: IDA MCP decompilation of [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) writes `SendMessageW` to `dword_69BEC4` at `0x0041a474`, between `ImmGetCandidateListW` and `GetLocaleInfoW`.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000ML][PlatformApi](by-file/PlatformApi.md).
+  - Reason: live IDA MCP recheck confirms this source-declared platform dispatch table is installed by the wide API initializer and consumed broadly by platform/file/event/message callers.
+- 2026-06-07 A010 Batch057 parent-gate review:
+  - What existed before: `CONFIDENCE:82`, with exact split memory pages already documented but direct-child routing blocked by the corrected 85/85 gate.
+  - Changed to: `CONFIDENCE:86`, retained [UID:0000ML][PlatformApi](by-file/PlatformApi.md), and added the explicit split memory table.
+  - Summary/evidence: [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) documents the exact initializer, [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md) resolves the stale `SendMessageW` slot, and [UID:0002AS][0x0069be14-0x0069bec4.WideApiDispatchPointerTable](by-memory/0x0069be14-0x0069bec4.WideApiDispatchPointerTable.md) plus [UID:0002A6][0x0069bec8-0x0069bed0.WideApiDispatchTailPointers](by-memory/0x0069bec8-0x0069bed0.WideApiDispatchTailPointers.md) cover the table body and tail. Remaining uncertainty is final typedef/name style, not range or owner.

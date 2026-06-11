@@ -1,7 +1,7 @@
 *** UID:0000KI | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/third_party/jsoncpp/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # JsonCpp
 
@@ -164,6 +164,10 @@ Do not assign JsonCpp internals to cash-shop, fitting-room, or downloader source
 
 ## Changes
 
+- 2026-06-05 projected-path assignment:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, so the by-file row remained a generated-root coverage error.
+  - Changed to: `NexusTK/third_party/jsoncpp/`.
+  - Summary/evidence: live IDA MCP lookup confirms the documented JsonCpp anchors at `0x00424630` and `0x00431d50`; the existing source-structure decision places the parser/writer implementation under the vendored `third_party/jsoncpp/` folder, not under cash-shop, downloader, or other product modules.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:92` and `CONFIDENCE:88`.

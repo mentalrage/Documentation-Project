@@ -1,8 +1,8 @@
 *** UID:0000AT | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MQ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,12 +12,16 @@
 
 ## Status
 
-- Confidence: strong for behavior, layout, vtable, and utility ownership; unresolved for active runtime use.
+- Confidence: strong for behavior, layout, vtable identity, and utility ownership; unresolved for active runtime use.
 - Likely source file: [UID:0000MQ][PrimeNumberGenerator](by-file/PrimeNumberGenerator.md)
 - Address ranges: [UID:0001FA][0x0054bcc0-0x0054bcec.PrimeNumberGeneratorGetPrimeAt](by-memory/0x0054bcc0-0x0054bcec.PrimeNumberGeneratorGetPrimeAt.md) and [UID:0001FB][0x0054bcf0-0x0054c15a.PrimeNumberGenerator](by-memory/0x0054bcf0-0x0054c15a.PrimeNumberGenerator.md)
 - Current recovered file: `source-3/simroot_v2/class_PrimeNumberGenerator.cpp`
 - Imported source file: `PrimeNumberGenerator.cpp`
 - Vtable: [UID:0001YG][PrimeNumberGeneratorVtable](by-type/by-vtable/PrimeNumberGeneratorVtable.md)
+
+## Batch 123 Parent-Gate Audit
+
+This class now clears the strict `85/85` parent gate for the vtable type and exact vtable-data children. The evidence is class-level, not only file-level: the constructor writes the one-slot vtable at `0x00622420`, the scalar deleting destructor is the only slot target, the layout page records the vptr at `+0x00`, and [UID:0002OK][0x0062241c-0x00622424.PrimeNumberGeneratorVtableData](by-memory/0x0062241c-0x00622424.PrimeNumberGeneratorVtableData.md) records the exact RTTI/vtable island and neighboring boundaries. [UID:0000MQ][PrimeNumberGenerator](by-file/PrimeNumberGenerator.md) remains the source module parent at `85/85`, but this class is the actual direct owner for [UID:0001YG][PrimeNumberGeneratorVtable](by-type/by-vtable/PrimeNumberGeneratorVtable.md) and the concrete vtable-data child.
 
 ## Class Purpose
 
@@ -49,6 +53,7 @@ See [UID:0001VL][PrimeNumberGeneratorLayout](by-type/by-struct/PrimeNumberGenera
 - IDA MCP decompilation of `0x0054c0c0` shows `frontIndex + index` block-map addressing over 4-byte entries, matching [UID:0001U2][DequeLayout](by-type/by-struct/DequeLayout.md).
 - IDA MCP `callers` shows [UID:0001FD][0x0054c160-0x0054c1f1.DequeClear](by-memory/0x0054c160-0x0054c1f1.DequeClear.md) is called from the constructor and destructor, while the `PrimeNumberGenerator` constructor/destructor themselves have no direct callers in the current IDB.
 - IDA MCP `xrefs_to 0x00622420` shows vtable writes from the constructor/destructor and the vtable entry pointing at the deleting destructor.
+- 2026-06-07 A001 exact vtable-data audit on [UID:0002OK][0x0062241c-0x00622424.PrimeNumberGeneratorVtableData](by-memory/0x0062241c-0x00622424.PrimeNumberGeneratorVtableData.md) reconfirmed `0x0062241c -> ??_R4PrimeNumberGenerator@@6B@`, `0x00622420 -> 0x0054c110`, constructor/destructor vtable writes at `0x0054bd20`, `0x0054c074`, and `0x0054c11a`, and neighboring boundaries before `PursuitMessageDialogPane` RTTI at `0x00622424`.
 - 2026-05-26 recheck: active generated output still omits the raw accessor and the Deque element-address helper; `class_PrimeNumberGenerator.meta_wave3` still carries carriage-return-suffixed method names in history/current-name data.
 - 2026-05-26 IDA `py_eval` recheck confirms the one-slot vtable at `0x00622420`: RTTI pointer at `0x0062241c`, deleting destructor slot `0x0054c110`, and next class RTTI pointer at `0x00622424`.
 - Current `source-3/simroot_v2/class_PrimeNumberGenerator.meta_wave3` still reports `vtable_count: 0`, so [UID:0001YG][PrimeNumberGeneratorVtable](by-type/by-vtable/PrimeNumberGeneratorVtable.md) is the current table inventory anchor.
@@ -66,6 +71,15 @@ See [UID:0001VL][PrimeNumberGeneratorLayout](by-type/by-struct/PrimeNumberGenera
 - [UID:0001QA][client_containers](by-meta/client_containers.md)
 
 ## Changes
+
+- 2026-06-08 A002 Batch123 parent-gate refresh:
+  - Before: `COMPLETION:84`, `CONFIDENCE:84`; below the strict class-parent gate for [UID:0001YG][PrimeNumberGeneratorVtable](by-type/by-vtable/PrimeNumberGeneratorVtable.md).
+  - After: `COMPLETION:85`, `CONFIDENCE:85`.
+  - Evidence: added the exact [UID:0002OK][0x0062241c-0x00622424.PrimeNumberGeneratorVtableData](by-memory/0x0062241c-0x00622424.PrimeNumberGeneratorVtableData.md) vtable-data audit to the class page and recorded why the class, not just the source file, is the direct owner for the vtable type/data children. Scores stay at the gate because active runtime construction remains unresolved.
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and assigned parent `0000MQ`.
+  - Before: reconstruction autogen classification and parent were blank despite IDA-backed class, file, memory, layout, and vtable evidence for a utility prime-table generator.
+  - After: classified as reconstructable source attached to [UID:0000MQ][PrimeNumberGenerator](by-file/PrimeNumberGenerator.md).
+  - Evidence: live IDA MCP `lookup_funcs` confirms modeled starts at `0x0054bcf0`, `0x0054c0c0`, `0x0054c110`, and `0x0054c160`; `0x0054bcc0` remains raw accessor code not modeled as an IDA function, matching the existing memory evidence. The class score is `84/84` and parent file score is `84/82`, satisfying the 80/80 attach gate.
 
 - 2026-05-30: Changed completion/confidence from `0/0` to `84/84`.
   - Before: The page was unevaluated even though it contained method ownership, layout, vtable, and IDA evidence.

@@ -1,8 +1,8 @@
 *** UID:0000S3 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -40,4 +40,6 @@
 
 ## Changes
 
+- 2026-06-05: Marked reconstructable and attached to [UID:0000MZ][RankingDialog](by-file/RankingDialog.md) to resolve the global unclassified coverage row.
+  - Reasoning: live IDA xrefs bind the singleton guard, constructor assignment/fallback, clear helper, and destructor clear to the ranking reward-info dialog inside the ranking dialog module; the parent file is already documented at high confidence. No score change and no reconstruction C++ were added.
 - 2026-05-30: What existed before: the page identified the singleton and four important sites but had no completion/confidence score. What changed: set completion/confidence to `84/90` and expanded the xref evidence from live IDA MCP. Summary/evidence: IDA reports a bounded six-xref set for the 4-byte `.data` item, covering duplicate guarding, constructor assignment, null fallback, unwind/helper clearing, and destructor clearing. The score remains below full because one clear site is not attached to an IDA function and the surrounding ranking reward request flow still needs source-level reconstruction elsewhere.

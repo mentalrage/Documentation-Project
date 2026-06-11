@@ -1,8 +1,8 @@
 *** UID:0000DD | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NS | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -71,6 +71,15 @@ The packet buffer helper functions are separate utilities documented under [UID:
 - `Socket` should not own high-level feature packet builders.
 - `Socket` sequences packet transforms through helpers and state documented under [UID:0000M9][PacketTransform](by-file/PacketTransform.md) and [UID:0000TG][PacketTransformGlobals](by-global/PacketTransformGlobals.md); the scalar big-endian helpers are better placed in `network/PacketBuffer.cpp`.
 
+## Assignment Decision
+
+`AUTOGEN_PARENT_UID` remains [UID:0000NS][Socket](by-file/Socket.md). The class is `86/85`, and the direct Socket file parent is now `88/85`, so both sides clear the corrected strict `85/85` gate. This only confirms source-root ownership; it does not finalize field names, helper splits, or C++ bodies.
+
+## Score Rationale
+
+- Completion `86`: class responsibility, likely source module, lifecycle/transport/send/receive/transform method families, transport modes, packet encoding, `g_packetSender` ownership, and exact memory references are documented.
+- Confidence `85`: live IDA and existing memory pages strongly support the class identity and direct Socket file parent. Confidence remains below near-final because field layout, the final `g_packetSender` interface type, and packet-transform helper placement are still unresolved.
+
 ## Open Questions
 
 - Review final field names once class layout inspection is reliable; targeted `inspect class-layout Socket --field-limit 80` timed out during this pass.
@@ -96,6 +105,11 @@ The packet buffer helper functions are separate utilities documented under [UID:
 
 ## Changes
 
+- 2026-06-05: Changed `RECONSTRUCTABLE` from blank to `TRUE` and assigned parent `0000NS`.
+  - Before: The stateful transport class remained unclassified in autogen coverage even though the class and parent file both met the 80/80 attach gate.
+  - After: The class contributes to `Socket.cpp` as a reconstructable child without emitting final C++ yet.
+  - Evidence: Live IDA MCP lookup confirms Socket lifecycle, command, transport, send/receive, transform, cleanup, and scalar-deleting starts from `0x005747e0` through `0x005795a0`; the inherited wait-handle helper at `0x005967d0` remains documented as base `Thread` infrastructure, not Socket-owned source.
+
 - 2026-06-02 `0x005967d0` ownership update:
   - What existed before: the page listed `QueueThreadEvent` as a Socket method and left an open question about whether it was truly Socket-owned.
   - Changed to: the helper is described as inherited base `Thread` infrastructure called by Socket serial setup.
@@ -103,3 +117,6 @@ The packet buffer helper functions are separate utilities documented under [UID:
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `86`, confidence `82`.
 - Evidence: the page documents responsibility, owner file, major transport ranges, important methods, transport modes, packet encoding, `g_packetSender` ownership, and subsystem cross-references; confidence remains capped by open field naming and helper/source split questions.
+- 2026-06-10 A001 strict gate repair:
+  - Changed confidence from `82` to `85`.
+  - Summary/evidence: the Socket file parent now scores `88/85`, while this class page documents the transport responsibility, lifecycle, command/send/receive/transform method families, `g_packetSender` lifetime ownership, and inherited Thread helper exclusion. Final C++ remains blank because class fields, exact sender interface type, and packet-transform placement remain below final-source confidence.

@@ -2,7 +2,7 @@
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for role, method boundaries, and singleton.
 - Likely source file: [UID:0000P2][UserStatusPane](by-file/UserStatusPane.md)
+- Autogen parent: [UID:0000P2][UserStatusPane](by-file/UserStatusPane.md). Assignment gate is met after the A005 Batch 059 parent refresh: this class is `88/88`, the direct file parent is `88/85`, and the file page directly lists this class as the newer status summary pane.
 - Main address range: [UID:0001NM][0x005b83b0-0x005baafe.UserStatusPane](by-memory/0x005b83b0-0x005baafe.UserStatusPane.md)
 - Shared destructor/thunk tail: [UID:0001NS][0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper](by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md)
 - Singleton: [UID:0000PS][g_activeUserStatusPane](by-global/g_activeUserStatusPane.md) at `0x0069ae0c`
@@ -55,7 +56,8 @@
 - The update handler at `0x005ba4a0` references [UID:0000SK][g_pTotemFrame](by-global/g_pTotemFrame.md): it invalidates an existing frame or constructs [UID:0000F4][TotemFrame](by-class/TotemFrame.md).
 - Active generated output omits `0x005b8700`, `0x005b9db0`, `0x005ba4a0`, and the shared tail helpers.
 - Active generated output also splits `0x005b85b0-0x005b86ca` into `class_CharacterSummaryRecord.cpp`; this is a generated pseudo-class over the `UserStatusPane` object tail.
-- 2026-05-31 IDA MCP recheck of the constructor, summary accessor island, status-icon setter, status-payload updater, and final boundary before `UserStatusPane2` supports treating the class as NexusTK-owned reconstructable source. Parent attachment and C++ emission remain intentionally blank until the class and all children are near-final.
+- 2026-05-31 IDA MCP recheck of the constructor, summary accessor island, status-icon setter, status-payload updater, and final boundary before `UserStatusPane2` supports treating the class as NexusTK-owned reconstructable source.
+- 2026-06-07 A005 Batch 059 parent-gate repair attaches this class to [UID:0000P2][UserStatusPane](by-file/UserStatusPane.md) after the file parent reached `88/85`. C++ emission remains intentionally blank until the class and all children are near-final.
 
 ## Cross-References
 
@@ -69,6 +71,14 @@
 
 ## Changes
 
+- 2026-06-07 A005 Batch 059 parent-gate repair:
+  - What existed before: `AUTOGEN_PARENT_UID` was blank, so class-owned memory children routed to `0000FS` produced generated memory coverage `autogen_parent_unknown` rows.
+  - Changed to: `AUTOGEN_PARENT_UID:0000P2`.
+  - Summary/evidence: [UID:0000P2][UserStatusPane](by-file/UserStatusPane.md) was refreshed to `88/85`; this class is `88/88`; the file page directly owns the newer status summary pane alongside `UserStatusPane2` and legacy status variants. Final C++ remains blank under the `95/95` code-emission gate.
+- 2026-06-07 A006 Batch 060 validator-state repair:
+  - What existed before: generated memory autogen coverage reported `AUTOGEN_PARENT_UID:0000FS` as unknown for the exact [UID:0002LP][0x005b86e0-0x005b86f8.UserStatusPaneSetStatusIconId](by-memory/0x005b86e0-0x005b86f8.UserStatusPaneSetStatusIconId.md) child, even though this class page already has UID `0000FS` and scores `88/88`.
+  - Changed to: no score or ownership change; this page was revalidated as the direct parent for the status-icon setter.
+  - Summary/evidence: the class method map and field evidence already include the `SetStatusIconId` child, so the repair is validator-state registration rather than a parent reroute.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:88` and `CONFIDENCE:88`.

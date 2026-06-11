@@ -1,8 +1,8 @@
 *** UID:0000TE | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,10 +15,11 @@
 - Confidence: strong for behavior, source owner, and current unreferenced status; medium for why the wrapper was retained.
 - Address range: [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md)
 - Likely owner source: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
+- Parent status: unassigned under the strict `85/85` child/direct-parent gate. This helper now has `84/88`, and likely direct parent [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) is `88/82`.
 
 ## Function Role
 
-`OpenStoryViewingPane_4F90C0` is a small helper that allocates a 264-byte [UID:000066][HistoryViewingPane](by-class/HistoryViewingPane.md) and passes the story resource selected by `g_useEpfAssets`: `STORY.EPF` in EPF/high-layout mode or `STORY.EPD` in legacy mode.
+`OpenStoryViewingPane_4F90C0` is a small helper that allocates a `0x108`-byte, 264 decimal byte (Verified with `int_convert.py`), [UID:000066][HistoryViewingPane](by-class/HistoryViewingPane.md) and passes the story resource selected by [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md): `STORY.EPF` in EPF/high-layout mode or `STORY.EPD` in legacy mode.
 
 This duplicates the story branch inside `MainMenuPane::ActivateMenuItem`. Current IDA reports no callers or xrefs to the helper start, and 2026-05-28 raw pointer/immediate searches also found no hidden references. Treat it as a real retained duplicate helper unless later evidence proves a callback path.
 
@@ -30,13 +31,19 @@ This duplicates the story branch inside `MainMenuPane::ActivateMenuItem`. Curren
 - The constructor call sites inside this helper appear as `0x004f910c` and `0x004f912b` in `callers 0x004ffd80`.
 - 2026-06-04 live IDA reports the function as `0x004f90c0-0x004f913f`, followed by one `0xcc` byte before the history helper at `0x004f9140`.
 - 2026-06-04 live IDA reports no xrefs to `0x004f90c0` and zero loaded-segment dword hits for `0x004f90c0`.
-- 2026-06-04 live disassembly shows an SEH/security-cookie frame, `byte_66DA97 == 1` branch, allocation size `0x108`, non-null allocation check, and constructor call through `sub_4FFD80`.
+- 2026-06-04 live disassembly shows an SEH/security-cookie frame, [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97` branch, allocation size `0x108`, non-null allocation check, and constructor call through `sub_4FFD80`.
 - 2026-06-04 live string-byte decoding confirms the resource operands as `STORY.EPF` at `0x0061e128` and `STORY.EPD` at `0x0061e13c`.
 - 2026-06-04 live decompile of `sub_4F7A10` confirms active menu case `3` directly duplicates this allocation/resource/constructor sequence.
 - 2026-05-26 IDA recheck still reports zero code refs and zero data refs to the helper start.
 - 2026-05-27 IDA raw-pointer scan across loaded segments found no dword equal to `0x004f90c0`.
 - 2026-05-28 IDA MCP recheck still reports no code/data refs, no little-endian pointer byte match for `c0 90 4f 00`, and no immediate-value search hits for `0x004f90c0`.
 - 2026-05-28 IDA MCP decompile of `0x004f7a10` shows the active story menu case directly allocating `264` bytes and calling `0x004ffd80` with the story resource, matching this wrapper's behavior without calling the wrapper.
+- 2026-06-10 A001 live IDA MCP `lookup_funcs` reconfirms `sub_4F90C0` at `0x004f90c0` with size `0x7f`, 127 decimal bytes (Verified with `int_convert.py`), and confirms `0x004f913f` is not a function head while the adjacent history helper begins at `0x004f9140`.
+- 2026-06-10 `callees 0x004f90c0` reports only allocator `0x004f4aa0` and [UID:000066][HistoryViewingPane](by-class/HistoryViewingPane.md) constructor `0x004ffd80`; `callers 0x004f90c0` remains empty.
+- 2026-06-10 `callers 0x004ffd80` reports active [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) call sites at `0x004f7b8d`/`0x004f7bc3` for the story branch, `0x004f7c07`/`0x004f7c3d` for the history branch, plus retained wrapper calls at `0x004f912b` and `0x004f91ab`.
+- 2026-06-10 `xrefs_to` confirms the story resource operands are referenced by this helper at `0x004f9107` for `STORY.EPF` (`0x0061e128`) and `0x004f9124` for `STORY.EPD` (`0x0061e13c`), matching the active menu-handler sites at `0x004f7b86` and `0x004f7bbc`.
+- 2026-06-10 decompilation of `0x004f90c0` still reduces to the `g_useEpfAssets` branch, `0x108` allocation, null check, and constructor call; disassembly shows the SEH/security-cookie frame, `cmp byte_66DA97, 1`, `push 108h`, resource pointer push, and constructor dispatch at `0x004f912b`.
+- 2026-06-10 decompilation of `0x004f7a10` confirms active menu cases `3` and `4` inline the same story/history allocation and constructor behavior instead of calling these retained wrappers.
 
 ## Source Layout Decision
 
@@ -45,15 +52,15 @@ Keep this with `login/MainMenuPane.cpp` as a menu action helper for address-matc
 ## Autogen Status
 
 - Reconstructable: true, as a retained project helper with exact behavior and boundary evidence.
-- Parent: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md).
+- Parent: blank until [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) reaches at least `85/85`; it is the likely direct owner, but currently sits at `88/82`.
 - C++: intentionally blank; this is a small retained wrapper, but final source shape and retention reason are not final-audit quality.
 
 ## Score Rationale
 
 | Score | Rationale |
 | --- | --- |
-| Completion `80` | Exact boundary, padding relationship, resource operands, allocator/constructor behavior, no-xref/no-pointer checks, matching active menu case, and source-placement caveat are documented. Completion remains capped because the retained duplicate wrapper's source reason is unresolved. |
-| Confidence `86` | Live IDA strongly confirms the helper body, decoded resource operands, constructor path, and current unreferenced status. Confidence remains below higher scores because no live caller or callback table has been recovered. |
+| Completion `84` | Exact boundary, function size, padding relationship, resource operands, allocator/constructor behavior, direct no-caller status, constructor caller matrix, matching active menu cases, source-placement caveat, and strict parent-gate status are documented. Completion remains capped because the retained duplicate wrapper's source reason is unresolved and final C++ is intentionally blank. |
+| Confidence `88` | Live IDA strongly confirms the helper body, decoded resource operands, constructor path, direct lack of callers, and duplicated active menu behavior. Confidence remains below higher scores because no live caller or callback table has been recovered, and the likely parent page still lacks `85` confidence. |
 
 ## Cross-References
 
@@ -77,3 +84,9 @@ Keep this with `login/MainMenuPane.cpp` as a menu action helper for address-matc
   - What existed before: the helper was scored `65/65` with no reconstructable parent attachment.
   - Changed to: completion `72`, confidence `80`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000L0`.
   - Summary/evidence: exact function size, callees, call sites, repeated no-xref scans, and duplicated active main-menu construction support treating this as retained `MainMenuPane.cpp` project code while keeping C++ blank.
+- 2026-06-07 A008 alias cleanup:
+  - Normalized the story resource-selection branch to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), retaining `byte_66DA97` as the historical IDA lookup alias.
+- 2026-06-10 A001 live refresh and parent-gate repair:
+  - Before: scored `80/86` and assigned to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) even though that likely direct parent was `88/82`.
+  - Changed to: `84/88`, blank `AUTOGEN_PARENT_UID`, added current IDA function/callee/caller/xref/decompile/disassembly evidence, and recorded `int_convert.py` checks for `0x7f` and `0x108`.
+  - Why: the helper is still strongly confirmed as retained project code, but the strict child/direct-parent gate blocks assignment until `MainMenuPane` reaches at least `85/85`.

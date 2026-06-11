@@ -1,6 +1,6 @@
 *** UID:00005P | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000NY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:20 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -66,6 +66,7 @@
 - 2026-05-27 IDA MCP recheck still reports `0x00500640` as `NOFUNC` with no xrefs, and a raw dword scan across loaded segments found no pointers to `0x00500640`. The same scan found no raw pointer hits for `0x004fb630`; that range remains confirmed by its direct caller at `0x004fa74e`, not by gender-button ownership.
 - 2026-06-01 aggregate and vtable-data pages add exact raw-constructor stores, vtable child boundaries, slot targets, owner-pollution boundaries, and field-layout evidence for `+0x10c`, `+0x110`, and `+0x114`.
 - 2026-06-03 IDA MCP recheck again reports `0x00500640` as `NOFUNC` with no xrefs or raw pointer hits. It reconfirmed `0x005006d0`, `0x00500700`, and `0x00502700` as real functions, primary vtable slots `0x0061db90+0x44 -> 0x00500700`, `+0x48 -> 0x005006d0`, and `+0x00 -> 0x00502700`, plus constructor/inline/destructor vtable store refs at `0x004fb7e8`, `0x004fb869`, `0x0050066f`, and `0x00502706`. The polluted `0x004fb630` row still has a direct caller at `0x004fa74e` and remains `NewUserMiscDialogPane` ownership.
+- 2026-06-06 live IDA MCP recheck reconfirmed the current class boundary: `0x00500640` is still not an IDA function and has no xrefs/callers, while `0x00500690`, `0x005006d0`, `0x00500700`, and `0x00502700` remain modeled functions. `xrefs_to` still ties state/paint/destruction through vtable data at `0x0061dbd8`, `0x0061dbd4`, and `0x0061db90`; primary-vtable store refs remain split between inline setup in `NewUserMiscDialogPane` at `0x004fb7e8`/`0x004fb869`, raw constructor-shaped bytes at `0x0050066f`, and destructor reset at `0x00502706`. `callees` confirms the state method delegates through `0x00494b80`, the paint method uses the resource/render helper family, and the scalar deleting destructor chains to pane cleanup plus operator delete.
 
 ## Reconstruction Notes
 
@@ -95,3 +96,7 @@
   - Before: `AUTOGEN_PARENT_UID` was blank because the likely file parent was below the 80+ confidence threshold and had no projected path.
   - Changed to: `AUTOGEN_PARENT_UID:0000NY` and position `20`; reconstruction C++ remains blank.
   - Summary/evidence: [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) is now a `76/82` provisional `NexusTK/ui/controls/` parent after a fresh IDA MCP recheck reconfirmed gender-button vtable/function evidence and the `NewUserMiscDialogPane` ownership guard while preserving the raw constructor caveat.
+- 2026-06-06 live IDA refresh:
+  - Before: the class page had strong older evidence but had not recorded the current IDA state after several adjacent button/control updates.
+  - Changed to: score `80/84`, retaining `RECONSTRUCTABLE:TRUE`, parent attachment, and blank final C++.
+  - Summary/evidence: live IDA MCP reconfirmed `0x00500640` as `NOFUNC` with no entry xrefs/callers, confirmed the accessor/state/paint/destructor function objects and sizes, confirmed vtable data refs and inline setup stores, and confirmed the state/paint/destructor callee families. Confidence stays below high-final because the constructor remains raw/non-IDA-function and final inherited slot names are not source quality.

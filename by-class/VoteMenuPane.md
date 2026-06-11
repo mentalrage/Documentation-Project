@@ -1,9 +1,9 @@
 *** UID:0000FX | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P6 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -12,8 +12,9 @@
 
 ## Status
 
-- Confidence: strong for confirmed methods and helper ownership; medium cap remains for final source/code because IDA does not model `0x005558d0` as a function and exact original helper names are not final.
+- Confidence: strong for confirmed methods, layout, vtable stores, singleton lifecycle, and helper ownership; medium cap remains for final source/code because IDA does not model `0x005558d0` as a function and exact original helper names are not final.
 - Likely source file: [UID:0000P6][VoteMenuPane](by-file/VoteMenuPane.md)
+- Parent handling: attached to [UID:0000P6][VoteMenuPane](by-file/VoteMenuPane.md) at autogen position `10`; this class is `86/85` and the direct file parent is `88/85`, so the current strict parent gate is satisfied. C++ remains blank below the 95+ reconstruction gate.
 - Current recovered file: `source-3/simroot_v2/class_VoteMenuPane.cpp`
 - Singleton: [UID:0000SP][g_pVoteMenuPane](by-global/g_pVoteMenuPane.md) at [UID:0001Q0][0x0069ba38-0x0069ba3c.g_pVoteMenuPane](by-memory/0x0069ba38-0x0069ba3c.g_pVoteMenuPane.md)
 - Vtables: [UID:0001Z1][VoteMenuPaneVtables](by-type/by-vtable/VoteMenuPaneVtables.md)
@@ -54,6 +55,7 @@
 - `OnMouseEvent` is secondary-table slot `+0x04`; the two-row hit-test helper at `0x00556070` and vote-submit helper at `0x00556100` are direct callees, not vtable slots.
 - Wave3 metadata notes stored method-name control characters for constructor/destructor/deleting destructor.
 - 2026-05-31 IDA MCP recheck confirms the exact child function boundaries, `0x00556070`/`0x00556100` xrefs from `OnMouseEvent`, `0x00556020` xref from `OnPaint`, vtable xrefs from constructor/destructors, and `g_pVoteMenuPane` constructor/destructor writes.
+- 2026-06-08 A008 IDA MCP recheck confirms the raw constructor tail-field layout (`+0xf8`, `+0xf9`, `+0xfc`, `+0x100`), vtable stores at `0x00555913`/`0x00555919`/`0x00555923`, destructor/scalar-destructor vtable restores, singleton refs at `0x0069ba38`, and direct `OnMouseEvent` calls to `VoteMenuPaneHitTest` and `SubmitVote`.
 
 ## Cross-References
 
@@ -79,3 +81,11 @@
   - What existed before: `RECONSTRUCTABLE` was blank, score was `84/80`, and the method table used mostly raw address text.
   - Changed to: `RECONSTRUCTABLE:TRUE`, score `86/84`, and method rows linked to exact child memory pages.
   - Summary/evidence: IDA MCP `lookup_funcs`, `decompile`, `xrefs_to`, `disasm`, and `get_bytes` verified the method boundaries, direct helper callers, vtable/global references, and child/padding split.
+- 2026-06-07 parent attachment update:
+  - Before: `AUTOGEN_PARENT_UID` was blank even though the class page and [UID:0000P6][VoteMenuPane](by-file/VoteMenuPane.md) already documented the same source owner.
+  - Changed to: `AUTOGEN_PARENT_UID:0000P6` and autogen position `10`; reconstruction C++ remains blank.
+  - Evidence: the file page scores `88/84`, proposes `NexusTK/ui/menu/`, and records the same constructor/destructor/input/paint/helper, singleton, and vtable ownership evidence.
+- 2026-06-08 A008 Batch 128 parent-side refresh:
+  - Before: score was `86/84`, which left the current strict parent confidence gate just below threshold for [UID:0001WH][VoteMenuPaneLayout](by-type/by-struct/VoteMenuPaneLayout.md).
+  - Changed to: confidence `85`; completion stays `86`.
+  - Evidence: live IDA MCP reconfirmed raw constructor layout stores, vtable install/restore xrefs, `g_pVoteMenuPane` singleton refs, `OnMouseEvent` direct calls to hit-test and submit helpers, and `OnPaint` state-byte reads. The score remains conservative because the constructor is still not an IDA-modeled function and final source helper/field names are not audited to final quality.

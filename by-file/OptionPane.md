@@ -1,13 +1,13 @@
 *** UID:0000M7 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # OptionPane
 
 ## Status
 
-- Confidence: strong for `OptionPane` and `NewOptionPane` behavior; medium for final original file grouping.
+- Confidence: strong for `OptionPane` and `NewOptionPane` behavior and option resource ownership; medium-high for final original file grouping.
 - Proposed module: `ui/dialogs/OptionPane.cpp`
 - Current recovered sources: `class_OptionPane.cpp`, `class_NewOptionPane.cpp`, and `SendOptionPacket11B_00540E50.cpp`
 - Main address docs: [UID:0001DO][0x0053d820-0x0053e520.OptionPane](by-memory/0x0053d820-0x0053e520.OptionPane.md) and [UID:0001DW][0x0053ff90-0x00541b2b.NewOptionPane](by-memory/0x0053ff90-0x00541b2b.NewOptionPane.md)
@@ -21,6 +21,7 @@
 | Structure | Address evidence | Role |
 | --- | --- | --- |
 | `OptionPane` | `0x0053d820-0x0053e520`, destructor wrapper `0x00542940` | Older option dialog; builds radio/checkbox controls, sends option opcode `0x11b` updates, and applies server-provided option availability state. |
+| [UID:0002ZC][0x0066dee4-0x0066dee8.OptionPaneDlgOptEpdResourcePointer](by-memory/0x0066dee4-0x0066dee8.OptionPaneDlgOptEpdResourcePointer.md) | data refs at `0x0053d89f`, `0x0053d8cb`, `0x0053d8fd` | Source-declared pointer to the read-only wide `DLGOPT.EPD` resource filename used by the old `OptionPane` constructor. |
 | `NewOptionPane` | `0x0053ff90-0x00541b2b`, destructor/thunks [UID:00023J][0x0054259f-0x0054267b.DialogPaneAdjustorThunkIsland](by-memory/0x0054259f-0x0054267b.DialogPaneAdjustorThunkIsland.md) and [UID:00023K][0x005426e0-0x00542ab5.DialogPaneScalarDeletingDestructorIsland](by-memory/0x005426e0-0x00542ab5.DialogPaneScalarDeletingDestructorIsland.md) | New page-based options pane; initializes option entries, handles pages, draws option buttons, applies sound sliders, and sends config/server updates. |
 | [UID:0000TL][SendOptionPacket11B_540E50](by-global/SendOptionPacket11B_540E50.md) | [UID:0001DY][0x00540e50-0x00540e91.SendOptionPacket11B](by-memory/0x00540e50-0x00540e91.SendOptionPacket11B.md) | Shared 3-byte opcode `0x011b` option packet helper used by `NewOptionPane` and `SelfLookPane`; old `OptionPane` has a distinct local copy at [UID:0001DQ][0x0053e380-0x0053e3c1.OptionPaneSendOptionPacket11B](by-memory/0x0053e380-0x0053e3c1.OptionPaneSendOptionPacket11B.md). |
 | [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md) consumers | constructor calls `0x00540097`/`0x005400c6`; setters from `0x005403b0` and `0x00541a90`; callback at `0x00540490` | `NewOptionPane` owns the music/sound setting policy and callback target, while slider hit-test/commit/value computation stays in `ScrollVolumePane.cpp`. |
@@ -45,6 +46,7 @@
 - IDA MCP byte/function review on 2026-05-28 confirms real old `OptionPane` helper bodies at `0x0053e3d0` and `0x0053e420`, between the corrected local sender end at `0x0053e3c1` and the macro-dialog boundary at `0x0053e520`.
 - 2026-06-01 IDA MCP recheck confirms the old pane function map at `0x0053d820-0x0053dd4f`, `0x0053dd50-0x0053dd6f`, `0x0053ddb0-0x0053e191`, `0x0053e1e0-0x0053e377`, and `0x0053e380-0x0053e3c1`; the raw helper bytes at `0x0053e3d0` and `0x0053e420` remain source-shaped bodies without IDA function records.
 - 2026-05-25 IDA MCP recheck confirms `0x00541660` and `0x005416d0` are real functions whose direct callers are all inside `NewOptionPane::OnPaint`; generated `class_NewOptionPane.cpp` calls `DrawSectionHeader` / `DrawOptionButton`, but the helper bodies are currently emitted under `FittingRoomDownloadControlPane`.
+- 2026-06-07 A008 split recheck records the exact static resource pointer at [UID:0002ZC][0x0066dee4-0x0066dee8.OptionPaneDlgOptEpdResourcePointer](by-memory/0x0066dee4-0x0066dee8.OptionPaneDlgOptEpdResourcePointer.md): bytes `64 12 62 00` point to UTF-16 `DLGOPT.EPD` at `0x00621264`, and all slot refs are old `OptionPane` constructor refs at `0x0053d89f`, `0x0053d8cb`, and `0x0053d8fd`.
 
 ## Migration Notes
 
@@ -62,6 +64,7 @@ Preferred provisional names for those two helpers are `NewOptionPane::DrawSectio
 - [UID:0001H5][0x00565360-0x00565488.ScrollVolumePaneNotifyValueChange](by-memory/0x00565360-0x00565488.ScrollVolumePaneNotifyValueChange.md)
 - [UID:0000OG][TargetOptionDialog](by-file/TargetOptionDialog.md)
 - [UID:0001DO][0x0053d820-0x0053e520.OptionPane](by-memory/0x0053d820-0x0053e520.OptionPane.md)
+- [UID:0002ZC][0x0066dee4-0x0066dee8.OptionPaneDlgOptEpdResourcePointer](by-memory/0x0066dee4-0x0066dee8.OptionPaneDlgOptEpdResourcePointer.md)
 - [UID:0001DW][0x0053ff90-0x00541b2b.NewOptionPane](by-memory/0x0053ff90-0x00541b2b.NewOptionPane.md)
 - [UID:0001DP][0x0053e1e0-0x0053e377.OptionPaneServerOptionResponse](by-memory/0x0053e1e0-0x0053e377.OptionPaneServerOptionResponse.md)
 - [UID:0001DQ][0x0053e380-0x0053e3c1.OptionPaneSendOptionPacket11B](by-memory/0x0053e380-0x0053e3c1.OptionPaneSendOptionPacket11B.md)
@@ -89,3 +92,7 @@ Preferred provisional names for those two helpers are `NewOptionPane::DrawSectio
   - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank, preventing attached children from staging under the proposed source tree.
   - Changed to: `NexusTK/ui/dialogs/`.
   - Evidence: `by-project-structure/proposed-source-tree.md` already places `OptionPane.cpp` under `ui/dialogs`, and the page's proposed module is `ui/dialogs/OptionPane.cpp`.
+- 2026-06-07 A008 Batch 053 parent-gate refresh:
+  - Before: `90/82`; the page was below the corrected confidence gate for the exact `DLGOPT.EPD` pointer child even though the old option-pane constructor refs were already known.
+  - Changed to: `91/85`; added the exact [UID:0002ZC][0x0066dee4-0x0066dee8.OptionPaneDlgOptEpdResourcePointer](by-memory/0x0066dee4-0x0066dee8.OptionPaneDlgOptEpdResourcePointer.md) child and its byte/string/xref evidence.
+  - Assignment effect: [UID:0002ZC][0x0066dee4-0x0066dee8.OptionPaneDlgOptEpdResourcePointer](by-memory/0x0066dee4-0x0066dee8.OptionPaneDlgOptEpdResourcePointer.md) now has a direct by-file parent that clears the corrected `85/85` gate. Remaining uncertainty is limited to final original grouping with `NewOptionPane` and helper placement, so confidence stays at `85` rather than moving higher.

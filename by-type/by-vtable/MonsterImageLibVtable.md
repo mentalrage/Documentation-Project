@@ -15,7 +15,7 @@
 - Confidence: strong for address, RTTI locator, slot targets, adjacent boundary, and vptr-store xrefs.
 - Owner class: [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md).
 - Exact memory page: [UID:0002MM][0x0061b6e0-0x0061b6f0.MonsterImageLibVtableData](by-memory/0x0061b6e0-0x0061b6f0.MonsterImageLibVtableData.md).
-- Backing aggregate page: [UID:00025I][0x0061b664-0x0061c364.ImageLibraryReadOnlyData](by-memory/0x0061b664-0x0061c364.ImageLibraryReadOnlyData.md).
+- Backing aggregate page: [UID:00025I][0x0061b664-0x0061c360.ImageLibraryReadOnlyData](by-memory/0x0061b664-0x0061c360.ImageLibraryReadOnlyData.md).
 - RTTI pointer: `0x0061b6e0` -> `0x00648c14` (`??_R4MonsterImageLib@@6B@`).
 - Primary vtable: `0x0061b6e4` (`??_7MonsterImageLib@@6B@`).
 - Rebuild handling: `source-declared/generated-binary`.

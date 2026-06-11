@@ -1,8 +1,8 @@
 *** UID:0000EW | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OR | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -18,7 +18,7 @@
 
 - Source: [UID:0000OR][Thread](by-file/Thread.md)
 - Proposed path: `util/Thread.cpp`
-- Confidence: medium
+- Confidence: strong for the shared utility/threading source family, medium for final handwritten singleton construction/destruction spelling.
 
 ## Method Families
 
@@ -42,6 +42,16 @@
 - 2026-05-26 IDA MCP recheck reconfirmed the modeled function set and sizes: constructor `0x00596bf0` size `0x123`, worker loop `0x00596e10` size `0x2cf`, worker entry `0x00597100` size `0xad`, singleton clear `0x005974e0` size `0x0b`, and scalar deleting destructor `0x005974f0` size `0x7e`.
 - The same recheck still reports the raw destructor/post-message starts `0x00596d20`, `0x00596d70`, `0x00596d90`, `0x00596db0`, `0x00596dd0`, and `0x00596df0` as `Not a function` with empty `xrefs_to`.
 - No direct constructor caller was found in this pass; construction may be through static singleton glue or a function not currently modeled as a direct call.
+- The 2026-06-02 [UID:0001JX][0x00596250-0x0059756e.ThreadAndThreadMan](by-memory/0x00596250-0x0059756e.ThreadAndThreadMan.md) aggregate attaches the full `Thread`/`ThreadMan` island to [UID:0000OR][Thread](by-file/Thread.md) after confirming modeled starts, raw-helper non-function status, singleton xrefs, major callees, and adjacent padding.
+- The exact child pages for the constructor, raw wrappers, worker loop, worker entry, singleton clear, and scalar deleting destructor are all now reconstructable and parent-attached to `Thread.cpp`, with scores at or above the 80/80 attachment gate.
+- A008 attempted a live IDA MCP recheck on 2026-06-07, but `http://127.0.0.1:13337/mcp` was unavailable. No new live-IDB facts are added by that attempt; this update is based on the already written IDA-backed documentation cited above.
+- 2026-06-08 Agent-A002 live IDA MCP `py_eval` rechecked the parent/source gate: `ThreadMan::ThreadMan` remains modeled at `0x00596bf0-0x00596d13`, the worker loop at `0x00596e10-0x005970df`, the worker entry at `0x00597100-0x005971ad`, and the scalar deleting destructor at `0x005974f0-0x0059756e`; raw starts `0x00596d20`, `0x00596d70`, `0x00596d90`, `0x00596db0`, `0x00596dd0`, and `0x00596df0` still have no IDA function objects. The same check found `ThreadMan` vtable refs at `0x00596c4d`, `0x00596d26`, and `0x005974f9`, plus [UID:0000SH][g_pThreadMan](by-global/g_pThreadMan.md) refs at `0x00596c33`, `0x00596c3a`, `0x00596d5f`, `0x005974e0`, and `0x00597532`.
+
+## Parent Attachment Decision
+
+Attach `ThreadMan` to [UID:0000OR][Thread](by-file/Thread.md). The by-file page is scored `89/85`, the child memory pages are already attached to the same source root, and the class role is a process-level companion to the generic [UID:0000EV][Thread](by-class/Thread.md) base rather than a separate subsystem file.
+
+Keep final C++ blank. The class is reconstructable source, but the no-direct-constructor-caller caveat, raw non-modeled wrapper starts, final watchdog field names, and destructor/source-shape split are still below the 95/95 final-source threshold.
 
 ## Generated Data Caveats
 
@@ -77,3 +87,11 @@ The next function at `0x00597570` is [UID:0000F0][TimerHandler](by-class/TimerHa
   - Before: `RECONSTRUCTABLE:`.
   - After: `RECONSTRUCTABLE:TRUE`.
   - Summary/evidence: IDA MCP rechecked the source-owned `ThreadMan` constructor, worker loop, worker entry, singleton clear helper, and scalar deleting destructor boundaries. The page remains unattached and has no C++ reconstruction because raw wrapper boundaries and final source shape are not yet at the near-final threshold.
+- 2026-06-07 A008 parent-chain refresh:
+  - What existed before: `COMPLETION:84`, `CONFIDENCE:78`, and no autogen parent, even though the exact child memory pages had already been attached to [UID:0000OR][Thread](by-file/Thread.md).
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:82`, and `AUTOGEN_PARENT_UID:0000OR`.
+  - Summary/evidence: existing IDA-backed child pages now cover the constructor, raw destructor/message wrappers, worker loop, worker entry, singleton clear helper, scalar deleting destructor, `g_pThreadMan`, layout/type records, stale generated-row exclusions, and the aggregate `ThreadAndThreadMan` source-root chain. C++ remains blank because live constructor reachability, raw wrapper function records, final field names, and exact destructor/source spelling are still not final-audit quality. A live MCP retry in this session failed because the endpoint was unavailable, so no new live-IDB claims were added.
+- 2026-06-08 Agent-A002 Batch 134 parent-gate refresh:
+  - Before: `COMPLETION:86`, `CONFIDENCE:82`.
+  - After: `COMPLETION:86`, `CONFIDENCE:85`.
+  - Summary/evidence: live IDA MCP reconfirmed the constructor, worker loop, worker entry, scalar deleting destructor, still-raw message-wrapper starts, `ThreadMan` vtable refs, and `g_pThreadMan` refs. This raises the class parent enough to own [UID:0001WB][ThreadManWatchRecord](by-type/by-struct/ThreadManWatchRecord.md) under the strict `85/85` gate, while final source remains blocked by raw wrapper/source-shape caveats.

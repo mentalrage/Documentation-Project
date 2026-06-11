@@ -2,7 +2,7 @@
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000O9 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for class behavior, medium for exact original file split.
 - Proposed path: [UID:0000O9][StdioFile](by-file/StdioFile.md), under the [UID:0000JD][FileIO](by-file/FileIO.md) utility layer
+- Parent attachment: [UID:0000O9][StdioFile](by-file/StdioFile.md); both the class and file root now clear the 80/80 attachment gate.
 - Current Wave3 file: `class_StdioFile.cpp`
 - Main address evidence: [UID:0001IR][0x00582070-0x005824f6.StdioFile](by-memory/0x00582070-0x005824f6.StdioFile.md), [UID:0001IT][0x005820d0-0x005821c9.StdioFileOpen](by-memory/0x005820d0-0x005821c9.StdioFileOpen.md), [UID:0001IV][0x00582200-0x0058224a.StdioFileVirtualPositionReadMethods](by-memory/0x00582200-0x0058224a.StdioFileVirtualPositionReadMethods.md), plus [UID:00019F][0x004f5ad0-0x004f5ad4.StdioFileGetSize](by-memory/0x004f5ad0-0x004f5ad4.StdioFileGetSize.md)
 - Size/layout: 12 bytes; `File` base at `+0`, `FILE*` handle at `+4`, cached file size at `+8`. See [UID:0001UG][FileStreamLayouts](by-type/by-struct/FileStreamLayouts.md).
@@ -72,3 +73,8 @@
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `88`, confidence `80`.
 - Evidence: the page documents role, layout, vtables, constructor/destructor/open/close/position/seek/read/line/remaining/destructor methods, disabled-but-real virtual slots, caller evidence, and binary-behavior caveats; confidence remains capped by exact original file split and rewrite decisions around `ReadRemaining`.
+
+- 2026-06-06 parent-chain sync:
+  - What existed before: the class was reconstructable and strong enough for attachment, but `AUTOGEN_PARENT_UID` was blank while child method pages pointed at this class.
+  - Changed to: parent [UID:0000O9][StdioFile](by-file/StdioFile.md).
+  - Summary/evidence: [UID:0000O9][StdioFile](by-file/StdioFile.md) now records the exact constructor, executable island, virtual position/read methods, line-read helpers, vtable, layout, and caller evidence at `82/84`, so the class-to-file chain satisfies the 80/80 gate. C++ remains blank under the 95/95 final-source gate.

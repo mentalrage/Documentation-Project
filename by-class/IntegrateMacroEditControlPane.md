@@ -1,8 +1,8 @@
 *** UID:00006M | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -69,3 +69,4 @@
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `86/84`. Summary: macro edit-row role, state offsets, embedded TextEditPane relationship, method map, macro record semantics, vtable thunks, decompiled Set/Sync/Key behavior, and generated-output omissions are documented in detail; confidence remains limited by final source-facing representation of thunk/helper slots. Evidence: `MacroEditControlPanes`, `MacroEditControlPaneVtableThunks`, `MacroDialogFamilyVtables`, and `MacroHotkeyRecord`.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000KY][MacroDialogs](by-file/MacroDialogs.md) because the class is `86/84` and the parent is `88/82`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts at `0x0057fd10`, `0x0057ff60`, `0x0057ffa0`, `0x0057ffb0`, `0x00580320`, `0x00580460`, `0x00580490`, `0x00580550`, `0x005805c0`, `0x005805e0`, `0x00580640`, `0x00580645`, `0x00580650`, and `0x00580690`; current `callers` confirms construction from `IntegrateMacroDialog` at `0x00541cc5`.

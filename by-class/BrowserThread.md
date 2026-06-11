@@ -1,5 +1,5 @@
 *** UID:00001A | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -25,10 +25,10 @@
 | Range | Current interpretation | Notes |
 | --- | --- | --- |
 | `0x0046eff0-0x0046f005` | non-deleting destructor | Reinstalls the BrowserThread vtable, clears `g_pBrowserThread`, and delegates to the base `Thread` destructor. |
-| `0x0046f010-0x0046f1c8` | `RunMessageLoop` | Initializes the browser host, runs the private `GetMessageA` loop, forwards Tab/Escape-style input, posts browser notifications, and tears down COM. |
-| `0x0046f1d0-0x0046f1db` | delete-if-present wrapper | Vtable-only wrapper slot; source reconstruction should express the real destructor behavior rather than port this helper literally. |
-| `0x004706f0-0x0047073b` | scalar deleting destructor | Repeats the BrowserThread singleton clear/base teardown path and applies delete flags. |
-| `0x00470a00-0x00470dc9` | `InitializeBrowserHost` | Registers/creates the browser host window, bridges the pending host through `g_pCurrentBrowserHost`, initializes COM, creates the WebBrowser object, advises browser events, and handles cleanup. |
+| [UID:00032Q][0x0046f010-0x0046f1c8.BrowserThreadRunMessageLoop](by-memory/0x0046f010-0x0046f1c8.BrowserThreadRunMessageLoop.md) | `RunMessageLoop` | Initializes the browser host, runs the private `GetMessageA` loop, forwards Tab/Escape-style input, posts browser notifications, and tears down COM. |
+| [UID:00032R][0x0046f1d0-0x0046f1db.BrowserThreadDeleteIfPresentWrapper](by-memory/0x0046f1d0-0x0046f1db.BrowserThreadDeleteIfPresentWrapper.md) | delete-if-present wrapper | Vtable-only non-emitting wrapper slot; source reconstruction should express the real destructor behavior rather than port this helper literally. |
+| [UID:00032V][0x004706f0-0x0047073b.BrowserThreadScalarDeletingDestructor](by-memory/0x004706f0-0x0047073b.BrowserThreadScalarDeletingDestructor.md) | scalar deleting destructor | Repeats the BrowserThread singleton clear/base teardown path and applies delete flags. |
+| [UID:00032W][0x00470a00-0x00470dc9.BrowserThreadInitializeBrowserHost](by-memory/0x00470a00-0x00470dc9.BrowserThreadInitializeBrowserHost.md) | `InitializeBrowserHost` | Registers/creates the browser host window, bridges the pending host through `g_pCurrentBrowserHost`, initializes COM, creates the WebBrowser object, advises browser events, and handles cleanup. |
 
 ## Evidence
 
@@ -44,6 +44,7 @@
 - Host initialization refs browser COM GUID data at `0x006315a0`, `0x00631620`, `0x00631600`, `0x00631610`, and `0x006315d0`, calls `AdviseConnectionPoint` at `0x00470cc3`, calls `UnadviseConnectionPoint` at `0x00470d69`, and calls navigation/cleanup helper `0x00470dd0` at `0x00470d92`.
 - `g_pBrowserThread` xrefs now map constructor storage from [UID:0002P3][0x0046ff50-0x00470159.BrowserControlPaneOldConstructor](by-memory/0x0046ff50-0x00470159.BrowserControlPaneOldConstructor.md) at `0x004700ef`/`0x004700f6`, destructor clears at `0x0046eff6` and `0x004706fc`, and legacy Browser/BrowserDialogOld reads around `0x004694c0-0x00469620` and `0x0046f810`.
 - BrowserThread vtable `0x00613744` has direct refs from the ordinary destructor `0x0046eff0`, the old control-pane constructor `0x00470103`, and the scalar deleting destructor `0x004706f6`.
+- 2026-06-10 B001-024 live IDA MCP rechecked the in-aggregate exact children while splitting [UID:0000ZF][0x0046f010-0x004710b8.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b8.BrowserOleLegacyAndHelpers.md): `RunMessageLoop` `0x0046f010-0x0046f1c8` has vtable ref `0x00613760`, `DeleteIfPresent` wrapper `0x0046f1d0-0x0046f1db` has vtable ref `0x00613764`, scalar deleting destructor `0x004706f0-0x0047073b` has vtable ref `0x00613744` and clears `g_pBrowserThread`, and `InitializeBrowserHost` `0x00470a00-0x00470dc9` is called only from `RunMessageLoop`.
 
 ## Open Questions
 
@@ -56,7 +57,7 @@
 - File: [UID:0000HV][Browser](by-file/Browser.md)
 - Related classes: [UID:00001B][BrowserWindow](by-class/BrowserWindow.md), [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md), [UID:000014][browser__Notification](by-class/browser__Notification.md)
 - Globals/enums: [UID:0000QE][g_pBrowserThread](by-global/g_pBrowserThread.md), [UID:0000QO][g_pCurrentBrowserHost](by-global/g_pCurrentBrowserHost.md), [UID:0000PT][g_browserControlKeyCallback](by-global/g_browserControlKeyCallback.md), [UID:0001SL][BrowserMessageId](by-type/by-enum/BrowserMessageId.md)
-- Memory: [UID:000215][0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor](by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md), [UID:0000ZF][0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers.md)
+- Memory: [UID:000215][0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor](by-memory/0x0046eff0-0x0046f005.BrowserThreadNonDeletingDestructor.md), [UID:00032Q][0x0046f010-0x0046f1c8.BrowserThreadRunMessageLoop](by-memory/0x0046f010-0x0046f1c8.BrowserThreadRunMessageLoop.md), [UID:00032R][0x0046f1d0-0x0046f1db.BrowserThreadDeleteIfPresentWrapper](by-memory/0x0046f1d0-0x0046f1db.BrowserThreadDeleteIfPresentWrapper.md), [UID:00032V][0x004706f0-0x0047073b.BrowserThreadScalarDeletingDestructor](by-memory/0x004706f0-0x0047073b.BrowserThreadScalarDeletingDestructor.md), [UID:00032W][0x00470a00-0x00470dc9.BrowserThreadInitializeBrowserHost](by-memory/0x00470a00-0x00470dc9.BrowserThreadInitializeBrowserHost.md), [UID:0000ZF][0x0046f010-0x004710b8.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b8.BrowserOleLegacyAndHelpers.md)
 
 ## Changes
 
@@ -67,3 +68,6 @@
 - What existed before: the page documented BrowserThread purpose, methods, evidence, and references, but metadata was still `0/0`.
 - What it was changed to: scores were set to `72/80`.
 - Summary and evidence: destructor, message loop, host initialization, COM setup, and browser notification links are covered; thread base layout and final file split still need reconstruction.
+- 2026-06-10 B001-024 exact-child split:
+  - Changed to: `COMPLETION:85`, `CONFIDENCE:88` unchanged.
+  - Summary/evidence: exact child pages now carry fresh IDA-backed evidence for `RunMessageLoop`, the non-emitting vtable delete wrapper, the scalar deleting destructor, and `InitializeBrowserHost`. The class clears the strict parent gate for those children because method ranges, vtable refs, singleton/global writes, host bridge, COM setup, notification posting, and constructor handoff are documented. Final C++ remains blank because base `Thread` layout and original one-file versus `BrowserThread.cpp` source split remain below the final-code gate.

@@ -1,5 +1,5 @@
 *** UID:0001RJ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # NumberInputDialog Resources
@@ -17,6 +17,22 @@
 | EPF mode | `DLGEXC3.EPF` | `PAL01.PAL` | `239x283` background, OK image `14`, cancel image `22`, prompt label control `3`, edit control `4`. |
 | EPD mode | `DLGEXC3.EPD` | `NPAL8.PAL` | `287x277` background, OK image `14`, cancel image `22`, prompt label control `3`, edit control `4`. |
 
+## Source/Resource Contract
+
+| Area | Source-owned behavior | Resource-owned data |
+| --- | --- | --- |
+| Asset-mode branch | `NumberInputDialog` owns the runtime branch on the client asset-mode flag and the choice of EPF versus EPD layout geometry. | `DLGEXC3.EPF`/`DLGEXC3.EPD` own the background art payloads; `PAL01.PAL`/`NPAL8.PAL` own palette data. |
+| Control layout | The constructor owns dialog size, prompt/edit rectangles, control IDs `1` through `4`, OK/cancel default behavior, focus assignment, and slide-open positioning. | Button image indexes `14` and `22` are resource-frame selections consumed by the source layout rather than separate dialog behaviors. |
+| Validation and alerts | The action handler owns integer parsing, min/max checks, callback dispatch, and use of the shared alert path for localized error string id `217`. | The localized error text belongs to the language/string system and alert shell resources; this page only records the number-dialog dependency on that shared path. |
+| Caller prompts | Item-mixing callers own the prompt text, min/max values, and callback object they pass into the dialog. | This resource page does not own item-specific quantity text or callback payloads. |
+
+## Shared Resource Boundaries
+
+- `DLGEXC3.EPF` is shared by other dialog constructors according to the current IDA evidence. Keep this page scoped to the `NumberInputDialog` use of that background, palette, and geometry rather than claiming exclusive asset ownership.
+- `PAL01.PAL` and `NPAL8.PAL` are shared UI palettes. Rebuild code should reference the central palette/resource layer instead of creating number-dialog-private palette globals.
+- The generated `L"NP"` EPD palette in active output is a string decoding defect. The resource contract for this dialog remains `NPAL8.PAL` unless future IDA evidence proves a different string path.
+- The `AlertPane` shown for out-of-range input is a shared dialog dependency, not a number-input resource asset. Keep alert-frame/button-string ownership on [UID:0001R5][alert-dialog-resources](by-resource/alert-dialog-resources.md).
+
 ## IDA Evidence
 
 Checked on 2026-05-25, 2026-05-26, and reverified through IDA MCP:
@@ -33,6 +49,15 @@ Checked on 2026-05-25, 2026-05-26, and reverified through IDA MCP:
 
 Use `NPAL8.PAL` for the EPD branch unless later binary evidence proves a different runtime string path. Treat `L"NP"` in generated output as a data/string decoding issue.
 
+The reusable number dialog owns the source behavior for building the prompt, edit field, buttons, validation path, and callback handoff. Item-mixing dialogs remain callers, not resource owners, and the resource page should not absorb their prompt text or stack-count business rules.
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 80 | Known EPF/EPD backgrounds, palettes, branch geometry, button/control IDs, string-decoding caveat, owner file/class/memory links, source/resource contract, shared palette/background boundaries, alert dependency, and caller-owned prompt boundaries are documented. It remains below high completion because final DAT packaging, original declarations/macros, and broader `DLGEXC3` sharing inventory are not fully proven here. |
+| Confidence | 90 | Resource filenames, palette strings, xrefs, geometry, and generated-data correction are backed by existing IDA MCP evidence in this page and linked NumberInputDialog docs. Confidence remains below maximum because the exact original source representation and full shared-resource inventory are not final. |
+
 ## Cross-References
 
 - [UID:0000M1][NumberInputDialog](by-file/NumberInputDialog.md)
@@ -45,3 +70,6 @@ Use `NPAL8.PAL` for the EPD branch unless later binary evidence proves a differe
 - Before: page had concrete IDA notes but was still scored `0/0`.
 - Changed to: `COMPLETION:78`, `CONFIDENCE:90`, with current IDA MCP verification of resource strings, xrefs, branch dimensions, and layout rectangles.
 - Evidence: IDA MCP UTF-16 string/xref search and decompilation of `0x00530640-0x00530b00`.
+- 2026-06-07 A002 source/resource contract pass:
+  - Before: the page listed verified resource names and layout facts, but did not separate source-owned dialog behavior from shared asset and palette data.
+  - After: raised to `COMPLETION:80` with source/resource contracts, shared `DLGEXC3`/palette boundaries, alert dependency scope, caller prompt ownership, and explicit score rationale.

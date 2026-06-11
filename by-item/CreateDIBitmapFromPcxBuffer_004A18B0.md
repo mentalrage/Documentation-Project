@@ -1,8 +1,8 @@
 *** UID:0000U9 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000K3 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,8 +14,8 @@
 
 - Confidence: strong for behavior and owner relationship.
 - Entity kind: free image-loader helper.
-- Current Wave3 owner file: `source-3/simroot_v2/recovered/CreateDIBitmapFromPcxBuffer_004A18B0.cpp`
 - Likely source module: [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md)
+- Autogen parent: [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md)
 - Exact range: `0x004a18b0-0x004a1b0c`
 
 ## Behavior
@@ -35,6 +35,11 @@ IDA MCP confirms one direct caller, `LoadPcxImage` at `0x004a1876`, and a direct
 - [UID:0000UD][DecodePcxToRgb565Buffer_00549410](by-item/DecodePcxToRgb565Buffer_00549410.md)
 
 ## Changes
+
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE`, attached to [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md), and stale generated-source wording was removed.
+  - Before: the PCX-to-DIB helper was documented but unclassified in autogen coverage.
+  - After: it is marked as NexusTK-owned image loader source under the validated ImageLoaders file root; C++ remains blank because final helper names and DIB/PCX type declarations are not at the 95/95 final-code bar.
+  - Evidence: live IDA MCP confirms `sub_4A18B0` at `0x004a18b0`, size `0x25c`, one direct caller from `sub_4A17B0`, and the direct PCX decoder callee at `0x00549410`.
 
 - 2026-05-30: Grading changed from `0/0` to `82/88`.
   - Before: page documented PCX-to-DIB behavior, owner relationship, one caller, and decode helper link but remained unevaluated.

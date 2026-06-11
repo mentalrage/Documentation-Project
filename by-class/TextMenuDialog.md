@@ -1,8 +1,8 @@
 *** UID:0000ES | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OP | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -51,6 +51,9 @@
 
 ## Changes
 
+- Before: reconstruction autogen metadata was unclassified.
+- Changed to: marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000OP][TextMenuDialogs](by-file/TextMenuDialogs.md).
+- Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the documented request helper, constructor, paint, action, scroll-button updater, adjustor thunks, and scalar deleting destructor at `0x00517ec0`, `0x00517f30`, `0x00518e20`, `0x00519210`, `0x005194c0`, `0x00520b3f`, `0x00520b4a`, and `0x00520da0`; this page and parent [UID:0000OP][TextMenuDialogs](by-file/TextMenuDialogs.md) both meet the 80/80 parent gate. No C++ was emitted because the page is below the 95/95 reconstruction-code bar.
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `86`, confidence `84`.
 - Evidence: the page documents packet-driven menu behavior, constructor/paint/action/update/destructor-thunk ranges, key fields, caller evidence, vtable family, and related text-input/list/dialog classes; confidence remains slightly capped by generated source name/control-character caveats.

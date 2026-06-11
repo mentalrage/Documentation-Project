@@ -1,8 +1,8 @@
 *** UID:0001X2 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00000W | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,9 @@
 - Vtable base: `0x00613118`.
 - RTTI pointer: `0x00613114 -> 0x0064254c` (`??_R4BlackHole@@6B@`).
 - Confidence: strong for table base, slot boundary, and inherited `List` slot meanings.
-- Owner: [UID:0000HR][BlackHole](by-file/BlackHole.md).
+- Owning class: [UID:00000W][BlackHole](by-class/BlackHole.md).
+- Source owner: [UID:0000HR][BlackHole](by-file/BlackHole.md).
+- Autogen status: attached to the `BlackHole` class page; final C++ remains blank under the `95/95` reconstruction gate.
 
 ## Slots
 
@@ -47,6 +49,10 @@ The table stops after `+0x24`. The next dword at `0x00613140` is non-function da
 - The inherited slot addresses match the documented [UID:000079][List](by-class/List.md) virtual surface at `0x0061ce2c`.
 - Current `source-3/simroot_v2/class_BlackHole.meta_wave3` still reports `vtable_count: 0` and `vtables: []`, so this page is the reconstruction anchor until generated vtable inventory is fixed.
 
+## Parent Rationale
+
+Attach this vtable type to [UID:00000W][BlackHole](by-class/BlackHole.md) rather than directly to the file root because it is the primary virtual surface for the `BlackHole` class. The parent class is already reconstructable, attached to [UID:0000HR][BlackHole](by-file/BlackHole.md), and documents the same `0x00613118` vtable, six method ranges, singleton state, and inherited `List` surface. The type page remains the narrow home for slot ordering and `.rdata` boundary evidence, while the class page owns the source-level declaration.
+
 ## Cross-References
 
 - [UID:00000W][BlackHole](by-class/BlackHole.md)
@@ -59,6 +65,11 @@ The table stops after `+0x24`. The next dword at `0x00613140` is non-function da
 - [Wave3 data issues](../../wave3_data_issues.md)
 
 ## Changes
+
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable page was reconstructable but unassigned in generated type coverage despite linking to the `BlackHole` class and file pages.
+  - What changed: attached the vtable to [UID:00000W][BlackHole](by-class/BlackHole.md), raised completion to `86`, and added an explicit parent rationale.
+  - Summary/evidence: the class and file pages both document the same `0x00613118` primary vtable, IDA-confirmed constructor/destructor vptr stores, and inherited `List` slots; the class is above the 80% attachment threshold and remains the correct source-level owner.
 
 - What existed before: the page had strong vtable slot notes but remained scored as unevaluated and reconstructability was not marked.
 - What it was changed to: the page is now marked reconstructable and scored `84/90`; evidence notes include refreshed 2026-05-31 IDA MCP boundary/xref checks for the BlackHole table and adjacent data.

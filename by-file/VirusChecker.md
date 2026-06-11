@@ -1,13 +1,13 @@
 *** UID:0000P5 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/security/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # VirusChecker
 
 ## Status
 
-- Confidence: strong for local scanner/DLL helper behavior and file ownership, medium for live runtime path.
+- Confidence: strong for local scanner/DLL helper behavior and file ownership, still capped by medium live runtime activation.
 - Proposed module: `NexusTK/security/VirusChecker.cpp`
 - Main address range: [UID:0001NU][0x005c0460-0x005c0fe1.VirusChecker](by-memory/0x005c0460-0x005c0fe1.VirusChecker.md)
 
@@ -40,6 +40,7 @@ Live IDA xrefs do not show direct callers to the constructor, DLL-load helper, o
 - Dynamic-library globals at `0x0069bf7c-0x0069bf94` start as `0xffffffff` dwords and are referenced only by the local loader/scanner/teardown code: enum-processes, enum-modules, check-file, get-virus-name, module handles, and `g_pVirusChecker`.
 - IDA decompilation of `0x005c05a0` shows `LoadLibraryA`, `GetProcAddress`, localized error formatting through [UID:0000KK][LanguageMan](by-file/LanguageMan.md), and `MessageBoxW` failure reporting for missing V3 DLLs or exports.
 - IDA decompilation of `0x005c07b0` shows process enumeration, module enumeration through callback `0x005c0aa0`, path-tree iteration, `AhnExCheckFile`, `AhnExGetVirusName`, localized detection text key `221`, a fatal/alert call, and a screen/application close path.
+- 2026-06-07 A002 parent-gate follow-up rechecked the Batch 024 vtable/literal evidence: `0x006310dc-0x006310e4` is the exact one-slot `VirusChecker` RTTI/vtable fragment, constructor/destructor/deleting-destructor refs target the table at `0x006310e0`, and adjacent V3 DLL/export strings remain owned by this file. This supports raising confidence to the strict assignment threshold, while unresolved live activation still prevents a higher confidence score.
 
 ## Migration Notes
 
@@ -72,3 +73,7 @@ Live IDA xrefs do not show direct callers to the constructor, DLL-load helper, o
   - Before: `COMPLETION:84` and `CONFIDENCE:76`.
   - After: `COMPLETION:86` and `CONFIDENCE:84`.
   - Evidence: IDA MCP rechecked the exact function island, no-direct-caller state, EH cleanup thunk, V3 DLL/export strings, dynamic-library globals, constructor/destructor/vtable refs, callback chain, process-tree helpers, and padding boundary before `WaitableTimer`. Confidence remains capped below 90 because normal runtime activation is still not proven.
+- 2026-06-07 A002 Batch 024 parent-gate follow-up:
+  - Before: `COMPLETION:86` and `CONFIDENCE:84`.
+  - After: `COMPLETION:86` and `CONFIDENCE:85`.
+  - Evidence: the exact `VirusChecker` vtable child, adjacent V3 literal block, constructor/destructor/deleting-destructor refs, and existing file-island evidence now justify the strict 85-confidence parent gate; confidence remains deliberately capped below 90 because direct runtime activation is still unresolved.

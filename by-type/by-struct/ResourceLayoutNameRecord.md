@@ -1,8 +1,8 @@
 *** UID:0001VT | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000BY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -13,8 +13,8 @@
 ## Status
 
 - Entity kind: support struct
-- Confidence: strong for row width and key fields, medium for final field names.
-- Proposed owner: [UID:0000K2][ImageLib](by-file/ImageLib.md) / [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md)
+- Confidence: strong for row width, key fields, and direct ResourceLayoutTable class/facet ownership; medium-high for final source field names.
+- Direct owner: [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md), with broader source ownership through [UID:0000K2][ImageLib](by-file/ImageLib.md).
 - Evidence basis: IDA MCP decompilation of `ImageLib::ImageLib`, `ResourceLayoutTable::LoadResourceIndex`, `FindResourceIndex`, and `List` vtable calls.
 
 ## Layout
@@ -35,6 +35,10 @@ ResourceLayoutNameRecord
 
 `FindResourceIndex` obtains the first row with `List::GetElementAt(0)`, uses `List::count` as the loop bound, and advances by 44 bytes (`v5 += 22` wide characters) while comparing `name` with `wcscmp`.
 
+## Assignment Gate
+
+Batch143 recheck, 2026-06-08: this struct now clears the corrected child gate at `85/89`, and its actual direct parent [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md) already clears the parent gate at `87/86`. The direct-owner choice is the class/facet page rather than the broader file because the type is the private 44-byte registry row consumed by `ResourceLayoutTable` lookup/accessor methods. [UID:0000K2][ImageLib](by-file/ImageLib.md) remains the broader source-file parent through the class/facet chain, but it is not the immediate type parent.
+
 ## Notes
 
 - The earlier `name[0x16]` hypothesis was caused by treating the 44-byte stride as all wide characters. The first 32 bytes are the actual name buffer; the remaining 12 bytes are header metadata and the entry pointer.
@@ -48,7 +52,7 @@ ResourceLayoutNameRecord
 - [UID:0000VB][ResourceLayoutEntry](by-item/ResourceLayoutEntry.md)
 - [UID:000079][List](by-class/List.md)
 - [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md)
-- [UID:000174][0x004d0120-0x004d182e.ResourceLayoutTable](by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md)
+- [UID:000174][0x004d0120-0x004d182f.ResourceLayoutTable](by-memory/0x004d0120-0x004d182f.ResourceLayoutTable.md)
 
 ## Changes
 
@@ -56,3 +60,7 @@ ResourceLayoutNameRecord
   - Before: metadata was `0/0` with blank reconstruction state despite strong recorded layout evidence.
   - After: set completion/confidence to `82/88` and `RECONSTRUCTABLE:TRUE`; parent and C++ remain blank because the final source-file owner is still split between `ImageLib` and the `ResourceLayoutTable` helper/facet.
   - Evidence: IDA MCP decompilation on 2026-05-31 confirms the 44-byte `List` element size, 16-wide-character name buffer, header fields at `+0x20` through `+0x26`, entry pointer at `+0x28`, and 44-byte scan stride.
+- 2026-06-08 A003 Batch143 direct-parent audit:
+  - What existed before: `COMPLETION:82`, `CONFIDENCE:88`, and blank `AUTOGEN_PARENT_UID` because the older note treated the final owner as split between `ImageLib` and `ResourceLayoutTable`.
+  - Changed to: `COMPLETION:85`, `CONFIDENCE:89`, `AUTOGEN_PARENT_UID:0000BY`; C++ remains blank.
+  - Evidence: the class/facet page [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md) now documents the same 44-byte row shape, `List(44, 10)` registry ownership, lazy-load/accessor consumers, and parent chain to [UID:0000K2][ImageLib](by-file/ImageLib.md). The direct type parent clears `87/86`, the broader file clears `87/86`, and the row is a private ResourceLayoutTable registry element rather than an independent file-level helper type.

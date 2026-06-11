@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00008W | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -13,6 +13,7 @@
 ## Status
 
 - Confidence: medium.
+- Autogen parent: attached to [UID:00008W][MyItemListPane](by-class/MyItemListPane.md); the class scores `82/82` and this layout page scores `82/88`, so both sides satisfy the 80/80 parent gate.
 - Evidence basis: active `class_MyItemListPane.cpp` constructor, IDA decompilation of `0x004aec90`, and local stack payload copies.
 
 ## Inventory Slot Record
@@ -80,6 +81,7 @@ IDA MCP confirms `DrawListEntry` sends `+0x02` and `+0x04` into the item-icon pa
 
 ## Changes
 
+- 2026-06-06: Attached the entry layouts to [UID:00008W][MyItemListPane](by-class/MyItemListPane.md). Scores remain `82/88`; the layouts document class-local inventory slot and list-row payloads used by this pane.
 - Before: validator metadata was unevaluated at completion `0`, confidence `0`, and reconstructable blank.
 - Changed to: `RECONSTRUCTABLE:TRUE`, completion `82`, confidence `88`.
 - Summary/evidence: IDA MCP on 2026-05-31 verified constructor payload writes, selected-slot helper reads, draw-method payload reads, and exact child function boundaries. Scores remain below `95` because original type/API names and full player inventory structure ownership are not yet final.

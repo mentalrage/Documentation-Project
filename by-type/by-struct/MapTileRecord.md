@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00007T | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,7 +14,8 @@
 
 - Entity kind: small resource-derived struct.
 - Confidence: strong for size and bit unpacking; medium for final original type/field names.
-- Owner: [UID:0000L5][MapTileImageLib](by-file/MapTileImageLib.md).
+- Owner: [UID:00007T][MapTileImageLib](by-class/MapTileImageLib.md), emitted through [UID:0000L5][MapTileImageLib](by-file/MapTileImageLib.md).
+- Autogen parent: attached to [UID:00007T][MapTileImageLib](by-class/MapTileImageLib.md); the class scores `84/84`, the owning file scores `86/82`, and this record scores `82/88`, so the direct class parent and file root both satisfy the 80/80 parent gate.
 - Evidence basis: IDA MCP decompile checks for [UID:0002IZ][0x004d1860-0x004d199e.MapTileImageLibConstructor](by-memory/0x004d1860-0x004d199e.MapTileImageLibConstructor.md) and [UID:0002J0][0x004d1a20-0x004d1b72.MapTileImageLibDrawTile](by-memory/0x004d1a20-0x004d1b72.MapTileImageLibDrawTile.md).
 
 ## Layout
@@ -48,5 +49,7 @@ Observed size is `4` bytes.
 
 ## Changes
 
+- 2026-06-06 A004 parent-gate sync: moved `AUTOGEN_PARENT_UID` from [UID:0000L5][MapTileImageLib](by-file/MapTileImageLib.md) to [UID:00007T][MapTileImageLib](by-class/MapTileImageLib.md) after the class page was refreshed to `84/84` and attached to the file root. Scores remain `82/88`; this is a parent metadata cleanup.
+- 2026-06-06: Attached the decoded tile row to [UID:0000L5][MapTileImageLib](by-file/MapTileImageLib.md). Scores remain `82/88`; the record is file-owned resource-derived state rather than a standalone class.
 - Completion/confidence metadata: existed before as `0/0`; changed to `82/88`. Summary: the record size, packed `TILE.TBL` decode, palette-filter flag, draw-path usage, and padding caveat are now IDA-backed. Evidence: constructor writes `(packed & 0x7fff)` at record `+0x00` and `(packed < 0)` at `+0x02`; draw path reads those fields through object `+0x08`.
 - Reconstructable metadata: existed before as blank; changed to `TRUE`. Summary: this resource-derived record must be represented in rebuilt `MapTileImageLib` state. Parent UID and C++ reconstruction remain blank because final member names and original source shape are below the `95+` final-source gate.

@@ -32,7 +32,7 @@ The lower-level `Config`, `RegistryConfig`, `ConfigEntryBlock`, `InitializeConfi
 | --- | --- | --- | --- |
 | `ImportLegacyUserProfileData` | `0x004f9280-0x004f95a2` | `recovered/ImportLegacyUserProfileData_004F9280.cpp` | Imports old current-directory `users\<name>.cfg` profile data and deletes it after successful migration. |
 | `LoadUserProfileData` | `0x004f95b0-0x004f9d28` | `recovered/LoadUserProfileData_004F95B0.cpp` | Loads `Documents\NexusTK\users\<name>.usr`, resets defaults first, and falls back to legacy import. |
-| `RefreshSelectedProfileData` | `0x005063e0-0x00506962` | `recovered/RefreshSelectedProfileData_005063E0.cpp` | Finds/normalizes selected profile sidecar assets, reads a `.jpf` blob when present, validates it through [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md), and queues profile refresh packet `79`. |
+| `RefreshSelectedProfileData` | `0x005063e0-0x00506962` | `recovered/RefreshSelectedProfileData_005063E0.cpp` | Finds/normalizes selected profile sidecar assets, reads a `.jpf` blob when present, validates it through [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0f4a.ImageDecodeWrappers.md), and queues profile refresh packet `79`. |
 | `SaveUserSettings_50ABA0` | `0x0050aba0-0x0050b078` | `recovered/SaveUserSettings_0050ABA0.cpp` | Serializes the current profile/settings block, including [UID:0001V1][MacroHotkeyRecord](by-type/by-struct/MacroHotkeyRecord.md) rows, to `Documents\NexusTK\users\<player>.usr`. |
 
 ## File Format And Paths
@@ -45,7 +45,7 @@ The lower-level `Config`, `RegistryConfig`, `ConfigEntryBlock`, `InitializeConfi
 - [UID:0001VR][RegistryConfigUserProfileBlock](by-type/by-struct/RegistryConfigUserProfileBlock.md) records the current offset map for the user-profile/settings slice inside `RegistryConfig`.
 - [UID:0001V1][MacroHotkeyRecord](by-type/by-struct/MacroHotkeyRecord.md) records the integrated macro/hotkey row layout at `g_pConfig + 0x28f2ec + i * 0x108`.
 - `RefreshSelectedProfileData` probes sidecar image extensions (`bmp`, `pcx`, `jpg`, `jpeg`, `pnm`), runs `FaceRipper.exe` for a found sidecar, then reads `<profile>.jpf` from the documents folder or `./users`.
-- The `.jpf` validation path calls the shared [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) at `0x004d07b0`, then only includes the profile name when the decoded tile-context span matches the expected portrait dimensions.
+- The `.jpf` validation path calls the shared [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0f4a.ImageDecodeWrappers.md) at `0x004d07b0`, then only includes the profile name when the decoded tile-context span matches the expected portrait dimensions.
 
 ## IDA MCP Evidence
 
@@ -81,7 +81,7 @@ profile/ProfileDialog.cpp
 - [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md)
 - [UID:00019T][0x004f9280-0x004f9d28.ProfileLoadAndLegacyImport](by-memory/0x004f9280-0x004f9d28.ProfileLoadAndLegacyImport.md)
 - [UID:0001AS][0x005063e0-0x00506962.ProfileSidecarRefresh](by-memory/0x005063e0-0x00506962.ProfileSidecarRefresh.md)
-- [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md)
+- [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0f4a.ImageDecodeWrappers.md)
 - [UID:0001AV][0x0050aba0-0x0050b078.SaveUserSettings](by-memory/0x0050aba0-0x0050b078.SaveUserSettings.md)
 - [UID:0001QL][client_profile_storage](by-meta/client_profile_storage.md)
 - [UID:0001VR][RegistryConfigUserProfileBlock](by-type/by-struct/RegistryConfigUserProfileBlock.md)

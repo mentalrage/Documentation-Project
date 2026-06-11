@@ -1,13 +1,13 @@
 *** UID:0000KE | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ItemDialogs
 
 ## Status
 
-- Confidence: strong for item selection, mixing, and menu-dialog ownership; medium for exact split between exchange, mix, context-menu, and item-action input files.
+- Confidence: strong for item selection, mixing, item-dialog singleton storage, and menu-dialog ownership; medium-high for exact split between exchange, mix, context-menu, and item-action input files.
 - Proposed module folder: `ui/dialogs/`
 - Projected reconstruction path: `NexusTK/ui/dialogs/`
 - Candidate files: `ui/dialogs/ItemDialogs.cpp`, [UID:0000LO][MyItemListPane](by-file/MyItemListPane.md), [UID:0000KF][ItemMenuDialogs](by-file/ItemMenuDialogs.md), `ui/dialogs/MixItemDialog.cpp`, and `ui/dialogs/ItemActionInputPanes.cpp`
@@ -41,12 +41,13 @@ ui/dialogs/ItemDialogs.cpp
 
 | Entity | Current range | Current file | Role |
 | --- | --- | --- | --- |
-| `AddItemDialog` | `0x004ae4c0-0x004b096e` | `class_AddItemDialog.cpp` | Modal item selection dialog with list layout, OK/cancel handling, action state, and destructor thunks. |
-| `AddItemWithCountDialog` | `0x004af040-0x004af4b6` | `class_AddItemWithCountDialog.cpp` | Quantity-aware item add dialog. |
+| `AddItemDialog` | `0x004ae4c0-0x004b096e`; exact packet-close child [UID:000317][0x004aea80-0x004aeab0.AddItemDialogExchangePacketCloseHandler](by-memory/0x004aea80-0x004aeab0.AddItemDialogExchangePacketCloseHandler.md) | `class_AddItemDialog.cpp` | Modal item selection dialog with list layout, OK/cancel handling, action state, packet-close handling, and destructor thunks. |
+| `AddItemWithCountDialog` | `0x004af040-0x004af4f0`; exact packet-close child [UID:000318][0x004af4c0-0x004af4f0.AddItemWithCountDialogExchangePacketCloseHandler](by-memory/0x004af4c0-0x004af4f0.AddItemWithCountDialogExchangePacketCloseHandler.md) | `class_AddItemWithCountDialog.cpp` | Quantity-aware item add dialog with packet-close handling. |
 | `MyItemListPane` | `0x004aeb30-0x004af031` | `class_MyItemListPane.cpp` | Player inventory item-picker list used by add-item, mix-item, and clan-deposit flows. |
 | `AddEmployeeItemDialog` | `0x004a4ae0`, `0x004a4b20-0x004a4d3a` | `class_AddEmployeeItemDialog.cpp` | Employee-specific `AddItemDialog` variant; final owner is likely [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md), while the base picker remains here. |
-| `MixItemDialog` | `0x004af570-0x004b0b14` | `class_MixItemDialog.cpp` | Builds selected-item mix list, handles add/remove/submit actions, and sends mix packet. |
+| `MixItemDialog` | `0x004af570-0x004b0b14`; exact quantity children [UID:000319][0x004afcc0-0x004afe38.MixItemDialogQuantityPromptHelper](by-memory/0x004afcc0-0x004afe38.MixItemDialogQuantityPromptHelper.md), [UID:00031A][0x004afe40-0x004afff7.MixItemDialogQuantityCallback](by-memory/0x004afe40-0x004afff7.MixItemDialogQuantityCallback.md) | `class_MixItemDialog.cpp` | Builds selected-item mix list, handles add/remove/submit actions, prompts for stack counts, and sends mix packet. |
 | `AddMixingItemDialog` | `0x004b0000-0x004b09cf` | `class_AddMixingItemDialog.cpp` | Item picker used by the mix dialog; filters already selected items and handles stack quantity flow. |
+| [UID:0002AY][0x0069b328-0x0069b330.ItemDialogSingletonGlobals](by-memory/0x0069b328-0x0069b330.ItemDialogSingletonGlobals.md) | `0x0069b328-0x0069b330` | generated global-data slots | Active `AddItemDialog` and `MixItemDialog` singleton pointers now split from the former mixed `.data` cluster. |
 | [UID:0000M1][NumberInputDialog](by-file/NumberInputDialog.md) caller use | `0x00530640-0x00530cf7` | `class_NumberInputDialog.cpp` | Reusable numeric prompt invoked by item-mixing quantity paths; implementation should stay in `ui/dialogs/NumberInputDialog.cpp`, not this file. |
 | `ServerItemMenuDialog` | `0x0051a520-0x0051ae8c` | `class_ServerItemMenuDialog.cpp` | Server-provided item action menu over the shared merchant-menu dialog base. |
 | `ServerItemMenuItemList` | `0x0051ae90-0x0051b87a` | `class_ServerItemMenuItemList.cpp` | Private row-list widget for server-provided item menu entries. |
@@ -63,6 +64,8 @@ Targeted checks on 2026-05-23 confirmed:
 - 2026-05-26 vtable follow-up confirms `MyItemListPane` table bases `0x00619f28`, `0x00619fb0`, and `0x00619fe0`, with `DrawListEntry` at primary slot `+0x80`; see [UID:0001Y8][MyItemListPaneVtables](by-type/by-vtable/MyItemListPaneVtables.md).
 - `0x004af570`, `0x004af8b0`, and `0x004b0ad0` for `MixItemDialog`.
 - `0x004b0000`, `0x004b0120`, and `0x004b0970` for `AddMixingItemDialog`.
+- 2026-06-07 Batch038 IDA refresh confirms the item-dialog singleton slots now split as [UID:0002AY][0x0069b328-0x0069b330.ItemDialogSingletonGlobals](by-memory/0x0069b328-0x0069b330.ItemDialogSingletonGlobals.md): `0x0069b328` refs at `0x004ad670`, `0x004ade32`, `0x004ae8d2`, `0x004ae91a`, `0x004aeab0`, `0x004b0930`, `0x004b0990`; `0x0069b32c` refs at `0x004af5c7`, `0x004af5ce`, `0x004b0870`, `0x004b0ad6`, `0x005a4e03`, and `0x005a5fbb`.
+- 2026-06-08 Batch 116 IDA MCP split four previously aggregate-only item/mix helpers: AddItemDialog packet-close handler `0x004aea80-0x004aeab0`, AddItemWithCountDialog packet-close handler `0x004af4c0-0x004af4f0`, MixItemDialog quantity prompt helper `0x004afcc0-0x004afe38`, and MixItemDialog quantity callback `0x004afe40-0x004afff7`.
 - 2026-05-26 vtable pass confirms three-view dialog tables for `AddItemDialog`, `AddItemWithCountDialog`, `MixItemDialog`, and `AddMixingItemDialog`, with object vfptr offsets `+0x00`, `+0xa0`, and `+0xa4`; see [UID:0001XV][ItemDialogVtableFamily](by-type/by-vtable/ItemDialogVtableFamily.md).
 - `0x0051a520`, `0x0051acb0`, and `0x0051ae50` for `ServerItemMenuDialog`.
 - `0x0051ae90` is raw constructor-shaped code for `ServerItemMenuItemList`; IDA confirms the vtable virtuals at `0x0051b100`, `0x0051b2b0`, `0x0051b2c0`, and `0x0051b3e0`.
@@ -77,6 +80,7 @@ IDA reports no function at Wave3's `AddEmployeeItemDialog` constructor start `0x
 - [UID:0000LO][MyItemListPane](by-file/MyItemListPane.md) is reusable player-inventory picker UI. Keep it adjacent to item dialogs or as its own `ui/dialogs/MyItemListPane.cpp`; do not migrate it into generic [UID:0000KT][ListPane](by-file/ListPane.md) or social/clan ownership just because clan deposit uses it.
 - `MyItemListPane` consumes [UID:0000RA][g_pItemObjImageLib](by-global/g_pItemObjImageLib.md) for icon drawing, but the singleton and draw routines remain owned by [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md).
 - Player-to-player exchange session UI belongs to [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md). `AddItemDialog` is invoked by exchange as a picker, but `ExchangeDialog`, `ExchangeItemListPane`, `ExchangeMoneyEditControlPane`, and `ExchangeAlertPane` should migrate as a separate source module.
+- Batch 116 checked the overlapping [UID:00014V][0x004b0490-0x004b0ba5.ExchangeDialogTail](by-memory/0x004b0490-0x004b0ba5.ExchangeDialogTail.md) as a plausible parent/source candidate for the broad [UID:00014T][0x004ae4c0-0x004b0b15.ItemExchangeMixDialogs](by-memory/0x004ae4c0-0x004b0b15.ItemExchangeMixDialogs.md) aggregate. The result is negative for direct ownership: this file owns the item/mix picker children, while [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md) owns the exchange alert/money/control tail rows. No single direct source parent should be assigned to the broad overlapping aggregate.
 - `AddMixingItemDialog` derives from `AddItemDialog` and stores a pointer back to `MixItemDialog`, so those files should stay adjacent even if split.
 - The item dialog vtables sit immediately before/among adjacent `MyItemListPane`, `ExchangeAlertPane`, and `FieldMapPane` RTTI/table data. Use the confirmed table bases rather than a broad `.rdata` neighborhood when assigning class layout.
 - Stackable item quantity prompts call [UID:0000M1][NumberInputDialog](by-file/NumberInputDialog.md). Treat this as a reusable dialog dependency, not as proof that `NumberInputDialog` belongs in item-dialog source.
@@ -113,6 +117,10 @@ IDA reports no function at Wave3's `AddEmployeeItemDialog` constructor start `0x
 - [UID:0001BM][0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual](by-memory/0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual.md)
 - [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md)
 - [UID:00014T][0x004ae4c0-0x004b0b15.ItemExchangeMixDialogs](by-memory/0x004ae4c0-0x004b0b15.ItemExchangeMixDialogs.md)
+- [UID:000317][0x004aea80-0x004aeab0.AddItemDialogExchangePacketCloseHandler](by-memory/0x004aea80-0x004aeab0.AddItemDialogExchangePacketCloseHandler.md)
+- [UID:000318][0x004af4c0-0x004af4f0.AddItemWithCountDialogExchangePacketCloseHandler](by-memory/0x004af4c0-0x004af4f0.AddItemWithCountDialogExchangePacketCloseHandler.md)
+- [UID:000319][0x004afcc0-0x004afe38.MixItemDialogQuantityPromptHelper](by-memory/0x004afcc0-0x004afe38.MixItemDialogQuantityPromptHelper.md)
+- [UID:00031A][0x004afe40-0x004afff7.MixItemDialogQuantityCallback](by-memory/0x004afe40-0x004afff7.MixItemDialogQuantityCallback.md)
 - [UID:00014K][0x004ac8a0-0x004ae4b6.ExchangeDialog](by-memory/0x004ac8a0-0x004ae4b6.ExchangeDialog.md)
 - [UID:00013A][0x004a4b20-0x004a4d3b.AddEmployeeItemDialog](by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md)
 - [UID:000138][0x004a1d70-0x004a4e6b.EmployeeDialogPanes](by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md)
@@ -125,6 +133,16 @@ IDA reports no function at Wave3's `AddEmployeeItemDialog` constructor start `0x
 - [UID:0000KA][InventoryPane](by-file/InventoryPane.md)
 
 ## Changes
+
+- 2026-06-08 A007 Batch 116 helper split and parent-source check:
+  - What existed before: `COMPLETION:89`, `CONFIDENCE:85`; the page had item-dialog singleton evidence but did not link exact children for the `0x004aea80`, `0x004af4c0`, `0x004afcc0`, and `0x004afe40` helper rows.
+  - Changed to: `COMPLETION:90`, `CONFIDENCE:87`; added exact helper children [UID:000317][0x004aea80-0x004aeab0.AddItemDialogExchangePacketCloseHandler](by-memory/0x004aea80-0x004aeab0.AddItemDialogExchangePacketCloseHandler.md), [UID:000318][0x004af4c0-0x004af4f0.AddItemWithCountDialogExchangePacketCloseHandler](by-memory/0x004af4c0-0x004af4f0.AddItemWithCountDialogExchangePacketCloseHandler.md), [UID:000319][0x004afcc0-0x004afe38.MixItemDialogQuantityPromptHelper](by-memory/0x004afcc0-0x004afe38.MixItemDialogQuantityPromptHelper.md), and [UID:00031A][0x004afe40-0x004afff7.MixItemDialogQuantityCallback](by-memory/0x004afe40-0x004afff7.MixItemDialogQuantityCallback.md), and documented the negative direct-ownership result for broad overlapping aggregate [UID:00014T][0x004ae4c0-0x004b0b15.ItemExchangeMixDialogs](by-memory/0x004ae4c0-0x004b0b15.ItemExchangeMixDialogs.md).
+  - Summary/evidence: current IDA MCP confirms the two packet-close handler vtable refs, the MixItemDialog stackable/non-stackable quantity flow, callback construction, callback-target stores, and row append behavior. This strengthens ItemDialogs as the direct parent for exact item/mix children while keeping the broad exchange-overlap aggregate unassigned.
+
+- 2026-06-07 A009 Batch038 singleton split:
+  - What existed before: `COMPLETION:88`, `CONFIDENCE:80`; the page documented item-dialog ownership but did not include the exact `.data` singleton split needed for corrected-gate assignment.
+  - Changed to: `COMPLETION:89`, `CONFIDENCE:85`; added [UID:0002AY][0x0069b328-0x0069b330.ItemDialogSingletonGlobals](by-memory/0x0069b328-0x0069b330.ItemDialogSingletonGlobals.md) to proposed contents and recorded exact AddItemDialog/MixItemDialog singleton refs.
+  - Summary/evidence: live IDA confirms both slots are item-dialog state, while ExchangeDialog and FpsPane data have been split to their own pages. This raises confidence only to the gate threshold because final source split between `ItemDialogs.cpp`, `MixItemDialog.cpp`, and sibling files remains a documented caveat.
 
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.

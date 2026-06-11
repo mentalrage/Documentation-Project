@@ -1,5 +1,5 @@
 *** UID:00000Z | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Confidence: strong for behavior, vtable identity, and board-dialog module placement; medium for final field names and source-quality class declaration.
 - Parent source bucket: [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md)
 - Core memory: [UID:0002EJ][0x00472070-0x004729dd.BoardListDialogCore](by-memory/0x00472070-0x004729dd.BoardListDialogCore.md)
+- Destructor companion: [UID:00033P][0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor](by-memory/0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor.md) is shared compiler-emitted destructor glue, not handwritten class logic.
 - Address range parent: [UID:0000ZK][0x00472070-0x00477790.BoardArticleDialogs](by-memory/0x00472070-0x00477790.BoardArticleDialogs.md)
 - Vtable family: [UID:0001X4][BoardArticleDialogVtableFamily](by-type/by-vtable/BoardArticleDialogVtableFamily.md)
 - Autogen status: attached to the `BoardDialogs` file bucket; reconstruction C++ remains blank because field names and class declaration details are not final.
@@ -41,6 +42,7 @@
 | `OpenSelectedBoard` | `0x004728a0-0x00472999` | Reads the selected row from control `3`, serializes the selected-board packet, updates session/dialog state, and is also reached from the pane double-click callback. |
 | `UpdateButtonState` | `0x004729a0-0x004729dd` | Vtable slot `0x00613c94`; enables/disables the open button based on current selection state. |
 | title-copy helper | `0x0049db30-0x0049db5d` | Small helper called from the constructor at `0x0047217b` and `0x0047250d`; keep outside the exact core child range until final file layout is settled. |
+| shared scalar deleting destructor | [UID:00033P][0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor](by-memory/0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor.md) | Non-emitting MSVC wrapper shared through bulletin/board/article dialog vtables; source reconstruction should express the class hierarchy and let the compiler regenerate it. |
 
 ## Evidence Notes
 
@@ -49,7 +51,12 @@
 - Vtable evidence is direct: constructor xrefs store `0x00613c48`, `0x00613cac`, and `0x00613cdc` at `0x004720cd`, `0x004720d3`, and `0x004720dd`; vtable dwords `0x00613c90` and `0x00613c94` target `0x00472870` and `0x004729a0`.
 - Live xrefs show the constructor reached from bulletin-session code at `0x00471604` and `0x00471921`, and `OpenSelectedBoard` reached both from `OnCommand` at `0x0047288f` and from the board-list pane callback at `0x00472b5e`.
 - Callee evidence anchors behavior: the constructor calls `0x004a1400`, `0x0049db30`, list/control helpers, and board-list pane/control constructors; `OpenSelectedBoard` calls selected-row extraction `0x004f3dc0`, packet writers `0x00575380`/`0x005753a0`/`0x00574bb0`, and session/dialog update helper `0x004a12b0`.
+- 2026-06-10 B001-025 recheck confirms [UID:0002EJ][0x00472070-0x004729dd.BoardListDialogCore](by-memory/0x00472070-0x004729dd.BoardListDialogCore.md) is now `85/88`, this class is the direct owner, and [UID:00033P][0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor](by-memory/0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor.md) covers the shared non-emitting scalar deleting destructor companion.
 - The class should stay in the board/article dialog family rather than generic list-pane or packet code because vtables, constructor callers, owned pane activation, and source bucket all point to `BoardDialogs`.
+
+## Score Rationale
+
+Completion is raised to `85` because the page now records the exact core child, direct file parent, constructor callers, vtable stores, virtual slots, packet/open behavior, sibling pane callback, title helper, and shared destructor companion. Confidence remains `88` because the class identity and `BoardDialogs` source bucket are IDA-backed, while final field names and source-quality C++ are still unresolved.
 
 ## Open Questions
 
@@ -67,6 +74,7 @@
 - [UID:00000K][ArticleListDialog](by-class/ArticleListDialog.md)
 - [UID:00001C][BulletinDialog](by-class/BulletinDialog.md)
 - [UID:00003S][DialogInSession](by-class/DialogInSession.md)
+- [UID:00033P][0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor](by-memory/0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor.md)
 
 ## Changes
 
@@ -77,3 +85,7 @@
   - Before: class remained at `70/84`, had no autogen parent/reconstructable marker, and lacked a fresh IDA evidence map.
   - After: scored as `78/88`, marked reconstructable, and attached to [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md).
   - Summary/evidence: restarted IDA MCP confirms exact function boundaries, padding, three class vtable stores, virtual slots `0x00613c90`/`0x00613c94`, title-helper xrefs, constructor callers, and the board-list pane activation call into `OpenSelectedBoard`; C++ remains blank pending final field names and class-layout recovery.
+- 2026-06-10 B001-025:
+  - Before: the class remained `78/88`, blocking strict assignment of its `85`-ready child.
+  - Changed to: `COMPLETION:85`, `CONFIDENCE:88`; parent remains [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md).
+  - Summary/evidence: B001 re-audit connected the exact core child, vtable/caller evidence, pane activation callback, and shared scalar deleting destructor companion. Remaining source C++ and field-name uncertainty no longer blocks the class from serving as a direct parent.

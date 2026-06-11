@@ -1,6 +1,6 @@
 *** UID:00000P | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HM | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -44,6 +44,17 @@ Exact vtable data is now documented at [UID:0002MR][0x0061b864-0x0061b874.AUTOBU
 
 IDA callers for `0x004e6ab0` come from `UserLookPane` profile/look packet parsing. A 2026-06-03 IDA vtable-reference pass also finds 21 writes/references to `??_7?$_AUTOBUF@E@@6B@` across image decode wrappers, logo playback, main-menu `LEVEL.BMP` loading, map load/save helpers, profile sidecar refresh, and `UserLookPane` construction/destruction. That broader vtable fan-out confirms the concrete instantiation is shared utility/template support rather than belonging to one feature file.
 
+## Instantiation Evidence
+
+| Evidence site | Interpretation |
+| --- | --- |
+| `0x004e6ab0-0x004e6ad7` | Concrete resize helper for `_AUTOBUF<unsigned char>`; frees current storage, allocates the requested byte count, updates pointer/count fields, and is called from `UserLookPane` profile/look parsing at `0x0059ffc1` and `0x0059fffe`. |
+| `0x004f5640-0x004f566a` | Concrete constructor helper; initializes the `LObject` shell, installs vtable `0x0061b868`, clears fields, and is directly called by `MapPane::LoadMapFromFile` at `0x00504d49` for a local compressed-map payload buffer. |
+| `0x0061b864-0x0061b874` | Exact RTTI/vtable slice for `??_R4?$_AUTOBUF@E@@6B@` / `??_7?$_AUTOBUF@E@@6B@`; the next bytes are string data, so the vtable boundary is tight. |
+| 21 vtable references to `0x0061b868` | Cross-feature usage spans image decode wrappers, logo playback, main-menu media, map load/save, profile refresh, and user-look paths, which supports utility/template ownership instead of a pane-specific source file. |
+
+The class page therefore tracks the concrete emitted instantiation, while [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md) remains the source-owner bucket for likely header/template support.
+
 ## Reconstruction Notes
 
 - Reconstructable: true as the concrete emitted `_AUTOBUF<unsigned char>` support type.
@@ -69,6 +80,7 @@ IDA callers for `0x004e6ab0` come from `UserLookPane` profile/look packet parsin
 - [UID:000188][0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize.md)
 - [UID:00019E][0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor.md)
 - [UID:0002MR][0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData](by-memory/0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData.md)
+- [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md)
 - [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md)
 - [UID:0000L3][MapPane](by-file/MapPane.md)
 - [UID:0000FP][UserLookPane](by-class/UserLookPane.md)
@@ -78,3 +90,7 @@ IDA callers for `0x004e6ab0` come from `UserLookPane` profile/look packet parsin
 - 2026-05-31: Raised scoring from `60/75` to `68/82` and marked the class reconstructable after adding the exact vtable-data page. Evidence: IDA MCP verified the concrete vtable range, constructor helper, resize helper, and MapPane/UserLookPane caller evidence. Scores remain below final-audit levels because the exact original template spelling/header location and full template contract are not yet settled.
 - 2026-06-02: Attached the concrete class to [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md) after the file page was assigned to `NexusTK/util/`. C++ remains blank pending final template/header audit.
 - 2026-06-03: Raised `COMPLETION` from `68` to `74` and `CONFIDENCE` from `82` to `86` after live IDA MCP corrected both helper exclusive ranges, confirmed the `0x004e6ad7-0x004e6ae0` alignment gap, and expanded vtable-write evidence to 21 cross-feature references. C++ remains blank because exact original template spelling and header/source split are still unresolved.
+- 2026-06-06: Raised grading from `74/86` to `78/88`.
+  - Before: the class page listed the helper methods and ownership rationale, but the cross-feature instantiation evidence was spread across the file/type/memory pages.
+  - After: added an instantiation evidence table tying the resize helper, constructor helper, exact vtable slice, 21-reference vtable fan-out, and `AUTOBUF` file owner together.
+  - Evidence: [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md) is now `84/88`, the vtable data page is `84/88`, and the helper pages record exact IDA-backed ranges and callers. Final C++ remains blank because original template spelling/header placement and the full template contract are still below the 95/95 gate.

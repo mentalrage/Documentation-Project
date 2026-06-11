@@ -1,8 +1,8 @@
 *** UID:0000C0 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000N7 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -46,6 +46,7 @@
 - Active generated `RightButtonMenuPane` code uses `g_pBulletinSession` for some `0x0069ba38` references. Treat those as [UID:0000SP][g_pVoteMenuPane](by-global/g_pVoteMenuPane.md) [UID:0001Q0][0x0069ba38-0x0069ba3c.g_pVoteMenuPane](by-memory/0x0069ba38-0x0069ba3c.g_pVoteMenuPane.md) until the generated global owner is fixed.
 - 2026-05-26 recheck: IDA callers still report the only direct `0x005556f0` calls at `0x00554c95` and `0x00554d27` inside `RightButtonMenuPane::OnEvent`; no `BulletinSession` caller evidence was found.
 - 2026-06-01 recheck: raw starts `0x00555780` and `0x005557e0` have no direct caller or pointer xrefs, but their packet-building behavior and placement keep them provisionally attached to this class/file.
+- 2026-06-07 A010 parent-gate refresh: live IDA xrefs to [UID:00029Z][0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton](by-memory/0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton.md) reconfirm constructor publish, destructor clear, scalar-deleting destructor clear, six menu/open-state consumers in `0x00507150`, and exact neighboring singleton boundaries.
 
 ## Cross-References
 
@@ -66,3 +67,5 @@
   - Evidence: Existing method map, Wave3 grade note, IDA exact-start evidence, caller evidence for hit testing, and global/source ownership caveats support the score.
 - 2026-06-01: Added the adjacent packet helper island to the class map as provisional ownership.
   - Evidence: IDA MCP confirms packet-builder bodies at `0x00555780` and `0x005557e0`, an internal `0xcc` alignment gap, and no direct caller/pointer xrefs; ownership remains by adjacency and behavior rather than direct calls.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000N7][RightButtonMenuPane](by-file/RightButtonMenuPane.md) because the class is `84/86` and the parent is `84/86`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts for the core/destructor methods at `0x00554b40`, `0x00554ba0`, `0x00554c40`, `0x00554f90`, `0x00554fc0`, `0x005552f0`, `0x005556a0`, `0x005556f0`, `0x00556212`, `0x0055621d`, and `0x00556240`; current `callers` confirms the constructor reference at `0x00507685`.
+- 2026-06-07 A010 Batch044 parent-gate update: Raised `84/86` to `85/88` after adding refreshed singleton storage xrefs and boundary evidence. This supports [UID:00029Z][0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton](by-memory/0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton.md) assignment to this class under the corrected 85/85 gate; final C++ remains blank.

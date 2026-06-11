@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000A2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Covered class: [UID:0000A2][Pane](by-class/Pane.md).
 - Likely owner header/source: [UID:0000MC][Pane](by-file/Pane.md).
 - Confidence: strong for listed offsets and derived boundary; medium for final names of several flags/region roles.
+- Autogen parent: attached to [UID:0000A2][Pane](by-class/Pane.md); the class scores `88/86` and this layout scores `82/86`, so both sides satisfy the 80/80 parent gate.
 - Verification basis: IDA MCP `lookup_funcs` and decompilation rechecked representative constructor, destructor, visibility, deletion, layer, and motion-region methods on 2026-05-31. Generated Wave3/simroot data is not used as authority for this score.
 
 ## Observed Layout
@@ -86,6 +87,7 @@ Checked on 2026-05-26 and representative methods rechecked through IDA MCP on 20
 
 ## Changes
 
+- 2026-06-06: Attached the base pane layout to [UID:0000A2][Pane](by-class/Pane.md). Scores remain `82/86`; this is a parent metadata sync for the already documented base layout.
 - Before: validator metadata was unevaluated at completion `0`, confidence `0`, and reconstructable blank despite existing detailed offset documentation.
 - Changed to: `RECONSTRUCTABLE:TRUE`, completion `82`, confidence `86`.
 - Evidence: IDA MCP verified `Pane::Pane` at `0x00544460`, non-deleting destructor `0x00544580`, scalar deleting destructor `0x00544f50`, deletion marker `0x00544690`, visibility methods `0x00544730`/`0x00544750`, motion-region helpers `0x00544a40`/`0x00544ae0`/`0x00544b50`, and layer membership helpers `0x00544c70`/`0x00544cb0`/`0x00544ce0`. Scores stay below `95+` because final source names for several flags/regions and complete downstream use-site audits remain unresolved.

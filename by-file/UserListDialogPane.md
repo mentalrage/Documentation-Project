@@ -1,13 +1,13 @@
 *** UID:0000OZ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # UserListDialogPane
 
 ## Status
 
-- Confidence: strong for user-list feature grouping, medium for exact split from party-search and generic checkbox controls.
+- Confidence: strong for user-list feature grouping and direct module state; medium-high for exact split from party-search and generic checkbox controls.
 - Proposed module: `social/UserListDialogPane.cpp`
 - Current recovered sources: `class_UserListDialogPane.cpp`, `class_UserListPane.cpp`, `class_PartySearchEditPane.cpp`, and `recovered/AddUserListSourceMessage_0059DE60.cpp`
 - Main address doc: [UID:0001KI][0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane](by-memory/0x0059bc90-0x0059f25b.UserListDialogPaneAndUserListPane.md)
@@ -27,7 +27,7 @@ This should be treated as a social UI feature source rather than generic dialog 
 | `AddUserListSourceMessage_59DE60` | `0x0059de60-0x0059decf` | Formats a user-list source line and forwards it to chat/system output. |
 | `PartySearchEditPane` | `0x0059e0d0-0x0059e707`, `0x0059f001-0x0059f0b0` | Dialog opened from user-list command `20`; edits hunters-list/party-search settings and sends opcode `0x84`. |
 | `UserListPane` | `0x0059e710-0x0059efcf`, `0x0059f02d-0x0059f25b` | Five repeated list panes used by the dialog for category/user rows, drawing, selection, double-click, and whisper/source actions. |
-| `g_pUserListDialogPane` and layout globals | global-data | Active singleton and high/low resolution resource layout dependencies. |
+| `g_pUserListDialogPane`, [UID:0002ZX][g_bShowHiddenUsers](by-global/g_bShowHiddenUsers.md), and layout globals | global-data | Active singleton, show-hidden toggle, and high/low resolution resource layout dependencies. |
 
 ## Evidence Notes
 
@@ -39,6 +39,7 @@ This should be treated as a social UI feature source rather than generic dialog 
 - 2026-06-02 IDA MCP/raw export recheck confirms exact modeled sizes for the major range: constructor `0x1508`, no-op `0x3`, sort helpers `0x60` each, refresh `0x34e`, packet handler `0x2d5`, key handler `0x182`, control handler `0x153`, source-message helper `0x70`, party-search constructor `0x2c3`, party-search action `0x337`, list-pane constructor `0x189`, list-pane destructor `0xa3`, draw callback `0x288`, selection callback `0x3e`, whisper opener `0xac`, double-click handler `0x1c0`, and scalar deleting destructors `0x55`/`0x71`/`0xcb`.
 - 2026-06-02 IDA byte-map review confirms this is not a simple contiguous function-only island: non-padding tail/table chunks exist between `0x0059d198-0x0059d1e0`, `0x0059d5fe-0x0059d620`, `0x0059dbe3-0x0059de60`, `0x0059e9a6-0x0059e9f0`, and the checkbox/destructor interleave. Those chunks are now called out on the memory page and keep the file below final-source scoring.
 - [UID:00026U][0x0062e960-0x0062eccc.UserListReadOnlyData](by-memory/0x0062e960-0x0062eccc.UserListReadOnlyData.md) documents matching `UserListDialogPane`, `CheckBoxTextControlPane`, `PartySearchEditPane`, and `UserListPane` vtable/resource data.
+- [UID:0002ZX][g_bShowHiddenUsers](by-global/g_bShowHiddenUsers.md) documents the module-scope show-hidden flag at `0x0069bed0`, with exact user-list constructor, refresh, and control-command xrefs carried by [UID:0002A7][0x0069bed0-0x0069bed4.UserListDialogShowHiddenFlag](by-memory/0x0069bed0-0x0069bed4.UserListDialogShowHiddenFlag.md).
 
 ## Ownership Notes
 
@@ -59,6 +60,7 @@ The file-level parent is now above the `80%` confidence attachment threshold. Th
 - [UID:0000I5][Chatting](by-file/Chatting.md)
 - [UID:0000JN][FriendListDialog](by-file/FriendListDialog.md)
 - [UID:0000JS][Group](by-file/Group.md)
+- [UID:0002ZX][g_bShowHiddenUsers](by-global/g_bShowHiddenUsers.md)
 
 ## Changes
 
@@ -67,3 +69,7 @@ The file-level parent is now above the `80%` confidence attachment threshold. Th
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and the page remained below the file-parent attachment confidence threshold.
   - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/"`, `COMPLETION:86`, and `CONFIDENCE:82`.
   - Summary/evidence: IDA MCP/raw export rechecked exact sizes, constructor/caller relationships, vtable refs, reusable checkbox interleaves, read-only data, and non-padding intra-island chunks; unresolved final field/helper names and non-modeled chunks remain explicit caveats.
+- 2026-06-07 A010 Batch057 parent-gate review:
+  - What existed before: `CONFIDENCE:82`, which blocked corrected 85/85 routing for directly owned module-scope state.
+  - Changed to: `CONFIDENCE:85`; completion remains `86`.
+  - Summary/evidence: existing IDA-backed executable, read-only-data, class, singleton, and [UID:0002ZX][g_bShowHiddenUsers](by-global/g_bShowHiddenUsers.md) global documentation now agree on the user-list source family. The remaining checkbox interleave and field-name caveats still cap confidence, but they do not undermine ownership of the show-hidden flag or this source-file parent.

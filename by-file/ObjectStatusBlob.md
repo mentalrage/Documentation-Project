@@ -41,7 +41,7 @@ The strongest current placement is a map/object protocol helper near [UID:0000L3
 
 - IDA MCP on 2026-06-05 confirms the three normal function starts and sizes: `0x004d1f30` size `0x69`, `0x004d1fa0` size `0x697`, and `0x004d2640` size `0x57`.
 - Direct xrefs cover map/object updates (`0x0050fb00`, `0x00513310`), object-image/profile preview paths (`0x005693d0`, `0x00572120`), user-look flow (`0x0059f610`), and several object dialog/image handlers that call the tagged parser.
-- Callee checks show the compact/partial parsers only need byte/word readers, while the full parser adds string helpers, metadata lookup at `0x00523120`, `dword_69B410`, `byte_66DA97`, and `dword_67A760`.
+- Callee checks show the compact/partial parsers only need byte/word readers, while the full parser adds string helpers, metadata lookup at `0x00523120`, `dword_69B410`, [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97`, and `dword_67A760`.
 - Raw-byte checks keep the span split precise: `0x004d1f99-0x004d1fa0` and `0x004d2637-0x004d2640` are alignment padding between parser bodies.
 
 ## Score Rationale
@@ -60,9 +60,11 @@ The strongest current placement is a map/object protocol helper near [UID:0000L3
 - [UID:0000M3][ObjectImageControlPane](by-file/ObjectImageControlPane.md)
 - [UID:0000P0][UserLookPane](by-file/UserLookPane.md)
 - [UID:0000LC][MetaMan](by-file/MetaMan.md)
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup: normalized the full parser's `byte_66DA97` display-mode dependency to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the IDA lookup alias.
 - 2026-06-05: Raised completion/confidence from `78/82` to `86/88` and set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/map/`. Evidence: live IDA MCP confirmed parser boundaries, byte counts, caller families dominated by map/object appearance flows, field-offset writes, metadata/remap globals, and internal padding. The path is strong enough for validator parent assignment, but member names and potential broader protocol placement keep it below final reconstruction confidence.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `78`, confidence `82`.

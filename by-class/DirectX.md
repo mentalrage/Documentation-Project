@@ -1,8 +1,8 @@
 *** UID:00003Y | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Address range: [UID:000137][0x004a1b60-0x004a1d6a.DirectX](by-memory/0x004a1b60-0x004a1d6a.DirectX.md)
 - Current recovered file: `source-3/simroot_v2/class_DirectX.cpp`
 - Primary vtable: [UID:0002MD][0x00618e60-0x00618e70.DirectXVtableData](by-memory/0x00618e60-0x00618e70.DirectXVtableData.md), summarized by [UID:0001XE][DIBitmapDirectXVtables](by-type/by-vtable/DIBitmapDirectXVtables.md)
+- Direct autogen parent: [UID:0000IW][DirectX](by-file/DirectX.md)
 
 ## Class Purpose
 
@@ -40,6 +41,12 @@ This is not the renderer core. It is a lifetime/COM wrapper used by surface-mana
 | Constructor-unwind singleton clear helper | `0x004a1cc0-0x004a1ccb` | Clears `g_pDirectX`; referenced from the constructor's EH/unwind cleanup metadata. |
 | `ScalarDeletingDestructor` | `0x004a1cd0-0x004a1d6a` | Runs the destructor and conditionally deletes the object. |
 
+## Supporting Exact Evidence
+
+- [UID:000137][0x004a1b60-0x004a1d6a.DirectX](by-memory/0x004a1b60-0x004a1d6a.DirectX.md) records exact function boundaries, alignment gaps, constructor/destructor/scalar-deleting-destructor behavior, DirectDraw call sequence, COM release, startup caller, `g_pDirectX` xrefs, and compiler EH helper caveats.
+- [UID:0002MD][0x00618e60-0x00618e70.DirectXVtableData](by-memory/0x00618e60-0x00618e70.DirectXVtableData.md) records the exact DirectX RTTI/vtable range and boundary before adjacent diagnostic string data.
+- [UID:0000IW][DirectX](by-file/DirectX.md) records the file-root boundary: DirectDraw object/interface lifetime belongs here, while `GrafPort`, `Surface`, and font-image behavior remain separate consumers/owners.
+
 ## Evidence Notes
 
 - Wave3 imports all three methods with high manual/automated grades.
@@ -53,6 +60,15 @@ This is not the renderer core. It is a lifetime/COM wrapper used by surface-mana
 
 - Some generated UI text call sites currently list `g_pDirectX` as the receiver for font measurement. IDA shows those specific call sites load [UID:0000QX][g_pFontImageLib](by-global/g_pFontImageLib.md) at `0x0067ab24`, not `g_pDirectX` at `0x0067ab20`; treat them as font-singleton aliasing until Wave3 data is repaired.
 
+## Assignment Gate
+
+`AUTOGEN_PARENT_UID` is set to [UID:0000IW][DirectX](by-file/DirectX.md). This class is scored `85/88`, and the direct file parent is scored `85/88`, so both sides clear the corrected 85/85 gate. The relationship is direct because the file page owns the compact DirectDraw bootstrap source root, while this class page owns the object layout and method inventory for that wrapper.
+
+## Score Rationale
+
+- Completion is `85` because the page records the class purpose, compact layout, constructor/destructor/unwind/deleting-destructor methods, singleton ownership, exact memory/vtable support pages, startup/consumer evidence, alias caveat, and parent-gate reasoning.
+- Confidence remains `88` because the DirectDraw wrapper role, singleton lifetime, vtable child, and file-root placement are well supported. It remains below final confidence because exact final C++ spelling for COM failure handling and the unresolved interface GUID symbol need final reconstruction work.
+
 ## Cross-References
 
 - [UID:0000IW][DirectX](by-file/DirectX.md)
@@ -65,6 +81,10 @@ This is not the renderer core. It is a lifetime/COM wrapper used by surface-mana
 - [Wave3 noticed problems](../wave3_noticed_problems.md)
 
 ## Changes
+
+- 2026-06-07 A003 Batch 084 class parent-gate update:
+  - Changed to: `COMPLETION:85`, `AUTOGEN_PARENT_UID:0000IW`; confidence remains `88`.
+  - Summary/evidence: added supporting exact evidence, assignment gate, and score rationale. Assignment to [UID:0000IW][DirectX](by-file/DirectX.md) is justified because the child is `85/88`, the direct file parent is `85/88`, and [UID:000137][0x004a1b60-0x004a1d6a.DirectX](by-memory/0x004a1b60-0x004a1d6a.DirectX.md) plus [UID:0002MD][0x00618e60-0x00618e70.DirectXVtableData](by-memory/0x00618e60-0x00618e70.DirectXVtableData.md) document the exact code/vtable evidence.
 
 - 2026-05-30:
   - Before: completion/confidence metadata was left at unevaluated `0/0`.

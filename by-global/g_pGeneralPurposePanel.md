@@ -1,8 +1,8 @@
 *** UID:0000R0 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JQ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -31,7 +31,7 @@
 
 ## Ownership Notes
 
-Keep this global with `ui/panels/GeneralPurposePanel.cpp`. Generated references through `SpellOneArgInputPane` are caller/owner pollution around shared side-panel helpers, not evidence that spell input owns the singleton.
+Keep this global with `ui/panels/GeneralPurposePanel.cpp`. Caller names around shared side-panel helpers are not ownership evidence unless the body and storage xrefs leave the general-purpose panel island.
 
 ## Cross References
 
@@ -44,3 +44,4 @@ Keep this global with `ui/panels/GeneralPurposePanel.cpp`. Generated references 
 ## Changes
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `88/86`. Summary/evidence: the page documents address, owner, singleton role, constructor/destructor/clear-helper evidence, broad reader behavior, child accessors, active-tab switching, ownership notes, and refs.
+- 2026-06-05: Marked reconstructable under [UID:0000JQ][GeneralPurposePanel](by-file/GeneralPurposePanel.md). Evidence: live IDA MCP reports 87 xrefs to `0x0067a874`; decompilation confirms constructor `0x004b83d0`, destructor `0x004b8580`, clear helper `0x004b8a90`, and scalar deleting destructor `0x004b8b40` write/clear `dword_67A874` in the panel lifecycle.

@@ -1,8 +1,8 @@
 *** UID:00001E | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,7 @@
 - Likely source file: [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md)
 - Core memory: [UID:000118][0x00494b50-0x00499e30.ButtonChoiceControlCore](by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md)
 - Destructor/thunk memory: [UID:00011Y][0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors](by-memory/0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors.md)
-- Autogen status: class page remains unclassified because no source-quality class declaration or field map is ready; the file page is assigned to `NexusTK/ui/controls/ButtonControlPane.cpp`.
+- Autogen status: class page is source-authored/reconstructable and is attached to direct file parent [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md), which is currently `86/88`; final C++ remains blank because no source-quality class declaration or field map is ready.
 
 ## Class Purpose
 
@@ -55,7 +55,7 @@
 
 - 2026-06-05 live IDA MCP audit reports method extents `sub_494EB0` `0x00494eb0-0x00494f38`, `sub_494F40` `0x00494f40-0x00494f64`, `sub_494F70` `0x00494f70-0x0049500d`, `sub_49B0D0` `0x0049b0d0-0x0049b10b`, `sub_49AF11` `0x0049af11-0x0049af1c`, and `sub_49AF1C` `0x0049af1c-0x0049af27`.
 - Constructor `0x00494eb0` calls the `ControlPane` base constructor at `0x00494ede`, writes primary/secondary/tertiary `ButtonControlPane` vtables at `0x00494eee`, `0x00494ef4`, and `0x00494efe`, clears bytes at `+0x102` and `+0x108`, writes `0x0101` at `+0xff`, then calls `sub_5446B0`.
-- Live IDA xrefs show 9 direct constructor calls to `0x00494eb0`: `0x004a220d`, four calls inside `sub_4FB630`, raw calls at `0x0050064d` and `0x005007ad`, plus calls from `sub_54B5E0` and `sub_54B8C0`.
+- Live IDA xrefs show 9 direct constructor references to `0x00494eb0`: modeled code callers at `0x004a220d`, four calls inside `sub_4FB630`, raw no-function code xrefs at `0x0050064d` and `0x005007ad`, plus calls from `sub_54B5E0` and `sub_54B8C0`.
 - `SetControlSelected` compares the input byte with `[ecx+0x108]`, writes the byte only on change, then jumps through vtable slot `+0x20` with the rectangle/state region at `+0x44`.
 - `OnKeyPress` narrows the event character through `dword_67A754`, requires event byte `[arg+4] == 8`, accepts Space or `0x0d`, adjusts from the secondary subobject by `-0xa0`, drives visual states `0x0b` and `0x0a`, refreshes through `dword_67A7CC`, sleeps `0x85` ms, then dispatches the activation through vtable slot `+0x48`.
 - The ButtonControlPane vtable block has RTTI at `0x00617bd4`, primary destructor slot `0x00617bd8 -> sub_49B0D0`, secondary adjustor `0x00617c40 -> sub_49AF11`, key handler slot `0x00617c48 -> sub_494F70`, and tertiary adjustor `0x00617c70 -> sub_49AF1C`.
@@ -64,6 +64,8 @@
 - [UID:000118][0x00494b50-0x00499e30.ButtonChoiceControlCore](by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md) records a 2026-06-01 boundary audit that keeps `0x00494eb0-0x0049500d` as the base button helper band.
 - [UID:00011Y][0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors](by-memory/0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors.md) records destructor/thunk ownership by vtable data.
 - [UID:000252][0x00617a38-0x0061885c.ControlPaneReadOnlyData](by-memory/0x00617a38-0x0061885c.ControlPaneReadOnlyData.md) records the broader control-family vtable island that includes `ButtonControlPane`.
+- 2026-06-07 A001 Batch081 live IDA recheck reconfirmed method sizes `0x88`, `0x24`, `0x9d`, `0x3b`, `0xb`, and `0xb` for the constructor, selected setter, key handler, deleting destructor, and two adjustors; `callers` currently models seven constructor callers while `xrefs_to` retains the two raw no-function constructor xrefs above, so the older nine-reference constructor fan-in remains valid when raw code refs are counted.
+- 2026-06-07 A001 Batch081 parent-gate check: direct parent [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md) is `86/88`, documents this generic button/choice-control source family, and is the narrow direct owner for the class. The child now clears the strict `85/85` gate with final source C++ still withheld below the `95/95` reconstruction-code gate.
 
 ## Open Questions
 
@@ -96,3 +98,8 @@
   - What existed before: the page had `72/82` scores and still relied on broad aggregate evidence, stale owner-pollution notes, and incomplete destructor-slot detail.
   - Changed to: scores `82/86`, exact live IDA method extents, constructor/vtable writes, selected-state and key-activation behavior, primary destructor and adjustor evidence, and vtable/data xrefs.
   - Summary/evidence: completion increased because the documented behavioral surface now covers constructor, state update, key activation, destructor, adjustors, vtable slots, and caller fan-in. Confidence increased because those claims are backed by live IDA MCP disassembly/xrefs rather than stale aggregate notes. C++ and `RECONSTRUCTABLE` remain blank because source-quality field names, inheritance declaration, and final source split are still below the reconstruction gate.
+- 2026-06-05: Reclassified autogen metadata from unclassified to `RECONSTRUCTABLE:TRUE` and updated the autogen-status note to separate reconstructability from emitted C++ readiness. Current IDA MCP `lookup_funcs` reconfirmed the constructor/state/key/destructor/adjustor starts at `0x00494eb0`, `0x00494f40`, `0x00494f70`, `0x0049b0d0`, `0x0049af11`, and `0x0049af1c`, and `callers` shows broad derived-control fan-in. `AUTOGEN_PARENT_UID` remains blank because [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md) is still below the 80+ completion attachment gate.
+- 2026-06-07 A001 Batch081 strict parent-gate update:
+  - What existed before: `82/86`, reconstructable, but unassigned due stale parent-gate text from the older 80/80 rule.
+  - Changed to: `85/88` and `AUTOGEN_PARENT_UID:0000HY`.
+  - Summary/evidence: live IDA reconfirmed the exact method sizes, modeled/raw constructor xrefs, vtable data refs, and destructor/adjustor boundaries; [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md) is already `86/88` and directly owns the generic button/choice-control source module. Final C++ stays blank pending source-quality class layout and field names.

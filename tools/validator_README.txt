@@ -184,10 +184,19 @@ Blank means the source placement has not been assigned yet. Invalid paths are
 recorded in validator.ini [projected_path_errors] with keys starting
 `bad_projected_path_...` and are reported during scans.
 
+Use the exact value `NONE` only for a reviewed direct by-file page that should
+not emit a standalone generated source root, such as a generated alias/helper,
+non-source umbrella note, or planning placeholder. A `NONE` projected path is
+recorded as a non-standalone disposition, excluded from
+`projected_path_completion`, and shown in file autogen coverage as
+`not_reconstructable`. The page must document the corrected owner or the reason
+it is intentionally not promoted. Do not use `NONE` to avoid unresolved source
+placement research.
+
 During a scan, the validator records the path state in validator.ini:
 
 - [projected_paths]: UID to current proposed path value.
-- [projected_path_status]: `blank`, `valid`, or `invalid`.
+- [projected_path_status]: `blank`, `valid`, `invalid`, or `none`.
 - [projected_path_errors]: current invalid-path diagnostics.
 
 When the path is valid, the validator creates an empty `.cpp` file under
@@ -197,10 +206,10 @@ moves the existing generated `.cpp` file to the new location when there is no
 target conflict. After a successful move, empty generated folders below
 `auto-generated` are removed.
 
-If a projected path is cleared or becomes invalid, the validator does not delete
-the old generated `.cpp` file automatically. It reports `projected_cpp_stale`
-so an agent can decide whether the staged file should be moved, kept, or
-removed manually.
+If a projected path is cleared, becomes invalid, or changes to `NONE`, the
+validator does not delete the old generated `.cpp` file automatically. It
+reports `projected_cpp_stale` so an agent can decide whether the staged file
+should be moved, kept, or removed manually.
 
 The projected-path line is intentionally only for direct singular `by-file`
 pages. Do not add it to nested by-file support pages, `-xxx.md` control files,
@@ -364,6 +373,35 @@ validator.py at once, their commands are queued and processed one at a time by
 the background worker, so simultaneous calls should not corrupt validator.ini or
 crash because of concurrent writes. Logs are still easier to read when one
 agent runs its own commands sequentially.
+
+Queue deduplication is controlled by validator.ini:
+
+[queue]
+enable_dedup = true
+enable_strong_dedup = true
+
+When enabled, the worker performs conservative pending-job deduplication:
+
+- Immediately consecutive exact duplicate read-only commands may be coalesced.
+  The command runs once and every waiting caller receives the same result
+  through its own queued result file.
+- With `enable_strong_dedup` enabled, exact duplicate global-refresh commands
+  (`full --apply`, `documented --apply`, `autogen --apply`, or
+  `rescore --apply`, without `--remove-missing`, `--uid-only`, or
+  `--reference-only`) may be coalesced to the newest pending duplicate. Earlier
+  callers receive the newest refresh result after intervening queued validator
+  mutations have run. This is intended for agents that want the latest generated
+  validation/report state rather than the report that would have existed at the
+  older queue slot.
+- In strong mode, if pending `file --apply` jobs are batched with pending
+  global-refresh jobs, the worker runs the file jobs first in their queue order,
+  then runs the global refresh. File jobs are not deduped.
+- Other mutating commands, including `file --apply`, are not deduped. Their
+  ordering and per-command output can matter, so each caller receives the result
+  for its own queue position.
+
+When `enable_dedup` is false, the worker returns to the original behavior and
+claims one queued job at a time in queue order.
 
 The queue frontend accepts these extra maintenance flags:
 

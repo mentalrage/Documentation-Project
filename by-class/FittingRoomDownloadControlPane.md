@@ -1,6 +1,6 @@
 *** UID:000052 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000JE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -27,8 +27,8 @@ The small [UID:0001UI][FittingRoomDownloadProgressState](by-type/by-struct/Fitti
 
 | Address | Method | Notes |
 | --- | --- | --- |
-| `0x0041b9e0-0x0041ba20` | raw constructor-shaped body | Installs fitting-room download vtables and clears progress word; IDA has no function object/xrefs at the start. |
-| `0x0041ba20-0x0041ba3f` | raw non-deleting destructor/body helper | Restores fitting-room download vtables and calls shared pane/control teardown; no direct xrefs currently. |
+| [UID:0000WP][0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor](by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md) | raw constructor-shaped body | Installs fitting-room download vtables and clears progress word; IDA has no function object/xrefs at the start, but the byte-level lifecycle ownership is now parent-attached to this class. |
+| [UID:0000WQ][0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor](by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md) | raw non-deleting destructor/body helper | Restores fitting-room download vtables and calls shared pane/control teardown; no direct xrefs currently, but the byte-level lifecycle ownership is now parent-attached to this class. |
 | `0x0041ba40-0x0041bdcd` | `OnPaint` | Strong fitting-room download/progress drawing candidate. |
 | [UID:0002EI][0x0041d580-0x0041d5d5.FittingRoomDownloadControlPaneDeletingDestructor](by-memory/0x0041d580-0x0041d5d5.FittingRoomDownloadControlPaneDeletingDestructor.md) | scalar deleting destructor wrapper | Confirmed compiler-generated wrapper that restores vtables, calls shared teardown, and conditionally deletes `this`. |
 
@@ -42,6 +42,12 @@ The small [UID:0001UI][FittingRoomDownloadProgressState](by-type/by-struct/Fitti
 | Deleting destructor `0x0041d580-0x0041d5d5` restores the same vtables and conditionally deletes `this` | Confirms compiler-generated lifecycle wrapper for the same class. | Raises confidence enough to attach to `FittingRoom`. |
 | Progress state helper [UID:0000WG][0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers](by-memory/0x0041a550-0x0041a5c1.FittingRoomDownloadProgressStateHelpers.md) feeds fitting-room action flow before pane refresh | Links the visible progress control to the fitting-room asset/catalog loading path. | Supports role description. |
 
+## Batch100 Lifecycle Body Audit
+
+The raw lifecycle body pages [UID:0000WP][0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor](by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md) and [UID:0000WQ][0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor](by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md) are now assignment-ready under the corrected 85/85 target rule. The constructor and destructor-shaped bodies are complete adjacent lifecycle ranges, write or restore the same three `FittingRoomDownloadControlPane` vtables, bracket the vtable-referenced paint routine at primary vtable slot `17`, and are corroborated by the scalar deleting destructor wrapper at [UID:0002EI][0x0041d580-0x0041d5d5.FittingRoomDownloadControlPaneDeletingDestructor](by-memory/0x0041d580-0x0041d5d5.FittingRoomDownloadControlPaneDeletingDestructor.md).
+
+The remaining no-function/no-direct-start-xref caveats are real final-source blockers, but they no longer block source ownership. They mean the final constructor/destructor C++ and exact declaration spelling stay blank below the `95/95` final-output gate, not that the raw bytes are ownerless.
+
 ## IDA Evidence Snapshot
 
 Live IDA MCP checks on 2026-06-03 confirm the local class core:
@@ -52,6 +58,8 @@ Live IDA MCP checks on 2026-06-03 confirm the local class core:
 | `0x0041ba20` | `sub_41BA20`, size `0x1f` | Non-deleting destructor-shaped body; decompilation writes the same three vtables and tail-jumps/calls shared teardown `sub_544580`. `xrefs_to` has no direct references. |
 | `0x0041ba40` | `sub_41BA40`, size `0x38e` | Paint routine with a vtable data xref from `0x0060da08`; decompilation draws centered text, frame pieces, and a percentage-width progress fill using `MulDiv(..., byte[this + 0x108], 100)`. |
 | `0x0041d580` | `sub_41D580`, size `0x55` | Scalar deleting destructor wrapper; vtable/data xref at `0x0060d9c4`, code xrefs from adjustor thunks `0x0041d471` and `0x0041d47c`, restores vtables, calls `sub_544580`, and conditionally calls `sub_4F4AC0`. |
+
+2026-06-08 A001 IDA MCP recheck reconfirmed `0x0041b9e0` has no IDA function object and no start/interior xrefs at `0x0041b9e0`, `0x0041b9f2`, or `0x0041ba14`; `0x0041ba20` is still the exact `0x1f`-byte non-deleting body with no direct start xrefs; `0x0041ba40` is the exact `0x38e` paint routine; and `0x0041d580` is the exact `0x55` scalar deleting destructor wrapper. The same pass reconfirmed vtable-family refs from the raw constructor stores, the raw destructor restores, the dialog constructor at `0x0041bdd0`, and the deleting wrapper.
 
 ## Boundary Cautions
 
@@ -66,8 +74,8 @@ Live IDA MCP checks on 2026-06-03 confirm the local class core:
 
 | Score | Rationale |
 | --- | --- |
-| Completion `78` | The class has current live IDA evidence for the raw constructor bytes, non-deleting destructor, vtable-referenced paint method, scalar deleting destructor, local progress field, progress-state linkage, and parent source ownership. Completion remains capped because the exact `OnPaint` by-memory split is still inside the broad UI core page and several attached helper labels remain owner-pollution candidates. |
-| Confidence `88` | Vtable writes, vtable restoration, vtable data xrefs, shared teardown, destructor thunk xrefs, and fitting-room parent evidence are direct and consistent. Confidence is not higher because the raw constructor still has no IDA function record/xrefs and final member names are not proven. |
+| Completion `85` | The class has current live IDA evidence for the raw constructor bytes, non-deleting destructor, vtable-referenced paint method, scalar deleting destructor, local progress field, progress-state linkage, parent source ownership, and Batch100 lifecycle-body assignment audit. Completion remains below final-audit range because the exact `OnPaint` by-memory split is still inside the broad UI core page, several attached helper labels remain owner-pollution candidates, and final member names are not proven. |
+| Confidence `89` | Vtable writes, vtable restoration, vtable data xrefs, shared teardown, destructor thunk xrefs, and fitting-room parent evidence are direct and consistent. Confidence is not higher because the raw constructor still has no IDA function record/xrefs and final member names are not proven. |
 
 ## Cross-References
 
@@ -88,6 +96,16 @@ Live IDA MCP checks on 2026-06-03 confirm the local class core:
 
 ## Changes
 
+- 2026-06-08 A001 Batch100 parent-gate audit:
+  - Before: `COMPLETION:80`, `CONFIDENCE:88`.
+  - After: `COMPLETION:85`, `CONFIDENCE:89`.
+  - Evidence: live IDA MCP reconfirmed the raw constructor no-function/no-xref status, exact constructor bytes, exact `0x0041ba20-0x0041ba3f` destructor body, exact `0x0041ba40-0x0041bdce` paint routine, exact `0x0041d580-0x0041d5d5` scalar deleting wrapper, all three fitting-room download vtable store/restore/xref groups, and the primary vtable slot `17` paint entry. This raises the class over the strict direct-parent gate for [UID:0000WP][0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor](by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md) and [UID:0000WQ][0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor](by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md), while keeping final C++ blank because function-start reachability and field names are not final-source quality.
+- 2026-06-07 A001 supervisor correction audit:
+  - What changed: replaced parent-readiness wording with a lifecycle-body audit and clarified that [UID:0000WP][0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor](by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md) and [UID:0000WQ][0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor](by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md) remain unassigned because they do not meet the corrected 85/85 target assignment rule.
+  - Reasoning: the class-level evidence remains useful and supports the `80/88` score, but the child pages still lack function-object/start-xref evidence and remain below 85 completion.
+- 2026-06-07 A001 parent readiness update:
+  - What changed: raised completion to `80`, kept confidence at `88`, and added a parent attachment readiness section for the raw constructor/destructor body pages.
+  - Reasoning: existing live IDA evidence proves the class identity through matching vtable writes/restores, the adjacent lifecycle/paint layout, the scalar deleting destructor wrapper, and fitting-room file ownership. The class now clears the parent gate for [UID:0000WP][0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor](by-memory/0x0041b9e0-0x0041ba20.FittingRoomDownloadControlPaneRawConstructor.md) and [UID:0000WQ][0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor](by-memory/0x0041ba20-0x0041ba3f.FittingRoomDownloadControlPaneRawDestructor.md); final C++ remains blank for the same OnPaint/member/helper-owner blockers.
 - 2026-06-03: Raised completion/confidence to `78/88` after live IDA MCP reconfirmed the raw constructor bytes at `0x0041b9e0`, `sub_41BA20` size `0x1f`, `sub_41BA40` size `0x38e` with vtable data xref `0x0060da08`, and `sub_41D580` size `0x55` with adjustor-thunk and vtable xrefs. The update also removes generated-source evidence from the status/boundary sections. C++ stays blank because the `OnPaint` child split and final member/helper names are not source-quality yet.
 - 2026-06-02: Raised the class page to 70/82, marked it reconstructable, and attached it to [UID:0000JE][FittingRoom](by-file/FittingRoom.md). Added local core evidence and score rationale while leaving C++ blank because field names, `OnPaint` child boundaries, and helper ownership are not final-source quality.
 - 2026-05-30: Added a direct by-memory reference for the confirmed `0x0041d580-0x0041d5d5` deleting-destructor wrapper and scored the class page from 0/0 to 62/76. Evidence: IDA MCP confirms the wrapper's function size, vtable reference, adjacent adjustor-thunk callers, shared teardown call, and conditional delete-helper call.

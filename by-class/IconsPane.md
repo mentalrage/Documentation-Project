@@ -1,6 +1,6 @@
 *** UID:00006B | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000JZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,12 +12,12 @@
 
 ## Status
 
-- Confidence: strong for behavior, core range, and file ownership; medium-high for final grouping with `TabPane`.
+- Confidence: strong for behavior, core range, exact destructor ownership, and file ownership; medium-high for final grouping with `TabPane`.
 - Current generated file: `class_IconsPane.cpp`
 - Likely source module: [UID:0000JZ][IconsPane](by-file/IconsPane.md)
 - Core range: [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md)
 - Raw action-dispatch candidate: [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md)
-- Shared destructor tail: [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
+- Split destructor tail inventory: [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
 - Singleton global: [UID:0000R6][g_pIconsPane](by-global/g_pIconsPane.md)
 - Resource doc: [UID:0001RD][iconspane-icon-resources](by-resource/iconspane-icon-resources.md)
 - Evidence basis: IDA MCP checks, current generated source, and linked exact memory pages.
@@ -49,8 +49,8 @@
 | [UID:0002T3][0x004cf7d0-0x004cf862.IconsPaneHitTestIcon](by-memory/0x004cf7d0-0x004cf862.IconsPaneHitTestIcon.md) | `HitTestIcon` | Converts coordinates to icon index; reduced mode starts at icon `6`. |
 | [UID:0002T4][0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight](by-memory/0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight.md) | `SetIconHighlight` | Invalidates the selected icon rectangle when highlight state changes. |
 | `0x004cf8e0-0x004cf974` | raw action dispatch candidate | Function-shaped duplicate/candidate of the click-action switch, with local jump table and no IDA function object/direct external xrefs. |
-| `0x004cfd6c-0x004cfd81` | adjustor thunks | Subtract `0xa0`/`0xa4` and forward to scalar deleting destructor. |
-| `0x004cfda0-0x004cfdff` | scalar deleting destructor | Clears singleton, calls shared pane cleanup, optionally frees `this` unless `flags & 4` is set. |
+| [UID:00034T][0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks](by-memory/0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks.md) | adjustor thunks | Compiler-generated `this - 0xa0`/`this - 0xa4` forwards to the scalar deleting destructor; non-reconstructable and parent-blank. |
+| [UID:00034V][0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor](by-memory/0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor.md) | scalar deleting destructor | Clears singleton, calls shared pane cleanup, optionally frees `this` unless `flags & 4` is set. |
 
 ## External State
 
@@ -59,17 +59,17 @@
 - `g_pEPFLib` / `dword_67A744`; resource manager for `ICONS.EPD`.
 - `g_pLanguageMan` / `dword_67A750`; localized tooltip ids `202..209`.
 - `g_isInputLocked` at `dword_67A764 + 1008`; click dispatch is skipped while input is locked.
-- `g_pAppMan` / `dword_67A748`; passed to selected action helpers.
+- [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) / historical `dword_67A748` (older generated `g_pAppMan` label); passed to selected action helpers.
 
 ## Open Questions
 
 - Name each of the eight click actions from the helper callees at `0x005a4db0`, `0x005a4e40`, `0x005a4f70`, `0x005a5010`, `0x005a50a0`, `0x005a5110`, `0x005a5340`, and `0x005a5a80`.
 - Decide whether [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md) is live unmodeled code or an unreferenced duplicate emitted near the icon-pane class block.
-- Decide whether original source kept `IconsPane` and [UID:0000EB][TabPane](by-class/TabPane.md) in separate `.cpp` files or a single old-HUD controls file. Current evidence supports separate class docs but adjacent file placement.
+- Decide whether original source kept `IconsPane` and [UID:0000EB][TabPane](by-class/TabPane.md) in separate `.cpp` files or a single old-HUD controls file. The 2026-06-10 split resolved the destructor-tail ownership; source grouping remains open.
 
 ## Autogen Status
 
-- Reconstructable: true, as an old-layout HUD panel class with IDA-backed constructor, methods, singleton, resources, and destructor evidence.
+- Reconstructable: true, as an old-layout HUD panel class with IDA-backed constructor, methods, singleton, resources, and exact destructor evidence.
 - Parent: [UID:0000JZ][IconsPane](by-file/IconsPane.md).
 - C++: intentionally blank because helper naming, the raw dispatch body, and final grouping with `TabPane` are not final-audit quality.
 
@@ -79,6 +79,8 @@
 - [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md)
 - [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md)
 - [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
+- [UID:00034T][0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks](by-memory/0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks.md)
+- [UID:00034V][0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor](by-memory/0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor.md)
 - [UID:0000R6][g_pIconsPane](by-global/g_pIconsPane.md)
 - [UID:0001RD][iconspane-icon-resources](by-resource/iconspane-icon-resources.md)
 - [UID:0000EB][TabPane](by-class/TabPane.md)
@@ -91,9 +93,18 @@
 - [UID:0002T2][0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent](by-memory/0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent.md)
 - [UID:0002T3][0x004cf7d0-0x004cf862.IconsPaneHitTestIcon](by-memory/0x004cf7d0-0x004cf862.IconsPaneHitTestIcon.md)
 - [UID:0002T4][0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight](by-memory/0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight.md)
+- [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md)
 
 ## Changes
 
+- 2026-06-10 B001-034 split repair:
+  - Before: class confidence remained `82/82`, and destructor glue was only listed as bare ranges inside the mixed [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md) page.
+  - Changed to: completion/confidence `85/85`; the method inventory now links exact destructor thunk and scalar deleting destructor children [UID:00034T][0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks](by-memory/0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks.md) and [UID:00034V][0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor](by-memory/0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor.md).
+  - Evidence: IDA MCP confirmed `IconsPane` vtables at `0x0061b448`, `0x0061b494`, and `0x0061b4c4`; `g_pIconsPane` writes/clears at `0x004cf215`, `0x004cf27a`, and `0x004cfdc0`; adjustor thunks at `0x004cfd6c` and `0x004cfd77`; and scalar deleting destructor body `0x004cfda0-0x004cfdff`.
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: click-action state evidence used historical `dword_67A748` and the older generated `g_pAppMan` label.
+  - After: the page records canonical `g_pCollectionData` beside the historical label and cross-links the global page.
+  - Evidence: generated resolved-name report maps `dword_67A748` to `g_pCollectionData`; existing IconsPane action-dispatch evidence already ties the reference to selected client/player action helpers.
 - Completion/confidence score update: existed before as `0/0`; changed to `82/80`. Summary: old-layout icon-strip behavior, layout offsets, vtables, methods, singleton, resource use, persisted config byte, click action state, raw dispatch caveat, and TabPane grouping question are documented; confidence is capped by unresolved live status of the raw action-dispatch body and final source grouping. Evidence: `IconsPaneCore`, `IconsPaneActionDispatchRawBody`, `TabPaneAndIconsPaneDestructorTail`, `g_pIconsPane`, and `iconspane-icon-resources`.
 - 2026-05-30: Corrected active-output status for the cleanup helper.
   - Before: The method table described the `0x004cf260-0x004cf289` cleanup helper as omitted from active generated output.

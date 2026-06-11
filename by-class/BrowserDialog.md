@@ -1,5 +1,5 @@
 *** UID:000017 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -33,6 +33,7 @@
 | `0x0046b030-0x0046b0c3` | title/content draw helper | Uses `off_60DB5C` and `off_60DB78` to draw browser-dialog title/content art. |
 | `0x0046b0d0-0x0046b4af` | frame/chrome draw helper | Tiles the EPF frame/chrome using the `off_60DB94` and `off_60DBB0` resource tables. |
 | `0x0046b4b0-0x0046b51d` | child-rect helper | Computes slot `0` title bounds and slot `1` browser-content bounds from the dialog width/height fields. |
+| [UID:00033A][0x00470580-0x004705df.BrowserDialogScalarDeletingDestructor](by-memory/0x00470580-0x004705df.BrowserDialogScalarDeletingDestructor.md) | scalar deleting destructor | Clears the newer browser-dialog singleton, restores BrowserPane vtables, runs base teardown, and optionally frees `this`. |
 
 ## Evidence
 
@@ -45,6 +46,7 @@
 - Vtable slots in the `0x0061339c-0x00613440` BrowserDialog group point to the destructor/delete thunks and virtual helpers; the key source-behavior slots include `0x006133e0 -> 0x0046aeb0`, `0x006133e4 -> 0x0046ad40`, `0x006133ec -> 0x0046b030`, `0x006133f0 -> 0x0046b0d0`, and `0x00613414 -> 0x0046ad80`.
 - IDA confirms the child-rect helper returns title bounds `(width - 63) / 2, height - 32, 63, 24` for slot `0`, and browser content bounds `11, 42, width - 22, height - 82` for slot `1`.
 - Byte checks confirm `0x0046ad0a-0x0046ad10` and `0x0046b51d-0x0046b520` are `0xcc` alignment padding between the constructor, virtual cluster, and `BrowserControlPane` constructor.
+- B001-024 exact child [UID:00033A][0x00470580-0x004705df.BrowserDialogScalarDeletingDestructor](by-memory/0x00470580-0x004705df.BrowserDialogScalarDeletingDestructor.md) documents `sub_470580`, vtable ref `0x0061339c`, adjustor callers at `0x00470294`/`0x0047029f`, singleton clear `dword_67AB98`, base teardown, and delete flag behavior.
 
 ## Open Questions
 
@@ -56,10 +58,14 @@
 
 - File: [UID:0000HV][Browser](by-file/Browser.md)
 - Related classes: [UID:000015][BrowserControlPane](by-class/BrowserControlPane.md), [UID:000019][BrowserPane](by-class/BrowserPane.md)
-- Memory: [UID:0000Z5][0x0046a860-0x0046ad0a.BrowserPaneAndDialog](by-memory/0x0046a860-0x0046ad0a.BrowserPaneAndDialog.md), [UID:00020X][0x0046ad10-0x0046b51d.BrowserDialogPaneVirtuals](by-memory/0x0046ad10-0x0046b51d.BrowserDialogPaneVirtuals.md)
+- Memory: [UID:0000Z5][0x0046a860-0x0046ad0a.BrowserPaneAndDialog](by-memory/0x0046a860-0x0046ad0a.BrowserPaneAndDialog.md), [UID:00020X][0x0046ad10-0x0046b51d.BrowserDialogPaneVirtuals](by-memory/0x0046ad10-0x0046b51d.BrowserDialogPaneVirtuals.md), [UID:00033A][0x00470580-0x004705df.BrowserDialogScalarDeletingDestructor](by-memory/0x00470580-0x004705df.BrowserDialogScalarDeletingDestructor.md)
 
 ## Changes
 
+- 2026-06-10 B001-024 parent-gate repair:
+  - Before: `COMPLETION:84`, `CONFIDENCE:88`; scalar deleting destructor behavior was documented only in the class summary.
+  - Changed to: `COMPLETION:85`, linked exact child [UID:00033A][0x00470580-0x004705df.BrowserDialogScalarDeletingDestructor](by-memory/0x00470580-0x004705df.BrowserDialogScalarDeletingDestructor.md).
+  - Summary/evidence: live IDA MCP confirms `sub_470580` at `0x00470580-0x004705df`, vtable ref `0x0061339c`, adjustor callers, singleton clear `dword_67AB98`, BrowserPane vtable restore, base teardown, and delete flag behavior. This clears the strict `85/85` parent gate for the destructor child.
 - 2026-06-04: Raised completion/confidence from `72/80` to `84/88`, marked reconstructable, and attached to [UID:0000HV][Browser](by-file/Browser.md).
   - Before: the page identified the constructor and virtual cluster but still carried stale provenance wording, was not attached to the Browser parent, and did not record the singleton/vtable/child-rect evidence in enough detail to justify leaving the low-score queue.
   - After: live IDA evidence records the binary identity, exact method ranges, MapPane/UserPane callers, BrowserDialog vtable stores/slots, singleton reads and clears, embedded `BrowserControlPane` construction, child-rect arithmetic, and alignment padding.

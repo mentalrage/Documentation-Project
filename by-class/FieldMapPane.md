@@ -1,8 +1,8 @@
 *** UID:00004U | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JA | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -67,3 +67,7 @@
   - What existed before: the page had a broad method table and layout notes, but it used stale generated-source evidence wording, mixed last-byte and end-exclusive ranges, and did not tie the class to the current vtable/read-only data scan.
   - Changed to: recorded the current IDA binary identity, exact modeled function endpoints, constructor vtable stores, vtable method slots, request/path helper caller evidence, `.EPF` suffix xref, and raw rectangle-helper disassembly.
   - Reason for score increase: live IDA now strongly proves the class method ownership, vtable layout, field-entry request flow, path helper use, and render/input method endpoints; score remains below final reconstruction because the raw `0x004b1130` helper still has no IDA function object or callers and source-quality field/helper names are unfinished.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000JA][FieldMapPane](by-file/FieldMapPane.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving the IDA-backed map pane unclassified in generated class coverage.
+  - After: set `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000JA`; left the C++ block blank because this page is below the final reconstruction bar.
+  - Summary/evidence: live IDA MCP reconfirms modeled starts at `0x004b0bb0`, `0x004b0d30`, `0x004b0e50`, `0x004b0fb0`, `0x004b11a0`, `0x004b1260`, and constructor-only path helper `0x004b8220`; `0x004b1130` is still raw code with no IDA function object. The class score `82/86` and parent score `86/84` both meet the 80/80 attachment gate.

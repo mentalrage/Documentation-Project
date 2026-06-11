@@ -2,8 +2,8 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -17,6 +17,10 @@
 - Main address range: [UID:00012R][0x0049d8a0-0x0049feae.DialogPane](by-memory/0x0049d8a0-0x0049feae.DialogPane.md)
 - Type docs: [UID:0001U4][DialogPaneLayout](by-type/by-struct/DialogPaneLayout.md), [UID:0001YC][PaneCoreVtableFamily](by-type/by-vtable/PaneCoreVtableFamily.md)
 - Current recovered file: `source-3/simroot_v2/class_DialogPane.cpp`
+- Autogen status: reconstructable class attached to [UID:0000IT][DialogPane](by-file/DialogPane.md)
+  at position `10`. C++ remains blank under the final-source gate; the exact
+  child memory aggregate [UID:00012R][0x0049d8a0-0x0049feae.DialogPane](by-memory/0x0049d8a0-0x0049feae.DialogPane.md)
+  carries the current method-island evidence.
 
 ## Class Purpose
 
@@ -76,6 +80,15 @@ IDA `list_globals` confirms `DialogPane` vtable bases at `0x00618a64`, `0x00618a
 
 ## Changes
 
+- 2026-06-06 parent attachment sync:
+  - What existed before: the class page was `82/84` and reconstructable but had
+    no parent, while the exact memory aggregate [UID:00012R][0x0049d8a0-0x0049feae.DialogPane](by-memory/0x0049d8a0-0x0049feae.DialogPane.md)
+    pointed to this class as its parent.
+  - What it was changed to: attached the class to [UID:0000IT][DialogPane](by-file/DialogPane.md)
+    at position `10`, keeping C++ blank under the final-source gate.
+  - Summary/evidence: [UID:0000IT][DialogPane](by-file/DialogPane.md) is an
+    `86/80` file root projected to `NexusTK/ui/core/`, and the class page
+    already passes the 80/80 child-side gate.
 - 2026-05-27: The input-override row previously listed `0x0046d3b0` as an unresolved DialogPane/derived split. Changed it to point to the `WebBoardDialog` virtual-companion memory page because IDA vtable slot `0x00613654` points to `0x0046d3b0` inside the `WebBoardDialog` vtable family, and the body manipulates embedded browser-control state.
 - 2026-05-27: The input-override row also previously kept `0x0046d4b0` in the unresolved DialogPane/derived split. Changed it to point to the `WebBoardDialog` input/request helper page because IDA vtable slot `0x00613658` points to `0x0046d4b0` in the same `WebBoardDialog` vtable family.
 - 2026-05-30:

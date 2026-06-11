@@ -1,6 +1,6 @@
 *** UID:000022 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000NY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:30 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -16,7 +16,7 @@
 - Likely source family: [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md), a provisional `NexusTK/ui/controls/` root. A later final-source pass may still split this into `ui/controls/CheckBoxTextControlPane.cpp`.
 - IDA MCP rechecked: 2026-06-05.
 - Type docs: [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md), [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md)
-- Rebuild handling: source-authored reusable UI-control class. Marked reconstructable and attached to [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) at autogen position `30` now that the file page is a `76/82` provisional `NexusTK/ui/controls/` root. C++ remains blank because the raw constructor/source declaration is not final-audit quality.
+- Rebuild handling: source-authored reusable UI-control class. Marked reconstructable and attached to [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) at autogen position `30` as a provisional `NexusTK/ui/controls/` root. C++ remains blank because the raw constructor/source declaration is not final-audit quality.
 
 ## Class Purpose
 
@@ -51,7 +51,7 @@ The checked state is not currently exposed through the method at `0x004214c0`; I
 - IDA MCP decompilation of [UID:0002DZ][0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType](by-memory/0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType.md) returns constant `22`/`0x16`; it is only address-adjacent to fitting-room/string helpers and belongs to this reusable control.
 - IDA recognizes `0x0059df30-0x0059df4f`, `0x0059df50-0x0059e0ac`, `0x0059efeb-0x0059eff6`, `0x0059eff6-0x0059f001`, and `0x0059f050-0x0059f0a5` as functions.
 - `0x0059df30` reinstalls the three class vtables and jumps to `sub_544580`. `0x0059f050` reinstalls the same vtables, calls `sub_544580`, and applies deleting flags through `sub_4F4AC0` or the guarded `0x30c`-byte delete path.
-- `OnPaint` resolves `ON` resources through `dword_67A744`, scans the `+0x10a` label twice for shadow/foreground text drawing, checks byte `+0x108`, and selects the checkbox tile before rendering through `sub_4B9980`.
+- `OnPaint` resolves `ON` resources through [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / `dword_67A744`, scans the `+0x10a` label twice for shadow/foreground text drawing, checks byte `+0x108`, and selects the checkbox tile before rendering through `sub_4B9980`.
 - `PartySearchEditPane::PartySearchEditPane` inlines equivalent checkbox/text setup at `0x0059e22f-0x0059e265`, writing the same three vtables, storing byte `+0x108`, and copying the label `Put me on the hunters list`.
 - `PartySearchEditPane::OnAction` reads the checked flag from `+0x108` when applying hunters-list settings and toggles that byte directly for command `2`.
 - 2026-06-05 IDA MCP confirmed the vtable block: RTTI at `0x0062e998`, primary destructor slot `0x0062e99c -> sub_59F050`, paint slot `0x0062e9e0 -> sub_59DF50`, control-type slot `0x0062e9fc -> sub_4214C0`, secondary adjustor `0x0062ea04 -> sub_59EFEB`, and tertiary adjustor `0x0062ea34 -> sub_59EFF6`.
@@ -59,12 +59,22 @@ The checked state is not currently exposed through the method at `0x004214c0`; I
 - [UID:0001KJ][0x0059ded0-0x0059f0a4.CheckBoxTextControlPane](by-memory/0x0059ded0-0x0059f0a4.CheckBoxTextControlPane.md) is now the canonical executable-range page for the constructor-shaped body, paint, teardown helper, and scalar deleting destructor.
 - [UID:0000NY][SpecializedButtonPanes](by-file/SpecializedButtonPanes.md) keeps this class in the reusable-control source family and now supplies the provisional `NexusTK/ui/controls/` parent path. The final direction/gender/checkbox source split is still open.
 
+## B001-006 Parent-Gate Audit
+
+This class now clears the active `85/85` direct-parent gate for [UID:0002DZ][0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType](by-memory/0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType.md). Existing documentation was treated as a hypothesis and rechecked against IDA MCP where relevant:
+
+- IDA MCP `decompile 0x004214c0` returns constant `22`/`0x16` and has no callees, matching a control-type virtual slot rather than a checked-state accessor.
+- The 2026-06-10 B001 xref audit reports `0x004214c0` has 12 vtable data refs and no ordinary direct code callers; the refs include the `CheckBoxTextControlPane` primary vtable slot at `0x0062e9fc -> 0x004214c0`.
+- [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md) documents the `CheckBoxTextControlPane` primary vtable at `0x0062e99c`, with destructor `0x0059f050`, paint `0x0059df50`, control-type slot `0x004214c0`, and secondary/tertiary adjustor slots.
+- The class page already records live IDA evidence for constructor-shaped bytes at `0x0059ded0-0x0059df24`, modeled teardown helper `0x0059df30`, paint `0x0059df50`, adjustor thunks `0x0059efeb`/`0x0059eff6`, and scalar deleting destructor `0x0059f050`.
+- Checked-state ownership is separated from the type helper: byte `+0x108` is read/toggled by `PartySearchEditPane` and read by `OnPaint`; `0x004214c0` only returns the static control-type value.
+
 ## Score Rationale
 
 | Field | Value | Rationale |
 | --- | ---: | --- |
-| Completion | 82 | The class purpose, method inventory, fields, vtables, out-of-range type helper, PartySearch use, raw constructor caveat, paint/destructor behavior, and parent attachment are now documented with live IDA evidence. |
-| Confidence | 86 | Confidence is strong for behavior, field offsets, vtable identity, destructor/adjustor slots, and ownership as a reusable control. It is capped below the reconstruction-code threshold because the constructor start is still raw/non-IDA-modeled and the final source-file split is unresolved. |
+| Completion | 85 | The class purpose, method inventory, fields, vtables, out-of-range type helper, PartySearch use, raw constructor caveat, paint/destructor behavior, parent attachment, and direct parent-gate evidence for the `0x004214c0` control-type helper are now documented with live IDA evidence. |
+| Confidence | 87 | Confidence is strong for behavior, field offsets, vtable identity, destructor/adjustor slots, and ownership as a reusable control. It is capped below final-source confidence because the constructor start is still raw/non-IDA-modeled and the final source-file split is unresolved. |
 | Reconstructable | true | The class represents source-authored control behavior. C++ remains blank until constructor boundaries, inherited layout names, and final source placement are audited together. |
 
 ## Cross-References
@@ -78,9 +88,14 @@ The checked state is not currently exposed through the method at `0x004214c0`; I
 - [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md)
 - [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md)
 - [UID:0002OX][0x0062e998-0x0062ea3c.CheckBoxTextControlPaneVtableData](by-memory/0x0062e998-0x0062ea3c.CheckBoxTextControlPaneVtableData.md)
+- [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md)
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: the paint-resource evidence used only the historical `dword_67A744` label.
+  - After: the page records resolved name `g_pEPFLib` beside the historical label and cross-links the global page.
+  - Evidence: generated resolved-name report maps `dword_67A744` to `g_pEPFLib`; existing page evidence already ties the reference to EPF checkbox resource lookup.
 - 2026-05-30: Existing class doc mentioned `0x004214c0` as an address-only helper. Changed it to the exact by-memory UID page and clarified that the helper is reusable checkbox-control code, not fitting-room or SimpleUString ownership. Evidence: IDA MCP decompilation/data refs for `0x004214c0` and the split of the historical `0x00421310-0x004216cb` aggregate.
 - 2026-06-02 reconstructable evidence update:
   - What existed before: the class page was scored `60/78`, reconstructable metadata was blank, and newer memory/type evidence was only partially reflected.
@@ -94,3 +109,4 @@ The checked state is not currently exposed through the method at `0x004214c0`; I
   - What existed before: the class page had `72/82` scores and documented the broad behavior, but still carried stale evidence wording and did not spell out the live constructor rows, vtable slots, paint behavior, destructor flags, or inline setup proof.
   - Changed to: scores `82/86`, updated method extents, removed stale source-quality caveats, and added direct live IDA evidence for the raw constructor body, modeled functions, vtable slots, PartySearch inline setup, and destructor/adjustor behavior.
   - Summary/evidence: completion increased because the documented surface now covers the constructor-shaped body, paint, teardown helper, scalar deleting destructor, adjustors, control-type slot, field offsets, and vtable store sites. Confidence increased because live IDA MCP disassembly/xrefs confirm the class identity while still preserving the raw-constructor and final source-split caps. C++ remains blank because the constructor is not an IDA function and the class declaration is not yet 95/95 quality.
+- 2026-06-10 B001-006 split-gate repair: Raised scores from `82/86` to `85/87` so [UID:0002DZ][0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType](by-memory/0x004214c0-0x004214c5.CheckBoxTextControlPaneGetControlType.md) has a direct parent that clears the active `85/85` gate. Evidence: IDA MCP rechecked `0x004214c0` as a no-callee `return 22` helper, vtable xrefs include `0x0062e9fc -> 0x004214c0`, and existing class evidence covers the constructor-shaped body, paint, teardown, destructor, adjustor slots, checked-byte field, and label buffer while retaining final-source caveats.

@@ -1,8 +1,8 @@
 *** UID:0000EA | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -54,3 +54,4 @@
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `84`, confidence `82`.
 - Evidence: the page documents scrollable message-pane role, constructor/destructor/scroll/key/paint/content/destructor methods, IDA-confirmed starts, generated omissions, and sibling message-pane relationships; confidence remains capped by provisional helper names.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000OE][SystemMessagePanes](by-file/SystemMessagePanes.md) because the class is `84/82` and the parent is `88/82`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts at `0x00584ea0`, `0x005851e0`, `0x005856f0`, `0x005858d0`, `0x00585b80`, `0x00586370`, `0x0058ab33`, `0x0058ab3e`, and `0x0058af00`; current `callers` confirms constructor references from `0x0058875e` and `0x005889b6`.

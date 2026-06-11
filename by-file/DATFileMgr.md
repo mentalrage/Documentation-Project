@@ -1,13 +1,13 @@
 *** UID:0000IO | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/archive/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # DATFileMgr
 
 ## Status
 
-- Confidence: strong for manager/container ownership, medium for the original helper class names.
+- Confidence: strong for manager/container ownership and direct archive-module placement, medium-high for the original private helper class names.
 - Proposed module: `NexusTK/archive/DATFileMgr.cpp`
 - Current recovered files: `source-3/simroot_v2/class_DATFileMgr.cpp`, `class__DATFileMgr.cpp`, `class_DATFileContainer.cpp`, `class_DATFileResolver.cpp`, and `HasDATEntry_0049C700`.
 - Evidence basis: Wave3 class summaries and missing-ref checks, generated class/layout notes, IDA MCP function boundary checks, raw disassembly, and caller/callee inspection through 2026-05-26.
@@ -26,7 +26,6 @@ This file should own the global archive manager, mapped archive containers, the 
 | [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md) | `0x0049be70-0x0049be7c` | `archive/DATFileMgr.cpp` | Public wrapper forwarding to `_DATFileMgr::LoadDATFileIndex`. |
 | [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) | [UID:00012E][0x0049c700-0x0049c71d.HasDATEntry](by-memory/0x0049c700-0x0049c71d.HasDATEntry.md) | `archive/DATFileMgr.cpp` | Global boolean probe against the archive manager. |
 | [UID:0000QQ][g_pDATFileMgr](by-global/g_pDATFileMgr.md) | [UID:0001P6][0x0067ab40-0x0067ab44.g_pDATFileMgr](by-memory/0x0067ab40-0x0067ab44.g_pDATFileMgr.md) | `archive/DATFileMgr.cpp` | Public manager singleton pointer used by `DATFile::Open`, `HasDATEntry`, startup, and shutdown. |
-| [UID:0000UF][DestroyDATFileMgr_467380](by-item/DestroyDATFileMgr_467380.md) | [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md) | cleanup glue; DAT object ownership remains here | Tiny fatal-load helper that deletes `g_pDATFileMgr` when image/resource loading fails. |
 | [UID:0002MA][0x00618910-0x00618918.DATFileMgrVtableData](by-memory/0x00618910-0x00618918.DATFileMgrVtableData.md) | `0x00618910-0x00618918` | compiler-emitted from `DATFileMgr` declaration | Exact public-wrapper RTTI pointer plus one scalar-deleting-destructor vtable slot. |
 | [UID:0002MB][0x006189c8-0x006189d0._DATFileMgrVtableData](by-memory/0x006189c8-0x006189d0._DATFileMgrVtableData.md) | `0x006189c8-0x006189d0` | compiler-emitted from `_DATFileMgr` declaration | Exact internal-manager RTTI pointer plus one scalar-deleting-destructor vtable slot. |
 
@@ -63,9 +62,10 @@ IDA MCP confirms these modeled function starts and raw-disassembly ranges:
 - `DATFileContainer` belongs in this file because `_DATFileMgr::LoadDATFileIndex` constructs containers while building the archive list and global name index.
 - `DATFileResolver` appears to be the resolver/hash-table subobject inside `_DATFileMgr`, not a standalone project feature.
 - [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) has 17 IDA-observed callers across PCX loading, image-frame loading, tile metadata, effect/table building, palette/resource checks, sound/resource paths, and other DAT consumers. The helper probes [UID:0000QQ][g_pDATFileMgr](by-global/g_pDATFileMgr.md) and therefore belongs beside the manager rather than beside the per-entry stream reader.
-- [UID:0000UF][DestroyDATFileMgr_467380](by-item/DestroyDATFileMgr_467380.md) at `0x00467380-0x00467391` is fatal-load cleanup glue that deletes the active manager through [UID:0000QQ][g_pDATFileMgr](by-global/g_pDATFileMgr.md). Keep the object ownership here, but do not infer that the helper is a normal DAT manager API; its callers are image/resource failure paths paired with [UID:0000UG][DestroyExceptionHandler_4673A0](by-item/DestroyExceptionHandler_4673A0.md).
+- [UID:0000UF][DestroyDATFileMgr_467380](by-item/DestroyDATFileMgr_467380.md) at `0x00467380-0x00467391` is not a direct `DATFileMgr.cpp` helper after the B001-012 owner audit. It deletes the active manager through [UID:0000QQ][g_pDATFileMgr](by-global/g_pDATFileMgr.md), but IDA shows it is called only from paired Application/startup fatal image/resource cleanup paths, so [UID:0000HG][Application](by-file/Application.md) owns the helper body while this file retains object/singleton ownership.
 - [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md) is not manager-private. IDA MCP caller checks on 2026-05-24 show its resize/insert/find helpers are also used by minimap, fitting-room, and monster-image state, so it should remain a standalone helper module even though `_DATFileMgr` calls the same support routines.
 - 2026-05-31 IDA MCP recheck confirms the public wrapper constructor at `0x0049bd30`, the public load-index forwarder at `0x0049be70`, container construction at `0x0049be80`, `HasDATEntry` at `0x0049c700`, internal load/find helpers at `0x0049c800` and `0x0049cad0`, resolver cleanup at `0x0049d190`, and the internal deleting destructor at `0x0049d3d0`. The recheck also confirms that the public and internal vtable symbols sit adjacent to unrelated RTTI/vtable data, so slot interpretation must stay constrained to documented owner-specific entries.
+- 2026-06-07 Batch 083 live IDA MCP recheck reconfirmed the direct parent gate for [UID:00003I][DATFileMgr](by-class/DATFileMgr.md): public wrapper constructor `0x0049bd30-0x0049be41`, public load-index wrapper `0x0049be70-0x0049be7c`, scalar deleting destructor `0x0049d350-0x0049d38b`, no modeled function at raw forwarder `0x0049bd20` or raw ordinary internal cleanup `0x0049c750`, and `_DATFileMgr` helper boundaries through `0x0049d6ed`. Vtable references at `0x00618914` and `0x006189cc` come from the public constructor/destructors and raw cleanup bytes, matching the documented one-source-module public/private manager relationship.
 
 ## Container Layout
 
@@ -122,6 +122,11 @@ Entry records are 17 bytes: a 4-byte payload offset followed by a 13-byte ANSI e
 
 ## Changes
 
+- 2026-06-10 B001-012 DestroyDATFileMgr owner separation:
+  - What existed before: the proposed contents table listed [UID:0000UF][DestroyDATFileMgr_467380](by-item/DestroyDATFileMgr_467380.md) as cleanup glue with DAT object ownership here, leaving room to misread this file as the helper's direct source owner.
+  - Changed to: removed the helper from the proposed contents table and clarified that [UID:0000HG][Application](by-file/Application.md) owns the fatal-load helper body while `DATFileMgr.cpp` owns [UID:0000QQ][g_pDATFileMgr](by-global/g_pDATFileMgr.md) and the manager implementation.
+  - Summary/evidence: B001-012 IDA MCP confirmed no DAT manager callers for `0x00467380`, 22 paired fatal resource-load cleanup callers, normal `g_pDATFileMgr` lifecycle writes/clears in the DAT manager cluster, and Application/startup neighboring helper context.
+
 - Before: this file listed only the public wrapper load forwarder at `0x0049be70-0x0049be7c`.
 - Changed to: include the adjacent public find-entry forwarder at `0x0049bd20-0x0049bd2c`.
 - Summary/evidence: IDA/raw disassembly shows `mov ecx, [ecx+4]; jmp sub_49CAD0`, matching a public `DATFileMgr` wrapper around the internal `_DATFileMgr::FindEntryByName`.
@@ -137,3 +142,6 @@ Entry records are 17 bytes: a 4-byte payload offset followed by a 13-byte ANSI e
   - What existed before: this file described the one-slot vtables through [UID:0001XB][DATManagerVtables](by-type/by-vtable/DATManagerVtables.md) only.
   - Changed to: added exact by-memory vtable-data children for `DATFileMgr` and `_DATFileMgr`.
   - Summary/evidence: IDA MCP `list_globals`, `xrefs_to`, and dword scan prove `0x00618910-0x00618918` and `0x006189c8-0x006189d0` as exact vtable-data records with non-slot boundaries immediately after each.
+- 2026-06-07 A006 Batch 083:
+  - Changed score from `89/84` to `89/85`.
+  - Summary/evidence: live IDA MCP reconfirmed the public wrapper, internal manager, container, resolver, free helper, and vtable boundaries as one archive manager source module. Remaining confidence is capped by unresolved original private helper names, not by source-file ownership.

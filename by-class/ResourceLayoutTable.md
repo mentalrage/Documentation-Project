@@ -1,6 +1,6 @@
 *** UID:0000BY | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000K2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,16 +12,16 @@
 
 ## Status
 
-- Confidence: strong for live method boundaries, lazy EPF/EPD registry behavior, row layout, and `ImageLib` singleton ownership; medium for exact original class/facet split and final field names.
-- Autogen parent: [UID:0000K2][ImageLib](by-file/ImageLib.md) as the current broader source owner. [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md) remains a possible helper-file split if later type evidence proves an independent source boundary.
-- Address range: [UID:000174][0x004d0120-0x004d182e.ResourceLayoutTable](by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md)
+- Confidence: strong for live method boundaries, lazy EPF/EPD registry behavior, row layout, `ImageLib` singleton ownership, and child-page attachment; medium-high for exact original class/facet split and final field names.
+- Autogen parent: [UID:0000K2][ImageLib](by-file/ImageLib.md) as the current broader source owner for class-backed methods. [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md) now owns the non-method raw ResourceLayout helpers as a file-level helper grouping.
+- Address range: [UID:000174][0x004d0120-0x004d182f.ResourceLayoutTable](by-memory/0x004d0120-0x004d182f.ResourceLayoutTable.md)
 - Reconstruction handling: source-authored and reconstructable, but final C++ remains blank until the `ImageLib` versus helper/facet boundary reaches the 95/95 bar.
 
 ## Class Purpose
 
 `ResourceLayoutTable` is the recovered name for a lazily populated EPF/EPD frame-resource lookup method cluster. Callers pass a DAT-backed resource name such as `FRMPART.EPF`, `FRMPART.EPD`, `TABS.EPF`, `ITEM.EPF`, or `ITEM.EPD` plus a frame index. The table loads the resource once, stores a named bucket, and returns frame pixel and mask offsets through `EPFTileContext`.
 
-The process-wide instance is [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / `DAT_0067a744`. Follow-up evidence shows that [UID:00006E][ImageLib](by-class/ImageLib.md) constructs this global by assigning `g_pEPFLib = this`, so `ResourceLayoutTable` may be a semantic alias, base slice, or helper facet of `ImageLib` rather than an independent original class.
+The process-wide instance is [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / historical IDA alias `DAT_0067a744`. Follow-up evidence shows that [UID:00006E][ImageLib](by-class/ImageLib.md) constructs this global by assigning `g_pEPFLib = this`, so `ResourceLayoutTable` may be a semantic alias, base slice, or helper facet of `ImageLib` rather than an independent original class.
 
 ## Observed Object Shape
 
@@ -54,6 +54,8 @@ ResourceLayoutNameRecord
 - `LookupLayoutEntry` calls `FindResourceIndex`, falls back to `LoadResourceIndex`, bounds-checks the requested entry, and fills an `EPFTileContext` with pixel pointer, row stride, bounds, encoded-mask size, and mask pointer.
 - `GetEntryRect`, `GetFrameSize`, and `GetEntryCount` all share the same lazy-load pattern.
 - `FindResourceIndex` scans `ResourceLayoutNameRecord` values using `wcscmp`.
+- [UID:0002KQ][0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry](by-memory/0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry.md) remains outside the direct method inventory; B001-023 assigns it to file-level [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md) because it is a two-argument raw-buffer helper with no `this` use.
+- [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md) likewise remains outside the direct method inventory; B001-023 assigns it to file-level [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md) because it is a three-argument raw-record helper with no `this` use.
 
 ## Live IDA Evidence
 
@@ -90,12 +92,28 @@ ResourceLayoutNameRecord
 
 ## Score Rationale
 
-- `COMPLETION:86`: live IDA research now verifies exact method/helper boundaries, local padding, ImageLib owner lifecycle, row-list construction, lazy lookup behavior, and accessor field offsets. Remaining work is the exact original class/facet split and final source names.
-- `CONFIDENCE:84`: confidence rises because the active behavior and singleton ownership are supported by current decompilation and xrefs, not just prior notes. It remains below final-source confidence because the lookup family is non-virtual and may have been an `ImageLib` facet, helper class, or separate implementation unit.
+- `COMPLETION:87`: live IDA research now verifies exact method/helper boundaries, local padding, ImageLib owner lifecycle, row-list construction, lazy lookup behavior, accessor field offsets, and the corrected child filename/range set. Remaining work is the exact original class/facet split and final source names.
+- `CONFIDENCE:86`: confidence clears the corrected parent gate because the active behavior, singleton ownership, child boundaries, and lack of a separate vtable are supported by current decompilation and xrefs, not just prior notes. It remains below final-source confidence because the lookup family is non-virtual and may have been an `ImageLib` facet, helper class, or separate implementation unit.
 - `AUTOGEN_PARENT_UID:0000K2`: the parent attachment uses the current best source owner, `ImageLib`, whose file confidence is above the attachment threshold and whose constructor/destructor own `g_pEPFLib` and the 44-byte row `List`.
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup:
+  - Before: the class-purpose section used bare `DAT_0067a744` wording for the process-wide instance.
+  - Changed to: canonical [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) wording with `DAT_0067a744` retained as the historical IDA alias.
+  - Evidence: existing live IDA evidence on this page ties `0x0067a744` owner writes/clears to `ImageLib` while this method family consumes the singleton.
+- 2026-06-07 A006 Batch 048 parent-gate refresh:
+  - Changed completion/confidence from `86/84` to `87/86`.
+  - Evidence: the split-recheck repaired five exact child filenames to IDA exclusive ends, reconfirmed the `ImageLib` singleton/list ownership chain, and found no separate `ResourceLayoutTable` vtable. With [UID:0000K2][ImageLib](by-file/ImageLib.md) now refreshed to `86/85`, this class/facet and its direct file parent satisfy the corrected `85/85` gate for exact children that also meet the child gate.
+- 2026-06-08 A010 Batch120 raw-helper audit:
+  - Changed to: no score change.
+  - Evidence: documented why [UID:0002KQ][0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry](by-memory/0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry.md) remains unassigned despite reaching `85/88`: the helper is not a `thiscall` ResourceLayout method and no direct class owner is proven.
+- 2026-06-08 A003 Batch132 raw-record helper audit:
+  - Changed to: no score change.
+  - Evidence: documented why [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md) remains unassigned despite reaching `85/88`: the helper has no `this`, takes caller-provided raw record storage, and its known call evidence is human-image composition code rather than ResourceLayout class methods.
+- 2026-06-10 B001-023 raw-helper routing:
+  - Changed to: no score change.
+  - Evidence: clarified that [UID:0002KQ][0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry](by-memory/0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry.md) and [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md) remain excluded from this class method inventory, but now parent to file-level [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md) rather than staying unresolved.
 - 2026-06-04: Raised completion/confidence from `82/76` to `86/84` and attached the reconstructable class/facet to [UID:0000K2][ImageLib](by-file/ImageLib.md) for autogen ownership. The increase is justified by fresh live IDA MCP verification of exact method boundaries, `0xcc` padding spans, ImageLib constructor/destructor ownership of `g_pEPFLib`, `List::List(44, 10)` registry construction at `+0x0c`, lazy-load decompilation for `LookupLayoutEntry`/accessors, and lack of a separate `ResourceLayoutTable` vtable.
 - 2026-05-30: Changed completion/confidence from `0/0` to `82/76`.
   - Before: The page was unevaluated despite detailed documentation of lazy EPF/EPD lookup behavior, object shape, record layout, method roles, and ImageLib overlap caveats.
@@ -104,4 +122,4 @@ ResourceLayoutNameRecord
 - 2026-05-31: Marked the class/facet documentation as reconstructable without adding C++.
   - Before: `RECONSTRUCTABLE` was blank even though IDA-confirmed methods and source-authored data structures require reconstruction.
   - After: set `RECONSTRUCTABLE:TRUE`; parent and C++ remain blank because the final `ImageLib` versus `ResourceLayoutTable` source boundary is still unresolved.
-  - Evidence: IDA MCP decompilation of the `0x004d0120-0x004d182e` method family confirms source-authored EPF/EPD layout-table behavior, but the same object is constructed by `ImageLib::ImageLib`.
+  - Evidence: IDA MCP decompilation of the `0x004d0120-0x004d182f` method family confirms source-authored EPF/EPD layout-table behavior, but the same object is constructed by `ImageLib::ImageLib`.

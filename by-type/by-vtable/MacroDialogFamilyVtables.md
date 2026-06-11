@@ -1,8 +1,8 @@
 *** UID:0001Y1 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -26,6 +26,8 @@ IDA MCP recheck on 2026-06-01 confirms the current IDB still has the expected MS
 The same recheck also verifies the local boundaries. The dialog vtable views end immediately before the next RTTI locator/view; the edit-control group ends at `0x0062d3cc`, where the next named item is the `Ctrl+D` string. This supports keeping the vtables as source-declared/generated-binary data rather than folding them into adjacent string or unrelated read-only data.
 
 Current `simroot_v2` metadata still reports `vtable_count: 0` for every macro-dialog and macro-edit-control class in this family, so use this page rather than generated vtable metadata when reconstructing declarations.
+
+2026-06-08 Agent-A002 live IDA MCP `py_eval` rechecked the seven primary family vtable globals and found the expected bases and complete-object-locator dwords: `0x00620d10 -> 0x0064d508`, `0x00620dac -> 0x0064d590`, `0x00620e48 -> 0x0064d618`, `0x00621130 -> 0x0064d8bc`, `0x0062d1e4 -> 0x006507a0`, `0x0062d288 -> 0x00650828`, and `0x0062d32c -> 0x006508b0`. Each primary table currently has three xrefs, matching constructor/destructor-family vptr stores.
 
 ## Dialog Vtables
 
@@ -68,6 +70,10 @@ These vtable groups support the current [UID:0000KY][MacroDialogs](by-file/Macro
 
 The vtable slots also confirm that several tiny methods around `0x005425cb-0x0054265a` and `0x00580640-0x00580686` are ABI thunks or adjustor slots, not feature behavior requiring separate source files.
 
+## Parent Assignment
+
+Assign this vtable-family type page to [UID:0000KY][MacroDialogs](by-file/MacroDialogs.md). The child now clears `86/90`, the direct source-file parent was refreshed to `88/85`, and the evidence ties all seven classes to the same macro-dialog/edit-control source family rather than to unrelated subsystem owners. The concrete vtable bytes remain compiler-emitted from source declarations, so final C++ stays blank.
+
 ## Cross-References
 
 - [UID:0000KY][MacroDialogs](by-file/MacroDialogs.md)
@@ -82,3 +88,7 @@ The vtable slots also confirm that several tiny methods around `0x005425cb-0x005
 ## Changes
 
 - 2026-06-01: The page previously had unevaluated validator scores (`COMPLETION:0`, `CONFIDENCE:0`) and a blank reconstructability flag even though it contained earlier vtable inventory. It is now marked `RECONSTRUCTABLE:TRUE` with `COMPLETION:84` and `CONFIDENCE:88`. This is justified by current IDA MCP verification of the decorated vtable/RTTI globals, slot values, constructor/destructor xrefs, and read-only data boundaries. The score remains below the 95+ final-audit gate because exact source declarations, class layouts, and every called helper name are not yet fully reconstructed.
+- 2026-06-08 Agent-A002 Batch 134 assignment-gate refresh:
+  - Before: `COMPLETION:84`, `CONFIDENCE:88`, no autogen parent.
+  - After: `COMPLETION:86`, `CONFIDENCE:90`, `AUTOGEN_PARENT_UID:0000KY`.
+  - Summary/evidence: live IDA MCP reconfirmed the seven primary vtable globals, locator pointers, and xref counts; [UID:0000KY][MacroDialogs](by-file/MacroDialogs.md) was refreshed to `88/85`, so both child and direct source parent clear the strict `85/85` gate. Final C++ remains blank because this page documents compiler-emitted vtable data and declaration evidence, not standalone source text.

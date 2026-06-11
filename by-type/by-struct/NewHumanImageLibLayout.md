@@ -2,7 +2,7 @@
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:000092 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for observed offsets and constructor/destructor agreement, medium for final field names and exact original nested row type names.
 - Owner class: [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md).
+- Autogen parent: attached to [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md); the class scores `82/82` and this layout scores `80/86`, so both sides satisfy the 80/80 parent gate.
 - Evidence: IDA constructor/destructor decompilation on 2026-05-26 and constructor/function-boundary recheck on 2026-05-31.
 
 ## Layout
@@ -76,6 +77,7 @@ NewHumanImageLib
 
 ## Changes
 
+- 2026-06-06: Attached the object layout to [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md). Scores remain `80/86`; this pass only records the direct class parent for the already documented constructor/destructor layout.
 - Before: metadata was `COMPLETION:0`, `CONFIDENCE:0`, and `RECONSTRUCTABLE:` even though the page contained substantial layout evidence.
 - Changed to: `COMPLETION:80`, `CONFIDENCE:86`, and `RECONSTRUCTABLE:TRUE`.
 - Summary/evidence: IDA MCP rechecked the constructor range, resource strings, constructor field writes, and destructor cleanup agreement on 2026-05-31. The score remains below final-audit status because final original field names and nested row type names are still not fully proven.

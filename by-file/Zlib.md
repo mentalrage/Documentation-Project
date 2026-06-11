@@ -1,7 +1,7 @@
 *** UID:0000PC | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/third_party/zlib/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Zlib
 
@@ -25,7 +25,7 @@ Treat the current one-function recovered files as staging containers. A faithful
 | --- | --- | --- |
 | `Compress2` / `Compress` wrappers | `0x004142c0-0x0041438f` | zlib compression front end; `0x00414370` wraps `0x004142c0` with default level `-1`. |
 | `Uncompress` | `0x00414390-0x0041442c` | zlib `uncompress` wrapper using version string `1.1.4`, `InflateInit`, `Inflate`, and `InflateEnd`. |
-| `Crc32` | `0x00414430-0x00414565` | Table-driven CRC-32 helper over `dword_63211C[256]`. |
+| `Crc32` | `0x00414430-0x00414565` | Table-driven CRC-32 helper over `dword_63211C[256]` / `crc_table[256]`. |
 | `DeflateInit`, `DeflateInit2`, `DeflateReset` | `0x00414570-0x00414813` | Public deflate setup/reset wrappers and direct deflate-state setup path. |
 | `deflate.c` internals | `0x00414820-0x004158aa` | `deflate`, `deflateEnd`, stored/fast/slow compression, fill-window, read-buffer, and longest-match helpers. |
 | `InflateReset`, `InflateEnd`, `InflateInit2`, `InflateInit`, `Inflate`, `ZlibAlloc`, `ZlibFree`, `Adler32` | `0x004158b0-0x0041600e` | Public inflate wrapper/state lifecycle, default allocator/free callbacks, and Adler-32 helper. |
@@ -40,7 +40,7 @@ If the final tree preserves the stock zlib source shape, the likely split is:
 | --- | --- |
 | `compress.c` | `0x004142c0-0x0041438f` |
 | `uncompr.c` | `0x00414390-0x0041442c` |
-| `crc32.c` | `0x00414430-0x00414565` plus `dword_63211C` |
+| `crc32.c` | `0x00414430-0x00414565` plus `dword_63211C` / `crc_table` |
 | `deflate.c` | `0x00414570-0x004158aa` |
 | `inflate.c` | `0x004158b0-0x00415e77` |
 | `zutil.c` | `0x00415eb0-0x00415edc` default `zcalloc`/`zcfree` callbacks |
@@ -95,4 +95,12 @@ Do not split `Crc32`, `Adler32`, `InflateFast`, and the inflate/deflate state ma
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: CRC ownership notes used only the historical `dword_63211C` label.
+  - After: the page records resolved name `crc_table` beside the historical label.
+  - Evidence: generated resolved-name report maps `dword_63211C` to `crc_table`; the page already identifies the range as the stock zlib CRC-32 table-driven helper.
+- 2026-06-05 projected-path assignment:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, so the by-file row remained a generated-root coverage error.
+  - Changed to: `NexusTK/third_party/zlib/`.
+  - Summary/evidence: live IDA MCP lookup confirms the documented zlib public-compress anchor at `0x004142c0`; the source-structure decision keeps the compression/inflate implementation as vendored `third_party/zlib/` support rather than assigning helpers to resource or metadata consumers.
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `92/90`. Summary/evidence: the page documents third-party zlib 1.1.4 identity, stock source split, covered ranges, IDA/string/source-comparison evidence, and ownership boundaries; only minor compile-option/helper-boundary questions remain.

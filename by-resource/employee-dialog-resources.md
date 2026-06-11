@@ -1,25 +1,25 @@
 *** UID:0001R9 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # Employee Dialog Resources
 
 ## Status
 
 - Scope: strings and resource/data constants currently tied to the employee shop dialog family.
-- Confidence: strong for the inline strings, vtable/data island ownership, and consuming dialog methods; medium for final source/resource names.
+- Confidence: strong for the inline strings, vtable/data island ownership, consuming dialog methods, and source/resource boundary; medium for final source/resource names.
 - Evidence basis: IDA MCP direct UTF-16 decoding and xref checks already recorded in the linked by-memory, by-file, and issue-tracker pages.
 
 ## Resource Family
 
-| Resource/data item | Evidence owner | Observed role | Notes |
-| --- | --- | --- | --- |
-| `EMPLOYEE` | [UID:000256][0x00618efc-0x0061929c.EmployeeDialogReadOnlyData](by-memory/0x00618efc-0x0061929c.EmployeeDialogReadOnlyData.md) | Employee dialog resource/name literal. | Stored in the employee dialog `.rdata` island with the family vtables and UI resource names. |
-| `LLER.EPF`, `LLER.PAL` | [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md) | Main employee/seller dialog art resources. | The read-only-data page records these as employee dialog resource strings; exact DAT payload is not decoded here. |
-| `PROPERTY` | [UID:00004D][EmployeeItemPropertyDialogPane](by-class/EmployeeItemPropertyDialogPane.md) | Property editor label/resource marker. | Owned by the employee item property dialog path, not by generic item exchange dialogs. |
-| `LLITEM.EPF`, `LLITEM.PAL` | [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md) | Employee item-list/art resources. | Kept with the employee dialog family pending a DAT asset audit. |
-| `Quantity` | [UID:00004E][EmployeeQuantityInputDialogPane](by-class/EmployeeQuantityInputDialogPane.md) | Quantity prompt/control label family. | Distinct from unresolved localized string id `247`, which is looked up dynamically. |
-| `3.EPF` | [UID:00004E][EmployeeQuantityInputDialogPane](by-class/EmployeeQuantityInputDialogPane.md) | Quantity/input dialog art resource. | The read-only-data page lists this as the trailing employee dialog resource literal before the warning string range. |
+| Resource/data item | Evidence owner | Observed role | Rebuild handling | Notes |
+| --- | --- | --- | --- | --- |
+| `EMPLOYEE` | [UID:000256][0x00618efc-0x0061929c.EmployeeDialogReadOnlyData](by-memory/0x00618efc-0x0061929c.EmployeeDialogReadOnlyData.md) | Employee dialog resource/name literal. | Source-declared/generated-binary string literal or resource key. Preserve in employee dialog source/read-only string data; not a resource payload by itself. | Stored in the employee dialog `.rdata` island with the family vtables and UI resource names. |
+| `LLER.EPF`, `LLER.PAL` | [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md) | Main employee/seller dialog art resources. | Resource-derived main employee/seller dialog art and palette payloads. Source owns the filename constants and loader calls. | The read-only-data page records these as employee dialog resource strings; exact DAT payload is not decoded here. |
+| `PROPERTY` | [UID:00004D][EmployeeItemPropertyDialogPane](by-class/EmployeeItemPropertyDialogPane.md) | Property editor label/resource marker. | Source-declared/generated-binary string or resource key consumed by the property dialog path. Keep with employee property UI until DAT evidence proves an asset payload. | Owned by the employee item property dialog path, not by generic item exchange dialogs. |
+| `LLITEM.EPF`, `LLITEM.PAL` | [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md) | Employee item-list/art resources. | Resource-derived employee item-list art and palette payloads. Do not merge with generic item dialogs before a DAT asset audit. | Kept with the employee dialog family pending a DAT asset audit. |
+| `Quantity` | [UID:00004E][EmployeeQuantityInputDialogPane](by-class/EmployeeQuantityInputDialogPane.md) | Quantity prompt/control label family. | Source-declared/generated-binary label/resource key. It is distinct from localized string id `247`, which is runtime text-table data. | Distinct from unresolved localized string id `247`, which is looked up dynamically. |
+| `3.EPF` | [UID:00004E][EmployeeQuantityInputDialogPane](by-class/EmployeeQuantityInputDialogPane.md) | Quantity/input dialog art resource. | Resource-derived quantity/input dialog art payload. Keep the literal with the employee quantity dialog source path. | The read-only-data page lists this as the trailing employee dialog resource literal before the warning string range. |
 
 ## Resource Strings
 
@@ -46,12 +46,46 @@
 - Treat this page as the resource index for the employee dialog feature. Reconstructed source declarations belong on the consuming file/class/memory pages, because `by-resource` pages are not emitted as standalone C++.
 - Keep `AddEmployeeItemDialog` feature ownership with [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md), even though it reuses generic item dialog behavior; the employee-specific alert, quantity, and command-dispatch paths all depend on the employee owner object.
 
+## Resource-Island Contract
+
+| Area | Source-owned declaration or behavior | Resource/string-table-owned data |
+| --- | --- | --- |
+| Employee `.rdata` tail | [UID:000256][0x00618efc-0x0061929c.EmployeeDialogReadOnlyData](by-memory/0x00618efc-0x0061929c.EmployeeDialogReadOnlyData.md) owns the source-declared/generated-binary constants beside the employee vtables. | The physical bytes should be regenerated from class declarations and static resource-name constants; this page indexes the resource/key meaning but does not replace exact by-memory tail splitting. |
+| Main employee/seller art | `EmployeeDialogPane` owns when the main employee dialog art and palette are loaded and how employee records/item slots are rendered over it. | `LLER.EPF`/`LLER.PAL` are resource-derived art/palette payloads pending DAT archive audit. |
+| Item/property/quantity child dialogs | `EmployeeItemPropertyDialogPane` and `EmployeeQuantityInputDialogPane` own property editing, quantity validation, command dispatch, and child-dialog layout behavior. | `PROPERTY`, `Quantity`, `LLITEM.EPF`/`.PAL`, and `3.EPF` remain employee-family keys/assets until DAT evidence proves a broader owner. |
+| Add-employee alert flow | `AddEmployeeItemDialog` owns the multi-select rejection and stack-count branch; the shared alert shell owns modal display mechanics. | The Korean warning string is employee-feature text; shared `OK` stays with [UID:0001R5][alert-dialog-resources](by-resource/alert-dialog-resources.md), and localized id `247` stays with the language/string table until decoded. |
+
+## Collision And Exclusion Rules
+
+- Do not merge employee `LLITEM.EPF` / `LLITEM.PAL` with generic item dialog resources solely because generic item picker controls are reused. Employee command routing and owner-pointer state keep this resource family under [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md).
+- Do not treat `Quantity` and localized string id `247` as the same resource. `Quantity` is an observed employee read-only literal/key, while id `247` is dynamically looked up text whose decoded value remains unresolved.
+- Do not model shared `OK` as `g_addEmployeeAlertCallbacks`; linked alert resources and the broad xref count make it a shared dialog label.
+- Keep the `0x0061916c-0x0061929c` resource-literal tail as part of [UID:000256][0x00618efc-0x0061929c.EmployeeDialogReadOnlyData](by-memory/0x00618efc-0x0061929c.EmployeeDialogReadOnlyData.md) until exact per-string child pages are created. This resource page may summarize the literals, but it should not claim byte-level child splits that do not exist yet.
+
+## Rebuild Notes
+
+For source reconstruction, keep the employee resources in [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md) and its feature-private child dialogs. The generic item picker remains in [UID:0000KE][ItemDialogs](by-file/ItemDialogs.md), but the employee add-item variant consumes employee-only warning, quantity, and command-dispatch behavior.
+
+The current resource boundary is:
+
+- source-owned: `EMPLOYEE`, `PROPERTY`, `Quantity`, resource filename constants, localized string id `247`, feature-private command routing, and the shared `OK` label reference;
+- resource-owned: `LLER.EPF`, `LLER.PAL`, `LLITEM.EPF`, `LLITEM.PAL`, `3.EPF`, and any DAT/archive metadata needed to load them;
+- shared-source/string-table: the `OK` literal and localized id `247`, which should remain shared references rather than employee-private payloads.
+
+Final asset extraction still needs DAT/archive review for the EPF/PAL payloads, and final localization review needs the decoded string-table entry for id `247`.
+
+## Open Questions
+
+- Which DAT/archive contains `LLER.EPF`, `LLER.PAL`, `LLITEM.EPF`, `LLITEM.PAL`, and `3.EPF`?
+- What is the decoded text for localized string id `247` in the shipped string table?
+- Are `PROPERTY`, `Quantity`, and `EMPLOYEE` pure source literals/resource keys, or do any correspond to DAT-side payload names?
+
 ## Score Rationale
 
 | Field | Value | Rationale |
 | --- | ---: | --- |
-| Completion | 72 | The page now indexes the known employee dialog resource literals, exact inline strings, consuming classes, memory evidence, and source-boundary rules. It remains below high completion because the DAT payloads, localized string id `247`, and original resource macro/literal strategy are still unresolved. |
-| Confidence | 88 | The string addresses, warning xref, shared `OK` caveat, employee `.rdata` family, and consuming dialog methods are backed by existing IDA MCP evidence in linked pages. Confidence is capped by missing client string-table/DAT-resource decoding. |
+| Completion | 80 | The page now indexes the known employee dialog resource literals, exact inline strings, consuming classes, memory evidence, source/resource boundaries, rebuild handling, resource-island contract, shared-string/localized-string collision rules, and open DAT/localization questions. It remains below high completion because the DAT payloads, localized string id `247`, original resource macro/literal strategy, and exact per-string splits for the resource tail are still unresolved. |
+| Confidence | 90 | The string addresses, warning xref, shared `OK` caveat, employee `.rdata` family, and consuming dialog methods are backed by existing IDA MCP evidence in linked pages. Confidence is capped below final-audit range by missing client string-table/DAT-resource decoding. |
 
 ## IDA MCP Evidence
 
@@ -65,7 +99,7 @@
 
 - File: [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md), [UID:0000HE][AlertPanes](by-file/AlertPanes.md)
 - Classes: [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md), [UID:00004E][EmployeeQuantityInputDialogPane](by-class/EmployeeQuantityInputDialogPane.md), [UID:00000B][AlertPane](by-class/AlertPane.md)
-- Memory: [UID:00013A][0x004a4b20-0x004a4d3b.AddEmployeeItemDialog](by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md), [UID:0001OE][0x0061929c-0x006192c6.AddEmployeeSingleSelectionAlertText](by-memory/0x0061929c-0x006192c6.AddEmployeeSingleSelectionAlertText.md), [UID:0001OC][0x00613a18-0x00613a1e.DialogOkButtonString](by-memory/0x00613a18-0x00613a1e.DialogOkButtonString.md)
+- Memory: [UID:00013A][0x004a4b20-0x004a4d3b.AddEmployeeItemDialog](by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md), [UID:0001OE][0x0061929c-0x006192c6.AddEmployeeSingleSelectionAlertText](by-memory/0x0061929c-0x006192c6.AddEmployeeSingleSelectionAlertText.md), [UID:0001OC][0x00613a18-0x00613a1e.DialogOkButtonString](by-memory/0x00613a18-0x00613a1e.DialogOkButtonString.md), [UID:000256][0x00618efc-0x0061929c.EmployeeDialogReadOnlyData](by-memory/0x00618efc-0x0061929c.EmployeeDialogReadOnlyData.md)
 - Related resources: [UID:0001R5][alert-dialog-resources](by-resource/alert-dialog-resources.md)
 
 ## Changes
@@ -77,3 +111,10 @@
   - What existed before: the page listed only the two inline strings plus unresolved localized id `247`.
   - Changed to: `COMPLETION:72`, `CONFIDENCE:88`, with employee resource-family literals, consumer map, ownership boundaries, and score rationale.
   - Summary/evidence: linked employee `.rdata`, EmployeeDialogPane, AddEmployee method, AddEmployee alert text, and shared OK pages already establish the resource island and caller behavior; DAT payload and string-table text remain open.
+- 2026-06-06 rebuild-boundary pass:
+  - What existed before: the page had employee resource-family ownership and consumer maps but did not classify each resource/key by rebuild handling.
+  - Changed to: `COMPLETION:78`, `CONFIDENCE:90`, with per-item rebuild handling, explicit source/resource boundaries, and DAT/localized-string open questions.
+  - Summary/evidence: EmployeeDialogPane and AddEmployeeItemDialog owner docs establish employee-specific source ownership while linked memory pages anchor the read-only string/resource island; DAT payload provenance and localized string id `247` remain open.
+- 2026-06-07 A002 resource-island contract pass:
+  - Before: the page linked the employee `.rdata` island, but did not state how the resource-literal tail, shared `OK`, localized id `247`, and generic item-dialog reuse should be kept separate.
+  - After: raised to `COMPLETION:80` with a resource-island contract, collision/exclusion rules, exact read-only-data link in cross-references, and score rationale that preserves the DAT/localization/per-string split blockers.

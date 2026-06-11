@@ -1,7 +1,7 @@
 *** UID:0000O6 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # StaticObjectPane
 
@@ -49,6 +49,10 @@ Keep this separate from [UID:0000O7][StaticObjImageLib](by-file/StaticObjImageLi
 
 ## Changes
 
+- 2026-06-05: Assigned projected reconstruction folder.
+  - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank, so the by-file row remained a generated-root coverage error.
+  - After: set the folder to `NexusTK/map/`.
+  - Evidence: live IDA MCP lookup confirms the documented `StaticObjectPane` constructor anchor at `0x00537900`; proposed-source-tree keeps the live static-map-object wrapper in `map/`, separate from the render asset library `StaticObjImageLib.cpp`.
 - 2026-05-30: Scored documentation completeness/confidence.
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `82` and confidence to `86`.

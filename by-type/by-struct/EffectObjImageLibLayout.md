@@ -1,8 +1,8 @@
 *** UID:0001U9 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00004A | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Confidence: strong for field offsets, medium for final field names.
 - Owner class: [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md).
 - Evidence: IDA constructor/destructor/render/load decompilation on 2026-05-26.
+- Autogen status: attached under [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md) as the class-local object layout; final C++ remains blank under the `95/95` gate.
 
 ## Layout
 
@@ -36,6 +37,10 @@ EffectObjImageLib
 - `RenderEffectFrame` uses `+0x4c` as the remap count, `+0x50` as the remap entries, `+0x58` as the fallback remap, and `+0x5c` as the archive metadata table passed to [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md).
 - The ordinary and scalar deleting destructors release descriptor-owned frame arrays, the archive metadata table, both protected-array entry buffers, and [UID:0000QT][g_pEffectObjImageLib](by-global/g_pEffectObjImageLib.md).
 
+## Parent Rationale
+
+Attach this layout declaration to [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md). The offsets describe the `EffectObjImageLib` object itself, the owner class clears the `80/80` attachment gate and is already attached to [UID:0000IY][EffectObjImageLib](by-file/EffectObjImageLib.md), and the nested `EffectInfo` / `EffectPixMapInfo` records are separately documented type dependencies rather than alternate parents for this object layout.
+
 ## IDA Evidence
 
 - 2026-05-31 IDA MCP `decompile 0x004ddf60` confirms vtable writes, singleton storage, protected-array vtable setup, initial capacity `10`, `LoadEffectTables`, and archive metadata assignment at `this[23]` (`+0x5c`).
@@ -54,6 +59,10 @@ EffectObjImageLib
 
 ## Changes
 
+- 2026-06-07 parent attachment update:
+  - What existed before: the layout page was reconstructable with IDA-backed object offsets, but had no autogen parent.
+  - Changed to: `COMPLETION:80` and `AUTOGEN_PARENT_UID:00004A`, with an explicit class-parent rationale.
+  - Summary/evidence: [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md) owns the documented object layout, clears the attachment gate, and links the same constructor/destructor/render/load evidence; final C++ remains blank because nested resource-record field names are still provisional.
 - 2026-05-31 IDA evidence and scoring update:
   - Before: metadata was unevaluated (`0/0`) and reconstructability was blank.
   - After: marked `RECONSTRUCTABLE:TRUE`, with completion/confidence set to `78/86`.

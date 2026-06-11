@@ -2,7 +2,7 @@
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KH | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for method roles, medium for final field names and offsets.
 - Likely source file: [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md)
+- Parent/C++ status: attached to [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md), the `NexusTK/render/ItemObjImageLib.cpp` source root that already owns the item sprite singleton, layout, `ItemInfo` row, global, constructor/destructor, draw paths, and related helper evidence. Final C++ remains blank until field names, draw-method child split, and exact original source declarations are source-quality.
 - Address ranges: [UID:00017N][0x004dec30-0x004e65dc.ItemObjImageLib](by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md)
 - Singleton: [UID:0000RA][g_pItemObjImageLib](by-global/g_pItemObjImageLib.md) at [UID:0001OT][0x0067a758-0x0067a75c.g_pItemObjImageLib](by-memory/0x0067a758-0x0067a75c.g_pItemObjImageLib.md)
 - Vtable: [UID:0001XW][ItemObjImageLibVtable](by-type/by-vtable/ItemObjImageLibVtable.md) at `0x0061b73c`
@@ -82,3 +83,8 @@ IDA MCP on 2026-05-26 confirms the primary vtable at `0x0061b73c`, with construc
   - What existed before: old method endings, aggregate range `0x004dec30-0x004e65db`, destructor range `0x004dee20-0x004dee4c`, and `RECONSTRUCTABLE:` blank.
   - Changed to: `RECONSTRUCTABLE:TRUE`, corrected exclusive-end method ranges, aggregate range `0x004dec30-0x004e65dc`, destructor range `0x004dee20-0x004dee4d`, and scores `86/84`.
   - Summary/evidence: IDA MCP confirmed exact function bounds, constructor row read order, vtable/global xrefs, and scalar deleting destructor bounds. Scores stay below final level pending exact child-page split for every draw method and final source-facing field names.
+
+- 2026-06-06 A008 parent-chain pass:
+  - Before: [UID:0001UU][ItemObjImageLibLayout](by-type/by-struct/ItemObjImageLibLayout.md) pointed at this class, but the class had no autogen parent, leaving the layout blocked by `autogen_parent_unknown`.
+  - After: `AUTOGEN_PARENT_UID` is set to [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md), the `NexusTK/render/ItemObjImageLib.cpp` root.
+  - Evidence: [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md) is assigned to that generated source root at `88/84`; this class is `86/84`; and the constructor/destructor, singleton/global, vtable, layout, `ItemInfo`, resource-input, draw-method, and helper evidence all belong to the same render image-library module.

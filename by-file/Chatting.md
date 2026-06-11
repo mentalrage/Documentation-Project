@@ -1,13 +1,13 @@
 *** UID:0000I5 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:83 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Chatting
 
 ## Status
 
-- Confidence: strong for the core chat UI classes and message rendering; medium for the final split between `social/Chatting.cpp`, a generic `FolderTreePane.cpp`, and smaller chat color/input files.
+- Confidence: strong for the core chat UI classes, message rendering, and exact chat singleton storage slots; medium for the final split between `social/Chatting.cpp`, a generic `FolderTreePane.cpp`, and smaller chat color/input files.
 - Proposed module folder: `social/`
 - Proposed source file: `social/Chatting.cpp`
 - Possible split files: `social/ChatInputPane.cpp`, `social/ChatColorDialog.cpp`; the real filesystem tree control is documented separately as [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md).
@@ -55,6 +55,7 @@ The current `FolderTreePane` owner for `AddChattingMessage`, `AddIncomingMessage
 - 2026-05-31 IDA split pass resolves the `ChattingColorSelectPane` local cluster from `0x00482ca0-0x00482fb0`, including constructor, two raw helper bodies, draw-item virtual, selection-changed virtual, Talk/Shout/Whisper/Group/Clan/System label strings, vtable slots, and internal `0xcc` alignment padding.
 - 2026-05-31 IDA split pass resolves the `ChattingColorListPane` local cluster from `0x00482fb0-0x00483490`, including constructor, select-current helper, raw selected-color accessor, find-index helper, draw-item virtual, selected-item virtual, color-table constants, vtable slots, and internal `0xcc` alignment padding.
 - 2026-05-31 IDA split pass resolves `ColorStringChattingMessage` from `0x00483490-0x004839c0`, including constructor, destructor body, clone virtual, line-count virtual, draw virtual, draw switch/mapping tail tables, and the trailing compiler-generated chat UI destructor glue family through `0x00483ef7`.
+- 2026-06-07 A008 split follow-up isolates the six chat UI singleton dwords from the former mixed `0x0067adc4-0x0067adec` storage run: `g_pChattingDisplayPane` at `0x0067adcc`, `g_pChattingBackPane` at `0x0067add0`, `g_pChattingModifyHeightPane` at `0x0067add4`, `g_pChattingVarietyPane` at `0x0067add8`, `g_pChattingVarietySelectPane` at `0x0067addc`, and `g_pChattingHandlePane` at `0x0067ade0`. Their constructor/destructor and scalar-destructor xrefs are all inside the documented chat UI block, with external reads from chat/map UI consumers.
 
 ## Migration Notes
 
@@ -155,3 +156,6 @@ Keep `ChattingColorPane`, `ChattingColorSelectPane`, and `ChattingColorListPane`
   - Before: the compact variety pane row stopped at `0x0048100a`, leaving the adjacent raw compact rectangle and hit-test helpers described primarily as selector-pane helpers.
   - After: the compact variety pane row extends through [UID:0002FF][0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper](by-memory/0x00481010-0x00481056.ChattingVarietySelectPaneRowRectHelper.md) and [UID:0002FG][0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest](by-memory/0x00481060-0x004810ea.ChattingVarietySelectPaneInitialHitTest.md), while the selector row starts at the raw constructor `0x004810f0`.
   - Evidence: both raw helpers use the compact `(0,0,62,24)` button geometry already documented in `ChattingVarietyPane::OnMouseEvent`; the six-row selector popup geometry remains in [UID:0002FM][0x00481a80-0x00481acd.ChattingVarietySelectPaneGetItemRect](by-memory/0x00481a80-0x00481acd.ChattingVarietySelectPaneGetItemRect.md) and [UID:000106][0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest](by-memory/0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest.md).
+- 2026-06-07 A008 Batch 037 parent-gate refresh:
+  - Raised `COMPLETION:83` / `CONFIDENCE:87` to `85/88`.
+  - Evidence: the former mixed UI/chat/clan singleton run now has exact slot ownership for the six chat UI globals, tying the display/back/height/variety/selector/handle singleton lifecycles to the documented chat constructor/destructor band instead of leaving them as an aggregate data cluster.

@@ -1,8 +1,8 @@
 *** UID:000099 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000N9 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -56,3 +56,4 @@
   - Before: the page had only summarized start evidence and left the modern-vs-legacy relationship as medium confidence.
   - After: the page records exact function boundaries, constructor callers, vtable refs, prompt string, submit opcode/callee set, modern key-handler return-to-name path, and the specific equivalence/difference between modern and legacy direct-message submit behavior.
   - Evidence: live disassembly confirms `sub_5B1990`, `sub_5B1A60`, `sub_5B1C40`, `sub_5B7820`, `sub_5B782B`, and `sub_5B7AF0`; `CodeRefsTo(0x005b1990)` has five constructor callers; `0x0062f7d0` and `0x0062f7e0` reference the submit/key vtable slots; modern and legacy submit both push opcode `0x19` and share the packet-helper/WideCharToMultiByte/send path while using separate constructors, prompts, and vtables.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000N9][SayInputPanes](by-file/SayInputPanes.md) because the class is `84/88` and the parent is `87/84`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts at `0x005b1990`, `0x005b1a60`, `0x005b1c40`, `0x005b7820`, `0x005b782b`, and `0x005b7af0`; current `callers` confirms the same five constructor callers already documented.

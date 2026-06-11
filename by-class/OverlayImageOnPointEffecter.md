@@ -34,7 +34,7 @@
 Live IDA MCP recheck on 2026-06-04 used `C:\Users\admin\Desktop\Clone\NexusTK\NexusTK.exe`, imagebase `0x00400000`, MD5 `4247e04e20b65d6414c7238aa8ff5515`.
 
 - `0x0055a7a0` decompiles to a direct `0x004b9980` call using fields at `this+0x140`, `this+0x150`, `this+0x44`, byte flag `this+0x70`, and label/name field `this+0x11c`.
-- `0x0055a7d0` calls the shared [UID:00009W][OverlayEffecter](by-class/OverlayEffecter.md) base constructor at `0x0055a2e0`, installs four `OverlayImageOnPointEffecter` vtable views at `0x006237ec`, `0x00623810`, `0x0062385c`, and `0x0062388c`, initializes scratch metadata through `0x00457a60`, loads a resource handle through `0x004d0f50`, copies two 16-wchar names, calls `0x004d02f0` with `dword_67A744`, stores point coordinates into both word and dword fields, and seeds two 300-tick/state fields.
+- `0x0055a7d0` calls the shared [UID:00009W][OverlayEffecter](by-class/OverlayEffecter.md) base constructor at `0x0055a2e0`, installs four `OverlayImageOnPointEffecter` vtable views at `0x006237ec`, `0x00623810`, `0x0062385c`, and `0x0062388c`, initializes scratch metadata through `0x00457a60`, loads a resource handle through `0x004d0f50`, copies two 16-wchar names, calls `0x004d02f0` with [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / `dword_67A744`, stores point coordinates into both word and dword fields, and seeds two 300-tick/state fields.
 - `0x0055a8e0` and `0x0055be10` both release the stored resource handle through `0x004d15d0`, reset to the four overlay-base vtable views, tear down the embedded pane through `0x00544ce0` and `0x00544580`, and reset the `ScreenEffecter` base vtable. The scalar deleting destructor is reached from the destructor jump strip at `0x0055ba9d`, `0x0055baa8`, and `0x0055bab3`.
 
 ## Cross-References
@@ -43,9 +43,14 @@ Live IDA MCP recheck on 2026-06-04 used `C:\Users\admin\Desktop\Clone\NexusTK\Ne
 - [UID:0001YO][ScreenEffecterVtableFamily](by-type/by-vtable/ScreenEffecterVtableFamily.md)
 - [UID:00009W][OverlayEffecter](by-class/OverlayEffecter.md)
 - [UID:0001GE][0x0055a260-0x0055c1ff.ScreenEffecterRuntimeCluster](by-memory/0x0055a260-0x0055c1ff.ScreenEffecterRuntimeCluster.md)
+- [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md)
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: constructor metadata evidence used only historical `dword_67A744`.
+  - After: the page records canonical `g_pEPFLib` beside the historical label and cross-links the global page.
+  - Evidence: generated resolved-name report maps `dword_67A744` to `g_pEPFLib`; existing IDA-backed evidence already ties the reference to EPF resource metadata lookup.
 - 2026-06-04: Raised completion/confidence from `72/78` to `84/90`, marked reconstructable, and attached to [UID:0000IZ][Effects](by-file/Effects.md). Summary/evidence: live IDA MCP verified exclusive function endpoints, constructor base call and four-view vtable stores, resource load/free helpers, two copied names, point-coordinate storage, render helper arguments, and destructor/scalar-destructor ownership. Completion remains below final-source quality because final public method/field names and all creator/caller contexts still need reconstruction.
 - Before: completion/confidence metadata were `0/0` even though the page already documented responsibility, method boundaries, owner, and provisional field-layout caveats.
 - Changed to: `COMPLETION:72` and `CONFIDENCE:78`.

@@ -1,8 +1,8 @@
 *** UID:00001W | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000I5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -62,3 +62,4 @@
 - What it was changed to: scores were set to `76/86`.
 - Summary and evidence: constructor, mouse handling, viewport helper, line count, paint, and destructor are covered; detailed fields and final layout remain incomplete.
 - 2026-05-31: Updated completion/confidence from `76/86` to `82/90` after adding exact by-memory pages for every function in the `0x004807b0-0x00480c50` cluster and replacing raw address rows with UID references. Evidence: IDA MCP function iteration, decompilation, xrefs, vtable data xrefs, render strings, and padding audit.
+- 2026-06-05: Reclassified autogen metadata from unclassified to `RECONSTRUCTABLE:TRUE` and attached the class to [UID:0000I5][Chatting](by-file/Chatting.md). Current IDA MCP `lookup_funcs` reconfirmed constructor/destructor/mouse/set-line-count/paint/scalar-destructor starts at `0x004807b0`, `0x00480860`, `0x00480890`, `0x00480ad0`, `0x00480bb0`, and `0x00483c00`, and `callers` shows construction from main chat UI initialization. Both class (`82/90`) and file (`83/87`) clear the 80+ attachment gate; reconstruction C++ remains blank pending final class layout and field names.

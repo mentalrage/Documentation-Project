@@ -1,8 +1,8 @@
 *** UID:0000F7 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -50,6 +50,9 @@
 
 ## Changes
 
+- Before: reconstruction autogen metadata was unclassified.
+- Changed to: marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000OW][TransferServerDialogPane](by-file/TransferServerDialogPane.md).
+- Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the documented constructor, cleanup, opacity reset, timer, paint, singleton-clear/thunk island, adjustor thunks, and scalar deleting destructor starts at `0x00598ed0`, `0x00599220`, `0x00599250`, `0x00599270`, `0x005992f0`, `0x005993b0`, `0x005993bb`, `0x005993c6`, and `0x005993e0`; this page and parent [UID:0000OW][TransferServerDialogPane](by-file/TransferServerDialogPane.md) both meet the 80/80 parent gate. No C++ was emitted because the page is below the 95/95 reconstruction-code bar.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:82`.

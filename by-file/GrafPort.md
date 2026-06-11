@@ -1,13 +1,13 @@
 *** UID:0000JR | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # GrafPort
 
 ## Status
 
-- Confidence: strong for class responsibility, medium-strong for final folder.
+- Confidence: strong for class responsibility and shared draw/text helper ownership, medium-strong for final folder.
 - Proposed module: `render/GrafPort.cpp`.
 - Current recovered source: `source-3/simroot_v2/class_GrafPort.cpp`
 - Main address range: `0x004b8bf0-0x004bb8c4`
@@ -29,7 +29,7 @@ The active placement is `render/GrafPort.cpp` because `UpdateRenderRegion` creat
 | Draw-state accessors | `0x004b95e0-0x004b9767` | Cursor, font id, color, brush, and clip helpers currently emitted under caller-biased feature classes. |
 | [UID:000168][0x004ba450-0x004ba53b.GrafPortDrawRectFrame](by-memory/0x004ba450-0x004ba53b.GrafPortDrawRectFrame.md) | `0x004ba450-0x004ba53b` | Shared rectangle-frame helper that saves/restores GrafPort cursor state and draws four clipped line segments. |
 | [UID:00016A][0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground](by-memory/0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground.md) | `0x004ba6b0-0x004ba81d` | Shared tiled-background helper that temporarily swaps GrafPort clip state and repeats a source tile through render callback slot `dword_69B3E8`. |
-| Text measurement/drawing helpers | `0x004ba820-0x004bad66`, `0x004bb5e0-0x004bb7df` | Shared UTF-16 fit/suffix, width, line-height, run drawing, outline drawing, and per-glyph blit helpers currently emitted under caller-biased UI classes. |
+| Text measurement/drawing helpers | `0x004ba820-0x004bb0db`, `0x004bb5e0-0x004bb7df` | Shared UTF-16 fit/suffix, width, line-height, wrapped rect draw, outlined/shadowed text effects, run drawing, and per-glyph blit helpers currently emitted under caller-biased UI classes. |
 
 ## Behavior Summary
 
@@ -53,7 +53,7 @@ Keep [UID:00016A][0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground](by-memory/0
 
 Keep [UID:000169][0x004ba540-0x004ba6ad.CompositePixels16](by-memory/0x004ba540-0x004ba6ad.CompositePixels16.md) under GrafPort/surface review as well. It is currently emitted as `BowGaugeObjectPane::CompositePixels`, but IDA callers include both bow-gauge painting and [UID:0000ON][TextEditPane](by-file/TextEditPane.md) drawing/invalidation paths, and the body operates on GrafPort-like buffer, origin, stride, visible, clip, and palette fields.
 
-Keep [UID:00016B][0x004ba820-0x004ba991.TextFitAndSuffixHelpers](by-memory/0x004ba820-0x004ba991.TextFitAndSuffixHelpers.md), [UID:00016C][0x004ba9a0-0x004bad66.GrafPortTextRunHelpers](by-memory/0x004ba9a0-0x004bad66.GrafPortTextRunHelpers.md), and [UID:00016I][0x004bb5e0-0x004bb7df.GrafPortDrawGlyph](by-memory/0x004bb5e0-0x004bb7df.GrafPortDrawGlyph.md) under GrafPort/text-drawing review. Current generated owners include `ClanItemListPane`, `FittingRoomDownloadControlPane`, `CollectionEntryControlPane`, and `RankingEventListPane`, but the helpers have broad caller fan-in and operate on GrafPort draw state while delegating glyph metrics/decode to [UID:0000JH][FontImageLib](by-file/FontImageLib.md).
+Keep [UID:00016B][0x004ba820-0x004ba991.TextFitAndSuffixHelpers](by-memory/0x004ba820-0x004ba991.TextFitAndSuffixHelpers.md), [UID:00016C][0x004ba9a0-0x004bad66.GrafPortTextRunHelpers](by-memory/0x004ba9a0-0x004bad66.GrafPortTextRunHelpers.md), [UID:00016D][0x004bad70-0x004baf92.DrawTextInRect](by-memory/0x004bad70-0x004baf92.DrawTextInRect.md), [UID:00016E][0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects](by-memory/0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects.md), and [UID:00016I][0x004bb5e0-0x004bb7df.GrafPortDrawGlyph](by-memory/0x004bb5e0-0x004bb7df.GrafPortDrawGlyph.md) under GrafPort/text-drawing review. Current generated owners include `ClanItemListPane`, `FittingRoomDownloadControlPane`, `CollectionEntryControlPane`, `RankingEventListPane`, `StaticTextControlPane`, and help/chat caller paths, but the helpers have broad caller fan-in and operate on GrafPort draw state while delegating glyph metrics/decode to [UID:0000JH][FontImageLib](by-file/FontImageLib.md). A004 Batch 119 IDA evidence specifically confirms `DrawTextInRect` is a `__thiscall` wrapped text renderer on GrafPort cursor/font/alignment state, and that the outlined/shadowed effect helpers only offset rectangles, swap draw color state, and delegate actual drawing to it.
 
 ## Cross-References
 
@@ -72,11 +72,17 @@ Keep [UID:00016B][0x004ba820-0x004ba991.TextFitAndSuffixHelpers](by-memory/0x004
 - [UID:000164][0x004b96c0-0x004b9767.GrafPortClipRectHelper](by-memory/0x004b96c0-0x004b9767.GrafPortClipRectHelper.md)
 - [UID:00016B][0x004ba820-0x004ba991.TextFitAndSuffixHelpers](by-memory/0x004ba820-0x004ba991.TextFitAndSuffixHelpers.md)
 - [UID:00016C][0x004ba9a0-0x004bad66.GrafPortTextRunHelpers](by-memory/0x004ba9a0-0x004bad66.GrafPortTextRunHelpers.md)
+- [UID:00016D][0x004bad70-0x004baf92.DrawTextInRect](by-memory/0x004bad70-0x004baf92.DrawTextInRect.md)
+- [UID:00016E][0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects](by-memory/0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects.md)
 - [UID:00016I][0x004bb5e0-0x004bb7df.GrafPortDrawGlyph](by-memory/0x004bb5e0-0x004bb7df.GrafPortDrawGlyph.md)
 - [UID:0001QI][client_new_rendering_mode](by-meta/client_new_rendering_mode.md)
 
 ## Changes
 
+- 2026-06-08 A004 Batch 119 parent-gate update:
+  - Before: `COMPLETION:88`, `CONFIDENCE:80`; the page grouped text helpers broadly but did not explicitly document the wrapped rect draw and text-effect helpers needed for Batch 119 parent routing.
+  - After: `COMPLETION:88`, `CONFIDENCE:85`.
+  - Evidence: fresh IDA-backed Batch 119 review confirmed `DrawTextInRect` and the outlined/shadowed text-effect helpers are GrafPort receiver methods with broad caller fan-in and shared draw-state/FontImageLib dependencies. This supports [UID:00005V][GrafPort](by-class/GrafPort.md) as the direct class parent for those helpers while preserving the file-level caveat that the exact render/ui folder split is still not final-audit quality.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:88` and `CONFIDENCE:80`.

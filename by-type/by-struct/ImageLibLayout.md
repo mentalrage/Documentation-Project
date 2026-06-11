@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00006E | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for field offsets and list-backed registry mechanics, medium-high overall because final source-facing field names and the unused second constructor argument remain unresolved.
 - Owner class: [UID:00006E][ImageLib](by-class/ImageLib.md).
+- Autogen parent: attached to [UID:00006E][ImageLib](by-class/ImageLib.md); the class scores `82/82` and this layout scores `82/86`, so both sides satisfy the 80/80 parent gate.
 - Evidence: 2026-05-31 IDA constructor/destructor decompilation, vtable xrefs, `g_pEPFLib` storage xrefs, and function-boundary/byte-padding checks.
 
 ## Layout
@@ -50,6 +51,7 @@ Offset `+0x0c` is a 20-byte [UID:000079][List](by-class/List.md) constructed as 
 
 ## Changes
 
+- 2026-06-06: Attached the layout to [UID:00006E][ImageLib](by-class/ImageLib.md). Scores remain `82/86`; this is a parent metadata sync based on the already-documented EPF image-library layout and the class page's `82/82` score.
 - 2026-05-31 IDA-backed scoring update:
   - What existed before: `COMPLETION:0`, `CONFIDENCE:0`, and `RECONSTRUCTABLE:` blank despite detailed layout notes.
   - Changed to: `COMPLETION:82`, `CONFIDENCE:86`, and `RECONSTRUCTABLE:TRUE`.

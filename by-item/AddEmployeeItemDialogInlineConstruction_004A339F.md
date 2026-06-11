@@ -1,7 +1,7 @@
 *** UID:0000TT | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -54,9 +54,13 @@ The matching raw constructor island remains documented separately because it may
 - [UID:000139][0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor](by-memory/0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor.md)
 - [UID:00013A][0x004a4b20-0x004a4d3b.AddEmployeeItemDialog](by-memory/0x004a4b20-0x004a4d3b.AddEmployeeItemDialog.md)
 - [UID:0001XH][EmployeeDialogPaneVtables](by-type/by-vtable/EmployeeDialogPaneVtables.md)
-- [Wave3 data issues](../wave3_data_issues.md)
 
 ## Changes
+
+- 2026-06-05: Reconstructable metadata changed from blank to `FALSE`.
+  - Before: this source-map anchor was unclassified in autogen coverage.
+  - After: the item is explicitly non-reconstructable as a standalone child because the source code belongs inside `EmployeeDialogPane::OnButtonAction`, not in a separate emitted helper.
+  - Evidence: live IDA MCP `lookup_funcs 0x004a339f` resolves the address inside `sub_4A3240` (`0x004a3240-0x004a33d8`), `callers` reports no separate callable target, and `callees` for the containing method show the inline base constructor call at `0x004ae4c0`.
 
 - 2026-05-30: Grading changed from `0/0` to `82/88`.
   - Before: page documented the live inline construction sequence, vtable stores, raw-constructor caveat, and reconstruction notes but remained unevaluated.

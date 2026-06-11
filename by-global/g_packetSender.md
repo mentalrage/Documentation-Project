@@ -1,6 +1,6 @@
 *** UID:0000Q5 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000NS | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for address, Socket lifetime ownership, and broad packet-send role; medium-low for final C++ type/name.
+- Confidence: strong for address, Socket lifetime ownership, and broad packet-send role; medium-high for final C++ type/name.
 - Address: `0x0067a7ec`
 - IDA name: `dword_67A7EC`
 - Generated aliases observed: `g_packetSender`; some generated packet-send paths also emit `g_pCashShopRequest` for this same storage, but live IDA resolves those references to `dword_67A7EC`.
@@ -52,7 +52,16 @@ If a generated file emits `g_pCashShopRequest` for a packet-send path, verify th
 
 2026-05-27 IDA MCP recheck of `WieldInputPane` and `WearInputPane` confirms the neighboring weapon/equipment senders. `0x005b6410` sends Wield opcode `0x12` with selector `0` for the `-` path, `0x005b6500` sends Wield opcode `0x12` with the validated selector, and `0x005b66a0` sends Wear opcode `0x1e` with the validated selector; each sends length `2`.
 
-2026-05-27 IDA MCP recheck of `ThrowInputPane`, `UseInputPane`, and `EatInputPane` confirms the next item-action cluster. `0x005b59d0` sends Throw opcode `0x17`, mode byte `0`, and validated slot with length `3` after checking byte `dword_67A748 + 0x3ec0`; `0x005b6000` sends Eat opcode `0x1a` plus the validated slot with length `2`. `UseInputPane` does not send directly; it validates the same slot-letter range and dispatches to [UID:0001KN][0x005a3e30-0x005a3ff3.UseInventorySlotDispatch](by-memory/0x005a3e30-0x005a3ff3.UseInventorySlotDispatch.md).
+2026-05-27 IDA MCP recheck of `ThrowInputPane`, `UseInputPane`, and `EatInputPane` confirms the next item-action cluster. `0x005b59d0` sends Throw opcode `0x17`, mode byte `0`, and validated slot with length `3` after checking byte [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) / historical `dword_67A748 + 0x3ec0`; `0x005b6000` sends Eat opcode `0x1a` plus the validated slot with length `2`. `UseInputPane` does not send directly; it validates the same slot-letter range and dispatches to [UID:0001KN][0x005a3e30-0x005a3ff3.UseInventorySlotDispatch](by-memory/0x005a3e30-0x005a3ff3.UseInventorySlotDispatch.md).
+
+## Assignment Decision
+
+`AUTOGEN_PARENT_UID` remains [UID:0000NS][Socket](by-file/Socket.md). This global now scores `85/85`, and the direct Socket parent scores `88/85`, so the corrected strict `85/85` child/direct-parent gate is satisfied. The page still keeps the C++ block blank because the source-facing declaration type remains unresolved.
+
+## Score Rationale
+
+- Completion `85`: exact storage, alias conflicts, five Socket-lifetime writes, broad read fan-in, queue/send funnel, feature packet examples, ownership rule, and direct Socket parent are documented.
+- Confidence `85`: IDA-backed xref/write evidence and the Socket parent gate support the ownership assignment. Confidence stays below near-final because generated `CashShopRequest` names, request-thread boundary, and final `Socket*` versus sender-interface type are not settled.
 
 ## Cross-References
 
@@ -80,11 +89,20 @@ If a generated file emits `g_pCashShopRequest` for a packet-send path, verify th
 - [UID:0001MS][0x005b6500-0x005b6560.SendWieldPacket](by-memory/0x005b6500-0x005b6560.SendWieldPacket.md)
 - [UID:0000G0][WearInputPane](by-class/WearInputPane.md)
 - [UID:0000QH][g_pCashShopRequest](by-global/g_pCashShopRequest.md)
+- [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md)
 - [Wave3 data issues](../wave3_data_issues.md)
 
 ## Changes
+
+- 2026-06-07: Normalized the item-action busy-byte evidence from historical `dword_67A748` to [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md).
+  - Before: the `ThrowInputPane`/`UseInputPane`/`EatInputPane` evidence used the raw collection-data storage name.
+  - After: the page links the resolved collection-data global while retaining the historical label and `+0x3ec0` offset for traceability.
+  - Evidence: the generated resolved-name report maps `dword_67A748` to `g_pCollectionData`, and the existing IDA evidence ties that byte check to item-action packet-send gating before use of `g_packetSender`.
 
 - 2026-05-31 reconstruction metadata and grading:
   - What existed before: `COMPLETION:0`, `CONFIDENCE:0`, blank `RECONSTRUCTABLE`, and no autogen parent.
   - Changed to: `COMPLETION:84`, `CONFIDENCE:82`, `RECONSTRUCTABLE:TRUE`, parent [UID:0000NS][Socket](by-file/Socket.md), and ordered file-local position `80`.
   - Summary/evidence: IDA MCP reconfirms the storage address, 489 xrefs, and all five direct writes in the Socket constructor/destructor family. Final C++ remains blank because the final source-facing type and request/sender interface boundary are still unresolved.
+- 2026-06-10 A001 strict gate repair:
+  - Changed scores from `84/82` to `85/85`.
+  - Summary/evidence: the direct Socket file parent now clears `88/85`, while this page documents exact `0x0067a7ec` storage, 489 data xrefs, five Socket-only lifetime writes, broad feature/UI sender reads, the queue/send funnel, real `g_pCashShopRequest` storage separation, and final type blockers. The child/direct-parent gate is satisfied, but final C++ remains blank below the 95/95 source-code threshold.

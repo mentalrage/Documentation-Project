@@ -43,7 +43,7 @@
 - IDA MCP on 2026-06-05 confirms function sizes `0x69`, `0x697`, and `0x57` for `0x004d1f30`, `0x004d1fa0`, and `0x004d2640`; the internal gaps at `0x004d1f99-0x004d1fa0` and `0x004d2637-0x004d2640` are not function starts.
 - `ParseTaggedStatus` decompilation switches on the leading byte, delegates mode `0` to `0x004d1fa0(input + 1) + 1`, stores mode `1` or `2` for compact cases, and returns `4` for compact payloads.
 - `ParsePartialStatus` decompilation writes offsets `+0`, `+36`, `+40`, `+33`, `+34`, `+4`, and `+6`, then returns `5`.
-- `ParseFullStatus` decompilation confirms the 43-byte read shape, title metadata table lookups through `dword_69B410`, display-mode gating through `byte_66DA97`, palette remapping through `dword_67A760`, equipment sentinel handling, and a final `43` return.
+- `ParseFullStatus` decompilation confirms the 43-byte read shape, title metadata table lookups through `dword_69B410`, display-mode gating through [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97`, palette remapping through `dword_67A760`, equipment sentinel handling, and a final `43` return.
 - Direct callers span map/object update handlers, user-look/profile paths, and object dialog/image preview code, with representative calls from `0x0050fb00`, `0x00513310`, `0x005693d0`, `0x00572120`, and `0x0059f610`.
 
 ## Score Rationale
@@ -60,9 +60,11 @@
 - [UID:0000L3][MapPane](by-file/MapPane.md)
 - [UID:0000M3][ObjectImageControlPane](by-file/ObjectImageControlPane.md)
 - [UID:0000P0][UserLookPane](by-file/UserLookPane.md)
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup: normalized the `ParseFullStatus` `byte_66DA97` display-mode gate to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the IDA lookup alias.
 - 2026-06-05: Raised completion/confidence from `72/80` to `86/90`, marked reconstructable, and attached the class to [UID:0000M6][ObjectStatusBlob](by-file/ObjectStatusBlob.md). Evidence: live IDA MCP revalidated the three parser functions, byte-count returns, compact/partial/full field-offset writes, broad map/object/profile caller families, metadata/remap globals, and internal padding boundaries. C++ remains blank because the 68-byte layout's source-level member names are not final.
 - Before: completion/confidence metadata were `0/0` despite parser role, method ranges, layout-size notes, and subsystem references.
 - Changed to: `COMPLETION:72` and `CONFIDENCE:80`.

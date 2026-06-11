@@ -1,8 +1,8 @@
 *** UID:00002W | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IB | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,7 +14,7 @@
 
 - Likely source file: [UID:0000IB][CollectionDialogPane](by-file/CollectionDialogPane.md)
 - Address range: [UID:00010X][0x0048c640-0x0048e305.CollectionDialogControls](by-memory/0x0048c640-0x0048e305.CollectionDialogControls.md), plus shared GrafPort helper calls at `0x004b95e0`, `0x004b9620`, and `0x004bab20`
-- Current recovered file: `source-3/simroot_v2/class_CollectionEntryControlPane.cpp`
+- Recovered class file name: `class_CollectionEntryControlPane.cpp`
 - Confidence: strong for dialog-control ownership, medium for helper placement.
 
 ## Class Purpose
@@ -58,3 +58,10 @@ Reads [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) at categor
 - What existed before: the page documented entry-slot draw states, methods, data offsets, and shared GrafPort helper caveats, but metadata still read `0/0`.
 - What it was changed to: scores were set to `76/82`.
 - Summary and evidence: constructor, destructor, draw/wrapped-text behavior, category record offsets, and shared helper dependencies are documented; confidence is capped by caller-biased helper ownership and unfinished field naming.
+- 2026-06-05: Marked reconstructable for autogen.
+  - Before: `RECONSTRUCTABLE` was blank, leaving the class coverage row unclassified.
+  - After: `RECONSTRUCTABLE:TRUE`; `AUTOGEN_PARENT_UID` remains blank because the class completion score is below the 80% attachment gate.
+  - Evidence: live IDA MCP confirms modeled method starts at `0x0048d3a0`, `0x0048d480`, `0x0048d4a0`, `0x0048d9e0`, and `0x0048e2b0`, with construction from `CollectionDialogPane` at `0x0048ca46` and `0x0048ce45`.
+- 2026-06-05: Raised from `76/82` to `80/84` and attached to [UID:0000IB][CollectionDialogPane](by-file/CollectionDialogPane.md).
+  - Evidence: live IDA MCP confirmed constructor/destructor/draw/wrapped-text/scalar-destructor starts, constructor xrefs from the dialog at `0x0048ca46` and `0x0048ce45`, the virtual draw table reference at `0x006165d4`, scalar-destructor thunk/table references, and nine draw-call sites into the wrapped-text helper.
+  - Remaining limits: shared GrafPort helper ownership and final member-field names are still not exhaustive, so this page only reaches the attachment gate rather than final-source readiness.

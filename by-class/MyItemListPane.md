@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for confirmed functions; medium for exact source-file split.
 - Likely source file: [UID:0000LO][MyItemListPane](by-file/MyItemListPane.md), or folded into [UID:0000KE][ItemDialogs](by-file/ItemDialogs.md) if final source layout favors compact item-dialog files.
+- Parent/C++ status: attached to [UID:0000LO][MyItemListPane](by-file/MyItemListPane.md), the validator-managed `NexusTK/ui/dialogs/MyItemListPane.cpp` split-candidate root. Final C++ remains blank while the possible fold into [UID:0000KE][ItemDialogs](by-file/ItemDialogs.md), row/API names, and player inventory field ownership remain below final-audit confidence.
 - Current recovered file: `source-3/simroot_v2/class_MyItemListPane.cpp`
 - Vtables: [UID:0001Y8][MyItemListPaneVtables](by-type/by-vtable/MyItemListPaneVtables.md) at `0x00619f28`, `0x00619fb0`, and `0x00619fe0`
 
@@ -69,3 +70,8 @@
 
 - Completion/confidence score update: existed before as `0/0`; changed to `82/78`. Summary: the inventory item picker list is well documented across constructor/draw behavior, layout, vtables, caller fanout, item image dependencies, shared destructor, and generated data caveats, but source-file split and some globals/slot fields remain medium confidence. Evidence: linked `MyItemListPane` memory page, vtable/type docs, IDA constructor/draw/vtable checks, `g_pItemObjImageLib`, `g_activeUserStatusPane`, and `ScopedMarkerMissingMethodBodies` note.
 - Reconstructability/child split update: existed before as `RECONSTRUCTABLE` blank, confidence `78`, and only constructor/draw method rows; changed to `RECONSTRUCTABLE:TRUE`, confidence `82`, and exact child links for constructor, selected-slot helper, and draw method. Evidence: 2026-05-31 IDA MCP confirmed the real `0x004aec80-0x004aec8e` helper inside the previous padding gap plus exact constructor/draw boundaries and row payload behavior.
+
+- 2026-06-06 A008 parent-chain pass:
+  - Before: [UID:0001VE][MyItemListPaneEntryLayouts](by-type/by-struct/MyItemListPaneEntryLayouts.md) pointed at this class, but the class had no autogen parent, leaving the entry-layout page blocked by `autogen_parent_unknown`.
+  - After: `AUTOGEN_PARENT_UID` is set to [UID:0000LO][MyItemListPane](by-file/MyItemListPane.md), the current `NexusTK/ui/dialogs/MyItemListPane.cpp` split-candidate root.
+  - Evidence: [UID:0000LO][MyItemListPane](by-file/MyItemListPane.md) is assigned to that generated source root at `86/84`; this class is `82/82`; and constructor/helper/draw ranges, vtables, row-layout evidence, caller fanout, and item-image dependencies all align with that file while preserving the possible `ItemDialogs.cpp` fold caveat.

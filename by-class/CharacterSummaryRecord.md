@@ -1,7 +1,7 @@
 *** UID:00001N | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -58,6 +58,10 @@ The methods in this generated class read and write the same `UserStatusPane` off
 
 ## Changes
 
+- 2026-06-05: Changed autogen reconstructability from blank to `FALSE`.
+  - Before: the page clearly documented `CharacterSummaryRecord` as a generated pseudo-class, but blank metadata left it unclassified in `-ag-class-coverage.md`.
+  - After: the page is explicitly non-reconstructable as a standalone class; the accessors remain owned by [UID:0000FS][UserStatusPane](by-class/UserStatusPane.md) and [UID:0000P2][UserStatusPane](by-file/UserStatusPane.md).
+  - Evidence: live IDA MCP on 2026-06-05 confirms `sub_5B85B0` at `0x005b85b0` and the adjacent `sub_5B83B0` constructor/core at `0x005b83b0`, matching the documented `UserStatusPane` receiver and accessor island.
 - What existed before: the page clearly classified this as a generated pseudo-class over `UserStatusPane` accessors, but metadata still read `0/0`.
 - What it was changed to: scores were set to `82/90`.
 - Summary and evidence: the correct owner, accessor island, offset meanings, and missing sibling getter are documented; final field names belong in the UserStatusPane/layout pages rather than as a separate original class.

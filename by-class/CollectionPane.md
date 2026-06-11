@@ -1,8 +1,8 @@
 *** UID:00002X | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -72,3 +72,7 @@
 - What existed before: the page documented the collection summary panel, metadata loading, scroll behavior, draw path, omitted helper caveats, and destructor correction, but metadata was still `0/0`.
 - What it was changed to: scores were set to `82/84`.
 - Summary and evidence: constructor, initialization, scroll calculations, painting, hit-testing, detail request/opening, globals, and destructor island are covered; Wave3 omissions and final helper ownership/layout details remain open.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000IC][CollectionPane](by-file/CollectionPane.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving the class coverage row unclassified.
+  - After: `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000IC`.
+  - Evidence: live IDA MCP confirms modeled method starts at `0x0056e940`, `0x0056ea30`, `0x0056edc0`, `0x0056f810`, `0x0056fc80`, and `0x00573370`, with a constructor caller from `GeneralPurposePanel` at `0x004b851f`; this class and the parent file both meet the 80% completion/confidence attachment gate.

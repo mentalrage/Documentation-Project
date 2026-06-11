@@ -1,6 +1,6 @@
 *** UID:0000ML | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/platform/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PlatformApi
@@ -9,7 +9,7 @@
 
 - Proposed source path: `platform/PlatformApi.cpp`
 - Proposed header path: `platform/PlatformApi.h`
-- Confidence: medium
+- Confidence: medium-high
 
 ## Current Wave3 Containers
 
@@ -43,6 +43,7 @@ The exact IDA-backed initializer for the wide API dispatch table is [UID:0000WD]
 - 2026-05-26 IDA MCP recheck reconfirmed `0x0041a280` size `0x228`, no modeled callers but a startup-table data xref at `0x0060d71c`, no callers/xrefs for `0x005995b0`, and the `0x00599a10` scalar deleting destructor vtable data ref at `0x0062e57c`.
 - 2026-05-26 IDA MCP confirms `0x0060c440-0x0060c44b` as the `UniAPIInit` static cleanup wrapper that writes the vtable pointer at `0x006702c4`. Keep it with platform static lifetime documentation and ignore it as a standalone source function.
 - 2026-05-26 current `simroot_v2/class_UniAPIInit.cpp` still emits the dispatch initializer as `~UniAPIInit` at `0x005995b0`, so the generated boundary/name caveat remains active.
+- 2026-06-07 A010 Batch057 parent-gate review: the platform ownership evidence is now consistent across the exact initializer [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md), global table [UID:0000TQ][WideApiDispatchTable](by-global/WideApiDispatchTable.md), split table-body docs [UID:0002AS][0x0069be14-0x0069bec4.WideApiDispatchPointerTable](by-memory/0x0069be14-0x0069bec4.WideApiDispatchPointerTable.md), [UID:0001Q1][0x0069bec4-0x0069bec8.g_browserControlKeyCallback](by-memory/0x0069bec4-0x0069bec8.g_browserControlKeyCallback.md), and [UID:0002A6][0x0069bec8-0x0069bed0.WideApiDispatchTailPointers](by-memory/0x0069bec8-0x0069bed0.WideApiDispatchTailPointers.md). Remaining uncertainty is final source declaration style and generated `UniAPIInit` boundary naming, not the direct source-file owner.
 - `AutoInit::ScalarDeletingDestructor` is confirmed by IDA MCP at `0x00470300-0x0047032a` and calls the OLE teardown path.
 - IDA MCP confirms `InitializeOleSupport` at `0x00419ee0-0x00419ef4`: it calls `OleInitialize(0)`, registers `0x0060c0f0` through `_atexit`, and is referenced by startup initializer table entry `0x0060d6a4`.
 - IDA MCP confirms `0x0060c0f0` writes the anonymous `AutoInit` vtable slot and tail-jumps to `OleUninitialize`.
@@ -54,14 +55,14 @@ The exact IDA-backed initializer for the wide API dispatch table is [UID:0000WD]
 - Keep the `UniAPIInit` constructor/destructor naming provisional; Wave3 currently labels the initializer body as `~UniAPIInit` at non-function `0x005995b0`, while IDA anchors the matching dispatch setup at `0x0041a280`.
 - Keep `dword_69BE14` and `dword_69BE18` with this module's dispatch table. Consumer docs should reference them as platform API entries instead of declaring them as local globals.
 - `AutoInit` no longer needs a heap-allocation search before source placement; the confirmed lifetime path is a static initializer plus `atexit` shutdown thunk, with an ordinary destructor and scalar deleting destructor as ABI-side teardown evidence.
-- Browser COM ownership remains plausible only as a source-file grouping choice, not as a runtime lifetime fact.
+- Browser COM ownership remains plausible only as a source-file grouping choice, not as a runtime lifetime fact. The wide API dispatch table itself should stay with this platform module; browser, socket, file, IME, and user-interface code are consumers.
 
 ## Cross-References
 
 - Classes: [UID:0000FE][UniAPIInit](by-class/UniAPIInit.md), [UID:00000Q][AutoInit](by-class/AutoInit.md)
 - Globals: [UID:0000TQ][WideApiDispatchTable](by-global/WideApiDispatchTable.md), [UID:0000T3][InitializeOleSupport](by-global/InitializeOleSupport.md)
 - Neighboring files: [UID:0000HG][Application](by-file/Application.md), [UID:0000HV][Browser](by-file/Browser.md), [UID:0000K6][InputMan](by-file/InputMan.md)
-- Memory: [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md), [UID:000249][0x00599440-0x005995a7.PlatformStringConversionHelpers](by-memory/0x00599440-0x005995a7.PlatformStringConversionHelpers.md), [UID:0001O9][0x0060c440-0x0060c44b.UniAPIInitStaticCleanupWrapper](by-memory/0x0060c440-0x0060c44b.UniAPIInitStaticCleanupWrapper.md), [UID:0001KE][0x005995b0-0x00599a34.UniAPIInit](by-memory/0x005995b0-0x00599a34.UniAPIInit.md), [UID:0000W8][0x00419ee0-0x00419ef4.InitializeOleSupport](by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md), [UID:0000ZE][0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor](by-memory/0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor.md), [UID:0000ZG][0x00470300-0x00470329.AutoInit](by-memory/0x00470300-0x00470329.AutoInit.md), [UID:0001O6][0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk](by-memory/0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk.md)
+- Memory: [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md), [UID:000249][0x00599440-0x005995a7.PlatformStringConversionHelpers](by-memory/0x00599440-0x005995a7.PlatformStringConversionHelpers.md), [UID:0001O9][0x0060c440-0x0060c44b.UniAPIInitStaticCleanupWrapper](by-memory/0x0060c440-0x0060c44b.UniAPIInitStaticCleanupWrapper.md), [UID:0001KE][0x005995b0-0x00599a34.UniAPIInit](by-memory/0x005995b0-0x00599a34.UniAPIInit.md), [UID:0000W8][0x00419ee0-0x00419ef4.InitializeOleSupport](by-memory/0x00419ee0-0x00419ef4.InitializeOleSupport.md), [UID:0000ZE][0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor](by-memory/0x0046efe0-0x0046efeb.AutoInitNonDeletingDestructor.md), [UID:0000ZG][0x00470300-0x0047032a.AutoInit](by-memory/0x00470300-0x0047032a.AutoInit.md), [UID:0001O6][0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk](by-memory/0x0060c0f0-0x0060c100.AutoInitStaticShutdownThunk.md)
 - Vtables: [UID:0001X0][AutoInitVtable](by-type/by-vtable/AutoInitVtable.md)
 
 ## Changes
@@ -88,3 +89,7 @@ The exact IDA-backed initializer for the wide API dispatch table is [UID:0000WD]
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though the proposed tree already placed `PlatformApi.cpp` under `platform/`.
   - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/platform/"`.
   - Summary/evidence: [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) already includes `platform/PlatformApi.cpp`, and this page's evidence anchors the module as platform/OLE compatibility code rather than an app/UI source file.
+- 2026-06-07 A010 Batch057 parent-gate review:
+  - What existed before: `CONFIDENCE:80`, which blocked corrected 85/85 routing through this file.
+  - Changed to: `CONFIDENCE:85`; completion remains `88`.
+  - Summary/evidence: existing UID-backed IDA evidence now agrees that [UID:0000WD][0x0041a280-0x0041a4a8.WideApiDispatchInit](by-memory/0x0041a280-0x0041a4a8.WideApiDispatchInit.md) owns the wide dispatch initialization, [UID:0000TQ][WideApiDispatchTable](by-global/WideApiDispatchTable.md) is the process-wide table, and the split memory pages cover the exact `0x0069be14-0x0069bed0` storage. Generated `UniAPIInit` naming remains a caveat, but it no longer undermines the direct PlatformApi source-file owner.

@@ -29,7 +29,7 @@ FontSlotStorage
 
 ## Behavior
 
-[UID:0002HS][0x004b60c0-0x004b61d9.FontImageLibEnsureFontSlotLoaded](by-memory/0x004b60c0-0x004b61d9.FontImageLibEnsureFontSlotLoaded.md) initializes this structure lazily. It opens `BA0` or `BA1`, reads the two 16-bit maximum cell metrics, subtracts four from the height field, then reads `0x10000` relative offsets. Nonzero offsets are resolved against the `DATFile` payload base and stored as [UID:0001UK][FontGlyphRecord](by-type/by-struct/FontGlyphRecord.md) pointers.
+[UID:0002HS][0x004b60c0-0x004b61d9.FontImageLibEnsureFontSlotLoaded](by-memory/0x004b60c0-0x004b61d9.FontImageLibEnsureFontSlotLoaded.md) initializes this structure lazily. It opens `BARAM00.EFT` or `BARAM01.EFT` using the UTF-16 format `BARAM%02d.EFT`, reads the two 16-bit maximum cell metrics, subtracts four from the height field, then reads `0x10000` relative offsets. Nonzero offsets are resolved against the `DATFile` payload base and stored as [UID:0001UK][FontGlyphRecord](by-type/by-struct/FontGlyphRecord.md) pointers.
 
 The `archiveFile` pointer doubles as the loaded flag. Destructors test it before dispatching the archive object's virtual deleting destructor.
 
@@ -49,3 +49,4 @@ The `archiveFile` pointer doubles as the loaded flag. Destructors test it before
   - Before: `RECONSTRUCTABLE` was blank and completion/confidence were `0/0`.
   - After: marked `RECONSTRUCTABLE:TRUE` with completion/confidence `78/88`.
   - Summary/evidence: IDA MCP decompilation of `FontImageLib::EnsureFontSlotLoaded` proves the `0x40008` slot size, DATFile pointer-as-loaded-flag, two 16-bit metrics, and `0x10000` pointer table; destructor pages prove slot cleanup behavior.
+- 2026-06-06: Corrected producer resource names from stale `BA0` / `BA1` shorthand to `BARAM00.EFT` / `BARAM01.EFT`, following the live IDA literal evidence recorded on [UID:0002HS][0x004b60c0-0x004b61d9.FontImageLibEnsureFontSlotLoaded](by-memory/0x004b60c0-0x004b61d9.FontImageLibEnsureFontSlotLoaded.md).

@@ -1,8 +1,8 @@
 *** UID:0001U0 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00003K | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Entity kind: support struct
 - Confidence: strong for observed fields and bucket-table behavior, medium for final name/header visibility.
 - Proposed owner: [UID:00003K][DATIndexVector](by-class/DATIndexVector.md)
+- Parent attachment: attached to [UID:00003K][DATIndexVector](by-class/DATIndexVector.md), which is scored `82/80`; this bucket page is now above the `80/80` child attachment gate.
 - Proposed header/module: [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md)
 - Evidence basis: IDA MCP lookup/decompile checks on 2026-05-31 for `0x00457100`, `0x00457310`, and `0x00457580`; generated `simroot_v2` output is retained only as context.
 
@@ -45,6 +46,10 @@ IDA decompilation of `0x00457580` starts lookup from the bucket first pointer an
 - [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md) repairs boundary links when a bucket's first or last node is removed.
 - [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md) scans from `first` through `last->next`.
 
+## Score Rationale
+
+The page is scored in the low 80s because the complete two-pointer bucket shape is verified through insert, remove, and lookup behavior, including empty-bucket sentinel handling and bucket-table stride. Confidence is slightly higher because the only meaningful remaining uncertainty is source-facing declaration visibility and final naming, not the binary offsets or semantics.
+
 ## Open Questions
 
 - Whether the final bucket table was declared as a private nested struct, a typedef, or a template implementation detail.
@@ -59,3 +64,7 @@ IDA decompilation of `0x00457580` starts lookup from the bucket first pointer an
 ## Changes
 
 - Reclassified the page from unevaluated to reconstructable layout documentation with conservative scores. Evidence: IDA MCP decompilation on 2026-05-31 verifies the two-pointer bucket shape through insert, remove, and lookup paths; final header visibility/name remains below near-final confidence.
+- 2026-06-06: Completion/confidence changed from `74/88` to `82/90`, and `AUTOGEN_PARENT_UID` was set to [UID:00003K][DATIndexVector](by-class/DATIndexVector.md).
+  - Before: the two-pointer bucket layout was documented, but the page remained below the parent-child attachment gate and the manual by-struct row still showed a stale `50%`.
+  - After: the page records the parent gate, score rationale, and coverage report sync.
+  - Evidence: `0x00457100`, `0x00457310`, and `0x00457580` use the bucket as exactly `first`/`last` pointers over the shared intrusive list.

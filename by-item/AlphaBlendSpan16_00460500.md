@@ -1,8 +1,8 @@
 *** UID:0000TV | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,21 +14,23 @@
 
 - Confidence: strong for behavior and source ownership.
 - Entity kind: free render helper.
-- Current Wave3 owner file: `source-3/simroot_v2/recovered/AlphaBlendSpan16_00460500.cpp`
 - Likely source module: [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md)
+- Autogen parent: [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md)
 - Exact range: `0x00460500-0x00460709`
 
 ## Behavior
 
-`AlphaBlendSpan16` blends RGB565 source rows into destination rows. It divides each row into four-pixel blocks and a scalar tail. For an exact 50 percent source weight (`16` of `32`), it dispatches block work to `HalfBlendSpan16Blocks` and half-blends tail pixels directly. For other weights, it dispatches block work to `AlphaBlendSpan16Blocks` and uses `BlendRgb565Pixel` for tail pixels.
+`AlphaBlendSpan16` blends RGB565 source rows into destination rows. It divides each row into four-pixel blocks and a scalar tail. For an exact 50 percent weight (`16` of `32`), it dispatches block work to `HalfBlendSpan16Blocks` and half-blends tail pixels directly. For other weights, it dispatches block work to `AlphaBlendSpan16Blocks` with source-side weight `32 - alpha32` and performs the scalar RGB565 weighted tail inline.
 
-The return value is the advanced source pointer after the final processed row.
+IDA decompilation exposes an `int` return because `eax` is live on exit, but the only direct caller at `0x004c2ad4` discards `eax`. Treat the source-level contract as a side-effect span helper unless a future caller proves a meaningful return value.
 
 ## Evidence
 
-- Wave3 metadata restores this as a true global render helper from report item `0x00460500`.
-- IDA MCP reports one direct caller from the `0x004c0f80` render path and callees to the two block helpers.
-- The generated body is state-free and only performs 16-bit blend math and pitch advancement.
+- 2026-06-05 live IDA MCP `lookup_funcs` reports `sub_460500` at `0x00460500-0x00460709`, size `0x209`, 185 decoded instructions.
+- 2026-06-05 live IDA MCP reports one direct caller at `0x004c2ad4` in the `0x004c0f80` render path; the call site immediately adjusts the stack and returns through the caller's epilogue without reading `eax`.
+- The function body has two direct calls: `0x00460544 -> sub_460C10` for the half-blend block path and `0x004605fd -> sub_460B00` for the weighted block path.
+- The scalar tails are inline: the half path uses `0x7bef` and `0x0821`, while the weighted path uses `0xf81f` and `0x07e0` and shifts weighted sums by 5.
+- The helper is state-free and only performs 16-bit blend math and source/destination pitch advancement.
 
 ## Cross-References
 
@@ -40,7 +42,16 @@ The return value is the advanced source pointer after the final processed row.
 
 ## Changes
 
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE`, attached to [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md), and stale generated-source evidence wording was replaced with live IDA evidence.
+  - Before: the item was unclassified and its current evidence section still cited generated metadata.
+  - After: it is marked as a NexusTK-owned render helper under the validated SoftwareBlend16 file root; C++ remains blank because final source spelling/signature and the full helper family are not at the 95/95 final-code bar.
+  - Evidence: live IDA MCP confirms `sub_460500` at `0x00460500`, size `0x209`, one direct caller in `sub_4C0F80`, and block-helper callees `0x00460c10` and `0x00460b00`.
+- 2026-06-05 A001 correction:
+  - Corrected the scalar-tail and return-value summary after a live IDA call-site audit.
+  - The weighted scalar tail is inline in `sub_460500`; it does not call `BlendRgb565Pixel`.
+  - The only direct caller does not consume `eax`, so the item no longer claims a meaningful advanced-pointer return contract.
+
 - 2026-05-30: Grading changed from unevaluated `0/0` to `88/92`.
   - Before: item had behavior/evidence notes but no completion/confidence score.
   - After: score reflects the exact memory range, recovered dispatcher body, block-helper split, and source ownership under [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md).
-  - Evidence: current `simroot_v2/recovered/AlphaBlendSpan16_00460500.cpp` reconstructs the 50-percent and weighted paths, and the linked by-memory page records the exact IDA range and callees.
+  - Evidence: linked by-memory evidence records the exact IDA range and callees for the 50-percent and weighted paths.

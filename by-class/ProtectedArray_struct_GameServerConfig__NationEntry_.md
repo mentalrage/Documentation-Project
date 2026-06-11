@@ -1,8 +1,8 @@
 *** UID:0000B4 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JP | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -55,6 +55,11 @@ The element layout is tracked separately as [UID:0001UP][GameServerNationEntry](
 - [UID:000234][0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize](by-memory/0x00514ee0-0x00514f6b.GameServerNationEntryArrayResize.md)
 
 ## Changes
+
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and assigned parent `0000JP`.
+  - Before: reconstruction autogen classification and parent were blank for a documented `ProtectedArray<GameServerConfig::NationEntry>` instantiation.
+  - After: classified as reconstructable source-facing template/declaration evidence attached to [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md).
+  - Evidence: live IDA MCP lookup confirms modeled deleting destructor `0x00514d50` and resize helper `0x00514ee0`; existing notes document the `0x0061e704` vtable, map/game-server config embedding, 68-byte nation-entry stride, and parser-only resize caller. The class score is `84/88` and parent file score is `86/80`, satisfying the 80/80 attach gate.
 
 - 2026-05-30: Changed completion/confidence from `0/0` to `74/76`.
   - Before: The page was unevaluated despite documenting the protected-array role, nation-entry layout reference, destructor, resize helper, and ownership caveats.

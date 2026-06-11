@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:000065 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Entity kind: support struct
 - Confidence: strong for header fields and payload exposure, medium-high for the three extra stride bytes.
 - Proposed owner: [UID:0000JV][HierList](by-file/HierList.md)
+- Autogen parent: attached to [UID:000065][HierList](by-class/HierList.md); the class scores `86/90` and this node page scores `84/90`, so both sides satisfy the 80/80 parent gate.
 - Evidence basis: IDA MCP decompilation/disassembly of exact `HierList` methods, especially child-list construction, payload copy, `GetElementAt`, recursive lookup, and hierarchy repair.
 
 ## Layout
@@ -52,6 +53,8 @@ HierListNode
 - [UID:00016X][0x004ce730-0x004cee52.HierList](by-memory/0x004ce730-0x004cee52.HierList.md)
 
 ## Changes
+
+- 2026-06-06: Attached the node layout to [UID:000065][HierList](by-class/HierList.md). Scores remain `84/90`; this pass only synced parent metadata now that the direct class owner is already above the 80/80 attachment gate.
 
 ### 2026-05-31 - Raised from unevaluated after IDA-backed HierList split
 

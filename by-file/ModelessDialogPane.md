@@ -1,17 +1,17 @@
 *** UID:0000LH | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/core/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ModelessDialogPane
 
 ## Status
 
-- Confidence: strong for class boundary and behavior, medium for exact original filename.
+- Confidence: strong for class boundary, method ownership, and behavior; medium-high for exact original filename because allocation sites are still not modeled directly.
 - Proposed module: `ui/core/ModelessDialogPane.cpp`
 - Proposed header: `ui/core/ModelessDialogPane.h`
 - Current recovered source: `source-3/simroot_v2/class_ModelessDialogPane.cpp`
-- Main memory range: [UID:00012Z][0x004a0760-0x004a0c8e.ModelessDialogPane](by-memory/0x004a0760-0x004a0c8e.ModelessDialogPane.md)
+- Main memory range: [UID:00012Z][0x004a0760-0x004a0c8e.ModelessDialogPane](by-memory/0x004a0760-0x004a0c8e.ModelessDialogPane.md), now split to exact method children [UID:000310][0x004a0760-0x004a0827.ModelessDialogPaneConstructor](by-memory/0x004a0760-0x004a0827.ModelessDialogPaneConstructor.md), [UID:000311][0x004a0830-0x004a0835.ModelessDialogPaneIsModal](by-memory/0x004a0830-0x004a0835.ModelessDialogPaneIsModal.md), and [UID:000312][0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent](by-memory/0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent.md)
 - Type docs: [UID:0001V9][ModelessDialogPaneLayout](by-type/by-struct/ModelessDialogPaneLayout.md)
 - Vtables: [UID:0001Y6][ModelessDialogPaneVtables](by-type/by-vtable/ModelessDialogPaneVtables.md)
 - Evidence basis: `simroot_v2` generated source and read-only IDA MCP checks on 2026-05-24 and 2026-05-26. `wave3.py` was not executed for this pass.
@@ -26,7 +26,7 @@ Place it with `ui/core/` rather than `ui/dialogs/` because it implements reusabl
 
 | Entity | Address evidence | Role |
 | --- | --- | --- |
-| [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md) | `0x004a0760-0x004a0c8e` | `DialogPane`-derived modeless shell and mouse-event router. |
+| [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md) | [UID:000310][0x004a0760-0x004a0827.ModelessDialogPaneConstructor](by-memory/0x004a0760-0x004a0827.ModelessDialogPaneConstructor.md), [UID:000311][0x004a0830-0x004a0835.ModelessDialogPaneIsModal](by-memory/0x004a0830-0x004a0835.ModelessDialogPaneIsModal.md), [UID:000312][0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent](by-memory/0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent.md) | `DialogPane`-derived modeless shell and mouse-event router. |
 | `g_dialogRenderContext` | generated global-data reference | Render/context object passed into dialog bounds initialization. |
 | `g_globalInputManager` | generated global-data reference | Notified after click release/focus finalization. |
 | `g_pEventDispatcher` | generated global-data reference | Receives the secondary-subobject pointer for modeless registration. |
@@ -47,9 +47,9 @@ The tertiary table ends before `0x00618ce0`, which is neighboring data/string st
 
 | Range | Function | Notes |
 | --- | --- | --- |
-| `0x004a0760-0x004a0827` | constructor | Calls `DialogPane::DialogPane(title, -1, 1)`, installs three vtables, sets default bounds `(100,100)-(200,200)`, initializes dialog bounds, initializes pane interaction, and registers the modeless entry. |
-| `0x004a0830-0x004a0835` | `IsModal` | Returns `false`. Vtable data xref at `0x618cb0`. |
-| `0x004a0840-0x004a0c8e` | `HandleMouseEvent` | Handles move/down/up/drag-style mouse events, hit tests controls, updates hover/pressed state, commits dialog focus, and activates the selected item on release. Vtable data xref at `0x618cac`. |
+| [UID:000310][0x004a0760-0x004a0827.ModelessDialogPaneConstructor](by-memory/0x004a0760-0x004a0827.ModelessDialogPaneConstructor.md) | constructor | Calls `DialogPane::DialogPane(title, -1, 1)`, installs three vtables, sets default bounds `(100,100)-(200,200)`, initializes dialog bounds, initializes pane interaction, and registers the modeless entry. |
+| [UID:000311][0x004a0830-0x004a0835.ModelessDialogPaneIsModal](by-memory/0x004a0830-0x004a0835.ModelessDialogPaneIsModal.md) | `IsModal` | Returns `false`. Vtable data xref at `0x618cb0`. |
+| [UID:000312][0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent](by-memory/0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent.md) | `HandleMouseEvent` | Handles move/down/up/drag-style mouse events, hit tests controls, updates hover/pressed state, commits dialog focus, and activates the selected item on release. Vtable data xref at `0x618cac`. |
 
 ## Ownership Notes
 
@@ -64,6 +64,9 @@ The tertiary table ends before `0x00618ce0`, which is neighboring data/string st
 
 - [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md)
 - [UID:00012Z][0x004a0760-0x004a0c8e.ModelessDialogPane](by-memory/0x004a0760-0x004a0c8e.ModelessDialogPane.md)
+- [UID:000310][0x004a0760-0x004a0827.ModelessDialogPaneConstructor](by-memory/0x004a0760-0x004a0827.ModelessDialogPaneConstructor.md)
+- [UID:000311][0x004a0830-0x004a0835.ModelessDialogPaneIsModal](by-memory/0x004a0830-0x004a0835.ModelessDialogPaneIsModal.md)
+- [UID:000312][0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent](by-memory/0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent.md)
 - [UID:0001V9][ModelessDialogPaneLayout](by-type/by-struct/ModelessDialogPaneLayout.md)
 - [UID:0001Y6][ModelessDialogPaneVtables](by-type/by-vtable/ModelessDialogPaneVtables.md)
 - [UID:0000IT][DialogPane](by-file/DialogPane.md)
@@ -73,6 +76,11 @@ The tertiary table ends before `0x00618ce0`, which is neighboring data/string st
 - [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md)
 
 ## Changes
+
+- 2026-06-08 A005 Batch115 parent-source refresh:
+  - Before: `COMPLETION:88`, `CONFIDENCE:82`, with the source file below the corrected parent confidence gate for method children.
+  - Changed to: `COMPLETION:89`, `CONFIDENCE:85`.
+  - Summary/evidence: Batch 115 split [UID:00012Z][0x004a0760-0x004a0c8e.ModelessDialogPane](by-memory/0x004a0760-0x004a0c8e.ModelessDialogPane.md) into exact method pages for the constructor, `IsModal`, and `HandleMouseEvent`; each child carries direct class ownership through [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md). Cross-checks against [UID:0000IT][DialogPane](by-file/DialogPane.md), [UID:0000J7][EventDispatcher](by-file/EventDispatcher.md), [UID:0001V9][ModelessDialogPaneLayout](by-type/by-struct/ModelessDialogPaneLayout.md), and [UID:0001Y6][ModelessDialogPaneVtables](by-type/by-vtable/ModelessDialogPaneVtables.md) support this file as the actual direct source owner rather than adjacent [UID:0000HE][AlertPanes](by-file/AlertPanes.md) or the base [UID:0000IT][DialogPane](by-file/DialogPane.md). Confidence remains at `85` because direct allocation sites and final original filename proof are still open.
 
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `88`, confidence `82`.

@@ -1,13 +1,13 @@
 *** UID:0000KH | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ItemObjImageLib
 
 ## Status
 
-- Confidence: strong for class role and method ownership, medium for exact original filename.
+- Confidence: strong for class role, method ownership, singleton/vtable ownership, and resource policy; medium for exact original filename.
 - Proposed module: `render/ItemObjImageLib.cpp`
 - Current recovered source: `source-3/simroot_v2/class_ItemObjImageLib.cpp`
 - Main address ranges: `0x004dec30-0x004df455` and `0x004e6580-0x004e65dc`
@@ -49,10 +49,17 @@ Current generated material also uses aliases such as `g_pItemObjectImageLib`, `g
 
 The legacy item path derives an entry index from `itemId + 0x4000`, rebases a configured translated band by `+16211`, and clamps entries above the archive floor to `2418`. The same policy appears in the draw methods and `GetItemGlyphBounds`.
 
+## Batch 012 Parent-Gate Evidence
+
+The exact vtable-data child [UID:0002ML][0x0061b738-0x0061b748.ItemObjImageLibVtableData](by-memory/0x0061b738-0x0061b748.ItemObjImageLibVtableData.md) is directly owned by this source module. Live IDA MCP on 2026-06-07 rechecked `NexusTK.exe` (`sha256 9aec210bbc5ce592176a21dd8e9d9fd8f250b8d9ea78237915a99ba8cfa9a632`) and confirmed the `ItemObjImageLib` RTTI locator at `0x0061b738`, vtable slot dwords at `0x0061b73c-0x0061b744`, constructor/destructor/scalar-deleting-destructor vptr stores, and adjacent `ProtectedArray<ItemInfo>` and `ProtectedArray<LightInfo>` boundaries.
+
+That evidence is enough to treat this by-file page as an `85/85` direct parent for the vtable-data child under the corrected Batch 012 assignment gate. The vtable bytes remain `source-declared/generated-binary`; this page owns the class declaration and virtual method set that should cause the rebuilt compiler/linker to emit the equivalent RTTI/vtable artifact, but the child should not contribute handwritten C++ code.
+
 ## Cross-References
 
 - [UID:00006W][ItemObjImageLib](by-class/ItemObjImageLib.md)
 - [UID:00017N][0x004dec30-0x004e65dc.ItemObjImageLib](by-memory/0x004dec30-0x004e65dc.ItemObjImageLib.md)
+- [UID:0002ML][0x0061b738-0x0061b748.ItemObjImageLibVtableData](by-memory/0x0061b738-0x0061b748.ItemObjImageLibVtableData.md)
 - [UID:0000RA][g_pItemObjImageLib](by-global/g_pItemObjImageLib.md)
 - [UID:0001OT][0x0067a758-0x0067a75c.g_pItemObjImageLib](by-memory/0x0067a758-0x0067a75c.g_pItemObjImageLib.md)
 - [UID:0001XW][ItemObjImageLibVtable](by-type/by-vtable/ItemObjImageLibVtable.md)
@@ -76,3 +83,7 @@ The legacy item path derives an entry index from `itemId + 0x4000`, rebases a co
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and the main range summary used old ends `0x004df454` and `0x004e65db`.
   - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/"`, `CONFIDENCE:84`, and corrected exclusive-end ranges `0x004df455` and `0x004e65dc`.
   - Summary/evidence: `proposed-source-tree.md` already places `ItemObjImageLib.cpp` under `render/`; IDA MCP confirmed constructor/draw/scalar bounds and ordinary destructor bytes on 2026-05-31.
+- 2026-06-07 A003 Batch 012 parent gate:
+  - What existed before: the page was `88/84`, below the corrected direct-parent assignment gate for [UID:0002ML][0x0061b738-0x0061b748.ItemObjImageLibVtableData](by-memory/0x0061b738-0x0061b748.ItemObjImageLibVtableData.md).
+  - Changed to: `89/86`, added current hash-backed vtable ownership evidence, and documented why this source-file page directly owns the source declaration effect.
+  - Summary/evidence: the source module already documents item sprite resources, table parsing, draw/helper ownership, singleton storage, and method bounds; the Batch 012 IDA recheck closes the specific vtable-data ownership gate while exact original filename and some helper placement details remain below final-audit confidence.

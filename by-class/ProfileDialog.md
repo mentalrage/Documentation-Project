@@ -1,6 +1,6 @@
 *** UID:0000AU | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000MR | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for class behavior and file ownership, medium-high for helper/destructor-owner cleanup.
+- Confidence: strong for class behavior, file ownership, and the current attachment gate; medium-high for final helper/destructor source shape and field names.
 - Likely source file: [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md)
 - Address range: [UID:0001DT][0x0053f940-0x0053fe87.ProfileDialog](by-memory/0x0053f940-0x0053fe87.ProfileDialog.md)
 - Current recovered file: `source-3/simroot_v2/class_ProfileDialog.cpp`
@@ -41,11 +41,12 @@
 - 2026-06-01 IDA MCP function map: constructor `0x0053f940-0x0053fd95`, cleanup helper `0x0053fda0-0x0053fdbf`, action handler `0x0053fdc0-0x0053fe87`, and refresh wrapper `0x0053fe90-0x0053fe9b`.
 - 2026-06-01 IDA MCP xrefs: constructor callers at `0x0053e139` and `0x005bd273`; action-handler vtable/data ref at `0x00620fc8`; scalar deleting destructor refs at `0x00620f80`, `0x0054263f`, and `0x0054264a`; adjustor-thunk refs at `0x00620fe0` and `0x00621010`.
 - 2026-06-01 IDA MCP callees: constructor uses dialog/control/resource helpers (`0x0049d8a0`, `0x0049dc10`, `0x0049dfd0`, `0x0049e190`, `0x0049eac0`, `0x004f4aa0`, `0x0058fc30`); action handler uses text extraction `0x00498c10`, sanitizer `0x005957c0`, `_wcscpy_s`, dialog apply/close `0x0049eb90`, refresh `0x005063e0`, and dispatcher notify `0x00469180`.
+- 2026-06-10 gate review kept the class attached to [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md) because the parent now clears `85/85`, and the class evidence already documents the function map, vtable refs, constructor/action callers, refresh-wrapper split, and destructor-owner pollution caveat.
 
 ## Reconstruction Notes
 
 - Reconstructable is `TRUE` because the class ownership, function map, vtable refs, and behavior are now supported by IDA evidence and the parent file has a projected path.
-- The C++ block remains blank because field names at offsets like `+0x1fc` and helper names around the dialog/control layer are not final-source quality.
+- The C++ block remains blank because field names at offsets like `+0x1fc`, helper names around the dialog/control layer, and the source-visible destructor/thunk shape are not final-source quality.
 
 ## Cross-References
 
@@ -64,3 +65,6 @@
 - 2026-06-01: Changed completion/confidence from `78/78` to `82/82`, marked reconstructable, and attached parent [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md).
   - Before: exact function endpoints, xref map, and parent confidence were not sufficient for attachment.
   - After: current IDA MCP evidence confirms spans, xrefs, callees, and byte boundaries; final C++ remains deferred.
+- 2026-06-10: Raised completion/confidence from `82/82` to `85/86`.
+  - Before: the class remained below the current strict `85/85` attachment gate even though the recorded IDA evidence already resolved ownership, function spans, vtable refs, caller/callee sets, and the storage-wrapper boundary.
+  - After: the class clears the gate to [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md). Final C++ remains deferred for source-quality field/helper/destructor names.

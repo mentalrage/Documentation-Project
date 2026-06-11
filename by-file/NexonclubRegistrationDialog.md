@@ -1,7 +1,7 @@
 *** UID:0000M0 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # NexonclubRegistrationDialog
 
@@ -68,6 +68,10 @@ This is related to [UID:0000LZ][NexonclubProxyDialog](by-file/NexonclubProxyDial
 
 ## Changes
 
+- 2026-06-05 projected-path assignment:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, so the by-file row remained a generated-root coverage error.
+  - Changed to: `NexusTK/ui/dialogs/`.
+  - Summary/evidence: live IDA MCP lookup confirms the documented registration-dialog constructor anchor at `0x0052f950`; proposed-source-tree places this account-registration form with adjacent UI dialog modules rather than login shell or network request code.
 ### 2026-05-28 - Registration Range Endpoint Corrected
 
 - What existed before: the registration-dialog range and scalar deleting destructor were recorded as ending at `0x00530635`.

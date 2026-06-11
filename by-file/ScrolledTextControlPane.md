@@ -1,7 +1,7 @@
 *** UID:0000NI | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ScrolledTextControlPane
 
@@ -63,6 +63,10 @@ Keep [UID:0000NH][ScrolledPictureControlPane](by-file/ScrolledPictureControlPane
 
 ## Changes
 
+- 2026-06-05 projected-path assignment:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, so the by-file row remained a generated-root coverage error.
+  - Changed to: `NexusTK/ui/controls/`.
+  - Summary/evidence: live IDA MCP lookup confirms the documented `ScrolledTextControlPane` constructor anchor at `0x004ff040`; proposed-source-tree groups this DAT-text scroller with static/scrolled UI controls, not login history or generic text-edit ownership.
 - Before: the file-level range summary ended `ScrolledTextControlPaneForMadeBy` at `0x00502cbc`.
 - After: the file-level range summary ends it at `0x00502cbd`.
 - Why: IDA MCP confirms `0x00502cbc` is the final operand byte of the scalar deleting destructor return instruction, so the following padding starts at `0x00502cbd`.

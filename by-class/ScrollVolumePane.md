@@ -1,6 +1,6 @@
 *** UID:0000CO | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000NK | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -14,7 +14,7 @@
 
 - Confidence: strong for behavior and source ownership; medium-high for final helper names and raw function-table gaps.
 - Likely source file: [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md)
-- Parent handling: attached to [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md) at autogen position `10`; both class and file are at or above the 80+ confidence attachment threshold. C++ remains blank below the 95+ reconstruction gate.
+- Parent handling: attached to [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md) at autogen position `10`; this class is `87/85` and the direct file parent is `88/85`, so the current strict parent gate is satisfied. C++ remains blank below the 95+ reconstruction gate.
 - Address range: [UID:0001H2][0x00564710-0x005654ec.ScrollVolumePane](by-memory/0x00564710-0x005654ec.ScrollVolumePane.md)
 - Vtables: [UID:0001YT][ScrollVolumePaneVtables](by-type/by-vtable/ScrollVolumePaneVtables.md)
 - Current recovered file: `source-3/simroot_v2/ui/controls/class_ScrollVolumePane.cpp`
@@ -31,10 +31,13 @@ The class renders the slider track and two-part thumb through `SCRBUTT2.EPF` / `
 | Method or helper | Address | Role |
 | --- | --- | --- |
 | constructor | `0x00564710-0x005647b1` | Constructs the `Pane` base, stores volume type, initializes packed slider state, installs three vtable pointers, and clears the mouse reference point. |
+| raw low-state-word setter | [UID:00031M][0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw](by-memory/0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw.md) | Function-shaped raw helper that stores word `+0xf8` and invalidates the bounds rect when changed. |
+| raw state-byte setter | [UID:00031N][0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw](by-memory/0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw.md) | Function-shaped raw helper that stores byte `+0xfa` and invalidates the bounds rect when changed. |
 | `SetRange` | `0x00564820-0x0056487b` | Clamps max range to `0..30000`, reduces current value if necessary, and invalidates bounds. |
 | `SetValue` | `0x00564880-0x005648a7` | Stores the current value and invalidates bounds when changed. |
 | `Enable` | `0x005648b0-0x005648ca` | Sets enabled byte and invalidates the control. |
 | `Disable` | `0x005648d0-0x005648ea` | Clears enabled byte and invalidates the control. |
+| raw can-adjust predicate | [UID:00031O][0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw](by-memory/0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw.md) | Function-shaped raw predicate returning enabled-and-positive-range state from `+0x102/+0x100`. |
 | `OnMouseEvent` | `0x00564910-0x00564af1` | Handles mouse press, drag, release, capture, highlight, page up/down, and commit paths. |
 | `IsScrollable` | `0x00564b00-0x00564b05` | Returns false; this pane is not an externally scrollable viewport. |
 | `OnLoseFocus` | `0x00564b10-0x00564b43` | Commits pending slider changes and schedules refresh when focus is lost. |
@@ -76,11 +79,16 @@ See [UID:0001W2][ScrollVolumePaneLayout](by-type/by-struct/ScrollVolumePaneLayou
 - 2026-05-26 IDA MCP confirms the three `ScrollVolumePane` vtable bases at `0x006240b4`, `0x00624100`, and `0x00624130`, including paint, mouse, false-return, and focus/commit slots, despite current Wave3 metadata reporting `vtable_count: 0`.
 - The current active output emits the helper rows at `0x00564e30`, `0x005652a0`, and `0x00565360`, but all three are still surfaced with stale `TextEditPane::*` signatures even though the source map and IDA evidence attach them to `ScrollVolumePane`. It also includes raw projected starts, so use the memory page before migrating the class.
 - 2026-06-03 restarted IDA MCP recheck reconfirmed raw helper starts `0x00565170`, `0x005651e0`, and `0x00565490` as non-modeled function-table gaps with no xrefs or raw pointer hits. It also reconfirmed the modeled neighbor helpers at `0x00565010`, `0x005652a0`, and `0x00565360`, the `0x005654ec`/`0x005654f7` neighboring `ScrollablePane` thunks, and the raw helper calls into `GetPartRect`, commit, timer start/stop, and invalidation slots.
+- 2026-06-08 A008 IDA MCP recheck confirmed the modeled method starts/sizes, constructor stores to `+0xfc/+0xfe/+0x100/+0x102/+0x103/+0x104/+0x108`, vtable installs at `0x00564761`/`0x00564767`/`0x00564771`, constructor/setter callers from `NewOptionPane`, internal helper callers, and the neighboring `ScrollablePane` thunk boundary.
+- The same pass split three previously undocumented raw helpers at `0x005647c0`, `0x005647f0`, and `0x005648f0`; all three are source-looking ScrollVolumePane methods with no direct xrefs and unresolved final names.
 
 ## Cross-References
 
 - [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md)
 - [UID:0001H2][0x00564710-0x005654ec.ScrollVolumePane](by-memory/0x00564710-0x005654ec.ScrollVolumePane.md)
+- [UID:00031M][0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw](by-memory/0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw.md)
+- [UID:00031N][0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw](by-memory/0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw.md)
+- [UID:00031O][0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw](by-memory/0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw.md)
 - [UID:0001H3][0x00564e30-0x00565006.ScrollVolumePaneHitTestPart](by-memory/0x00564e30-0x00565006.ScrollVolumePaneHitTestPart.md)
 - [UID:0002LB][0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw](by-memory/0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw.md)
 - [UID:0002LC][0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw](by-memory/0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw.md)
@@ -111,3 +119,7 @@ See [UID:0001W2][ScrollVolumePaneLayout](by-type/by-struct/ScrollVolumePaneLayou
   - Before: `AUTOGEN_PARENT_UID` was blank and confidence stayed at `80` despite the file parent already having a valid `NexusTK/ui/controls/` path.
   - Changed to: confidence `82`, `AUTOGEN_PARENT_UID:0000NK`, and position `10`; reconstruction C++ remains blank.
   - Evidence: the restarted IDA MCP recheck reconfirmed the raw helper gaps, modeled helper chain, and neighboring `ScrollablePane` thunk boundary, while [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md) is already a validated controls source root.
+- 2026-06-08 A008 Batch 137 strict-gate and child-split update:
+  - Before: score was `86/82`, and the method inventory skipped three raw helper bodies near the constructor/setter cluster.
+  - Changed to: score `87/85`; parent remains [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md) at position `10`.
+  - Evidence: live IDA MCP rechecked modeled boundaries, constructor field/vtable stores, constructor/setter/helper callers, vtable xrefs, neighboring destructor-thunk ownership, and the newly split raw helpers [UID:00031M][0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw](by-memory/0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw.md), [UID:00031N][0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw](by-memory/0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw.md), and [UID:00031O][0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw](by-memory/0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw.md). The parent file is now also `88/85`, satisfying the strict parent gate.

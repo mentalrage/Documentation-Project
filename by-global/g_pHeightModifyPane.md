@@ -1,8 +1,8 @@
 *** UID:0000R2 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -25,7 +25,7 @@
 
 - IDA `xrefs_to 0x0069bc0c` reports writes from `0x005881f0` and inlined construction inside `0x00588560`.
 - IDA confirms clear paths at `0x005882c0`, `0x0058aaa0`, and `0x0058acc0`.
-- Active generated source names the symbol `g_pHeightModifyPane` in `class_NewSystemMessageModifyHeightPane.cpp`.
+- The xref cluster keeps the symbol with `NewSystemMessageModifyHeightPane` inside `SystemMessagePanes`.
 - 2026-05-25 IDA recheck reports concrete xrefs at `0x00588239`, `0x00588240`, `0x005882da`, `0x00588620`, `0x00588627`, `0x0058aaa0`, and `0x0058ace0`.
 
 ## Cross-References
@@ -36,4 +36,5 @@
 
 ## Changes
 
-- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `84/84`. Summary/evidence: the page documents address, owner, resize-handle singleton role, constructor/clear xrefs, generated source name, IDA recheck sites, and class/file/memory refs.
+- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `84/84`. Summary/evidence: the page documents address, owner, resize-handle singleton role, constructor/clear xrefs, IDA recheck sites, and class/file/memory refs.
+- 2026-06-05: Marked reconstructable under [UID:0000OE][SystemMessagePanes](by-file/SystemMessagePanes.md). Evidence: live IDA MCP reports seven xrefs to `0x0069bc0c`, covering constructor writes, inlined construction inside `0x00588560`, clear helper `0x0058aaa0`, and destructor clear at `0x0058acc0`.

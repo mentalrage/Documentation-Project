@@ -1,7 +1,7 @@
 *** UID:000072 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -46,3 +46,7 @@
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `-1/-1`. Summary: this page is an ignored generated alias/view over `LanguageMan`, not a separately scored reconstructable class. Evidence: the page's disposition already marks it ignored, and documented IDA evidence points to `LanguageMan`/`Singleton<LanguageMan>` RTTI and the shared `g_pLanguageMan` table layout rather than a separate `LanguageManager` class.
+- 2026-06-05: Marked not reconstructable for autogen.
+  - Before: `RECONSTRUCTABLE` was blank, leaving this ignored alias page unclassified in generated class coverage.
+  - After: set `RECONSTRUCTABLE:FALSE`; kept parent/C++ blank because [UID:000071][LanguageMan](by-class/LanguageMan.md) is the reconstructable owner.
+  - Summary/evidence: live IDA MCP reconfirms `0x004f0350` as the shared localized-string lookup with broad caller fanout and finds `LanguageMan`/`Singleton<LanguageMan>` RTTI/name records but no `LanguageManager` name records; [UID:000003][-ignored](by-class/-ignored.md) already records this generated-alias disposition.

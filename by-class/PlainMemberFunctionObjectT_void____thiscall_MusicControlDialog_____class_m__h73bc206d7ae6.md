@@ -1,8 +1,8 @@
 *** UID:0000AL | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,12 +14,13 @@
 
 - Confidence: strong for `MusicControlDialog` folder-selection callback wrapper role.
 - Likely source: [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md) template support, instantiated by [UID:0000LN][MusicControlDialog](by-file/MusicControlDialog.md).
-- Current recovered file: `source-3/simroot_v2/class_PlainMemberFunctionObjectT_void____thiscall_MusicControlDialog_____class_m__h73bc206d7ae6.cpp`
+- Parent gate: [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md) is above the 80/80 attachment threshold, and this wrapper now clears the child threshold at `80/86`.
+- Rebuild handling: source-declared/generated-binary; the reusable callback-template declaration belongs with `FunctionObjects`, while the exact vtable bytes and instantiation glue are compiler/linker output from that declaration and the `MusicControlDialog` construction site.
 - Canonical metadata name is longer and expands the `mystr::StringBase<wchar_t>` argument type.
 
 ## Class Purpose
 
-This generated wrapper forwards a selected folder path from [UID:0000JF][FolderSelectDialog](by-file/FolderSelectDialog.md) to a `MusicControlDialog` member function. It copies the incoming wide string, adjusts the stored owner pointer, and invokes the captured member callback.
+This compiler-emitted callback wrapper forwards a selected folder path from [UID:0000JF][FolderSelectDialog](by-file/FolderSelectDialog.md) to a `MusicControlDialog` member function. It copies the incoming wide string, adjusts the stored owner pointer, and invokes the captured member callback.
 
 ## Method Notes
 
@@ -34,6 +35,22 @@ This generated wrapper forwards a selected folder path from [UID:0000JF][FolderS
 - IDA `lookup_funcs 0x0052a3e0` confirms a `0x5e` byte function.
 - IDA `xrefs_to 0x0052a3e0` and `0x0052a4a0` reports vtable/data references, matching callback-object dispatch.
 - 2026-05-31 IDA MCP recheck confirms exact ranges `0x0052a3e0-0x0052a43e` and `0x0052a4a0-0x0052a4de`, no direct callers, and vtable/data references at `0x0061fcf8` and `0x0061fcec`.
+
+## Ownership Boundaries
+
+| Owner | Boundary |
+| --- | --- |
+| [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md) | Parent source home for the reusable callback wrapper/template pattern and declaration shape. |
+| [UID:0000LN][MusicControlDialog](by-file/MusicControlDialog.md) | Consumer and construction context for the bound member function that receives the selected folder path. |
+| [UID:0000JF][FolderSelectDialog](by-file/FolderSelectDialog.md) | Caller/producer context for the selected folder string only; it does not own this wrapper implementation. |
+| Long generated class file name | Rejected as final source owner; it is a generated binary/template instantiation artifact, not a standalone original `.cpp`. |
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | --- | --- |
+| Completion | 80 | Exact invoke/destructor child pages, FunctionObjects/MusicControlDialog/FolderSelectDialog ownership split, source-declared/generated-binary handling, IDA-confirmed bounds and vtable/data refs, and parent-gate status are documented. The page stays below higher completion because final template declaration spelling, original header shape, and construction-site source details remain open. |
+| Confidence | 86 | Existing IDA checks and exact child pages strongly support the wrapper role and boundaries. Confidence is unchanged because final template/header names and construction context are still inferred rather than fully reconstructed. |
 
 ## Cross-References
 
@@ -54,3 +71,8 @@ This generated wrapper forwards a selected folder path from [UID:0000JF][FolderS
   - What existed before: the two methods were documented only as raw address ranges on this class page.
   - Changed to: exact by-memory pages [UID:0002N2][0x0052a3e0-0x0052a43e.MusicControlDialogFolderCallbackInvoke](by-memory/0x0052a3e0-0x0052a43e.MusicControlDialogFolderCallbackInvoke.md) and [UID:0002N3][0x0052a4a0-0x0052a4de.MusicControlDialogFolderCallbackDestructor](by-memory/0x0052a4a0-0x0052a4de.MusicControlDialogFolderCallbackDestructor.md), metadata `RECONSTRUCTABLE:TRUE`, and scores `78/86`.
   - Summary/evidence: 2026-05-31 IDA MCP confirms exact function starts/sizes, vtable/data xrefs, and lack of normal callers; final C++ remains blank because the original template declaration and construction-site source shape are not fully audited.
+
+- 2026-06-06 A004 parent-gate cleanup:
+  - What existed before: the page still carried generated-source-owner framing and had no parent UID even though both the `FunctionObjects` parent and this child now satisfy the attachment threshold.
+  - Changed to: `COMPLETION:80`, `AUTOGEN_PARENT_UID:0000JO`, explicit source-declared/generated-binary handling, ownership-boundary table, score rationale, and removal of the stale recovered-file source owner line.
+  - Summary/evidence: the exact invoke/destructor children, IDA vtable/data references, and documented folder-selection callback role support attachment to `FunctionObjects`; final C++ remains blank because the original template/header spelling and construction site still need a near-final audit.

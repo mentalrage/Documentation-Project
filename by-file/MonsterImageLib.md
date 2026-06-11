@@ -1,6 +1,6 @@
 *** UID:0000LJ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MonsterImageLib
@@ -19,8 +19,8 @@
 
 | Field | Value | Rationale |
 | --- | ---: | --- |
-| Completion | 82 | Resource inputs, singleton/vtable/layout references, constructor/destructor/cache lifetime, render/bounds responsibilities, helper ownership, and source placement are documented. |
-| Confidence | 82 | Live IDA MCP on 2026-06-03 verifies the constructor caller, function inventory, vtable stores, singleton writes/clears/consumers, and archive/cache behavior. Final field names and helper/file split still keep this below final-source confidence. |
+| Completion | 86 | Resource inputs, singleton/vtable/layout references, constructor/destructor/cache lifetime, render/bounds responsibilities, exact default-table storage, helper ownership, static-lifetime singleton helper provenance, and source placement are documented. |
+| Confidence | 86 | Live IDA MCP on 2026-06-03 verifies the constructor caller, function inventory, vtable stores, singleton writes/clears/consumers, and archive/cache behavior; the Batch 042 fallback-record review adds the exact static default-table storage; Batch 121 reconfirms the file-local singleton-clear helper, cleanup-table reference, and 22 singleton xrefs. Final field names and some helper split details still keep this below final-source confidence. |
 
 ## File Role
 
@@ -40,6 +40,8 @@ Monster ids are commonly rebased by `+32768` before table lookup, matching the `
 
 [UID:0002JN][0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables](by-memory/0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables.md) is the exact table-loader range currently proving the 0x0c [UID:0001VC][MonsterImageEntry](by-type/by-struct/MonsterImageEntry.md) row layout and nested animation-table allocation flow.
 
+The loader also owns the concrete monster default/fallback outer table storage at [UID:00029K][0x0069b424-0x0069b430.ImageLibraryFallbackRecord](by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md). That static 12-byte object is initialized by the shared table helper constructor, allocated with `0x15` default groups by `LoadMonsterTables`, seeded with one `0..30000` frame entry per group, and returned by the monster table lookup when an index is out of range. The helper type remains documented by [UID:0000LK][MonsterImageLibTables](by-file/MonsterImageLibTables.md), so this page records concrete monster-image state rather than claiming exclusive helper implementation ownership.
+
 ## Live IDA Evidence
 
 - `lookup_funcs` on 2026-06-03 verifies the source-owned island functions: table loader `0x004dac40` size `0x27d`, constructor `0x004daec0` size `0x14e`, destructor `0x004db010` size `0xe7`, render/bounds helpers through `0x004dc2e0`, singleton clear helper `0x004e5bd0` size `0x0b`, and scalar deleting destructor `0x004e6750` size `0x110`.
@@ -48,6 +50,14 @@ Monster ids are commonly rebased by `+32768` before table lookup, matching the `
 - `xrefs_to 0x0069b440` reports singleton writes/clears in the constructor, ordinary destructor, singleton clear helper, scalar deleting destructor, shutdown path, cache clear caller, and render consumers.
 - Decompilation confirms the constructor installs the vtable, initializes two embedded cache/list groups, stores the singleton, then loads monster tables and numbered archives. The destructor/scalar destructor both call `ClearLoadedData`, release table/cache storage, chain to the base object, and clear the singleton.
 - Wide string bytes at `0x0061c07c`, `0x0061c09c`, and `0x0061c0b0` identify the resource patterns `DATA/MON%d.DAT`, `MON%d.EPF`, and `MONSTER.DNA`; adjacent bytes identify the `MONSTER.DND` fallback string.
+
+## 2026-06-08 Static-Lifetime Helper Audit
+
+- [UID:000181][0x004e5bd0-0x004e5bdb.MonsterImageLibSingletonClearHelper](by-memory/0x004e5bd0-0x004e5bdb.MonsterImageLibSingletonClearHelper.md) is now assigned directly to this file page. It is a file-local/static-lifetime helper, not a class method.
+- IDA decompiles the helper to `dword_69B440 = 0`, and disassembly is exactly `mov dword_69B440, 0; retn` over bytes `c7 05 40 b4 69 00 00 00 00 00 c3`.
+- `xrefs_to 0x004e5bd0` reports one cleanup-table reference at `0x005ffd87` from constructor function `sub_4DAEC0`, tying the helper to the `MonsterImageLib` constructor's static cleanup registration.
+- `xrefs_to 0x0069b440` reports 22 singleton references, including constructor writes, ordinary/scalar destructor clears, the helper clear, shutdown/cache-clear reads, and monster render/object consumers.
+- Neighbor checks keep the helper separate from old-human, NewHuman, Riding, and StaticObj singleton-clear helpers in the adjacent island.
 
 ## Closely Coupled Helpers
 
@@ -64,6 +74,7 @@ The helper classes documented in [UID:0000LK][MonsterImageLibTables](by-file/Mon
 - [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md)
 - [UID:00017C][0x004dac40-0x004e685f.MonsterImageLib](by-memory/0x004dac40-0x004e685f.MonsterImageLib.md)
 - [UID:0002JN][0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables](by-memory/0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables.md)
+- [UID:00029K][0x0069b424-0x0069b430.ImageLibraryFallbackRecord](by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md)
 - [UID:0002VF][0x004e5990-0x004e5a62.VectorGrowArchiveIndex](by-memory/0x004e5990-0x004e5a62.VectorGrowArchiveIndex.md)
 - [UID:0000RR][g_pMonsterImageLib](by-global/g_pMonsterImageLib.md)
 - [UID:0001Y7][MonsterImageLibVtable](by-type/by-vtable/MonsterImageLibVtable.md)
@@ -79,6 +90,10 @@ The helper classes documented in [UID:0000LK][MonsterImageLibTables](by-file/Mon
 
 ## Changes
 
+- 2026-06-08 A001 Batch 121 parent refresh:
+  - Before: completion/confidence were `84/84`, and the singleton-clear helper ownership was documented but still below the corrected parent-side gate.
+  - Changed to: completion `86`, confidence `86`; [UID:000181][0x004e5bd0-0x004e5bdb.MonsterImageLibSingletonClearHelper](by-memory/0x004e5bd0-0x004e5bdb.MonsterImageLibSingletonClearHelper.md) is now an eligible direct child parented to this file.
+  - Summary/evidence: live IDA MCP reconfirmed the helper's exact bytes/body, decompile output, constructor-associated cleanup-table xref at `0x005ffd87`, 22 `g_pMonsterImageLib` xrefs, and neighboring singleton-helper boundaries. This resolves the parent-side assignment gate for the helper while leaving final field/helper names below final-source quality.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `82`, confidence `78`.
 - Summary/evidence: the page documents resource inputs, singleton/vtable/layout references, closely coupled helper ownership, DAT/container dependencies, and cross-references; confidence remains medium-high because exact helper/file split and some disabled helper ownership still need final migration review.
@@ -91,3 +106,7 @@ The helper classes documented in [UID:0000LK][MonsterImageLibTables](by-file/Mon
 - 2026-06-04 exact helper child update:
   - Added [UID:0002VF][0x004e5990-0x004e5a62.VectorGrowArchiveIndex](by-memory/0x004e5990-0x004e5a62.VectorGrowArchiveIndex.md) as the exact `LoadMonsterArchives` slow-path vector grow helper.
   - Evidence: live IDA MCP confirms a single caller at `0x004dbd8f` inside `LoadMonsterArchives`, exact `0x004e5990-0x004e5a62` boundary, immediate post-body alignment, and archive-index vector grow behavior.
+- 2026-06-07 A002 Batch 042 fallback-record review:
+  - Before: `COMPLETION:82` and `CONFIDENCE:82`.
+  - After: `COMPLETION:84` and `CONFIDENCE:84`.
+  - Evidence: added exact [UID:00029K][0x0069b424-0x0069b430.ImageLibraryFallbackRecord](by-memory/0x0069b424-0x0069b430.ImageLibraryFallbackRecord.md) storage to the monster table-loader evidence. The page remains below 85/85 because the concrete static storage could still be declared in the shared helper source rather than `MonsterImageLib.cpp`, and final field/helper names remain unresolved.

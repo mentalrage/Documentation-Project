@@ -1,7 +1,7 @@
 *** UID:0000MD | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NONE" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PaneChildRegistry
 
@@ -43,6 +43,10 @@ Keep this page only as an alias/warning until the remaining generated metadata o
 
 ## Changes
 
+- 2026-06-05: Marked the projected reconstruction path as `NONE`.
+  - Before: the path was blank, leaving a documented stale alias in by-file generated-root error state.
+  - After: the page is explicitly non-standalone; the real code remains owned by [UID:0000HR][BlackHole](by-file/BlackHole.md) as deferred pane deletion queue behavior.
+  - Evidence: live IDA MCP `lookup_funcs` confirms `sub_469180` at `0x00469180` (`0x7a` bytes), and `callers` shows broad pane/dialog close fan-in, matching the documented queue helper role rather than an independent `PaneChildRegistry.cpp`.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `80`, confidence `86`.
 - Summary/evidence: the page clearly documents the stale generated alias, corrected BlackHole ownership, function role, boundary notes, and cross-references; completion is lower because the page is intentionally an alias/warning rather than a real final source module.

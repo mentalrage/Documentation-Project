@@ -61,7 +61,7 @@ Keep [UID:0000JT][HeadSelectDialog](by-file/HeadSelectDialog.md) separate from t
 - IDA confirms [UID:0000TB][OpenCreateUserDialog_4F8FA0](by-global/OpenCreateUserDialog_4F8FA0.md) constructs either `CreateUserDialogPane` or `NewUserDialogPane2`, but direct xrefs to the helper are currently unresolved. Treat it as `MainMenuPane.cpp` launcher code.
 - 2026-06-01 IDA MCP `py_eval` enumerates the executable create-user family as three method/helper clusters plus lifecycle glue: `0x0052a540-0x0052c325` (`NewUserDialogPane2`), `0x0052c360-0x0052dcf5` (`NewCreateUserDialogPane`), `0x0052dd30-0x0052f6e5` (`CreateUserDialogPane`), and `0x0052f710-0x0052f94c` singleton clear/thunk/deleting-destructor glue.
 - 2026-06-01 IDA MCP decompilation confirms the three submit helpers at `0x0052b9f0`, `0x0052d3e0`, and `0x0052ed80` share the same validation shape: read three edit fields, require a digit in the password, compare confirmation with `wcscmp`, alert on failure, and call the local packet encoder on success.
-- 2026-06-01 IDA MCP decompilation confirms the packet encoder/helper triplets at `0x0052bbc0/0x0052bdd0/0x0052bfd0`, `0x0052d5b0/0x0052d7c0/0x0052d9a0`, and `0x0052ef50/0x0052f160/0x0052f390`, all using `dword_67A7EC` send paths and create-user reply handling.
+- 2026-06-01 IDA MCP decompilation confirms the packet encoder/helper triplets at `0x0052bbc0/0x0052bdd0/0x0052bfd0`, `0x0052d5b0/0x0052d7c0/0x0052d9a0`, and `0x0052ef50/0x0052f160/0x0052f390`, all using [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / historical `dword_67A7EC` send paths and create-user reply handling.
 - 2026-06-01 IDA MCP xrefs tie vtables and singleton slots to the three variants: `0x0061fd04`/`0x0069b4a4` for `NewUserDialogPane2`, `0x0061fda0`/`0x0069b4a8` for `NewCreateUserDialogPane`, and `0x0061fe3c`/`0x0069b890` for `CreateUserDialogPane`.
 
 ## Migration Notes
@@ -101,12 +101,18 @@ Keep `NewUserMiscDialogPane` as a separate candidate until the `CashShopRequest`
 - [UID:0002QS][0x0052c360-0x0052dcf5.NewCreateUserDialogPaneCore](by-memory/0x0052c360-0x0052dcf5.NewCreateUserDialogPaneCore.md)
 - [UID:0002QT][0x0052dd30-0x0052f6e5.CreateUserDialogPaneCore](by-memory/0x0052dd30-0x0052f6e5.CreateUserDialogPaneCore.md)
 - [UID:0002QU][0x0052f710-0x0052f94c.CreateUserDialogDestructorAndThunkIsland](by-memory/0x0052f710-0x0052f94c.CreateUserDialogDestructorAndThunkIsland.md)
+- [UID:0000Q5][g_packetSender](by-global/g_packetSender.md)
 - [UID:00019U][0x004fb630-0x004fe782.NewUserMiscShapeAndPasswordDialogs](by-memory/0x004fb630-0x004fe782.NewUserMiscShapeAndPasswordDialogs.md)
 - [UID:0001A6][0x00501150-0x00502383.UserCreateAppearanceSelectorControls](by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md)
 - [UID:00019P][0x004f8fa0-0x004f9055.OpenCreateUserDialog](by-memory/0x004f8fa0-0x004f9055.OpenCreateUserDialog.md)
 - [UID:0000JT][HeadSelectDialog](by-file/HeadSelectDialog.md)
 
 ## Changes
+
+- 2026-06-07: Replaced the raw `dword_67A7EC` create-user packet-send reference with canonical [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) wording.
+  - Before: the create-user packet encoder triplets were tied to the historical generated global only.
+  - After: the page links the resolved packet sender while keeping the historical label for IDA traceability.
+  - Evidence: the generated resolved-name report maps `dword_67A7EC` to `g_packetSender`, and this page's existing IDA evidence ties the three create-user submit helpers to shared packet-send paths.
 
 ### 2026-05-28 - Create-User Range Endpoint Corrected
 

@@ -1,13 +1,13 @@
 *** UID:0000IT | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/core/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # DialogPane
 
 ## Status
 
-- Confidence: strong for source module and class responsibility, medium for generated active-source quality.
+- Confidence: strong for source module, class responsibility, exact base-dialog aggregate, shared lifetime state, and direct child routing; medium-high for final field/helper names after `+0x208`.
 - Proposed module: `ui/core/DialogPane.cpp`
 - Current recovered source: `source-3/simroot_v2/class_DialogPane.cpp`
 - Main method cluster: `0x0049d8a0-0x0049fead`, with input override methods in `0x0046ad80-0x0046e9f4`
@@ -36,8 +36,17 @@ Many feature dialogs should remain separate feature files, but their common life
 - IDA layout review on 2026-05-26 confirms inherited dialog fields at `+0x0f8`, `+0x1f8`, `+0x1fc`, `+0x200`, `+0x204`, mouse/control state from `+0x208` through `+0x238`, `+0x23c`, and the custom background/tile state through `+0x268`.
 - IDA MCP on 2026-05-25 reports 47 direct callers to `0x0049eac0` and 69 direct callers to `0x0049eb90`, confirming the slide helpers are shared dialog infrastructure rather than ranking/clan feature methods.
 - IDA MCP on 2026-06-02 confirms the base constructor at `0x0049d8a0` increments [UID:0001PH][0x0069b380-0x0069b381.g_activeDialogCount](by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md), and the destructor at `0x0049d9f0` decrements it. Other UI/input paths only compare the byte, so the storage owner belongs with common dialog lifetime state.
+- [UID:00012R][0x0049d8a0-0x0049feae.DialogPane](by-memory/0x0049d8a0-0x0049feae.DialogPane.md) is scored `86/88` and documents the full contiguous base-dialog method island: exact end boundary, 32 modeled local functions, constructor/destructor, lifecycle/control helpers, slide animation child coverage, layout offsets, vtable data, and active-dialog counter ownership.
+- [UID:0001PH][0x0069b380-0x0069b381.g_activeDialogCount](by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md) is scored `88/91` and confirms this file as the storage owner through the constructor increment, destructor decrement, exact 13-reference set, one-byte range boundary, and consumer-only reads in inventory/spell/take-off code.
 - Generated source shows many feature dialogs calling `DialogPane::DialogPane`.
 - Wave3 metadata has useful high-level structure notes, but the active generated file has low automated quality because cross-file class references were not resolved during grading. That issue is logged in [Wave3 noticed problems](../wave3_noticed_problems.md).
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 86 | The page already documents the source module, common dialog role, proposed contents, vtable/layout anchors, broad constructor fan-in, slide animation ownership, derived override corrections, active-dialog counter ownership, and current source placement. |
+| Confidence | 85 | Exact memory aggregate `86/88`, storage child `88/91`, layout doc `84/88`, and existing class/file links now support the direct source owner strongly enough for the corrected strict parent gate. Confidence remains below higher levels because final source-facing names for several fields/helpers and some derived override boundaries are still not final-audit quality. |
 
 ## Cross-References
 
@@ -67,3 +76,6 @@ Many feature dialogs should remain separate feature files, but their common life
 - 2026-06-02 active-dialog counter ownership:
   - Changed confidence from `78` to `80`.
   - Evidence: IDA MCP shows `DialogPane` construction increments the global active-dialog byte and destruction decrements it; all other reviewed refs are consumers that gate immediate UI/input commands.
+- 2026-06-10 A001 strict-gate confidence refresh:
+  - Changed confidence from `80` to `85`.
+  - Evidence: [UID:00012R][0x0049d8a0-0x0049feae.DialogPane](by-memory/0x0049d8a0-0x0049feae.DialogPane.md) now records the exact base-dialog aggregate at `86/88`, and [UID:0001PH][0x0069b380-0x0069b381.g_activeDialogCount](by-memory/0x0069b380-0x0069b381.g_activeDialogCount.md) records the exact dialog lifetime byte at `88/91`. Together with the layout and vtable links, this clears the direct parent side of the strict `85/85` gate for DialogPane-owned child globals while keeping final C++ blank below the final-code threshold.

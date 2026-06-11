@@ -1,5 +1,5 @@
 *** UID:0001RK | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:75 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # Ranking UI Resources
@@ -29,6 +29,51 @@
 - `RankingEventScrollPane::OnPaint` uses `SLIDEBG` and `SCRBUTT` resources for the custom scrollbar.
 - `RankingUserListPane::OnPaint` draws text headers `Rank`, `Name`, `Score`, total count, and from/to timestamps over the board background.
 
+## Resource Role Matrix
+
+| UI surface | Resources | Code owner | Rebuild handling |
+| --- | --- | --- | --- |
+| Ranking board and user list | `WBOARDBK.EPF`, `WBOARDBK.PAL`, `WEBBOARD.EPF`, `WEBBOARD.PAL` | [UID:0000MZ][RankingDialog](by-file/RankingDialog.md), [UID:0000BQ][RankingUserListPane](by-class/RankingUserListPane.md) | Package as ranking board frame/background art. Keep the similarly named WebBoardOld `WEBBOARD.EPD` / `WEBBOARD.PAD` resources separate. |
+| Event/category cards | `SUBWIN.EPF`, `SUBWIN.PAL`, item object images | [UID:0000BN][RankingEventListPane](by-class/RankingEventListPane.md) | Package as the ranking category card frame/fill resources plus item-icon library dependencies. |
+| Custom event scrollbar | `SLIDEBG.EPF`, `SLIDEBG.PAL`, `SCRBUTT.EPF`, `BUTTON.PAL` | [UID:0000BO][RankingEventScrollPane](by-class/RankingEventScrollPane.md) | Package as feature-specific scrollbar track/button art while retaining the shared `BUTTON.PAL` caveat. |
+| Reward information dialog | `WBOARDBK.*`, `WEBBOARD.*`, `SYMBOLS.EPF`, item object images | [UID:0000BP][RankingRewardInfoDialog](by-class/RankingRewardInfoDialog.md) | Package board art with the reward dialog and keep reward symbols/item icons as separate draw dependencies. |
+
+## Source/Asset Contract
+
+| Contract area | Source-owned behavior | Resource-owned payload |
+| --- | --- | --- |
+| Board tiling and frame assembly | `RankingDialog`, `RankingUserListPane`, and `RankingRewardInfoDialog` choose rectangles, tile counts, and draw ordering for board/background pieces. | `WBOARDBK.*` and ranking `WEBBOARD.*` provide the image and palette frames; do not transcribe frame pixels or palette bytes into C++ docs. |
+| Event/category cards | `RankingEventListPane` maps category records, text, item icon ids, and selection state to each visible card. | `SUBWIN.*` supplies the card frame/fill art, while item-object icon imagery remains an [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md) dependency. |
+| Custom scrollbar | `RankingEventScrollPane` owns hit testing, thumb state, scroll position, and repaint scheduling. | `SLIDEBG.*`, `SCRBUTT.EPF`, and shared `BUTTON.PAL` supply control art only; generic scrollbar semantics do not move to resource pages. |
+| Reward symbols and item rewards | `RankingRewardInfoDialog` parses opcode `0x7d` reward rows and chooses symbol/item draw positions. | `SYMBOLS.EPF` and item-image library frames provide visual assets; reward-row structures and packet fields stay in class/memory/type docs. |
+
+## Shared Resource Collision Rules
+
+- Ranking `WEBBOARD.EPF` / `WEBBOARD.PAL` are frame-tile resources for ranking board/reward surfaces. [UID:0001RT][webboard-dialog-resources](by-resource/webboard-dialog-resources.md) owns the old WebBoard fixed-art `WEBBOARD.EPD` / `WEBBOARD.PAD` pair; matching base names do not imply a shared layout or source owner.
+- `BUTTON.PAL` is a shared button/control palette. Ranking uses it for `SCRBUTT.EPF`, but final packaging should keep the palette available to other button/control consumers rather than declaring it ranking-private.
+- `SYMBOLS.EPF` is recorded here for reward-info icon drawing only. A future full symbol-resource page may own the broader inventory if other consumers need centralized treatment.
+- Item object images are dependency edges to the item image library, not part of the ranking resource set. Ranking source should store item ids/counts/text and ask the image library to draw icons.
+
+## Rebuild Packaging Boundary
+
+- Treat all named EPF/PAL assets as resource-derived data, not C++ arrays or generated source.
+- Keep source reconstruction focused on resource names, draw helper calls, ranking packet/UI state, and owner class boundaries under [UID:0000MZ][RankingDialog](by-file/RankingDialog.md).
+- Keep shared rendering helpers, item image libraries, and button palette handling in their documented shared modules rather than folding them into ranking resource ownership.
+- Preserve the distinction between ranking `WEBBOARD.EPF` / `WEBBOARD.PAL` frame tiles and [UID:0001RT][webboard-dialog-resources](by-resource/webboard-dialog-resources.md) `WEBBOARD.EPD` / `WEBBOARD.PAD` fixed-art resources.
+
+## Scope Boundaries
+
+- `BUTTON.PAL` and `SYMBOLS.EPF` are shared resources; this page records ranking consumers, not exclusive ownership.
+- Item object images are runtime image-library draws through `g_pItemObjImageLib`, so the resource page records the dependency but does not claim an item-icon DAT inventory.
+- Ranking text headers and formatted totals are UI literals drawn over the board; they are not separate DAT resource assets on this page.
+- Generic draw helpers such as frame tiling, text drawing, clipping, and software-render callbacks are shared rendering code. They are intentionally excluded from this ranking resource page even when generated output placed them near ranking list drawing.
+
+## Open Questions
+
+- Exact frame indices, dimensions, and tile ordering for each ranking EPF/PAL pair.
+- Full shared-consumer inventory for `BUTTON.PAL` and `SYMBOLS.EPF`.
+- Whether ranking board/event/reward assets are always packed in the same DAT family as the old WebBoard resources.
+
 ## IDA MCP Evidence
 
 - UTF-16 resource literals were verified at `0x0060db5c` (`WBOARDBK.EPF`), `0x0060db78` (`WBOARDBK.PAL`), `0x0060db94` (`WEBBOARD.EPF`), `0x0060dbb0` (`WEBBOARD.PAL`), `0x00610b74` (`SUBWIN.EPF`), `0x00610b8c` (`SUBWIN.PAL`), `0x0060ddb0` (`SLIDEBG.EPF`), `0x0060ddc8` (`SLIDEBG.PAL`), `0x0060dde0` (`SCRBUTT.EPF`), `0x0060ddf8` (`BUTTON.PAL`), and `0x00610ca4` (`SYMBOLS.EPF`).
@@ -36,6 +81,14 @@
 - `SUBWIN.*` is referenced from `0x0045b630-0x0045bcf7`, matching the event-list card/frame drawing path.
 - `SLIDEBG.*`, `SCRBUTT.EPF`, and `BUTTON.PAL` are referenced from scroll-control drawing ranges including `0x0041dab0-0x0041e1c6` and `0x00459ce0-0x0045a3f6`; `BUTTON.PAL` is shared by additional button/control code.
 - `SYMBOLS.EPF` is referenced from `0x0045df90-0x0045ea13`, matching reward-symbol drawing, and is also shared by other symbol/icon users.
+- Current-session note: IDA MCP was unreachable on 2026-06-07, so this pass uses existing IDA-backed RankingDialog/resource docs and does not claim a fresh string/xref pass.
+
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `80` | The page now separates ranking board, category-card, custom-scrollbar, reward-dialog, shared-palette, symbol, and item-image resource roles, and records a source/asset contract plus collision rules for WebBoard, button-palette, symbol, and item-library dependencies. Completion remains capped because exact EPF frame layouts, DAT grouping, and all shared `BUTTON.PAL` / `SYMBOLS.EPF` consumers are not audited here. |
+| Confidence `85` | Existing IDA-backed string/xref evidence and ranking owner docs strongly identify the listed resources and consumers. Confidence is unchanged because this pass did not add fresh IDA evidence. |
 
 ## Cross-References
 
@@ -50,3 +103,9 @@
 - What existed before: the page had useful resource grouping but was scored unevaluated and cited generated source as part of confidence.
 - Changed to: scored `COMPLETION:75` / `CONFIDENCE:85`, removed generated-source authority wording, and added direct IDA MCP string/xref evidence.
 - Summary and evidence: verified UTF-16 literals and xrefs connect the listed resource families to ranking UI draw ranges; score stays below final because exact class/function names and every shared resource user are not fully audited.
+- 2026-06-07 A002 resource-boundary pass: Raised completion from `75/85` to `78/85`.
+  - Before: the page listed the resource set and xrefs but did not separate board, event-card, scrollbar, reward-dialog, shared-palette, and WebBoardOld collision boundaries.
+  - After: it records a resource role matrix, rebuild packaging boundary, shared-resource scope boundaries, open questions, and the current-session IDA availability caveat.
+- 2026-06-07 A002 source/asset contract pass: Raised completion from `78/85` to `80/85`.
+  - Before: the page separated resource roles but did not explicitly state which behavior belongs in ranking source versus resource payloads and shared libraries.
+  - After: it records source/asset contract rows for board assembly, event cards, custom scrollbar, and reward symbols/items, plus collision rules for WebBoard naming, `BUTTON.PAL`, `SYMBOLS.EPF`, and item image-library dependencies.

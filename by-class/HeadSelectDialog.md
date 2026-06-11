@@ -1,8 +1,8 @@
 *** UID:000062 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -65,3 +65,7 @@ Adjacent IDA functions at `0x00552110`, `0x00553610`, and nearby starts install 
 - Changed to: both end at `0x005520e5`.
 - Summary/evidence: 2026-05-28 IDA MCP byte/function review shows the old endpoint omitted the final `retn 8` operand byte.
 - Completion/confidence score update: existed before as `0/0`; changed to `84/82`. Summary: packet-driven dialog responsibility, method families, control relationships, shared-helper caveat, adjacent non-owned functions, and corrected boundary evidence are documented in detail; confidence remains limited by shared helper ownership. Evidence: `HeadSelectDialogCore`, `HeadSelectDialogDestructorThunks`, `DialogCategorySwitch`, object-image control relationships, and NewHumanImageLib source-file references.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000JT][HeadSelectDialog](by-file/HeadSelectDialog.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving this packet-driven dialog unclassified in generated class coverage.
+  - After: set `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000JT`; left the C++ block blank because the page is below the final reconstruction bar.
+  - Summary/evidence: live IDA MCP reconfirms starts at `0x00551030`, `0x00551200`, `0x00551350`, `0x00551520`, `0x00551f30`, `0x00551fa0`, and deleting destructor wrapper `0x00553920`; it also reconfirms shared helper `0x0049dd00` has callers outside this class. The class score `84/82` and parent score `86/80` meet the 80/80 attachment gate.

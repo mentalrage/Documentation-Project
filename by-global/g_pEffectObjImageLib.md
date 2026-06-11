@@ -1,8 +1,8 @@
 *** UID:0000QT | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,7 +15,7 @@
 - Confidence: strong for storage address and owner, medium for final source-facing name.
 - Backing storage: [UID:0001PQ][0x0069b44c-0x0069b450.g_pEffectObjImageLib](by-memory/0x0069b44c-0x0069b450.g_pEffectObjImageLib.md), IDA `dword_69B44C`.
 - Owner file: [UID:0000IY][EffectObjImageLib](by-file/EffectObjImageLib.md).
-- Current generated aliases include `g_pEffectObjImageLib` and raw `dword_69B44C`.
+- Observed aliases include `g_pEffectObjImageLib` and raw `dword_69B44C`.
 
 ## Role
 
@@ -51,3 +51,4 @@ IDA MCP on 2026-05-26 reports xrefs to `0x0069b44c`.
 ## Changes
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `86/82`. Summary/evidence: the page documents storage, owner file, runtime role, IDA xref summary, consumer paths, ownership decision, and vtable/layout refs; final source-facing name remains medium-confidence.
+- 2026-06-05: Marked reconstructable under [UID:0000IY][EffectObjImageLib](by-file/EffectObjImageLib.md). Evidence: live IDA MCP reports 12 xrefs to `0x0069b44c`; decompilation confirms `0x004ddf60` writes `dword_69B44C`, `0x004de050` clears it in ordinary teardown, `0x004e5b70` is the clear helper, and `0x004e62f0` clears it in the deleting destructor path.

@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00003T | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Entity kind: class layout / inherited dialog state.
 - Covered class: [UID:00003T][DialogPane](by-class/DialogPane.md) and derived modal/modeless dialog classes.
 - Likely owner header/source: [UID:0000IT][DialogPane](by-file/DialogPane.md).
+- Parent attachment: attached to [UID:00003T][DialogPane](by-class/DialogPane.md), which is scored `82/84`; this layout page is scored `84/88`, so both sides clear the `80/80` child attachment gate.
 - Confidence: strong for the listed offsets and vtable-view offsets; medium for final source-facing field names after `+0x208`.
 - Current generated source hint: `source-3/simroot_v2/class_DialogPane.cpp`; use it only as a lead, with IDA/MCP controlling the offsets.
 
@@ -104,3 +105,7 @@ Checked on 2026-05-26 and spot-rechecked on 2026-05-31:
   - What existed before: completion/confidence metadata was unevaluated at `0/0`, and `RECONSTRUCTABLE` was blank.
   - Changed to: `COMPLETION:84`, `CONFIDENCE:88`, and `RECONSTRUCTABLE:TRUE`.
   - Summary/evidence: IDA MCP reconfirms the constructor, lifecycle/control methods, vtable stores, and major field offsets; the page remains below `95+` because several state bytes after `+0x208` still have provisional source-facing names and some derived-dialog ownership boundaries remain under review.
+- 2026-06-06 parent attachment:
+  - What existed before: the layout had strong IDA-backed offsets and was scored above `80/80`, but `AUTOGEN_PARENT_UID` was blank.
+  - Changed to: attached to [UID:00003T][DialogPane](by-class/DialogPane.md) without changing scores.
+  - Summary/evidence: the `DialogPane` class page is scored `82/84`, links this layout as its consolidated state map, and the layout page documents constructor, lifecycle, control handling, modeless secondary-view mapping, and vtable-store evidence.

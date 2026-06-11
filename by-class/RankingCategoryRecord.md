@@ -1,6 +1,6 @@
 *** UID:0000BL | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000MZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:50 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -14,8 +14,7 @@
 
 - Likely source file: [UID:0000MZ][RankingDialog](by-file/RankingDialog.md)
 - Address range: [UID:0000XZ][0x00458610-0x0045f9f5.RankingDialog](by-memory/0x00458610-0x0045f9f5.RankingDialog.md)
-- Current recovered file: `source-3/simroot_v2/class_RankingCategoryRecord.cpp`
-- Confidence: strong for method boundaries and layout offsets; medium for final field/type names. Several helpers are disabled or missing in current Wave3 output, but IDA confirms their function starts.
+- Confidence: strong for method boundaries and layout offsets; medium for final field/type names.
 
 ## Class Purpose
 
@@ -25,21 +24,21 @@
 
 | Method | Address | Role |
 | --- | --- | --- |
-| `GetListIndex` | `0x0045bf60-0x0045bf63` | Returns the record list index. Disabled in current Wave3 output. |
+| `GetListIndex` | `0x0045bf60-0x0045bf63` | Returns the record list index. |
 | `GetCategoryId` | `0x0045bf70-0x0045bf73` | Returns the category id at record offset `+4`. |
-| `GetStateCode` | `0x0045bf80-0x0045bf83` | Returns state code at record offset `+8`. Disabled in current Wave3 output. |
-| `CopyStartTimeParts` | `0x0045bf90-0x0045bfae` | Copies start-time/date parts from record offset `+12`. Disabled in current Wave3 output. |
-| `CopyEndTimeParts` | `0x0045bfb0-0x0045bfce` | Copies end-time/date parts from record offset `+48`. Disabled in current Wave3 output. |
-| `GetTitleText` | `0x0045bfd0-0x0045bfd3` | Returns wide title pointer at record offset `+84`. Disabled in current Wave3 output. |
-| `GetUserEntryAt` | `0x0045bfe0-0x0045c01a` | Bounds-checked lookup into user-entry vector at record offset `+600`. Disabled in current Wave3 output. |
-| `SetStartTimeFromPackedDateTime` | `0x0045c050-0x0045c0f8` | Splits packed date/time integers into the start time/date block. Missing from current generated source. |
-| `SetEndTimeFromPackedDateTime` | `0x0045c100-0x0045c1a8` | Splits packed date/time integers into the end time/date block. Missing from current generated source. |
-| `AppendUserEntry` | `0x0045c1e0-0x0045c238` | Appends one 76-byte ranking user row to the vector, growing through `0x0045d1b0` when full. Missing from current generated source. |
-| `ResetUserEntries` | `0x0045c240-0x0045c256` | Resets current user-entry end to begin and selected user index to `-1`. Disabled in current Wave3 output. |
+| `GetStateCode` | `0x0045bf80-0x0045bf83` | Returns state code at record offset `+8`. |
+| `CopyStartTimeParts` | `0x0045bf90-0x0045bfae` | Copies start-time/date parts from record offset `+12`. |
+| `CopyEndTimeParts` | `0x0045bfb0-0x0045bfce` | Copies end-time/date parts from record offset `+48`. |
+| `GetTitleText` | `0x0045bfd0-0x0045bfd3` | Returns wide title pointer at record offset `+84`. |
+| `GetUserEntryAt` | `0x0045bfe0-0x0045c01a` | Bounds-checked lookup into user-entry vector at record offset `+600`. |
+| `SetStartTimeFromPackedDateTime` | `0x0045c050-0x0045c0f8` | Splits packed date/time integers into the start time/date block. |
+| `SetEndTimeFromPackedDateTime` | `0x0045c100-0x0045c1a8` | Splits packed date/time integers into the end time/date block. |
+| `AppendUserEntry` | `0x0045c1e0-0x0045c238` | Appends one 76-byte ranking user row to the vector, growing through `0x0045d1b0` when full. |
+| `ResetUserEntries` | `0x0045c240-0x0045c256` | Resets current user-entry end to begin and selected user index to `-1`. |
 
 ## Layout Notes
 
-- Current generated code implies record stride `688` bytes.
+- IDA collection parser and deep-copy helpers prove a record stride of `688` bytes.
 - User-entry stride is `76` bytes.
 - Start/end packed date-time setters split `YYYYMMDD`-like and `HHMMSS`-like integers into six dword fields inside each 36-byte date/time block.
 - Wide title text begins at offset `+84`.
@@ -50,8 +49,6 @@
 
 - 2026-05-25 IDA MCP confirms every method start listed above as a normal function.
 - 2026-05-27 IDA MCP confirms three additional function starts in the same record range: `0x0045c050`, `0x0045c100`, and `0x0045c1e0`.
-- The active generated source emits only `GetCategoryId` at `0x0045bf70`; the other accessors/helpers remain in `class_RankingCategoryRecord.cpp.disabled`.
-- Current active and disabled generated source both omit the `0x0045c050`, `0x0045c100`, and `0x0045c1e0` helpers, even though IDA caller evidence shows they are live from category and ranking-row parse paths.
 - Caller evidence shows these disabled helpers are still live in the ranking cluster: `GetListIndex` is called from `RankingEventListPane::HandleEvent` at `0x0045b511`, start/end copy helpers are called from `RankingUserListPane::OnPaint` at `0x0045f4fe` and `0x0045f56f`, `GetTitleText` is used by both event/reward/user drawing paths, `GetUserEntryAt` is called from `RankingUserListPane::OnPaint`, and `ResetUserEntries` is called from the category-selection/update path at `0x004594f7`.
 
 ## Cross-References
@@ -65,6 +62,7 @@
 
 ## Changes
 
+- 2026-06-05: Raised from `82/86` to `84/88` after live IDA reconfirmed all eleven method starts/caller sets, the category parser and ranking-row parser relationships, the 688-byte record stride, and the 76-byte user-entry vector behavior. Removed recovered-output status wording and kept final C++ blank under the 95/95 gate.
 - 2026-05-31: Marked the class as reconstructable and attached it to [UID:0000MZ][RankingDialog](by-file/RankingDialog.md) after the method range was split into exact by-memory children.
   - Before: class page had strong method/layout evidence but validator autogen metadata was blank.
   - After: `RECONSTRUCTABLE:TRUE` with the file parent set, while final C++ remains blank because field/type names and source declarations are not at the 95+ final-source threshold.

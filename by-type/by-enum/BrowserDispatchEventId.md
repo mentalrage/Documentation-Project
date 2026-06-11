@@ -1,8 +1,8 @@
 *** UID:0001SJ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,8 +14,14 @@
 
 - Confidence: strong for observed DISPIDs, medium for final enum name.
 - Current source evidence: IDA MCP decompilation of `BrowserControlPane::HandleBrowserDispatchEvent` and `BrowserWindow::Invoke`; generated source names are lead material only.
-- Proposed owner: [UID:0000HV][Browser](by-file/Browser.md), likely `browser/Browser.h`.
-- Reconstructable: yes, as browser COM event constants. Leave autogen parent/code blank until the browser header split and final enum spelling are proven.
+- Assigned owner: [UID:0000HV][Browser](by-file/Browser.md), likely `browser/Browser.h`.
+- Reconstructable: yes, as browser COM event constants. Leave C++ blank until the browser header split and final enum spelling are proven.
+
+## Assignment Gate
+
+- Child score after Batch 097: `86/90`.
+- Direct parent: [UID:0000HV][Browser](by-file/Browser.md), already `86/88`.
+- Assignment decision: assign to [UID:0000HV][Browser](by-file/Browser.md). The constants are browser COM/WebBrowser event DISPIDs shared by the new `BrowserControlPane` dispatch handler and the older `BrowserWindow::Invoke` path, so they belong with browser event declarations rather than with generic UI events or network protocol constants.
 
 ## Values
 
@@ -37,6 +43,14 @@
 - In both paths, case `252` stores the navigation cookie/token at object offset `+548` when empty, and case `259` later compares and clears that token before activating the pane/browser state.
 - Cases `263` and `270` write through the cancel pointer in the dispatch parameter block, matching new-window/window-closing cancellation semantics.
 
+## Batch 097 IDA Recheck
+
+- 2026-06-07 IDA MCP checked `NexusTK.exe` md5 `4247e04e20b65d6414c7238aa8ff5515`.
+- Function lookup confirms `0x0046c960-0x0046caf0` for the newer control-pane event handler and `0x0046a250-0x0046a39c` for the older browser-window `Invoke` handler.
+- The newer handler accepts case `104`, handles `250`, `251`, `252`, `259`, `263`, and `270`, and falls back to `DISP_E_MEMBERNOTFOUND` for unknown DISPIDs after clearing browser runtime state through the shared screen/browser callback path.
+- Case `250` performs URL-prefix checks and cancel-pointer writes; cases `252` and `259` implement the navigation-token store/compare/clear flow; cases `263` and `270` control new-window/window-closing cancellation.
+- The older handler overlaps on `250`, `251`, `252`, `259`, `263`, and `270`, confirming this is a browser-host event-id family and not an implementation-local switch.
+
 ## Placement
 
 These constants belong with the browser COM/event-sink declarations, not with generic UI event dispatch and not with socket protocol constants.
@@ -51,4 +65,11 @@ These constants belong with the browser COM/event-sink declarations, not with ge
 - [UID:0000HV][Browser](by-file/Browser.md)
 - [UID:000015][BrowserControlPane](by-class/BrowserControlPane.md)
 - [UID:00001B][BrowserWindow](by-class/BrowserWindow.md)
-- [UID:0000ZF][0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers.md)
+- [UID:0000ZF][0x0046f010-0x004710b8.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b8.BrowserOleLegacyAndHelpers.md)
+
+## Changes
+
+- 2026-06-07 A004 Batch 097:
+  - Before: `COMPLETION:76`, `CONFIDENCE:90`, parent blank.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:90`, `AUTOGEN_PARENT_UID:0000HV`.
+  - Summary/evidence: live IDA rechecked both browser dispatch handlers, exact function ranges, shared DISPIDs, URL/cancel/token behavior, and browser-specific fallback behavior. The strict gate is satisfied because the direct Browser file parent is already `86/88`; C++ remains blank because final symbolic names are still provisional.

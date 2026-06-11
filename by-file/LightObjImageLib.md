@@ -1,18 +1,19 @@
 *** UID:0000KP | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # LightObjImageLib
 
 ## Status
 
-- Confidence: strong for high-level behavior, singleton/vtable evidence, and observed offsets; medium for final source-level field names.
+- Confidence: strong for high-level behavior, singleton/vtable evidence, observed offsets, and exact vtable-data boundaries; medium for final source-level field names.
 - Proposed module: `render/LightObjImageLib.cpp`
 - Current recovered source: `source-3/simroot_v2/class_LightObjImageLib.cpp`
 - Main address ranges: `0x004df7e0-0x004dfd0a`, `0x004e5bb0-0x004e5bbb`, and `0x004e65e0-0x004e669d`
 - Primary global instance: [UID:0000RD][g_pLightObjImageLib](by-global/g_pLightObjImageLib.md) at `0x0069b450`
 - Primary vtable: [UID:0001XY][LightObjImageLibVtable](by-type/by-vtable/LightObjImageLibVtable.md) at `0x0061b754`
+- Exact vtable data: [UID:00031S][0x0061b750-0x0061b768.LightObjImageLibVtableData](by-memory/0x0061b750-0x0061b768.LightObjImageLibVtableData.md)
 
 ## File Role
 
@@ -36,6 +37,8 @@ The object layout is now anchored by [UID:0001UX][LightObjImageLibLayout](by-typ
 
 The generated `ProtectedArray_struct_LightInfo_` file is only the concrete template cleanup support for the light record table. `LightObjImageLib` owns `LIGHT.TBL` parsing and frame generation; [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md) owns the reusable container pattern.
 
+Batch 139 split the exact [UID:00031S][0x0061b750-0x0061b768.LightObjImageLibVtableData](by-memory/0x0061b750-0x0061b768.LightObjImageLibVtableData.md) child out of the broader image-library read-only aggregate. That split records the class RTTI/vtable dwords and keeps the adjacent `ProtectedArray<LightInfo>` vtable as template support rather than source owned by this file.
+
 ## IDA-Confirmed Bodies
 
 | Range | Body | Role |
@@ -56,7 +59,7 @@ Wave3's current `class_LightObjImageLib.cpp` is useful as behavior evidence but 
 ## Cross-References
 
 - [UID:000076][LightObjImageLib](by-class/LightObjImageLib.md)
-- [UID:00017P][0x004df7e0-0x004e669c.LightObjImageLib](by-memory/0x004df7e0-0x004e669c.LightObjImageLib.md)
+- [UID:00017P][0x004df7e0-0x004e669d.LightObjImageLib](by-memory/0x004df7e0-0x004e669d.LightObjImageLib.md)
 - [UID:0002IU][0x004df7e0-0x004dfaa6.LightObjImageLibConstructor](by-memory/0x004df7e0-0x004dfaa6.LightObjImageLibConstructor.md)
 - [UID:0002IV][0x004dfb40-0x004dfbb0.LightObjImageLibGetLightBounds](by-memory/0x004dfb40-0x004dfbb0.LightObjImageLibGetLightBounds.md)
 - [UID:0002IW][0x004dfbb0-0x004dfc5a.LightObjImageLibDrawLightMode1](by-memory/0x004dfbb0-0x004dfc5a.LightObjImageLibDrawLightMode1.md)
@@ -64,6 +67,7 @@ Wave3's current `class_LightObjImageLib.cpp` is useful as behavior evidence but 
 - [UID:0002IY][0x004e65e0-0x004e669d.LightObjImageLibScalarDeletingDestructor](by-memory/0x004e65e0-0x004e669d.LightObjImageLibScalarDeletingDestructor.md)
 - [UID:0000RD][g_pLightObjImageLib](by-global/g_pLightObjImageLib.md)
 - [UID:0001XY][LightObjImageLibVtable](by-type/by-vtable/LightObjImageLibVtable.md)
+- [UID:00031S][0x0061b750-0x0061b768.LightObjImageLibVtableData](by-memory/0x0061b750-0x0061b768.LightObjImageLibVtableData.md)
 - [UID:0001UX][LightObjImageLibLayout](by-type/by-struct/LightObjImageLibLayout.md)
 - [UID:0001UW][LightInfo](by-type/by-struct/LightInfo.md)
 - [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md)
@@ -74,6 +78,10 @@ Wave3's current `class_LightObjImageLib.cpp` is useful as behavior evidence but 
 
 ## Changes
 
+- 2026-06-08 A007 Batch 139 source-parent refresh:
+  - What existed before: file scores were `86/80`, with vtable evidence present but not tied to an exact concrete vtable-data child.
+  - Changed to: `COMPLETION:87`, `CONFIDENCE:85`, exact vtable-data child link, and source-ownership text distinguishing `LightObjImageLib` from adjacent `ProtectedArray<LightInfo>` support.
+  - Summary/evidence: [UID:00031S][0x0061b750-0x0061b768.LightObjImageLibVtableData](by-memory/0x0061b750-0x0061b768.LightObjImageLibVtableData.md) records the five-slot vtable, target sizes, xrefs, and neighboring template/class boundaries. The file now clears the supporting `85/85` source gate for the class/vtable chain, while final field/helper names still keep scores below final-source level.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:86` and `CONFIDENCE:80`.

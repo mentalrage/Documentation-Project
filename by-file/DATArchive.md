@@ -43,7 +43,7 @@ This page remains the umbrella for adjacent archive/resource research. Do not us
 | --- | --- | --- | --- |
 | [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md) | `0x00457a60-0x00458610` | `render/EPFTileContext.cpp` | Shared decoded EPF/EPD tile context used by frame, minimap, dialog, and image controls. |
 | `ImageLib` | `0x004cffb0-0x004e6571` | `class_ImageLib.cpp` | EPF image/cache manager singleton behind `g_pEPFLib`; render/resource owner, not raw DAT parsing. |
-| `ResourceLayoutTable` | `0x004d0120-0x004d182e` | `class_ResourceLayoutTable.cpp` | Shared EPF/EPD layout lookup method family used by `g_pEPFLib`; likely part of or adjacent to `ImageLib`. |
+| `ResourceLayoutTable` | `0x004d0120-0x004d182f` | `class_ResourceLayoutTable.cpp` | Shared EPF/EPD layout lookup method family used by `g_pEPFLib`; likely part of or adjacent to `ImageLib`. |
 | `DIBitmap` | `0x004a1600-0x004a1b5d` | `class_DIBitmap.cpp` | DIB wrapper used by PCX/image loading. |
 | `PaletteLib` | `0x005431c0-0x0054445b` | `class_PaletteLib.cpp` | Global palette manager; render/resource owner, not raw DAT parsing. |
 | `DLPalette` | `0x00542ac0-0x00543149` plus `0x005443b0-0x00544411` | `class_DLPalette.cpp` | 16-bit palette data object used by `PaletteLib`. |
@@ -55,7 +55,7 @@ This page remains the umbrella for adjacent archive/resource research. Do not us
 | `HumanImageLib` | `0x004d2720-0x004e649a` | `class_HumanImageLib.cpp` | Old human body/equipment image library; render owner for human/equipment frame-table families. |
 | `NewHumanImageLib` | `0x004dfd10-0x004e68a7` | `class_NewHumanImageLib.cpp` | Updated human composition image library; render owner for motion/layer/part tables. |
 | `MonsterImageLib` | `0x004dac40-0x004e685f` | `class_MonsterImageLib.cpp` | Monster sprite image library; render owner for monster tables and `DATA/MON%d.DAT` indexing. |
-| `RidingImageLib` | `0x004dc420-0x004e6980` | `class_RidingImageLib.cpp` | Riding/mount image library; parses `RIDINGS.DNA` and loads `RIDINGS.EPF`. |
+| `RidingImageLib` | `0x004dc420-0x004dca14`; `0x004e68b0-0x004e6981` | `class_RidingImageLib.cpp` | Riding/mount image library; parses `RIDINGS.DNA`, loads `RIDINGS.EPF`, and has a separate scalar deleting destructor tail at `0x004e68b0-0x004e6981`. |
 | `LightObjImageLib` | `0x004df7e0-0x004e669c` | `class_LightObjImageLib.cpp` | Light source image library; reads `LIGHT.TBL` and builds procedural radial frames. |
 | `AlphaMaskSurface` | `0x00462170-0x00462e02` | `class_AlphaMaskSurface.cpp` | Temporary byte alpha-mask surface used by rendering and overlay shading. |
 | `IntAlphaSurface` | `0x00463270-0x004632b1` | `class_IntAlphaSurface.cpp` | Related alpha surface destructor and vtable evidence; final source split still open. |
@@ -103,7 +103,7 @@ This page remains the umbrella for adjacent archive/resource research. Do not us
 - IDA MCP `callers` found [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) used by PCX loading, image-frame loading, tile metadata, tilec/effect table building, sprite-part resolution, audio paths, and other resource paths.
 - IDA MCP decompilation of `SoundManager` confirmed DAT-backed audio resource use: `%03d.wav` sound effects are probed/opened through [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) and `DATFile`, and zone `%08d.LST`/`%08d.LSR`/`%08d.MP3` entries are selected through the same helper. See [UID:0000UB][DATAudioResources](by-item/DATAudioResources.md).
 - Live IDA caller/callee checks confirm EPF/EPD table helpers call the DAT API but belong above it: `LoadImageFrameTable`, `LoadTileEpfMetadata`, `BuildTilecArchiveTable`, `BuildEffectArchiveTable`, and `ResolveSpritePartPath` all use [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md), `DATFile`, and `DATFile::GetDataPointer` while building render metadata tables. See [UID:0000J3][EPFImageResources](by-file/EPFImageResources.md).
-- Live IDA inspection confirms `ImageLib` initializes `g_pEPFLib` / `DAT_0067a744`, while the methods recovered as `ResourceLayoutTable` provide the shared EPF/EPD layout lookup API. They open EPF/EPD resources through `DATFile`, but own named frame-layout buckets and should live in render/resource code rather than in `archive/DATFile.cpp`.
+- Live IDA inspection confirms `ImageLib` initializes [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / historical IDA alias `DAT_0067a744`, while the methods recovered as `ResourceLayoutTable` provide the shared EPF/EPD layout lookup API. They open EPF/EPD resources through `DATFile`, but own named frame-layout buckets and should live in render/resource code rather than in `archive/DATFile.cpp`.
 - Palette inspection confirms `PaletteLib` and `DLPalette` follow the same dependency pattern: they read DAT-backed `.PAL` streams through `DATFile`, but own render palette selection, color conversion, and slot tables. See [UID:0000MA][Palette](by-file/Palette.md).
 - Map/static/effect image-library inspection confirms `MapTileImageLib`, `StaticObjImageLib`, and `EffectObjImageLib` depend on DAT-backed resources but own render/image metadata: `TILE%d.EPF`, `TILEC%d.EPF`, and `EFFECT%d.EPF` table builders each have a single owning image-library constructor caller.
 - Item/riding/light image-library inspection extends that ownership rule: `ItemObjImageLib` owns item table metadata and draw variants over `ITEM.EPF`/`ITEM.EPD`, `RidingImageLib` owns `RIDINGS.DNA` plus `RIDINGS.EPF` loading, and `LightObjImageLib` owns `LIGHT.TBL` procedural light-frame generation. These are DAT consumers, not DAT archive parser classes.
@@ -228,10 +228,17 @@ third_party/zlib/
 - [UID:0000WW][0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill](by-memory/0x00423b00-0x00423c3d.DATIndexVectorResizeAndFill.md)
 - [UID:0000XS][0x00457100-0x0045730f.DATIndexVectorInsertNode](by-memory/0x00457100-0x0045730f.DATIndexVectorInsertNode.md)
 - [UID:0000XX][0x00457580-0x00457613.DATIndexVectorFindNodeByKey](by-memory/0x00457580-0x00457613.DATIndexVectorFindNodeByKey.md)
-- [UID:00012D][0x0049c130-0x0049d2cb.DATFile](by-memory/0x0049c130-0x0049d2cb.DATFile.md)
+- [UID:00012D][0x0049c130-0x0049d2cc.DATFile](by-memory/0x0049c130-0x0049d2cc.DATFile.md)
 - [UID:00012B][0x0049bd30-0x0049d6ed.DATManagers](by-memory/0x0049bd30-0x0049d6ed.DATManagers.md)
 
 ## Changes
+
+- 2026-06-07 A008 alias cleanup:
+  - Before: the render/archive boundary evidence used bare `g_pEPFLib` / `DAT_0067a744` wording.
+  - Changed to: canonical [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) wording with `DAT_0067a744` retained as the historical IDA alias.
+  - Evidence: this umbrella page already distinguishes `ImageLib`/`ResourceLayoutTable` render ownership from DAT archive parsing.
+- 2026-06-06: Corrected the RidingImageLib umbrella range endpoint from `0x004e6980` to `0x004e6981`.
+  - Summary/evidence: A002 IDA MCP `lookup_funcs` reports `sub_4E68B0` size `0xd1`, so `0x004e6980` is still inside the scalar deleting destructor and `0x004e6981` is the exclusive end.
 
 - 2026-05-28: Corrected the `PaletteLib` endpoint from `0x005431c0-0x0054445a` to `0x005431c0-0x0054445b`. Evidence: IDA MCP byte/function review shows the final byte is the `retn 4` operand in `PaletteLib::ScalarDeletingDestructor`; `0x0054445b-0x00544460` is alignment padding before `Pane`.
 - Before: the monster/riding table helper summary used range `0x00528950-0x00528d28`.

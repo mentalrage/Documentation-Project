@@ -1,17 +1,17 @@
 *** UID:0000MN | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/menu/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PopupMenuControls
 
 ## Status
 
-- Confidence: strong for reusable popup-menu control ownership; medium for exact split between controls and menu item sources.
+- Confidence: strong for reusable popup-menu control and menu-item ownership; medium-high for exact split between controls and menu item sources.
 - Proposed module folder: `ui/menu/`
 - Candidate file: `ui/menu/PopupMenuControls.cpp`
 - Current generated sources: `class_PopupMenuControlPane.cpp`, `class_MenuPane.cpp`, `class_MenuItem.cpp`, `class_StringMenuItem.cpp`, `class_SeparatorMenuItem.cpp`, and `class_PlainMemberFunctionObject_void____thiscall_PopupMenuControlPane_____long____class_PopupMenuControlPane_.cpp`.
-- Evidence basis: Wave3 class inspection, `simroot_v2` generated source, older Wave2 notes for `MenuPane::GetItemByIndex`, and targeted IDA MCP boundary checks on 2026-05-23.
+- Evidence basis: existing by-* documentation and targeted IDA MCP boundary checks, including the 2026-06-07 menu aggregate/type evidence refresh. Generated source names are retained only as search context.
 
 ## Hypothesis
 
@@ -62,6 +62,12 @@ IDA caller evidence ties `PopupMenuControlPane::OnDraw` to `MenuPane::GetItemByI
 - Current emitted source omits some tiny virtual/helper thunk bodies for `PopupMenuControlPane` and `MenuPane`; migration should include IDA-confirmed omitted starts.
 - 2026-05-26 IDA MCP resolved the concrete menu-item vtables at `0x0061eb98`, `0x0061ebb4`, and `0x0061ebd0`; see [UID:0001Y4][MenuItemVtables](by-type/by-vtable/MenuItemVtables.md). Current generated metadata reports `vtable_count: 0` for the three menu item classes.
 - [UID:0001V5][MenuItemLayouts](by-type/by-struct/MenuItemLayouts.md) records the shared bounds/state layout and the `StringMenuItem` inline `wchar_t[0x80]` label buffer at offset `+0x18`.
+- 2026-06-07 supporting-page refresh on [UID:0001BK][0x00516290-0x00517441.MenuPaneAndItems](by-memory/0x00516290-0x00517441.MenuPaneAndItems.md) strengthened this file parent: the menu aggregate now records the current IDB hash, exact recognized function inventory, endpoint padding before [UID:000238][0x00517450-0x00517d23.MenuDialogFactoryHelpers](by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md), constructor/open-helper caller evidence from [UID:0000AN][PopupMenuControlPane](by-class/PopupMenuControlPane.md), internal navigation caller relationships, relayout behavior at `0x00516400`, and the raw `0x00516ba8-0x00516dd0` jump-table/helper caveat.
+- [UID:0001Y4][MenuItemVtables](by-type/by-vtable/MenuItemVtables.md) and [UID:0001V5][MenuItemLayouts](by-type/by-struct/MenuItemLayouts.md) independently tie `MenuItem`, `StringMenuItem`, and `SeparatorMenuItem` to the same compact menu-item source family. `by-project-structure/proposed-source-tree.md` also names `PopupMenuControls.cpp` as the likely owner for `PopupMenuControlPane`, `MenuPane`, `MenuItem`, `StringMenuItem`, `SeparatorMenuItem`, and the popup selection callback helper.
+
+## Assignment Gate Notes
+
+This file is now `86/85`, enough to serve as the direct parent for concrete popup-menu item classes that already clear the corrected child gate. The confidence remains capped at `85` because a later original-source review may split `MenuPane.cpp`, `MenuItem.cpp`, or `PopupMenuControlPane.cpp`, but current by-structure evidence still makes [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md) the narrow direct reconstructed source parent for [UID:0000E8][StringMenuItem](by-class/StringMenuItem.md) and [UID:0000CY][SeparatorMenuItem](by-class/SeparatorMenuItem.md).
 
 ## Cross-References
 
@@ -84,6 +90,10 @@ IDA caller evidence ties `PopupMenuControlPane::OnDraw` to `MenuPane::GetItemByI
 
 ## Changes
 
+- 2026-06-07 A010 Batch096 parent-gate update:
+  - What existed before: `COMPLETION:84`, `CONFIDENCE:80`, below the corrected 85/85 parent gate for menu-item class coverage toss-ups.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:85`.
+  - Summary/evidence: associated pages now document the 2026-06-07 `MenuPaneAndItems` live IDA refresh, exact menu-item child method pages, compact menu-item vtable run, shared layout offsets, `PopupMenuControlPane` constructor/open-helper caller links, endpoint padding before the menu-dialog factory island, and proposed-source-tree ownership for the reusable popup-menu source. Confidence stays at the gate rather than higher because the possible `MenuPane.cpp`/`MenuItem.cpp` split remains a real source-layout caveat.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `84`, confidence `78`.
 - Summary/evidence: the page documents the popup menu framework hypothesis, proposed contents, IDA boundary evidence, ownership notes, vtable/layout refs, generated callback caveat, and cross-references; confidence remains capped by exact split between control, menu pane, and menu item sources.

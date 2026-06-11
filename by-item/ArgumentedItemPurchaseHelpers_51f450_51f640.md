@@ -24,7 +24,7 @@
 | --- | --- | --- |
 | `0x0051f450-0x0051f4fe` | `ShowBuyConfirmDialog` / `OpenArgumentedItemConfirmDialog` | Reads the selected argumented menu entry, formats the buy/price-confirm prompt, allocates `ArgumentedItemConfirmInputDialogPane`, and passes item id, argument id, and expected price. |
 | `0x0051f510-0x0051f5a5` | `OpenQuantityDialogOrSendSingle` | If available quantity is `0` or `1`, sends quantity `1` through `SendArgumentedItemQuantityPacket`; otherwise allocates `ArgumentedItemQuantityInputDialogPane` using prompt resource id `246`. |
-| `0x0051f640-0x0051f706` | `SendArgumentedItemQuantityPacket` | Serializes the final 14-byte opcode `0x39` argumented item purchase packet from the selected `ArgumentedMenuMenuItemList` context and sends it through the client packet sender. |
+| `0x0051f640-0x0051f706` | `SendArgumentedItemQuantityPacket` | Serializes the final 14-byte opcode `0x39` argumented item purchase packet from the selected `ArgumentedMenuMenuItemList` context and sends it through [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / historical `dword_67A7EC`. |
 
 ## Live IDA Evidence
 
@@ -35,7 +35,7 @@
 - `0x0051f640-0x0051f706`, size `0xc6`, final `retn 8` at `0x0051f703`.
 - `0x0051f450` reads the selected row index, fetches row context, references the buy/price-confirm prompt string, and calls `0x005200d0` at `0x0051f4de`.
 - `0x0051f510` sends quantity `1` directly for `<= 1`, otherwise allocates class id `628`, reads prompt resource id `246` through `dword_67A750`, and calls the quantity constructor at `0x0051f570`.
-- `0x0051f640` writes opcode `0x39`, context fields from offsets `+0x14c`, `+0x150`, and `+0x154`, a constant item-action byte `1`, the selected argument id, and the requested quantity, then sends 14 bytes through `dword_67A7EC` with `sub_574BB0`.
+- `0x0051f640` writes opcode `0x39`, context fields from offsets `+0x14c`, `+0x150`, and `+0x154`, a constant item-action byte `1`, the selected argument id, and the requested quantity, then sends 14 bytes through [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / historical `dword_67A7EC` with `sub_574BB0`.
 - Direct calls to `0x0051f640` come from `0x0051f504`, `0x0051f58d`, `0x0052008e`, and `0x00520501`.
 - `0x00520046` resolves inside the quantity action handler `0x0051ff70-0x005200c4`, not to a separate function start.
 
@@ -52,9 +52,15 @@ Do not migrate `0x0051f450` as chat-color code. Do not model `0x00520046` as an 
 - [UID:00000G][ArgumentedItemQuantityInputDialogPane](by-class/ArgumentedItemQuantityInputDialogPane.md)
 - [UID:00000H][ArgumentedMenuMenuDialog](by-class/ArgumentedMenuMenuDialog.md)
 - [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md)
+- [UID:0000Q5][g_packetSender](by-global/g_packetSender.md)
 - [UID:00001S][ChattingColorListPane](by-class/ChattingColorListPane.md)
 
 ## Changes
+
+- 2026-06-07: Replaced the raw `dword_67A7EC` argumented item send reference with canonical [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) wording.
+  - Before: the helper summary and live IDA evidence described the final packet send through the historical generated global only.
+  - After: the page links the resolved packet sender while retaining the historical label and `sub_574BB0` call evidence.
+  - Evidence: the generated resolved-name report maps `dword_67A7EC` to `g_packetSender`, and the existing IDA evidence ties `0x0051f640` to the 14-byte opcode `0x39` argumented item purchase packet.
 
 - 2026-06-04: Raised grading from `76/82` to `82/88`, marked `RECONSTRUCTABLE:TRUE`, and attached `AUTOGEN_PARENT_UID:0000HH`.
   - Before: the page documented helper behavior and older IDA starts, but still carried stale ownership/provenance caveats and had no parent attachment.

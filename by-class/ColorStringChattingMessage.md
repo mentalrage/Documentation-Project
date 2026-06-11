@@ -1,8 +1,8 @@
 *** UID:00002Z | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000I5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,7 +15,6 @@
 - Confidence: strong
 - Likely source file: [UID:0000I5][Chatting](by-file/Chatting.md)
 - Address range: [UID:000104][0x0047efb0-0x00483ef7.ChattingUI](by-memory/0x0047efb0-0x00483ef7.ChattingUI.md)
-- Current recovered file: `source-3/simroot_v2/class_ColorStringChattingMessage.cpp`
 
 ## Class Purpose
 
@@ -38,7 +37,7 @@
 - IDA vtable data points `0x0061526c` to scalar deleting destructor `0x00483e60`, `0x00615278` to clone `0x004835b0`, `0x0061527c` to line count `0x00483630`, and `0x00615280` to draw `0x004836a0`.
 - `FolderTreePane::AddChattingMessage` constructs this class before adding it to the message collection.
 - `ChattingPane::OnPaint` dispatches through message objects when painting visible chat lines.
-- `Draw` owns non-padding switch/mapping tail data at `0x0048391c-0x004839c0`; xrefs from `0x00483894` and `0x0048388d` bind that data to the draw method.
+- `Draw` owns the jump table at `0x0048391c-0x00483930` and the byte-map table at `0x00483930-0x004839bf`; `0x004839bf-0x004839c0` is one alignment byte before the destructor-glue family.
 - `Draw` calls the generic [UID:000163][0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers](by-memory/0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers.md), so those helpers are not hair-color-list-local methods.
 
 ## Cross-References
@@ -63,3 +62,8 @@
   - Before: method notes used start addresses only and did not separate the destructor body, line-count virtual, draw tail tables, or scalar deleting wrapper context.
   - After: exact by-memory child pages cover constructor, destructor body, clone, line-count, draw-with-tail-tables, and the scalar deleting wrapper inside the shared chat UI destructor glue family.
   - Summary and evidence: IDA MCP function iteration, decompilation, vtable data review, draw tail-table xrefs, and cleanup-glue review support the split; remaining uncertainty is mostly final source-level field names and generated-wrapper naming.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000I5][Chatting](by-file/Chatting.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving the class coverage row unclassified.
+  - After: `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000I5`.
+  - Evidence: live IDA MCP confirms modeled method starts at `0x00483490`, `0x00483550`, `0x004835b0`, `0x00483630`, `0x004836a0`, and `0x00483e60`, with chat callers into constructor/destructor paths; this class and the parent file both meet the 80% completion/confidence attachment gate.
+- 2026-06-05: Removed the stale recovered-source pointer from the status block so this page relies only on project-documentation and live IDA evidence.

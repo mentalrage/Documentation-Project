@@ -1,8 +1,8 @@
 *** UID:0000QL | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IB | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -39,3 +39,4 @@
 ## Changes
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `84/86`. Summary/evidence: the page documents address, owner, singleton purpose, constructor/destructor/clear-helper evidence, broader close/check refs, and class/memory refs.
+- 2026-06-05: Marked reconstructable under [UID:0000IB][CollectionDialogPane](by-file/CollectionDialogPane.md). Evidence: live IDA MCP reports eight xrefs to `0x0069adf0`; decompilation confirms `0x0048e140` clears `dword_69ADF0`, `0x0048e250` clears it in the deleting destructor path, and `0x0056fc80` checks it before constructing a collection detail dialog.

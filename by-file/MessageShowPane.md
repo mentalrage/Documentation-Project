@@ -1,13 +1,13 @@
 *** UID:0000LB | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MessageShowPane
 
 ## Status
 
-- Confidence: strong for overlay source grouping; medium for whether the final original file was separate or part of `MessageDialogs.cpp`.
+- Confidence: medium-high for the overlay source grouping; the final original-file split versus `MessageDialogs.cpp` remains open.
 - Proposed module folder: `ui/dialogs/`
 - Proposed source file: `ui/dialogs/MessageShowPane.cpp`
 - Current generated sources: `class_MessageShowPane.cpp`; older generated/cache evidence attached `0x00522530` to `class_FittingRoomDownloadControlPane.cpp`, but current `simroot_v2` emits it in `class_MessageShowPane.cpp`.
@@ -36,6 +36,7 @@ ui/dialogs/MessageDialogs.cpp
 | [UID:000087][MessageShowPane](by-class/MessageShowPane.md) | `0x00521da0-0x005227c6`, exact [UID:0001C4][0x00522530-0x005226ea.MessageShowPaneSetWrappedText](by-memory/0x00522530-0x005226ea.MessageShowPaneSetWrappedText.md), [UID:0001C7][0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor](by-memory/0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor.md) | `class_MessageShowPane.cpp` | Floating overlay pane, text wrapping/layout, shadow/face text drawing, and deletion lifecycle. |
 | [UID:0000RK][g_pMessageShowPane](by-global/g_pMessageShowPane.md) | [UID:0001PX][0x0069b4f4-0x0069b4f8.g_pMessageShowPane](by-memory/0x0069b4f4-0x0069b4f8.g_pMessageShowPane.md) | `class_MessageShowPane.cpp` global-data alias | Active message overlay singleton. |
 | `HandleMessageShowPacket` | `0x005ac070-0x005ac1a7` | currently outside MessageShowPane | Server packet handler that creates, updates, or closes the active message overlay. |
+| MessageShow read-only data | [UID:00025V][0x0061fa3c-0x0061fafc.MessageShowReadOnlyData](by-memory/0x0061fa3c-0x0061fafc.MessageShowReadOnlyData.md) | `.rdata` vtables/string data | Message and MessageShowPane vtables, including the primary, secondary, and tertiary MessageShowPane tables that reference the destructor/thunk cluster. |
 
 ## Behavior Model
 
@@ -53,6 +54,8 @@ ui/dialogs/MessageDialogs.cpp
 - `g_applyMessagePaneBorder` is Wave3-owned by `class_MessageShowPane.cpp`, but IDA xrefs show address `0x0069b3fc` is a broad UI drawing callback/table used across many panes. Do not make it a MessageShowPane-owned global solely from the current generated source.
 - Rename registry evidence conflicts on `0x0069b4f4`: an older row names it `g_pMessageShowPane`, while a later map row aliases `DAT_0069b4f4` to `g_pExtendedUIPane`. The direct constructor/destructor/update xrefs support `g_pMessageShowPane` for this use.
 - 2026-05-31 live IDA MCP recheck of [UID:0001PX][0x0069b4f4-0x0069b4f8.g_pMessageShowPane](by-memory/0x0069b4f4-0x0069b4f8.g_pMessageShowPane.md) confirms constructor store/clear, destructor clear, EH cleanup clear, scalar deleting destructor clear, packet-handler reads, and broad UI cleanup removal. This strengthens `MessageShowPane` ownership of the singleton, but it does not close the final split between `MessageShowPane.cpp` and `MessageDialogs.cpp`.
+- 2026-06-07 A010 Batch044 rechecked the immediate surrounding singleton group from `0x0069b4c8-0x0069b4f8`. The prior slot is the exact [UID:00029Z][0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton](by-memory/0x0069b4f0-0x0069b4f4.RightButtonMenuPaneSingleton.md), the successor is [UID:0001PY][0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane](by-memory/0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane.md), and the refreshed `g_pMessageShowPane` xrefs remain exclusive to MessageShowPane lifecycle plus packet/UI cleanup consumers. This reduces the historical `g_pExtendedUIPane` alias risk enough for the file-root confidence gate, while the final compact-source split remains open.
+- [UID:00025V][0x0061fa3c-0x0061fafc.MessageShowReadOnlyData](by-memory/0x0061fa3c-0x0061fafc.MessageShowReadOnlyData.md) records the MessageShowPane vtable region, and [UID:0001C6][0x005226fb-0x00522711.MessageShowPaneAdjustorThunks](by-memory/0x005226fb-0x00522711.MessageShowPaneAdjustorThunks.md) plus [UID:0001C7][0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor](by-memory/0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor.md) tie that vtable data to the overlay class lifecycle. This is enough to clear the file-parent gate, while the exact legacy source split stays below final-audit confidence.
 
 ## Migration Notes
 
@@ -75,16 +78,28 @@ Verify the exact Wave3 command spelling for attaching methods before any real mi
 - [UID:0001C5][0x005226f0-0x005226fb.MessageShowPaneClearSingletonEH](by-memory/0x005226f0-0x005226fb.MessageShowPaneClearSingletonEH.md)
 - [UID:0001C6][0x005226fb-0x00522711.MessageShowPaneAdjustorThunks](by-memory/0x005226fb-0x00522711.MessageShowPaneAdjustorThunks.md)
 - [UID:0001C7][0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor](by-memory/0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor.md)
+- [UID:00025V][0x0061fa3c-0x0061fafc.MessageShowReadOnlyData](by-memory/0x0061fa3c-0x0061fafc.MessageShowReadOnlyData.md)
 - [UID:0000RK][g_pMessageShowPane](by-global/g_pMessageShowPane.md)
 - [UID:0000LA][MessageDialogs](by-file/MessageDialogs.md)
 - [UID:0001KM][0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions](by-memory/0x005a2de0-0x005ad440.LivingObjectPaneLocalPlayerExtensions.md)
 
 ## Changes
 
+- 2026-06-06 A008 parent-gate pass:
+  - Before: the page had a valid projected path but stayed `84/78`, leaving class and destructor autogen children unable to resolve through a source-root chain.
+  - After: changed completion/confidence to `85/80`, added the MessageShow read-only/vtable data to proposed contents and evidence notes, and kept the final `MessageShowPane.cpp` versus `MessageDialogs.cpp` caveat explicit.
+  - Evidence: [UID:000087][MessageShowPane](by-class/MessageShowPane.md), [UID:0001C4][0x00522530-0x005226ea.MessageShowPaneSetWrappedText](by-memory/0x00522530-0x005226ea.MessageShowPaneSetWrappedText.md), [UID:0001C7][0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor](by-memory/0x00522720-0x005227c6.MessageShowPaneScalarDeletingDestructor.md), [UID:00025V][0x0061fa3c-0x0061fafc.MessageShowReadOnlyData](by-memory/0x0061fa3c-0x0061fafc.MessageShowReadOnlyData.md), and [UID:0001PX][0x0069b4f4-0x0069b4f8.g_pMessageShowPane](by-memory/0x0069b4f4-0x0069b4f8.g_pMessageShowPane.md) provide exact overlay lifecycle, vtable, singleton, and packet-handler evidence.
+- 2026-06-07 A010 Batch044 parent-gate update:
+  - Before: `85/80`; the file had enough completion but confidence stayed below the corrected gate because the historical `g_pExtendedUIPane` alias and surrounding singleton group had not been refreshed.
+  - After: `85/85`; added surrounding-slot boundary evidence and refreshed `g_pMessageShowPane` xrefs. This supports [UID:0001PX][0x0069b4f4-0x0069b4f8.g_pMessageShowPane](by-memory/0x0069b4f4-0x0069b4f8.g_pMessageShowPane.md) assignment through [UID:0000RK][g_pMessageShowPane](by-global/g_pMessageShowPane.md); final `MessageShowPane.cpp` versus compact `MessageDialogs.cpp` remains open.
+- 2026-06-05 projected-path assignment:
+  - Before: the path stayed blank because the final split between `MessageShowPane.cpp` and `MessageDialogs.cpp` was still open.
+  - After: set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/ui/dialogs/`, matching the documented proposed folder while preserving the caveat that `MessageShowPane.cpp` versus a compact `MessageDialogs.cpp` split still needs final audit.
+  - Summary/evidence: live IDA MCP `lookup_funcs` confirms the overlay cluster at `0x00520e30`, `0x00522530`, and `0x00522720`; `callers` again ties `0x00522530` to the message overlay packet/update path at `0x005ac150`, supporting a dialog-layer source root rather than leaving file coverage in error.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `84`, confidence `78`.
 - Summary/evidence: the page has detailed class/global/range ownership, packet-handler behavior, boundary notes, migration notes, and cross-references; confidence remains below strong-high because the final original source split between `MessageShowPane.cpp` and `MessageDialogs.cpp` is still open.
 - 2026-05-31 evidence-basis correction:
   - What existed before: the status line mixed generated `simroot_v2`/Wave3/Wave2 leads with IDA checks as if they were comparable evidence.
   - Changed to: IDA MCP is explicitly listed as the authority, while generated/cache/rename data is marked as lead/history only.
-  - Summary/evidence: live IDA MCP rechecked the singleton slot and class lifecycle xrefs on 2026-05-31; the final source-file split remains open, so the projected path line intentionally remains blank.
+  - Summary/evidence: live IDA MCP rechecked the singleton slot and class lifecycle xrefs on 2026-05-31; the final source-file split remained open at that time.

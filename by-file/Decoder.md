@@ -1,17 +1,18 @@
 *** UID:0000IQ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:81 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:83 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Decoder
 
 ## Status
 
-- Confidence: medium-high for source ownership and utility placement; medium for full live method reachability.
+- Confidence: strong for source ownership, shared cursor layout, compact vtable identity, and utility placement; medium-high for full live method reachability because the raw reader starts remain unmodeled and unreferenced.
 - Proposed module: `NexusTK/util/Decoder.cpp`, or folded into [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) if later evidence proves a single paired codec file.
-- Current recovered source: `source-3/simroot_v2/class_Decoder.cpp`
+- Autogen/source-root status: validated source root at `NexusTK/util/`; [UID:00003M][Decoder](by-class/Decoder.md) is attached here, and the exact modeled lifecycle/vtable-support pages now resolve through this root.
 - Primary vtable: [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md) at `0x006192d8`
 - Shared layout: [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md)
+- Coordinator evidence: [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) now records 2026-06-04 live IDA checks for the modeled Decoder boundaries, raw reader non-function/no-xref status, vtable dwords, shared cursor offsets, and padding envelopes.
 
 ## File Role
 
@@ -21,7 +22,7 @@
 
 | Entity | Address evidence | Role |
 | --- | --- | --- |
-| [UID:00003M][Decoder](by-class/Decoder.md) | `0x004a5640-0x004a5e23` | In-memory stream reader, reset/finalize, no-op virtual, and scalar deleting destructor. |
+| [UID:00003M][Decoder](by-class/Decoder.md) exact modeled lifecycle/support children | [UID:00013N][0x004a5640-0x004a5664.DecoderConstructor](by-memory/0x004a5640-0x004a5664.DecoderConstructor.md), [UID:00013O][0x004a5670-0x004a5677.DecoderDestructor](by-memory/0x004a5670-0x004a5677.DecoderDestructor.md), [UID:00013S][0x004a5dd0-0x004a5ded.DecoderFinalize](by-memory/0x004a5dd0-0x004a5ded.DecoderFinalize.md), [UID:00013T][0x004a5df0-0x004a5df1.DecoderNoopVirtual](by-memory/0x004a5df0-0x004a5df1.DecoderNoopVirtual.md), [UID:00013U][0x004a5e00-0x004a5e24.DecoderScalarDeletingDestructor](by-memory/0x004a5e00-0x004a5e24.DecoderScalarDeletingDestructor.md) | Exact IDA-modeled Decoder lifecycle and vtable-support pages now parent through the Decoder class to this source root. |
 | raw reader family | [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md) | Byte/short/int/string/raw-span readers; the starts are raw code heads rather than current IDA functions. |
 | primitive reader subset | [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md) | Exact raw disassembly for byte-order setter and byte/16-bit/24-bit/32-bit readers. |
 | string/blob reader subset | [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md) | Exact raw disassembly for UTF-16, multibyte, raw-span, transformed-span, skip, and initialize readers. |
@@ -48,22 +49,38 @@
 - Vtable `0x006192d8` has two slots, `0x004a5e00` and `0x004a5df0`, with constructor/destructor-owned refs.
 - Raw reader starts from `0x004a5680` through `0x004a5db0` still are not IDA-modeled functions and still have no direct xrefs in the current database. This supports utility placement but keeps confidence below high until caller recovery and exact boundary modeling improve.
 
+2026-06-04 BinaryCodec coordinator/layout synchronization:
+
+- [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) confirms the modeled Decoder bodies at `0x004a5640-0x004a5664`, `0x004a5670-0x004a5677`, `0x004a5dd0-0x004a5ded`, `0x004a5df0-0x004a5df1`, and `0x004a5e00-0x004a5e24`.
+- The same pass records the raw reader starts `0x004a5680`, `0x004a5690`, `0x004a56c0`, `0x004a5710`, `0x004a5770`, `0x004a57e0`, `0x004a5870`, `0x004a5930`, `0x004a5a40`, `0x004a5bb0`, `0x004a5c80`, `0x004a5cd0`, `0x004a5d80`, and `0x004a5db0` as still lacking IDA function objects and inbound code/data refs.
+- [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md) confirms every observed Decoder field offset: buffer `+0x04`, limit `+0x08`, cursor `+0x0c`, byte-order flag `+0x10`, and valid flag `+0x11`.
+- [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md) records the `0x006192d8` / `0x006192dc` Decoder vtable slots, constructor/destructor vtable-store refs, adjacent non-vtable data at `0x006192e0`, and the `0x004a5e54-0x004a5e60` padding boundary before the DAT parser helper.
+
 ## Boundary Notes
 
 Do not trust active generated `class_Decoder.cpp` as migration-ready source until the missing reader starts and 18-byte stream layout are modeled. See [wave3_data_issues](../wave3_data_issues.md) for the current generator/data caveat.
 
 ## Autogen Notes
 
-[UID:00003M][Decoder](by-class/Decoder.md) can attach to this source root because the Decoder file placement, class ownership, vtable, and shared cursor layout now have enough written evidence. Leave raw reader aggregate pages unattached until the non-modeled starts are represented by exact method pages or a deliberate aggregate insertion plan; otherwise the generated draft would only contain an overlapping placeholder for code that still lacks caller recovery.
+[UID:00003M][Decoder](by-class/Decoder.md) can attach to this source root because the Decoder file placement, class ownership, vtable, and shared cursor layout now have enough written evidence. The modeled constructor, non-deleting destructor, finalize/reset method, no-op virtual slot, and scalar deleting destructor are now attached below the Decoder class. Leave raw reader aggregate pages unattached until the non-modeled starts are represented by exact method pages or a deliberate aggregate insertion plan; otherwise the generated draft would only contain an overlapping placeholder for code that still lacks caller recovery.
+
+## Score Rationale
+
+The page moves to `83/84` because the Decoder source root now incorporates the 2026-06-04 BinaryCodec/layout evidence for modeled lifecycle boundaries, compact vtable identity, shared cursor offsets, raw-reader non-function/no-xref status, and the DAT parser padding boundary. Completion and confidence remain capped because the raw reader family still lacks IDA function objects, direct caller recovery, final method names/signatures, and final C++ emission.
 
 ## Cross-References
 
 - [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md)
 - [UID:00003M][Decoder](by-class/Decoder.md)
 - [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md)
+- [UID:00013N][0x004a5640-0x004a5664.DecoderConstructor](by-memory/0x004a5640-0x004a5664.DecoderConstructor.md)
+- [UID:00013O][0x004a5670-0x004a5677.DecoderDestructor](by-memory/0x004a5670-0x004a5677.DecoderDestructor.md)
 - [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md)
 - [UID:00013P][0x004a5680-0x004a57dc.DecoderPrimitiveReaders](by-memory/0x004a5680-0x004a57dc.DecoderPrimitiveReaders.md)
 - [UID:00013R][0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders](by-memory/0x004a57e0-0x004a5dce.DecoderStringAndBlobReaders.md)
+- [UID:00013S][0x004a5dd0-0x004a5ded.DecoderFinalize](by-memory/0x004a5dd0-0x004a5ded.DecoderFinalize.md)
+- [UID:00013T][0x004a5df0-0x004a5df1.DecoderNoopVirtual](by-memory/0x004a5df0-0x004a5df1.DecoderNoopVirtual.md)
+- [UID:00013U][0x004a5e00-0x004a5e24.DecoderScalarDeletingDestructor](by-memory/0x004a5e00-0x004a5e24.DecoderScalarDeletingDestructor.md)
 - [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md)
 - [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md)
 - [UID:0000J1][Encoder](by-file/Encoder.md)
@@ -82,3 +99,11 @@ Do not trust active generated `class_Decoder.cpp` as migration-ready source unti
   - What existed before: scores stayed at `79/72`, and the class autogen attachment stayed gated by the parent confidence even though the linked layout/vtable/raw-reader pages had since been strengthened.
   - Changed to: scores `81/82`; [UID:00003M][Decoder](by-class/Decoder.md) is eligible to attach to this source root while C++ remains blank.
   - Summary/evidence: [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md), [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md), [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md), and [UID:00013Q][0x004a5680-0x004a5dce.DecoderRawReaderFamily](by-memory/0x004a5680-0x004a5dce.DecoderRawReaderFamily.md) now document enough ownership, boundary, and source-placement evidence for medium-high file confidence. Raw reader starts still lack IDA function objects/callers, so no reconstruction C++ is emitted.
+- 2026-06-07 A007 exact child/source-root cleanup:
+  - What existed before: the status still pointed at `source-3/simroot_v2/class_Decoder.cpp`, and the proposed contents represented Decoder with a broad `0x004a5640-0x004a5e23` envelope.
+  - Changed to: source-root status now names validated `NexusTK/util/` placement, and proposed contents lists the exact modeled lifecycle/vtable-support child pages [UID:00013N][0x004a5640-0x004a5664.DecoderConstructor](by-memory/0x004a5640-0x004a5664.DecoderConstructor.md), [UID:00013O][0x004a5670-0x004a5677.DecoderDestructor](by-memory/0x004a5670-0x004a5677.DecoderDestructor.md), [UID:00013S][0x004a5dd0-0x004a5ded.DecoderFinalize](by-memory/0x004a5dd0-0x004a5ded.DecoderFinalize.md), [UID:00013T][0x004a5df0-0x004a5df1.DecoderNoopVirtual](by-memory/0x004a5df0-0x004a5df1.DecoderNoopVirtual.md), and [UID:00013U][0x004a5e00-0x004a5e24.DecoderScalarDeletingDestructor](by-memory/0x004a5e00-0x004a5e24.DecoderScalarDeletingDestructor.md).
+  - Summary/evidence: the exact child pages now meet the documented autogen parent gate and parent through [UID:00003M][Decoder](by-class/Decoder.md). Scores remain `81/82` because the raw reader starts still lack modeled function objects/caller recovery and final C++ remains blank.
+- 2026-06-07 A010 BinaryCodec evidence synchronization:
+  - What existed before: the page was scored `81/82` and listed exact children, but did not yet summarize the 2026-06-04 BinaryCodec coordinator/layout pass.
+  - Changed to: scores `83/84`, updated status and evidence notes for the shared cursor layout, vtable slots, raw-reader non-function/no-xref status, and adjacent DAT parser boundary.
+  - Summary/evidence: [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md), [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md), and [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md) now support a stronger source-root score while preserving the raw-reader/caller/C++ gate.

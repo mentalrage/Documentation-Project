@@ -1,6 +1,6 @@
 *** UID:0000AA | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000MH | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:20 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -49,6 +49,7 @@
 - Constructor caller evidence points back to the same application startup patch decision function that constructs `PatchPane`.
 - [UID:0001YF][PatchPaneVtableFamily](by-type/by-vtable/PatchPaneVtableFamily.md) confirms the primary vtable at `0x00621f40`, the secondary work-event vtable at `0x00621fa0`, and the tertiary vtable at `0x00621fd0`. Generated metadata currently reports `vtable_count: 0` and should not be trusted for polymorphism.
 - [UID:0001VJ][PatchPane2Layout](by-type/by-struct/PatchPane2Layout.md) documents the IDA-backed tail fields at `+0x26c-+0x290`, including the final/temp patcher paths, filename vector, active `FILE*`, index/retry counters, and version components.
+- 2026-06-08 Batch124 live IDA MCP reconfirms the singleton side of this class: `0x0069ba2c` is a 4-byte `.data` slot initialized to `0xffffffff`, with constructor writes/clears at `0x005486f4` and `0x005486fb`, raw cleanup/body reference at `0x00548a6d`, singleton clear helper write at `0x00549340`, and scalar deleting destructor clear at `0x005493d0`. Function lookup also reconfirms constructor `0x00548690` size `0x376`, main loop `0x00548a80` size `0x49a`, clear helper `0x00549340` size `0x0b`, destructor `0x00549370` size `0x9f`, and raw `0x00549020` not being an IDA function.
 
 ## Open Questions
 
@@ -83,3 +84,7 @@
 - Changed to: `COMPLETION:84` and `CONFIDENCE:76`.
 - 2026-06-01 update: raised to `COMPLETION:86`, `CONFIDENCE:82` after the main loop gained exact IDA-backed range, vtable, event-state, touched-field, callee, and switch-table evidence.
 - Evidence: constructor, excluded main loop, work-event predicate, close/finish/rename/request/error helpers, scalar deleting destructor, `g_pPatchPane2`, `g_pMiscWorkThread`, vtable family, and layout doc are recorded; confidence remains below final-source quality because active generated output omits the core main loop and has a false `0x00549020` row.
+- 2026-06-08 A005 Batch124 parent-gate refresh:
+  - Before: `86/82`.
+  - Changed to: `86/85`.
+  - Summary/evidence: live IDA MCP reconfirmed the `g_pPatchPane2` lifecycle xrefs, constructor/main-loop/clear-helper/destructor boundaries, and raw `0x00549020` non-function caveat. Confidence now clears the corrected gate for class-owned PatchPane2 helper children; final C++ remains below threshold because several source names and the `PatchPane.cpp` versus companion-file split are still provisional.

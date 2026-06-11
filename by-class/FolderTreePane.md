@@ -1,8 +1,8 @@
 *** UID:00005A | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for filesystem-tree control core; medium for final source split and field names.
+- Confidence: strong for filesystem-tree control core, nested `TreeElem` ownership, and local tree-template helper relationships; medium-high for final source split and field names.
 - Likely source file: [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md)
 - Address ranges: [UID:000155][0x004b1b90-0x004b32c9.FolderTreePaneCore](by-memory/0x004b1b90-0x004b32c9.FolderTreePaneCore.md), [UID:000156][0x004b3210-0x004b32c9.FolderTreePaneSetSelection](by-memory/0x004b3210-0x004b32c9.FolderTreePaneSetSelection.md), [UID:000157][0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers](by-memory/0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers.md), and [UID:00022E][0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers](by-memory/0x004b5c40-0x004b5efc.FolderTreePaneVectorSupportHelpers.md)
 - Vtables: [UID:0001XL][FolderTreePaneVtables](by-type/by-vtable/FolderTreePaneVtables.md)
@@ -50,9 +50,18 @@
 - The embedded `Tree<FolderTreePane::TreeElem>` starts at offset `0x130` (`304`).
 - The folder icon/tile context begins around offset `0x148` (`328`) in constructor evidence.
 - The selected iterator starts at offset `0x170` (`368`).
-- `FolderTreePane::TreeElem` is a 36-byte record. See [UID:0001UJ][FolderTreePane__TreeElem](by-type/by-struct/FolderTreePane__TreeElem.md).
+- `FolderTreePane::TreeElem` is a 36-byte nested record now attached to this class. See [UID:0001UJ][FolderTreePane__TreeElem](by-type/by-struct/FolderTreePane__TreeElem.md).
 - IDA confirms three `FolderTreePane` vptr views at `+0x00`, `+0xa0`, and `+0xa4`, plus helper vtables for the embedded `Tree` and selected `TreeItor`; see [UID:0001XL][FolderTreePaneVtables](by-type/by-vtable/FolderTreePaneVtables.md).
 - The generated `virt_meth_0x430049` and `virt_meth_0x450045` rows are false virtuals derived from the adjacent UTF-16 `TREEICON.EPF` string after the tertiary vtable, not class methods.
+
+## Batch 127 TreeElem Evidence
+
+Live IDA MCP recheck on 2026-06-08 refreshed the nested tree-element evidence while reviewing [UID:0002MW][0x004b55e0-0x004b564d.FolderTreeElemCopyConstruct](by-memory/0x004b55e0-0x004b564d.FolderTreeElemCopyConstruct.md) and [UID:0002MX][0x004b56e0-0x004b575f.FolderTreeStorageDestructor](by-memory/0x004b56e0-0x004b575f.FolderTreeStorageDestructor.md):
+
+- `FindFirstVisibleChild` at `0x004b1d50` writes child links and uses offsets `+0x04`, `+0x08`, `+0x10`, `+0x1c`, and `+0x1d` while lazily enumerating child directories.
+- `CollapseNode` at `0x004b2540` clears byte `TreeElem+0x1d`, confirming that byte as the expanded flag.
+- Iterator helpers read `TreeElem+0x00` as parent, `+0x04` as first child, `+0x10` as next visible sibling, and byte `+0x20` as the hidden/deleted skip flag.
+- `TreeStorage<FolderTreePane::TreeElem>` helper pages tie insert/copy/destruction directly to the nested type and the concrete storage class, while [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md) remains the source file parent.
 
 ## Ownership Notes
 
@@ -75,4 +84,9 @@ The active generated file should be treated as polluted. Only the filesystem-tre
 
 ## Changes
 
+- 2026-06-08 A006 Batch 127 parent-gate repair:
+  - What existed before: score `82/84`; the class was attached to the file parent but stayed below the corrected `85/85` gate for nested `TreeElem` ownership.
+  - Changed to: score `85/86`.
+  - Summary/evidence: live IDA refreshed `TreeElem` field use across `FindFirstVisibleChild`, `CollapseNode`, `GetNodeBounds`, the iterator traversal helpers, the copy helper, and the storage destructor. The page now supports [UID:0001UJ][FolderTreePane__TreeElem](by-type/by-struct/FolderTreePane__TreeElem.md) as a direct nested type under `FolderTreePane`, while final source field names and header factoring still cap the score below final-audit quality.
 - Completion/confidence score update: existed before as `0/0`; changed to `82/84`. Summary: filesystem-tree role, major methods, layout offsets, vtable views, helper ownership, false virtual caveats, and pollution boundaries are extensively documented; remaining work is final source split, field naming, and full C++ reconstruction. Evidence: core/helper/vector memory pages, `FolderTreePaneVtables`, `FolderTreePane__TreeElem`, and owner-pollution note.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md) because the class is `82/84` and the parent is `88/80`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts for the core/tree/paint/input/selection/destructor methods from `0x004b1b90` through `0x004b5a70`; current `callers` confirms the constructor reference at `0x004b178b`.

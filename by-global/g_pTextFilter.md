@@ -1,6 +1,6 @@
 *** UID:0000SG | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000OO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -17,11 +17,14 @@
 - Type hypothesis: `TextFilter*`.
 - Likely owner: [UID:0000OO][TextFilter](by-file/TextFilter.md).
 - Exact memory context: [UID:0001JU][0x00595760-0x005958fe.TextFilterAndSanitizer](by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md).
-- Confidence: strong for address and lifecycle, medium for final source folder.
+- Exact storage context: [UID:0002XT][0x0067adc8-0x0067adcc.g_pTextFilter](by-memory/0x0067adc8-0x0067adcc.g_pTextFilter.md) records the four-byte TextFilter singleton slot split from the former UI/chat/clan singleton run.
+- Confidence: strong for address, lifecycle, vtable anchor, and sanitizer caller relationship; medium for final source folder.
 
 ## Purpose
 
 `g_pTextFilter` stores the process-wide [UID:0000EQ][TextFilter](by-class/TextFilter.md) singleton. The object itself is tiny; most user-text cleanup is performed by the neighboring [UID:0000TK][SanitizeWideTextForChat](by-global/SanitizeWideTextForChat.md) helper.
+
+Treat the `0x0067adc4-0x0067adec` `.data` cluster as physical storage adjacency, not as one source-level globals structure. The TextFilter declaration belongs with [UID:0000OO][TextFilter](by-file/TextFilter.md); neighboring slots belong to system-message/chat and clan UI modules.
 
 ## Evidence
 
@@ -30,6 +33,9 @@
 - `TextFilter::TextFilter` at `0x00595760-0x00595795` stores `this` into `0x0067adc8` and installs the [UID:0001YY][TextFilterVtable](by-type/by-vtable/TextFilterVtable.md).
 - The non-deleting destructor-like body at `0x005957a0-0x005957b1` and scalar deleting destructor at `0x005958d0-0x005958fe` both clear the singleton.
 - Live IDA ties the singleton lifecycle to this exact address; final source naming remains below the 95+ reconstruction threshold.
+- [UID:0001JU][0x00595760-0x005958fe.TextFilterAndSanitizer](by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md) records the exact constructor, non-deleting body, sanitizer helper, scalar deleting destructor, padding boundaries before `TextPad`, one startup constructor caller, 14 sanitizer calls, and all 19 singleton data xrefs.
+- [UID:0002XT][0x0067adc8-0x0067adcc.g_pTextFilter](by-memory/0x0067adc8-0x0067adcc.g_pTextFilter.md) records the slot-level xref count and separates the TextFilter slot from adjacent system-message, chat, and clan singleton slots.
+- [UID:0002OZ][0x0062e184-0x0062e18c.TextFilterVtableData](by-memory/0x0062e184-0x0062e18c.TextFilterVtableData.md) records the one-slot TextFilter vtable data at `0x0062e188`, its constructor/destructor xrefs, and the boundary before `TextPad` metadata.
 
 ## Users
 
@@ -52,6 +58,9 @@ IDA data xrefs include article/mail/profile/party-search/spell/chat submit paths
 - [UID:0001YY][TextFilterVtable](by-type/by-vtable/TextFilterVtable.md)
 - [UID:0001JU][0x00595760-0x005958fe.TextFilterAndSanitizer](by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md)
 - [UID:0001JT][0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter](by-memory/0x00594e60-0x005958fe.TextEditSupportObjectsAndFilter.md)
+- [UID:0002B5][0x0067adc4-0x0067adec.UiChatClanSingletonSlots](by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md)
+- [UID:0002XT][0x0067adc8-0x0067adcc.g_pTextFilter](by-memory/0x0067adc8-0x0067adcc.g_pTextFilter.md)
+- [UID:0002OZ][0x0062e184-0x0062e18c.TextFilterVtableData](by-memory/0x0062e184-0x0062e18c.TextFilterVtableData.md)
 
 ## Changes
 
@@ -62,3 +71,8 @@ IDA data xrefs include article/mail/profile/party-search/spell/chat submit paths
 - 2026-06-04: Corrected linked TextFilter lifecycle ranges to live IDA end-exclusive endpoints.
   - Evidence: live IDA MCP reports constructor `0x00595760-0x00595795`, non-deleting body `0x005957a0-0x005957b1`, scalar deleting destructor `0x005958d0-0x005958fe`, and the same 19 data xrefs for `0x0067adc8`.
   - Score unchanged because this edit only aligns endpoints and removes stale source-output wording; the address/lifecycle confidence was already reflected in `76/84`.
+- 2026-06-06: Raised `COMPLETION` from `76` to `86` and `CONFIDENCE` from `84` to `88`.
+  - Added current storage-cluster context, exact TextFilter/sanitizer range support, one-slot vtable-data evidence, and a source-adjacency caveat for the surrounding UI/chat/clan singleton run.
+  - Evidence: existing IDA-backed docs now account for the singleton lifecycle and sanitizer in [UID:0001JU][0x00595760-0x005958fe.TextFilterAndSanitizer](by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md), slot-level xrefs in [UID:0002B5][0x0067adc4-0x0067adec.UiChatClanSingletonSlots](by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md), vtable data in [UID:0002OZ][0x0062e184-0x0062e18c.TextFilterVtableData](by-memory/0x0062e184-0x0062e18c.TextFilterVtableData.md), and file ownership in [UID:0000OO][TextFilter](by-file/TextFilter.md). Final C++ remains blank because the final `ui/controls` versus `util` folder and sanitizer signature spelling are below the 95/95 threshold.
+- 2026-06-07 A008 Batch 037 split refresh:
+  - Exact storage context now points to [UID:0002XT][0x0067adc8-0x0067adcc.g_pTextFilter](by-memory/0x0067adc8-0x0067adcc.g_pTextFilter.md), while the old mixed [UID:0002B5][0x0067adc4-0x0067adec.UiChatClanSingletonSlots](by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md) page is retained only as a non-reconstructable split map.

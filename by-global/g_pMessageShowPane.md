@@ -2,7 +2,7 @@
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LB | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,7 +17,9 @@
 - Symbol kind: global-data pointer
 - Final source type: `MessageShowPane* g_pMessageShowPane`.
 - Likely owner file: [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md)
+- Autogen parent: [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md), now that the file page clears the parent gate and records the constructor/destructor, packet-update, vtable, read-only data, and singleton evidence.
 - Generated owner lead: `class_MessageShowPane.cpp` (lead only; IDA xrefs/decompilation are the authority).
+- Reconstruction status: attach as source-declared `MessageShowPane` overlay singleton storage; keep final C++ blank until the `MessageShowPane.cpp` versus `MessageDialogs.cpp` split and the historical `g_pExtendedUIPane` alias conflict are reconciled.
 
 ## Role
 
@@ -62,6 +64,10 @@ Rechecked through live IDA MCP on 2026-05-31:
 
 Wave2 rename registry contains an early direct rename from `DAT_0069b4f4` to `g_pMessageShowPane`, but a later map row aliases the same raw symbol to `g_pExtendedUIPane`. Current direct xrefs in the message overlay cluster support `g_pMessageShowPane` for this role. Treat `g_pExtendedUIPane` as a suspect broader alias until a wider global cleanup pass reconciles the surrounding `0x0069b4xx` pane singleton group.
 
+## Parent Attachment Guidance
+
+Use [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md) as the autogen parent for this global. The file page is now above the `80/80` parent gate and ties the overlay constructor, destructor, scalar-deleting destructor, wrapped-text updater, packet handler, vtable/read-only data, and exact singleton storage into one source-root chain. This attachment is a source ownership link only; it does not settle whether the original source emitted a standalone `MessageShowPane.cpp` file or a compact `MessageDialogs.cpp` grouping.
+
 ## Cross-References
 
 - [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md)
@@ -79,3 +85,7 @@ Wave2 rename registry contains an early direct rename from `DAT_0069b4f4` to `g_
   - What existed before: `RECONSTRUCTABLE` was blank, score remained `84/82`, and the page still contained a stale note that IDA MCP was unavailable during the last score pass.
   - Changed to: `RECONSTRUCTABLE:TRUE`, completion `86`, confidence `86`, and a current live IDA MCP recheck section.
   - Summary/evidence: live IDA MCP `xrefs_to`, `lookup_funcs`, and `decompile` verified the exact storage slot, lifecycle writers, packet-handler readers, and cleanup path. Scores remain below `95` because source-file placement and the historical alias conflict still require a wider audit.
+- 2026-06-07 A007 parent attachment:
+  - What existed before: `AUTOGEN_PARENT_UID` was blank even though [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md) now clears the parent gate and lists this singleton in its proposed contents.
+  - Changed to: `AUTOGEN_PARENT_UID:0000LB`, added explicit autogen-parent status, and recorded attachment guidance.
+  - Summary/evidence: the file page records the overlay constructor/destructor cluster, `MessageShowPaneSetWrappedText`, vtable/read-only data, packet-handler behavior, and [UID:0001PX][0x0069b4f4-0x0069b4f8.g_pMessageShowPane](by-memory/0x0069b4f4-0x0069b4f8.g_pMessageShowPane.md). No score or final C++ change was made because the original source split and historical alias conflict remain open.

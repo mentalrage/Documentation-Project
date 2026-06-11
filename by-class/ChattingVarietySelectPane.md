@@ -1,8 +1,8 @@
 *** UID:00001Z | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000I5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -77,3 +77,4 @@
 - 2026-05-31: Updated completion/confidence from `72/80` to `76/84` after documenting the raw unmodeled constructor/helper bodies and exact destructor body before the existing mouse-dispatch range. Evidence: IDA MCP raw decode, function boundary checks, decompilation, xref checks, and padding audit.
 - 2026-05-31: Updated completion/confidence from `76/84` to `84/88` after adding exact pages for mouse dispatch, dismiss, paint, background setup, border drawing, row rectangle, hit-test, and raw state compare/snapshot helpers through `0x00481c10`. Evidence: IDA MCP function iteration, vtable xrefs, decompilation, raw disassembly, and padding audit.
 - 2026-06-03: Clarified that the raw `0x00481010`/`0x00481060` compact-button helpers are cross-referenced setup support but attach to [UID:00001Y][ChattingVarietyPane](by-class/ChattingVarietyPane.md), while this popup's own six-row geometry remains [UID:0002FM][0x00481a80-0x00481acd.ChattingVarietySelectPaneGetItemRect](by-memory/0x00481a80-0x00481acd.ChattingVarietySelectPaneGetItemRect.md) and [UID:000106][0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest](by-memory/0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest.md).
+- 2026-06-05: Reclassified autogen metadata from unclassified to `RECONSTRUCTABLE:TRUE` and attached the class to [UID:0000I5][Chatting](by-file/Chatting.md). Current IDA MCP `lookup_funcs` reconfirmed destructor/mouse/dismiss/paint/background/border/rect/hit-test/scalar-destructor starts at `0x00481150`, `0x004811c0`, `0x00481470`, `0x00481490`, `0x004816d0`, `0x00481750`, `0x00481a80`, `0x00481ad0`, and `0x00483db0`; constructor evidence remains raw/unmodeled as already documented. Both class (`84/88`) and file (`83/87`) clear the 80+ attachment gate; reconstruction C++ remains blank pending final raw-helper naming and field layout.

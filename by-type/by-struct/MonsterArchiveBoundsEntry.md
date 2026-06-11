@@ -2,7 +2,7 @@
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00008N | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Confidence: strong for size and field offsets.
 - Owner class: [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md).
 - Size: 0x18 bytes.
+- Autogen parent: attached to [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md); the class scores `84/82` and this entry page scores `80/88`, so both sides satisfy the 80/80 parent gate.
 - Evidence: IDA decompilation of `MonsterImageLib::GetArchiveBoundsBucket` at `0x004dbe60`.
 
 ## Layout
@@ -49,6 +50,7 @@ MonsterArchiveBoundsEntry
 
 ## Changes
 
+- 2026-06-06: Attached the bounds entry to [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md). Scores remain `80/88`; the record is class-owned archive metadata used by `MonsterImageLib::GetArchiveBoundsBucket`.
 - Before: validator metadata was unevaluated at completion `0`, confidence `0`, and reconstructable blank.
 - Changed to: `RECONSTRUCTABLE:TRUE`, completion `80`, confidence `88`.
 - Summary/evidence: IDA MCP on 2026-05-31 verified the 0x18 stride, four signed 16-bit rectangle inputs, shared RectBounds initializer call, two 4-byte payload offsets at `+0x10/+0x14`, conversion of offsets into payload-base pointers, and the terminal sentinel entry. Scores remain below `95` because original source names and full DAT payload semantics are not exhaustively recovered.

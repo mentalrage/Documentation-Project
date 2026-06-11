@@ -1,8 +1,8 @@
 *** UID:0000RT | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LR | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -53,11 +53,19 @@ IDA MCP reports 52 xrefs to `0x0067a760` as of 2026-05-26. Representative reader
 
 When rebuilding source, preserve this singleton as the canonical global for `0x0067a760` and treat the many composition/read callers as consumers.
 
+`AUTOGEN_PARENT_UID:0000LR` remains the correct file assignment. The strict child/direct-parent gate clears for the global-to-file relationship because this page is now `85/88` and direct parent [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) is `87/85`. The exact storage child [UID:0001OV][0x0067a760-0x0067a764.g_pNewHumanImageLib](by-memory/0x0067a760-0x0067a764.g_pNewHumanImageLib.md) is strong supporting evidence at `84/90`, but it remains below 85 completion and is not used as a child-gate claim.
+
+## Score Rationale
+
+- Completion `85`: exact singleton storage, 52 xrefs, constructor publish/fallback clear, destructor clear, static cleanup-helper clear, shutdown access, representative render/look/profile consumers, old/new HumanImageLib separation, exact storage-page support, and direct file-parent gate clearance are documented.
+- Confidence `88`: existing IDA-backed docs consistently prove the storage, lifecycle, owner, and consumer role. Confidence stays below final-audit quality because the final original symbol spelling and semantic classification of all 52 xrefs remain open.
+
 ## 2026-05-30 Review Notes
 
 - IDA MCP `py_eval` on 2026-05-30 confirms `0x0067a760` is `dword_67A760`, size `4`, in `.data`, with 52 data xrefs.
 - Live IDA xrefs confirm constructor writes at `0x004dfd67` and `0x004dfd6e` in `sub_4DFD10`, destructor clear at `0x004e059e` in `sub_4E0250`, singleton clear at `0x004e5be0` in `sub_4E5BE0`, and application shutdown access at `0x004f65f2` in `sub_4F6490`.
 - Live IDA xrefs confirm the representative consumer clusters already documented around `0x00424452`, `0x004d23f7`, `0x004fb8ae`, the `0x004fdxxx` look/profile neighborhood, `0x00520619`, `0x0057108e`, and later UI/render functions.
+- Live IDA decompilation on 2026-06-05 confirms `0x004dfd10` stores the adjusted object pointer into `dword_67A760` and installs the `NewHumanImageLib` vtable; `0x004e0250` and `0x004e5be0` clear the singleton during cleanup/destruction.
 - [UID:0001OV][0x0067a760-0x0067a764.g_pNewHumanImageLib](by-memory/0x0067a760-0x0067a764.g_pNewHumanImageLib.md) remains the canonical memory page for this slot and matches the live IDA check.
 - The 52 xrefs are not all semantically classified yet, so completion remains below full despite strong confidence in address and owner.
 
@@ -65,7 +73,7 @@ When rebuilding source, preserve this singleton as the canonical global for `0x0
 
 - [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md)
 - [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md)
-- [UID:00017R][0x004dfd10-0x004e68a7.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md)
+- [UID:00017R][0x004dfd10-0x004e68a8.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a8.NewHumanImageLib.md)
 - [UID:0001OV][0x0067a760-0x0067a764.g_pNewHumanImageLib](by-memory/0x0067a760-0x0067a764.g_pNewHumanImageLib.md)
 - [UID:0001Y9][NewHumanImageLibVtable](by-type/by-vtable/NewHumanImageLibVtable.md)
 - [UID:0001VF][NewHumanImageLibLayout](by-type/by-struct/NewHumanImageLibLayout.md)
@@ -76,3 +84,11 @@ When rebuilding source, preserve this singleton as the canonical global for `0x0
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `82`, confidence `88`.
 - Summary/evidence: live IDA MCP on 2026-05-30 verified exact storage, size, segment, 52 xrefs, lifecycle writes/clears, shutdown access, and representative consumer clusters. Completion remains below full because every consumer xref has not been individually named/classified and final original symbol spelling remains medium confidence.
+
+- 2026-06-05 autogen classification:
+  - What existed before: autogen metadata was blank, so the singleton was reported as unclassified.
+  - Changed to: `RECONSTRUCTABLE:TRUE` with `AUTOGEN_PARENT_UID:0000LR`; `RECONSTRUCTION_CPP CODE` remains empty.
+  - Summary/evidence: live IDA MCP `xrefs_to 0x0067a760` and decompilation/disassembly of `0x004dfd10`, `0x004e0250`, and `0x004e5be0` prove NexusTK-owned `NewHumanImageLib` singleton storage owned by [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md). No final C++ body was added because the page is below the 95/95 reconstruction gate.
+- 2026-06-10 A001 strict gate repair:
+  - Changed completion from `82` to `85`; confidence remains `88`.
+  - Summary/evidence: direct parent [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) is `87/85`, this global now documents the singleton lifecycle and owner evidence enough to clear the corrected strict `85/85` assignment gate, and exact storage page [UID:0001OV][0x0067a760-0x0067a764.g_pNewHumanImageLib](by-memory/0x0067a760-0x0067a764.g_pNewHumanImageLib.md) supports the address/lifecycle evidence at `84/90` without being treated as a child-gate pass. C++ remains blank below the final `95/95` gate.

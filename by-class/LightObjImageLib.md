@@ -1,8 +1,8 @@
 *** UID:000076 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KP | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,12 +12,13 @@
 
 ## Status
 
-- Confidence: strong for method roles, singleton/vtable evidence, and observed layout offsets; medium for final field names.
+- Confidence: strong for method roles, singleton/vtable evidence, observed layout offsets, and draw-mode virtual slots; medium for final field names.
 - Likely source file: [UID:0000KP][LightObjImageLib](by-file/LightObjImageLib.md)
-- Address ranges: [UID:00017P][0x004df7e0-0x004e669c.LightObjImageLib](by-memory/0x004df7e0-0x004e669c.LightObjImageLib.md)
+- Address ranges: [UID:00017P][0x004df7e0-0x004e669d.LightObjImageLib](by-memory/0x004df7e0-0x004e669d.LightObjImageLib.md)
 - Current recovered file: `source-3/simroot_v2/class_LightObjImageLib.cpp`
 - Singleton: [UID:0000RD][g_pLightObjImageLib](by-global/g_pLightObjImageLib.md) at `0x0069b450`
 - Vtable: [UID:0001XY][LightObjImageLibVtable](by-type/by-vtable/LightObjImageLibVtable.md) at `0x0061b754`
+- Exact vtable data: [UID:00031S][0x0061b750-0x0061b768.LightObjImageLibVtableData](by-memory/0x0061b750-0x0061b768.LightObjImageLibVtableData.md)
 
 ## Class Purpose
 
@@ -50,10 +51,16 @@ The recovered [UID:0001UW][LightInfo](by-type/by-struct/LightInfo.md) rows are `
 
 IDA MCP on 2026-05-22 confirms the constructor has one startup caller at `0x004f6139`. The two draw methods have no direct code refs because they are virtual dispatch targets, but IDA confirms slots `+0x0c` and `+0x10` in the class vtable and both methods call the same frame blitter at `0x00462e10`; see [UID:0000UI][DrawFrameWithBlendMode_00462E10](by-item/DrawFrameWithBlendMode_00462E10.md).
 
+## 2026-06-08 Vtable Gate Recheck
+
+Batch 139 added [UID:00031S][0x0061b750-0x0061b768.LightObjImageLibVtableData](by-memory/0x0061b750-0x0061b768.LightObjImageLibVtableData.md) for the exact compiler-emitted RTTI/vtable range. The child confirms `0x0061b750 -> ??_R4LightObjImageLib@@6B@`, five slot dwords, constructor/raw-destructor/scalar-deleting-destructor xrefs, and the neighboring `ProtectedArray<LightInfo>` and `NewHumanImageLib` boundaries.
+
+This class is the direct source owner for [UID:0001XY][LightObjImageLibVtable](by-type/by-vtable/LightObjImageLibVtable.md). The adjacent `ProtectedArray<LightInfo>` vtable remains template/container support and is not folded into the class primary vtable. The improved parent/source evidence is enough for the strict `85/85` parent gate, while final field names and source-quality C++ are still below final-audit status.
+
 ## Cross-References
 
 - [UID:0000KP][LightObjImageLib](by-file/LightObjImageLib.md)
-- [UID:00017P][0x004df7e0-0x004e669c.LightObjImageLib](by-memory/0x004df7e0-0x004e669c.LightObjImageLib.md)
+- [UID:00017P][0x004df7e0-0x004e669d.LightObjImageLib](by-memory/0x004df7e0-0x004e669d.LightObjImageLib.md)
 - [UID:0002IU][0x004df7e0-0x004dfaa6.LightObjImageLibConstructor](by-memory/0x004df7e0-0x004dfaa6.LightObjImageLibConstructor.md)
 - [UID:00017Q][0x004dfab0-0x004dfb36.LightObjImageLibDestructor](by-memory/0x004dfab0-0x004dfb36.LightObjImageLibDestructor.md)
 - [UID:0002IV][0x004dfb40-0x004dfbb0.LightObjImageLibGetLightBounds](by-memory/0x004dfb40-0x004dfbb0.LightObjImageLibGetLightBounds.md)
@@ -63,6 +70,7 @@ IDA MCP on 2026-05-22 confirms the constructor has one startup caller at `0x004f
 - [UID:0002IY][0x004e65e0-0x004e669d.LightObjImageLibScalarDeletingDestructor](by-memory/0x004e65e0-0x004e669d.LightObjImageLibScalarDeletingDestructor.md)
 - [UID:0000RD][g_pLightObjImageLib](by-global/g_pLightObjImageLib.md)
 - [UID:0001XY][LightObjImageLibVtable](by-type/by-vtable/LightObjImageLibVtable.md)
+- [UID:00031S][0x0061b750-0x0061b768.LightObjImageLibVtableData](by-memory/0x0061b750-0x0061b768.LightObjImageLibVtableData.md)
 - [UID:0001UX][LightObjImageLibLayout](by-type/by-struct/LightObjImageLibLayout.md)
 - [UID:0001UW][LightInfo](by-type/by-struct/LightInfo.md)
 - [UID:0000UI][DrawFrameWithBlendMode_00462E10](by-item/DrawFrameWithBlendMode_00462E10.md)
@@ -71,6 +79,11 @@ IDA MCP on 2026-05-22 confirms the constructor has one startup caller at `0x004f
 
 ## Changes
 
+- 2026-06-08 A007 Batch 139 vtable-parent gate update:
+  - What existed before: class scores were `84/80`, below the strict direct-parent gate for [UID:0001XY][LightObjImageLibVtable](by-type/by-vtable/LightObjImageLibVtable.md).
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:86`, exact vtable-data child link, and a vtable gate recheck section.
+  - Summary/evidence: [UID:00031S][0x0061b750-0x0061b768.LightObjImageLibVtableData](by-memory/0x0061b750-0x0061b768.LightObjImageLibVtableData.md) records the RTTI/vtable dwords, draw-mode virtual slots, target sizes, xrefs, and neighboring template/class boundaries. Scores remain below final audit because field names and final C++ source shape remain medium-confidence.
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000KP][LightObjImageLib](by-file/LightObjImageLib.md) because this class is 84/80 and the parent file is 86/80. Live IDA MCP on `NexusTK.exe` confirmed constructor `0x004df7e0`, bounds/draw methods `0x004dfb40`, `0x004dfbb0`, `0x004dfc60`, singleton clear helper `0x004e5bb0`, and scalar deleting destructor `0x004e65e0`; the documented raw destructor address `0x004dfab0` is intentionally not used as attachment proof because IDA does not model it as a function start.
 - Completion/confidence score update: existed before as `0/0`; changed to `84/80`. Summary: the singleton library is documented at a high level of detail across purpose, observed layout, vtable, global, `LIGHT.TBL` loading, generated light-frame lifetime, and draw methods, but exact final field names are still medium-confidence. Evidence: linked memory range, `LightInfo` and layout type pages, `g_pLightObjImageLib`, vtable slot evidence, constructor startup caller, and shared frame blitter reference.
 - 2026-05-31 exact method split:
   - What existed before: the method table used bare addresses for the constructor, draw modes, and scalar deleting destructor and did not include the `0x004dfb40` bounds helper.

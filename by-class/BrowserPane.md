@@ -1,6 +1,6 @@
 *** UID:000019 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -14,7 +14,7 @@
 
 `BrowserPane` is a `DialogPane`-derived UI pane for browser-related command handling and selection behavior. It handles browser command codes, keyboard filtering, selection state, timer/sound delegation, and item activation.
 
-Current confidence is high for browser-module ownership, the command/key/sound methods, alert-string usage, vtable placement, and source parent placement under [UID:0000HV][Browser](by-file/Browser.md). It remains capped below final-reconstruction quality because the constructor-shaped block at `0x0046a860` is still not an IDA-modeled function or referenced call target, and several control-list helpers used by BrowserPane are shared `DialogPane` infrastructure rather than Browser-private methods.
+Current confidence is high for browser-module ownership, the command/key/timer/sound methods, alert-string usage, vtable placement, and source parent placement under [UID:0000HV][Browser](by-file/Browser.md). It remains capped below final-reconstruction quality because the constructor-shaped block at `0x0046a860` is still not an IDA-modeled function or referenced call target, and several control-list helpers used by BrowserPane are shared `DialogPane` infrastructure rather than Browser-private methods.
 
 ## Likely Original Placement
 
@@ -49,10 +49,32 @@ Current confidence is high for browser-module ownership, the command/key/sound m
 - BrowserPane vtable slots confirm `OnCommand` at `0x00613348`, `0x006133f8`, `0x00613638`, and `0x006136e8`; timer delegation at `0x0061334c`, `0x006133fc`, `0x0061363c`, and `0x006136ec`; sound delegation at `0x00613350`, `0x00613400`, `0x00613640`, and `0x006136f0`.
 - `sub_470FC0` at `0x00470fc0-0x00470fdc` delegates timer scheduling through `sub_5975E0(this+0xa4, a2, a3, 0, 0)`, and `sub_4710D0` at `0x004710d0-0x004710df` delegates sound through `sub_597610(this+0xa4, a2)`.
 - `sub_470690` at `0x00470690-0x004706e5` is the scalar deleting destructor slot at `0x006132ec`; it restores all three BrowserPane vtable views, calls `sub_49D9F0`, and conditionally frees through `sub_4F4AC0` when the delete flag permits.
-- [UID:0000HV][Browser](by-file/Browser.md) is scored `84/88`, has `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/browser/"`, and groups BrowserPane with the dense browser/OLE module after IDA-backed boundary, helper, and global ownership checks.
+- [UID:0000HV][Browser](by-file/Browser.md) is scored `86/88`, has `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/browser/"`, and groups BrowserPane with the dense browser/OLE module after IDA-backed boundary, helper, and global ownership checks.
 - [UID:00012S][0x0049dae0-0x0049dfc4.DialogControlPaneHelpers](by-memory/0x0049dae0-0x0049dfc4.DialogControlPaneHelpers.md) is scored `74/84`, attached to [UID:0000IT][DialogPane](by-file/DialogPane.md), and records broad non-browser caller distribution for the selection helpers.
-- [UID:0000HV][Browser](by-file/Browser.md) is scored `84/88`, has `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/browser/"`, and groups BrowserPane with the dense browser/OLE module after IDA-backed boundary, helper, and global ownership checks.
-- [UID:00012S][0x0049dae0-0x0049dfc4.DialogControlPaneHelpers](by-memory/0x0049dae0-0x0049dfc4.DialogControlPaneHelpers.md) is scored `74/84`, attached to [UID:0000IT][DialogPane](by-file/DialogPane.md), and records broad non-browser caller distribution for the selection helpers.
+
+## Batch 106 Parent-Gate Refresh
+
+2026-06-08 read-only IDA MCP `py_eval` reconfirmed the BrowserPane method evidence used by this class page:
+
+| Range | Current IDA function | Vtable refs / notes |
+| --- | --- | --- |
+| `0x0046a860` | no modeled IDA function | Still a raw constructor-shaped block; this remains the main final-layout caveat. |
+| `0x0046a8a0-0x0046a8bf` | `sub_46A8A0` | Cleanup/reset wrapper, with EH/table xrefs outside the browser vtable slots. |
+| `0x0046a8e0-0x0046a901` | `sub_46A8E0` | Key-event virtual slot refs at `0x00613368`, `0x00613418`, and `0x00613708`. |
+| `0x0046a910-0x0046aa34` | `sub_46A910` | Command virtual slot refs at `0x00613348`, `0x006133f8`, `0x00613638`, and `0x006136e8`. |
+| `0x00470690-0x004706e5` | `sub_470690` | Scalar deleting destructor refs include BrowserPane primary vtable slot `0x006132ec`. |
+| `0x00470fc0-0x00470fdc` | `sub_470FC0` | Timer delegation slot refs at `0x0061334c`, `0x006133fc`, `0x0061363c`, and `0x006136ec`. |
+| `0x004710d0-0x004710df` | `sub_4710D0` | Sound delegation slot refs at `0x00613350`, `0x00613400`, `0x00613640`, and `0x006136f0`. |
+
+[UID:0000HV][Browser](by-file/Browser.md) is now scored `86/88`, so the direct parent side clears the corrected `85/85` gate. This class now clears `85/86`; retaining `AUTOGEN_PARENT_UID:0000HV` is justified for class-level routing, while exact constructor/source split questions continue to block final C++.
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 85 | The class page now documents the BrowserPane command/key/timer/sound virtuals, scalar destructor, vtable refs, browser alert strings, shared DialogPane helper boundary, Browser source parent, and the exact remaining raw-constructor caveat. |
+| Confidence | 86 | BrowserPane ownership and the tail `PlaySound` parent relationship are supported by current IDA MCP function/vtable refs and the Browser source page. Confidence remains below higher levels because the `0x0046a860` constructor-shaped block is not an IDA-modeled function and final field names/source split are open. |
+| Parent | [UID:0000HV][Browser](by-file/Browser.md) | Child `85/86` and parent `86/88` clear the strict gate; Browser is the direct source root for this class cluster, while exact one-file versus split-file layout remains a source organization caveat. |
 
 ## Open Questions
 
@@ -83,3 +105,7 @@ Current confidence is high for browser-module ownership, the command/key/sound m
   - What existed before: BrowserPane was scored `74/80` and still depended on stale constructor phrasing while omitting several exact vtable slots and method-body facts.
   - Changed to: `COMPLETION:82`, `CONFIDENCE:84`, with the C++ reconstruction intentionally left blank.
   - Summary/evidence: live IDA confirms the raw constructor-shaped block at `0x0046a860-0x0046a898`, the three BrowserPane vtable writes at `0x006132ec`, `0x00613360`, and `0x00613390`, method ranges for `sub_46A8A0`, `sub_46A8E0`, `sub_46A910`, `sub_470690`, `sub_470FC0`, and `sub_4710D0`, command-to-alert-string refs, and vtable slots for command/timer/sound dispatch. The score remains capped because `0x0046a860` is still not an IDA-modeled function or referenced call target, helper ownership remains partly shared with `DialogPane`, and the original source split is not proven to the final reconstruction bar.
+- 2026-06-08 A007 Batch 106 parent-gate refresh:
+  - Changed score from `82/84` to `85/86`.
+  - Retained `AUTOGEN_PARENT_UID:0000HV` because [UID:0000HV][Browser](by-file/Browser.md) is now `86/88`, and this class now clears the corrected `85/85` gate.
+  - Evidence: read-only IDA MCP reconfirmed the modeled BrowserPane key, command, destructor, timer, and sound helpers and their BrowserPane-family vtable refs; the unresolved `0x0046a860` raw constructor-shaped block remains documented as the completion/confidence cap rather than a routing blocker for [UID:000217][0x004710d0-0x004710df.BrowserPanePlaySound](by-memory/0x004710d0-0x004710df.BrowserPanePlaySound.md).

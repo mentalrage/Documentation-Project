@@ -17,7 +17,7 @@
 
 `MainMenuPane` is the login-screen menu controller. It paints the initial menu, handles mouse/key navigation, processes pre-login server messages, and dispatches selected menu items into login, account creation, password change, story/history viewing, terminal, or shutdown flows.
 
-The constructor also optionally loads `LEVEL.BMP` through a file-buffer path and decodes it with the shared [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) at `0x004d09b0`; the decoded tile context is login-screen presentation state, while the decode wrapper stays with [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md).
+The constructor also optionally loads `LEVEL.BMP` through a file-buffer path and decodes it with the shared [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0f4a.ImageDecodeWrappers.md) at `0x004d09b0`; the decoded tile context is login-screen presentation state, while the decode wrapper stays with [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md).
 
 The likely original source was a small standalone login UI file rather than part of generic UI core:
 
@@ -96,7 +96,7 @@ Do not attach `LoginDialogPane` or create-user classes to this file except as fo
 ## Cross-References
 
 - [UID:00007O][MainMenuPane](by-class/MainMenuPane.md)
-- [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md)
+- [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0f4a.ImageDecodeWrappers.md)
 - [UID:0000KX][LoginDialogPane](by-file/LoginDialogPane.md)
 - [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md)
 - [UID:0000JW][HistoryViewingPane](by-file/HistoryViewingPane.md)

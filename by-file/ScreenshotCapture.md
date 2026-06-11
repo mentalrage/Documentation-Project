@@ -34,6 +34,7 @@ This is not filesystem-tree UI code. The old generated ownership placed the capt
 | `SaveScreenshotBMP` | `0x00557aa0-0x00557e73` | Creates screenshot directories, writes a 16-bit BMP file from the active surface, posts the saved-file chat message, and sends screenshot proof. |
 | `SaveScreenshotPNG` | `0x00557e80-0x00558239` | Converts the active 16-bit surface to an RGBA8 buffer, writes PNG through [UID:0000KW][LodePNG](by-file/LodePNG.md) `lodepng_encode32_file`, posts the saved-file chat message, and sends screenshot proof. |
 | `SendScreenshotProofPacket` | `0x00558240-0x00558391` | Hashes the saved file stream through [UID:0000L6][MD5](by-file/MD5.md), masks the digest, builds opcode `0x83`, and queues it through the packet send funnel. |
+| [UID:00023T][0x00559af0-0x00559b1d.FormatWideTextFixedBuffer](by-memory/0x00559af0-0x00559b1d.FormatWideTextFixedBuffer.md) | `0x00559af0-0x00559b1d` | Local saved-file status formatter used by the JPG/BMP/PNG screenshot paths; wraps CRT secure wide formatting with a fixed `0x78` wide-character destination bound. |
 
 ## Evidence
 
@@ -52,6 +53,7 @@ This is not filesystem-tree UI code. The old generated ownership placed the capt
 - `SaveScreenshotBMP` writes file and info headers directly with `fwrite`, temporarily swaps the active surface id to the screenshot surface id, refreshes surface info through `0x004b9820`, and restores state after `EndPaint`.
 - `SaveScreenshotPNG` allocates a 4-byte-per-pixel buffer, converts from the active 16-bit surface, calls LodePNG `lodepng_encode32_file` at `0x00443e40`, frees the pixel block, and then sends proof.
 - Both capture functions format `TK_%04d%02d%02d%02d%02d%02d.bmp/png` under `Documents\NexusTK\ScreenShots`.
+- 2026-06-06 IDA MCP `xrefs_to 0x00559af0` confirms the fixed-buffer saved-file status formatter is called by the raw JPG path at `0x00557a08`, BMP path at `0x00557de4`, and PNG path at `0x005581a6`.
 
 ## Ownership Decision
 
@@ -76,6 +78,7 @@ Keep dependencies separate:
 
 - [UID:0001G9][0x00557aa0-0x00558391.ScreenshotCaptureAndProof](by-memory/0x00557aa0-0x00558391.ScreenshotCaptureAndProof.md)
 - [UID:0001G8][0x00557840-0x00557a95.ScreenshotJpegCapturePath](by-memory/0x00557840-0x00557a95.ScreenshotJpegCapturePath.md)
+- [UID:00023T][0x00559af0-0x00559b1d.FormatWideTextFixedBuffer](by-memory/0x00559af0-0x00559b1d.FormatWideTextFixedBuffer.md)
 - [UID:00018N][0x004efbc0-0x004efe94.JpegScreenshotWriter](by-memory/0x004efbc0-0x004efe94.JpegScreenshotWriter.md)
 - [UID:0000CD][ScreenshotCapture](by-class/ScreenshotCapture.md)
 - [UID:0000VF][ScreenshotProofPacket_00558240](by-item/ScreenshotProofPacket_00558240.md)
@@ -89,6 +92,11 @@ Keep dependencies separate:
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md)
 
 ## Changes
+
+- 2026-06-06: Added the saved-file status formatter to the file inventory.
+  - Before: `0x00559af0-0x00559b1d` was documented only as a standalone/unassigned formatting helper and did not appear in this file page's proposed contents.
+  - After: added [UID:00023T][0x00559af0-0x00559b1d.FormatWideTextFixedBuffer](by-memory/0x00559af0-0x00559b1d.FormatWideTextFixedBuffer.md) as a ScreenshotCapture-local helper.
+  - Evidence: live IDA MCP `xrefs_to 0x00559af0` reports the JPG/BMP/PNG screenshot status-message call sites at `0x00557a08`, `0x00557de4`, and `0x005581a6`, and the helper page records the exact CRT formatting wrapper boundary and parent attachment.
 
 - 2026-06-01: Assigned the validator reconstruction path.
   - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though the page already proposed `render/ScreenshotCapture.cpp`.

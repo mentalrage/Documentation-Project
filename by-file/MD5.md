@@ -1,13 +1,13 @@
 *** UID:0000L6 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MD5
 
 ## Status
 
-- Confidence: strong for algorithm and helper grouping; medium for exact original filename/folder.
+- Confidence: strong for algorithm, helper grouping, and utility ownership; medium-high for exact original filename/folder.
 - Proposed module: `NexusTK/util/MD5.cpp`
 - Current Wave3 files: no dedicated recovered MD5 source file; callers reference raw `sub_515xxx` helpers or the generated `ComputePacketDigest` name in `class_Socket.cpp`.
 - Main address doc: [UID:0001B6][0x005151f0-0x00515f48.MD5HashHelpers](by-memory/0x005151f0-0x00515f48.MD5HashHelpers.md)
@@ -51,12 +51,16 @@ Likely source-level contents:
 - IDA xrefs show `Md5BytesToBuffer` at `0x005153e0` is called from [UID:0000N4][RegistryConfig](by-file/RegistryConfig.md) at `0x004928ba`, where it writes a 16-byte digest buffer during registry/CLSID setup.
 - `simroot_v2/recovered/SendScreenshotProofPacket_00558240.cpp` calls `sub_515570`, matching the `Md5StreamHex` wrapper.
 - The 2026-05-31 IDA MCP recheck confirmed the modeled helper starts and sizes still match this split: `sub_5151F0` (`0x94`), `sub_515290` (`0x7a`), `sub_515380` (`0x5c`), `sub_5153E0` (`0x65`), `sub_515570` (`0xeb`), `sub_515690` (`0xb4`), `sub_515750` (`0xe1`), and `sub_515840` (`0x708`). It also reconfirmed that `0x00515310`, `0x00515450`, `0x00515f50`, and `0x00515fa0` are raw function-shaped starts with no IDA function object, and that the MD5 padding block at `0x0066ddd8` is referenced from `Md5Final` at `0x005157bb`.
+- The 2026-06-10 A002 IDA MCP parent-gate recheck reconfirmed the cross-subsystem caller map: `Md5StringHex` (`0x00515290`) from `sub_575C30` and `StartupWindow__RunUpdateCheck`, `Md5BytesRaw` (`0x00515380`) from `sub_578C40`, `Md5BytesToBuffer` (`0x005153e0`) from `RegistryConfig::LoadFromRegistry` (`sub_4926A0`), and `Md5StreamHex` (`0x00515570`) from `SendScreenshotProofPacket_558240`.
+- The same recheck confirmed the internal MD5 chain remains local to this utility island: wrappers call `Md5Update` (`0x00515690`) and `Md5Final` (`0x00515750`), `Md5Update` calls `Md5Transform` (`0x00515840`), and `Md5Final` references the padding block at `0x0066ddd8`. The raw endian helper starts at `0x00515f50` and `0x00515fa0` still have no function objects or direct xrefs, but their byte/word conversion loops and padding-bounded placement support them as retained MD5 utility siblings.
 
 ## Ownership Decision
 
 Use `util/MD5.cpp` as the reconstruction owner. The helper family has no class state, is used across startup, network, and screenshot proof paths, and is algorithm-specific enough to deserve a separate utility file.
 
 `network/PacketTransform.cpp` should call into this module for packet trailer digest bytes but should not own the MD5 implementation. `app/StartupWindow.cpp` and the [UID:0000VF][ScreenshotProofPacket_00558240](by-item/ScreenshotProofPacket_00558240.md) should also depend on this utility module.
+
+The 2026-06-10 A002 strict-gate audit keeps [UID:000237][0x00515f50-0x00515ff2.MD5EndianEncodeDecodeHelpers](by-memory/0x00515f50-0x00515ff2.MD5EndianEncodeDecodeHelpers.md) attached here. The child is now `85/88`, and this file's current `86/85` score clears the direct parent side of the `85/85` assignment gate. The exact original filename/folder remains a documented caveat, but the source-level owner is still this MD5 utility module rather than PacketTransform, RegistryConfig, StartupWindow, ScreenshotCapture, or MemoryMan.
 
 ## Caveats
 
@@ -82,6 +86,10 @@ Use `util/MD5.cpp` as the reconstruction owner. The helper family has no class s
 
 ## Changes
 
+- 2026-06-10 A002 parent-gate refresh:
+  - What existed before: `COMPLETION:86`, `CONFIDENCE:82`; the page had strong MD5 grouping evidence but did not clear the strict confidence gate for already-attached memory children.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:85`.
+  - Summary/evidence: live IDA MCP reconfirmed the cross-subsystem caller map, internal `Md5Update`/`Md5Final`/`Md5Transform` chain, padding-data reference, and raw endian helper sibling placement. The exact original filename/folder caveat remains, so confidence only rises to the minimum parent-gate level rather than near-final.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:86` and `CONFIDENCE:82`.

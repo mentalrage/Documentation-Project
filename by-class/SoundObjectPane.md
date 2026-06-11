@@ -1,8 +1,8 @@
 *** UID:0000DH | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -50,3 +50,5 @@
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `84`, confidence `88`.
 - Evidence: the page documents object-sound role, constructor/destructor/playback/trigger/scalar-destructor ranges, constructor/startup callers, active generated omission, and core owner cross-references; remaining completion gap is source-ready field naming and C++ rewrite detail.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000NW][SoundObjectPane](by-file/SoundObjectPane.md).
+- Evidence: live IDA MCP `lookup_funcs` confirms the documented constructor, non-deleting destructor, playback starter, trigger handler, scalar destructor, and adjustor thunk anchors at `0x0053ca20`, `0x0053cac0`, `0x0053cb50`, `0x0053cc70`, `0x0053d660`, `0x0053cf72`, and `0x0053cf7d`; both class (`84/88`) and parent file (`82/86`) meet the 80/80 gate.

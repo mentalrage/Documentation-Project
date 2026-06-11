@@ -1,8 +1,8 @@
 *** UID:0000A7 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -48,6 +48,11 @@
 - [UID:000022][CheckBoxTextControlPane](by-class/CheckBoxTextControlPane.md)
 
 ## Changes
+
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and assigned parent `0000OZ`.
+  - Before: reconstruction autogen classification and parent were blank despite IDA-backed documentation for a user-list dialog child class.
+  - After: classified as reconstructable source attached to [UID:0000OZ][UserListDialogPane](by-file/UserListDialogPane.md).
+  - Evidence: live IDA MCP `lookup_funcs` confirms the constructor/helper/no-op/action/destructor-thunk/deleting-destructor starts at `0x0059e0d0`, `0x0059e3a0`, `0x0059e3c0`, `0x0059e3d0`, `0x0059f001`, `0x0059f00c`, and `0x0059f0b0`; the class page documents the single constructor caller from the user-list command path and opcode `0x84` submission. The class score is `84/88` and parent file score is `86/82`, satisfying the 80/80 attach gate.
 
 - Before: completion/confidence metadata were `0/0` even though the page already documented class behavior, constructor/action methods, caller evidence, and file-name uncertainty.
 - Changed to: `COMPLETION:74` and `CONFIDENCE:76`.

@@ -1,13 +1,13 @@
 *** UID:0000O4 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/app/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # StartupLogoPanes
 
 ## Status
 
-- Confidence: strong for class responsibilities, medium for exact original file split.
+- Confidence: strong for class responsibilities, startup-logo Bink helper/static-state ownership, and app/startup placement; medium for exact static-logo versus video source split.
 - Proposed module: `app/StartupLogoPanes.cpp`
 - Alternate split: `app/LogoPane.cpp` plus `app/LogoPlayerPane.cpp`
 - Current recovered source: `class_LogoPane.cpp`, `class_LogoPlayerPane.cpp`
@@ -30,6 +30,7 @@ This module should stay app/startup-adjacent rather than moving into generic UI 
 | `LogoPlayerPane` | `0x004f53b0-0x004f570c` | Segmented Bink startup movie reader, input skip handlers, close/completion callback, derived destructor wrapper. |
 | standalone startup Bink playback loop | `0x004f5710-0x004f5ac7` | Loads `LOGO.PAK`/`LOGO.PAD`, opens memory-backed Bink playback, installs a temporary window procedure, pumps frames/messages, and tears playback down. |
 | startup Bink midpoint/restart helper | `0x004f5ae0-0x004f5b1e` | One-shot helper called by the temporary window procedure to reopen Bink from the logo payload under `byte_66DB42`/frame-position conditions. |
+| startup Bink restart flag | [UID:0002ZH][StartupLogoBinkRestartFlag](by-global/StartupLogoBinkRestartFlag.md), [UID:0002ZM][0x0066db42-0x0066db44.StartupLogoBinkRestartFlag](by-memory/0x0066db42-0x0066db44.StartupLogoBinkRestartFlag.md) | Source-declared one-shot flag initialized to `1`, read and cleared only by the startup-logo midpoint/restart helper. |
 | `LogoPlayerPane::OpenBinkVideo` | `0x005c0110-0x005c0174` | Opens the current memory-backed Bink segment after seeding DirectSound and registering the `term` app notification. Physically in the video-pane island. |
 | callback function objects | `0x004f5040`, `0x004f5070`, `0x004f5250` | Deferred member callback wrappers used to advance the startup screen without running transition logic directly from input handlers. |
 | `_AUTOBUF<unsigned char>` helper | `0x004f5640-0x004f566a` | Adjacent compiler-emitted template constructor, not a `LogoPlayerPane` method. See [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md) and [UID:00019E][0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor.md). |
@@ -48,6 +49,7 @@ This module should stay app/startup-adjacent rather than moving into generic UI 
 - `0x005c0090` is better interpreted as the non-deleting `VideoPlayerPane` teardown body called during `LogoPlayerPane` destruction, despite Wave3 currently emitting it as `LogoPlayerPane::~LogoPlayerPane`.
 - IDA MCP recheck confirmed the destructor adjustor thunks are real two-instruction functions: `LogoPane` thunks at `0x004f52de` and `0x004f52e9` subtract `0xa0`/`0xa4` and forward to `0x004f5300`; `LogoPlayerPane` thunks at `0x004f566a` and `0x004f5675` subtract `0xa0`/`0xa4` and forward to `0x004f5680`.
 - Current `class_LogoPane.cpp` still contains an unrelated `using RefreshFn = void(*)(HeadSelectDialog*)` alias and duplicate normalized include-section comments. Treat these as generated-source artifacts, not source-layout evidence.
+- 2026-06-07 A010 Batch077 live IDA refresh reconfirmed `0x004f5710` as the startup-logo Bink playback loop, `0x004f5ae0` as a `0x3e` byte helper called only from the temporary window procedure at `0x004f5aaf`, and `0x0066db42` as the only mutable flag storage read at `0x004f5ae0` and cleared at `0x004f5afa`; `0x0066db43` has no xrefs. The surrounding byte read returned `ff d9 00 00 ff d9 01 00 84 e4 61 00 f0 e6 61 00`, proving this flag is separate from the adjacent JPEG markers and staff-resource pointer.
 
 ## Ownership Notes
 
@@ -68,6 +70,11 @@ Before migration, clean the active generated output so `0x005c0090` is represent
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md)
 
 ## Changes
+
+- 2026-06-07 A010 Batch077 parent-route repair:
+  - What existed before: confidence was `80`, so [UID:0002ZH][StartupLogoBinkRestartFlag](by-global/StartupLogoBinkRestartFlag.md) could not route upward through this source-file parent under the corrected `85/85` gate.
+  - Changed to: confidence `85`; completion remains `88`.
+  - Summary/evidence: live IDA reconfirmed the startup-logo playback loop, midpoint/restart helper, sole helper caller, read/clear xrefs for `0x0066db42`, no xrefs to the trailing byte, and byte-level separation from the neighboring data. This supports `StartupLogoPanes.cpp` as the direct source root for the restart flag while preserving the documented caveat that a two-file static-logo/video split remains plausible.
 
 - 2026-05-30: Scored documentation completeness/confidence.
   - Before: completion/confidence metadata was ungraded at `0/0`.

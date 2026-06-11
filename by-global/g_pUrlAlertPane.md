@@ -1,6 +1,6 @@
 *** UID:0000SM | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -25,8 +25,8 @@
 
 ## Score Rationale
 
-- Completion `78`: raised from `70` after the 2026-06-03 live IDA pass confirmed the exact storage item, initial value, full six-xref lifecycle, surrounding singleton-slot context, constructor callers, and the duplicate-open guard. It is not higher because the final original declaration spelling/linkage and every caller's source-level semantic name are still below the final reconstruction bar.
-- Confidence `88`: strong for address, storage shape, lifecycle writes/clears, active-alert read, URL buffer offset, exit flag offset, and [UID:0000HE][AlertPanes](by-file/AlertPanes.md) ownership. It remains below `95` because no final C++ declaration is emitted and the owner placement is still documented as a high-confidence source-module assignment rather than proven original source text.
+- Completion `82`: raised from `78` after tying the global page to the [UID:00029Y][0x0069b4c8-0x0069b4f0.MessageStatusAndMenuPaneGlobals](by-memory/0x0069b4c8-0x0069b4f0.MessageStatusAndMenuPaneGlobals.md) slot inventory, [UID:0001KF][0x00599a40-0x00599cb3.UrlAlertPane](by-memory/0x00599a40-0x00599cb3.UrlAlertPane.md), and [UID:00022Y][0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers](by-memory/0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers.md). It is not higher because the final original declaration spelling/linkage and every caller's source-level semantic name are still below the final reconstruction bar.
+- Confidence `90`: strong for address, storage shape, lifecycle writes/clears, active-alert read, URL buffer offset, exit flag offset, vtable-backed class identity, and [UID:0000HE][AlertPanes](by-file/AlertPanes.md) ownership. It remains below `95` because no final C++ declaration is emitted and the owner placement is still documented as a high-confidence source-module assignment rather than proven original source text.
 
 ## Evidence Notes
 
@@ -36,15 +36,32 @@
 - `0x00599b20-0x00599b92` and `0x00599c00-0x00599cb3` free the URL buffer and clear the singleton during normal and scalar-deleting teardown.
 - `0x00599ba0-0x00599bcf` confirms the object role: it calls `ShellExecuteA` on the stored URL and optionally requests application exit when the `+0x274` flag is set.
 - `0x00508f60-0x0050902b` reads `dword_69B4DC` and refuses to allocate another alert pane when this singleton is non-null; constructor xrefs to `0x00599a40` were rechecked at `0x00503034`, `0x00513f7e`, and `0x0051402f`.
+- [UID:00022Y][0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers](by-memory/0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers.md) owns the `0x00503034` constructor call site: opcode `0x66` subtypes `1` and `2` parse counted ANSI URL/text payloads and construct `UrlAlertPane` with the exit flag set or clear.
 - The surrounding slot run `0x0069b4c8-0x0069b4ec` is a sequence of adjacent `0xffffffff`-initialized UI singleton pointers, with `g_pUrlAlertPane` occupying the `0x0069b4dc` slot.
+
+## Lifecycle Evidence
+
+| Address | Access | Meaning |
+| --- | --- | --- |
+| `0x00508fd6` | read | Active-alert guard refuses to allocate another URL alert pane while `g_pUrlAlertPane` is non-null. |
+| `0x00599a94` | write | Constructor publishes `this` to `dword_69B4DC` before class-specific vtable setup. |
+| `0x00599a9b` | clear/write | Constructor null/fallback path updates the singleton slot during setup. |
+| `0x00599b73` | clear | Normal destructor frees the URL buffer and clears the active singleton pointer. |
+| `0x00599bd0` | clear | Constructor exception-cleanup helper clears the singleton before adjacent destructor adjustor thunks. |
+| `0x00599c5a` | clear | Scalar deleting destructor wrapper clears the singleton after the destructor path. |
 
 ## Cross-References
 
 - [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md)
 - [UID:0001KF][0x00599a40-0x00599cb3.UrlAlertPane](by-memory/0x00599a40-0x00599cb3.UrlAlertPane.md)
+- [UID:00029Y][0x0069b4c8-0x0069b4f0.MessageStatusAndMenuPaneGlobals](by-memory/0x0069b4c8-0x0069b4f0.MessageStatusAndMenuPaneGlobals.md)
+- [UID:00022Y][0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers](by-memory/0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers.md)
+- [UID:0001YZ][UrlAlertPaneVtables](by-type/by-vtable/UrlAlertPaneVtables.md)
 - [UID:0000HE][AlertPanes](by-file/AlertPanes.md)
 
 ## Changes
+
+- 2026-06-06: Raised completion/confidence from `78/88` to `82/90`. Added lifecycle evidence for the duplicate-open read, constructor writes, normal-destructor clear, constructor-cleanup helper clear, and scalar deleting destructor clear; linked the surrounding singleton-slot aggregate, main-menu ANSI/URL packet helper, and UrlAlertPane vtable family. Evidence: [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md) documents the `88/90` class identity and layout offsets, [UID:0001KF][0x00599a40-0x00599cb3.UrlAlertPane](by-memory/0x00599a40-0x00599cb3.UrlAlertPane.md) maps the constructor/destructor/confirm/helper ranges, [UID:00029Y][0x0069b4c8-0x0069b4f0.MessageStatusAndMenuPaneGlobals](by-memory/0x0069b4c8-0x0069b4f0.MessageStatusAndMenuPaneGlobals.md) records the exact `0x0069b4dc` singleton slot, and [UID:00022Y][0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers](by-memory/0x00502e10-0x0050305c.MainMenuAnsiTextDialogPacketHelpers.md) identifies the main-menu opcode `0x66` constructor caller.
 
 - 2026-05-31: Updated reconstruction metadata and scores from live IDA evidence.
   - Before: completion/confidence were `0/0`, reconstructable state was blank, and no parent file UID was assigned.

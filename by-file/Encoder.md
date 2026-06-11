@@ -1,6 +1,6 @@
 *** UID:0000J1 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:81 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:83 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Encoder
@@ -9,7 +9,7 @@
 
 - Confidence: strong for writer behavior; medium for exact split from [UID:0000IQ][Decoder](by-file/Decoder.md).
 - Proposed module: `NexusTK/util/Encoder.cpp`, or folded into [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) if later evidence proves a single paired codec file.
-- Current recovered source: `source-3/simroot_v2/class_Encoder.cpp`
+- Autogen/source-root status: validated source root at `NexusTK/util/`; [UID:00004F][Encoder](by-class/Encoder.md) is attached to this file, and concrete method pages under that class currently resolve to `auto-generated/NexusTK/util/Encoder.cpp`.
 - Primary vtable: [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md) at `0x006192cc`
 - Shared layout: [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md)
 
@@ -21,7 +21,8 @@
 
 | Entity | Address evidence | Role |
 | --- | --- | --- |
-| [UID:00004F][Encoder](by-class/Encoder.md) | [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md), [UID:00013L][0x004a5630-0x004a5631.EncoderNoopVirtual](by-memory/0x004a5630-0x004a5631.EncoderNoopVirtual.md), [UID:00013V][0x004a5e30-0x004a5e54.EncoderScalarDeletingDestructor](by-memory/0x004a5e30-0x004a5e54.EncoderScalarDeletingDestructor.md) | In-memory stream writer and vtable glue. |
+| [UID:00004F][Encoder](by-class/Encoder.md) | [UID:00013C][0x004a4e70-0x004a4e94.EncoderConstructor](by-memory/0x004a4e70-0x004a4e94.EncoderConstructor.md), [UID:00013E][0x004a4ea0-0x004a4ea7.EncoderDestructor](by-memory/0x004a4ea0-0x004a4ea7.EncoderDestructor.md), [UID:00013F][0x004a4ec0-0x004a4ef1.EncoderWriteByte](by-memory/0x004a4ec0-0x004a4ef1.EncoderWriteByte.md), [UID:00013G][0x004a4f00-0x004a4f59.EncoderWriteShort](by-memory/0x004a4f00-0x004a4f59.EncoderWriteShort.md), [UID:00013H][0x004a4ff0-0x004a506b.EncoderWriteInt](by-memory/0x004a4ff0-0x004a506b.EncoderWriteInt.md), [UID:00013I][0x004a5480-0x004a54c6.EncoderWriteBytes](by-memory/0x004a5480-0x004a54c6.EncoderWriteBytes.md), [UID:00013J][0x004a55c0-0x004a55de.EncoderInitialize](by-memory/0x004a55c0-0x004a55de.EncoderInitialize.md), [UID:00013K][0x004a55e0-0x004a5621.EncoderFinalize](by-memory/0x004a55e0-0x004a5621.EncoderFinalize.md), [UID:00013L][0x004a5630-0x004a5631.EncoderNoopVirtual](by-memory/0x004a5630-0x004a5631.EncoderNoopVirtual.md), [UID:00013V][0x004a5e30-0x004a5e54.EncoderScalarDeletingDestructor](by-memory/0x004a5e30-0x004a5e54.EncoderScalarDeletingDestructor.md) | Concrete writer class, primitive/raw-span writes, buffer attach/finalize, no-op vtable slot, and scalar deleting destructor wrapper. |
+| [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md) | aggregate over the constructor, destructor, writer, initialize, and finalize child pages | Coverage/index range only; source emission should come from the exact child method pages once they reach the final-code gate. |
 
 ## Boundary Notes
 
@@ -50,14 +51,25 @@
 
 - [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md)
 - [UID:00004F][Encoder](by-class/Encoder.md)
+- [UID:00013C][0x004a4e70-0x004a4e94.EncoderConstructor](by-memory/0x004a4e70-0x004a4e94.EncoderConstructor.md)
 - [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md)
+- [UID:00013F][0x004a4ec0-0x004a4ef1.EncoderWriteByte](by-memory/0x004a4ec0-0x004a4ef1.EncoderWriteByte.md)
+- [UID:00013G][0x004a4f00-0x004a4f59.EncoderWriteShort](by-memory/0x004a4f00-0x004a4f59.EncoderWriteShort.md)
+- [UID:00013H][0x004a4ff0-0x004a506b.EncoderWriteInt](by-memory/0x004a4ff0-0x004a506b.EncoderWriteInt.md)
+- [UID:00013I][0x004a5480-0x004a54c6.EncoderWriteBytes](by-memory/0x004a5480-0x004a54c6.EncoderWriteBytes.md)
+- [UID:00013K][0x004a55e0-0x004a5621.EncoderFinalize](by-memory/0x004a55e0-0x004a5621.EncoderFinalize.md)
 - [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md)
+- [UID:00013V][0x004a5e30-0x004a5e54.EncoderScalarDeletingDestructor](by-memory/0x004a5e30-0x004a5e54.EncoderScalarDeletingDestructor.md)
 - [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md)
 - [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md)
 - [UID:0000IQ][Decoder](by-file/Decoder.md)
 
 ## Changes
 
+- 2026-06-07 A007 source-root cleanup:
+  - What existed before: scores were `81/80`; the contents table only named the class aggregate/core/no-op/destructor subset, and status still referenced recovered source instead of the current by-* evidence chain.
+  - Changed to: scores `83/84`, explicit validated `NexusTK/util/` source-root status, a current child-page inventory for constructor/destructor/writer/finalize/vtable support pages, and aggregate/source-emission guidance for [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md).
+  - Summary/evidence: [UID:00004F][Encoder](by-class/Encoder.md) is attached to this file root, the listed memory pages resolve to `auto-generated/NexusTK/util/Encoder.cpp`, and the broader [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) page remains a coordinator rather than the concrete `Encoder.cpp` owner.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:80` and `CONFIDENCE:78`.

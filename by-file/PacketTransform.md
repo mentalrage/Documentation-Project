@@ -1,20 +1,20 @@
 *** UID:0000M9 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/network/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PacketTransform
 
 ## Status
 
-- Confidence: medium for separate source file, strong for helper grouping.
+- Confidence: strong for `PacketTransform.cpp` as the reconstruction parent and helper/global grouping; medium for whether the original source used a separate file name versus a private `Socket.cpp` section.
 - Proposed module: `network/PacketTransform.cpp`
-- Current Wave3 files: recovered global files `InitializePacketNonce_00575CB0.cpp`, `BuildHandshakeBlock_00577030.cpp`, and `XorTransformBuffer_00578E00.cpp`, plus related globals emitted near `class_Socket.cpp`
+- Historical generated projections: recovered global files `InitializePacketNonce_00575CB0.cpp`, `BuildHandshakeBlock_00577030.cpp`, and `XorTransformBuffer_00578E00.cpp`, plus related globals emitted near `class_Socket.cpp`; these are retained only as prior naming context, not as evidence for the 2026-06-05 refresh.
 - Main address docs: [UID:000244][0x00575b90-0x00575caa.PacketTransformStringKeyHelpers](by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md), [UID:0001I0][0x00575cb0-0x00575d83.PacketNonceInitialization](by-memory/0x00575cb0-0x00575d83.PacketNonceInitialization.md), [UID:0001I2][0x00577030-0x0057713d.BuildHandshakeBlock](by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md), and [UID:0001I5][0x00578e00-0x00578e94.XorTransformBuffer](by-memory/0x00578e00-0x00578e94.XorTransformBuffer.md)
 - Supporting item doc: [UID:0000V3][PacketTransformHelpers](by-item/PacketTransformHelpers.md)
 - Global state doc: [UID:0000TG][PacketTransformGlobals](by-global/PacketTransformGlobals.md)
 - Digest dependency: [UID:0000L6][MD5](by-file/MD5.md), specifically [UID:0000V2][PacketDigest_00515380](by-item/PacketDigest_00515380.md)
-- Evidence basis: `simroot_v2` generated source, generated metadata, and IDA MCP lookup/xref/decompile/disassembly checks on 2026-05-24 and 2026-05-25.
+- Evidence basis: existing project documentation and IDA MCP lookup/xref/decompile/disassembly checks on 2026-05-24, 2026-05-25, and the A003 live refresh on 2026-06-05.
 
 ## Hypothesis
 
@@ -37,7 +37,7 @@ Likely source-level contents:
 ## Evidence
 
 - IDA MCP confirms exact helper starts and sizes:
-  - `0x00575b90`, raw helper ending at `0x00575c2e`, packet transform string-key table setup.
+  - `0x00575b90`, raw helper ending at `0x00575c30`, packet transform string-key table setup.
   - `0x00575c30`, size `0x7a`, login/process string expansion helper.
   - `0x00575cb0`, size `0xd3`, `InitializePacketNonce`.
   - `0x00577030`, size `0x10d`, `BuildHandshakeBlock`.
@@ -46,17 +46,18 @@ Likely source-level contents:
 - IDA xrefs show `InitializePacketNonce` is only called by [UID:0001I3][0x00578b20-0x00578c40.SocketTransformFramePayload](by-memory/0x00578b20-0x00578c40.SocketTransformFramePayload.md) at `0x00578b20` and [UID:0001I4][0x00578c40-0x00578df1.SocketBuildEncryptedPacket](by-memory/0x00578c40-0x00578df1.SocketBuildEncryptedPacket.md) at `0x00578c40`.
 - IDA xrefs show the login/process string expansion helper at `0x00575c30` is called from [UID:00019K][0x004f7d10-0x004f8b2a.InitializeMainUiGraph](by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md) after login-name wide-to-multibyte conversion.
 - IDA xrefs show `XorTransformBuffer` is called three times from `Socket::TransformFramePayload` and three times from `Socket::BuildEncryptedPacket`.
-- `simroot_v2/class_Socket.cpp` imports these helpers as externs in the transform methods, while the helper bodies are emitted as recovered globals rather than `Socket` methods.
+- Existing project documentation imports these helpers as free transform routines used by Socket transform methods rather than as `Socket` methods.
 - The helper globals are protocol tables and counters, not packet scalar read/write utilities: `g_packetTransformStride`, `g_packetXorAlternateSize`, `g_packetTransformLut`, `g_packetXorTablePrimary`, `g_packetXorTableAlternate`, `g_packetNonceScratch`, and `g_handshakeSeedBytes`.
 - IDA MCP disassembly on 2026-05-25 pins the important globals to [UID:0000TG][PacketTransformGlobals](by-global/PacketTransformGlobals.md): alternate size `0x0066fe50`, dword LUT `0x0066fe58`, handshake seed/scratch block `0x0069ba40-0x0069ba60`, primary table `0x0069ba64`, and alternate table `0x0069ba94`.
+- 2026-06-07 A001 IDA MCP `py_eval` recheck confirms the file-level split used for reconstruction parenting: `0x0066fe50` alternate size is read by string-key setup, nonce initialization, and encrypted-packet paths; `0x0066fe58` is the dword LUT used from the socket command/transport cluster; and the mutable state fields `0x0069ba40`, `0x0069ba4c`, `0x0069ba58`, `0x0069ba5c`, `0x0069ba60`, `0x0069ba64`, and `0x0069ba94` are referenced from packet-transform helper families rather than scalar packet-buffer helpers.
+- The same 2026-06-07 pass reconfirms the helper boundaries that define this reconstruction module: `0x00575c30-0x00575caa`, `0x00575cb0-0x00575d83`, `0x00577030-0x0057713d`, and `0x00578e00-0x00578e94`, while `Socket` remains the transport-method caller/consumer for frame-level encode/decode.
 
 ## Current Generated-Output Caveats
 
-- Current `simroot_v2/class_Socket.cpp` still declares `XorTransformBuffer` as `extern void XorTransformBuffer(std::uint32_t* src, std::uint32_t* dst, std::uint32_t len, int keyPtr, std::uint32_t step);`.
-- Current `simroot_v2/recovered/XorTransformBuffer_00578E00.cpp` defines it as returning `std::uint8_t`.
-- `Socket::BuildEncryptedPacket` passes `const std::uint8_t*` / `std::uint8_t*` payload pointers and `const std::uint8_t*` key pointers without matching that extern prototype.
+- Older generated projections disagree about `XorTransformBuffer`: one projection declares it as `extern void XorTransformBuffer(std::uint32_t* src, std::uint32_t* dst, std::uint32_t len, int keyPtr, std::uint32_t step);`, while another defines it as returning `std::uint8_t`.
+- IDA shows `Socket::BuildEncryptedPacket` passes payload/key buffers in a byte-buffer context, so those generated prototypes are retained only as caveats pending final source typing.
 - IDA decompiles `0x00578e00` as a byte-returning helper over integer addresses. The source-facing prototype should be normalized before migration, likely as a byte-buffer helper with a byte return value that callers may ignore.
-- Current generated globals are also inconsistent: `g_packetTransformLut` is emitted as a byte array even though command `13` writes 256 dwords at `0x0066fe58` and `XorTransformBuffer` reads dword key words from the supplied key pointer.
+- Older generated globals are also inconsistent: `g_packetTransformLut` is emitted as a byte array even though command `13` writes 256 dwords at `0x0066fe58` and `XorTransformBuffer` reads dword key words from the supplied key pointer.
 
 ## Proposed Placement
 
@@ -80,6 +81,7 @@ network/
 - Whether the original filename was a distinct protocol/crypto helper file, a private `Socket.cpp` section, or a broader network utility file.
 - Exact fixed capacities for `g_packetXorTablePrimary`, `g_packetXorTableAlternate`, `g_packetNonceScratch`, and `g_packetTransformLut`.
 - Final semantic name for `g_processArgList`; it is allocated and freed by `Socket`, but consumed as transform key material.
+- The exact original filename is still not final; `PacketTransform.cpp` is the reconstruction parent because it cleanly groups the free helper functions and shared transform globals outside `PacketBuffer` and Socket method bodies.
 
 ## Cross-References
 
@@ -102,6 +104,11 @@ network/
 
 ## Changes
 
+- 2026-06-07 A001 parent-gate refresh:
+  - Before: confidence was `82`, which was below the corrected `85/85` gate for using this file as the parent of [UID:0000TG][PacketTransformGlobals](by-global/PacketTransformGlobals.md).
+  - Changed to: confidence `85`.
+  - Summary/evidence: fresh IDA MCP `py_eval` reconfirmed the cohesive transform-helper boundaries, alternate-size/LUT xrefs, mutable transform-state xrefs, and keep-out split from scalar [UID:0000M8][PacketBuffer](by-file/PacketBuffer.md) helpers and stateful [UID:0000NS][Socket](by-file/Socket.md) transport methods. Confidence is raised only to the gate because exact original filename versus private Socket section remains open, but `NexusTK/network/PacketTransform.cpp` is justified as the reconstruction parent.
+- 2026-06-05: Reframed generated-output references as historical caveats and refreshed evidence wording to rely on existing project docs plus IDA MCP. A003 live IDA confirmed the string-key helper at `0x00575c30` is reached from `0x004f8544`, while the raw `0x00575b90` key-table setup helper remains unmodeled and has no direct xrefs. Scores unchanged because the overall source-file placement ambiguity remains open.
 - 2026-06-02: Set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/network/` and raised confidence from `78` to `82`. Evidence: the page already proposes `network/PacketTransform.cpp`, IDA MCP recheck confirms the modeled helper starts and xref sets, and the only remaining placement ambiguity is whether this was a standalone network helper file or a private `Socket.cpp` section.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `88`, confidence `78`.

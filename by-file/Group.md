@@ -1,17 +1,18 @@
 *** UID:0000JS | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Group
 
 ## Status
 
-- Confidence: strong for `NewGroupPane`, `GroupPane`, `GroupPane2`, group packet/list behavior, and group marker helpers; medium for `GroupListPane` source emission and exact scrollbar class boundaries.
+- Confidence: strong for `NewGroupPane`, `GroupPane`, `GroupPane2`, exact group vtable children, group packet/list behavior, and group marker helpers; medium-high for `GroupListPane` source emission and exact scrollbar class boundaries.
 - Proposed module folder: `social/`
 - Proposed source file: `social/Group.cpp`
 - Possible split files: `social/GroupPane.cpp`, `social/GroupChatInput.cpp`, [UID:0000NG][ScrollCollectionPane](by-file/ScrollCollectionPane.md), and [UID:0000ID][CommandInputPanes](by-file/CommandInputPanes.md)
-- Evidence basis: Wave3 class inspection, generated `simroot_v2` sources, older Wave2 notes in `by-memory/-report.md`, and IDA MCP function-boundary/decompilation checks on 2026-05-23.
+- Evidence basis: existing by-memory/by-class documentation and IDA MCP function-boundary, vtable, destructor, and decompilation checks.
+- Parent gate: this file now clears the corrected 85/85 gate for [UID:00005Z][GroupPane2](by-class/GroupPane2.md) and other exact group-pane class children that independently clear the child side.
 
 ## Hypothesis
 
@@ -46,6 +47,14 @@ The original group/party UI likely had a feature-owned source file for the visib
 - IDA decompilation at `0x0056bb20` constructs a `SpelledPane`/text-edit style object and is called from other UI code, so it should not be used as clean `GroupListPane` ownership without more evidence.
 - `NewGroupPane::UpdateGroupEntry` is currently projected at `0x0056e570`, but IDA says `0x0056e570` is not a function; the confirmed parser at `0x0056e130` ends at `0x0056e565`, and the next confirmed function is `0x0056e6d0`.
 - 2026-05-28 IDA MCP resolved `0x0056c493-0x0056c4c0` as padding plus two tiny false virtual stubs at `0x0056c4a0-0x0056c4b5`; keep those with the group pane family.
+- 2026-06-07 Batch 067 reviewed [UID:0002NK][0x006244c4-0x00624550.GroupPane2VtableData](by-memory/0x006244c4-0x00624550.GroupPane2VtableData.md) as a direct `GroupPane2` child route into this file: the vtable bases are installed by `GroupPane2` constructor/destructor/scalar deleting destructor paths, and the file already owns the class's executable method/destructor ranges.
+
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `89` | The page covers group-pane generations, exact class/vtable/destructor children, custom scroll child, raw constructors/stubs, packet/list behavior, group marker helpers, source placement, and split caveats. Completion remains below final because `GroupListPane`, scroll helper ownership, and final group/chat input source split still need source-quality cleanup. |
+| Confidence `85` | Exact by-memory children and IDA-backed vtable/destructor evidence now support direct file ownership for `GroupPane2` and related group-pane classes. Confidence stays at the parent-gate threshold because some current helper/source-split evidence is still provisional around `GroupListPane`, scrollbar helpers, and chat/input panes. |
 
 ## Migration Notes
 
@@ -93,6 +102,10 @@ Review `SayToGroupMessageInputPane` with the broader `Say*InputPane` family befo
 
 ## Changes
 
+- 2026-06-07 Batch 067 parent-gate refresh:
+  - Before: `COMPLETION:88`, `CONFIDENCE:80`; the file was below the corrected direct-parent gate for [UID:00005Z][GroupPane2](by-class/GroupPane2.md).
+  - After: `COMPLETION:89`, `CONFIDENCE:85`.
+  - Evidence: recorded the exact `GroupPane2` vtable-data child route, existing destructor island split, class method ownership, and IDA-backed group-pane family boundaries. Remaining confidence cap is the still-open `GroupListPane`, scrollbar helper, and group chat/input source split.
 - 2026-06-01: Set projected reconstruction path to `NexusTK/social/`.
   - Evidence: this page already proposes `social/Group.cpp`; current IDA evidence on [UID:0001GP][0x00560900-0x0056141f.ScrollNewGroupPaneCore](by-memory/0x00560900-0x0056141f.ScrollNewGroupPaneCore.md) confirms a Group-owned child can attach here.
   - Scope: path assignment only; reconstructed C++ remains gated by exact child-page confidence and final helper naming quality.

@@ -1,8 +1,8 @@
 *** UID:000081 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -50,4 +50,5 @@
 
 ## Changes
 
+- 2026-06-05: Marked reconstructable and attached to [UID:0000L8][MenuVarietyPanes](by-file/MenuVarietyPanes.md) because the class is `80/86` and the parent is `86/82`, satisfying the 80/80 parent gate. Live IDA MCP evidence: `lookup_funcs` confirms exact starts at `0x005bc610`, `0x005bc660`, `0x005bc690`, `0x005bc800`, `0x005bc880`, and `0x005bfc80`; `callers` confirms constructor use from `0x004f82fc` inside the main UI graph setup path.
 - Completion/confidence score update: existed before as `0/0`; changed to `80/86`. Summary: the in-game menu button pane has strong class role, singleton, method boundary, artwork, click/selector behavior, destructor/thunk, and omission notes, with final helper naming and source-level rewrite still incomplete. Evidence: linked `MenuVarietyPanes` and shared destructor/thunk ranges, IDA-confirmed starts, `g_pMenuVarietyPane`, `g_pMenuVarietySelectPane`, and generated omitted-body notes.

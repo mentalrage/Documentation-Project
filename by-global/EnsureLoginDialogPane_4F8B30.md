@@ -1,8 +1,8 @@
 *** UID:0000PL | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,7 +14,6 @@
 
 - Confidence: strong for behavior and source-family placement.
 - Address range: [UID:00019L][0x004f8b30-0x004f8b8d.EnsureLoginDialogPane](by-memory/0x004f8b30-0x004f8b8d.EnsureLoginDialogPane.md)
-- Current generated file: `source-3/simroot_v2/recovered/EnsureLoginDialogPane_004F8B30.cpp`
 - Likely owner source: [UID:0000KX][LoginDialogPane](by-file/LoginDialogPane.md)
 
 ## Function Role
@@ -29,6 +28,7 @@ The helper is currently used by [UID:0000JJ][ForcedInformMessageDialog](by-file/
 - IDA MCP callers are the two forced-inform destructor paths at `0x005880db` and `0x0058ac52`.
 - IDA MCP callees are allocator `0x004f4aa0` and `LoginDialogPane::LoginDialogPane` at `0x004fa7a0`.
 - IDA MCP `xrefs_to 0x0069b484` confirms this helper reads `g_pLoginDialogPane`.
+- IDA MCP recheck on 2026-06-05 confirmed `sub_4F8B30`, size `0x5d`, the same two forced-inform callers, allocator `0x004f4aa0`, and login-dialog constructor `0x004fa7a0`.
 
 ## Source Layout Decision
 
@@ -47,3 +47,5 @@ Keep this helper with `login/LoginDialogPane.cpp` or a nearby login helper secti
   - Before: page documented lazy login-dialog creation, callers, callees, global read, and source-layout decision but remained unevaluated.
   - After: score reflects documented behavior, allocation/constructor path, forced-inform caller context, and login-owner assignment.
   - Evidence: IDA notes confirm function size, forced-inform destructor callers, allocator and `LoginDialogPane` constructor callees, and `g_pLoginDialogPane` xrefs.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000KX][LoginDialogPane](by-file/LoginDialogPane.md).
+  - Reason: live IDA MCP recheck confirms source-authored lazy login-dialog construction; the helper allocates and constructs `LoginDialogPane`, so it belongs with the login dialog source despite forced-inform callers.

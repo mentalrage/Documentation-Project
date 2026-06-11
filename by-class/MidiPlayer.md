@@ -1,8 +1,8 @@
 *** UID:00008A | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LD | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,10 +14,8 @@
 
 - Confidence: strong for behavior, WinMM ownership, source-family placement, and singleton lifecycle; medium for final field/global/helper names.
 - Likely source file: [UID:0000LD][MidiPlayer](by-file/MidiPlayer.md)
-- Current generated file: `source-3/simroot_v2/class_MidiPlayer.cpp`
-- Imported source hint: `MidiPlayer.cpp`
 - Main address doc: [UID:0001CF][0x00525b10-0x0052664b.MidiPlayerAndWinMMHelpers](by-memory/0x00525b10-0x0052664b.MidiPlayerAndWinMMHelpers.md)
-- Autogen status: the owning file is projected to `NexusTK/audio/`; this class page stays non-reconstructable because class declaration, helper split, and global state names are not final-source quality.
+- Autogen status: attached to [UID:0000LD][MidiPlayer](by-file/MidiPlayer.md); final C++ remains blank because helper/global state names are still below the reconstruction-code gate.
 
 ## Class Purpose
 
@@ -33,7 +31,7 @@ Current evidence suggests a compact 12-byte object allocated by `Application`:
 | --- | --- | --- |
 | `0x00` | `LObject`/vtable base | Constructor calls `LObject::LObject` and installs `MidiPlayer_vtable`. |
 | `0x04` | `m_playbackEnabled` | `IsPlaybackEnabled`, `EnableMidiPlayback`, and `DisableMidiPlayback` read/write this dword. |
-| `0x08` | `m_selectedTrackId` or device/track sentinel | Constructor and stop/disable paths store `-1`; generated names vary between selected device and selected track. |
+| `0x08` | `m_selectedTrackId` or device/track sentinel | Constructor and stop/disable paths store `-1`; existing names vary between selected device and selected track. |
 
 The exact field names should stay provisional until the missing start/select helpers around `0x00526100` and `0x00526240` are restored or reviewed.
 
@@ -68,6 +66,7 @@ The file-level owner [UID:0000LD][MidiPlayer](by-file/MidiPlayer.md) is projecte
 - [UID:00023B][0x00526650-0x005270d5.MidiFileReaderAndSMFParserHelpers](by-memory/0x00526650-0x005270d5.MidiFileReaderAndSMFParserHelpers.md) owns the file/adapter-backed Standard MIDI File reader, track event decoder, and stream-event encoder helpers.
 - [UID:0001CI][0x005270e0-0x005271a3.MidiDocumentRelease](by-memory/0x005270e0-0x005271a3.MidiDocumentRelease.md) releases MIDI document/parser resources used by reset/callback paths.
 - [UID:00023C][0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers](by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md) loads the SMF track table and fills WinMM stream buffers from parsed track events.
+- [UID:0002B2][0x0069b870-0x0069b890.MidiSMFParserScratchGlobals](by-memory/0x0069b870-0x0069b890.MidiSMFParserScratchGlobals.md) records the stream-fill scratch bitfield, selected-track pointer, best pending delta, and parsed-event scratch storage consumed by `sub_5271B0`.
 
 ## Touched State
 
@@ -77,6 +76,7 @@ The file-level owner [UID:0000LD][MidiPlayer](by-file/MidiPlayer.md) is projecte
 | `this+0x04` | Playback-enabled flag used by enable/disable/select helpers. | Class methods and [UID:0001CH][0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers](by-memory/0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers.md). |
 | `this+0x08` | Selected MIDI track/device sentinel; constructor, disable, and stop paths store `-1`. | Class methods and [UID:0001CH][0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers](by-memory/0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers.md). |
 | [UID:0000T9][MidiPlayerWinMMState](by-global/MidiPlayerWinMMState.md) | Stream handle, callback event, prepared headers, stream state flags, volume, current path, and parser/document state. | State map plus stream open/callback/reset/parser pages. |
+| [UID:0002B2][0x0069b870-0x0069b890.MidiSMFParserScratchGlobals](by-memory/0x0069b870-0x0069b890.MidiSMFParserScratchGlobals.md) | Stream-fill scratch globals used to resume parser state, retry output-full events, store selected-track scan state, and hold the parsed-event record. | Live IDA confirms all direct refs are inside `sub_5271B0`, the stream-fill helper in [UID:00023C][0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers](by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md). |
 | config music flag at `g_pConfig + 2124` | Enable/disable/select logic checks or updates the global music setting before stream work. | [UID:0001CH][0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers](by-memory/0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers.md). |
 
 ## Boundary And Helper Map
@@ -94,16 +94,26 @@ The file-level owner [UID:0000LD][MidiPlayer](by-file/MidiPlayer.md) is projecte
 
 ## Data Caveats
 
-- Active generated output duplicates marker-only global-data rows for several MIDI globals.
+- Several MIDI state globals still have provisional source-facing names and need one final declaration pass before C++ is emitted.
 - `MidiPlayer_ResetStream` still uses raw `DAT_0069B508`-style stream-state globals; see [UID:0000T9][MidiPlayerWinMMState](by-global/MidiPlayerWinMMState.md).
-- `0x00525be0`, `0x00525920`, `0x00526100`, `0x00526240`, `0x00526650-0x005270d5`, and `0x005270e0` are IDA-confirmed source-family members but are not yet fully represented in active generated output.
-- 2026-05-26 recheck: current `.cpp` output still emits only the class methods plus recovered `ReleaseMidiBuffers` and `MidiPlayer_ResetStream` globals. IDA MCP still resolves the omitted starts with the same MIDI-family callers, so do not infer separate original files from the missing active class output.
+- `0x00525be0`, `0x00525920`, `0x00526100`, `0x00526240`, `0x00526650-0x005270d5`, and `0x005270e0` are IDA-confirmed source-family members, but their final shape as class methods versus private file-scope helpers remains open.
+- 2026-05-26 recheck: IDA MCP resolves the omitted helper starts with the same MIDI-family callers, so do not infer separate original files only from the class/private-helper split.
 - 2026-05-28 recheck: the former unknown span after `0x0052664b` is MIDI reader/parser code plus alignment padding, not an unrelated subsystem or arbitrary gap.
 - 2026-05-28 recheck: the former unknown span after `0x005271a3` is the matching SMF load/stream-fill helper island plus alignment padding before `MiscWorkThread`.
 - 2026-05-30 recheck: [UID:00023B][0x00526650-0x005270d5.MidiFileReaderAndSMFParserHelpers](by-memory/0x00526650-0x005270d5.MidiFileReaderAndSMFParserHelpers.md) is now nested into exact child pages for the file/adapter reader, event reader, stream-event encoder, track-buffer helpers, and parser wrapper. Treat those as private helper routines tied to this MIDI subsystem unless later source evidence proves a separate owner.
 - 2026-05-30 recheck: [UID:00023C][0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers](by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md) is now nested into exact child pages for stream-buffer fill and SMF document load. These remain private MIDI helper routines unless later source evidence proves a separate owner.
 - 2026-06-01 recheck: [UID:0001CF][0x00525b10-0x0052664b.MidiPlayerAndWinMMHelpers](by-memory/0x00525b10-0x0052664b.MidiPlayerAndWinMMHelpers.md) records current IDA function sizes across the sparse class/helper island, reset fan-in from callback/destructor/disable/select/start/stop/scalar-delete paths, WinMM callees, and boundary padding at `0x00525b0d`, `0x00526332`, and `0x0052664b`.
 - 2026-06-01 recheck: [UID:0001CH][0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers](by-memory/0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers.md) confirms the select helper checks config music state, object playback state, requested track id, and selected-track field before resolving configured/fallback paths and starting stream playback.
+- 2026-06-06 live IDA refresh confirms the main class/method starts and sizes: constructor `0x00525dc0` size `0xe6`, destructor `0x00525eb0` size `0x8d`, `IsPlaybackEnabled` `0x005260a0` size `0x4`, `EnableMidiPlayback` `0x005260b0` size `0x1a`, `DisableMidiPlayback` `0x005260d0` size `0x2f`, select helper `0x00526100` size `0x133`, start selected path helper `0x00526240` size `0xf2`, `StopPlayback` `0x00526340` size `0x10`, reset helper `0x00526460` size `0x109`, singleton clear helper `0x00526570` size `0xb`, and scalar deleting destructor `0x00526580` size `0xcb`.
+- `xrefs_to 0x0067ab4c` on 2026-06-06 reports the expected singleton lifecycle refs in constructor/destructor/clear/scalar-delete plus application, main-menu, music-control, sound-status/audio-control, and shutdown consumers. The same xref set supports keeping [UID:0000RM][g_pMidiPlayer](by-global/g_pMidiPlayer.md) with this class/file family.
+- 2026-06-06 scratch-state refresh: [UID:0002B2][0x0069b870-0x0069b890.MidiSMFParserScratchGlobals](by-memory/0x0069b870-0x0069b890.MidiSMFParserScratchGlobals.md) now records exact initialized bytes, previous/next data boundaries, all direct refs confined to `sub_5271B0`, stream-fill bitfield roles, selected-track/best-delta storage, and parsed-event scratch usage.
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 82 | The page documents the compact object layout, source owner, class/file boundary, method list, helper map, touched singleton/config/global state, callback/open/reset/parser helpers, padding/neighbor ranges, and current open questions. Completion stays below final because private helper names, raw helper splits, final field names, and final declaration shape are unresolved. |
+| Confidence | 88 | IDA-backed class method sizes, singleton xrefs, WinMM import/use paths, parser helper boundaries, and refreshed scratch-global evidence strongly support the current class/file grouping. Confidence remains below final-audit range because several helper/global names and class-versus-file-scope decisions remain provisional. |
 
 ## Open Questions
 
@@ -121,6 +131,7 @@ The file-level owner [UID:0000LD][MidiPlayer](by-file/MidiPlayer.md) is projecte
 - [UID:00023B][0x00526650-0x005270d5.MidiFileReaderAndSMFParserHelpers](by-memory/0x00526650-0x005270d5.MidiFileReaderAndSMFParserHelpers.md)
 - [UID:0001CI][0x005270e0-0x005271a3.MidiDocumentRelease](by-memory/0x005270e0-0x005271a3.MidiDocumentRelease.md)
 - [UID:00023C][0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers](by-memory/0x005271b0-0x005277bb.MidiSMFLoadAndStreamFillHelpers.md)
+- [UID:0002B2][0x0069b870-0x0069b890.MidiSMFParserScratchGlobals](by-memory/0x0069b870-0x0069b890.MidiSMFParserScratchGlobals.md)
 - [UID:0000T9][MidiPlayerWinMMState](by-global/MidiPlayerWinMMState.md)
 - [UID:0000RM][g_pMidiPlayer](by-global/g_pMidiPlayer.md)
 - [UID:0000DG][SoundManager](by-class/SoundManager.md)
@@ -129,8 +140,16 @@ The file-level owner [UID:0000LD][MidiPlayer](by-file/MidiPlayer.md) is projecte
 
 ## Changes
 
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` after live IDA MCP on `NexusTK.exe` confirmed the MIDI controller methods and helpers at `0x00525dc0`, `0x00525eb0`, `0x005260a0`, `0x005260b0`, `0x005260d0`, `0x00526100`, `0x00526240`, `0x00526340`, `0x00526580`, plus WinMM/file/parser helpers including `0x00525920`, `0x00525b10`, `0x00525be0`, `0x00525ff0`, `0x00526460`, `0x00526570`, `0x00526650`, `0x005270e0`, and `0x005271b0`. The later attachment pass set [UID:0000LD][MidiPlayer](by-file/MidiPlayer.md) as the source-module parent after the class crossed the 80 completion gate.
 - 2026-05-30: Previously this class page linked only to aggregate MIDI reader/parser and stream-fill helper spans. It now records that both aggregates have exact child by-memory pages while keeping the helpers associated with the `MidiPlayer` subsystem. Evidence: IDA MCP function-boundary and call/import checks for the split child ranges.
 - 2026-06-02: Raised the class page from `66/78` to `74/84`.
   - Before: the class page summarized behavior and helper links but did not carry over the current file-owner score, WinMM boundary notes, touched-state table, helper map, reset fan-in, or track-selection evidence.
   - After: the page records `NexusTK/audio/` placement, separate `SoundManager` boundary, singleton/config/object-field/global-state accesses, helper/padding ranges, and remaining reconstruction blockers.
   - Evidence: existing IDA-backed [UID:0000LD][MidiPlayer](by-file/MidiPlayer.md), [UID:0001CF][0x00525b10-0x0052664b.MidiPlayerAndWinMMHelpers](by-memory/0x00525b10-0x0052664b.MidiPlayerAndWinMMHelpers.md), [UID:0001CH][0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers](by-memory/0x00526100-0x00526332.MidiPlayerTrackSelectionHelpers.md), [UID:0000RM][g_pMidiPlayer](by-global/g_pMidiPlayer.md), and [UID:0000T9][MidiPlayerWinMMState](by-global/MidiPlayerWinMMState.md).
+- 2026-06-06 A006 attachment pass:
+  - Before: scored `74/84`, reconstructable but unattached because the class was below the 80 completion parent gate.
+  - Changed to: `82/86` and `AUTOGEN_PARENT_UID:0000LD`; final C++ remains blank below the 95/95 gate.
+  - Evidence: live IDA reconfirmed the main class method starts/sizes, reset/select/start helper boundaries, singleton clear/scalar-delete bodies, and `g_pMidiPlayer` lifecycle/consumer xrefs. Remaining blockers are final helper/global names and exact class-versus-file-scope placement for some private MIDI helpers.
+- 2026-06-06 A006 source-sync pass:
+  - Changed to: confidence `88`, removed stale source-output wording, added [UID:0002B2][0x0069b870-0x0069b890.MidiSMFParserScratchGlobals](by-memory/0x0069b870-0x0069b890.MidiSMFParserScratchGlobals.md) to related helpers/touched state/cross-references, and added score rationale.
+  - Evidence: the scratch-global page now records live IDA-confirmed initialization, half-open boundary, xref confinement to `sub_5271B0`, stream-fill bitfield semantics, selected-track/best-delta fields, and parsed-event scratch storage. Final C++ remains blank because field/global/helper names are still below the 95/95 gate.

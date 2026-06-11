@@ -1,8 +1,8 @@
 *** UID:0000T5 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,6 @@
 - Symbol kind: startup helper function
 - Signature hypothesis: `bool __cdecl LoadIndexedDATSeries(const wchar_t* basePath)`
 - Likely owner file: [UID:0000HG][Application](by-file/Application.md)
-- Current generated evidence: `source-3/simroot_v2/class_Application.meta_old` calls this as `FUN_00467410`; older Wave2 notes imported the symbol as `LoadIndexedDATSeries`.
 - Confidence: strong for behavior, callers, source placement, and helper name; medium-high for exact original return type.
 
 ## Function Role
@@ -30,9 +29,10 @@ The helper is startup policy, not archive parsing. It chooses the numbered-serie
 - IDA MCP `lookup_funcs` on 2026-05-25 confirms `0x00467410` as a real function of size `0xdd`, ending half-open at `0x004674ed`.
 - IDA MCP `callers` reports 19 call sites, all inside `Application::Initialize`.
 - IDA MCP `decompile` shows the `i < 99` loop, `L"%s%d.DAT"` formatting, `_wfopen_s` existence probe, and fatal `"File not found : %s"` path on manager-load failure.
-- `simroot_v2` generated application evidence lists calls for many startup resource families such as `DATA/FACEDEC`, `DATA/EMOTION`, `DATA/BODY`, `DATA/TILE`, `DATA/EFX`, `DATA/HAIR`, `DATA/HELMET`, and `DATA/COAT`.
+- Application startup evidence lists calls for many startup resource families such as `DATA/FACEDEC`, `DATA/EMOTION`, `DATA/BODY`, `DATA/TILE`, `DATA/EFX`, `DATA/HAIR`, `DATA/HELMET`, and `DATA/COAT`.
 - 2026-05-30 IDA MCP recheck confirms the exact half-open range `0x00467410-0x004674ed`, 19 call sites all inside `Application::Initialize`, and callees for `_wfopen_s`, `_fclose`, fatal error helper `0x00465cb0`, and [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md).
-- `simroot_v2/recovered/LoadIndexedDATSeries_00467410.cpp` currently matches the IDA-verified behavior and is useful as a source-shape lead, but the source-level `bool` return should remain a hypothesis because the binary return is the byte value `1`.
+- IDA MCP recheck on 2026-06-05 confirmed `sub_467410`, size `0xdd`, 19 startup call sites inside `sub_4639D0`, and the same archive-probe/indexing helper role.
+- The source-level `bool` return should remain a hypothesis because the binary return is the byte value `1`.
 
 ## Source Layout Decision
 
@@ -57,3 +57,5 @@ The source-level helper should scan numbered families with `index < 99`, probe e
 ## Changes
 
 - 2026-05-30: Raised completion/confidence from `0/0` to `88/92`. Previously this global index page described the helper but had no score; it now records the current IDA MCP boundary/caller/callee recheck and clarifies the source-level return-type caveat.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000HG][Application](by-file/Application.md).
+  - Reason: live IDA MCP recheck confirms a source-authored startup helper with all 19 direct callers inside application initialization; archive parsing remains delegated to the DAT manager.

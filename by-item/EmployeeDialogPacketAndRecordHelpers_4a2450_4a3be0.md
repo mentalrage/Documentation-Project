@@ -22,7 +22,7 @@
 
 | Address range | Proposed name | Behavior |
 | --- | --- | --- |
-| `0x004a2450-0x004a2531` | `HandleEmployeeInventoryItem` | Looks up selected item metadata through `dword_67A748`, clears `this[264]`, opens [UID:00004E][EmployeeQuantityInputDialogPane](by-class/EmployeeQuantityInputDialogPane.md) when the item requires a count, or sends employee command `5` directly through `sub_5975E0`. |
+| `0x004a2450-0x004a2531` | `HandleEmployeeInventoryItem` | Looks up selected item metadata through [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) / historical `dword_67A748`, clears `this[264]`, opens [UID:00004E][EmployeeQuantityInputDialogPane](by-class/EmployeeQuantityInputDialogPane.md) when the item requires a count, or sends employee command `5` directly through `sub_5975E0`. |
 | `0x004a2f60-0x004a322c` | `HandleEmployeeDialogPacket` | Handles employee response packet `0x4f/0x01`, validates the employee entity id at `this+0x7a8`, dispatches cases `0..4`, and repaints after record/status mutations. |
 | `0x004a34d0-0x004a3644` | `DeserializeEmployeeRecord` | Parses one variable-length employee record into a `0x41c` `EmployeeRecord`, converts the name to wide text, appends percent text when the packet percent byte is not `0xff`, and returns bytes consumed. |
 | `0x004a3be0-0x004a3c9f` | `UpdateEmployeeRecord` | Raw code-shaped helper that parses one record, searches the `this+0x84c` record array by id or empty slot, copies `0x41c` bytes into the target slot, rebuilds the list, and invalidates/repaints through the pane vtable. |
@@ -43,7 +43,7 @@ Checked on 2026-06-03 after IDA MCP restart:
 Checked on 2026-05-30:
 
 - `ida_funcs.get_func` reports `sub_4A2450` as `0x004a2450-0x004a2531` size `225`, `sub_4A2F60` as `0x004a2f60-0x004a322c` size `716`, and `sub_4A34D0` as `0x004a34d0-0x004a3644` size `372`.
-- `0x004a2450` has no direct xrefs. Hex-Rays shows it reading the selected item id from the packet byte, using `dword_67A748` item metadata, opening quantity dialog object id `628` for count-required items, otherwise sending command `5` with item slot/count data.
+- `0x004a2450` has no direct xrefs. Hex-Rays shows it reading the selected item id from the packet byte, using [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) item metadata, opening quantity dialog object id `628` for count-required items, otherwise sending command `5` with item slot/count data.
 - `0x004a2f60` has a data/vtable xref at `0x00618f70` and no direct code callers. Hex-Rays shows packet-byte gates `0x4f` then `0x01`, entity-id validation against `this+0x7a8`, and a five-case subcommand switch.
 - `0x004a2f60` case `0` loads the full list through `sub_4A3A90`; case `1` upserts a parsed record and repaints; case `2` marks a matching record removed by clearing id and setting state word `1`; case `3` delegates to `sub_4A3E10`; case `4` copies a multibyte status string into a wide buffer at `this+0x4a8` and repaints.
 - `0x004a34d0` is called from `0x004a300d` in `sub_4A2F60`, `0x004a3bb1` in `sub_4A3A90`, and raw code at `0x004a3c05`. Hex-Rays shows it writing id, state, flag, wide name, display percent suffix, and trailing DWORD fields at `0x40c`, `0x410`, and `0x414`.
@@ -69,10 +69,16 @@ The page is attached directly to [UID:0000J0][EmployeeDialogPane](by-file/Employ
 - [UID:00004C][EmployeeDialogPane](by-class/EmployeeDialogPane.md)
 - [UID:000138][0x004a1d70-0x004a4e6b.EmployeeDialogPanes](by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md)
 - [UID:0002HD][0x004a34d0-0x004a3644.DeserializeEmployeeRecord](by-memory/0x004a34d0-0x004a3644.DeserializeEmployeeRecord.md)
+- [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md)
 - [UID:0001UD][EmployeeRecord](by-type/by-struct/EmployeeRecord.md)
 - [UID:0001XH][EmployeeDialogPaneVtables](by-type/by-vtable/EmployeeDialogPaneVtables.md)
 
 ## Changes
+
+- 2026-06-07: Replaced the raw selected-item metadata global with canonical [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) wording.
+  - Before: `HandleEmployeeInventoryItem` described selected inventory metadata through historical `dword_67A748` only.
+  - After: the helper summary and IDA evidence link the resolved collection-data global while keeping the old name as traceability in the table.
+  - Evidence: the generated resolved-name report maps `dword_67A748` to `g_pCollectionData`, and the existing IDA evidence shows `0x004a2450` using that metadata path for count-required employee inventory items.
 
 - 2026-06-03 live IDA refresh:
   - Changed to: `COMPLETION:78`, `CONFIDENCE:86`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000J0`.

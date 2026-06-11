@@ -1,8 +1,8 @@
 *** UID:00009R | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000M5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -13,11 +13,9 @@
 ## Status
 
 - Confidence: strong for base-class role and method anchors.
-- Likely source file: [UID:0000M5][ObjectPane](by-file/ObjectPane.md)
-- Current recovered file: `source-3/simroot_v2/class_ObjectPane.cpp`
-- Current Wave3 grade: `96.4`
-- Current Wave3 coverage: 12 modeled methods, zero missing target refs.
-- Rebuild handling: source-authored class; C++ block remains blank because final layout, virtual slot names, and emitted source are not final-audit quality.
+- Source file: [UID:0000M5][ObjectPane](by-file/ObjectPane.md)
+- Evidence basis: live IDA MCP confirms the core method boundaries, constructor/destructor subclass reachability, scattered rect-helper vtable slots, and object-data/position virtual slots.
+- Rebuild handling: source-authored class; C++ block remains blank because final layout, virtual slot names, and source declaration/body shape are not final-audit quality.
 
 ## Class Purpose
 
@@ -44,9 +42,10 @@ Classes such as [UID:00007B][LivingObjectPane](by-class/LivingObjectPane.md), it
 
 ## Evidence Notes
 
-- Wave3 reports grade `96.4`, 12 methods, and zero missing target refs.
-- IDA confirms all listed method starts and ranges.
-- `SetObjectData` is valid in IDA, but Wave3's emitted `class_ObjectPane.cpp` currently omits its executable body and emits only local struct scaffolding. Treat the IDA decompilation as the current behavioral source of truth for that method until Wave3 materialization is fixed.
+- Live IDA confirms all listed method starts and ranges, including the two scattered rect-helper virtuals at `0x00469050` and `0x00469080`.
+- The constructor has subclass construction callers across the static, item/flying, attached, effect, living, lighting, and sound object-pane families; the destructor is reached from the corresponding wrapper/destructor paths.
+- `SetObjectData` at `0x00537800-0x0053787a` is a real executable virtual-slot body: it invalidates before and after updating the 16-byte object-data block and conditionally recomputes attached-state geometry.
+- `GetObjectData` and `SetPosition` are vtable-referenced across the ObjectPane family; `SetPosition` updates the stored map coordinates only when they change.
 
 ## Cross-References
 
@@ -59,10 +58,20 @@ Classes such as [UID:00007B][LivingObjectPane](by-class/LivingObjectPane.md), it
 
 ## Changes
 
-- Before: completion/confidence metadata were `0/0` even though the page already covered base-class purpose, object state, method anchors, and a Wave3 materialization caveat.
+- 2026-06-06 A002 autogen parent sync:
+  - What existed before: the class page identified [UID:0000M5][ObjectPane](by-file/ObjectPane.md) as the likely source file, but `AUTOGEN_PARENT_UID` was blank, leaving child memory pages attached to an unassigned parent in generated coverage.
+  - What changed: set `AUTOGEN_PARENT_UID:0000M5` and promoted the status wording from likely source file to source file.
+  - Summary/evidence: the file page already has `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/"`, this class is `84/86`, the file page is `88/86`, and all three ObjectPane memory children are above the 80/80 attachment gate; final C++ remains blank under the 95/95 gate.
+
+- 2026-06-05 live IDA refresh:
+  - What existed before: the page mixed source-facing ObjectPane notes with stale recovery-output status and a lower confidence cap.
+  - What changed: raised completion/confidence to `84/86`, removed stale recovery-output references, and added live IDA evidence for method boundaries, subclass caller families, and the object-data/position virtual slots.
+  - Summary/evidence: live IDA confirms the ObjectPane core range, scattered rect helpers, constructor/destructor reachability, and vtable/data references for the object-data and position methods.
+
+- Before: completion/confidence metadata were `0/0` even though the page already covered base-class purpose, object state, and method anchors.
 - Changed to: `COMPLETION:82` and `CONFIDENCE:80`.
-- Evidence: the page documents constructor/destructor, attach/detach, bounds, object-data, position, helper virtuals, derived-class relationships, and the `SetObjectData` emitted-source omission; confidence remains medium-high because one important method still depends on IDA decompilation rather than current generated output.
+- Evidence: the page documents constructor/destructor, attach/detach, bounds, object-data, position, helper virtuals, and derived-class relationships; confidence remains below final because several field and slot names are still provisional.
 - 2026-06-02 reconstructable marker update:
   - What existed before: the class page described a reconstructable ObjectPane base class but left `RECONSTRUCTABLE` blank.
   - What it was changed to: marked `RECONSTRUCTABLE:TRUE` while keeping the C++ block blank.
-  - Summary/evidence: ObjectPane owns confirmed constructor/destructor, attach/detach, bounds, object-data, position, and virtual rect helper methods; final emitted class source still waits on layout and virtual-slot naming.
+  - Summary/evidence: ObjectPane owns confirmed constructor/destructor, attach/detach, bounds, object-data, position, and virtual rect helper methods; final class declaration/body shape still waits on layout and virtual-slot naming.

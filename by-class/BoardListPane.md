@@ -1,5 +1,5 @@
 *** UID:000010 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -40,6 +40,7 @@
 | raw selected-board packet helper | `0x00472a90-0x00472b45` | Serializes a board-selection packet from pane selection state; direct reachability remains open. |
 | `OnItemDoubleClick` / activation virtual | `0x00472b50-0x00472b63` | Vtable slot `0x00613d64`; climbs owner/container links and tail-jumps to `BoardListDialog::OpenSelectedBoard` at `0x004728a0`. |
 | `DrawItem` | `0x00472b70-0x00472bf5` | Vtable slot `0x00613d68`; draws one board-list row with selected/highlight state, marker/icon output, and centered row text. |
+| shared scalar deleting destructor | [UID:0000ZR][0x0047ea50-0x0047ea8b.SharedListPaneScalarDeletingDestructor](by-memory/0x0047ea50-0x0047ea8b.SharedListPaneScalarDeletingDestructor.md) | Non-emitting shared list-pane ABI wrapper; keep source ownership on the class methods and let the compiler regenerate the wrapper. |
 
 ## Evidence Notes
 
@@ -49,6 +50,11 @@
 - Live xrefs to table bases include inline construction stores at `0x004721d4`, `0x004721da`, and `0x004721e4`, reset/copy stores at `0x00472566`, `0x0047256c`, and `0x00472576`, and the raw helper stores at `0x00472a04`, `0x00472a0c`, and `0x00472a16`.
 - Live decompilation of `0x00472b50` shows two virtual owner/container lookups through slot `+0x1c`, followed by a tail jump to [UID:0002EJ][0x00472070-0x004729dd.BoardListDialogCore](by-memory/0x00472070-0x004729dd.BoardListDialogCore.md)'s selected-board opener.
 - Live decompilation of `0x00472b70` shows selection/highlight testing, draw helper calls, transient draw-state byte `this + 0x70`, row midpoint calculation, and text drawing from the row payload at `a3 + 2`.
+- 2026-06-10 B001-025 recheck confirms [UID:0002V9][0x004729e0-0x00472bf5.BoardListPaneCore](by-memory/0x004729e0-0x00472bf5.BoardListPaneCore.md) is now `85/88`, this class is the direct owner, and the shared [UID:0000ZR][0x0047ea50-0x0047ea8b.SharedListPaneScalarDeletingDestructor](by-memory/0x0047ea50-0x0047ea8b.SharedListPaneScalarDeletingDestructor.md) remains non-emitting ABI glue rather than a handwritten source child.
+
+## Score Rationale
+
+Completion is raised to `85` because the page now records the exact core child, direct file parent, raw helper island, modeled virtuals, vtable stores, activation callback to `BoardListDialog`, row drawing behavior, and shared destructor wrapper boundary. Confidence remains `88` because IDA supports the class identity and callbacks, while final row-field names and raw helper source names remain provisional.
 
 ## Open Questions
 
@@ -75,3 +81,7 @@
   - Before: class remained `70/84`, reconstructable/autogen-parent metadata was blank, and the page only documented the two modeled virtual callbacks.
   - After: scored as `78/88`, marked reconstructable, and attached under [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md).
   - Summary/evidence: exact child [UID:0002V9][0x004729e0-0x00472bf5.BoardListPaneCore](by-memory/0x004729e0-0x00472bf5.BoardListPaneCore.md) now documents the raw constructor/text/packet helper island, modeled activation/draw virtuals, vtable slots, inline constructor stores, and internal padding. Completion remains below reconstruction level because raw helper reachability, row layout, and source names remain unresolved.
+- 2026-06-10 B001-025:
+  - Before: the class remained `78/88`, blocking strict assignment of its repaired child.
+  - Changed to: `COMPLETION:85`, `CONFIDENCE:88`; parent remains [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md).
+  - Summary/evidence: B001 re-audit confirmed exact pane child coverage, modeled virtuals, raw helper boundaries, vtable stores, activation callback, and non-emitting shared destructor treatment. Remaining uncertainty is final row-layout/source naming, not direct ownership.

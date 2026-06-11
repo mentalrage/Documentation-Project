@@ -1,8 +1,8 @@
 *** UID:00005J | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JN | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -35,7 +35,7 @@
 
 - IDA MCP confirms every listed function start.
 - `OnOkButton` stores rows at `g_pConfig + 2691552`, one config string per friend slot.
-- IDA MCP callers show [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md) is called from `OnOkButton` after checking [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md); that helper reads the same config slots and serializes opcode `0x77` for [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md). The generated `g_isCashShopEnabled` name for this read is misleading.
+- IDA MCP callers show [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendFriendNameListSync](by-memory/0x00574e50-0x0057536b.BuildAndSendFriendNameListSync.md) is called from `OnOkButton` after checking [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) / `g_friendNameListSyncEnabled`; that helper reads the same config slots and serializes opcode `0x77` for [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md). The generated `g_isCashShopEnabled` name for this read is misleading.
 - The dialog is feature-specific by assets `FRIEND.EPF`, `FRIEND.EPD`, `FRIEND.PAL`, and fixed 20-slot friend list layout.
 
 ## Cross-References
@@ -43,13 +43,18 @@
 - [UID:0000JN][FriendListDialog](by-file/FriendListDialog.md)
 - [UID:0001DS][0x0053f2c0-0x0053f939.FriendListDialog](by-memory/0x0053f2c0-0x0053f939.FriendListDialog.md)
 - [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md)
-- [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md)
-- [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md)
+- [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) / `g_friendNameListSyncEnabled`
+- [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendFriendNameListSync](by-memory/0x00574e50-0x0057536b.BuildAndSendFriendNameListSync.md)
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: friend-list upload evidence used only the historical `byte_66DEE0` label.
+  - After: the page records resolved name `g_friendNameListSyncEnabled` beside the historical label.
+  - Evidence: generated resolved-name report maps `byte_66DEE0` to `g_friendNameListSyncEnabled`; existing IDA-backed evidence already ties the flag to the friend-name-list opcode `0x77` upload path.
 - 2026-05-28: Changed `OnSetFocus` from `0x0053f930-0x0053f938` to `0x0053f930-0x0053f939`.
   - Before: the method map omitted the final byte of the function.
   - After: the method map matches IDA's full function boundary.
   - Evidence: IDA MCP reports `sub_53F930` as `0x0053f930-0x0053f939`.
-- Completion/confidence score update: existed before as `0/0`; changed to `80/88`. Summary: dialog role, 20-slot control layout, OK behavior, config storage, packet upload linkage, assets, method ranges, destructor support, and corrected boundary are documented with strong confidence. Evidence: main range `0x0053f2c0-0x0053f939`, `BuildAndSendInventoryData` cross-reference, `byte_66DEE0`, and friend-name opcode documentation.
+- Completion/confidence score update: existed before as `0/0`; changed to `80/88`. Summary: dialog role, 20-slot control layout, OK behavior, config storage, packet upload linkage, assets, method ranges, destructor support, and corrected boundary are documented with strong confidence. Evidence: main range `0x0053f2c0-0x0053f939`, the `BuildAndSendFriendNameListSync` cross-reference, `byte_66DEE0` / `g_friendNameListSyncEnabled`, and friend-name opcode documentation.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000JN][FriendListDialog](by-file/FriendListDialog.md) because the class is `80/88` and the parent is `84/82`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts at `0x0053f2c0`, `0x0053f830`, `0x0053f930`, `0x005425b5`, `0x005425c0`, and `0x005426e0`; current `callers` confirms constructor references from dialog/menu flows at `0x0053e115`, `0x005a7112`, and `0x005bd151`.

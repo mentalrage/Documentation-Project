@@ -1,8 +1,8 @@
 *** UID:00006U | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -58,3 +58,7 @@
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `86/82`. Summary: rich item-tooltip responsibility, construction/destruction/painting/timer/mouse/dismiss/populate/count helpers, singleton, MetaMan usage, support helper split, storage checks, and caller evidence are documented in detail; confidence remains limited by exact source-file split within HelpPanes. Evidence: `ItemHelpPaneCore`, `HelpTooltipSupportHelpers`, `HelpTooltipDestructorThunks`, `g_pItemHelpPane`, `ItemDialogs`, and `InventoryPane`.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000JU][HelpPanes](by-file/HelpPanes.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving the rich item-tooltip pane unclassified in generated class coverage.
+  - After: set `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000JU`; left the C++ block blank because the page is below the final reconstruction bar.
+  - Summary/evidence: live IDA MCP reconfirms real starts at `0x004c82d0`, `0x004c8b20`, `0x004c8bd0`, `0x004ccc20`, `0x004ccc40`, `0x004ccc80`, `0x004ccca0`, `0x004ce100`, and `0x004ce430`, with constructor callers from inventory/item-help contexts. The class score `86/82` and parent score `90/80` meet the 80/80 attachment gate.

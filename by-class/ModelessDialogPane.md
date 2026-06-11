@@ -1,8 +1,8 @@
 *** UID:00008K | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LH | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for recovered behavior and method boundaries.
 - Likely source: [UID:0000LH][ModelessDialogPane](by-file/ModelessDialogPane.md)
+- Parent/C++ status: attached to [UID:0000LH][ModelessDialogPane](by-file/ModelessDialogPane.md), the `NexusTK/ui/core/ModelessDialogPane.cpp` shared dialog-infrastructure root. Batch 115 refreshed the file parent to `89/85`, so this class/file chain now clears the corrected `85/85` gate. Final C++ remains blank until inherited `DialogPane` field names, event-dispatcher interaction state, and allocation sites are fully audited.
 - Current recovered source: `source-3/simroot_v2/class_ModelessDialogPane.cpp`
 - Memory: [UID:00012Z][0x004a0760-0x004a0c8e.ModelessDialogPane](by-memory/0x004a0760-0x004a0c8e.ModelessDialogPane.md)
 - Type docs: [UID:0001V9][ModelessDialogPaneLayout](by-type/by-struct/ModelessDialogPaneLayout.md)
@@ -48,9 +49,9 @@ The third table is only two slots long. The following dword at `0x00618ce0` belo
 
 | Range | Method | Summary |
 | --- | --- | --- |
-| `0x004a0760-0x004a0827` | constructor | Creates a default 100x100 modeless dialog shell and registers it with the event dispatcher/list manager. |
-| `0x004a0830-0x004a0835` | `IsModal` | Reports non-modal behavior. |
-| `0x004a0840-0x004a0c8e` | `HandleMouseEvent` | Drag, hover, click, focus-commit, and control activation dispatcher. |
+| [UID:000310][0x004a0760-0x004a0827.ModelessDialogPaneConstructor](by-memory/0x004a0760-0x004a0827.ModelessDialogPaneConstructor.md) | constructor | Creates a default 100x100 modeless dialog shell and registers it with the event dispatcher/list manager. |
+| [UID:000311][0x004a0830-0x004a0835.ModelessDialogPaneIsModal](by-memory/0x004a0830-0x004a0835.ModelessDialogPaneIsModal.md) | `IsModal` | Reports non-modal behavior. |
+| [UID:000312][0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent](by-memory/0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent.md) | `HandleMouseEvent` | Drag, hover, click, focus-commit, and control activation dispatcher. |
 
 ## Behavior Notes
 
@@ -69,6 +70,9 @@ The third table is only two slots long. The following dword at `0x00618ce0` belo
 
 - [UID:0000LH][ModelessDialogPane](by-file/ModelessDialogPane.md)
 - [UID:00012Z][0x004a0760-0x004a0c8e.ModelessDialogPane](by-memory/0x004a0760-0x004a0c8e.ModelessDialogPane.md)
+- [UID:000310][0x004a0760-0x004a0827.ModelessDialogPaneConstructor](by-memory/0x004a0760-0x004a0827.ModelessDialogPaneConstructor.md)
+- [UID:000311][0x004a0830-0x004a0835.ModelessDialogPaneIsModal](by-memory/0x004a0830-0x004a0835.ModelessDialogPaneIsModal.md)
+- [UID:000312][0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent](by-memory/0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent.md)
 - [UID:0001V9][ModelessDialogPaneLayout](by-type/by-struct/ModelessDialogPaneLayout.md)
 - [UID:0001Y6][ModelessDialogPaneVtables](by-type/by-vtable/ModelessDialogPaneVtables.md)
 - [UID:0000IT][DialogPane](by-file/DialogPane.md)
@@ -77,8 +81,18 @@ The third table is only two slots long. The following dword at `0x00618ce0` belo
 
 ## Changes
 
+- 2026-06-08 A005 Batch115 split/parent refresh:
+  - Before: `COMPLETION:86`, `CONFIDENCE:84`, attached under an older parent gate while exact method children were missing.
+  - Changed to: `COMPLETION:87`, `CONFIDENCE:85`, with exact method children [UID:000310][0x004a0760-0x004a0827.ModelessDialogPaneConstructor](by-memory/0x004a0760-0x004a0827.ModelessDialogPaneConstructor.md), [UID:000311][0x004a0830-0x004a0835.ModelessDialogPaneIsModal](by-memory/0x004a0830-0x004a0835.ModelessDialogPaneIsModal.md), and [UID:000312][0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent](by-memory/0x004a0840-0x004a0c8e.ModelessDialogPaneHandleMouseEvent.md) assigned to this class.
+  - Evidence: the exact child pages preserve the IDA-backed constructor/function sizes, vtable slots, secondary-view offset mapping, event-dispatcher registration, and switch-table exclusion; [UID:0000LH][ModelessDialogPane](by-file/ModelessDialogPane.md) was refreshed to `89/85`, so this class now has a direct source-file parent that satisfies the corrected gate. Confidence remains only at the gate because allocation sites and final inherited field names remain open.
+
 - Completion/confidence score update: existed before as `0/0`; changed to `86/84`. Summary: the non-modal dialog pane is documented in high detail across responsibility, layout, vtable slots, secondary-subobject mapping, mouse behavior, method families, and unresolved allocation/field naming caveats. Evidence: linked `ModelessDialogPane` memory page, struct/vtable type docs, constructor vtable stores, event dispatcher registration, secondary-view offset translation, and vtable data refs.
 
 - Before: `RECONSTRUCTABLE` was blank.
 - Changed to: `RECONSTRUCTABLE:TRUE`.
 - Summary/evidence: IDA MCP confirms executable class methods, constructor vtable stores, and vtable data references for the class. It is NexusTK-owned UI infrastructure that must be represented in the rebuilt source even though final C++ and parent attachment remain deferred below the `95+` final-audit gate.
+
+- 2026-06-06 A008 parent-chain pass:
+  - Before: [UID:0001V9][ModelessDialogPaneLayout](by-type/by-struct/ModelessDialogPaneLayout.md) pointed at this class, but the class had no autogen parent, leaving the layout blocked by `autogen_parent_unknown`.
+  - After: `AUTOGEN_PARENT_UID` is set to [UID:0000LH][ModelessDialogPane](by-file/ModelessDialogPane.md), the `NexusTK/ui/core/ModelessDialogPane.cpp` root.
+  - Evidence: [UID:0000LH][ModelessDialogPane](by-file/ModelessDialogPane.md) is assigned to that generated source root at `88/84`; this class is `86/84`; and the constructor, `IsModal`, mouse-event handler, secondary-view layout mapping, vtable cluster, and shared dialog-infrastructure role all align with that file.

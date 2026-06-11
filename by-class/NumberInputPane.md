@@ -1,5 +1,5 @@
 *** UID:00009L | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000K7 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -17,7 +17,7 @@
 - Main address range: [UID:00018X][0x004f1c00-0x004f3017.InputPaneBases](by-memory/0x004f1c00-0x004f3017.InputPaneBases.md)
 - Vtables: [UID:0001XS][InputPaneBaseVtableFamily](by-type/by-vtable/InputPaneBaseVtableFamily.md)
 - Current recovered file: `source-3/simroot_v2/class_NumberInputPane.cpp`
-- Autogen status: reconstructable class attached to [UID:0000K7][InputPanes](by-file/InputPanes.md); C++ remains blank because the base-layout names and exact source declaration are below the 95+ gate.
+- Autogen status: reconstructable class attached to [UID:0000K7][InputPanes](by-file/InputPanes.md); C++ remains blank because the base-layout names and exact source declaration are below the `95/95` gate.
 
 ## Class Purpose
 
@@ -59,6 +59,11 @@
 - [UID:0001MI][0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor](by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md)
 
 ## Changes
+
+- 2026-06-06: Raised completion using the same evidence model as the sibling input argument panes.
+  - Before: completion was `74`; parent [UID:0000K7][InputPanes](by-file/InputPanes.md) was already attached, but the report row still carried the older `66` score.
+  - After: completion is `82`, confidence remains `86`, and the existing parent attachment is retained.
+  - Evidence: the page has constructor/filter ranges, exact vtable bases, secondary override-slot proof, aggregate-range ownership, and drop/give gold consumers documented. C++ remains blank under the `95/95` final-source gate.
 
 - 2026-06-02:
   - Before: page documented the class purpose and method map but left reconstructable/parent metadata blank.

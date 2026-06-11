@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00000C | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Confidence: strong for observed offsets and release/constructor behavior; medium-high for final type/class name.
 - Likely owner header: `render/AlphaMaskSurface.h` or a broader render surface header.
 - Primary file docs: [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md), [UID:0000K8][IntAlphaSurface](by-file/IntAlphaSurface.md)
+- Parent attachment: attached to [UID:00000C][AlphaMaskSurface](by-class/AlphaMaskSurface.md), which is scored `84/89`; this layout page is scored `84/88`, so both sides clear the `80/80` child attachment gate.
 - Exact memory docs: [UID:0000YL][0x00462170-0x00462e03.AlphaMaskSurface](by-memory/0x00462170-0x00462e03.AlphaMaskSurface.md), [UID:0000YP][0x00463270-0x004632b1.IntAlphaSurface](by-memory/0x00463270-0x004632b1.IntAlphaSurface.md)
 - Reconstructable: true as a source-level layout declaration; C++ body remains blank because this page is type/layout documentation, not a standalone function implementation.
 
@@ -66,3 +67,7 @@ Current docs keep the high-level class name `AlphaMaskSurface`, while the vtable
 - 2026-05-30: Raised completion/confidence from `0/0` to `84/88`. Previously this page documented the observed layout but had no score; it now records the current raw-constructor and clipped-view IDA MCP rechecks while preserving the final type-name caveat.
 - 2026-06-04: Marked `RECONSTRUCTABLE:TRUE` without changing scores.
   - Reasoning: the page already has IDA-backed constructor, destructor/release, and clipped-view evidence for a real source-level layout declaration; the remaining uncertainty is naming/ownership, so no parent attachment or C++ emission was added.
+- 2026-06-06: Set `AUTOGEN_PARENT_UID` to [UID:00000C][AlphaMaskSurface](by-class/AlphaMaskSurface.md) without changing scores.
+  - Before: the page met the `80/80` attachment gate but had no parent.
+  - After: the layout contributes under the `AlphaMaskSurface` class while preserving the final `IntAlphaSurface` naming/split caveat.
+  - Evidence: the class page is scored `84/89` and already links this layout; this page documents the constructor, release/destructor, and clipped-view uses of the same offsets.

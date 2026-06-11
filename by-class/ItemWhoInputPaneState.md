@@ -33,7 +33,7 @@
 - IDA decompilation/disassembly remains the exact setter shape: copy the byte argument to `this[250]` / `[ecx+0xfa]` and return it.
 - IDA caller evidence includes 17 call sites. The item-use path `0x005a3e30` reads `state+0xfa`, allocates a `0x10c`-byte `ItemWhoInputPane` only when the byte is clear, then calls this setter with `1`.
 - The item-target non-deleting destructor `0x005aed40` and scalar deleting destructor `0x005b7a20` call this setter with `0` after reconciling the saved target globals.
-- Shared spell/target constructors and destructors call this item-state setter when `byte_66DA97 == 1`; the paired spell-state setter is used on the other branch.
+- Shared spell/target constructors and destructors call this item-state setter when [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97` is `1`; the paired spell-state setter is used on the other branch.
 - The exact memory page records the pure setter decompilation, raw bytes `55 8b ec 8a 45 08 88 81 fa 00 00 00 5d c2 04 00`, empty callee list, caller family table, and immediate boundary evidence around `0x0057d080`, `0x0057d0a0`, and `0x0057d0b0`.
 - The caller fanout supports [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md) as the best current parent because the helper participates in item target-use, spell target prompt constructors, and input-pane destructor paths instead of only the direct item-action input module.
 
@@ -51,9 +51,11 @@
 - [UID:0001IJ][0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag](by-memory/0x0057d0a0-0x0057d0af.ItemWhoInputPaneStateSetFlag.md)
 - [UID:0000DX][SpellWhoInputPane](by-class/SpellWhoInputPane.md)
 - [UID:0000DM][SpellInputPaneState](by-class/SpellInputPaneState.md)
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup: normalized the item/spell state-selection `byte_66DA97` branch to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the IDA lookup alias.
 - 2026-06-03: Raised completion/confidence from `70/82` to `76/86`.
   - Summary/evidence: live IDA MCP reconfirmed `0x0057d0a0` as a `0x10`-byte pure `this+0xfa` setter with no callees; caller/decompile evidence now documents the item-use allocation guard, active-prompt set-to-`1`, teardown set-to-`0`, and `byte_66DA97` branch that selects the paired spell or item state setter. The page remains below the final C++ gate because the source-facing state type and field name are still unresolved.
 - 2026-06-02: Raised completion/confidence from `62/76` to `70/82`, marked the page reconstructable, and attached it to [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md). This uses the exact setter memory page's IDA-recorded byte, caller, callee, and boundary evidence while keeping C++ blank because the final state declaration and field names are not source-quality.

@@ -1,8 +1,8 @@
 *** UID:0000U3 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Entity kind: function-level render helper.
 - Exact range: `0x00462320-0x004623b4`.
 - Likely source module: [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md).
+- Autogen parent: [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md).
 - Output record: [UID:0001TQ][AlphaSurfaceBufferView](by-type/by-struct/AlphaSurfaceBufferView.md).
 
 ## Behavior
@@ -75,5 +76,10 @@ Names are provisional, but the offset behavior is IDA-backed.
 - [UID:0000O7][StaticObjImageLib](by-file/StaticObjImageLib.md)
 
 ## Changes
+
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE` and attached to [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md).
+  - Before: the clipped buffer-view helper was documented but unclassified in autogen coverage.
+  - After: it is marked as source-level alpha-surface helper behavior under the validated AlphaMaskSurface file root; C++ remains blank because the final source-facing name/signature and class split are not at the 95/95 final-code bar.
+  - Evidence: live IDA MCP confirms `sub_462320` at `0x00462320`, size `0x95`, one direct caller in `sub_4DD2C0`, and callees to rectangle helpers `0x004b7cc0` and `0x004b7c50`.
 
 - 2026-05-30: Raised completion/confidence from `0/0` to `84/88`. Previously this page had behavior notes but no score; it now records the current IDA MCP range/xref/decompilation recheck, output-view offsets, and C++ reconstruction candidate.

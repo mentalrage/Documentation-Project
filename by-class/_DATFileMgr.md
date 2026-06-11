@@ -1,8 +1,8 @@
 *** UID:000004 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for behavior and archive-module placement, medium for field names.
+- Confidence: strong for behavior, archive-module placement, and direct [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md) ownership; medium for field names and original private-class spelling.
 - Likely source file: [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md)
 - Address range: [UID:00012B][0x0049bd30-0x0049d6ed.DATManagers](by-memory/0x0049bd30-0x0049d6ed.DATManagers.md), with a raw destructor body at [UID:00012F][0x0049c750-0x0049c7f6._DATFileMgrRawDestructor](by-memory/0x0049c750-0x0049c7f6._DATFileMgrRawDestructor.md)
 - Vtable: [UID:0001XB][DATManagerVtables](by-type/by-vtable/DATManagerVtables.md), `0x006189cc`; exact data page [UID:0002MB][0x006189c8-0x006189d0._DATFileMgrVtableData](by-memory/0x006189c8-0x006189d0._DATFileMgrVtableData.md)
@@ -56,6 +56,16 @@ Wave3 reports a 48-byte object with a vtable pointer, a 4-byte value at `0x04`, 
 - `FindEntryByName` is the confirmed callee used by `DATFile::Open`.
 - [UID:00012H][0x0049d190-0x0049d26c.DATFileResolverDestroy](by-memory/0x0049d190-0x0049d26c.DATFileResolverDestroy.md) appears to describe an embedded resolver/hash-table subobject rather than a separate source-level archive feature.
 - `_DATFileMgr::InsertOrFindEntry` calls `DATIndexVector`-family storage helpers, but [UID:00003K][DATIndexVector](by-class/DATIndexVector.md) is shared outside the DAT manager and should stay standalone.
+- 2026-06-08 A005 Batch 110 IDA MCP refresh reconfirmed the internal-manager method boundaries: `0x0049c800-0x0049cac4` load/index, `0x0049cad0-0x0049cba5` lookup, `0x0049ce50-0x0049d0c2` insert/find, `0x0049d3d0-0x0049d488` scalar deleting destructor, and `0x0049d5e0-0x0049d6ed` node search. `0x0049c750` still has no modeled function, but raw bytes restore `_DATFileMgr`'s vtable, delete the archive-container vector, clear vector pointers at `+0x24/+0x28/+0x2c`, and call the resolver cleanup at `this+0x04`.
+- The same refresh reports three refs to the `_DATFileMgr` vtable at `0x006189cc`: public wrapper construction at `0x0049bda1`, raw ordinary cleanup at `0x0049c755`, and scalar deleting destructor setup at `0x0049d3dd`. This supports treating `_DATFileMgr` as an internal class owned directly by [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), not as a standalone source module.
+
+## Score And Assignment Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 87 | The class page documents purpose, layout, key methods, raw destructor, resolver/vector ownership, exact vtable child, DAT entry behavior, cross-references, and the current parent-gate evidence. Completion remains below final levels because field names and final C++ declarations are not finished. |
+| Confidence | 85 | Live IDA reconfirms boundaries, vtable stores, raw cleanup bytes, and archive-module placement strongly enough for the corrected assignment gate. Confidence remains capped at `85` because the leading-underscore class spelling and several resolver/hash-table fields are still reconstructed names. |
+| Assignment | [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md) | The child is `87/85`, the direct file parent is `89/85`, and the public/private manager relationship is documented on both pages. |
 
 ## Cross-References
 
@@ -83,3 +93,7 @@ Wave3 reports a 48-byte object with a vtable pointer, a 4-byte value at `0x04`, 
   - What existed before: the class linked only the generic `DATManagerVtables` type page and did not mark `RECONSTRUCTABLE`.
   - Changed to: marked `RECONSTRUCTABLE:TRUE`, raised confidence to `84`, and linked the exact `0x006189c8-0x006189d0` vtable-data page.
   - Summary/evidence: IDA MCP `list_globals`, `xrefs_to`, and dword scan prove the one-slot internal-manager vtable and the `"../"` string boundary at `0x006189d0`.
+- 2026-06-08 A005 Batch 110:
+  - Before: score `86/84`, `AUTOGEN_PARENT_UID:` blank; child confidence was below the corrected `85/85` assignment gate.
+  - Changed to: score `87/85`, `AUTOGEN_PARENT_UID:0000IO`.
+  - Summary/evidence: live IDA MCP reconfirmed internal-manager method ranges, the raw ordinary destructor byte sequence and no-function status at `0x0049c750`, and the three `_DATFileMgr` vtable refs from wrapper construction, raw cleanup, and deleting destructor. Direct parent [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md) is already `89/85`, so both sides now clear the corrected gate.

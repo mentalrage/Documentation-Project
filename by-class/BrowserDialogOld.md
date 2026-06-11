@@ -1,6 +1,6 @@
 *** UID:000018 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -29,7 +29,7 @@
 - `0x004695b0-0x0046961c` `OnMouseEvent`.
 - `0x00469620-0x0046963c` `OnNavigateAction`.
 - `0x0046b4b0-0x0046b51d` `GetChildRect`.
-- `0x004705e0-0x0047068d` scalar deleting destructor.
+- [UID:00033B][0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor](by-memory/0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor.md) scalar deleting destructor.
 - `0x0049dae0-0x0049db14` `SetDialogBounds`.
 
 ## Evidence
@@ -50,6 +50,7 @@
 - [UID:0000HV][Browser](by-file/Browser.md) is scored `84/88`, assigned to `NexusTK/browser/`, and groups `BrowserDialogOld`, `BrowserControlPaneOld`, `BrowserThread`, browser COM helpers, browser-specific globals, and the legacy/new browser control family under the browser module.
 - [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md) is scored `84/90` and records the corrected constructor/destructor/key/mouse/navigate boundaries, raw helper bodies, constructor call into `BrowserControlPaneOld`, singleton global, and browser-module ownership.
 - [UID:0000QB][g_pBrowserDialogOld](by-global/g_pBrowserDialogOld.md) documents the legacy browser dialog singleton role and ownership hypothesis with this dialog/control path.
+- [UID:00033B][0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor](by-memory/0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor.md) records the exact B001-024 scalar deleting destructor, vtable ref `0x00613154`, adjustor callers at `0x004702aa`/`0x004702b5`, legacy cleanup calls, singleton clear, base teardown, and delete flag behavior.
 
 ## Open Questions
 
@@ -58,17 +59,21 @@
 
 ## Score Rationale
 
-Completion is raised to `82` because live IDA now verifies method ranges, vtable slot/xref ownership, singleton set/clear behavior, child `BrowserControlPaneOld` construction, dialog bounds setup, message posting, and shared helper boundaries at class scope. Confidence is raised to `86` because the legacy dialog shape is now strongly supported by current disassembly and cross-references, but remains below final reconstruction because constructor/destructor entry reachability is still indirect or absent and final source/header placement is not proven.
+Completion is raised to `85` because live IDA now verifies method ranges, vtable slot/xref ownership, singleton set/clear behavior, child `BrowserControlPaneOld` construction, dialog bounds setup, message posting, shared helper boundaries, and the exact B001-024 scalar deleting destructor child at class scope. Confidence is raised to `87` because the legacy dialog shape is now strongly supported by current disassembly and cross-references, but remains below final reconstruction because constructor/destructor entry reachability is still indirect or absent and final source/header placement is not proven.
 
 ## Cross-References
 
 - File: [UID:0000HV][Browser](by-file/Browser.md)
 - Related classes: [UID:000016][BrowserControlPaneOld](by-class/BrowserControlPaneOld.md), [UID:00001A][BrowserThread](by-class/BrowserThread.md)
 - Globals: [UID:0000QB][g_pBrowserDialogOld](by-global/g_pBrowserDialogOld.md)
-- Memory: [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md), [UID:00012S][0x0049dae0-0x0049dfc4.DialogControlPaneHelpers](by-memory/0x0049dae0-0x0049dfc4.DialogControlPaneHelpers.md)
+- Memory: [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md), [UID:00033B][0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor](by-memory/0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor.md), [UID:00012S][0x0049dae0-0x0049dfc4.DialogControlPaneHelpers](by-memory/0x0049dae0-0x0049dfc4.DialogControlPaneHelpers.md)
 
 ## Changes
 
+- 2026-06-10 B001-024 parent-gate repair:
+  - Before: `COMPLETION:82`, `CONFIDENCE:86`, with scalar deleting destructor evidence recorded but no exact destructor child attached.
+  - Changed to: `COMPLETION:85`, `CONFIDENCE:87`, and linked exact child [UID:00033B][0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor](by-memory/0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor.md).
+  - Summary/evidence: live IDA MCP confirms `sub_4705E0`, vtable ref `0x00613154`, adjustor callers, cleanup calls, `g_pBrowserDialogOld` clear, base teardown, and delete flag behavior. This clears the strict `85/85` parent gate for the destructor child.
 - What existed before: the legacy dialog page documented role, methods, evidence, globals, and references, but completion/confidence metadata was `0/0`.
 - What it was changed to: scores were set to `68/78`.
 - Summary and evidence: constructor, old control-pane construction, singleton global, and bounds helper are covered; old-path reachability and final file/header placement remain unresolved.

@@ -1,17 +1,17 @@
 *** UID:0000LO | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MyItemListPane
 
 ## Status
 
-- Confidence: strong for behavior; medium for exact original source-file split.
+- Confidence: strong for behavior and direct file placement.
 - Proposed module: `ui/dialogs/MyItemListPane.cpp`
 - Alternative compact placement: [UID:0000KE][ItemDialogs](by-file/ItemDialogs.md)
 - Current recovered source: `source-3/simroot_v2/class_MyItemListPane.cpp`
-- Main range: [UID:00014U][0x004aeb30-0x004af031.MyItemListPane](by-memory/0x004aeb30-0x004af031.MyItemListPane.md)
+- Main inventory range: [UID:00014U][0x004aeb30-0x004af031.MyItemListPane](by-memory/0x004aeb30-0x004af031.MyItemListPane.md)
 - Vtables: [UID:0001Y8][MyItemListPaneVtables](by-type/by-vtable/MyItemListPaneVtables.md) at `0x00619f28`, `0x00619fb0`, and `0x00619fe0`
 
 ## File Role
@@ -86,6 +86,10 @@ Keep this as item-picker dialog support:
 - [UID:0000KT][ListPane](by-file/ListPane.md)
 - [Wave3 data issues](../wave3_data_issues.md)
 
+## Score Rationale
+
+The file is now `86/85`. The direct file placement is defensible because IDA confirms this is reusable player-inventory picker UI with constructor callers from `ClanDepItemDialog`, `AddItemDialog`, and `MixItemDialog`, not a clan-only or exchange-only implementation. The exact child pages now document constructor, selected-slot helper, and draw method boundaries at or above the strict `85/85` child gate, while the file remains below final-source quality because the final source split between standalone `MyItemListPane.cpp` and compact `ItemDialogs.cpp` is inferred from proposed project structure and consumer clustering rather than original source files.
+
 ## Changes
 
 - Before: completion/confidence were ungraded at `0/0`.
@@ -93,3 +97,7 @@ Keep this as item-picker dialog support:
 - Summary/evidence: the page documents role, constructor/draw behavior, caller evidence, EPF/legacy draw paths, ownership decision, generated-data defects, vtable caveats, and cross-references; confidence remains capped by the original source split and active generated output omissions.
 - Reconstruction path update: existed before as blank `PROPOSED_RECONSTRUCTION_PATH`; changed to `NexusTK/ui/dialogs/`. Summary/evidence: [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) lists `ui/dialogs/MyItemListPane.cpp`, and the file is documented as reusable item-picker dialog support adjacent to `ItemDialogs.cpp`.
 - Exact child split update: added child links for constructor, selected-slot helper, and draw method after 2026-05-31 IDA MCP found the real helper at `0x004aec80` inside the previous constructor-to-draw gap.
+- 2026-06-10 B001-026 parent-gate repair:
+  - Before: file confidence was `80`, so assigned reconstructable children inside [UID:00014T][0x004ae4c0-0x004b0b15.ItemExchangeMixDialogs](by-memory/0x004ae4c0-0x004b0b15.ItemExchangeMixDialogs.md) were below the strict direct-parent `85/85` gate.
+  - After: confidence is `85`; the direct parent now clears the gate for the exact constructor, selected-slot, and draw child pages.
+  - Evidence: IDA confirms the child boundaries, vtables, draw-slot dispatch, row payload layout, caller fanout from AddItem/Mix/Clan deposit dialogs, and item-image draw dependencies. The remaining uncertainty affects final C++ naming, not ownership.

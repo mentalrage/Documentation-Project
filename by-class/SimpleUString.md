@@ -1,6 +1,6 @@
 *** UID:0000D9 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000OB | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -14,14 +14,14 @@
 
 - Rebuild handling: reconstructable shared string utility class/facade.
 - Autogen status: attached to [UID:0000OB][StringUtil](by-file/StringUtil.md) as the broad `util/StringUtil.cpp` owner; final C++ remains blank because the public API, representation split, and relationship to [UID:0000OA][StringBase](by-file/StringBase.md) are not final-source quality.
-- Confidence: strong for project-owned shared string infrastructure and the documented split between the two representations; medium-high for the current `SimpleUString` class boundary.
+- Confidence: strong for the SSO-7 `SimpleUString` class/facade side and project-owned shared string infrastructure; medium-high for the broader class boundary because the pointer-backed public API relationship remains open.
 - Important owner caveat: pointer-backed helpers around `0x00583210+` should continue to be reviewed through [UID:0000OA][StringBase](by-file/StringBase.md) / [UID:0001WS][StringBaseTemplate](by-type/by-template/StringBaseTemplate.md), even though older recovery labels still use `SimpleUString`.
 
 ## Summary
 
 `SimpleUString` is shared UTF-16 string infrastructure. Current recovery shows two related surfaces under the same canonical class:
 
-- an early SSO-7 counted wide-string layout at the exact endpoint helpers `0x00421310-0x00421362` and `0x00421590-0x004216cb`;
+- an early SSO-7 counted wide-string layout at the exact endpoint helpers `0x00421310-0x00421362` and `0x00421590-0x004216cb`, plus the narrow-range-to-wide append helper at `0x00423060-0x00423204`;
 - a pointer-backed formatted-string family around `0x00583210`, `0x00583280`, and `0x005845b0`.
 
 The relationship between those two representations still needs a layout pass. Both are currently cross-linked from `SimpleUString` because existing caller evidence and exact child pages use this class as the coordination point, but source migration should preserve the distinction. The pointer-backed family now has a preferred neighboring owner candidate in [UID:0000OA][StringBase](by-file/StringBase.md), because live IDA name evidence preserves `mystr::StringBase<wchar_t, mystr::mychar_traits<wchar_t>>` in vtable/RTTI records.
@@ -30,7 +30,7 @@ The relationship between those two representations still needs a layout pass. Bo
 
 | Representation | Evidence anchor | Current owner decision | Remaining risk |
 | --- | --- | --- | --- |
-| SSO-7 UTF-16 string object | [UID:0001W5][SimpleUStringSso7Layout](by-type/by-struct/SimpleUStringSso7Layout.md), [UID:0002DV][0x00421310-0x00421362.SimpleUStringClear](by-memory/0x00421310-0x00421362.SimpleUStringClear.md), [UID:0002E3][0x00421590-0x004216cb.SimpleUStringAssignWideCount](by-memory/0x00421590-0x004216cb.SimpleUStringAssignWideCount.md) | Keep under `SimpleUString` / [UID:0000OB][StringUtil](by-file/StringUtil.md). | Need final class/API names and proof whether this is the same public type as the pointer-backed family. |
+| SSO-7 UTF-16 string object | [UID:0001W5][SimpleUStringSso7Layout](by-type/by-struct/SimpleUStringSso7Layout.md), [UID:0002DV][0x00421310-0x00421362.SimpleUStringClear](by-memory/0x00421310-0x00421362.SimpleUStringClear.md), [UID:0002E3][0x00421590-0x004216cb.SimpleUStringAssignWideCount](by-memory/0x00421590-0x004216cb.SimpleUStringAssignWideCount.md), [UID:0002U5][0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy](by-memory/0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy.md) | Keep under `SimpleUString` / [UID:0000OB][StringUtil](by-file/StringUtil.md). This is the direct class parent for the SSO layout. | Need final public API names and proof whether this is the same public type as the pointer-backed family, but the endpoint and append methods are sufficient for SSO layout ownership. |
 | Pointer-backed ref-counted string facade | [UID:0001W4][SimpleUStringPointerBackedLayout](by-type/by-struct/SimpleUStringPointerBackedLayout.md), [UID:0001WS][StringBaseTemplate](by-type/by-template/StringBaseTemplate.md), [UID:0001J2][0x00583210-0x005845eb.SimpleUStringPointerBacked](by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md) | Treat older `SimpleUString` recovery labels as aliases/leads; prefer [UID:0000OA][StringBase](by-file/StringBase.md) for source migration until the API split is audited. | Final name may be `mystr::StringBase<wchar_t>` rather than `SimpleUString`. |
 | Static/global empty string objects | [UID:0000PW][g_emptySimpleUString](by-global/g_emptySimpleUString.md), [UID:00027J][0x0066daec-0x0066db04.g_emptySimpleUString](by-memory/0x0066daec-0x0066db04.g_emptySimpleUString.md), [UID:0000TM][StringBufferSentinelsAndPools](by-global/StringBufferSentinelsAndPools.md) | Cross-link from `SimpleUString`, but keep owning module with the specific consumer/global page until source placement is stronger. | Static lifetime wrapper code should not be hand-authored from the cleanup thunks. |
 
@@ -40,29 +40,43 @@ The relationship between those two representations still needs a layout pass. Bo
 - Proposed path: `util/StringUtil.cpp`, with pointer-backed helpers possibly in `util/StringBase.cpp`
 - Confidence: medium
 
+## Batch140 SSO Parent-Gate Decision
+
+This class page now clears the corrected `85/85` parent gate for [UID:0001W5][SimpleUStringSso7Layout](by-type/by-struct/SimpleUStringSso7Layout.md). The direct class evidence is narrow but sufficient:
+
+- The SSO endpoint helpers operate on a 24-byte `this` object, not on the pointer-backed ref-counted `data[-3..-1]` storage.
+- [UID:0002DV][0x00421310-0x00421362.SimpleUStringClear](by-memory/0x00421310-0x00421362.SimpleUStringClear.md) proves the `capacity > 7` heap/free gate and reset to the empty inline state.
+- [UID:0002E3][0x00421590-0x004216cb.SimpleUStringAssignWideCount](by-memory/0x00421590-0x004216cb.SimpleUStringAssignWideCount.md) proves counted UTF-16 assignment, growth, terminator writes, and old-heap release using the same fields.
+- [UID:0002U5][0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy](by-memory/0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy.md) proves a `this`-object SSO-7 narrow-byte-range append/grow helper with the same `+0x10` length, `+0x14` capacity, inline threshold `8`, and heap/free support.
+- 2026-06-08 live IDA reconfirmed `0x00421310` as `sub_421310` size `0x52` and `0x00421590` as `sub_421590` size `0x13b`; their callee sets still match the documented free/allocation/memmove/string-too-long behavior.
+- [UID:0000OB][StringUtil](by-file/StringUtil.md) is already `86/88` and remains this class page's broad file parent. [UID:0000OA][StringBase](by-file/StringBase.md) is the direct parent for the separate pointer-backed layout, not for this 24-byte SSO object.
+
 ## Method Families
 
 | Range | Role |
 | --- | --- |
 | [UID:0002DV][0x00421310-0x00421362.SimpleUStringClear](by-memory/0x00421310-0x00421362.SimpleUStringClear.md) | `Clear`: frees heap storage when present and resets the SSO-7 wide string to empty. |
 | [UID:0002E3][0x00421590-0x004216cb.SimpleUStringAssignWideCount](by-memory/0x00421590-0x004216cb.SimpleUStringAssignWideCount.md) | counted wide-source constructor/copy helper with SSO-7 growth logic. |
-| [UID:0002LJ][0x00583210-0x00583272.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md) | ANSI varargs initializer wrapper, forwards to the ANSI formatting worker. |
-| [UID:0002LK][0x00583280-0x005832e2.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md) | Wide varargs initializer wrapper, forwards to the wide formatting worker. |
+| [UID:0002U5][0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy](by-memory/0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy.md) | narrow-byte-range to UTF-16 append/grow helper for the SSO-7 object; direct callers are fitting-room catalog conversion and startup update-check conversion. |
+| [UID:0002LJ][0x00583210-0x00583273.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583273.StringBaseAnsiFormatCtor.md) | ANSI varargs initializer wrapper, forwards to the ANSI formatting worker. |
+| [UID:0002LK][0x00583280-0x005832e3.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e3.StringBaseWideFormatCtor.md) | Wide varargs initializer wrapper, forwards to the wide formatting worker. |
 | [UID:0002LL][0x00583720-0x00583832.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583832.StringBaseAnsiVFormatWorker.md) | ANSI `va_list` formatting worker for the pointer-backed ref-counted buffer. |
 | [UID:0002LM][0x00583840-0x00583968.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583968.StringBaseWideVFormatWorker.md) | UTF-16 `va_list` formatting worker for the pointer-backed ref-counted buffer. |
-| [UID:0002LN][0x005840f0-0x00584159.WideRangeCompare](by-memory/0x005840f0-0x00584159.WideRangeCompare.md) | Lexicographic UTF-16 range comparator. |
-| [UID:0002LO][0x005845b0-0x005845eb.StringBaseCompareWideLiteral](by-memory/0x005845b0-0x005845eb.StringBaseCompareWideLiteral.md) | Compares a stored wide string against a NUL-terminated wide literal. |
+| [UID:0002LN][0x005840f0-0x0058415a.WideRangeCompare](by-memory/0x005840f0-0x0058415a.WideRangeCompare.md) | Lexicographic UTF-16 range comparator. |
+| [UID:0002LO][0x005845b0-0x005845ec.StringBaseCompareWideLiteral](by-memory/0x005845b0-0x005845ec.StringBaseCompareWideLiteral.md) | Compares a stored wide string against a NUL-terminated wide literal. |
 
 ## Evidence
 
 - 2026-06-03 live IDA MCP refresh confirms the SSO endpoint helpers as `sub_421310` at `0x00421310-0x00421362` and `sub_421590` at `0x00421590-0x004216cb`. IDA reports 83 callers for the clear/reset helper and 74 callers for the counted wide assignment helper.
 - Live IDA decompilation of `0x00421310` shows the SSO-7 reset shape: capacity at `this+0x14`, length at `this+0x10`, inline threshold `7`, heap free through the runtime free helper when capacity is at least `8`, and a final UTF-16 NUL at the object start.
 - Live IDA decompilation of `0x00421590` shows the counted wide-copy/grow shape: length compared against capacity, `length | 7` plus 1.5x growth, allocation for `(capacity + 1) * 2` bytes, counted `memmove`, UTF-16 terminator write, and old-heap release only for previous capacities at least `8`.
+- 2026-06-08 A006 Batch140 live IDA refresh reconfirmed the endpoint sizes and callee sets: clear size `0x52` with free/invalid-parameter callees, and counted assign size `0x13b` with allocation, `memmove`, string-too-long, free, and invalid-parameter callees.
+- 2026-06-10 B001 IDA MCP audit for [UID:0002U5][0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy](by-memory/0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy.md) confirms `sub_423060` size `0x1a4`, SSO-7 length/capacity offsets `+0x10/+0x14`, inline threshold `8`, growth through `0x00423d00`, cleanup through `0x00421310`, and two direct callers at `0x00421bc5` and `0x00581d22`.
 - Live IDA function inventory across `0x00583210-0x005845eb` confirms the pointer-backed aggregate is a 29-function string helper island, not a single method. The exact child pages now cover the format wrappers/workers, release/capacity helpers, replace/trim/lock helpers, append/find helpers, range compare, and literal compare wrapper.
 - Live IDA decompilation of `0x00583210` seeds the ANSI empty sentinel `off_670290` before calling `0x00583720`; `0x00583280` seeds the wide sentinel `Src` before calling `0x00583840`. The sentinel xref check found 16 refs to `0x00670290` and 23 refs to `0x00670278`.
 - Live IDA name search found many `StringBase<wchar_t, mystr::mychar_traits<wchar_t>>` vtable/RTTI records, including entries around `0x0061fcd4`, `0x0061ff70`, `0x0062004c`, `0x00620094`, and `0x00622cf4`. This strengthens the pointer-backed family's [UID:0000OA][StringBase](by-file/StringBase.md) placement while leaving `SimpleUString` as the cross-linked facade/coordination page.
 - `0x00421590` has broad constructor/copy-style caller fan-in from startup, UI/resource helpers, collection dialogs, and other systems.
-- The historical [UID:0000WT][0x00421310-0x004216cb.SimpleUStringSso7](by-memory/0x00421310-0x004216cb.SimpleUStringSso7.md) page is now an aggregate only. IDA MCP confirms the middle functions are pane/fitting-room/checkbox/runtime helpers, not `SimpleUString` code.
+- The historical [UID:0000WT][0x00421310-0x004216cb.EarlySimpleUStringAndAdjacentHelperIsland](by-memory/0x00421310-0x004216cb.EarlySimpleUStringAndAdjacentHelperIsland.md) page is now an aggregate only. IDA MCP confirms the middle functions are pane/fitting-room/checkbox/runtime helpers, not `SimpleUString` code.
 - `0x00583280` has broad caller fan-in from `Application`, startup, patch, browser, sound, virus-checker, and UI helper paths.
 - `0x00583210` is used by SoundManager-style track-name formatting paths to build `%08d.MP3` names.
 - `0x005845b0` callers include SelfSaveOKPane and WorldMapPane-style compare paths.
@@ -71,7 +85,7 @@ The relationship between those two representations still needs a layout pass. Bo
 
 ## Open Questions
 
-- Whether the early SSO-7 layout and the pointer-backed `StringBase` layout were separate original template instantiations sharing the `SimpleUString` name, or whether the current documentation is collapsing adjacent string classes.
+- Whether the early SSO-7 layout and the pointer-backed `StringBase` layout were separate original template instantiations sharing the `SimpleUString` name, or whether the current documentation is collapsing adjacent string classes. This remains an API/split caveat, not a blocker for assigning the SSO layout to this class page.
 - Final ownership of the full `0x00582b70-0x005851d9` string helper neighborhood.
 - Names for formatting workers at `0x00583720` and `0x00583840`.
 - Whether the release/format/mutation continuation at `0x005832f0-0x00584d7e` belongs under this class name or a neighboring string-base type.
@@ -80,19 +94,20 @@ The relationship between those two representations still needs a layout pass. Bo
 
 | Score | Rationale |
 | --- | --- |
-| Completion `78` | The page now records the two known representations, exact SSO endpoint helpers, refreshed live IDA caller counts/decompilation, exact pointer-backed child inventory, sentinel evidence, layout/type docs, owner caveats, and utility placement. Completion remains capped because the class boundary, final public API, remaining string continuation ownership, and original header split still need a focused string-family audit. |
-| Confidence `86` | Confidence is strong that this is project-owned shared string infrastructure and that `StringUtil` is the broad coordination owner for the `SimpleUString` facade/SSO side. It is still medium-high for the final `SimpleUString` class name because live IDA name evidence preserves `mystr::StringBase<wchar_t,...>` for the pointer-backed family and the SSO-7 versus pointer-backed relationship is unresolved. |
+| Completion `85` | The page records the two known representations, exact SSO endpoint helpers, the SSO-7 narrow append/grow helper, refreshed live IDA endpoint metadata, exact pointer-backed child inventory, sentinel evidence, layout/type docs, owner caveats, utility placement, and a strict parent-gate decision for the SSO layout. Completion stays at the gate because the public API, class boundary, remaining string continuation ownership, and original header split still need a focused string-family audit. |
+| Confidence `87` | Confidence is strong that the SSO-7 side is `SimpleUString`/`StringUtil` class infrastructure and that `StringUtil` is the broad coordination owner. It is still medium-high for the final `SimpleUString` class name because live IDA name evidence preserves `mystr::StringBase<wchar_t,...>` for the pointer-backed family and the SSO-7 versus pointer-backed relationship is unresolved. |
 
 ## Cross-References
 
 - File: [UID:0000OB][StringUtil](by-file/StringUtil.md)
 - File: [UID:0000OA][StringBase](by-file/StringBase.md)
-- Memory: [UID:0000WT][0x00421310-0x004216cb.SimpleUStringSso7](by-memory/0x00421310-0x004216cb.SimpleUStringSso7.md), [UID:0002DV][0x00421310-0x00421362.SimpleUStringClear](by-memory/0x00421310-0x00421362.SimpleUStringClear.md), [UID:0002E3][0x00421590-0x004216cb.SimpleUStringAssignWideCount](by-memory/0x00421590-0x004216cb.SimpleUStringAssignWideCount.md), [UID:0001J2][0x00583210-0x005845eb.SimpleUStringPointerBacked](by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md), [UID:0001J3][0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation](by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md), [UID:0002LJ][0x00583210-0x00583272.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583272.StringBaseAnsiFormatCtor.md), [UID:0002LK][0x00583280-0x005832e2.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e2.StringBaseWideFormatCtor.md), [UID:0002LL][0x00583720-0x00583832.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583832.StringBaseAnsiVFormatWorker.md), [UID:0002LM][0x00583840-0x00583968.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583968.StringBaseWideVFormatWorker.md), [UID:0002LN][0x005840f0-0x00584159.WideRangeCompare](by-memory/0x005840f0-0x00584159.WideRangeCompare.md), [UID:0002LO][0x005845b0-0x005845eb.StringBaseCompareWideLiteral](by-memory/0x005845b0-0x005845eb.StringBaseCompareWideLiteral.md)
+- Memory: [UID:0000WT][0x00421310-0x004216cb.EarlySimpleUStringAndAdjacentHelperIsland](by-memory/0x00421310-0x004216cb.EarlySimpleUStringAndAdjacentHelperIsland.md), [UID:0002DV][0x00421310-0x00421362.SimpleUStringClear](by-memory/0x00421310-0x00421362.SimpleUStringClear.md), [UID:0002E3][0x00421590-0x004216cb.SimpleUStringAssignWideCount](by-memory/0x00421590-0x004216cb.SimpleUStringAssignWideCount.md), [UID:0002U5][0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy](by-memory/0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy.md), [UID:0001J2][0x00583210-0x005845eb.SimpleUStringPointerBacked](by-memory/0x00583210-0x005845eb.SimpleUStringPointerBacked.md), [UID:0001J3][0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation](by-memory/0x005832f0-0x00584d7e.LObjectStringReleaseFormatAndMutation.md), [UID:0002LJ][0x00583210-0x00583273.StringBaseAnsiFormatCtor](by-memory/0x00583210-0x00583273.StringBaseAnsiFormatCtor.md), [UID:0002LK][0x00583280-0x005832e3.StringBaseWideFormatCtor](by-memory/0x00583280-0x005832e3.StringBaseWideFormatCtor.md), [UID:0002LL][0x00583720-0x00583832.StringBaseAnsiVFormatWorker](by-memory/0x00583720-0x00583832.StringBaseAnsiVFormatWorker.md), [UID:0002LM][0x00583840-0x00583968.StringBaseWideVFormatWorker](by-memory/0x00583840-0x00583968.StringBaseWideVFormatWorker.md), [UID:0002LN][0x005840f0-0x0058415a.WideRangeCompare](by-memory/0x005840f0-0x0058415a.WideRangeCompare.md), [UID:0002LO][0x005845b0-0x005845ec.StringBaseCompareWideLiteral](by-memory/0x005845b0-0x005845ec.StringBaseCompareWideLiteral.md)
 - Related classes: [UID:0000DA][SimpleUStringVector](by-class/SimpleUStringVector.md), [UID:0000E7][StringIter](by-class/StringIter.md)
 - Layouts: [UID:0001W5][SimpleUStringSso7Layout](by-type/by-struct/SimpleUStringSso7Layout.md), [UID:0001W4][SimpleUStringPointerBackedLayout](by-type/by-struct/SimpleUStringPointerBackedLayout.md), [UID:0001WS][StringBaseTemplate](by-type/by-template/StringBaseTemplate.md)
 
 ## Changes
 
+- 2026-06-10 B001-005 split-gate update: added [UID:0002U5][0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy](by-memory/0x00423060-0x00423204.FittingRoomEntryPartVectorGrowCopy.md) as a direct `SimpleUString` SSO-7 method child. Evidence: IDA MCP confirms the exact `0x1a4` function, SSO-7 `this` layout, startup plus fitting-room caller spread, and string-support callees; the child now clears `85/88`, this class clears `85/87`, and [UID:0000OB][StringUtil](by-file/StringUtil.md) remains the broad file parent at `87/88`.
 - 2026-06-03: Raised completion/confidence from `70/82` to `78/86`.
   - Summary/evidence: live IDA MCP reconfirmed the SSO endpoint helpers at `0x00421310-0x00421362` and `0x00421590-0x004216cb`, including 83/74 caller counts and decompiled SSO-7 clear/assign behavior; it also confirmed the pointer-backed `0x00583210-0x005845eb` aggregate as a multi-function string helper island with ANSI/wide sentinel use and `StringBase<wchar_t>` vtable/RTTI name evidence. The page now explains that `SimpleUString` is the coordination/facade page while pointer-backed source placement remains with `StringBase`. Final C++ stays blank because the public API and representation relationship remain below the 95/95 gate.
 - 2026-06-02: Raised the class page to `70/82`, attached it to [UID:0000OB][StringUtil](by-file/StringUtil.md), and added status, representation map, autogen rationale, and score rationale. Final C++ remains blank because the `SimpleUString` versus `StringBase` API split is unresolved.
@@ -104,3 +119,7 @@ The relationship between those two representations still needs a layout pass. Bo
   - After: marked the class reconstructable, linked exact split memory pages, and raised scores modestly to reflect verified boundaries and behavior.
   - Evidence: IDA MCP `lookup_funcs`, `decompile`, `callers`, `callees`, sentinel `xrefs_to`, and byte checks for `0x00583210`, `0x00583280`, `0x00583720`, `0x00583840`, `0x005840f0`, and `0x005845b0`.
 - 2026-06-03: refreshed the formatting-worker links to corrected half-open ranges `0x00583720-0x00583832` and `0x00583840-0x00583968`.
+- 2026-06-08 A006 Batch140 SSO parent-gate update:
+  - Before: `COMPLETION:78`, `CONFIDENCE:86`.
+  - After: `COMPLETION:85`, `CONFIDENCE:87`.
+  - Summary/evidence: added a focused parent-gate section for [UID:0001W5][SimpleUStringSso7Layout](by-type/by-struct/SimpleUStringSso7Layout.md), live IDA endpoint refresh for the clear and counted-assign helpers, and explicit exclusion of [UID:0000OA][StringBase](by-file/StringBase.md) as the SSO layout's direct owner. Final C++ remains blank because the broader public API and representation split are not final-source quality.

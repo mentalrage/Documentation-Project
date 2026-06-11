@@ -1,8 +1,8 @@
 *** UID:0001XC | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00003Q | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Likely source module: [UID:0000IS][DescPane](by-file/DescPane.md)
 - Exact vtable-data page: [UID:0002NA][0x006189dc-0x00618a60.DescPaneVtableData](by-memory/0x006189dc-0x00618a60.DescPaneVtableData.md)
 - Confidence: strong for table bases, slot boundaries, and constructor/destructor stores.
+- Autogen status: attached to the `DescPane` class page; final C++ remains blank under the `95/95` reconstruction gate.
 
 ## Vtable Inventory
 
@@ -47,6 +48,10 @@ The secondary and tertiary tables are inherited-base views used for destructor d
 
 Use these vtable bases when reconstructing the constructor, non-deleting destructor, and scalar deleting destructor. The raw constructor at `0x0049d6f0` installs all three tables, but IDA currently does not model that start as a function.
 
+## Parent Rationale
+
+Attach this vtable cluster to [UID:00003Q][DescPane](by-class/DescPane.md) because the three tables are the concrete `DescPane` virtual views installed by the raw constructor-shaped block and restored by the non-deleting and scalar deleting destructor paths. The class page is already reconstructable, attached to [UID:0000IS][DescPane](by-file/DescPane.md), and records the same singleton ownership, constructor/destructor stores, refresh slot, adjustor thunks, exact vtable-data child, and raw helper caveats. The vtable page remains the narrow evidence home for slot order and `.rdata` boundaries.
+
 ## Cross-References
 
 - [UID:00003Q][DescPane](by-class/DescPane.md)
@@ -60,6 +65,11 @@ Use these vtable bases when reconstructing the constructor, non-deleting destruc
 - [UID:0002NA][0x006189dc-0x00618a60.DescPaneVtableData](by-memory/0x006189dc-0x00618a60.DescPaneVtableData.md)
 
 ## Changes
+
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable cluster was reconstructable but unassigned in generated type coverage despite the owning class and source file pages already clearing the attachment gate.
+  - What changed: attached the vtable cluster to [UID:00003Q][DescPane](by-class/DescPane.md), raised completion to `86`, and added an explicit parent rationale.
+  - Summary/evidence: constructor/destructor stores to `0x006189dc`, `0x00618a28`, and `0x00618a58`, exact [UID:0002NA][0x006189dc-0x00618a60.DescPaneVtableData](by-memory/0x006189dc-0x00618a60.DescPaneVtableData.md), and the class page's `84/86` score support the parent assignment; provider-interface naming and raw non-function starts remain below final-audit level.
 
 - 2026-05-31 exact child split:
   - What existed before: the page had `COMPLETION:0`, `CONFIDENCE:0`, blank reconstructability metadata, and described the vtable bases without an exact `by-memory` child page.

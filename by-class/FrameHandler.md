@@ -1,8 +1,8 @@
 *** UID:00005G | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JM | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -57,3 +57,4 @@
   - What existed before: the page described the frame-handler behavior but treated the class name as medium-confidence and used stale generated-name caveats.
   - Changed to: documented the current IDA binary identity, decorated `FrameHandler` RTTI/vtable data, exact method endpoints, broad wrapper caller sets, vtable store sites in owner constructors/destructors, and live decompilation of schedule/remove/destructor behavior.
   - Reason for score increase: class identity is now backed by live decorated RTTI/vtable evidence and generic caller behavior rather than caller-biased names; completion remains below final reconstruction because field names and all embedding-owner layouts are not yet source-quality.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000JM][FrameMgr](by-file/FrameMgr.md) because the class is `84/90` and the parent is `82/84`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts at `0x004b6cb0`, `0x004b6d00`, `0x004b6d20`, and `0x004b6d50`; current `callers` confirms broad frame-driven constructor/destructor and scheduling use.

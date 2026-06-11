@@ -1,8 +1,8 @@
 *** UID:0000DF | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,8 +14,9 @@
 
 - Confidence: strong for layout and core methods; medium for final file split.
 - Likely source file: [UID:0000NU][SortedList](by-file/SortedList.md) or [UID:0000KS][List](by-file/List.md)
+- Autogen parent: [UID:0000NU][SortedList](by-file/SortedList.md)
 - Main memory range: [UID:000193][0x004f3600-0x004f3a43.SortedList](by-memory/0x004f3600-0x004f3a43.SortedList.md)
-- Current recovered source: `source-3/simroot_v2/class_SortedList.cpp`
+- Historical generated source candidate: `class_SortedList.cpp`; use only as search context, not as authority.
 
 ## Class Purpose
 
@@ -48,9 +49,9 @@ The generated `sortContext` name for `+0x14` is misleading. IDA decompilation of
 
 ## Ownership Notes
 
-Wave3 active output currently omits the non-virtual helper methods at `0x004f3690` and `0x004f3780`. IDA confirms both are real functions between the constructor and destructor. The known helper callers are [UID:0000I2][ChangeMan](by-file/ChangeMan.md) registration/dispatch wrappers at `0x0047ed50`, `0x0047ed80`, and `0x0047ee20`, which store and query `ChangeManEntry` records in a sorted list.
+Older generated output omitted the non-virtual helper methods at `0x004f3690` and `0x004f3780`. IDA confirms both are real functions between the constructor and destructor. The known helper callers are [UID:0000I2][ChangeMan](by-file/ChangeMan.md) registration/dispatch wrappers at `0x0047ed50`, `0x0047ed80`, and `0x0047ee20`, which store and query `ChangeManEntry` records in a sorted list.
 
-For reconstructed source, keep these helpers with `SortedList` even if the active generated class file does not yet emit them.
+For reconstructed source, keep these helpers with `SortedList` even if older generated class files did not emit them.
 
 ## Cross-References
 
@@ -66,3 +67,9 @@ For reconstructed source, keep these helpers with `SortedList` even if the activ
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `86`, confidence `82`.
 - Evidence: the page documents layout, comparator field correction, method map, omitted helper ownership, caller evidence, and source-placement options; confidence remains capped by final file split uncertainty.
+- 2026-06-05: Marked reconstructable and left unassigned.
+- Evidence: live IDA MCP `lookup_funcs` confirms the constructor, sorted insert/search helpers, destructor, access, clear, and remove-range anchors at `0x004f3600`, `0x004f3690`, `0x004f3780`, `0x004f38b0`, `0x004f3950`, `0x004f3980`, and `0x004f3990`. The likely standalone parent [UID:0000NU][SortedList](by-file/SortedList.md) is only `80/78`, so the parent UID stays blank.
+- 2026-06-06 parent attachment:
+  - Before: confidence was `82`, generated-source wording was still present, and `AUTOGEN_PARENT_UID` stayed blank because the file parent was only `80/78`.
+  - Changed to: confidence `84`, `AUTOGEN_PARENT_UID:0000NU`, and generated-source names demoted to search context only.
+  - Evidence: [UID:0000NU][SortedList](by-file/SortedList.md) is now `84/84`, this class is `86/84`, and both clear the 80/80 parent gate. The exact source split from [UID:0000KS][List](by-file/List.md) remains a caveat, so C++ remains blank.

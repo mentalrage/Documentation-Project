@@ -1,8 +1,8 @@
 *** UID:0000A1 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MB | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,8 +12,8 @@
 
 ## Status
 
-- Confidence: strong for method roles, resource ownership, singleton storage, and palette-filter helper ownership; medium for final field names.
-- Likely source file: [UID:0000MA][Palette](by-file/Palette.md), with detail notes in [UID:0000MB][PaletteLib](by-file/PaletteLib.md)
+- Confidence: strong for method roles, resource ownership, singleton storage, palette-filter helper ownership, and source-family placement; medium-high for final field names and the exact `Palette.cpp` versus `PaletteLib.cpp` split.
+- Source file: [UID:0000MB][PaletteLib](by-file/PaletteLib.md), under the broader [UID:0000MA][Palette](by-file/Palette.md) umbrella
 - Address ranges: [UID:0001E6][0x005431c0-0x0054445b.PaletteLib](by-memory/0x005431c0-0x0054445b.PaletteLib.md), with lower-only palette-filter helpers at [UID:0001E9][0x00543f60-0x005440f0.PaletteLibPaletteFilterHelpers](by-memory/0x00543f60-0x005440f0.PaletteLibPaletteFilterHelpers.md)
 - Current recovered file: `source-3/simroot_v2/class_PaletteLib.cpp`
 
@@ -42,6 +42,8 @@ The exact offsets after `+0x08` need a field-layout pass. Generated overlays con
 
 2026-05-26 IDA MCP recheck shows `ScreenPanePaletteState_543D30::SetMode` at `0x00543d30` and `ResetSlots` at `0x00543ee0` are invoked with `g_pPaletteLib` / `dword_67A7E0` as `this`. `PaletteLib::PaletteLib` initializes the same fields at `+0x04`, `+0x08`, and the 25-entry banks at `+0x690`/`+0x6f4`. Treat the recovered `ScreenPanePaletteState_543D30` class as a `PaletteLib`-resident facet/base helper, not as an independent singleton or a `ScreenPane.cpp`-owned object.
 
+[UID:0001E6][0x005431c0-0x0054445b.PaletteLib](by-memory/0x005431c0-0x0054445b.PaletteLib.md) is now attached to [UID:0000MB][PaletteLib](by-file/PaletteLib.md) and carries the exact aggregate function inventory, non-contiguous `DLPalette` destructor caveat, screen-palette facet routing, filter-helper split, singleton lifecycle, and `g_pPaletteLib` storage evidence. The class parent can follow the same focused source owner because both the class page and the file page are above the 80/80 attachment gate after this refresh.
+
 ## Method Notes
 
 | Method | Address | Role |
@@ -67,6 +69,16 @@ The exact offsets after `+0x08` need a field-layout pass. Generated overlays con
 
 See [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md). The constructor loads slots for `TILE.PAL`, `TILEC.PAL`, `BODY.PAL`, `ITEM.PAL`, `EFFECT.PAL`, `ALL.PAL`, `BACK.PAL`, and the other avatar/object families.
 
+## Parent And Score Rationale
+
+| Topic | Rationale |
+| --- | --- |
+| Source parent | [UID:0000MB][PaletteLib](by-file/PaletteLib.md) is scored `86/80`, has the focused `NexusTK/render/` path, and owns the singleton lifecycle, startup role, and `PaletteLib`/`DLPalette` dependency notes. |
+| Umbrella source | [UID:0000MA][Palette](by-file/Palette.md) remains the stronger umbrella page for the whole render palette family, but [UID:0000MB][PaletteLib](by-file/PaletteLib.md) is the narrower autogen parent used by the main memory aggregate and singleton. |
+| Exact executable evidence | [UID:0001E6][0x005431c0-0x0054445b.PaletteLib](by-memory/0x005431c0-0x0054445b.PaletteLib.md) records exact method ranges, screen-palette facet ownership, filter-helper boundaries, and the non-contiguous `DLPalette` destructor caveat. |
+| Singleton evidence | [UID:0000RW][g_pPaletteLib](by-global/g_pPaletteLib.md) is attached to [UID:0000MB][PaletteLib](by-file/PaletteLib.md) and documents the `0x0067a7e0` storage, constructor publish, destructor clear, unwind clear, and broad consumer fanout. |
+| Remaining blockers | Final field names after `+0x08`, the `+0x758` and `+0x75c` filter fields, and the final source split between `Palette.cpp`, `PaletteLib.cpp`, and `DLPalette.cpp` are still below final-source quality, so C++ stays blank. |
+
 ## Cross-References
 
 - [UID:0000MB][PaletteLib](by-file/PaletteLib.md)
@@ -80,6 +92,12 @@ See [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md). The constructor
 
 ## Changes
 
+- 2026-06-06 A008:
+  - Before: confidence was `78` and `AUTOGEN_PARENT_UID` was blank because the class had not been reconciled with the newer focused [UID:0000MB][PaletteLib](by-file/PaletteLib.md) parent and attached memory/global pages.
+  - After: changed confidence to `82`, attached the class to [UID:0000MB][PaletteLib](by-file/PaletteLib.md), and added parent/score rationale while keeping completion at `84`.
+  - Evidence: [UID:0000MB][PaletteLib](by-file/PaletteLib.md) is `86/80` with a focused render path; [UID:0001E6][0x005431c0-0x0054445b.PaletteLib](by-memory/0x005431c0-0x0054445b.PaletteLib.md) is attached there and documents exact method ranges, screen-palette facet routing, filter helpers, singleton lifecycle, and source split caveats; [UID:0000RW][g_pPaletteLib](by-global/g_pPaletteLib.md) documents the exact singleton storage and lifecycle.
+
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` after live IDA MCP on `NexusTK.exe` confirmed named-palette, DAT parse, constructor/destructor, current/slot palette, filter, load-set, singleton-clear, and scalar-deleting starts at `0x005431c0`, `0x00543310`, `0x00543700`, `0x00543af0`, `0x00543d20`, `0x00543d30`, `0x00543d40`, `0x00543d70`, `0x00543e40`, `0x00543ee0`, `0x00543f60`, `0x00543f80`, `0x00544210`, `0x005443a0`, and `0x00544420`. Left `AUTOGEN_PARENT_UID` blank because this class confidence is below the 80 attachment gate; `0x00543f70` remains raw getter bytes rather than an IDA function start and is not used as proof.
 - Before: the `PaletteLib` memory page reference ended at `0x0054445a`.
 - Changed to: the page ends at `0x0054445b`.
 - Summary/evidence: 2026-05-28 IDA MCP byte/function review shows `0x0054445a` is the final operand byte of the scalar deleting destructor's `retn 4`.

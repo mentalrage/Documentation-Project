@@ -1,8 +1,8 @@
 *** UID:000079 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KS | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -93,4 +93,5 @@ not as a distinct `ResourceLayoutStore` object with its own constructor or vtabl
 
 ## Changes
 
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000KS][List](by-file/List.md) because this class is 88/88 and the parent file is 86/82. Live IDA MCP on `NexusTK.exe` confirmed the constructor/destructor and fixed-width array methods at `0x004f3060`, `0x004f30e0`, `0x004f32a0`, `0x004f32b0`, `0x004f32e0`, `0x004f33c0`, `0x004f33e0`, `0x004f34a0`, `0x004f34b0`, `0x004f3540`, and scalar deleting destructor `0x004f3810`.
 - Completion/confidence score update: existed before as `0/0`; changed to `88/88`. Summary: the generic fixed-width dynamic array is documented with layout, vtable slots, core methods, destructor ownership, and resource-layout correction evidence, leaving only final source-level rewrite detail below full completion. Evidence: constructor/core/destructor memory pages, decoded vtable, `ImageLib` allocation/call evidence, and `ResourceLayoutStore` overlay correction.

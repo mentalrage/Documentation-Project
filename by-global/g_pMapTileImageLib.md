@@ -1,8 +1,8 @@
 *** UID:0000RG | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,8 +16,7 @@
 - Kind: process-wide singleton pointer.
 - Backing storage: [UID:0001OU][0x0067a75c-0x0067a760.g_pMapTileImageLib](by-memory/0x0067a75c-0x0067a760.g_pMapTileImageLib.md), IDA `dword_67A75C`.
 - Canonical owner: [UID:00007T][MapTileImageLib](by-class/MapTileImageLib.md) in [UID:0000L5][MapTileImageLib](by-file/MapTileImageLib.md).
-- Wave3 status: `g_pMapTileImageLib` now owns reviewed storage `0x0067a75c-0x0067a75f` in `class_MapTileImageLib.cpp`, has type `MapTileImageLib*`, and the address-form `0x0067a75c` row resolves to this canonical global-data record.
-- Current `simroot_v2/class_MapTileImageLib.cpp.source_map.json` records `global-data:g_pMapTileImageLib` with owner file `class_MapTileImageLib.cpp` and notes that IDA confirms `dword_67A75C` as process-wide singleton storage written by the constructor, cleared by destructors/helpers, and read by consumers.
+- Live IDA MCP confirms `dword_67A75C` as process-wide singleton storage written by the constructor, cleared by destructors/helpers, and read by consumers.
 
 ## Meaning
 
@@ -64,5 +63,6 @@ Representative readers include:
 
 - 2026-05-30 completion/confidence review:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0` despite the page already containing strong storage, owner, write/clear, and consumer documentation.
-  - Changed to: `COMPLETION:86` and `CONFIDENCE:84`, plus current `simroot_v2` source-map evidence and an explicit shutdown-consumer note.
-  - Summary/evidence: exact storage page [UID:0001OU][0x0067a75c-0x0067a760.g_pMapTileImageLib](by-memory/0x0067a75c-0x0067a760.g_pMapTileImageLib.md), owner file/class docs, MapTileImageLib aggregate memory docs, source-map `global-data:g_pMapTileImageLib`, and documented write/clear/read sites support the score. Confidence remains capped because `g_pMapTileImageLib` is still a working source name rather than an original symbol recovered from PDB/source.
+  - Changed to: `COMPLETION:86` and `CONFIDENCE:84`, plus an explicit shutdown-consumer note.
+  - Summary/evidence: exact storage page [UID:0001OU][0x0067a75c-0x0067a760.g_pMapTileImageLib](by-memory/0x0067a75c-0x0067a760.g_pMapTileImageLib.md), owner file/class docs, MapTileImageLib aggregate memory docs, and documented write/clear/read sites support the score. Confidence remains capped because `g_pMapTileImageLib` is still a working source name rather than an original symbol recovered from PDB/source.
+- 2026-06-05: Marked reconstructable under [UID:0000L5][MapTileImageLib](by-file/MapTileImageLib.md). Evidence: live IDA MCP reports 10 xrefs to `0x0067a75c`; decompilation confirms constructor `0x004d1860`, destructor `0x004d19a0`, clear helper `0x004e5bc0`, and scalar deleting destructor `0x004e66a0` write/clear `dword_67A75C`.

@@ -1,8 +1,8 @@
 *** UID:0000D4 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000O2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -49,6 +49,11 @@
 - [UID:0001C1][0x00520c20-0x00520c5b.SharedListPaneScalarDeletingDestructor](by-memory/0x00520c20-0x00520c5b.SharedListPaneScalarDeletingDestructor.md)
 
 ## Changes
+
+- 2026-06-05: Changed `RECONSTRUCTABLE` from blank to `TRUE` and assigned parent `0000O2`.
+  - Before: The server spell menu row-list widget remained unclassified in autogen coverage even though the class and parent file both met the 80/80 attach gate.
+  - After: The class contributes to `SpellMenuDialogs.cpp` as a reconstructable child without emitting final C++ yet.
+  - Evidence: Live IDA MCP lookup confirms list constructor/activation/draw starts at `0x0051d700`, `0x0051da20`, and `0x0051da30`, plus shared destructor thunks and deleting destructor at `0x00520ad1`, `0x00520adc`, and `0x00520c20`; parent [UID:0000O2][SpellMenuDialogs](by-file/SpellMenuDialogs.md) owns the spell menu list family.
 
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `86`, confidence `88`.

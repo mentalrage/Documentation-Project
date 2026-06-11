@@ -1,8 +1,8 @@
 *** UID:0000DG | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -106,3 +106,5 @@ The DAT-backed path coexists with local music-directory scanning through `FindFi
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `86`, confidence `80`.
 - Evidence: the page documents the audio-manager responsibility, DAT/resource paths, major methods, playback subsystems, owned helper relationships, generic timer-wrapper exclusion, and cross-subsystem references; confidence remains capped by exact field names and unresolved Miles/sample-path details.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000NV][SoundManager](by-file/SoundManager.md).
+- Evidence: live IDA MCP `lookup_funcs` confirms representative audio-manager method anchors from `0x005797b0` through `0x0057bb30`, including playlist loading, construction, zone music selection, playback controls, directory scanning, driver reinitialization, and destructor paths. The class (`86/80`) and parent file (`90/82`) meet the 80/80 parent gate; C++ remains blank under the final-code threshold.

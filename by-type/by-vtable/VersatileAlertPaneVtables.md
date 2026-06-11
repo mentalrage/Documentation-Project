@@ -1,8 +1,8 @@
 *** UID:0001Z0 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000FU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Likely source file: [UID:0000HE][AlertPanes](by-file/AlertPanes.md).
 - Confidence: strong for vtable bases, constructor stores, callback virtual slots, and destructor slots.
 - Exact memory child: [UID:0002P1][0x00618ba0-0x00618c44.VersatileAlertPaneVtableData](by-memory/0x00618ba0-0x00618c44.VersatileAlertPaneVtableData.md).
+- Autogen status: attached to the `VersatileAlertPane` class page; final C++ remains blank under the `95/95` reconstruction gate.
 
 ## Vtable Bases
 
@@ -62,6 +63,10 @@ Model `VersatileAlertPane` as a thin `AlertPane` subclass with three vtable view
 
 Keep `0x004a0cb0` and `0x004a0cbb` as compiler adjustor thunks, not source methods. Keep [UID:00012Y][0x004a06e0-0x004a0714.VersatileAlertPaneRawCleanup](by-memory/0x004a06e0-0x004a0714.VersatileAlertPaneRawCleanup.md) documented as unreferenced cleanup-shaped code unless later xrefs prove it is an explicitly callable method.
 
+## Parent Rationale
+
+Attach this vtable cluster to [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md) because the primary, secondary, and tertiary tables are installed by the class constructor and destructor paths, and the primary callback slots are the class-specific accept/cancel behavior. The class page is already reconstructable, attached to [UID:0000HE][AlertPanes](by-file/AlertPanes.md), and records the same exact [UID:0002P1][0x00618ba0-0x00618c44.VersatileAlertPaneVtableData](by-memory/0x00618ba0-0x00618c44.VersatileAlertPaneVtableData.md) child, callback pointer layout, constructor xrefs, and cleanup-shaped caveat.
+
 ## Cross-References
 
 - [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md)
@@ -74,6 +79,11 @@ Keep `0x004a0cb0` and `0x004a0cbb` as compiler adjustor thunks, not source metho
 - [UID:0002P1][0x00618ba0-0x00618c44.VersatileAlertPaneVtableData](by-memory/0x00618ba0-0x00618c44.VersatileAlertPaneVtableData.md)
 
 ## Changes
+
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable cluster was reconstructable but unassigned in generated type coverage despite an established `VersatileAlertPane` class parent.
+  - What changed: attached the vtable cluster to [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md), raised completion to `86`, and added an explicit parent rationale.
+  - Summary/evidence: constructor stores at `0x004a06b6`, `0x004a06bc`, and `0x004a06c6`, callback slots `0x004a0720` and `0x004a0740`, destructor stores, and exact [UID:0002P1][0x00618ba0-0x00618c44.VersatileAlertPaneVtableData](by-memory/0x00618ba0-0x00618c44.VersatileAlertPaneVtableData.md) prove class ownership; final C++ stays blank until callback interface and alert base type names are source-quality.
 
 - What existed before: this page listed the three vtable bases and slot evidence, but kept completion/confidence at `0/0`, cited incomplete Wave3 metadata, and did not have a precise by-memory child range.
 - What changed: completion/confidence is now `84/90`, `RECONSTRUCTABLE` is marked `TRUE`, the stale Wave3 caveat was replaced with IDA MCP boundary evidence, and the exact child range [UID:0002P1][0x00618ba0-0x00618c44.VersatileAlertPaneVtableData](by-memory/0x00618ba0-0x00618c44.VersatileAlertPaneVtableData.md) was added.

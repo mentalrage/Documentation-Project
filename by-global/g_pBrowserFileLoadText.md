@@ -1,8 +1,8 @@
 *** UID:0000QC | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,12 +12,14 @@
 
 ## Status
 
-- Confidence: strong for browser alert text role and browser-module ownership; medium for the generated `g_p...` alias spelling.
+- Confidence: strong for browser alert text role, browser-module ownership, and duplicate-alias disposition; medium-high for final source literal name.
+- Disposition: ignored duplicate/generated alias, not standalone writable global storage.
 - Current generated form: unresolved identifier used by `BrowserPane::OnCommand`.
 - Current generated owner file: `browser/Browser.cpp`.
 - Current memory evidence: [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md), direct UTF-16 string `Navigation Failed`.
 - Proposed owner: [UID:0000HV][Browser](by-file/Browser.md) as a static browser alert string literal.
-- Autogen parent: [UID:0000HV][Browser](by-file/Browser.md); no C++ emitted here because [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) owns the exact string range and final literal names are below the `95+` source gate.
+- Replacement owner: [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md), attached to [UID:0000HV][Browser](by-file/Browser.md).
+- Autogen status: keep `RECONSTRUCTABLE:FALSE` and parent blank here; the exact string range page owns the reconstructable source literal.
 
 ## Observed Evidence
 
@@ -27,11 +29,15 @@ A 2026-05-25 current-state recheck found the active generated reference in `simr
 
 [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) now records the exact string range at `82/88`, marks it reconstructable, and attaches it to [UID:0000HV][Browser](by-file/Browser.md). That page includes the 2026-06-02 IDA MCP `BrowserPane::OnCommand` decompile/xref evidence and the exact `0x00613a30-0x00613a54` UTF-16 literal boundary for `Navigation Failed`.
 
+The duplicate-alias conclusion is strong because current evidence has a direct string literal address, not a separate storage slot, pointer initializer, or global-data row for `g_pBrowserFileLoadText`.
+
 ## Ownership Hypothesis
 
 This is browser UI text/static state for the file-load/navigation-failure alert path. It belongs near `BrowserPane`.
 
 The `g_p...` spelling is generated data naming, not confirmed original source naming. Current IDA evidence shows direct static string storage, not a separate pointer global.
+
+Keep this alias in [UID:0000PF][-ignored](by-global/-ignored.md) so future passes do not reconstruct a duplicate browser pointer global.
 
 ## Type Hypothesis
 
@@ -57,3 +63,5 @@ If the original source used a pointer alias, no separate storage for that alias 
   - Before: the generated alias page remained unparented at `76/74`, even though its exact string-range page and browser parent had stronger evidence.
   - Changed to: completion/confidence `78/82`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000HV`.
   - Evidence: [UID:0000HV][Browser](by-file/Browser.md) is `84/88`; [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) is `82/88`, reconstructable, attached to Browser, and records the IDA-confirmed `0x00613a30-0x00613a54` `Navigation Failed` literal used by `BrowserPane::OnCommand`. C++ remains blank because this page is a generated alias note, not a separate proven pointer-storage definition, and final literal naming is below the `95+` code-emission gate.
+- 2026-06-06: Converted from reconstructable alias note to ignored duplicate alias and raised to `86/90`.
+  - Evidence: the exact reconstructable source-authored string literal is already covered by [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md), while this generated `g_p...` name has no separate writable storage or active global-data row. The browser file remains the owner through the exact string page, not through this alias.

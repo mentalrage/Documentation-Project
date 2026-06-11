@@ -1,13 +1,13 @@
 *** UID:0000K1 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ImageFrameTable
 
 ## Status
 
-- Confidence: strong for the shared `LoadImageFrameTable` owner, medium for the final filename and helper type names.
+- Confidence: strong for the shared `LoadImageFrameTable` owner and adjacent raw frame-record helper ownership, medium for the final filename and helper type names.
 - Proposed module: `render/ImageFrameTable.cpp`
 - Current recovered sources: `source-3/simroot_v2/recovered/LoadImageFrameTable_004D0F50.cpp` and `LoadFrameDrawRecord_004D1600.cpp`
 - Evidence basis: Wave3 global/file summaries, generated recovered source, existing EPF resource docs, and targeted IDA MCP boundary/caller/callee checks on 2026-05-23.
@@ -25,6 +25,8 @@ It should not own raw DAT archive indexing. `DATFile` and [UID:0000T0][HasDATEnt
 | [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) / [UID:0002P4][0x004d0f50-0x004d15c5.LoadImageFrameTable](by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md) | `0x004d0f50-0x004d15c5` | `render/ImageFrameTable.cpp` | Loads one EPF/EPD frame table or merges numbered archive shards. |
 | [UID:0002P5][0x004d15d0-0x004d15fc.DestroyOwnedImageBlock](by-memory/0x004d15d0-0x004d15fc.DestroyOwnedImageBlock.md) | `0x004d15d0-0x004d15fc` | under review | Shared nested-payload cleanup helper adjacent to the frame-table helpers; final source-file parent remains open. |
 | [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) / [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md) | `0x004d1600-0x004d165d` | `render/ImageFrameTable.cpp` | Extracts one draw/metrics record from a frame metadata table. |
+| [UID:00031T][0x004d1660-0x004d1704.FrameRecordPayloadCopyHelper](by-memory/0x004d1660-0x004d1704.FrameRecordPayloadCopyHelper.md) | `0x004d1660-0x004d1704` | `render/ImageFrameTable.cpp` | Raw source-looking helper that copies two payload spans plus the first 16 frame-record bytes into an output record. |
+| [UID:00031U][0x004d1710-0x004d172d.FrameRecordRectCopyHelper](by-memory/0x004d1710-0x004d172d.FrameRecordRectCopyHelper.md) | `0x004d1710-0x004d172d` | `render/ImageFrameTable.cpp` | Raw source-looking helper that copies the first 16 bytes from a selected 24-byte frame record. |
 | [UID:0000UN][EPFArchiveMetadataTable](by-item/EPFArchiveMetadataTable.md) | structure documentation | `render/ImageFrameTable.h` or private structs | Shared table/record shape used by several EPF/EPD loaders. |
 
 ## Exact Ranges
@@ -34,6 +36,8 @@ IDA MCP confirms:
 - `0x004d0f50-0x004d15c5` for `LoadImageFrameTable_4D0F50`.
 - `0x004d15d0-0x004d15fc` for `DestroyOwnedImageBlock_4D15D0`; this is adjacent helper cleanup code, but final source-file parent remains open.
 - `0x004d1600-0x004d165d` for `LoadFrameDrawRecord_4D1600`.
+- `0x004d1660-0x004d1704` for the IDA-unmodeled raw `FrameRecordPayloadCopyHelper`.
+- `0x004d1710-0x004d172d` for the IDA-unmodeled raw `FrameRecordRectCopyHelper`.
 
 The helper file is non-contiguous in the binary because other `ResourceLayoutTable` and image-library functions live between or around these ranges.
 
@@ -45,10 +49,11 @@ The helper file is non-contiguous in the binary because other `ResourceLayoutTab
 - IDA MCP caller checks find ten caller functions for `LoadFrameDrawRecord_4D1600`, spanning map tile draw, static/effect/item/new-human draw paths, and UI/effect frame users.
 - IDA MCP callee checks show `LoadImageFrameTable_4D0F50` calls `DATFile` constructor/open/read/seek/close/destructor, `DATFile::GetDataPointer`, [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md), allocation/free helpers, and rect initialization.
 - `LoadFrameDrawRecord_4D1600` has no project callees; it is a pure table extraction helper over already-loaded frame records.
+- 2026-06-10 B001-023 IDA MCP confirms no modeled function objects or xrefs at `0x004d1660` and `0x004d1710`, but raw disassembly shows source-looking prologue/`ret 0x0c` helpers over the same 24-byte frame-record table model used by `LoadFrameDrawRecord`.
 
 ## Ownership Decision
 
-Group `LoadImageFrameTable_4D0F50`, `LoadFrameDrawRecord_4D1600`, and the shared frame-table structure notes together as `render/ImageFrameTable.cpp`. The current one-global recovered files are Wave3 staging containers.
+Group `LoadImageFrameTable_4D0F50`, `LoadFrameDrawRecord_4D1600`, the raw frame-record payload/rectangle helpers, and the shared frame-table structure notes together as `render/ImageFrameTable.cpp`. The current one-global recovered files are Wave3 staging containers. The raw helpers have no direct xrefs, but their byte-level body, record stride, and placement immediately after `LoadFrameDrawRecord` make this file a stronger owner than ResourceLayout or feature-specific image libraries.
 
 Keep these related helpers outside this file for now:
 
@@ -69,6 +74,8 @@ Keep these related helpers outside this file for now:
 - [UID:0002P4][0x004d0f50-0x004d15c5.LoadImageFrameTable](by-memory/0x004d0f50-0x004d15c5.LoadImageFrameTable.md)
 - [UID:0002P5][0x004d15d0-0x004d15fc.DestroyOwnedImageBlock](by-memory/0x004d15d0-0x004d15fc.DestroyOwnedImageBlock.md)
 - [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md)
+- [UID:00031T][0x004d1660-0x004d1704.FrameRecordPayloadCopyHelper](by-memory/0x004d1660-0x004d1704.FrameRecordPayloadCopyHelper.md)
+- [UID:00031U][0x004d1710-0x004d172d.FrameRecordRectCopyHelper](by-memory/0x004d1710-0x004d172d.FrameRecordRectCopyHelper.md)
 - [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md)
 - [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md)
 - [UID:0000UN][EPFArchiveMetadataTable](by-item/EPFArchiveMetadataTable.md)
@@ -83,6 +90,9 @@ Keep these related helpers outside this file for now:
 
 ## Changes
 
+- 2026-06-10 B001-023 raw frame-record helper ownership:
+  - Changed score from `88/82` to `89/86`.
+  - Summary/evidence: live IDA MCP reconfirmed raw source-looking helper bodies at `0x004d1660-0x004d1704` and `0x004d1710-0x004d172d`, no modeled functions/xrefs, 24-byte frame-record stride, and placement immediately after [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md). The file now clears the strict parent gate for [UID:00031T][0x004d1660-0x004d1704.FrameRecordPayloadCopyHelper](by-memory/0x004d1660-0x004d1704.FrameRecordPayloadCopyHelper.md) and [UID:00031U][0x004d1710-0x004d172d.FrameRecordRectCopyHelper](by-memory/0x004d1710-0x004d172d.FrameRecordRectCopyHelper.md), while [UID:0002P5][0x004d15d0-0x004d15fc.DestroyOwnedImageBlock](by-memory/0x004d15d0-0x004d15fc.DestroyOwnedImageBlock.md) remains source-owner under review.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:88` and `CONFIDENCE:82`.

@@ -1,6 +1,6 @@
 *** UID:0000C2 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000N8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:20 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -19,6 +19,15 @@
 - Source: [UID:0000N8][RingBuffer](by-file/RingBuffer.md)
 - Proposed path: `util/RingBuffer.cpp`
 - Confidence: strong for concrete class identity and ring-buffer file ownership; active iterator caller/use sites remain unresolved.
+
+## Autogen Status
+
+- Parent file: [UID:0000N8][RingBuffer](by-file/RingBuffer.md)
+- Parent position: `20`, after [UID:0000C1][RingBuffer](by-class/RingBuffer.md)
+- Reconstructable: `TRUE`
+- C++ emission: intentionally blank until direct iterator use sites and helper names are reviewed.
+
+The class-page attachment now matches the RingBuffer file page and the shared vtable documentation. [UID:0001YN][RingBufferVtables](by-type/by-vtable/RingBufferVtables.md) records the same iterator COL pointer at `0x006230d8`, vtable start at `0x006230dc`, scalar deleting destructor slot, and the boundary before adjacent `ScreenPane` RTTI data.
 
 ## Inferred Layout
 
@@ -45,8 +54,8 @@ The raw constructor at `0x005566c0` stores `[ebp+0x08]` into `+0x04`, installs v
 - IDA-confirmed deleting destructor-like helper: `0x00556890-0x005568c8`.
 - IDA-confirmed vtable: `??_7RingBufferIterator@@6B@` at `0x006230dc`, stored by the raw constructor at `0x005566d7`.
 - IDA-confirmed complete-object-locator pointer: `??_R4RingBufferIterator@@6B@` at `0x006230d8`, immediately before vtable `0x006230dc`.
-- Current `source-3/simroot_v2/util/RingBuffer.cpp` emits the iterator constructor, reset, next, and scalar deleting destructor in the same `util/RingBuffer.cpp` output as `RingBuffer`.
-- Current `source-3/simroot_v2/util/RingBuffer.meta_wave3` reports one `RingBufferIterator` vtable at `0x006230dc`, matching IDA.
+- Existing [UID:0000N8][RingBuffer](by-file/RingBuffer.md) documentation records the iterator constructor, reset, next, and scalar deleting destructor as part of the same `util/RingBuffer.cpp` ownership island as `RingBuffer`.
+- Existing [UID:0001YN][RingBufferVtables](by-type/by-vtable/RingBufferVtables.md) documentation records one `RingBufferIterator` vtable at `0x006230dc`, matching the class-page RTTI/COL evidence.
 
 ## Interpretation
 
@@ -61,6 +70,12 @@ IDA MCP non-flow xrefs on 2026-06-03 found no direct callers for the constructor
 Attach this class under [UID:0000N8][RingBuffer](by-file/RingBuffer.md) after [UID:0000C1][RingBuffer](by-class/RingBuffer.md). The RTTI name, vtable, constructor vptr store, owner-pointer layout, and shared source island make `util/RingBuffer.cpp` the correct current owner.
 
 Leave `RECONSTRUCTION_CPP` blank. The class identity and layout are now strong enough for parent attachment, but unresolved direct-use evidence and final helper names keep this below the C++ emission threshold.
+
+## Score Rationale
+
+Completion is now `82` because the page has class identity, source ownership, parent metadata, compact layout, constructor behavior, iterator helper inventory, vtable/COL evidence, and cross-page alignment with the RingBuffer file/vtable docs. The remaining missing pieces are final helper names, direct caller/use evidence, and a source-quality C++ reconstruction.
+
+Confidence is now `82` because independent local documentation agrees on the RTTI name, COL pointer, vtable address, constructor vptr store, scalar deleting destructor slot, and shared file ownership. Confidence remains capped by raw helper starts that still need function-boundary review and by the unresolved public/private status of the iterator companion.
 
 ## Cross-References
 
@@ -82,3 +97,7 @@ Leave `RECONSTRUCTION_CPP` blank. The class identity and layout are now strong e
   - Before: The page was `72/76`, reconstructability and parent metadata were blank, and the class identity still leaned too heavily on generated metadata plus vtable naming.
   - After: Raised to `78/80`, marked reconstructable, attached to [UID:0000N8][RingBuffer](by-file/RingBuffer.md) at position `20`, and kept C++ blank.
   - Evidence: IDA MCP clean disassembly confirms the raw constructor stack argument, vptr store, owner pointer, and current-index field; RTTI/COL data names `??_R4RingBufferIterator@@6B@`; the vtable at `0x006230dc` points to the scalar deleting destructor and is stored by the raw constructor; non-flow xref sweeps still show no direct active callers for the iterator helper starts.
+- 2026-06-07: Reconciled the class page with the existing RingBuffer file and vtable documentation.
+  - Before: The page had strong identity/layout evidence but no explicit autogen-status or score-rationale section, and two observed-function bullets still cited generated output directly instead of the durable project documentation pages.
+  - After: Raised to `82/82`, added autogen-status and score-rationale sections, and redirected the generated-output bullets to the existing [UID:0000N8][RingBuffer](by-file/RingBuffer.md) and [UID:0001YN][RingBufferVtables](by-type/by-vtable/RingBufferVtables.md) documentation.
+  - Evidence: The file page and vtable page agree on parent attachment, `util/RingBuffer.cpp` ownership, COL pointer `0x006230d8`, vtable `0x006230dc`, and scalar deleting destructor slot; unresolved direct iterator callers and final helper names keep C++ blank.

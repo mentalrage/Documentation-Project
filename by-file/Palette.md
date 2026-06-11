@@ -1,6 +1,6 @@
 *** UID:0000MA | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Palette
@@ -50,14 +50,20 @@
 - IDA MCP lists the contiguous function neighborhood from `0x00542ac0` through `0x0054445b`, then the unrelated `Pane` constructor starts at `0x00544460`.
 - IDA MCP confirms `0x00543450` deep-copies `DLPalette`-sized objects into a `List`, which supports keeping it in the palette source family even though current xrefs are absent.
 - IDA MCP recheck on 2026-06-01 corrects [UID:0001E7][0x00543450-0x00543665.PaletteListAndEntryMoveHelpers](by-memory/0x00543450-0x00543665.PaletteListAndEntryMoveHelpers.md) to exact endpoints `0x00543450-0x005435a5` and `0x005435b0-0x00543665`, and splits raw helper [UID:0002R4][0x00543670-0x005436f4.PaletteCollectionColorTransformRaw](by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md).
+- IDA MCP recheck on 2026-06-07 reconfirms the raw transform helper at `0x00543670-0x005436f4` has no IDA function object, no direct code xrefs, and no relative-call hits in the executable scan, but is bounded by palette helper padding and calls the same `dword_69B408` color-transform callback as `PaletteLib` filter helpers.
 - IDA MCP recheck on 2026-05-25 identifies `g_pPaletteLib` at `0x0067a7e0` and reports 83 data refs. Constructor/destructor/unwind code writes or clears this storage at `0x00543743`, `0x00543cfe`, and `0x005443a0`.
 - IDA MCP recheck on 2026-06-01 keeps `0x00543f60` and `0x00543f80` in `PaletteLib`: every observed caller loads `g_pPaletteLib` into `ecx` before the call, `0x00543f80` calls `dword_69B408`, and raw getter-shaped bytes at `0x00543f70-0x00543f77` read the cached filter weight at `+0x75c`.
 - IDA MCP recheck on 2026-05-26 shows `ScreenPane::HandleMessage` also calls `0x00543d30` and `0x00543ee0` with `g_pPaletteLib` as `this`; `PaletteLib::PaletteLib` sets `g_pPaletteLib`, initializes `+0x04` and `+0x08`, and constructs the same palette-bank arrays consumed by `ResetSlots`.
+- IDA MCP recheck on 2026-06-07 reconfirms `0x00543d30-0x00543d3d` and `0x00543ee0-0x00543f55`, caller refs at `0x00556dcb`, `0x00556e0f`, `0x005593c0`, `0x00559405`, `0x00556dd2`, and `0x005593c7`, and `0x00543f55-0x00543f60` padding before the palette-filter helper at `0x00543f60`.
 - IDA MCP recheck on 2026-06-01 corrects the `DLPalette` scalar deleting destructor endpoint to `0x00544411`, confirms the primary contiguous DLPalette method cluster ends at `0x00543149`, and confirms `0x00544411-0x00544420` is alignment before `PaletteLib::ScalarDeletingDestructor`.
 
 ## Ownership Decision
 
 Keep `DLPalette`, `PaletteLib`, `g_pPaletteLib`, the `ScreenPanePaletteState_543D30` facet methods, the slot table, palette-filter helpers, and palette clone/reset helpers under `render/Palette.cpp`. Do not merge these into DAT/archive code: palette files are DAT-backed resources, but palette parsing, color conversion, runtime palette selection, and screen-palette bank reset policy are render/palette behavior.
+
+## Corrected Assignment Gate
+
+This file page is `90/86` after the 2026-06-07 live IDA refresh and can serve as the direct parent for [UID:0001E8][0x00543d30-0x00543f54.ScreenPanePaletteState](by-memory/0x00543d30-0x00543f54.ScreenPanePaletteState.md): the child methods operate on `g_pPaletteLib`, are initialized by `PaletteLib::PaletteLib`, and are explicitly part of the render palette source family. This does not make the raw helper [UID:0002R4][0x00543670-0x005436f4.PaletteCollectionColorTransformRaw](by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md) assignable yet; that child remains below 85 completion and still lacks entry-caller/liveness evidence.
 
 ## Cross-References
 
@@ -98,3 +104,8 @@ Keep `DLPalette`, `PaletteLib`, `g_pPaletteLib`, the `ScreenPanePaletteState_543
 - Before: the `PaletteLib` filter-helper row used the old `0x00543f60-0x005440ef` range and omitted the raw cached-weight getter.
 - Changed to: the row now uses exclusive end `0x005440f0` and notes `0x00543f70-0x00543f77`.
 - Summary/evidence: 2026-06-01 IDA MCP confirms `sub_543F60` at `0x00543f60-0x00543f70`, no IDA function object or direct xrefs at `0x00543f70`, `sub_543F80` at `0x00543f80-0x005440f0`, and `0xcc` padding around the helper bodies.
+
+- 2026-06-07 A006 Batch007 parent-gate refresh:
+  - Before: completion/confidence were `90/84`; this was strong but just below the corrected confidence gate for assigning the screen-palette memory child directly to the palette source file.
+  - Changed to: confidence `86`, with completion left at `90`.
+  - Summary/evidence: live IDA MCP reconfirmed the screen-palette method boundaries/callers, `g_pPaletteLib` ownership, palette-filter split, raw transform helper no-caller status, and `dword_69B408` callback relationships. The page now clears the corrected direct-parent gate for [UID:0001E8][0x00543d30-0x00543f54.ScreenPanePaletteState](by-memory/0x00543d30-0x00543f54.ScreenPanePaletteState.md), while keeping [UID:0002R4][0x00543670-0x005436f4.PaletteCollectionColorTransformRaw](by-memory/0x00543670-0x005436f4.PaletteCollectionColorTransformRaw.md) unassigned.

@@ -1,8 +1,8 @@
 *** UID:00009I | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000M0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,8 +12,8 @@
 
 ## Status
 
-- Confidence: strong for class responsibility and IDA function boundaries; current generated output is incomplete.
-- Likely source file: [UID:0000M0][NexonclubRegistrationDialog](by-file/NexonclubRegistrationDialog.md)
+- Confidence: strong for class responsibility, IDA function boundaries, parent file ownership, and support-helper relationships; current generated output is incomplete and final helper/field names remain provisional.
+- Current parent: [UID:0000M0][NexonclubRegistrationDialog](by-file/NexonclubRegistrationDialog.md)
 - Main address range: [UID:0001CT][0x0052f950-0x00530636.NexonclubRegistrationDialog](by-memory/0x0052f950-0x00530636.NexonclubRegistrationDialog.md)
 - Support-helper detail: [UID:0001CU][0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers](by-memory/0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers.md)
 - Current recovered file: `source-3/simroot_v2/class_NexonclubRegistrationDialog.cpp`
@@ -43,6 +43,7 @@
 - Submit reads [UID:0000RQ][g_pMiscWorkThread](by-global/g_pMiscWorkThread.md) and calls the [UID:00008I][MiscWorkThread](by-class/MiscWorkThread.md) NCA-update request wrapper at `0x00528310`.
 - Uses [UID:0000OM][TextEditControlPane](by-file/TextEditControlPane.md) for account/password fields.
 - Uses [UID:0000HE][AlertPanes](by-file/AlertPanes.md) for pending and result alerts.
+- Parent-chain gate: [UID:0000M0][NexonclubRegistrationDialog](by-file/NexonclubRegistrationDialog.md) is `86/80`; aggregate memory page [UID:0001CT][0x0052f950-0x00530636.NexonclubRegistrationDialog](by-memory/0x0052f950-0x00530636.NexonclubRegistrationDialog.md) is `82/88`; support-helper page [UID:0001CU][0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers](by-memory/0x00530020-0x0053057b.NexonclubRegistrationSupportHelpers.md) is `82/90`.
 
 ## Data Caveats
 
@@ -56,6 +57,13 @@ Active generated source omits several IDA-confirmed helper functions in this cla
 - [UID:00009H][NexonclubProxyDialog](by-class/NexonclubProxyDialog.md)
 
 ## Changes
+
+- 2026-06-07: Raised confidence from `78` to `80` and attached parent `0000M0`.
+  - Before: The class stayed just below the parent-attach gate even though the file page and by-memory evidence had already been refreshed.
+  - After: The class is attached to [UID:0000M0][NexonclubRegistrationDialog](by-file/NexonclubRegistrationDialog.md) while final C++ remains gated by provisional field/helper names and active generated-output omissions.
+  - Evidence: The file parent is `86/80`; the aggregate memory page is `82/88`; the support-helper page is `82/90`; together they document constructor/destructor/command/response/status/helper/thunk/deleting-destructor boundaries, constructor callers, NCA submission, response-state switch table, vtable refs, helper omissions, and padding.
+
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` after live IDA MCP on `NexusTK.exe` confirmed registration constructor/destructor/command/response/alert/helper/thunk/deleting-destructor starts at `0x0052f950`, `0x0052ffa0`, `0x00530020`, `0x00530060`, `0x00530230`, `0x00530410`, `0x005304c0`, `0x005304f0`, `0x00530565`, and `0x00530580`. Left `AUTOGEN_PARENT_UID` blank because this class confidence is below the 80 attachment gate even though [UID:0000M0][NexonclubRegistrationDialog](by-file/NexonclubRegistrationDialog.md) is the likely source-module parent.
 
 ### 2026-05-28 - Scalar Deleting Destructor Endpoint Corrected
 

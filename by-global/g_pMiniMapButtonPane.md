@@ -1,8 +1,8 @@
 *** UID:0000RN | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -20,17 +20,15 @@
 
 ## Summary
 
-`dword_69B4B8` stores the active [UID:00008B][MiniMapButtonPane](by-class/MiniMapButtonPane.md). The constructor at `0x00503580` writes this global, the [UID:0001AM][0x00503620-0x00503648.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503648.MiniMapButtonPaneCleanup.md) at `0x00503620` and [UID:0001AN][0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks.md) at `0x00503800` clear it, and other minimap/UI paths read it when toggling or updating the minimap button state.
+`dword_69B4B8` stores the active [UID:00008B][MiniMapButtonPane](by-class/MiniMapButtonPane.md). The constructor at `0x00503580` writes this global, the [UID:0001AM][0x00503620-0x00503649.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503649.MiniMapButtonPaneCleanup.md) at `0x00503620` and [UID:0001AN][0x00503800-0x00503837.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503837.MiniMapButtonPaneClearAndThunks.md) at `0x00503800` clear it, and other minimap/UI paths read it when toggling or updating the minimap button state.
 
 ## Evidence
 
-- IDA `xrefs_to 0x0069b4b8` includes writes from `0x00503580`, `0x00503620`, `0x00503800`, and `0x00503900`.
-- Additional xrefs include `0x005047f0`, a nearby map/minimap-side helper.
+- Live IDA MCP `xrefs_to 0x0069b4b8` on 2026-06-05 reports 6 xrefs: constructor writes at `0x005035c7` / `0x005035ce`, cleanup clears at `0x0050363a`, `0x00503800`, and `0x00503920`, plus a nearby map/minimap-side helper at `0x00504a54`.
 - [UID:00029X][0x0069b4b4-0x0069b4c8.MapNameMiniMapAndGameServerGlobals](by-memory/0x0069b4b4-0x0069b4c8.MapNameMiniMapAndGameServerGlobals.md) records the exact slot as the `MiniMapButtonPane` singleton, adjacent to the `MapNamePane` singleton and `GameServerConfig` globals.
-- `source-3/simroot_v2/class_MiniMapButtonPane.cpp` emits `MiniMapButtonPane* g_pMiniMapButtonPane;`, the constructor assignment at `0x00503580`, and the scalar deleting destructor clear at `0x00503900`.
-- `class_MiniMapButtonPane.cpp.source_map.json` reports `global-data:g_pMiniMapButtonPane` with one memory range and zero missing memory-range lines.
-- Current active `class_MiniMapButtonPane.cpp` still omits the non-deleting cleanup at `0x00503620`, the singleton-clear helper at `0x00503800`, and the destructor adjustor thunks at `0x00503821`/`0x0050382c`; use the by-memory pages for those bodies.
-- Live IDA MCP was unavailable during the 2026-05-30 review, so current confidence relies on the recorded IDA MCP notes and source-map evidence rather than a fresh xref query.
+- Decompilation on 2026-06-05 shows `0x00503580` storing `this` into `dword_69B4B8` and installing the `MiniMapButtonPane` vtable, while `0x00503620`, `0x00503800`, and `0x00503900` clear the slot during cleanup/destruction.
+- The non-deleting cleanup at `0x00503620`, singleton-clear helper at `0x00503800`, and destructor adjustor thunks at `0x00503821`/`0x0050382c` should remain anchored by the by-memory pages for those bodies.
+- IDA MCP `py_eval` on 2026-06-07 reconfirmed the exact storage item as `0x0069b4b8-0x0069b4bc`, bytes `ff ff ff ff`, initial dword `0xffffffff`, and the same six xrefs. The exact split memory page is [UID:0002XP][0x0069b4b8-0x0069b4bc.g_pMiniMapButtonPane](by-memory/0x0069b4b8-0x0069b4bc.g_pMiniMapButtonPane.md).
 
 ## Ownership Guidance
 
@@ -42,10 +40,19 @@ Declare this as `MiniMapButtonPane *g_pMiniMapButtonPane;` with [UID:0000LE][Min
 - [UID:0000LE][MiniMap](by-file/MiniMap.md)
 - [UID:00029X][0x0069b4b4-0x0069b4c8.MapNameMiniMapAndGameServerGlobals](by-memory/0x0069b4b4-0x0069b4c8.MapNameMiniMapAndGameServerGlobals.md)
 - [UID:0001AL][0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes](by-memory/0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes.md)
-- [UID:0001AM][0x00503620-0x00503648.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503648.MiniMapButtonPaneCleanup.md)
-- [UID:0001AN][0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks.md)
+- [UID:0001AM][0x00503620-0x00503649.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503649.MiniMapButtonPaneCleanup.md)
+- [UID:0001AN][0x00503800-0x00503837.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503837.MiniMapButtonPaneClearAndThunks.md)
 
 ## Changes
 
-- 2026-05-30: Previously this page had stale `0/0` completion/confidence metadata even though the class and memory pages were already researched. It now links the exact `0x0069b4b8` slot in the mixed global cluster, records current source-map resolution for `global-data:g_pMiniMapButtonPane`, and separates the constructor/destructor evidence from omitted cleanup/clear helpers. Score changed to `82/84`; confidence stays below the exact storage page because live IDA MCP was unavailable and final source placement between minimap and adjacent map UI remains open.
+- 2026-05-30: Previously this page had stale `0/0` completion/confidence metadata even though the class and memory pages were already researched. It now links the exact `0x0069b4b8` slot in the mixed global cluster and separates the constructor/destructor evidence from omitted cleanup/clear helpers. Score changed to `82/84`; confidence stays below the exact storage page because final source placement between minimap and adjacent map UI remains open.
 - 2026-05-28: Updated the shared MapName/MiniMapButton memory-island reference from `0x005031f0-0x0050395e` to `0x005031f0-0x0050395f`. Evidence: IDA MCP reports the `0x00503900` destructor ending at `0x0050395f`; the previous end omitted the final `retn 4` immediate byte.
+
+- 2026-06-05 autogen classification:
+  - What existed before: autogen metadata was blank, so the singleton was reported as unclassified.
+  - Changed to: `RECONSTRUCTABLE:TRUE` with `AUTOGEN_PARENT_UID:0000LE`; `RECONSTRUCTION_CPP CODE` remains empty.
+  - Summary/evidence: live IDA MCP `xrefs_to 0x0069b4b8` and decompilation of `0x00503580`, `0x00503620`, `0x00503800`, and `0x00503900` prove NexusTK-owned minimap button singleton storage owned by [UID:0000LE][MiniMap](by-file/MiniMap.md). No final C++ body was added because the page is below the 95/95 reconstruction gate.
+- 2026-06-07 Batch 043 split-parent refresh:
+  - Before: `82/84`, below the corrected `85/85` gate for assigning the exact storage child.
+  - After: `85/86`.
+  - Evidence: live IDA MCP reconfirmed the exact four-byte item, initial bytes/dword, and constructor/cleanup/destructor/map-helper xrefs. The remaining caveat is final source placement between compact `MiniMap.cpp` and smaller minimap UI files, not the direct global ownership.

@@ -89,6 +89,6 @@ Raw/projected constructor starts such as `0x005b5400`, `0x005b67c0`, `0x005b68c0
 ## Changes
 
 - 2026-05-31 exact vtable-data split:
-  - What existed before: the page had `COMPLETION:0`, `CONFIDENCE:0`, blank reconstructable metadata, and depended on the broad [UID:00026W][0x0062ef0c-0x006307f4.UserPaneInputVtables](by-memory/0x0062ef0c-0x006307f4.UserPaneInputVtables.md) aggregate for `.rdata` coverage.
+  - What existed before: the page had `COMPLETION:0`, `CONFIDENCE:0`, blank reconstructable metadata, and depended on the broad [UID:00026W][0x0062ef0c-0x006307ec.UserPaneInputVtables](by-memory/0x0062ef0c-0x006307ec.UserPaneInputVtables.md) aggregate for `.rdata` coverage.
   - Changed to: `COMPLETION:82`, `CONFIDENCE:88`, `RECONSTRUCTABLE:TRUE`, and six exact by-memory vtable-data child pages for the command/spell-adjacent/self-save/block-list prompt tables.
   - Summary/evidence: 2026-05-31 IDA MCP `xrefs_to`, `lookup_funcs`, and `py_eval` verify the table bases, vtable labels, store xrefs, representative slot values, and exact boundary dwords; final score remains below `95+` because source-file grouping and raw constructor boundaries are not fully resolved.

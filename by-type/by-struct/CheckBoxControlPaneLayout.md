@@ -1,8 +1,8 @@
 *** UID:0001TX | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:000021 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Entity kind: class layout support struct
 - Current Wave3 struct id: `CheckBoxControlPane`
 - Likely owner: [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md), or split candidate [UID:0000I7][CheckBoxControlPane](by-file/CheckBoxControlPane.md)
+- Parent attachment: attached to [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md), which is scored `86/91`; this layout is now above the `80/80` child attachment gate.
 - Confidence: strong for offsets used by constructor, paint, mouse, and checked-state accessors; medium for inherited subobject names and final original source-file split.
 - Evidence basis: read-only IDA MCP lookup/decompile/caller checks on 2026-05-31, plus earlier vtable checks from 2026-05-25. Generated `simroot_v2` names are retained only as search/context leads. `wave3.py` was not executed for this pass.
 
@@ -55,6 +56,10 @@ IDA caller checks confirm direct constructor callers at `0x00450f60`, `0x0045100
 
 `CheckBoxControlPane` behaves like a generic choice control. It is used by [UID:0000LE][MiniMap](by-file/MiniMap.md) for NPC/portal toggles and by [UID:000096][NewMailDialog](by-class/NewMailDialog.md) for the "Keep a copy" option. The breadth is small but cross-feature, so current source-layout evidence still favors keeping it with the broader [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md) generic button/choice-control module unless a later original-source split is proven.
 
+## Score Rationale
+
+The layout is scored in the low 80s because the observed `0x150` size, three vtable slots, two bounded 16-wide-character resource buffers, checked/unchecked frame ids, checked-state byte, constructor callers, accessors, mouse-toggle behavior, and paint resource usage are all documented. Confidence is higher than completion because remaining uncertainty is about inherited subobject naming and final source-file split, not about the field offsets used by the binary.
+
 ## Cross-References
 
 - [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md)
@@ -73,3 +78,8 @@ IDA caller checks confirm direct constructor callers at `0x00450f60`, `0x0045100
 ## Changes
 
 - Reclassified the page from unevaluated to reconstructable layout documentation with conservative scores. Evidence: IDA MCP lookup/decompile/caller checks on 2026-05-31 directly verify the field offsets used by the constructor, accessor, mouse, and paint methods; final source-file split and inherited subobject names remain below near-final confidence.
+
+- 2026-06-06: Completion/confidence changed from `74/88` to `82/90`, and `AUTOGEN_PARENT_UID` was set to [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md).
+  - Before: direct field evidence was documented, but the metadata stayed below the parent-child attachment gate and the manual by-struct coverage row still showed a stale `50%`.
+  - After: the page records the parent gate, score rationale, and coverage report sync.
+  - Evidence: constructor, setter/getter, mouse, paint, and state/helper evidence covers every listed field offset; the only remaining limits are inherited-view names and final source-file ownership.

@@ -1,6 +1,6 @@
 *** UID:00007S | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000L4 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -40,6 +40,7 @@
 - The scalar deleting destructor at `0x00514e20` calls `ScreenDimmer` teardown at `0x00559cf0` and frees storage through `0x004f4ac0` only when the delete flags require it.
 - Vtable data confirms the primary table `??_7MapRefreshDimmer@@6B@` at `0x0061e858`, secondary table `??_7MapRefreshDimmer@@6B@_0` at `0x0061e8a4`, and tertiary table `??_7MapRefreshDimmer@@6B@_1` at `0x0061e8d4`; the constructor writes all three and the adjustor thunks target the deleting destructor.
 - `sub_506DF0`, a MapPane-side input handler, has an inline construction branch that allocates `0xfc` bytes, calls the `ScreenDimmer` constructor, installs the same MapRefreshDimmer vtables, starts the `2000` ms timer, and continues map refresh work. This keeps the class in the map transition family rather than the generic dimmer module.
+- 2026-06-07 A008 IDA `py_eval` enumerated the exact [UID:0002SR][0x0061e854-0x0061e8dc.MapRefreshDimmerVtableData](by-memory/0x0061e854-0x0061e8dc.MapRefreshDimmerVtableData.md) child: primary/secondary/tertiary RTTI words, all three vtable view starts, deleting-destructor target `0x00514e20`, adjustor targets `0x00514d34` and `0x00514d3f`, timer callback slot `0x0061e8d8 -> 0x005149f0`, and store xrefs from both the standalone constructor and the MapPane inline construction branch.
 
 ## Cross-References
 
@@ -56,3 +57,7 @@
   - Before: scored as `74/78`, with no reconstructable flag, no autogen parent, stale source-output wording, and only partial constructor/destructor evidence.
   - After: scored as `84/88`, marked `RECONSTRUCTABLE:TRUE`, and parented to [UID:0000L4][MapRefreshDimmer](by-file/MapRefreshDimmer.md).
   - Summary/evidence: live IDA MCP rechecked the executable identity, method starts/sizes, constructor delegation to `ScreenDimmer`, three vtable writes, `2000` ms timer setup, timer callback behavior, scalar deleting destructor flags, vtable/RTTI anchors, adjustor thunks, and the MapPane-side inline construction branch at `sub_506DF0`; final source split and private method names remain below the `95/95` reconstruction bar.
+- 2026-06-07 A008 Batch 013 parent-gate refresh:
+  - Before: `84/88`; the class was just below the corrected 85/85 gate for direct vtable-data attachment.
+  - Changed to: `86/90`.
+  - Evidence: live IDA enumerated the exact MapRefreshDimmer vtable-data child, all three table views, deleting-destructor/adjustor/timer slot targets, and both standalone-constructor and MapPane-inline store xrefs. Standalone file versus private `MapPane.cpp` placement remains open, but direct class ownership of the vtable-data child is now justified.

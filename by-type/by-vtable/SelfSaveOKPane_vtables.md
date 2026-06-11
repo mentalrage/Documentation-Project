@@ -1,8 +1,8 @@
 *** UID:0001YV | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000CX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,7 +17,7 @@
 - Address group: `0x0061e7a4`, `0x0061e81c`, `0x0061e84c`
 - Exact by-memory child: [UID:0002OU][0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData](by-memory/0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData.md)
 - Confidence: strong for the three vtable bases and timer virtual slot; medium for full slot naming.
-- Evidence basis: IDA MCP `list_globals`, `xrefs_to`, `py_eval`, and decompile checks refreshed on 2026-06-01.
+- Evidence basis: IDA MCP `list_globals`, `xrefs_to`, `py_eval`, and decompile checks refreshed on 2026-06-01 and 2026-06-07.
 
 ## Vtable Bases
 
@@ -37,11 +37,25 @@ The full inherited slot names are not resolved yet. Do not use nearby RTTI/data 
 
 2026-05-26 IDA `py_eval` recheck confirms the timer facet slot at `0x0061e850` points to `0x005148e0`, and the next dword at `0x0061e854` is `??_R4MapRefreshDimmer@@6B@`, not another SelfSaveOKPane timer-facet slot.
 
+## Dword-Level Slot Inventory
+
+2026-06-07 A008 IDA MCP `py_eval` enumerated the exact by-memory child:
+
+| Range | Role | Evidence |
+| --- | --- | --- |
+| `0x0061e7a0-0x0061e7a4` | primary COL/RTTI-adjacent word | `0x0064b31c`, named `??_R4SelfSaveOKPane@@6B@`. |
+| `0x0061e7a4-0x0061e818` | primary vtable | `??_7SelfSaveOKPane@@6B@`; includes inherited `TextBoxPane`/pane-family targets and starts at `0x0048c4d0`. |
+| `0x0061e818-0x0061e81c` | secondary COL/RTTI-adjacent word | `0x0064b3d4`, named `??_R4SelfSaveOKPane@@6B@_0`. |
+| `0x0061e81c-0x0061e848` | secondary vtable | `??_7SelfSaveOKPane@@6B@_0`; starts at `0x0048c2e9` and carries adjusted pane/interface slots. |
+| `0x0061e848-0x0061e84c` | timer-facet COL/RTTI-adjacent word | `0x0064b3e8`, named `??_R4SelfSaveOKPane@@6B@_1`. |
+| `0x0061e84c-0x0061e854` | timer-facet vtable | `??_7SelfSaveOKPane@@6B@_1`; starts at `0x0048c2f4`, then owns only `0x0061e850 -> 0x005148e0`. |
+
 ## Boundary Evidence
 
 - IDA MCP on 2026-06-01 shows `0x0061e7a0 -> 0x0064b31c`, followed by the primary `SelfSaveOKPane` vtable at `0x0061e7a4`.
 - The secondary and tertiary RTTI-adjacent words are `0x0061e818 -> 0x0064b3d4` and `0x0061e848 -> 0x0064b3e8`; the vtables start at `0x0061e81c` and `0x0061e84c`.
 - The timer-facet table has one owned slot at `0x0061e850 -> 0x005148e0`. The next dword `0x0061e854 -> 0x0064b3fc` belongs to `MapRefreshDimmer`, whose primary table starts at `0x0061e858`.
+- 2026-06-07 A008 IDA MCP `py_eval` reconfirmed the predecessor `MapPane` tertiary table ending at `0x0061e7a0` and the successor `MapRefreshDimmer` RTTI word at `0x0061e854`.
 
 ## Xrefs
 
@@ -67,3 +81,4 @@ IDA `xrefs_to` for the three vtable bases reports the same construction writes f
 - Previous: validator scores were `0/0`, and the page had vtable bases but no exact by-memory vtable-data child.
 - Changed to: exact child [UID:0002OU][0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData](by-memory/0x0061e7a0-0x0061e854.SelfSaveOKPaneVtableData.md) added, reconstruction flag set true, and scores raised conservatively below final-audit level.
 - Evidence: IDA MCP on 2026-06-01 confirms the three RTTI/vtable view starts, store xrefs from standalone/inline/factory construction paths, the one-slot timer facet, and the neighboring `MapPane`/`MapRefreshDimmer` boundaries.
+- 2026-06-07 A008 Batch 013: Raised `84/90` to `88/92` and attached to [UID:0000CX][SelfSaveOKPane](by-class/SelfSaveOKPane.md). Evidence: live IDA enumerated the exact dword-level primary/secondary/timer-facet layout, reconfirmed the construction store xrefs, and the class page now clears the corrected 85/85 direct-parent gate.

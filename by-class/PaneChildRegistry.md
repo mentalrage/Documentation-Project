@@ -1,7 +1,7 @@
 *** UID:0000A3 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -41,6 +41,10 @@ The function removes a pane from its layer, unregisters event handling, removes 
 
 ## Changes
 
+- 2026-06-05: Changed autogen reconstructability from blank to `FALSE`.
+  - Before: the page was scored `-1/-1` as a stale generated owner but remained unclassified in `-ag-class-coverage.md`.
+  - After: the alias is explicitly non-reconstructable as a class; the code remains [UID:00000W][BlackHole](by-class/BlackHole.md) deferred deletion behavior.
+  - Evidence: live IDA MCP on 2026-06-05 confirms `sub_469180` at `0x00469180` (`0x7a` bytes) with broad pane/dialog caller fan-in, matching the existing BlackHole queue ownership rather than a standalone class.
 - Before: completion/confidence metadata were `0/0`, leaving this stale generated owner in the active score queue.
 - Changed to: `COMPLETION:-1` and `CONFIDENCE:-1`.
 - Evidence: the page states `PaneChildRegistry` is a stale generated class name for [UID:00000W][BlackHole](by-class/BlackHole.md) deferred deletion behavior; active source and memory ownership point to `BlackHole`, not a standalone original class.

@@ -1,6 +1,6 @@
 *** UID:0000G1 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000P8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for base behavior and boundaries.
+- Confidence: very strong for base behavior, constructor/timer boundaries, vtable stores, and derived-constructor ownership.
 - Likely source file: [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md)
 - Main address range: [UID:0001NZ][0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes](by-memory/0x005c12a0-0x005c1bc7.WeatherAndRainingLayerPanes.md)
 - Current recovered file: `source-3/simroot_v2/class_WeatherLayerPane.cpp`
@@ -41,6 +41,12 @@ Current metadata reports a stored method-name control-character artifact for the
 
 2026-05-24 recheck: active `source-3/simroot_v2/class_WeatherLayerPane.cpp` duplicates marker-only `global-data` rows for `g_tileColumns` and `g_tileRows`. IDA confirms `0x005c12a0` and `0x005c13b0` as real function starts, and `0x005c13b0` is referenced from the rain/snow/swallow vtables at `0x00631218`, `0x006312a8`, and `0x00631338`.
 
+## 2026-06-10 Parent-Gate Evidence
+
+B001-037 live IDA MCP reconfirmed `sub_5C12A0` as `0x005c12a0-0x005c13a1` and `sub_5C13B0` as `0x005c13b0-0x005c1408`. The base constructor has direct code xrefs from the `RainingLayerPane`, `SnowingLayerPane`, and `SwallowLayerPane` constructors at `0x005c141a`, `0x005c1bfb`, and `0x005c225b`. It stores the three `WeatherLayerPane` vtable views at `0x00631190`, `0x006311e4`, and `0x00631214` from `0x005c12d0`, `0x005c12d6`, and `0x005c12e0`, and the shared timer handler is present in the derived weather vtables at `0x00631218`, `0x006312a8`, and `0x00631338`.
+
+This raises the class page above the strict `85/85` direct-parent gate for the exact `WeatherLayerPane` vtable-data child. C++ remains blank because final field names and the final one-file versus per-derived-file source split are still below final-source confidence.
+
 ## Cross-References
 
 - [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md)
@@ -58,3 +64,6 @@ Current metadata reports a stored method-name control-character artifact for the
   - Summary/evidence: scored from the base weather-pane constructor/timer behavior, derived-pane relationships, map/tile/global dependencies, IDA boundary confirmation, and generated metadata caveats.
 - 2026-06-02 reconstruction metadata:
   - Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md). C++ remains blank because this page is below the 95+ final-source threshold.
+- 2026-06-10 B001-037 parent-gate refresh:
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:88`; parent unchanged.
+  - Summary/evidence: live IDA MCP reconfirmed the exact constructor/timer ranges, derived constructor callers, three base vtable stores, and shared timer-handler vtable slots. The class now clears the direct-parent gate for exact base weather vtable data while retaining source-split and final-field-name caveats.

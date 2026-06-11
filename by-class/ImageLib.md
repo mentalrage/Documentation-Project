@@ -1,6 +1,6 @@
 *** UID:00006E | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000K2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:20 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,10 +12,11 @@
 
 ## Status
 
-- Confidence: strong for constructor/destructor, medium for full method membership.
+- Confidence: strong for constructor/destructor, vtable ownership, singleton storage, and current field-layout model; medium for full helper/API membership.
 - Likely source file: [UID:0000K2][ImageLib](by-file/ImageLib.md)
 - Address ranges: [UID:000172][0x004cffb0-0x004e6572.ImageLib](by-memory/0x004cffb0-0x004e6572.ImageLib.md)
 - Confirmed type anchors: [UID:0001US][ImageLibLayout](by-type/by-struct/ImageLibLayout.md) and [UID:0001XR][ImageLibVtable](by-type/by-vtable/ImageLibVtable.md)
+- Exact vtable data: [UID:00031R][0x0061b650-0x0061b660.ImageLibVtableData](by-memory/0x0061b650-0x0061b660.ImageLibVtableData.md)
 
 ## Class Purpose
 
@@ -56,6 +57,12 @@ IDA vtable evidence shows only three `ImageLib` virtual slots at `0x0061b654`, f
 
 IDA MCP xrefs to `0x0067a744` on 2026-05-24 confirm the global storage is written by this constructor/destructor family while `ResourceLayoutTable` methods consume it. Treat [UID:0001VU][ResourceLayoutStore](by-type/by-struct/ResourceLayoutStore.md) and [UID:0001VS][ResourceLayoutBucket](by-type/by-struct/ResourceLayoutBucket.md) as generated/provisional aliases over the [UID:000079][List](by-class/List.md)-backed [UID:0001VT][ResourceLayoutNameRecord](by-type/by-struct/ResourceLayoutNameRecord.md) model until the exact header split is proved.
 
+## 2026-06-08 Vtable Gate Recheck
+
+Batch 139 added the exact [UID:00031R][0x0061b650-0x0061b660.ImageLibVtableData](by-memory/0x0061b650-0x0061b660.ImageLibVtableData.md) child for the compiler-emitted RTTI/vtable dwords. That child confirms `0x0061b650 -> ??_R4ImageLib@@6B@`, `0x0061b654 -> 0x004e64a0`, `0x0061b658 -> 0x004f4b10`, `0x0061b65c -> nullsub_18`, xrefs from constructor/destructor/scalar-deleting-destructor code, and the `MapTileImageLib` boundary at `0x0061b660`.
+
+This class is the direct source owner for [UID:0001XR][ImageLibVtable](by-type/by-vtable/ImageLibVtable.md). The vtable evidence does not resolve the remaining `ResourceLayoutTable` API split, so the score stays below final-audit levels, but the class now has enough written ownership evidence to satisfy the strict `85/85` parent gate for the vtable page.
+
 ## Autogen Status
 
 Attach this class to [UID:0000K2][ImageLib](by-file/ImageLib.md) as reconstructable metadata for `render/ImageLib.cpp`. C++ remains blank because the `ResourceLayoutTable` relationship, unused second constructor argument, and final private field names remain below the final-code gate.
@@ -67,6 +74,7 @@ Attach this class to [UID:0000K2][ImageLib](by-file/ImageLib.md) as reconstructa
 - [UID:0000VB][ResourceLayoutEntry](by-item/ResourceLayoutEntry.md)
 - [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md)
 - [UID:0001XR][ImageLibVtable](by-type/by-vtable/ImageLibVtable.md)
+- [UID:00031R][0x0061b650-0x0061b660.ImageLibVtableData](by-memory/0x0061b650-0x0061b660.ImageLibVtableData.md)
 - [UID:0001US][ImageLibLayout](by-type/by-struct/ImageLibLayout.md)
 - [UID:000172][0x004cffb0-0x004e6572.ImageLib](by-memory/0x004cffb0-0x004e6572.ImageLib.md)
 - [UID:0002IN][0x004cffb0-0x004d006f.ImageLibConstructor](by-memory/0x004cffb0-0x004d006f.ImageLibConstructor.md)
@@ -78,6 +86,10 @@ Attach this class to [UID:0000K2][ImageLib](by-file/ImageLib.md) as reconstructa
 
 ## Changes
 
+- 2026-06-08 A007 Batch 139 vtable-parent gate update:
+  - What existed before: class scores were `82/82`, below the strict direct-parent gate for [UID:0001XR][ImageLibVtable](by-type/by-vtable/ImageLibVtable.md).
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:86`, an exact vtable-data child link, and a vtable gate recheck section.
+  - Summary/evidence: [UID:00031R][0x0061b650-0x0061b660.ImageLibVtableData](by-memory/0x0061b650-0x0061b660.ImageLibVtableData.md) records the RTTI/vtable dwords, slot target sizes, vptr-store xrefs, and `MapTileImageLib` boundary. Scores remain below `95` because the `ResourceLayoutTable` helper/API relationship and final private source names remain unresolved.
 - Completion/confidence score update: existed before as `0/0`; changed to `80/78`. Summary: EPF image-library singleton role, observed layout, constructor/destructor signatures, list-backed resource records, vtable evidence, global storage, and ResourceLayoutTable ownership caveats are documented; confidence remains limited by full method-membership and helper/base split questions. Evidence: `ImageLib`, `ImageLibDestructor`, `ImageLibLayout`, `ImageLibVtable`, `g_pEPFLib`, `ResourceLayoutNameRecord`, and ResourceLayout alias/type pages.
 - 2026-05-31 range correction and reconstructable update:
   - What existed before: class used old child bounds, lacked exact constructor/scalar-deleting destructor page references, and `RECONSTRUCTABLE:` was blank.

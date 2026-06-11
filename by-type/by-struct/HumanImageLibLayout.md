@@ -1,8 +1,8 @@
 *** UID:0001UR | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00006A | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for IDA-observed offsets, medium-high for final source field names.
 - Owner class: [UID:00006A][HumanImageLib](by-class/HumanImageLib.md).
+- Autogen parent: attached to [UID:00006A][HumanImageLib](by-class/HumanImageLib.md); this layout is `85/87` and the direct class parent is `85/86`, so the strict child/parent gate is satisfied.
 - Evidence: IDA constructor/destructor/vtable xrefs, current IDA function-boundary verification, and destructor decompilation.
 
 ## Layout Summary
@@ -67,6 +68,7 @@ The unusual order is the destructor release order, not necessarily source declar
 
 - The constructor writes [UID:0000R5][g_pHumanImageLib](by-global/g_pHumanImageLib.md), installs the [UID:0001XQ][HumanImageLibVtable](by-type/by-vtable/HumanImageLibVtable.md), and initializes the embedded old-human `ProtectedArray` fields.
 - The constructor calls [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) repeatedly for old human/equipment frame table families.
+- 2026-06-08 A008 IDA MCP `xrefs_to` reconfirmed the class-lifetime anchors used for direct parent routing: constructor vtable store `0x004d278c`, destructor vtable restore `0x004d4afd`, constructor singleton writes `0x004d277b`/`0x004d2782`, destructor singleton clear `0x004d4f44`, and static clear helper write `0x004e5b80`.
 - The generated `HumanImageLibAssetBlock { uint32_t words[153]; }` is a recovery placeholder for the large constructor body, not a final source-facing type.
 - The generated destructor's `imageDataBlock + 0x21c-0x260` wording should be normalized to the IDA-confirmed object offsets `+0x268-+0x2ac` unless a later constructor pass proves an inner subobject base.
 
@@ -85,3 +87,9 @@ The unusual order is the destructor release order, not necessarily source declar
 - What existed before: the layout page had detailed offset notes but was still scored `0/0` and not marked reconstructable.
 - Changed to: `COMPLETION:82`, `CONFIDENCE:86`, and `RECONSTRUCTABLE:TRUE`.
 - Summary/evidence: IDA MCP on 2026-05-31 confirmed the HumanImageLib constructor, ordinary destructor, singleton-clear helper, and scalar deleting destructor function objects plus vtable/singleton xrefs. Existing destructor evidence documents the embedded `ProtectedArray` offsets, handle offsets, optional cached resource pointers, singleton clear, and vtable restore. Scores remain below 95 because final source field names, constructor declaration order, and the three cached pointer meanings are not exhaustively audited.
+
+### 2026-06-08 - Batch 128 parent-gate layout refresh
+
+- What existed before: the layout was `82/86` and reconstructable, but `AUTOGEN_PARENT_UID` was blank.
+- Changed to: `COMPLETION:85`, `CONFIDENCE:87`, and `AUTOGEN_PARENT_UID:00006A`.
+- Summary/evidence: A008 rechecked the direct parent [UID:00006A][HumanImageLib](by-class/HumanImageLib.md) at `85/86` and used live IDA MCP `xrefs_to` to reconfirm constructor/destructor vtable stores and singleton writes/clears. The constructor page supplies table/resource-family evidence, while the destructor page supplies the exact embedded `ProtectedArray` cleanup offsets, optional cached-resource offsets, and 18 frame-handle offsets. The layout stays below the final-source gate because original member names, constructor declaration order, and cached pointer meanings remain open.

@@ -1,5 +1,5 @@
 *** UID:0000JC | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/network/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
@@ -67,6 +67,7 @@ The message IDs are currently documented at [UID:0001SF][DownloaderMessageIds](b
 - Live IDA xrefs on 2026-06-04 found 9 xrefs and 5 direct writes to `dword_67A738`; all writes are FileDownloader constructor/destructor-family writes, including the constructor-unwind clear helper [UID:0000WK][0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal](by-memory/0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal.md).
 - Live IDA decompilation and call-site windows show fitting-room/minimap callers passing `dword_67A738` into request submission helpers at `0x0041b180`, `0x0041b200`, and `0x0041b270`, which enqueue downloader messages `10000`, `10001`, and `10002`.
 - Live IDA byte checks confirm the nested function split and `0xcc` padding boundaries across `0x0041a670-0x0041b69f`, including non-padding real code at `0x0041b2d0`.
+- 2026-06-07 Batch 097 live IDA recheck against `NexusTK.exe` md5 `4247e04e20b65d6414c7238aa8ff5515` reconfirmed the `0x0041b110-0x0041b180` dispatcher switch, adjacent submit-helper ranges `0x0041b180-0x0041b1f5`, `0x0041b200-0x0041b26d`, and `0x0041b270-0x0041b2c9`, message IDs `10000-10002`, the `0x0041a750` / `0x0041ae20` / `0x0041aa00` download-helper targets, and inherited worker-thread fallback behavior. This is sufficient to make [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md) a direct child of this file page under the strict 85/85 assignment gate.
 
 ## Boundary Cautions
 
@@ -87,7 +88,7 @@ Feature-specific payload/request definitions may stay in cash-shop or map header
 
 ## Score Rationale
 
-- Completion is raised because the projected reconstruction path, ownership evidence, exact child split, message dispatch map, singleton lifetime, attached submit-helper pages, and network/source-tree placement are now all recorded on the file page.
+- Completion is raised because the projected reconstruction path, ownership evidence, exact child split, message dispatch map, singleton lifetime, attached submit-helper pages, direct [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md) routing, and network/source-tree placement are now all recorded on the file page.
 - Confidence is raised because live IDA dispatcher decompilation, caller/callee evidence, `dword_67A738` xrefs, submit-helper callsites, and byte-padding checks consistently place the dispatcher in downloader/network infrastructure.
 - Confidence remains below final-source level because `StartThread` may belong to `Thread`, and the request submission helpers still straddle FileDownloader versus cash-shop payload ownership.
 
@@ -111,6 +112,10 @@ Feature-specific payload/request definitions may stay in cash-shop or map header
 
 ## Changes
 
+- 2026-06-07 A004 Batch 097 parent-gate refresh:
+  - Before: `COMPLETION:84`, `CONFIDENCE:88`.
+  - Changed to: `COMPLETION:85`, `CONFIDENCE:88`.
+  - Summary/evidence: live IDA rechecked the FileDownloader dispatcher, submit-helper ranges, queued message IDs, target helper calls, and base-thread fallback. This raises the parent just enough for the strict direct-parent gate used by [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md); completion remains capped above 85 because `StartThread`, source-facing singleton type/name, and payload/request declarations are still provisional.
 - 2026-06-02 documentation pass:
   - What existed before: the page documented the dispatcher but still had a blank projected reconstruction path and no explicit score rationale.
   - What it was changed to: raised `65/80` to `72/84`, set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/network/`, and added ownership evidence and score rationale.

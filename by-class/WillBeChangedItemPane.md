@@ -1,8 +1,8 @@
 *** UID:0000G5 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -46,6 +46,11 @@
 - [UID:00006U][ItemHelpPane](by-class/ItemHelpPane.md)
 
 ## Changes
+
+- 2026-06-05 autogen metadata classification:
+  - What existed before: reconstruction autogen metadata was unclassified.
+  - Changed to: `RECONSTRUCTABLE:TRUE` with parent [UID:0000JU][HelpPanes](by-file/HelpPanes.md).
+  - Summary/evidence: live IDA MCP against `NexusTK.exe` md5 `4247e04e20b65d6414c7238aa8ff5515` confirmed the constructor, paint, event, key, and scalar deleting destructor starts at `0x004c78e0`, `0x004c7bb0`, `0x004c7f00`, `0x004c7f50`, and `0x004ce670`; the class and parent both pass the 80/80 parent gate. No reconstruction C++ was emitted because the page is below 95/95.
 
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.

@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000M4 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for layout, map-object responsibility, lifecycle/vtable boundaries, helper ranges, and current caller evidence; medium-high for final public method names.
 - Likely source file: [UID:0000M4][ObjectList](by-file/ObjectList.md)
+- Parent/C++ status: attached to [UID:0000M4][ObjectList](by-file/ObjectList.md), the `NexusTK/map/ObjectList.cpp` map object-index root. Final C++ remains blank while helper names, render-layer row tiers, raw helper starts, and the remaining `MapPaneSpatialIndex` compatibility alias are below final-source confidence.
 - Lifecycle ranges: [UID:0001D1][0x00530ee0-0x00531473.ObjectListLifecycle](by-memory/0x00530ee0-0x00531473.ObjectListLifecycle.md), [UID:0002JS][0x00530ee0-0x0053125d.ObjectListConstructor](by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md), [UID:0002JT][0x00531260-0x00531473.ObjectListDestructor](by-memory/0x00531260-0x00531473.ObjectListDestructor.md), and [UID:0001D4][0x00537290-0x005372c8.ObjectListScalarDeletingDestructor](by-memory/0x00537290-0x005372c8.ObjectListScalarDeletingDestructor.md)
 - Accessor/sweep ranges: [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md) and [UID:00023F][0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers](by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md)
 
@@ -56,9 +57,8 @@ See [UID:0001VG][ObjectListLayout](by-type/by-struct/ObjectListLayout.md) for th
 | `0x00530d00-0x00530ed9` | Real IDA function with a single observed caller at `0x0050e30e`; final name provisional. | Static-object lighting sync helper that walks ObjectList row/global fields by object id, then removes, updates, or creates attached lighting companions; final name provisional. |
 | [UID:0002JS][0x00530ee0-0x0053125d.ObjectListConstructor](by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md) | `ObjectList::ObjectList` | Allocates all row/global `List` tiers using padded map dimensions. |
 | [UID:0002JT][0x00531260-0x00531473.ObjectListDestructor](by-memory/0x00531260-0x00531473.ObjectListDestructor.md) | `ObjectList::~ObjectList` | Releases row-list arrays, global lists, optional `+0x34` tier, and base `LObject`. |
-| `0x00531480-0x00532530` | ObjectList categorize/lookup helpers | Categorizes, removes, and looks up object panes through type-dispatch helpers and embedded switch tables. |
-| `0x00532530-0x00532660` | Provisional `MapPaneSpatialIndex` alias surface over ObjectList fields. | Accessors for flat/global lists at `+0x14`, `+0x18`, and `+0x2c` through `+0x40`. |
-| `0x00532550-0x0053272e` | Provisional accessor alias surface over ObjectList row-list fields. | Row-bucket accessors using `minX/minY/gridWidth/gridHeight` padded bounds. |
+| [UID:00023E][0x00531480-0x00532530.ObjectListCategorizeLookupHelpers](by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md) | Aggregate now synced with exact child pages for origin, insert/remove, key resolve, index dispatch, object-id lookup, and raw existence helper. | Categorizes, removes, and looks up object panes through type-dispatch helpers and embedded switch tables. |
+| [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md) | Compatibility alias subset over ObjectList accessors; final source should treat these as `ObjectList` methods unless later evidence proves a separate view type. | Accessors for flat/global lists, row buckets, and the fields at `+0x14`, `+0x18`, `+0x1c` through `+0x28`, and `+0x2c` through `+0x40`. |
 | `0x00532730-0x00532b72` | anonymous/global in IDA | Shifts every object in the stored lists by a map-scroll delta. |
 | `0x00532b80-0x00532e11` | Three current callers from MapPane cleanup/change/effect paths; final public name provisional. | Sweeps stored object lists and releases object panes, optionally preserving one supplied object. |
 | `0x00532e20-0x00532eae` | anonymous/global in IDA | Releases row-bucket entries whose object marker at `+0x13c` is `-1`. |
@@ -72,10 +72,12 @@ See [UID:0001VG][ObjectListLayout](by-type/by-struct/ObjectListLayout.md) for th
 - 2026-05-31 IDA MCP decompilation verifies the constructor writes all fields in [UID:0001VG][ObjectListLayout](by-type/by-struct/ObjectListLayout.md), the ordinary destructor cleans up the same row/global list tiers, and `0x0053125d-0x00531260` is `0xcc` padding.
 - 2026-05-30 IDA MCP confirms `0x00530d00-0x00530ed9` as a real `__thiscall` helper over ObjectList layout fields. It is called from a MapPane wrapper through `MapPane + 0x424`, looks up static-object metadata, scans matching static object panes, and removes, updates, or creates attached [UID:000075][LightingObjectPane](by-class/LightingObjectPane.md) companions.
 - 2026-05-30 IDA MCP confirms `0x00531480-0x00532530` as an ObjectList helper cluster now split into child pages for origin initialization, type-dispatch insert/remove, encoded-key resolution, type-specific index lookup, object-id lookup, and the raw `0x00532450` boolean existence helper with jump table.
+- 2026-06-06 documentation sync records the immediate categorize/lookup children [UID:0002C8][0x00531480-0x00531498.ObjectListOriginInitializedCheck](by-memory/0x00531480-0x00531498.ObjectListOriginInitializedCheck.md), [UID:0002C9][0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize](by-memory/0x005314a0-0x00531c10.ObjectListTypeDispatchInsertCategorize.md), [UID:0002CA][0x00531c10-0x00532180.ObjectListTypeDispatchRemove](by-memory/0x00531c10-0x00532180.ObjectListTypeDispatchRemove.md), [UID:0002CB][0x00532180-0x005322d0.ObjectListEncodedKeyResolve](by-memory/0x00532180-0x005322d0.ObjectListEncodedKeyResolve.md), [UID:0002CC][0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch](by-memory/0x005322d0-0x00532370.ObjectListTypeSpecificIndexDispatch.md), [UID:0002CD][0x00532370-0x00532443.ObjectListFindByObjectId](by-memory/0x00532370-0x00532443.ObjectListFindByObjectId.md), and [UID:0002CE][0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper](by-memory/0x00532450-0x00532530.ObjectListTypeIndexExistsSwitchHelper.md) with predecessor/successor boundary agreement.
 - 2026-05-28 IDA MCP confirms `0x00532f70-0x0053728e` as the next ObjectList helper family, with modeled functions, encoded-key helpers, type-specific list lookups, and many IDA-missed prologues inside the range.
 - Constructor callers are `MapPane::ChangeMap` at `0x0050bbb0` and `MapPane::HandleEffectPacket` at `0x005104d0`, both replacing the map object index after map data changes.
 - Documented MapPane callers already use the helper island as `ObjectList::DetachAll`, `ObjectList::GetInternalList`, `ObjectList::FindObjectAt`, `ObjectList::ShiftAll`, and `ObjectList::GetRow`.
 - The `MapPaneSpatialIndex` accessor docs use exactly the offsets initialized by `ObjectList::ObjectList`, so `MapPaneSpatialIndex` is best treated as a provisional alias over the `ObjectList` accessor surface.
+- 2026-06-06 documentation sync frames [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md) as a compatibility/provisional alias subset of [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md), not as evidence for a separately allocated class.
 - 2026-06-01 IDA MCP recheck confirms the helper-island starts and sizes from `0x00532530` through `0x00532eb0`, corrects the early alias subset endpoint to `0x0053272e`, and confirms `0x0053272e-0x00532730` is alignment before `ShiftAll`.
 - 2026-06-04 live IDA MCP recheck confirms exact boundaries for the lifecycle and helper islands from `0x00530d00` through `0x005372c8`, reports no function object at raw helper starts `0x00532450`, `0x00532f70`, or `0x00536270`, confirms the constructor/destructor vptr stores to `0x00620288`, and reconfirms alignment padding at `0x0053125d-0x00531260`, `0x0053272e-0x00532730`, `0x0053728e-0x00537290`, and `0x005372c8-0x005372d0`.
 - 2026-06-04 live IDA MCP recheck confirms constructor callers at `0x0050bc55` and `0x005106e2`, static-object lighting helper caller `0x0050e30e`, `ShiftAll` caller `0x005058f9`, `DetachAll` callers `0x005045e6`, `0x0050bc1a`, and `0x005106a4`, and `FindObjectAt` callers `0x0050583e` and `0x0050f191`.
@@ -84,7 +86,7 @@ See [UID:0001VG][ObjectListLayout](by-type/by-struct/ObjectListLayout.md) for th
 
 - Final names for the five global-list accessors at `0x00532620-0x00532660` need caller-specific render-layer names.
 - The exact semantic names of the row-list tiers at `+0x1c`, `+0x20`, `+0x24`, and `+0x28` need one more render/hit-test pass.
-- Decide whether `MapPaneSpatialIndex` should collapse into `ObjectList`, or remain as a documented nested/helper view while sharing the same concrete layout.
+- Remove the remaining `MapPaneSpatialIndex` compatibility alias once accessor method names and MapPane field names are stabilized; current evidence supports `ObjectList` ownership rather than a separate allocated class.
 
 ## Cross-References
 
@@ -95,6 +97,8 @@ See [UID:0001VG][ObjectListLayout](by-type/by-struct/ObjectListLayout.md) for th
 - [UID:0002JS][0x00530ee0-0x0053125d.ObjectListConstructor](by-memory/0x00530ee0-0x0053125d.ObjectListConstructor.md)
 - [UID:0002JT][0x00531260-0x00531473.ObjectListDestructor](by-memory/0x00531260-0x00531473.ObjectListDestructor.md)
 - [UID:00023E][0x00531480-0x00532530.ObjectListCategorizeLookupHelpers](by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md)
+- [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md)
+- [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md)
 - [UID:00023F][0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers](by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md)
 - [UID:00005F][FpsPane](by-class/FpsPane.md)
 - [UID:00007R][MapPaneSpatialIndex](by-class/MapPaneSpatialIndex.md)
@@ -103,6 +107,12 @@ See [UID:0001VG][ObjectListLayout](by-type/by-struct/ObjectListLayout.md) for th
 - [UID:000079][List](by-class/List.md)
 
 ## Changes
+
+### 2026-06-06 - Synced Accessor Alias And Child Boundary Evidence
+
+- What existed before: the class page still described the early accessor surface as overlapping `MapPaneSpatialIndex` list/row accessor rows and did not mention the freshly synchronized categorize/lookup child boundary pass.
+- What changed: the method inventory now points to the exact categorize aggregate and compatibility alias subset pages, the evidence notes list the synced child pages, and the open alias question now records ObjectList ownership as the current working conclusion.
+- Why: the linked by-memory pages now document all immediate `0x00531480-0x00532530` children at the 80+ gate and frame `0x00532530-0x0053272e` as a compatibility alias under the broader ObjectList accessor/sweep island.
 
 ### 2026-05-31 - Split Lifecycle Into Exact Constructor And Destructor Pages
 
@@ -150,3 +160,9 @@ See [UID:0001VG][ObjectListLayout](by-type/by-struct/ObjectListLayout.md) for th
 - What existed before: the class page carried `74/84` and still described importer/output splits as evidence.
 - What changed: scores are now `84/88`, stale importer-derived wording was removed, and the class evidence now records current IDA function boundaries, raw-start caveats, caller sets, vtable dwords, and padding ranges.
 - Why: live IDA MCP confirms ObjectList lifecycle, vtable, layout, map-only caller surface, and helper-island boundaries strongly enough to move the class out of low-confidence reconstruction status. It remains below final C++ levels because helper names and some raw starts in the extended family are still unresolved.
+
+### 2026-06-06 A008 Parent-Chain Pass
+
+- What existed before: [UID:0001VG][ObjectListLayout](by-type/by-struct/ObjectListLayout.md) pointed at this class, but the class had no autogen parent, leaving the layout blocked by `autogen_parent_unknown`.
+- What changed: `AUTOGEN_PARENT_UID` is set to [UID:0000M4][ObjectList](by-file/ObjectList.md), the `NexusTK/map/ObjectList.cpp` source root.
+- Why: [UID:0000M4][ObjectList](by-file/ObjectList.md) is assigned to that generated source root at `84/88`; this class is `84/88`; and the lifecycle, vtable, layout, map-only caller surface, helper-island, and `MapPaneSpatialIndex` alias evidence all support `map/ObjectList.cpp` ownership.

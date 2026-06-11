@@ -1,8 +1,8 @@
 *** UID:0000F4 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -57,6 +57,9 @@
 
 ## Changes
 
+- Before: reconstruction autogen metadata was unclassified.
+- Changed to: marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000OV][TotemFrame](by-file/TotemFrame.md).
+- Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the documented constructor, cleanup body, paint method, singleton clear helper, adjustor thunks, and scalar deleting destructor at `0x00598cc0`, `0x00598da0`, `0x00598dd0`, `0x00598e40`, `0x00598e4b`, `0x00598e56`, and `0x00598e70`; this page and parent [UID:0000OV][TotemFrame](by-file/TotemFrame.md) both meet the 80/80 parent gate. No C++ was emitted because the page is below the 95/95 reconstruction-code bar.
 - 2026-05-28 boundary correction:
   - What existed before: class documentation pointed to `0x00598cc0-0x00598ece` and listed the scalar deleting destructor through `0x00598ece`.
   - Changed to: class documentation points to `0x00598cc0-0x00598ecf` and lists the destructor through `0x00598ecf`.

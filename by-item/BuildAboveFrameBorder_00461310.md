@@ -1,7 +1,7 @@
 *** UID:0000U2 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -14,8 +14,8 @@
 
 - Confidence: strong for boundary, behavior, and frame-chrome owner; medium for final source-facing helper name.
 - Entity kind: free UI chrome helper/factory.
-- Current Wave3 state: prewave function `0x00461310`, not emitted as a recovered source file.
 - Likely source module: [UID:0000JL][FrameChrome](by-file/FrameChrome.md)
+- Parent attachment: deferred until the final FrameChrome source split is stronger than the current medium-confidence file-name state.
 - Exact range: `0x00461310-0x004615aa`
 
 ## Behavior
@@ -44,6 +44,11 @@ This helper allocates and constructs multiple `AboveFrame` objects and stores th
 - [UID:0001P1][0x0067a834-0x0067a874.AboveFrameSlots](by-memory/0x0067a834-0x0067a874.AboveFrameSlots.md)
 
 ## Changes
+
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE`, and stale generated-source state wording was removed.
+  - Before: the frame-border factory was documented but unclassified in autogen coverage.
+  - After: it is marked as NexusTK-owned source that must be rebuilt, with parent attachment intentionally left blank because [UID:0000JL][FrameChrome](by-file/FrameChrome.md) still records medium confidence for the exact final source split.
+  - Evidence: live IDA MCP confirms `sub_461310` at `0x00461310`, size `0x29a`, two direct callers in `sub_4F7D10`, and callees to the allocator at `0x004f4aa0` plus the `AboveFrame` constructor/helper at `0x004610f0`.
 
 - 2026-05-30: Grading changed from `0/0` to `80/86`.
   - Before: page documented boundary, behavior, frame-slot writes, callers, and open naming questions but remained unevaluated.

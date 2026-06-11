@@ -1,8 +1,8 @@
 *** UID:0001TW | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00001K | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for field offsets and allocation size.
 - Owner class: [UID:00001K][ChangeMan](by-class/ChangeMan.md).
+- Parent attachment: attached to [UID:00001K][ChangeMan](by-class/ChangeMan.md), which is scored `84/88`; this layout is now above the `80/80` child attachment gate.
 - Evidence: IDA constructor/destructor decompilation, `Application::Initialize` allocation site, and `g_pChangeMan` xrefs.
 - Reconstructable: yes, as source-level class layout information. Do not emit final C++ until the `SortedList` declaration and `ChangeMan` listener interface names are proven.
 
@@ -52,6 +53,10 @@ The constructor cleanup fragment at `0x0047ed20-0x0047ed50` performs the same pa
 - 2026-05-31 decompilation of `0x0047ef50` confirms the scalar deleting destructor reads `Block[1]`, installs the `ChangeMan` vtable, calls the list virtual destructor with delete flag `1`, clears `Block[1]`, clears `dword_67AB2C`, calls `LObject` cleanup, and optionally frees the object.
 - 2026-05-31 decompilation of `0x0047ed50` and `0x0047ee20` confirms all registration/dispatch methods use `this[1]` as the external sorted-list pointer rather than embedded list storage.
 
+## Score Rationale
+
+The layout is scored in the low 80s because the complete object size, vtable base, singleton publication, `+0x04` list pointer, constructor allocation, destructor cleanup, comparator-driven record storage, and registration/dispatch usage are all documented and cross-linked. Confidence is slightly higher than completion because the remaining gaps are source-facing names and interface ownership rather than field offsets or object size.
+
 ## Open Questions
 
 - Final source should decide whether the global singleton pointer is exposed directly or hidden behind a manager accessor/template wrapper.
@@ -73,3 +78,8 @@ The constructor cleanup fragment at `0x0047ed20-0x0047ed50` performs the same pa
 - What existed before: the layout table described `0x08` as `end / allocated size`, and the page was scored unevaluated.
 - What changed: `0x08` is now explicitly described as the end of the 8-byte object, the page is marked reconstructable, and the evidence section records live IDA MCP constructor/destructor checks.
 - Summary/evidence: IDA MCP rechecked constructor `0x0047ec70`, registration/dispatch helpers `0x0047ed50` and `0x0047ee20`, comparator `0x0047ef20`, and scalar deleting destructor `0x0047ef50`.
+
+- 2026-06-06: Completion/confidence changed from `78/89` to `82/90`, and `AUTOGEN_PARENT_UID` was set to [UID:00001K][ChangeMan](by-class/ChangeMan.md).
+  - Before: the page had enough constructor/destructor/list evidence for attachment, but the metadata stayed below the parent-child gate and the manual by-struct coverage row still described an old `50%` state.
+  - After: the page records the attachment gate, score rationale, and coverage report sync.
+  - Evidence: existing documented IDA MCP checks cover the 8-byte allocation, `this + 4` `SortedList*`, singleton publication/clear, destructor list release, and registration/dispatch calls through the external list pointer.

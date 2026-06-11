@@ -1,8 +1,8 @@
 *** UID:0001X5 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00001C | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Likely source file: [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md).
 - Exact vtable data: [UID:0002MI][0x00613ba4-0x00613c44.BulletinDialogVtableData](by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md).
 - Confidence: strong for vtable bases and raw-constructor stores; medium for final source-level names of shared virtual slots.
+- Autogen status: attached to the `BulletinDialog` class page; final C++ remains blank under the `95/95` reconstruction gate.
 
 ## Vtable Bases
 
@@ -60,6 +61,10 @@ Do not read primary `+0x60` as a `BulletinDialog` virtual: it is RTTI metadata f
 
 Model `BulletinDialog` as a `DialogInSession`-derived board dialog base with three vtable views at `+0x00`, `+0xa0`, and `+0xa4`. Keep the secondary and tertiary destructor adjustor thunks out of handwritten source; the reconstructed class layout should let the compiler regenerate equivalent thunks. Keep `0x00472040` as shared board-dialog virtual behavior rather than duplicating it into every subclass whose vtable points at the same target.
 
+## Parent Rationale
+
+Attach this vtable cluster to [UID:00001C][BulletinDialog](by-class/BulletinDialog.md) because the three tables are the base `BulletinDialog` virtual views installed by the raw constructor-shaped body at `0x00472000-0x0047203a` and consumed by the scalar deleting destructor, adjustor thunks, and shared command-one virtual. The class page is already reconstructable, attached to [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md), and records the same vtable bases, object offsets, exact vtable-data child, and unresolved constructor-function boundary. The vtable page remains the narrow evidence home for slot order and `.rdata` boundaries.
+
 ## Cross-References
 
 - [UID:00001C][BulletinDialog](by-class/BulletinDialog.md)
@@ -71,5 +76,10 @@ Model `BulletinDialog` as a `DialogInSession`-derived board dialog base with thr
 - [Wave3 data issues](../../wave3_data_issues.md)
 
 ## Changes
+
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable cluster was reconstructable but unassigned in generated type coverage despite the owning class and file pages already clearing the attachment gate.
+  - What changed: attached the vtable cluster to [UID:00001C][BulletinDialog](by-class/BulletinDialog.md), raised completion to `86`, and added an explicit parent rationale.
+  - Summary/evidence: constructor stores at `0x00472017`, `0x0047201f`, and `0x00472029`, exact [UID:0002MI][0x00613ba4-0x00613c44.BulletinDialogVtableData](by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md), and the class page's `82/86` score support the parent assignment; confidence stays below final-audit level because `0x00472000` is still not modeled as a function and final virtual names remain provisional.
 
 - 2026-05-31: Changed completion/confidence from `0/0` to `84/88` and marked the page reconstructable. Evidence: IDA MCP rechecked `list_globals`, `lookup_funcs`, vtable xrefs, raw constructor stores, and an exact dword scan; the exact vtable data child [UID:0002MI][0x00613ba4-0x00613c44.BulletinDialogVtableData](by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md) now records the range boundary and slot values.

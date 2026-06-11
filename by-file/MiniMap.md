@@ -1,13 +1,13 @@
 *** UID:0000LE | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MiniMap
 
 ## Status
 
-- Confidence: strong for feature-folder grouping, medium for exact file split
+- Confidence: strong for feature-folder grouping and minimap-family ownership, medium-high for exact file split
 - Proposed module folder: `map/`
 - Candidate files: `map/MiniMapDialog.cpp`, `map/MiniMapRenderer.cpp`, `map/MiniMapVersionManager.cpp`, `map/MiniMapDownloader.cpp`; shared download bridge in [UID:0000JC][FileDownloader](by-file/FileDownloader.md)
 - Evidence basis: Wave2 readonly class/global JSON, `simroot_v2` class metadata, and IDA MCP checks on 2026-05-22.
@@ -40,7 +40,7 @@ The minimap classes and helpers form a coherent map/minimap subsystem. They shou
 | `MiniMapDownloader` | `0x00453910-0x00453dee` | `class_MiniMapDownloader.cpp` | Download thread/singleton that dispatches minimap download tasks; see [UID:00008D][MiniMapDownloader](by-class/MiniMapDownloader.md). |
 | [UID:00008E][MiniMapImageControlPane](by-class/MiniMapImageControlPane.md) | `0x00453df0-0x00453f44` | `class_MiniMapImageControlPane.cpp` | Control widget for displaying minimap images. |
 | [UID:00008G][MiniMapSymbolControlPane](by-class/MiniMapSymbolControlPane.md) | `0x00455e60-0x004563b5` | `class_MiniMapSymbolControlPane.cpp` | Control widget for animated symbol overlays. |
-| [UID:00008B][MiniMapButtonPane](by-class/MiniMapButtonPane.md) | `0x00503580-0x0050395f`, interleaved with [UID:0000L2][MapNamePane](by-file/MapNamePane.md) destructor tail | `class_MiniMapButtonPane.cpp` | Minimap UI button pane using `MMAPBUT` frame assets and mouse state transitions; exact omitted helper pages cover [UID:0001AM][0x00503620-0x00503648.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503648.MiniMapButtonPaneCleanup.md) and [UID:0001AN][0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks.md). |
+| [UID:00008B][MiniMapButtonPane](by-class/MiniMapButtonPane.md) | `0x00503580-0x0050395f`, interleaved with [UID:0000L2][MapNamePane](by-file/MapNamePane.md) destructor tail | `class_MiniMapButtonPane.cpp` | Minimap UI button pane using `MMAPBUT` frame assets and mouse state transitions; exact omitted helper pages cover [UID:0001AM][0x00503620-0x00503649.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503649.MiniMapButtonPaneCleanup.md) and [UID:0001AN][0x00503800-0x00503837.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503837.MiniMapButtonPaneClearAndThunks.md). |
 | [UID:0000LF][MiniMapVersionManager](by-file/MiniMapVersionManager.md) | `0x004563c0-0x00457547` | `class_MiniMapVersionManager.cpp` | Singleton for minimap tile/hash version tracking. |
 
 ## Free Helpers
@@ -80,6 +80,9 @@ Follow-up checks on 2026-05-24 tightened the dialog/control boundaries:
 - Helper rows emitted under `MiniMapDialog` at `0x0049db60`, `0x0049dc10`, `0x0049dca0`, `0x0049dd80`, and `0x0049ddd0` have broad cross-dialog/control caller evidence and should not be migrated as minimap-owned code.
 - 2026-05-25 follow-up: `0x004570b0` is a missing active-output method on `MiniMapVersionManager`, used by `MiniMapRenderer::PrepareMapFileAndCheckVersion` and `MiniMapRenderer::HasCurrentVersion` to retrieve the expected `.mnm` header/version string for a map id.
 - 2026-05-26 follow-up: [UID:0000LF][MiniMapVersionManager](by-file/MiniMapVersionManager.md) is now split into its own focused file-placement page, with [UID:0000RP][g_pMiniMapVersionManager](by-global/g_pMiniMapVersionManager.md) storage pinned at [UID:0001OZ][0x0067a7dc-0x0067a7e0.g_pMiniMapVersionManager](by-memory/0x0067a7dc-0x0067a7e0.g_pMiniMapVersionManager.md). Keep this page as the subsystem umbrella.
+- 2026-06-06 parent-chain review: [UID:0000RO][g_pMiniMapDownloader](by-global/g_pMiniMapDownloader.md) now clears the global-to-file attachment gate against this file root. The global and exact storage page document the constructor publish, guard clear, destructor/helper/deleting-destructor clears, zero-initialized singleton slot at `0x0067a7d8`, and minimap-worker ownership. This supports `MiniMap` as the current valid file root while preserving the later `MiniMapDownloader.cpp` versus compact `MiniMap.cpp` split decision.
+- 2026-06-07 Batch 001 parent assignment: [UID:0000XN][0x00453910-0x00453def.MiniMapDownloader](by-memory/0x00453910-0x00453def.MiniMapDownloader.md) and [UID:0000XO][0x00453df0-0x004563b5.MiniMapRendererAndControls](by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md) now attach to this file root. The downloader page has exact worker/download helper evidence, and the renderer/control aggregate now records the image-control, renderer, symbol-control, and support-helper inventory. The attachment means this is the current valid source family root, not that the final original project definitely used one compact `MiniMap.cpp`.
+- 2026-06-07 A010 parent-gate refresh: live IDA xrefs for [UID:00028P][0x0067a7c4-0x0067a7c8.g_pMiniMapDialog](by-memory/0x0067a7c4-0x0067a7c8.g_pMiniMapDialog.md) show `MiniMapDialog` constructor publication at `0x00450cf6`, constructor guard clear at `0x00450cfd`, teardown clear at `0x00451774`, singleton-clear helper at `0x00453660`, and minimap packet/UI consumers at `0x005a5990`, `0x005a5bd0`, `0x005a76c0`, and `0x005ac000`. This strengthens the file root enough for the `MiniMapDialog` class and singleton storage chain while preserving the unresolved final source split.
 
 ## Resource And Config Evidence
 
@@ -122,7 +125,7 @@ Keep `DownloadMinimap_453AA0` with `map/MiniMapDownloader.cpp`. Treat `DownloadM
 
 - Whether `MiniMapButtonPane`, `MiniMapImageControlPane`, and `MiniMapSymbolControlPane` were declared in the minimap files or in a generic UI controls file.
 - Whether `DownloadMinimap_453AA0` and `DownloadMinimapFile_41A750` are old/new duplicate minimap paths or two separate update workflows.
-- Exact local file format of `.mnm` and hash-list format should get a `by-item` or `by-memory` page when researched. The `.mnm` tile-blob prefix is now partially identified: `MiniMapRenderer::BuildSymbolViews` reads a 32-bit tile-blob size at document offset `0x1c`, then passes `cursor + 0x20` and that size to [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) at `0x004d0a90`.
+- Exact local file format of `.mnm` and hash-list format should get a `by-item` or `by-memory` page when researched. The `.mnm` tile-blob prefix is now partially identified: `MiniMapRenderer::BuildSymbolViews` reads a 32-bit tile-blob size at document offset `0x1c`, then passes `cursor + 0x20` and that size to [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0f4a.ImageDecodeWrappers.md) at `0x004d0a90`.
 - Whether renderer support helpers around `0x004550d0-0x00455b40` should be file-local minimap helpers or generic collection/string support.
 - Confirm wide-string/resource references in IDA with a deeper string/operand scan.
 
@@ -163,9 +166,9 @@ Free helper/global ownership needs review with Wave3 global ownership commands b
 - [UID:0000JI][FontStyle](by-file/FontStyle.md)
 - [UID:0000RN][g_pMiniMapButtonPane](by-global/g_pMiniMapButtonPane.md)
 - [UID:0001AL][0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes](by-memory/0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes.md)
-- [UID:0001AM][0x00503620-0x00503648.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503648.MiniMapButtonPaneCleanup.md)
-- [UID:0001AN][0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503836.MiniMapButtonPaneClearAndThunks.md)
-- [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md)
+- [UID:0001AM][0x00503620-0x00503649.MiniMapButtonPaneCleanup](by-memory/0x00503620-0x00503649.MiniMapButtonPaneCleanup.md)
+- [UID:0001AN][0x00503800-0x00503837.MiniMapButtonPaneClearAndThunks](by-memory/0x00503800-0x00503837.MiniMapButtonPaneClearAndThunks.md)
+- [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0f4a.ImageDecodeWrappers.md)
 - [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md)
 - [UID:0000KR][LinkedList](by-file/LinkedList.md)
 - [UID:0000JC][FileDownloader](by-file/FileDownloader.md)
@@ -173,6 +176,18 @@ Free helper/global ownership needs review with Wave3 global ownership commands b
 
 ## Changes
 
+- 2026-06-07 A010 Batch032 parent-gate update:
+  - Before: `82/84`; strong minimap-family evidence existed, but the corrected 85/85 gate blocked `MiniMapDialog` assignment.
+  - After: `85/86`; added the live `g_pMiniMapDialog` constructor/destructor/helper/consumer evidence to the file-root record. This supports the current file root for parent-chain routing, while final `MiniMapDialog.cpp` versus compact `MiniMap.cpp` remains open and no final C++ was emitted.
+- 2026-06-05: Filled `PROPOSED_RECONSTRUCTION_PATH` with `NexusTK/map/`.
+  - Reason: `by-project-structure/proposed-source-tree.md` already places the MiniMap source family under map, and the linked IDA-backed minimap dialog/control, downloader, and `GetControlLayout_452260` caller evidence supports this source owner. This also makes the file root valid for child autogen attachment; completion/confidence scores were not changed.
+- 2026-06-06 parent-chain evidence sync:
+  - What existed before: the file was scored `78/82`, which kept [UID:0000RO][g_pMiniMapDownloader](by-global/g_pMiniMapDownloader.md) from attaching to the staged minimap source root despite strong global/storage evidence.
+  - Changed to: completion `82`, confidence `84`.
+  - Summary/evidence: the file now explicitly carries the downloader singleton storage, constructor/destructor/helper clear evidence, exact memory/global pages, existing dialog/renderer/version-manager split notes, and the final `MiniMapDownloader.cpp` versus compact `MiniMap.cpp` caveat. This clears the 80/80 gate for global attachment without emitting final C++.
+- 2026-06-07 A009 Batch 001 memory-child assignment:
+  - What changed: [UID:0000XN][0x00453910-0x00453def.MiniMapDownloader](by-memory/0x00453910-0x00453def.MiniMapDownloader.md) and [UID:0000XO][0x00453df0-0x004563b5.MiniMapRendererAndControls](by-memory/0x00453df0-0x004563b5.MiniMapRendererAndControls.md) now use this file root as `AUTOGEN_PARENT_UID`.
+  - Summary/evidence: live IDA MCP reconfirmed the downloader direct minimap task path, WinINet/file callee set, renderer/control method starts, MiniMapDialog construction callers, and renderer support-helper split. This reduces unassigned minimap memory coverage while keeping final C++ blank and preserving the `MiniMapDownloader.cpp`/`MiniMapRenderer.cpp` versus compact `MiniMap.cpp` decision.
 - 2026-05-30: Grading changed from `0/0` to `78/82`.
   - Before: page had strong feature-grouping evidence but was still unevaluated by the completion/confidence header.
   - After: score reflects documented minimap dialog, renderer, downloader, version-manager, button-pane, control, file-loader, global, and read-only-data relationships while retaining open questions about exact original source split and `.mnm` format details.

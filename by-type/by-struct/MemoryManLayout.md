@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00007U | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Confidence: strong for observed binary size, vtable field, singleton storage, and static-object lifecycle; medium-high for whether additional source-only members existed.
 - Likely owner header: `util/MemoryMan.h`
 - Related class: [UID:00007U][MemoryMan](by-class/MemoryMan.md)
+- Autogen parent: attached to [UID:00007U][MemoryMan](by-class/MemoryMan.md); the class scores `86/88` and this layout scores `84/88`, so both sides satisfy the 80/80 parent gate.
 
 ## Layout
 
@@ -55,6 +56,7 @@ The process-global static object storage is `dword_69B3A8` / `0x0069b3a8`. Live 
 
 ## Changes
 
+- 2026-06-06: Attached the static singleton layout to [UID:00007U][MemoryMan](by-class/MemoryMan.md). Scores remain `84/88`; this parent sync follows the already documented one-vptr object and class ownership.
 - Completion/confidence metadata:
   - What existed before: `COMPLETION:0`, `CONFIDENCE:0`, and blank `RECONSTRUCTABLE`.
   - Changed to: `COMPLETION:84`, `CONFIDENCE:88`, and `RECONSTRUCTABLE:TRUE`.

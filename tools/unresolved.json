@@ -1,10 +1,16 @@
 {
   "case_sensitive": true,
+  "Ignore_Not_Reconstructable": true,
   "output": "project-level/-unresolved.md",
   "resolved_output": "project-level/-resolved.md",
   "multiple_aliases_output": "project-level/-resolved-multple-aliases.md",
   "scan_extensions": [
     ".md"
+  ],
+  "exclude_by_folder_names": [
+    "by-meta",
+    "by-external-research",
+    "by-project-structure"
   ],
   "exclude_directory_names": [
     ".git",

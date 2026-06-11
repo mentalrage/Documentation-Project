@@ -1,13 +1,13 @@
 *** UID:0000NJ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/inventory/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ScrollSpellInventoryPane
 
 ## Status
 
-- Confidence: strong for scrollbar behavior; medium for standalone original file.
+- Confidence: strong for spell-scrollbar behavior, inventory-module placement, and child layout/vtable anchors; medium for whether the original source kept a standalone file or folded this implementation into `NewSpellInventoryPane`.
 - Proposed module: `ui/inventory/ScrollSpellInventoryPane.cpp`, or folded into [UID:0000LU][NewSpellInventoryPane](by-file/NewSpellInventoryPane.md).
 - Current recovered source: `source-3/simroot_v2/class_ScrollSpellInventoryPane.cpp`
 - Evidence basis: `simroot_v2` method anchors plus IDA MCP lookup/caller checks on 2026-05-24.
@@ -38,7 +38,18 @@ This is not the generic [UID:0000NF][ScrollBar](by-file/ScrollBar.md) module. It
 
 Generated source contains polluted helper labels from fitting-room/interface-effect/control code. Treat those as shared render/control helper names, not ownership evidence.
 
-Current metadata reports `vtable_count: 0` even though IDA confirms three `ScrollSpellInventoryPane` vtable bases. Keep the generated inventory as data debt until Wave3 records these tables.
+Current metadata reports `vtable_count: 0` even though IDA confirms three `ScrollSpellInventoryPane` vtable bases. Keep the generated inventory as data debt until generated metadata records these tables.
+
+## Score Rationale
+
+| Evidence | Relevance |
+| --- | --- |
+| [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md) | Reviewed `82/82` module parent for the `ui/inventory/` spell-inventory family and candidate `ScrollSpellInventoryPane.cpp` split. |
+| [UID:0000CN][ScrollSpellInventoryPane](by-class/ScrollSpellInventoryPane.md) | Class page records the constructor, range/position helpers, input/repeat/paint/part-rect behavior, layout/vtable anchors, and reset-helper caveat. |
+| [UID:0001GM][0x0055f450-0x005608fc.ScrollSpellInventoryPane](by-memory/0x0055f450-0x005608fc.ScrollSpellInventoryPane.md) | Confirms the executable aggregate, sole observed constructor caller in `NewSpellInventoryPane`, 0x110-byte object allocation, vtable stores, and raw helper gap. |
+| [UID:0001GO][0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw](by-memory/0x005608a0-0x005608fc.ScrollSpellInventoryPaneResetScrollStateRaw.md) | Strong raw-byte evidence for reset-to-idle behavior, with modeled-function and caller-provenance caveats that keep confidence at 80. |
+
+The confidence is raised only to `80` because file placement under `ui/inventory/` is well supported, but the standalone file versus private `NewSpellInventoryPane` fold remains unresolved and final C++ stays below the 95/95 gate.
 
 ## Cross-References
 
@@ -57,3 +68,7 @@ Current metadata reports `vtable_count: 0` even though IDA confirms three `Scrol
   - Evidence: document covers role, proposed contents, range map, helper functions, layout/vtable refs, feature-specific boundary rules, and generated-output caveats; confidence is capped by possible nesting under `NewSpellInventoryPane` and current Wave3 vtable metadata debt.
 - 2026-06-01: Added projected path `NexusTK/ui/inventory/`.
   - Evidence: this page already proposes `ui/inventory/ScrollSpellInventoryPane.cpp` or a fold into [UID:0000LU][NewSpellInventoryPane](by-file/NewSpellInventoryPane.md), and current spell-inventory source placement uses the same folder.
+- 2026-06-07: Raised confidence from `78` to `80`.
+  - Before: The page had enough range, layout, vtable, path, and module evidence for high completion, but stayed just below the parent-attachment confidence gate.
+  - Changed to: Added score rationale tying this file to [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md), [UID:0000CN][ScrollSpellInventoryPane](by-class/ScrollSpellInventoryPane.md), and the exact aggregate/raw-helper by-memory pages, while preserving the standalone-vs-folded source caveat.
+  - Evidence: the spell-inventory module page is already `82/82`, the executable aggregate and reset helper record IDA-backed object size, vtables, caller, and raw-helper evidence, and generated metadata debt is limited to vtable inventory rather than source ownership.

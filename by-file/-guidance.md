@@ -49,6 +49,12 @@ PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/"
 Blank means source placement has not been assigned. Invalid values are reported
 by the validator, tracked in `validator.ini`, and listed in
 `../project-level/-auto-completion-stats.md` under `projected_path_completion`.
+Use `NONE` only after the page has been reviewed and documented as intentionally
+non-standalone: a generated alias, helper/facet, umbrella/source-family note, or
+planning placeholder whose code belongs to other source roots. A `NONE` page does
+not emit a generated `.cpp`, is excluded from projected-path completion, and must
+explain the real owner or non-promotion reason in the page body/change log. Do
+not use `NONE` as a shortcut for unresolved source placement.
 
 When the path is valid, the validator creates an empty `.cpp` placeholder if no
 generated file exists. If the by-file page is renamed or the projected folder
@@ -59,7 +65,8 @@ instead of deleting it.
 
 This path line belongs only on singular `by-file` pages. Classes, globals,
 functions, memory ranges, and types attach to a `by-file` UID with autogen
-metadata when they need to contribute C++.
+metadata when they need to contribute C++. Do not attach child autogen items to a
+`NONE` by-file page; choose a valid source root once ownership is proven.
 
 Recommended workflow:
 

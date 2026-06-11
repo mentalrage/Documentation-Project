@@ -1,8 +1,8 @@
 *** UID:0000TN | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,14 +15,14 @@
 - Symbol kind: process-wide render callback table / global function-pointer block.
 - Storage range: [UID:0001PI][0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable](by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md)
 - Likely source module: [UID:0000OC][Surface](by-file/Surface.md), with close ties to [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md).
-- Current generated aliases include `dword_69B3E8`, `dword_69B3EC`, `dword_69B3FC`, `g_pfnBlitTileFrame`, `g_pfnBlitSprite`, `g_pfnBlitText`, `g_pfnLockSurface`, `g_preparedCompositionRenderer_69B3E8`, `g_targetCompositionRenderer_69B3EC`, and `g_uiTileRenderer`.
-- Confidence: strong for shared callback-table storage and initialization, medium for final slot names.
+- Current alias surfaces include `dword_69B3E8`, `dword_69B3EC`, `dword_69B3FC`, `g_pfnBlitTileFrame`, `g_pfnBlitSprite`, `g_pfnBlitText`, `g_pfnLockSurface`, `g_preparedCompositionRenderer_69B3E8`, `g_targetCompositionRenderer_69B3EC`, and `g_uiTileRenderer`.
+- Confidence: strong for shared callback-table storage, initialization, parent module, and broad dispatch fanout; medium-high for final slot names/signatures.
 
 ## Role
 
 `SurfaceRenderCallbackTable` is a provisional documentation name for the global software-render dispatch table installed by the surface initialization path at `0x00558840`. It selects one of two render-helper families based on the active DirectDraw surface description and color masks.
 
-This table is render infrastructure. Callers across panes, EPF/image libraries, composition libraries, map drawing, and UI controls dispatch through these slots. The breadth of the caller set means generated callsite names should not be accepted as source ownership names.
+This table is render infrastructure. Callers across panes, EPF/image libraries, composition libraries, map drawing, and UI controls dispatch through these slots. The breadth of the caller set means callsite-specific aliases should not be accepted as source ownership names.
 
 ## Callback Slots
 
@@ -49,15 +49,17 @@ The "RGB565-capable" path is selected when the surface description reports 32-bi
 
 - IDA MCP `xrefs_to` on 2026-05-24 showed `dword_69B3E8` has 114 direct xrefs, `dword_69B3EC` has 11, and `dword_69B3FC` has 206.
 - IDA MCP decompilation of `0x00558840` shows the complete callback-table assignment block, plus construction of two alpha/scale lookup tables at nearby globals `dword_69B3D8` and `dword_69B3DC`.
+- IDA MCP recheck on 2026-06-05 confirmed `sub_558840`, size `0x723`, and xrefs to callback-table slots including `0x0069b3e0`, `0x0069b3e8`, and `0x0069b3fc`.
+- IDA MCP `py_eval` on 2026-06-07 reconfirmed the all-`0xff` initialized bytes across `0x0069b3d4-0x0069b430`, the exact 12-dword table at `0x0069b3e0-0x0069b410`, the slot direct-ref counts `15/26/114/11/21/4/12/206/4/9/8/5`, and broad unique-function fanout for the two highest-traffic slots: `0x0069b3e8` has 114 refs across 68 function groups and `0x0069b3fc` has 206 refs across 131 function groups.
 - `FittingRoomDownloadControlPane::RenderTileFrame` at `0x004b9980` is only a small wrapper: it resolves a palette, then calls `dword_69B3E8`.
 - [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md) border drawing at `0x00500e20` repeatedly resolves `BDFRAME.EPF` frames and calls `dword_69B3E8`.
 - [UID:0000L5][MapTileImageLib](by-file/MapTileImageLib.md) `DrawTile` uses `dword_69B3FC` for fallback fill/invalidation and `dword_69B3E8` for actual tile drawing.
-- [UID:0000J2][EPFImageControlPane](by-file/EPFImageControlPane.md) `LoadAndRenderImage` calls `dword_69B3FC(this, this + 0x44)` before frame loading; current generated output labels this as `g_pfnLockSurface(drawSurface)`.
-- [UID:000166][0x004b99f0-0x004b9a62.ForwardToTileFrameBlitHelper](by-memory/0x004b99f0-0x004b9a62.ForwardToTileFrameBlitHelper.md) builds an offset rectangle and forwards through `dword_69B3E8`.
+- [UID:0000J2][EPFImageControlPane](by-file/EPFImageControlPane.md) `LoadAndRenderImage` calls `dword_69B3FC(this, this + 0x44)` before frame loading; one current alias labels this as `g_pfnLockSurface(drawSurface)`.
+- [UID:000166][0x004b99f0-0x004b9a63.ForwardToTileFrameBlitHelper](by-memory/0x004b99f0-0x004b9a63.ForwardToTileFrameBlitHelper.md) builds an offset rectangle and forwards through `dword_69B3E8`.
 - [UID:000167][0x004ba250-0x004ba444.SurfaceSpriteBlitHelper](by-memory/0x004ba250-0x004ba444.SurfaceSpriteBlitHelper.md) uses `dword_69B3E8` in its software/composition path after updating both surface metadata blocks.
 - [UID:000168][0x004ba450-0x004ba53b.GrafPortDrawRectFrame](by-memory/0x004ba450-0x004ba53b.GrafPortDrawRectFrame.md) dispatches each clipped rectangle edge through `dword_69B3E4`.
 - [UID:00016A][0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground](by-memory/0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground.md) repeatedly blits a tile through `dword_69B3E8` after installing a temporary GrafPort clip region.
-- `NewHumanImageLib` generated source aliases the same storage as `g_preparedCompositionRenderer_69B3E8` and `g_targetCompositionRenderer_69B3EC`, showing why callsite-specific names are not stable.
+- `NewHumanImageLib` callsites alias the same storage as `g_preparedCompositionRenderer_69B3E8` and `g_targetCompositionRenderer_69B3EC`, showing why callsite-specific names are not stable.
 
 ## Ownership Decision
 
@@ -72,6 +74,13 @@ Keep this table with [UID:0000OC][Surface](by-file/Surface.md) or a neighboring 
 - How the RGB555/compatibility path maps to the client old-rendering-mode option.
 - Whether the orphan writes around `0x0055874a` / `0x00558753` are real code in an unmodeled function gap or stale analysis artifacts.
 
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `89` | The page documents the table identity, exact storage range, every slot, initializer assignments, high-traffic dispatch evidence, alias rejection, Surface ownership decision, and current assignment relationship. Completion remains below final-audit range because per-slot source-facing names/signatures and the orphan write neighborhood still need final review. |
+| Confidence `86` | 2026-06-07 live IDA reconfirmed bytes, bounds, per-slot xref counts, and broad caller fanout; [UID:0000OC][Surface](by-file/Surface.md) now records `88/85`, so parent ownership clears the strict gate. Confidence remains below final-audit range because exact slot names/signatures and the original declaration shape are not final. |
+
 ## Cross-References
 
 - [UID:0001PI][0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable](by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md)
@@ -80,7 +89,7 @@ Keep this table with [UID:0000OC][Surface](by-file/Surface.md) or a neighboring 
 - [UID:0000OC][Surface](by-file/Surface.md)
 - [UID:0001G6][0x00557140-0x00559aef.SurfacePresentation](by-memory/0x00557140-0x00559aef.SurfacePresentation.md)
 - [UID:0000QW][g_pfnLockSurface](by-global/g_pfnLockSurface.md)
-- [UID:000166][0x004b99f0-0x004b9a62.ForwardToTileFrameBlitHelper](by-memory/0x004b99f0-0x004b9a62.ForwardToTileFrameBlitHelper.md)
+- [UID:000166][0x004b99f0-0x004b9a63.ForwardToTileFrameBlitHelper](by-memory/0x004b99f0-0x004b9a63.ForwardToTileFrameBlitHelper.md)
 - [UID:000167][0x004ba250-0x004ba444.SurfaceSpriteBlitHelper](by-memory/0x004ba250-0x004ba444.SurfaceSpriteBlitHelper.md)
 - [UID:000168][0x004ba450-0x004ba53b.GrafPortDrawRectFrame](by-memory/0x004ba450-0x004ba53b.GrafPortDrawRectFrame.md)
 - [UID:00016A][0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground](by-memory/0x004ba6b0-0x004ba81d.GrafPortDrawTiledBackground.md)
@@ -92,4 +101,10 @@ Keep this table with [UID:0000OC][Surface](by-file/Surface.md) or a neighboring 
 
 ## Changes
 
-- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `88/82`. Summary/evidence: the page documents the storage range, callback slots, initializer behavior, broad caller evidence, render ownership, generated-alias warnings, and open questions; exact slot names and old/new render-mode mapping remain unresolved.
+- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `88/82`. Summary/evidence: the page documents the storage range, callback slots, initializer behavior, broad caller evidence, render ownership, alias warnings, and open questions; exact slot names and old/new render-mode mapping remain unresolved.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000OC][Surface](by-file/Surface.md).
+  - Reason: live IDA MCP recheck confirms this source-declared render dispatch table is installed by surface initialization and dispatches shared surface/render callbacks across many callers, making the Surface source root the best current parent.
+- 2026-06-07 A007 Batch 041 parent-gate refresh:
+  - Before: `88/82`; the page was useful as the global parent for [UID:0001PI][0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable](by-memory/0x0069b3e0-0x0069b410.SurfaceRenderCallbackTable.md) but did not clear the corrected `85/85` confidence gate.
+  - After: `89/86`; the global parent now clears the gate and remains attached to [UID:0000OC][Surface](by-file/Surface.md).
+  - Evidence: live IDA reconfirmed all neighborhood bytes, exact table bounds, per-slot xref counts, and broad caller fanout for `0x0069b3e8` and `0x0069b3fc`; the `Surface` file page now records `88/85` with direct nearby render-global evidence.

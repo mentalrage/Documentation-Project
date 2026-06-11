@@ -1,6 +1,6 @@
 *** UID:0000BC | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000MU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -32,13 +32,23 @@ This is old human shoe metadata support, not an independent original class sourc
 
 The generated `ShoeInfo` instantiation is concrete evidence for the old-human image-library field at `HumanImageLib +0x220`, but the original reusable implementation should remain with [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md). [UID:0001WR][ProtectedArrayTemplates](by-type/by-template/ProtectedArrayTemplates.md) records both `0x004e5b50` and `0x004e6240`, and [UID:0001VM][ProtectedArrayLayout](by-type/by-struct/ProtectedArrayLayout.md) derives a `0x10` byte `ShoeInfo` fallback record from the scalar deleting destructor size.
 
+## Evidence Notes
+
+[UID:00017V][0x004e5a70-0x004e5b6f.ProtectedArrayImageInfoOrdinaryDestructors](by-memory/0x004e5a70-0x004e5b6f.ProtectedArrayImageInfoOrdinaryDestructors.md) identifies `0x004e5b50-0x004e5b5f` as the exact ordinary destructor body despite the active generated body omission, and [UID:000187][0x004e5fa0-0x004e629f.ProtectedArrayImageInfoDeletingDestructors](by-memory/0x004e5fa0-0x004e629f.ProtectedArrayImageInfoDeletingDestructors.md) identifies `0x004e6240-0x004e626f` as the exact deleting destructor body. [UID:0001XQ][HumanImageLibVtable](by-type/by-vtable/HumanImageLibVtable.md) records the `ProtectedArray<ShoeInfo>` vtable at `0x0061b6cc` with slot target `0x004e6240`.
+
 ## Cross-References
 
 - [UID:000187][0x004e5fa0-0x004e629f.ProtectedArrayImageInfoDeletingDestructors](by-memory/0x004e5fa0-0x004e629f.ProtectedArrayImageInfoDeletingDestructors.md)
 - [UID:0001WR][ProtectedArrayTemplates](by-type/by-template/ProtectedArrayTemplates.md)
 - [UID:0000JY][HumanImageLib](by-file/HumanImageLib.md)
+- [UID:0001XQ][HumanImageLibVtable](by-type/by-vtable/HumanImageLibVtable.md)
 
 ## Changes
+
+- 2026-06-06: Raised completion/confidence using the same evidence model as sibling image-info instantiations.
+  - Before: completion was `74`, confidence was `86`; the page was already attached to [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md).
+  - After: completion is `82`, confidence is `88`, with the same autogen parent retained.
+  - Evidence: added the exact ordinary/deleting destructor memory ranges and old-human vtable address. The generated ordinary-body omission remains documented, and C++ remains blank under the `95/95` final-source gate.
 
 - 2026-06-03 parent attachment and generated-caveat update:
   - Before: scored `68/82` with blank reconstructable and parent metadata.

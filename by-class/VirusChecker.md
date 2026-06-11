@@ -1,6 +1,6 @@
 *** UID:0000FW | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000P5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for recovered behavior, medium for live activation.
+- Confidence: strong for recovered behavior, still capped by medium live activation.
 - Likely source file: [UID:0000P5][VirusChecker](by-file/VirusChecker.md)
 - Main address range: [UID:0001NU][0x005c0460-0x005c0fe1.VirusChecker](by-memory/0x005c0460-0x005c0fe1.VirusChecker.md)
 
@@ -43,7 +43,8 @@
 - Current exported metadata still contains historical control-character name records such as `~VirusChecker\r` and old name-control grade reasons. Treat the metadata history rows as stale and prefer live IDA plus canonical documentation names for naming.
 - 2026-06-04 live IDA recheck confirms the object layout, V3 DLL load/scan helpers, process/module callback chain, red-black-tree-style path set, singleton xrefs, one-slot vtable, and boundary before `WaitableTimer`.
 - Live xrefs still show no direct callers for the constructor `0x005c0460`, loader `0x005c05a0`, scanner `0x005c07b0`, or scalar deleting destructor `0x005c0ec0`; the only external code xref to the local clear helper `0x005c0eb0` is a compiler EH cleanup thunk at `0x0060bc76`.
-- File parent [UID:0000P5][VirusChecker](by-file/VirusChecker.md) is now strong enough for class attachment, while `RECONSTRUCTION_CPP CODE` remains blank because this class is below the 95/95 final-source threshold.
+- File parent [UID:0000P5][VirusChecker](by-file/VirusChecker.md) is now strong enough for class attachment at the strict 85/85 parent gate, while `RECONSTRUCTION_CPP CODE` remains blank because this class is below the 95/95 final-source threshold.
+- 2026-06-07 A002 parent-gate follow-up rechecked the Batch 024 vtable evidence: the direct `VirusChecker` vtable fragment at `0x006310dc-0x006310e4` contains the class RTTI word and one scalar-deleting-destructor slot, with constructor/destructor/deleting-destructor refs to `0x006310e0`. Together with the existing constructor/destructor/scanner/tree-helper evidence, this justifies raising confidence to 85 while keeping the unresolved runtime-activation cap.
 
 ## Cross-References
 
@@ -71,3 +72,7 @@
   - Before: `CONFIDENCE:82` and blank `AUTOGEN_PARENT_UID`.
   - After: `CONFIDENCE:84` and `AUTOGEN_PARENT_UID:0000P5`.
   - Summary/evidence: live IDA rechecked the exact constructor/destructor/loader/scanner/callback/tree/destructor ranges, V3 DLL/export strings, singleton/vtable refs, no-direct-caller state, EH cleanup thunk, and padding boundary. Confidence remains capped by unresolved runtime activation, and no final C++ was added because the class is below the 95/95 threshold.
+- 2026-06-07 A002 Batch 024 parent-gate follow-up:
+  - Before: `COMPLETION:86`, `CONFIDENCE:84`, and parent `0000P5`.
+  - After: `COMPLETION:86`, `CONFIDENCE:85`, and parent `0000P5` retained.
+  - Summary/evidence: the file parent was raised to `86/85`, and the class now has enough direct constructor/destructor/vtable/process-tree evidence to clear the strict 85-confidence parent gate. Runtime activation remains unresolved, so confidence stays below 90 and final C++ remains withheld.

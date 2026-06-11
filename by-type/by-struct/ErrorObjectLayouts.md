@@ -1,8 +1,8 @@
 *** UID:0001UE | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000J5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -41,6 +41,12 @@ These layouts support keeping the concrete wrappers together in `util/Error.cpp`
 
 IDA MCP live recheck on 2026-05-26 reconfirmed exact helper boundaries for the base cleanup helper at `0x004a6400-0x004a640b`, [UID:00013Z][0x004a6410-0x004a6429.ErrorMessageCopyMessage](by-memory/0x004a6410-0x004a6429.ErrorMessageCopyMessage.md), and [UID:000140][0x004a6480-0x004a6499.FileErrorCopyMessage](by-memory/0x004a6480-0x004a6499.FileErrorCopyMessage.md).
 
+2026-06-08 Agent-A002 live IDA MCP `py_eval` refreshed the layout parent/source gate by checking exact function boundaries for the representative hierarchy helpers: `0x004a60d0-0x004a60f5`, `0x004a6260-0x004a6284`, `0x004a6400-0x004a640b`, `0x004a6410-0x004a6429`, `0x004a6430-0x004a646f`, `0x004a6480-0x004a6499`, `0x004a64a0-0x004a64c5`, `0x004a6550-0x004a666a`, `0x004a6690-0x004a6772`, `0x004a6780-0x004a679e`, `0x004a67a0-0x004a683d`, `0x004a6860-0x004a6882`, `0x004a69c0-0x004a6a08`, `0x004a6a10-0x004a6a61`, and `0x004a6a70-0x004a6a76`. The same check found current xrefs from wrapper constructors/destructors back to the shared `Error` vtable run at `0x00619344` and the `PasswordError` vtable at `0x006125a8`.
+
+## Parent Assignment
+
+Assign this layout-family type page to [UID:0000J5][Error](by-file/Error.md). The child now clears `86/88`, the direct source-file parent already clears `87/85`, and the layout families span the shared error hierarchy source module rather than one concrete class. Final C++ stays blank because this page records declarations/layout evidence; the source bodies live in the exact memory pages and the file-level reconstruction.
+
 ## Open Questions
 
 - Whether the inline wide-message buffer is exactly 80 `wchar_t` elements for both `ErrorMessage` and `FileError`, or whether `FileError` is the only class with the generated 80-character buffer plus trailing flag.
@@ -70,3 +76,7 @@ IDA MCP live recheck on 2026-05-26 reconfirmed exact helper boundaries for the b
   - What existed before: metadata remained unevaluated at `COMPLETION:0`, `CONFIDENCE:0`, and `RECONSTRUCTABLE:` blank even though the page had substantial layout evidence.
   - Changed to: `COMPLETION:78`, `CONFIDENCE:86`, and `RECONSTRUCTABLE:TRUE`; layout-family evidence now links to exact constructor pages for `Win32Error`, `DDError`, `FileError`, `WSAError`, `InternetError`, and `MyError`.
   - Summary/evidence: live IDA MCP recheck confirmed the exact constructor sizes, vtable stores, `+0x04` storage roles, representative callers, and vtable data xrefs. Scores remain below `95` because final class/member names and projected constructor records for some sibling wrappers are still unresolved.
+- 2026-06-08 Agent-A002 Batch 134 assignment-gate refresh:
+  - Before: `COMPLETION:78`, `CONFIDENCE:86`, no autogen parent.
+  - After: `COMPLETION:86`, `CONFIDENCE:88`, `AUTOGEN_PARENT_UID:0000J5`.
+  - Summary/evidence: live IDA MCP reconfirmed representative constructor/copy/destructor helper boundaries across the error hierarchy, vtable xrefs to the shared `0x00619344` run, and the separate `PasswordError` vtable reference. [UID:0000J5][Error](by-file/Error.md) already clears `87/85`, so both child and direct parent meet the strict assignment gate.

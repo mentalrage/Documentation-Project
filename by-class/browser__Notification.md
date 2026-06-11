@@ -1,8 +1,8 @@
 *** UID:000014 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -24,8 +24,8 @@
 
 | Range | Method/helper | Notes |
 | --- | --- | --- |
-| `0x00470740-0x00470782` | scalar deleting destructor | Releases the string object at `+0x08`, destroys the [UID:00007D][LObject](by-class/LObject.md) base, and optionally frees `this` based on scalar-delete flags. |
-| `0x00470f20-0x00470fb9` | `PostBrowserNotification` | Allocates the 12-byte payload, stores the value/state at `+0x04`, optionally copies a wide string into `+0x08`, and posts channel `0x42726f73` (`Bros`). |
+| [UID:00033D][0x00470740-0x00470782.BrowserNotificationScalarDeletingDestructor](by-memory/0x00470740-0x00470782.BrowserNotificationScalarDeletingDestructor.md) | scalar deleting destructor | Releases the string object at `+0x08`, destroys the [UID:00007D][LObject](by-class/LObject.md) base, and optionally frees `this` based on scalar-delete flags. |
+| [UID:00033L][0x00470f20-0x00470fb9.PostBrowserNotification](by-memory/0x00470f20-0x00470fb9.PostBrowserNotification.md) | `PostBrowserNotification` | Allocates the 12-byte payload, stores the value/state at `+0x04`, optionally copies a wide string into `+0x08`, and posts channel `0x42726f73` (`Bros`). |
 
 ## Layout
 
@@ -42,6 +42,7 @@
 - `Browser::Invoke` also constructs this payload inline for event case `104`: it allocates 12 bytes, installs the same vtable at `0x0046fa16`, constructs the `+0x08` string object, stores `0` at `+0x04`, and posts the same `Bros` channel.
 - The `browser::Notification` vtable at `0x006131f0` has data refs only from the inline `Browser::Invoke` construction site `0x0046fa16` and `PostBrowserNotification` construction site `0x00470f6c`; its first slot is the destructor at `0x00470740`.
 - The destructor calls `0x00582b70` on `this+0x08`, calls [UID:00007D][LObject](by-class/LObject.md) cleanup at `0x004f4a90`, and only calls `0x004f4ac0` when scalar-delete flags request object deletion.
+- B001-024 exact children [UID:00033D][0x00470740-0x00470782.BrowserNotificationScalarDeletingDestructor](by-memory/0x00470740-0x00470782.BrowserNotificationScalarDeletingDestructor.md) and [UID:00033L][0x00470f20-0x00470fb9.PostBrowserNotification](by-memory/0x00470f20-0x00470fb9.PostBrowserNotification.md) document the destructor and posting helper at `85/88` and `85/89`.
 
 ## Open Questions
 
@@ -52,9 +53,18 @@
 
 - File: [UID:0000HV][Browser](by-file/Browser.md)
 - Related classes: [UID:00001A][BrowserThread](by-class/BrowserThread.md), [UID:000013][Browser](by-class/Browser.md)
-- Memory: [UID:0000ZF][0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers.md), [UID:0001OB][0x006131b4-0x006139df.BrowserVtablesAndStrings](by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md)
+- Memory: [UID:0000ZF][0x0046f010-0x004710b8.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b8.BrowserOleLegacyAndHelpers.md), [UID:00033D][0x00470740-0x00470782.BrowserNotificationScalarDeletingDestructor](by-memory/0x00470740-0x00470782.BrowserNotificationScalarDeletingDestructor.md), [UID:00033L][0x00470f20-0x00470fb9.PostBrowserNotification](by-memory/0x00470f20-0x00470fb9.PostBrowserNotification.md), [UID:0001OB][0x006131b4-0x006139df.BrowserVtablesAndStrings](by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md)
 
 ## Changes
+
+- 2026-06-10 B001-024 parent-gate repair:
+  - Before: `COMPLETION:84`, `CONFIDENCE:88`, with destructor/posting ranges documented but no exact child pages.
+  - Changed to: `COMPLETION:85`, linked exact children [UID:00033D][0x00470740-0x00470782.BrowserNotificationScalarDeletingDestructor](by-memory/0x00470740-0x00470782.BrowserNotificationScalarDeletingDestructor.md) and [UID:00033L][0x00470f20-0x00470fb9.PostBrowserNotification](by-memory/0x00470f20-0x00470fb9.PostBrowserNotification.md).
+  - Summary/evidence: live IDA MCP confirms destructor `0x00470740-0x00470782`, helper `0x00470f20-0x00470fb9`, vtable `0x006131f0`, allocation size `12`, string payload at `+0x08`, value/state at `+0x04`, and `Bros` notification posting. This clears the strict `85/85` parent gate for assigning both children.
+- 2026-06-05 autogen metadata classification:
+  - What existed before: reconstruction autogen metadata was unclassified.
+  - Changed to: `RECONSTRUCTABLE:TRUE` with parent [UID:0000HV][Browser](by-file/Browser.md).
+  - Summary/evidence: live IDA MCP against `NexusTK.exe` md5 `4247e04e20b65d6414c7238aa8ff5515` confirmed the scalar deleting destructor and posting helper starts at `0x00470740` and `0x00470f20`; the class and parent both pass the 80/80 parent gate. No reconstruction C++ was emitted because the page is below 95/95.
 
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.

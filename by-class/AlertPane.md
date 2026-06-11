@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,8 @@
 - Address range: [UID:00012W][0x0049feb0-0x004a0686.AlertPaneCore](by-memory/0x0049feb0-0x004a0686.AlertPaneCore.md), with shared destructor [UID:00010W][0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor](by-memory/0x0048c550-0x0048c58b.AlertPaneSharedScalarDestructor.md)
 - Vtables: [UID:0001WZ][AlertPaneVtables](by-type/by-vtable/AlertPaneVtables.md)
 - Layout docs: [UID:0001TO][AlertPaneLayout](by-type/by-struct/AlertPaneLayout.md)
-- Current recovered file: `source-3/simroot_v2/class_AlertPane.cpp`
+- Documentation basis: IDA-confirmed constructor/dismiss/destructor ranges, vtable/layout docs, and the [UID:0000HE][AlertPanes](by-file/AlertPanes.md) source-family page.
+- Reconstruction parent: attached to [UID:0000HE][AlertPanes](by-file/AlertPanes.md) now that the file page has a valid `NexusTK/ui/dialogs/` source root and clears the parent-side `80/80` gate.
 - Confidence: strong.
 
 ## Class Purpose
@@ -69,3 +70,8 @@
 - What existed before: the class was documented as reconstructable in prose but validator `RECONSTRUCTABLE` metadata was blank.
 - What it was changed to: `RECONSTRUCTABLE` is set to `TRUE`; C++ remains blank because final callback names and derived wrapper boundaries are below the `95+` final-source gate.
 - Summary/evidence: 2026-05-31 IDA MCP reconfirmed the class vtable bases, constructor vptr stores, and exact vtable-data child range.
+- 2026-06-06 provenance cleanup: replaced the stale recovered-file path with the current IDA/by-* evidence basis. Scores and ownership metadata are unchanged.
+- 2026-06-07 parent attachment:
+  - Before: the class was reconstructable but parentless even though its likely source file was documented.
+  - Changed to: `AUTOGEN_PARENT_UID:0000HE`; final class C++ remains blank.
+  - Evidence: [UID:0000HE][AlertPanes](by-file/AlertPanes.md) is now `82/86` with valid `NexusTK/ui/dialogs/` placement and records the base alert family, exact vtable-data children, shared destructor, layout, and feature-specific exclusions. This class remains below the final C++ gate because callback names and source-quality class declaration details still need audit.

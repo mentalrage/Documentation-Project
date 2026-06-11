@@ -1,13 +1,13 @@
 *** UID:0000MW | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Queue
 
 ## Status
 
-- Confidence: strong for class behavior, medium for whether it is used by active client paths.
+- Confidence: strong for class behavior, compact source ownership, vtable/data boundary, and `Queue.cpp` routing; medium-high for active direct caller reachability.
 - Proposed module: `util/Queue.cpp`
 - Current generated source: `source-3/simroot_v2/class_Queue.cpp`
 - Main address range: [UID:0001FN][0x005539e0-0x00553c07.Queue](by-memory/0x005539e0-0x00553c07.Queue.md)
@@ -21,6 +21,8 @@ Active generated output emits only the constructor and scalar deleting destructo
 2026-05-26 recheck using current `simroot_v2` and IDA MCP only: active `class_Queue.cpp` still emits only `0x005539e0` and `0x00553b70`. IDA still models `0x005539e0`, `0x00553a60`, and `0x00553b70` as functions, while `0x00553ac0`, `0x00553b10`, and `0x00553b60` remain raw not-a-function starts with no direct callers.
 
 2026-05-31 IDA MCP recheck: `0x005539e0-0x00553a5c`, `0x00553a60-0x00553ab9`, and `0x00553b70-0x00553c07` remain modeled functions. The raw helper starts at `0x00553ac0`, `0x00553b10`, and `0x00553b60` still decode as queue-style fixed-slot write/read/empty bodies but are not IDA function starts and have no modeled direct callers. This keeps `Queue.cpp` a plausible utility source module but keeps confidence below final/original-source level.
+
+2026-06-10 A002 live IDA gate refresh: `lookup_funcs` still reports modeled starts at `0x005539e0` size `0x7c`, `0x00553a60` size `0x59`, and `0x00553b70` size `0x97`; it still reports `0x00553ac0`, `0x00553b10`, and `0x00553b60` as not function starts. `callers`/`xrefs_to` remain empty for the constructor, ordinary destructor, and raw write/read/empty starts, while the scalar deleting destructor has the expected vtable data xref from `0x00622d24`. `xrefs_to 0x00622d24` still shows vtable stores from constructor `0x00553a15`, ordinary destructor `0x00553a88`, and scalar deleting destructor `0x00553b9f`. `get_bytes` confirms the `0xcc` alignment spans around each child, and the constructor decompile shows `this[3] = sub_5160D0(a3 * a2)`, proving the backing buffer is zero-allocated through the MemoryMan zero-allocation helper.
 
 ## Proposed Contents
 
@@ -37,6 +39,8 @@ Active generated output emits only the constructor and scalar deleting destructo
 
 Keep `Queue` under reusable utility/container ownership unless later caller evidence proves it is dead legacy code or private to one subsystem. Its vtable and `LObject` base make it a project class, not an STL artifact.
 
+The 2026-06-10 strict-gate refresh raises this source-root page to `86/85`, which is enough for the existing [UID:0000BF][Queue](by-class/Queue.md) class child and the exact Queue memory children to remain attached under the current `85/85` rule. The score is not higher because no direct callers are currently modeled for the constructor, ordinary destructor, or raw helper starts, and the final `Queue.h` method names/signatures remain source-quality TODOs.
+
 ## Cross-References
 
 - [UID:0000BF][Queue](by-class/Queue.md)
@@ -46,6 +50,10 @@ Keep `Queue` under reusable utility/container ownership unless later caller evid
 
 ## Changes
 
+- 2026-06-10 A002 strict-gate refresh:
+  - What existed before: `COMPLETION:84`, `CONFIDENCE:80`; the page was useful but did not clear the current parent confidence gate for the Queue class/memory children already routed through it.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:85`.
+  - Summary/evidence: live IDA MCP reconfirmed modeled constructor/destructor/scalar-deleting destructor bounds, raw not-a-function write/read/empty helper starts, empty caller/xref sets for the non-vtable Queue starts, the scalar deleting destructor vtable xref, `Queue` vtable stores at `0x00553a15`, `0x00553a88`, and `0x00553b9f`, alignment bytes around all children, destructor/free callees, and constructor zero-allocation through `sub_5160D0`. Confidence remains capped at 85 because active direct-use evidence and final source names/signatures are still unresolved.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `82`, confidence `76`.
 - Summary/evidence: the page documents fixed-slot queue role, compact function cluster, raw helper starts, source-structure decision, active generated omissions, and cross-references; confidence remains capped by uncertain active runtime use and raw not-a-function helper treatment.

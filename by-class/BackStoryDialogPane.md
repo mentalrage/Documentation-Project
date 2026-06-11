@@ -1,9 +1,9 @@
 *** UID:00000T | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HP | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -16,7 +16,7 @@
 - Likely source file: [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md)
 - Core address range: [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md)
 - Current recovered file: `source-3/simroot_v2/class_BackStoryDialogPane.cpp`
-- Autogen status: the file page and core memory page are assigned to `NexusTK/login/BackStoryDialogPane.cpp`; this class page stays non-reconstructable until the class declaration, field names, and helper names are final-source quality.
+- Autogen status: attached to [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md) at position `10`, with blank C++ until the class declaration, field names, helper names, and live construction path are final-source quality.
 
 ## Class Purpose
 
@@ -29,6 +29,7 @@
 - Resource role: uses EPF/EPD story art plus `BACKTALE` text content, with asset-mode-dependent palette/resource selection.
 - Source placement: [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md) under `NexusTK/login/`; live constructor reachability remains less certain than the class layout.
 - Not the active frame story/history viewer: [UID:0000JW][HistoryViewingPane](by-file/HistoryViewingPane.md) owns the currently direct `MainMenuPane` story/history construction path, while this class is retained as the older `BACKTALE` text dialog and still participates in singleton cleanup.
+- Parent evidence: [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md) is `82/84`, has path `NexusTK/login/`, and stages `auto-generated/NexusTK/login/BackStoryDialogPane.cpp`.
 
 ## Source Placement And Reachability
 
@@ -66,7 +67,7 @@ Direct code xrefs to the constructor were still absent in the refreshed IDA pass
 | --- | --- | --- |
 | `0x0069b498` / [UID:0000Q9][g_pBackStoryDialogPane](by-global/g_pBackStoryDialogPane.md) | Constructor writes the live singleton; clear helper and destructor clear it; main-menu cleanup reads it. | [UID:00029F][0x0069b498-0x0069b49c.g_pBackStoryDialogPane](by-memory/0x0069b498-0x0069b49c.g_pBackStoryDialogPane.md) and [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md). |
 | `this+0x00`, `this+0xa0`, `this+0xa4` | Constructor installs the `BackStoryDialogPane` vtable family. | Core page records constructor vtable writes and vtable data refs around `0x0061da58`/`0x0061daa0`. |
-| `byte_66DA97` | Selects EPF versus legacy resource/layout branch. | Core page branch reconstruction and resource xrefs. |
+| [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97` | Selects EPF versus legacy resource/layout branch. | Core page branch reconstruction and resource xrefs. |
 | `dword_69B36C`, `dword_67ABA4` | Dialog create/layout context and parent/show context. | Constructor tail in the core page. |
 | `STORY.EPF`, `STORY.EPD`, `PAL01.PAL`, `NPAL8.PAL`, `BACKTALE` | Story background, palette, and scrolled text resources. | [UID:0001RG][main-menu-story-resources](by-resource/main-menu-story-resources.md). |
 
@@ -88,7 +89,22 @@ Direct code xrefs to the constructor were still absent in the refreshed IDA pass
 - IDA decompilation labels the destructor body through `boost::exception`, but the generated source and vtable context indicate this is type pollution over `DialogPane` teardown.
 - IDA MCP `xrefs_to 0x0069b498` on 2026-05-25 confirms the singleton lifecycle: constructor writes it, the clear helper and destructor clear it, and `CloseMainMenuDialogSingletons` reads/closes it.
 - Refreshed IDA evidence on 2026-06-01 in [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md) records exact function sizes, no direct constructor caller, vtable xrefs, singleton xrefs, branch-specific resource xrefs, callee sets, and raw `0xcc` boundary bytes.
+- [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md) now carries enough file-root evidence for attachment: exact core child, singleton cleanup path, login folder placement, resource operands, and retained older-dialog caveat.
+- [UID:0000Q9][g_pBackStoryDialogPane](by-global/g_pBackStoryDialogPane.md) is `86/84`, attached to the same file parent, and documents constructor/clear/destructor/main-menu-cleanup xrefs for the singleton storage.
+- [UID:0001RG][main-menu-story-resources](by-resource/main-menu-story-resources.md) documents the `STORY.EPF`, `STORY.EPD`, `PAL01.PAL`, `NPAL8.PAL`, and `BACKTALE` resource operands used by this class.
 - Direct constructor xrefs were not found in IDA during this pass; the class may be opened through an indirect path or be a retained older story dialog path.
+
+## Autogen Status
+
+- Reconstructable: true, because this is a NexusTK-authored login/main-menu story dialog class that must be represented in the rebuilt source tree.
+- Parent: [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md), position `10`.
+- C++: intentionally blank. The class remains below the `95/95` final-source gate, direct live construction is unresolved, and final field/helper names are not yet source-quality.
+
+## Score Rationale
+
+- Completion rises because the page now records parent attachment, exact core coverage, singleton/global lifecycle evidence, resource evidence, layout branches, support ranges, and the active-history-viewer exclusion.
+- Confidence remains `84` because the behavior, singleton lifecycle, resources, and owner are strongly documented, but direct constructor reachability and final field/helper names remain unresolved.
+- The class is attached despite blank C++ because both the class and file parent clear the 80+ attachment gate; final source emission remains blocked by the documented `95/95` gate.
 
 ## Open Questions
 
@@ -102,6 +118,7 @@ Direct code xrefs to the constructor were still absent in the refreshed IDA pass
 - [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md)
 - [UID:0000Q9][g_pBackStoryDialogPane](by-global/g_pBackStoryDialogPane.md)
 - [UID:0001RG][main-menu-story-resources](by-resource/main-menu-story-resources.md)
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
 - [UID:00007O][MainMenuPane](by-class/MainMenuPane.md)
 - [UID:0000JW][HistoryViewingPane](by-file/HistoryViewingPane.md)
 - [UID:00029F][0x0069b498-0x0069b49c.g_pBackStoryDialogPane](by-memory/0x0069b498-0x0069b49c.g_pBackStoryDialogPane.md)
@@ -110,6 +127,7 @@ Direct code xrefs to the constructor were still absent in the refreshed IDA pass
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup: normalized the `byte_66DA97` layout/resource branch to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the IDA lookup alias.
 - What existed before: the page documented UI construction, singleton data, and reachability uncertainty but had unevaluated scores.
 - What it was changed to: scores were set to `66/78`, and class-shape notes were added for dialog base, singleton, resource role, and source placement.
 - Summary and evidence: constructor/resource behavior is clear from IDA decompilation and singleton xrefs; confidence stays medium-high because no direct constructor xref was found in the prior pass.
@@ -117,3 +135,8 @@ Direct code xrefs to the constructor were still absent in the refreshed IDA pass
   - Before: the class page summarized the constructor and singleton but did not carry over the refreshed file/core evidence, layout tables, touched-state evidence, or boundary/support ranges.
   - After: the page records login/main-menu placement, retained reachability caveats, exact EPF/legacy layout branches, singleton/vtable/resource state, padding boundaries, destructor support ranges, and autogen rationale.
   - Evidence: existing IDA-backed [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md), [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md), [UID:00029F][0x0069b498-0x0069b49c.g_pBackStoryDialogPane](by-memory/0x0069b498-0x0069b49c.g_pBackStoryDialogPane.md), and [UID:0001RG][main-menu-story-resources](by-resource/main-menu-story-resources.md).
+- 2026-06-05: Reclassified autogen metadata from unclassified to `RECONSTRUCTABLE:TRUE` and updated the autogen-status note accordingly. Current IDA MCP `lookup_funcs` reconfirmed the constructor/button-handler/deleting-destructor starts at `0x00500090`, `0x005003f0`, and `0x00502600`; constructor callers remain absent in the current IDA database, so `AUTOGEN_PARENT_UID` and reconstruction C++ stay blank pending stronger reachability and class-layout evidence.
+- 2026-06-06 parent attachment update:
+  - Before: the class was reconstructable but still unattached at `72/84`, and the manual class coverage row was stale at `66% : medium-high`.
+  - Changed to: `82/84`, parent [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md) at position `10`, with explicit autogen status and score rationale added.
+  - Evidence: [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md) is `82/84` and stages `BackStoryDialogPane.cpp` under `NexusTK/login/`; [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md) records exact constructor/button-handler boundaries, vtable/singleton/resource xrefs, layout branches, and padding; [UID:0000Q9][g_pBackStoryDialogPane](by-global/g_pBackStoryDialogPane.md) documents singleton lifecycle xrefs; [UID:0001RG][main-menu-story-resources](by-resource/main-menu-story-resources.md) documents the story art/text operands. C++ remains blank because direct constructor reachability and final field/helper names are not final-source quality.

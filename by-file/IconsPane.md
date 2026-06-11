@@ -1,19 +1,19 @@
 *** UID:0000JZ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # IconsPane
 
 ## Status
 
-- Confidence: strong for class role, core range, and `ui/panels/` placement; medium-high for final source grouping with `TabPane`.
+- Confidence: strong for class role, core range, exact destructor ownership, and `ui/panels/` placement; medium-high for final source grouping with `TabPane`.
 - Proposed module: `ui/panels/IconsPane.cpp`
 - Current generated source: `class_IconsPane.cpp`
 - Main class: [UID:00006B][IconsPane](by-class/IconsPane.md)
 - Core address doc: [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md)
 - Raw action-dispatch candidate: [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md)
-- Shared tail doc: [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
+- Split tail inventory: [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
 - Singleton global: [UID:0000R6][g_pIconsPane](by-global/g_pIconsPane.md)
 - Resource doc: [UID:0001RD][iconspane-icon-resources](by-resource/iconspane-icon-resources.md)
 - Evidence basis: IDA MCP decompilation/function/caller/xref checks, current generated source, and linked exact memory pages.
@@ -26,7 +26,7 @@ This should stay in `ui/panels/`, likely adjacent to [UID:0000OF][TabPane](by-fi
 
 ## Score Rationale
 
-The projected path is now `NexusTK/ui/panels/` because [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) has a dedicated `ui/panels/IconsPane.cpp` entry and the IDA-backed file, class, memory, global, and resource pages all identify this as an old-layout HUD panel. Confidence is raised slightly for placement, but remains below final-audit range because the raw action dispatcher at `0x004cf8e0` and final source grouping with [UID:0000OF][TabPane](by-file/TabPane.md) remain open.
+The projected path is now `NexusTK/ui/panels/` because [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) has a dedicated `ui/panels/IconsPane.cpp` entry and the IDA-backed file, class, memory, global, resource, and exact destructor pages all identify this as an old-layout HUD panel. Confidence now clears the corrected parent gate after the mixed tail was split into exact children, but remains below final-audit range because the raw action dispatcher at `0x004cf8e0` and final source grouping with [UID:0000OF][TabPane](by-file/TabPane.md) remain open.
 
 ## Proposed Contents
 
@@ -34,7 +34,7 @@ The projected path is now `NexusTK/ui/panels/` because [UID:0001R1][proposed-sou
 | --- | --- | --- |
 | `IconsPane` core | [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md), split into [UID:0002SW][0x004cf1f0-0x004cf25d.IconsPaneConstructor](by-memory/0x004cf1f0-0x004cf25d.IconsPaneConstructor.md), [UID:0002SX][0x004cf260-0x004cf289.IconsPaneCleanupHelper](by-memory/0x004cf260-0x004cf289.IconsPaneCleanupHelper.md), [UID:0002SY][0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons](by-memory/0x004cf290-0x004cf297.IconsPaneIsShowingAllIcons.md), [UID:0002SZ][0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons](by-memory/0x004cf2a0-0x004cf2c6.IconsPaneShowAllIcons.md), [UID:0002T0][0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons](by-memory/0x004cf2d0-0x004cf2f6.IconsPaneShowReducedIcons.md), [UID:0002T1][0x004cf300-0x004cf3d3.IconsPaneOnPaint](by-memory/0x004cf300-0x004cf3d3.IconsPaneOnPaint.md), [UID:0002T2][0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent](by-memory/0x004cf3e0-0x004cf74b.IconsPaneOnMouseEvent.md), [UID:0002T3][0x004cf7d0-0x004cf862.IconsPaneHitTestIcon](by-memory/0x004cf7d0-0x004cf862.IconsPaneHitTestIcon.md), and [UID:0002T4][0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight](by-memory/0x004cf870-0x004cf8d5.IconsPaneSetIconHighlight.md) | Constructor, cleanup helper, show-all/reduced state methods, paint, mouse handling, hit test, pressed-state invalidation. |
 | `IconsPane` raw action dispatch candidate | `0x004cf8e0-0x004cf974` | Function-shaped duplicate/candidate of the click-action switch, with local jump table and no IDA function object/direct external xrefs. |
-| `IconsPane` destructor glue | `0x004cfd6c-0x004cfd81`, `0x004cfda0-0x004cfdff` | Adjustor thunks and scalar deleting destructor interleaved after `TabPane` core code. |
+| `IconsPane` destructor glue | [UID:00034T][0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks](by-memory/0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks.md), [UID:00034V][0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor](by-memory/0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor.md), split from [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md) | Compiler adjustor thunks plus scalar deleting destructor interleaved after `TabPane` core code. |
 | `g_pIconsPane` | `0x0069b41c` | Singleton pointer registered by constructor, cleared by cleanup/destructor paths, and read during main UI shutdown plus option UI paths. |
 | Vtable set | `0x0061b448`, `0x0061b494`, `0x0061b4c4` | Main and adjustor vtables installed at object offsets `0x0`, `0xa0`, and `0xa4`. |
 
@@ -49,7 +49,7 @@ The projected path is now `NexusTK/ui/panels/` because [UID:0001R1][proposed-sou
 
 ## Data Caveats
 
-Current active generated output now emits the cleanup helper at `0x004cf260`, hit-test helper at `0x004cf7d0`, highlight helper at `0x004cf870`, and scalar deleting destructor at `0x004cfda0` with the `flags & 4` no-delete guard. It still does not emit the adjacent raw action-dispatch candidate at `0x004cf8e0` as a modeled helper, and the destructor adjustor thunks at `0x004cfd6c` and `0x004cfd77` remain compiler glue documented in the shared tail page rather than normal source methods.
+Current active generated output now emits the cleanup helper at `0x004cf260`, hit-test helper at `0x004cf7d0`, highlight helper at `0x004cf870`, and scalar deleting destructor at `0x004cfda0` with the `flags & 4` no-delete guard. It still does not emit the adjacent raw action-dispatch candidate at `0x004cf8e0` as a modeled helper. The destructor adjustor thunks [UID:00034T][0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks](by-memory/0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks.md) remain compiler glue rather than normal source methods, while [UID:00034V][0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor](by-memory/0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor.md) is the exact source-bearing destructor child.
 
 The `IconsPane` destructor glue is physically interleaved with [UID:0000OF][TabPane](by-file/TabPane.md) destructor glue. Use the memory docs before attempting source migration.
 
@@ -59,6 +59,8 @@ The `IconsPane` destructor glue is physically interleaved with [UID:0000OF][TabP
 - [UID:00016Z][0x004cf1f0-0x004cf8d5.IconsPaneCore](by-memory/0x004cf1f0-0x004cf8d5.IconsPaneCore.md)
 - [UID:00022Q][0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody](by-memory/0x004cf8e0-0x004cf974.IconsPaneActionDispatchRawBody.md)
 - [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
+- [UID:00034T][0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks](by-memory/0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks.md)
+- [UID:00034V][0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor](by-memory/0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor.md)
 - [UID:0000R6][g_pIconsPane](by-global/g_pIconsPane.md)
 - [UID:0001RD][iconspane-icon-resources](by-resource/iconspane-icon-resources.md)
 - [UID:0000OF][TabPane](by-file/TabPane.md)
@@ -75,6 +77,10 @@ The `IconsPane` destructor glue is physically interleaved with [UID:0000OF][TabP
 
 ## Changes
 
+- 2026-06-10 B001-034 split repair:
+  - Before: confidence was `82`, and destructor glue was listed only as bare ranges inside the mixed [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md) aggregate.
+  - Changed to: confidence `85`; proposed contents and cross-references now link exact destructor children [UID:00034T][0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks](by-memory/0x004cfd6c-0x004cfd82.IconsPaneDestructorAdjustorThunks.md) and [UID:00034V][0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor](by-memory/0x004cfda0-0x004cfdff.IconsPaneScalarDeletingDestructor.md), while [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md) is a non-emitting mixed inventory.
+  - Evidence: IDA MCP verified the `IconsPane` vtable writes, `g_pIconsPane` singleton clears, adjustor thunk disassembly, scalar deleting destructor body, and the interleaved `TabPane` boundary. Completion remains `86`; the file parent gate now clears for the exact destructor child.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:86` and `CONFIDENCE:80`.

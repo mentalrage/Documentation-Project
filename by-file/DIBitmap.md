@@ -1,16 +1,16 @@
 *** UID:0000IV | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # DIBitmap And PCX Loaders
 
 ## Status
 
-- Confidence: strong for `DIBitmap` behavior and adjacent PCX helper ownership, medium for exact final file split with the far PCX decoder.
+- Confidence: strong for `DIBitmap` behavior, vtable/layout ownership, and adjacent PCX factory relationship; medium-high for exact final file split with the far PCX decoder.
 - Proposed module: `NexusTK/render/DIBitmap.cpp`, with PCX free helpers documented under [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md).
 - Current recovered sources: `source-3/simroot_v2/class_DIBitmap.cpp` and `source-3/simroot_v2/recovered/*Pcx*.cpp`
-- Main address ranges: `0x004a1600-0x004a1b5d` and `0x00549410-0x00549616`
+- Main address ranges: `0x004a1600-0x004a1b5e` and `0x00549410-0x00549616`
 - Primary vtable: [UID:0002MC][0x00618e50-0x00618e60.DIBitmapVtableData](by-memory/0x00618e50-0x00618e60.DIBitmapVtableData.md), summarized by [UID:0001XE][DIBitmapDirectXVtables](by-type/by-vtable/DIBitmapDirectXVtables.md)
 - Confirmed object layout: [UID:0001U6][DIBitmapLayout](by-type/by-struct/DIBitmapLayout.md)
 
@@ -24,9 +24,11 @@ This is render/UI image-loader support. It depends on `DATFile`/file-buffer acce
 
 | Entity | Address | Proposed placement |
 | --- | --- | --- |
-| `DIBitmap` | `0x004a1600`, `0x004a1740-0x004a17ac`, `0x004a1b10` | `render/DIBitmap.cpp` |
-| `LoadPcxImage` | `0x004a17b0` | See [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md); adjacent to `DIBitmap` in memory. |
-| `CreateDIBitmapFromPcxBuffer` | `0x004a18b0` | See [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md); allocates/constructs `DIBitmap`. |
+| `DIBitmap` constructor | [UID:000313][0x004a1600-0x004a1738.DIBitmapConstructor](by-memory/0x004a1600-0x004a1738.DIBitmapConstructor.md) | `render/DIBitmap.cpp` |
+| `DIBitmap` destructor/accessors | [UID:000136][0x004a1740-0x004a17ad.DIBitmapDestructorAndAccessors](by-memory/0x004a1740-0x004a17ad.DIBitmapDestructorAndAccessors.md) | `render/DIBitmap.cpp` |
+| `LoadPcxImage` | [UID:000314][0x004a17b0-0x004a18a8.LoadPcxImage](by-memory/0x004a17b0-0x004a18a8.LoadPcxImage.md) | See [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md); adjacent to `DIBitmap` in memory. |
+| `CreateDIBitmapFromPcxBuffer` | [UID:000315][0x004a18b0-0x004a1b0c.CreateDIBitmapFromPcxBuffer](by-memory/0x004a18b0-0x004a1b0c.CreateDIBitmapFromPcxBuffer.md) | See [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md); allocates/constructs `DIBitmap`. |
+| `DIBitmap` scalar deleting destructor | [UID:000316][0x004a1b10-0x004a1b5e.DIBitmapScalarDeletingDestructor](by-memory/0x004a1b10-0x004a1b5e.DIBitmapScalarDeletingDestructor.md) | `render/DIBitmap.cpp` |
 | `DecodePcxToRgb565Buffer` | `0x00549410` | See [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md); PCX decode utility linked far from the DIB wrapper cluster. |
 
 ## Resource Inputs
@@ -39,16 +41,22 @@ Use this page for the `DIBitmap` wrapper class and [UID:0000K3][ImageLoaders](by
 
 The exact `DIBitmap` vtable data is now split at [UID:0002MC][0x00618e50-0x00618e60.DIBitmapVtableData](by-memory/0x00618e50-0x00618e60.DIBitmapVtableData.md). IDA MCP confirms the RTTI/vtable record ends before the adjacent `DirectX` RTTI at `0x00618e60`.
 
-IDA confirms a small `DIBitmap` method cluster at `0x004a1740-0x004a17ac` that the active generated source currently omits: a raw non-deleting destructor body, `GetBits`, `GetBitmapHandle`, guarded width/height accessors, and a guarded aligned-width accessor.
+IDA confirms a small `DIBitmap` method cluster at `0x004a1740-0x004a17ad` that the active generated source currently omits: a raw non-deleting destructor body, `GetBits`, `GetBitmapHandle`, guarded width/height accessors, and a guarded aligned-width accessor.
 
 IDA also confirms the compact field layout used by that cluster and the constructor: embedded `BITMAPINFOHEADER` at `+0x04`, bitmap handle at `+0x2c`, DIB bits at `+0x30`, and requested dimensions at `+0x34/+0x38`. The current generated metadata's `0x60` struct size and undefined byte fields should not drive source reconstruction without more binary evidence.
+
+2026-06-07 Batch 083 live IDA MCP recheck reconfirmed the direct class-parent gate for [UID:00003V][DIBitmap](by-class/DIBitmap.md): constructor `0x004a1600-0x004a1738`, scalar deleting destructor `0x004a1b10-0x004a1b5e`, modeled accessors at `0x004a1760`, `0x004a1770`, `0x004a1780`, and `0x004a1790`, and raw/non-modeled starts at `0x004a1740` and `0x004a17a0`. Vtable `0x00618e54` has live code refs from the constructor, PCX factory, scalar deleting destructor, and raw destructor bytes. The far decoder at `0x00549410-0x00549616` still has a single observed caller from `CreateDIBitmapFromPcxBuffer`, so it remains documented as ImageLoaders context while this file stays the direct DIBitmap wrapper parent.
+
+2026-06-08 Batch 116 split recheck created exact by-memory children for the DIBitmap constructor and scalar deleting destructor, while moving the adjacent PCX loader/factory helpers to exact ImageLoaders-owned children. This confirms `DIBitmap.cpp` as the direct parent for class-owned DIB section lifecycle methods and rejects it as the direct parent for the broader mixed `0x004a1600-0x004a1b5e` aggregate.
 
 ## Cross-References
 
 - [UID:00003V][DIBitmap](by-class/DIBitmap.md)
 - [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md)
 - [UID:000135][0x004a1600-0x004a1b5e.DIBitmapAndPcxLoaders](by-memory/0x004a1600-0x004a1b5e.DIBitmapAndPcxLoaders.md)
-- [UID:000136][0x004a1740-0x004a17ac.DIBitmapDestructorAndAccessors](by-memory/0x004a1740-0x004a17ac.DIBitmapDestructorAndAccessors.md)
+- [UID:000313][0x004a1600-0x004a1738.DIBitmapConstructor](by-memory/0x004a1600-0x004a1738.DIBitmapConstructor.md)
+- [UID:000136][0x004a1740-0x004a17ad.DIBitmapDestructorAndAccessors](by-memory/0x004a1740-0x004a17ad.DIBitmapDestructorAndAccessors.md)
+- [UID:000316][0x004a1b10-0x004a1b5e.DIBitmapScalarDeletingDestructor](by-memory/0x004a1b10-0x004a1b5e.DIBitmapScalarDeletingDestructor.md)
 - [UID:0002MC][0x00618e50-0x00618e60.DIBitmapVtableData](by-memory/0x00618e50-0x00618e60.DIBitmapVtableData.md)
 - [UID:0001U6][DIBitmapLayout](by-type/by-struct/DIBitmapLayout.md)
 - [UID:0001XE][DIBitmapDirectXVtables](by-type/by-vtable/DIBitmapDirectXVtables.md)
@@ -69,3 +77,9 @@ IDA also confirms the compact field layout used by that cluster and the construc
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and the page referenced only the combined DIBitmap/DirectX vtable type page.
   - Changed to: proposed path `NexusTK/render/` and exact `DIBitmap` vtable-data child reference.
   - Summary/evidence: `by-project-structure/proposed-source-tree.md` already places `DIBitmap.cpp` under `render/`; IDA MCP confirms the exact `DIBitmap` vtable bytes and adjacent `DirectX` boundary.
+- 2026-06-07 A006 Batch 083:
+  - Changed score from `84/82` to `85/85`.
+  - Summary/evidence: live IDA MCP reconfirmed the local DIBitmap wrapper cluster, vtable reference set, PCX factory relationship, and single-caller far decode helper. Remaining uncertainty is now limited to final source split/style details rather than direct class ownership.
+- 2026-06-08 A007 Batch 116:
+  - Changed score from `85/85` to `86/86`.
+  - Summary/evidence: exact by-memory children now document the DIBitmap constructor and scalar deleting destructor separately from the PCX loader/factory helpers, proving this file as the direct owner for class lifecycle methods while preserving [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md) as the PCX helper owner.

@@ -1,5 +1,5 @@
 *** UID:0000LP | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
@@ -40,6 +40,7 @@ Keep [UID:0000LW][NewUserDialogPane2](by-file/NewUserDialogPane2.md) as the alte
 - Live IDA MCP confirms [UID:00009G][NewUserShapeSelectControlPane](by-class/NewUserShapeSelectControlPane.md) constructor `0x004fd520` is called from `0x0052c7aa` inside this constructor.
 - The `0x0052d210` command dispatcher uses a 16-case jump table: case 17 calls the submit helper `0x0052d3e0`, cases 4/5 call gender selectors `0x0052d060`/`0x0052d0b0`, and cases 9-14 call the totem/style selector helpers `0x0052cef0`/`0x0052cf80`.
 - The submit path at `0x0052d3e0` calls packet helper `0x0052d5b0` at `0x0052d5a2`; reply handling at `0x0052d9a0` calls the shape-control payload builder `0x0052d7c0` at `0x0052daf6`.
+- 2026-06-07 Batch 043 live IDA MCP reconfirmed `0x0069b4a8-0x0069b4ac` as a clean `0xffffffff` singleton item with six xrefs: main-menu cleanup read, constructor publish/fallback clear, constructor-adjacent cleanup clear, singleton helper clear, and scalar deleting destructor clear. The exact storage now has a split page [UID:0002X8][0x0069b4a8-0x0069b4ac.g_pNewCreateUserDialogPane](by-memory/0x0069b4a8-0x0069b4ac.g_pNewCreateUserDialogPane.md) and a canonical global page [UID:0002X7][g_pNewCreateUserDialogPane](by-global/g_pNewCreateUserDialogPane.md).
 
 ## Score Rationale
 
@@ -66,3 +67,7 @@ The projected path remains `NexusTK/login/` because [UID:0000IK][CreateUserDialo
   - What existed before: completion/confidence were `76/80`; the page still cited stale recovered-source provenance and the exact memory children were attached to the create-user umbrella.
   - Changed to: completion `82`, confidence `86`; stale provenance was replaced with live IDA MCP evidence; exact core/vtable children now attach to this file page.
   - Summary/evidence: live IDA confirms the constructor, selector helpers, command dispatcher, submit/packet/reply flow, singleton writes, three vtable slots, destructor support, and boundary bytes. The remaining cap is the absent direct constructor caller and unresolved final field/layout naming.
+- 2026-06-07 Batch 043 parent-gate refresh:
+  - Before: completion `82`.
+  - After: completion `85` with confidence retained at `86`.
+  - Evidence: live IDA MCP reconfirmed the exact singleton storage item, initial value, and all six lifecycle xrefs. This closes the completion gate for the direct global parent of the new exact storage split while retaining the documented reachability and field/layout caveats.

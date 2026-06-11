@@ -1,13 +1,13 @@
 *** UID:0000JG | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # FolderTreePane
 
 ## Status
 
-- Confidence: strong for the filesystem tree-control core; medium for final standalone-versus-private source split.
+- Confidence: strong for filesystem-tree control ownership and `FolderTreePane.cpp` placement; medium-high for final header factoring and field names.
 - Proposed source file: `ui/controls/FolderTreePane.cpp`
 - Proposed header: `ui/controls/FolderTreePane.h`
 - Current recovered source: `source-3/simroot_v2/class_FolderTreePane.cpp`, plus generated template helper files.
@@ -47,6 +47,7 @@ This is a UI control, not a chat module. The active generated `class_FolderTreeP
 - 2026-05-26 recheck: `0x004b59d5-0x004b59eb` are compiler-generated destructor adjustor thunks into `0x004b5a70`, not handwritten `FolderTreePane` behavior. They are documented in [UID:000159][0x004b59d5-0x004b59eb.FolderTreePaneAdjustorThunks](by-memory/0x004b59d5-0x004b59eb.FolderTreePaneAdjustorThunks.md) and listed in [UID:0000VN][-ignored](by-memory/-ignored.md).
 - 2026-05-26 IDA vtable pass confirms the `Tree`, `TreeItor`, and three-view `FolderTreePane` vtables at `0x0061a500`, `0x0061a510`, `0x0061a518`, `0x0061a58c`, and `0x0061a5bc`. Current metadata still reports `vtable_count: 0`; see [UID:0001XL][FolderTreePaneVtables](by-type/by-vtable/FolderTreePaneVtables.md).
 - The tertiary vtable ends before `0x0061a5c4`, where UTF-16 `TREEICON.EPF` string data begins. Do not treat `0x00520054`, `0x00450045`, or `0x00430049` string dwords as `FolderTreePane` virtual methods.
+- 2026-06-08 Batch 110 IDA MCP refresh reconfirmed the direct parent gate for [UID:0001WP][FolderTreePaneTreeTemplates](by-type/by-template/FolderTreePaneTreeTemplates.md): the concrete `Tree<FolderTreePane::TreeElem>` helper starts remain `0x004b3d50` size `0x254`, `0x004b55e0` size `0x6d`, `0x004b56e0` size `0x7f`, `0x004b5b00` size `0xae`, `0x004b5bb0` size `0x20`, `0x004b5bd0` size `0x43`, and `0x004b5c20` size `0x1f`; `Tree` vtable refs at `0x0061a500` land in constructor/cleanup/destructor paths, and the `TreeItor` vtable at `0x0061a510` has 31 refs spanning constructor, traversal, iterator cleanup, and destructor helpers.
 
 ## Ownership Cleanup
 
@@ -88,3 +89,7 @@ The local filesystem-tree source should be built from the `0x004b1b90-0x004b32c9
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:88` and `CONFIDENCE:80`.
   - Summary/evidence: filesystem tree-control role, proposed contents, core/tree/vector helper ranges, vtables/layout types, IDA evidence, generated owner-pollution exclusions, missing body notes, and control/dialog split caveat are documented; confidence is strong but exact standalone-versus-private source split remains medium.
+- 2026-06-08 A005 Batch 110 parent-gate refresh:
+  - What existed before: score `88/80`, below the corrected `85/85` parent-side assignment gate for the local folder-tree template page.
+  - Changed to: score `89/85`.
+  - Summary/evidence: live IDA MCP reconfirmed the exact concrete tree/template helper starts, `Tree` and `TreeItor` vtable refs, three `FolderTreePane` vtable stores, and the existing owner-pollution exclusions. The file page now clears the parent-side gate for direct `FolderTreePane.cpp` template-support children, while final header factoring and field names still cap confidence at `85`.

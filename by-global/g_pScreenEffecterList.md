@@ -1,7 +1,7 @@
 *** UID:0000S6 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Disposition: ignored generated/stale alias; not a real source-level singleton to migrate.
+- Disposition: ignored stale alias; not a real source-level singleton to migrate.
 - Confidence: strong that `g_pScreenEffecterList` is a stale alias for the real shared UI layer/context storage.
 - Backing storage: `dword_69B364` at `0x0069b364`.
 - Current type: unresolved; do not create a `ScreenEffecterList` type from this alias.
@@ -29,7 +29,7 @@ Live IDA MCP on 2026-05-30 confirms:
 - `SolidColorFilterEffecter` at `0x0055ae00` is only one consumer: it pushes `dword_69B364` at `0x0055ae9a` into `sub_544C70` along with `dword_67A764` and local pane state.
 - Other IDA consumers span fitting-room, clan/browser/chatting/map/user/status-pane, effecter, system-message, and dialog paths; this broad fan-out is not compatible with a screen-effecter-owned global.
 
-Historical generated output used the name `g_pScreenEffecterList` for this storage in at least one effecter callsite. Treat that generated name as a search alias only; do not use it as source ownership evidence.
+Historical recovered-source output used the name `g_pScreenEffecterList` for this storage in at least one effecter callsite. Treat that name as a search alias only; do not use it as source ownership evidence.
 
 ## Ownership Hypothesis
 
@@ -39,7 +39,7 @@ Treat `g_pScreenEffecterList` as ignored alias text. The reconstructable global 
 
 - Name the `dword_69B364` layer slot from the role it plays in [UID:00019K][0x004f7d10-0x004f8b2a.InitializeMainUiGraph](by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md).
 - Review the sibling layer globals initialized at `0x004f6239-0x004f632c`.
-- Ensure future generated/global-data repair suppresses `g_pScreenEffecterList` as an alias and does not create a fake `ScreenEffecterList` struct.
+- Ensure future global-data repair suppresses `g_pScreenEffecterList` as an alias and does not create a fake `ScreenEffecterList` struct.
 
 ## Cross-References
 
@@ -54,4 +54,6 @@ Treat `g_pScreenEffecterList` as ignored alias text. The reconstructable global 
 
 ## Changes
 
-- 2026-05-30: What existed before: the page was marked `0/0` in completion metadata and still used generated Wave3/simroot output as evidence for the stale alias. What changed: set completion/confidence to `-1/-1` because this is an ignored alias page, not a direct reconstruction target, and replaced the evidence with live IDA MCP xrefs for `0x0069b364`. Summary/evidence: IDA reports `dword_69B364` as a 4-byte `.data` item with 35 xrefs; startup, UI graph setup, shutdown/release, and broad pane/effecter consumers prove the real storage is a shared main UI layer/context slot, not a `ScreenEffecterList` singleton.
+- 2026-06-05: Marked `RECONSTRUCTABLE:FALSE` to resolve the global unclassified coverage row without attaching a false parent.
+  - Reasoning: live IDA xrefs confirm this page is a stale alias over `dword_69B364`, a shared main UI layer/context slot tracked by [UID:0000T6][MainUiLayerSlots](by-global/MainUiLayerSlots.md), not a direct `ScreenEffecterList` source item. No score change and no reconstruction C++ were added.
+- 2026-05-30: What existed before: the page was marked `0/0` in completion metadata and still used weak source-output evidence for the stale alias. What changed: set completion/confidence to `-1/-1` because this is an ignored alias page, not a direct reconstruction target, and replaced the evidence with live IDA MCP xrefs for `0x0069b364`. Summary/evidence: IDA reports `dword_69B364` as a 4-byte `.data` item with 35 xrefs; startup, UI graph setup, shutdown/release, and broad pane/effecter consumers prove the real storage is a shared main UI layer/context slot, not a `ScreenEffecterList` singleton.

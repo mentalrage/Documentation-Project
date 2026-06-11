@@ -29,7 +29,7 @@
 | Terminal stream parser | `0x0058b130-0x0058b44c`, [UID:0001JC][0x0058b130-0x0058b44b.TerminalPaneStreamParser](by-memory/0x0058b130-0x0058b44b.TerminalPaneStreamParser.md) | IDA-confirmed helper parsing incoming terminal bytes/escape states. Calls [UID:0001HW][0x00574d40-0x00574e44.SendPositionUpdate](by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md) on the current IDA path. |
 | `OnDisconnect` | `0x0058b470-0x0058b5e0` | Sends disconnect/cashshop cleanup, closes transient alert, and optionally shows reconnect/leave prompt. |
 | `OnClose` | `0x0058b5e0-0x0058b5fc` | Hides the pane and invalidates its region. |
-| Reconnect/leave callback | `0x0058b620-0x0058b64f`, [UID:0001JD][0x0058b620-0x0058b64e.TerminalPaneReconnectLeaveCallback](by-memory/0x0058b620-0x0058b64e.TerminalPaneReconnectLeaveCallback.md) | Callback used by the reconnect/leave alert; reconnect branch restarts terminal timer, leave branch exits through the application path. |
+| Reconnect/leave callback | `0x0058b620-0x0058b64f`, [UID:0001JD][0x0058b620-0x0058b64f.TerminalPaneReconnectLeaveCallback](by-memory/0x0058b620-0x0058b64f.TerminalPaneReconnectLeaveCallback.md) | Callback used by the reconnect/leave alert; reconnect branch restarts terminal timer, leave branch exits through the application path. |
 | Thunks/destructor | [UID:0001JK][0x0058dc01-0x0058dc16.TerminalPaneAdjustorThunks](by-memory/0x0058dc01-0x0058dc16.TerminalPaneAdjustorThunks.md), `0x0058dc60-0x0058dca5` | Adjustor thunks and scalar deleting destructor; destructor clears [UID:0000SF][g_pTerminalPane](by-global/g_pTerminalPane.md). |
 
 ## Live IDA Evidence
@@ -51,12 +51,17 @@
 - [UID:0000SF][g_pTerminalPane](by-global/g_pTerminalPane.md)
 - [UID:0001HW][0x00574d40-0x00574e44.SendPositionUpdate](by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md)
 - [UID:0001JC][0x0058b130-0x0058b44b.TerminalPaneStreamParser](by-memory/0x0058b130-0x0058b44b.TerminalPaneStreamParser.md)
-- [UID:0001JD][0x0058b620-0x0058b64e.TerminalPaneReconnectLeaveCallback](by-memory/0x0058b620-0x0058b64e.TerminalPaneReconnectLeaveCallback.md)
+- [UID:0001JD][0x0058b620-0x0058b64f.TerminalPaneReconnectLeaveCallback](by-memory/0x0058b620-0x0058b64f.TerminalPaneReconnectLeaveCallback.md)
 - [UID:0001JK][0x0058dc01-0x0058dc16.TerminalPaneAdjustorThunks](by-memory/0x0058dc01-0x0058dc16.TerminalPaneAdjustorThunks.md)
 - [UID:0000MJ][PhoneBookDialog](by-file/PhoneBookDialog.md)
 - [UID:0000BR][ReconnectDialog](by-class/ReconnectDialog.md)
 
 ## Changes
+
+- 2026-06-06:
+  - Before: the reconnect/leave callback row had the correct half-open address text but linked to the short `0x0058b620-0x0058b64e` filename.
+  - After: updated the [UID:0001JD][0x0058b620-0x0058b64f.TerminalPaneReconnectLeaveCallback](by-memory/0x0058b620-0x0058b64f.TerminalPaneReconnectLeaveCallback.md) link to [UID:0001JD][0x0058b620-0x0058b64f.TerminalPaneReconnectLeaveCallback](by-memory/0x0058b620-0x0058b64f.TerminalPaneReconnectLeaveCallback.md).
+  - Why: live IDA MCP confirms the callback is a `0x2f`-byte function ending at exclusive `0x0058b64f`.
 
 - 2026-06-04:
   - Before: scored `84/76`, reconstructability and parent attachment were blank, and the page still had stale source-reference wording.

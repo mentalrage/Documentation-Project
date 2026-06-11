@@ -1,8 +1,8 @@
 *** UID:0000DN | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000O1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -52,3 +52,5 @@
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `84`, confidence `86`.
 - Evidence: the page documents pane behavior, source placement, main range, constructor/destructor/reset/draw/key/mouse/message/destructor methods, player spell-slot model, and sibling relationships; remaining completion gap is deeper field naming and source-ready C++.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000O1][SpellInventoryPane](by-file/SpellInventoryPane.md).
+- Evidence: live IDA MCP `lookup_funcs` confirms the documented spell inventory constructor, destructor, reset, draw, keyboard, mouse, message, and scalar deleting destructor anchors from `0x0057c2d0` through `0x0057f6a0`; both class (`84/86`) and parent file (`82/82`) meet the 80/80 gate.

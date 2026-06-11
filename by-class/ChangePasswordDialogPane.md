@@ -1,8 +1,8 @@
 *** UID:00001L | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000I3 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -63,3 +63,4 @@
 - What existed before: the page had strong password-dialog and packet-helper evidence, but completion/confidence metadata was still `0/0`.
 - What it was changed to: scores were set to `82/88`.
 - Summary and evidence: constructor variants, validation, submit, send/reply packet helpers, menu launcher, and destructor family are documented; exact original file fold with login/account dialogs remains the main open item.
+- 2026-06-05: Reclassified autogen metadata from unclassified to `RECONSTRUCTABLE:TRUE` and attached the class to [UID:0000I3][ChangePasswordDialogPane](by-file/ChangePasswordDialogPane.md). Current IDA MCP `lookup_funcs` reconfirmed constructor/action/validation/submit/send/reply/destructor starts at `0x004fdd40`, `0x004fe460`, `0x004fe490`, `0x004fe560`, `0x004fe9e0`, `0x004febf0`, and `0x00502650`, and `callers` shows the dialog constructor reached from main-menu/password launcher paths. Both class (`82/88`) and file (`80/84`) clear the 80+ attachment gate; reconstruction C++ remains blank pending final field names and source split.

@@ -1,6 +1,6 @@
 *** UID:0000OR | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Thread
@@ -9,7 +9,7 @@
 
 - Proposed module: `util/Thread.cpp`
 - Proposed header: `util/Thread.h`
-- Confidence: strong for utility/threading ownership, medium for exact original folder.
+- Confidence: strong for utility/threading ownership and the `Thread`/`ThreadMan` source root, medium-high for exact original folder.
 - Current recovered source: `source-3/simroot_v2/class_Thread.cpp`
 - Related recovered source: `source-3/simroot_v2/class_ThreadMan.cpp`
 
@@ -38,6 +38,7 @@ Thread depends on [UID:0000N8][RingBuffer](by-file/RingBuffer.md), [UID:0000LI][
 - `Thread::Thread` constructs two `RingBuffer(24, messageSize)` instances, a `Monitor`, a `List(8, 16)`, a Win32 semaphore, and a suspended `_beginthreadex` worker.
 - `Thread::ThreadProc` waits on the primary semaphore and additional handles, dispatches asynchronous and synchronous messages through virtual handlers, stores sync-message results, and signals caller events.
 - `Thread` constructor callers at `0x0041a69b`, `0x0045393b`, `0x004700dd`, `0x005281db`, and `0x00574812` indicate broad derived-thread reuse.
+- 2026-06-08 IDA MCP parent-gate audit tightened the base `Thread` class evidence: `Thread::ThreadProc` at `0x00596810` dispatches secondary wait-handle notifications through vtable offset `+0x34`; the base `Thread` vtable at `0x0062e26c` stores [UID:0000WL][0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual](by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md) at that slot; and the `FileDownloader`, `MiniMapDownloader`, `BrowserThread`, and `MiscWorkThread` vtables retain the same inherited default slot.
 - `ThreadMan::ThreadMan` writes `g_pThreadMan` at `0x0069be08`, checks `IsDebuggerPresent`, creates a task list, and starts a manager worker thread.
 - `ThreadMan` constructs `List(20, 16)` for watchdog records and its worker loop consumes Win32 messages `0x0464-0x0468`.
 - The raw ThreadMan helper gap at [UID:0001K1][0x00596d20-0x00596e0b.ThreadManRawMessageWrappers](by-memory/0x00596d20-0x00596e0b.ThreadManRawMessageWrappers.md) posts those same Win32 message ids with `PostThreadMessageW`; active generated output currently omits the gap.
@@ -79,6 +80,10 @@ Use `util/Thread.cpp` for both `Thread` and `ThreadMan` until contrary evidence 
 
 ## Changes
 
+- 2026-06-08 A001 Batch100 parent/source refresh:
+  - Before: `COMPLETION:88`, `CONFIDENCE:80`.
+  - After: `COMPLETION:89`, `CONFIDENCE:85`.
+  - Evidence: live IDA MCP refreshed the base `Thread` vtable/dispatch relationship by tying `Thread::ThreadProc` non-primary wait-handle dispatch at offset `+0x34` to the inherited [UID:0000WL][0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual](by-memory/0x0041b6b0-0x0041b6b3.ThreadDefaultNoOpVirtual.md) slot across the base and derived thread/downloader vtables. This strengthens the file-level source-root confidence while preserving the exact-folder and final helper-name caveats.
 - 2026-05-30: Scored documentation completeness/confidence.
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `88` and confidence to `80`.

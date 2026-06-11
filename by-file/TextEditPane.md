@@ -1,17 +1,17 @@
 *** UID:0000ON | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # TextEditPane
 
 ## Status
 
-- Confidence: strong for `TextEditPane`, `TextEditScrap`, `TextEditObject`, `EPFTextEditObject`, `TextRunMeasureCallback`, and `DrawTextRunCallback` belonging to one text-edit implementation module; medium for whether `TextFilter` lived in the same original file.
+- Confidence: strong for `TextEditPane`, `TextEditScrap`, `TextEditObject`, `EPFTextEditObject`, `TextRunMeasureCallback`, and `DrawTextRunCallback` belonging to one text-edit implementation module; `TextFilter` is now treated as a neighboring separate file rather than a confidence limiter for this module.
 - Proposed module: `ui/controls/TextEditPane.cpp`
 - Proposed header: `ui/controls/TextEditPane.h`
 - Current recovered sources: `source-3/simroot_v2/class_TextEditPane.cpp`, `class_TextEditScrap.cpp`, `class_TextEditObject.cpp`, `class_EPFTextEditObject.cpp`, and `recovered/DrawTextRunCallback_00593DB0.cpp`
-- Main address clusters: `0x0058dce0-0x005917c8`, `0x00591d60-0x00594e11`, `0x00594e60-0x00595758`, and mixed scrollbar handler families at `0x0055d960-0x00565488`
+- Main address clusters: `0x0058dce0-0x005917c9`, `0x00591d60-0x00594e11`, [UID:0002XX][0x00594e60-0x00595760.TextEditSupportObjects](by-memory/0x00594e60-0x00595760.TextEditSupportObjects.md), and mixed scrollbar handler families at `0x0055d960-0x00565488`
 
 ## File Role
 
@@ -27,8 +27,9 @@ This module owns the rich text editing pane used by dialogs and input controls. 
 | [UID:0002O9][0x0058e380-0x0058e3d7.TextEditPaneCopyWideText](by-memory/0x0058e380-0x0058e3d7.TextEditPaneCopyWideText.md) | `0x0058e380-0x0058e3d7` | Bounded UTF-16 text copy helper used by [UID:0000OM][TextEditControlPane](by-file/TextEditControlPane.md) and other input/text callers. |
 | `TextRunMeasureCallback` | `0x00593c20-0x00593ce4` | File-local/free callback used by text-run iteration/layout to accumulate remaining row width. |
 | `DrawTextRunCallback` | `0x00593db0-0x00593ef5` | File-local/free callback passed to `TextEditPane::IterateTextRuns` by draw and invalidation paths. |
+| [UID:0002XX][0x00594e60-0x00595760.TextEditSupportObjects](by-memory/0x00594e60-0x00595760.TextEditSupportObjects.md) | `0x00594e60-0x00595760` | Exact child split for `TextEditObject`, `TextEditScrap`, `EPFTextEditObject`, and the trailing alignment before `TextFilter`. |
 | `TextEditObject` | `0x00594e60-0x005956ad` in small ranges | Base object for inline/edit payloads, derived from `LObject`. |
-| `TextEditScrap` | `0x00594f30-0x00595758` in small ranges | Clipboard scrap buffer storing copied UTF-16 text and optional style payload. |
+| `TextEditScrap` | `0x00594f30-0x00595759` in small ranges | Clipboard scrap buffer storing copied UTF-16 text and optional style payload. |
 | `EPFTextEditObject` | `0x005954c0-0x0059566d` | Inline text edit object that loads `SYMBOLS.EPF` or `SYMBOLS.EPD` frames. |
 | Text-edit free helpers | `0x005917d0`, `0x00594b50` | Clipboard publication and word-boundary/navigation helpers used by `TextEditPane`. |
 | `EncodeTextEditState` | `0x0058e490-0x0058e690` | Serializes text-edit table buffers through [UID:00004F][Encoder](by-class/Encoder.md). |
@@ -40,7 +41,7 @@ Keep the support classes and file-local callbacks in this module for now. The ad
 
 Keep [UID:0000OM][TextEditControlPane](by-file/TextEditControlPane.md) as a neighboring adapter file. It is a `ControlPane` wrapper with broad dialog constructor fan-in and control type `5`; it allocates and owns a `TextEditPane`, but it is not the editor implementation itself.
 
-Keep [UID:0000OO][TextFilter](by-file/TextFilter.md) provisional as a separate file. It sits immediately after the text-edit support objects, but its singleton startup and chat/mail sanitization behavior make it broader than one editor pane.
+Keep [UID:0000OO][TextFilter](by-file/TextFilter.md) as a separate file. It sits immediately after the text-edit support objects, but its singleton startup and chat/mail sanitization behavior make it broader than one editor pane. The split boundary is now documented by [UID:0002XX][0x00594e60-0x00595760.TextEditSupportObjects](by-memory/0x00594e60-0x00595760.TextEditSupportObjects.md) and [UID:0001JU][0x00595760-0x005958fe.TextFilterAndSanitizer](by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md).
 
 Keep [UID:0000IH][CopyWindow](by-file/CopyWindow.md) as a neighboring dialog source. It consumes the active editor pointer and calls `TextEditPane::SelectAll`, but it is an `AlertPane` subclass with its own vtable and current Wave2 source-file evidence for `CopyWindow.cpp`.
 
@@ -79,7 +80,7 @@ Keep [UID:0000IH][CopyWindow](by-file/CopyWindow.md) as a neighboring dialog sou
 - [UID:0000K5][IMEPanes](by-file/IMEPanes.md)
 - [UID:0000R7][g_pIMEPane](by-global/g_pIMEPane.md)
 - [UID:0000Q7][g_pActiveTextEditPane](by-global/g_pActiveTextEditPane.md)
-- [UID:0001JM][0x0058dce0-0x005917c8.TextEditPaneCore](by-memory/0x0058dce0-0x005917c8.TextEditPaneCore.md)
+- [UID:0001JM][0x0058dce0-0x005917c9.TextEditPaneCore](by-memory/0x0058dce0-0x005917c9.TextEditPaneCore.md)
 - [UID:0002O9][0x0058e380-0x0058e3d7.TextEditPaneCopyWideText](by-memory/0x0058e380-0x0058e3d7.TextEditPaneCopyWideText.md)
 - [UID:0001JP][0x00591d60-0x00593a10.TextEditPaneFormattingRuns](by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md)
 - [UID:0001JQ][0x00593c20-0x00593ce4.TextRunMeasureCallback](by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md)
@@ -89,11 +90,21 @@ Keep [UID:0000IH][CopyWindow](by-file/CopyWindow.md) as a neighboring dialog sou
 - [UID:0001GJ][0x0055d960-0x00565488.TextEditPaneScrollbarVariants](by-memory/0x0055d960-0x00565488.TextEditPaneScrollbarVariants.md)
 - [UID:0000UK][DrawTextRunCallback_00593DB0](by-item/DrawTextRunCallback_00593DB0.md)
 - [UID:0000UM][EncodeTextEditState_0058E490](by-item/EncodeTextEditState_0058E490.md)
-- [UID:0001JN][0x0058e490-0x0058e690.TextEditPaneSerialization](by-memory/0x0058e490-0x0058e690.TextEditPaneSerialization.md)
+- [UID:0001JN][0x0058e490-0x0058e691.TextEditPaneSerialization](by-memory/0x0058e490-0x0058e691.TextEditPaneSerialization.md)
 - [UID:000169][0x004ba540-0x004ba6ad.CompositePixels16](by-memory/0x004ba540-0x004ba6ad.CompositePixels16.md)
 - [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md)
 
 ## Changes
+
+- 2026-06-07 A004 Batch 046 range sync:
+  - Updated [UID:0001JM][0x0058dce0-0x005917c9.TextEditPaneCore](by-memory/0x0058dce0-0x005917c9.TextEditPaneCore.md) to the corrected half-open endpoint `0x0058dce0-0x005917c9` after IDA MCP confirmed the final `sub_591740` body spans through byte `0x005917c8` and the next function starts at `0x005917d0`.
+  - Score unchanged at `88/85`; this edit only syncs a child memory-range filename and endpoint.
+
+- 2026-06-07 A005 Batch 047 parent-gate refresh:
+  - Before: `88/80`, with confidence capped by the unresolved `TextFilter` adjacency question.
+  - After: `88/85`; the file now treats `TextFilter` as a separate neighboring source and owns the exact [UID:0002XX][0x00594e60-0x00595760.TextEditSupportObjects](by-memory/0x00594e60-0x00595760.TextEditSupportObjects.md) child split.
+  - Evidence: live IDA confirms the support-object destructor ends at `0x00595759`, `TextFilter` starts at `0x00595760`, and the support-object cluster remains tied to the editor's inline-object and scrap behavior.
+  - Assignment effect: enables [UID:0002XX][0x00594e60-0x00595760.TextEditSupportObjects](by-memory/0x00594e60-0x00595760.TextEditSupportObjects.md) assignment under the corrected child-and-parent `85/85` gate.
 
 - 2026-06-01: Set projected reconstruction path to `NexusTK/ui/controls/` and updated the scrollbar aggregate endpoint.
   - Evidence: this page already proposes `ui/controls/TextEditPane.cpp`; IDA MCP recheck of [UID:0001GJ][0x0055d960-0x00565488.TextEditPaneScrollbarVariants](by-memory/0x0055d960-0x00565488.TextEditPaneScrollbarVariants.md) shows the enclosing scrollbar corridor ends at `0x00565488`.

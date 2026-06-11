@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JL | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,6 @@
 - Likely source file: [UID:0000JL][FrameChrome](by-file/FrameChrome.md)
 - Address range: [UID:00015O][0x004b73b0-0x004b7661.FramePartPane](by-memory/0x004b73b0-0x004b7661.FramePartPane.md)
 - Vtable/layout anchor: [UID:0001XO][FrameChromeVtableFamily](by-type/by-vtable/FrameChromeVtableFamily.md); exact data child [UID:0002NH][0x0061a7f8-0x0061a880.FramePartPaneVtableData](by-memory/0x0061a7f8-0x0061a880.FramePartPaneVtableData.md)
-- Current recovered file: `source-3/simroot_v2/class_FramePartPane.cpp`
 
 ## Class Purpose
 
@@ -28,11 +27,11 @@ The five active frame-part pointers are tracked in [UID:0001PF][0x0069b33c-0x006
 
 | Method | Address | Role |
 | --- | --- | --- |
-| `OnNotification` | `0x004b73b0-0x004b7401` | Handles `goog`, dismisses pane, and clears five global frame-part slots. |
-| `OnPaintFrame` | `0x004b7410-0x004b7480` | Loads `FRMPART.EPF` or `FRMPART.EPD` and draws the image. |
-| `FramePartPane::FramePartPane` | `0x004b7480-0x004b7515` | Constructs base pane, stores part index, sets bounds, registers notification. |
-| `~FramePartPane` | `0x004b7520-0x004b758f` | Unregisters notification, detaches from layer, destroys base. |
-| `ScalarDeletingDestructor` | `0x004b75b0-0x004b7660` | Destructor/delete wrapper. |
+| `OnNotification` | `0x004b73b0-0x004b7401` | Handles `goog`, dismisses pane through the frame/layer helper, and clears five global frame-part slots. |
+| `OnPaintFrame` | `0x004b7410-0x004b7480` | Selects `FRMPART.EPF`/`FRMPART.EPD`, uses the part index at `+0xf8`, and draws the frame image. |
+| `FramePartPane::FramePartPane` | `0x004b7480-0x004b7515` | Constructs base pane, stores part index, sets bounds, and registers `goog` notification. |
+| `~FramePartPane` | `0x004b7520-0x004b7590` | Unregisters `goog`, detaches from layer, and destroys the pane base. |
+| `ScalarDeletingDestructor` | `0x004b75b0-0x004b7661` | Destructor/delete wrapper with optional delete guard. |
 
 ## Evidence Notes
 
@@ -42,6 +41,7 @@ The five active frame-part pointers are tracked in [UID:0001PF][0x0069b33c-0x006
 - IDA MCP confirms three `FramePartPane` vtable bases at `0x0061a7fc`, `0x0061a848`, and `0x0061a878`; current generated metadata reports `vtable_count: 0`.
 - 2026-05-31 IDA MCP proves exact vtable-data child [UID:0002NH][0x0061a7f8-0x0061a880.FramePartPaneVtableData](by-memory/0x0061a7f8-0x0061a880.FramePartPaneVtableData.md), starting at the primary RTTI locator and ending before non-vtable constant `0x0061a880` and `GeneralPurposePanel` RTTI at `0x0061a884`.
 - 2026-05-26 IDA MCP recheck corrects the exact factory span to `0x004b7120-0x004b731f` end-exclusive, confirms `0x004b7320` remains not-a-function, and confirms the five `0x0069b33c-0x0069b34c` slot xrefs still split across factory writes, raw cleanup reads/clears, and `OnNotification` clears.
+- 2026-06-06 IDA MCP recheck of [UID:00015O][0x004b73b0-0x004b7661.FramePartPane](by-memory/0x004b73b0-0x004b7661.FramePartPane.md) confirms exact child boundaries, five factory constructor calls, vtable-only refs for notification/paint/scalar destruction, part index at `+0xf8`, three vtable-view writes at `+0x00/+0xa0/+0xa4`, `goog` unregister/detach/base cleanup, scalar optional delete, and padding around the modeled bodies.
 
 ## Cross-References
 
@@ -62,3 +62,7 @@ The five active frame-part pointers are tracked in [UID:0001PF][0x0069b33c-0x006
   - Before: class metadata did not explicitly mark the class reconstructable, and vtable evidence named the bases without an exact `.rdata` child.
   - After: class metadata is reconstructable, scoring is `84/88`, and the exact vtable-data child [UID:0002NH][0x0061a7f8-0x0061a880.FramePartPaneVtableData](by-memory/0x0061a7f8-0x0061a880.FramePartPaneVtableData.md) is linked.
   - Summary/evidence: IDA MCP dword and xref checks prove the exact RTTI/vtable span and exclude the non-vtable constant at `0x0061a880` and next `GeneralPurposePanel` RTTI from the class vtable.
+- 2026-06-06:
+  - Before: class autogen parent was blank and the method table still used inclusive-looking destructor/scalar destructor endpoint text.
+  - After: class autogen parent is [UID:0000JL][FrameChrome](by-file/FrameChrome.md), the generated-source filename note was removed, and method ranges use exact end-exclusive boundaries.
+  - Summary/evidence: the class and file pages are both above the parent-attachment threshold, and the linked memory aggregate now records the live IDA function sizes and boundary bytes.

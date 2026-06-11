@@ -1,8 +1,8 @@
 *** UID:000071 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KK | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -69,3 +69,7 @@
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `86/88`. Summary: the localization singleton is well documented across purpose, layout, lifecycle, lookup helpers, naming evidence, and caveats, with only the adjacent zero-initializer and final generated split preventing a higher score. Evidence: documented `str.res` ownership, `g_pLanguageMan`, lookup/helper ranges, destructor body, RTTI/name evidence, and LanguageManager alias analysis.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000KK][LanguageMan](by-file/LanguageMan.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving the localization singleton class unclassified in generated class coverage.
+  - After: set `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000KK`; left the C++ block blank because the page is below the final reconstruction bar.
+  - Summary/evidence: live IDA MCP reconfirms real starts at `0x004f0010`, `0x004f0290`, `0x004f0350`, `0x004f0380`, `0x004f03c0`, and `0x004f03d0`, with `LanguageMan`/`Singleton<LanguageMan>` RTTI/name records and no `LanguageManager` name records. The class score `86/88` and parent score `88/84` meet the 80/80 attachment gate.

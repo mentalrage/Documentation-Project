@@ -2,7 +2,7 @@
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:000089 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Kind: metadata row tree node.
 - Owner: [UID:000089][MetaTable](by-class/MetaTable.md) inside [UID:0000LC][MetaMan](by-file/MetaMan.md)
 - Confidence: strong for size and major fields; medium for final field names.
+- Autogen parent: attached to [UID:000089][MetaTable](by-class/MetaTable.md); the class scores `84/80` and this node page scores `80/87`, so both sides satisfy the 80/80 parent gate.
 - Evidence basis: IDA MCP decompilation of [UID:0001CD][0x00524d10-0x00525914.MetaTableRowTreeHelpers](by-memory/0x00524d10-0x00525914.MetaTableRowTreeHelpers.md) on 2026-05-25 plus live helper-endpoint and sentinel-allocation audit on 2026-06-03. `wave3.py` was not executed for this pass.
 
 ## Purpose
@@ -78,6 +79,7 @@ MetaTableRowNode                         // size 0x34
 
 ## Changes
 
+- 2026-06-06: Attached the row-node layout to [UID:000089][MetaTable](by-class/MetaTable.md). Scores remain `80/87`; this parent metadata sync follows the documented MetaTable tree ownership and existing 80/80 class gate.
 - Before: completion/confidence metadata was unevaluated at `0/0`; `RECONSTRUCTABLE` was blank.
 - Changed to: completion `80`, confidence `87`, `RECONSTRUCTABLE:TRUE`.
 - Summary/evidence: IDA MCP rechecked the row allocator, initializer, vector-grow helper, row payload destructor, and lookup walk on 2026-05-31. The node size, link fields, key location, value-vector span, and sentinel byte are now directly documented. Scores remain below `95` because final field names, red/black polarity, and original container spelling are still not fully proven.

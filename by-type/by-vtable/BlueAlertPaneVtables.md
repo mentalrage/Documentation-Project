@@ -1,8 +1,8 @@
 *** UID:0001X3 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00000Y | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Likely source file: [UID:0000HE][AlertPanes](by-file/AlertPanes.md), pending live constructor reachability.
 - Exact vtable-data range: [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md).
 - Confidence: strong for vtable bases, constructor stores, custom virtual slots, and the end boundary before `UserHairSelectControlPane`; medium for live construction/source reachability.
+- Autogen status: attached to the `BlueAlertPane` class page; final C++ remains blank under the `95/95` reconstruction gate.
 
 ## Vtable Bases
 
@@ -61,6 +62,10 @@ Model `BlueAlertPane` as a `DialogPane`-derived blue-frame alert variant with th
 
 The primary table overrides dialog painting and action handling while retaining inherited dialog/input/event slots around them. The drawing methods use `BDFRAME.EPF` resource frames through the shared EPF/render path; the generated `g_uiTileRenderer` name is a data alias until a render-global pass proves backing storage.
 
+## Parent Rationale
+
+Attach this vtable cluster to [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md) because the three tables are installed by `BlueAlertPane::BlueAlertPane`, the custom slots point to the class action and drawing methods, and the class page already records the same exact [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md) range. The class itself is attached to [UID:0000HE][AlertPanes](by-file/AlertPanes.md), so this assignment gives generated type coverage the correct source-level owner while preserving the unresolved live-construction caveat.
+
 ## Cross-References
 
 - [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md)
@@ -74,6 +79,11 @@ The primary table overrides dialog painting and action handling while retaining 
 - [UID:0000SV][g_uiTileRenderer](by-global/g_uiTileRenderer.md)
 
 ## Changes
+
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable cluster was reconstructable but unassigned in generated type coverage, while the owning `BlueAlertPane` class was already attached to [UID:0000HE][AlertPanes](by-file/AlertPanes.md).
+  - What changed: attached the vtable cluster to [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md), raised completion to `84`, and added an explicit parent rationale.
+  - Summary/evidence: constructor stores at `0x00500920`, `0x00500926`, and `0x00500930`, custom virtual slots for action/content/border drawing, and exact [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md) tie the tables to the class; confidence stays below final-source level because direct construction reachability remains unresolved.
 
 - What existed before: the vtable cluster page identified the three `BlueAlertPane` vtable bases and constructor stores, but it had unevaluated scores and no exact by-memory child range for the table bytes.
 - What it was changed to: the page now points to [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md), is marked reconstructable, and has completion/confidence scores reflecting the IDA-verified vtable data.

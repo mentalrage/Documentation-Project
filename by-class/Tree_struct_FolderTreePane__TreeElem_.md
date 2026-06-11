@@ -1,5 +1,5 @@
 *** UID:0000F9 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000JG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -28,7 +28,7 @@ This is the current concrete label for `Tree<FolderTreePane::TreeElem>`, embedde
 | Method | Address | Role |
 | --- | --- | --- |
 | destructor cleanup fragment | `0x004b5650-0x004b5668` | Resets the tree vtable, destroys embedded storage, and jumps to `LObject` teardown. IDA associates this block with `FolderTreePane` constructor EH cleanup, so it is not a clean direct-called standalone function. |
-| scalar-deleting destructor | `0x004b59f0-0x004b5a38` | Restores tree vtable, destroys embedded storage, tears down `LObject`, and optionally deletes. |
+| scalar-deleting destructor | [UID:00034I][0x004b59f0-0x004b5a38.FolderTreeScalarDeletingDestructor](by-memory/0x004b59f0-0x004b5a38.FolderTreeScalarDeletingDestructor.md) | Restores tree vtable, destroys embedded storage, tears down `LObject`, and optionally deletes. |
 | `ResetToSingleRoot` | [UID:0002MY][0x004b5b00-0x004b5bae.FolderTreeResetToSingleRoot](by-memory/0x004b5b00-0x004b5bae.FolderTreeResetToSingleRoot.md) | Destroys existing node names, rewinds storage, and creates one root record with link fields set to `-1`. |
 
 ## Evidence Notes
@@ -44,7 +44,7 @@ This is the current concrete label for `Tree<FolderTreePane::TreeElem>`, embedde
 
 | Field | Value | Rationale |
 | --- | ---: | --- |
-| Completion | 84 | The page now records live vtable identity/slots/xrefs, destructor cleanup handling, scalar destructor behavior, reset helper child page, storage/type/template ownership, parent file placement, and reconstruction gating. |
+| Completion | 85 | The page now records live vtable identity/slots/xrefs, destructor cleanup handling, scalar destructor child evidence, reset helper child page, storage/type/template ownership, parent file placement, and reconstruction gating. |
 | Confidence | 88 | Confidence is strong because live IDA ties the tree wrapper to `FolderTreePane` construction/destruction and the named `Tree<FolderTreePane::TreeElem>` vtable; final template spelling/header factoring and field names remain inferred. |
 | Reconstructable | true | This is source-owned folder-tree template support, but final C++ remains blank below the 95/95 final-source threshold. |
 
@@ -54,6 +54,7 @@ This is the current concrete label for `Tree<FolderTreePane::TreeElem>`, embedde
 - [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md)
 - [UID:000157][0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers](by-memory/0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers.md)
 - [UID:000158][0x004b5650-0x004b5668.FolderTreePaneTreeDestructorCleanup](by-memory/0x004b5650-0x004b5668.FolderTreePaneTreeDestructorCleanup.md)
+- [UID:00034I][0x004b59f0-0x004b5a38.FolderTreeScalarDeletingDestructor](by-memory/0x004b59f0-0x004b5a38.FolderTreeScalarDeletingDestructor.md)
 - [UID:0002MY][0x004b5b00-0x004b5bae.FolderTreeResetToSingleRoot](by-memory/0x004b5b00-0x004b5bae.FolderTreeResetToSingleRoot.md)
 - [UID:0001UJ][FolderTreePane__TreeElem](by-type/by-struct/FolderTreePane__TreeElem.md)
 - [UID:0001WP][FolderTreePaneTreeTemplates](by-type/by-template/FolderTreePaneTreeTemplates.md)
@@ -69,3 +70,7 @@ This is the current concrete label for `Tree<FolderTreePane::TreeElem>`, embedde
   - Changed to: `COMPLETION:84`, `CONFIDENCE:88`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000JG`.
   - Evidence: live IDA MCP confirmed the named tree vtable at `0x0061a500`, vtable slots and xrefs from `FolderTreePane` construction/destruction/cleanup, scalar deleting destructor range and storage/base teardown behavior, reset helper callers and root-record initialization, EH-only cleanup fragment xref, and padding around the helper methods.
   - Remaining limits: final C++ stays blank because exact original template spelling/header factoring and field names are still below the final-source bar.
+- 2026-06-10 B001-028 parent-gate repair:
+  - Changed to: `COMPLETION:85`, retaining `CONFIDENCE:88`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000JG`.
+  - Evidence: the B001-028 split created [UID:00034I][0x004b59f0-0x004b5a38.FolderTreeScalarDeletingDestructor](by-memory/0x004b59f0-0x004b5a38.FolderTreeScalarDeletingDestructor.md), giving this class page an exact child for the scalar deleting destructor in addition to the existing reset and EH-cleanup evidence.
+  - Gate decision: the child class now clears the strict `85/85` gate against [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md), so dependent tree-wrapper children may attach when they also clear `85/85`.

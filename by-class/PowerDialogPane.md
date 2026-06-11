@@ -1,8 +1,8 @@
 *** UID:0000AP | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,7 +15,7 @@
 - Confidence: strong for dialog ownership, medium for exact original filename.
 - Likely source file: [UID:0000MO][PowerDialogPane](by-file/PowerDialogPane.md)
 - Address range: [UID:0001F6][0x00549c20-0x0054b5d5.PowerDialogPane](by-memory/0x00549c20-0x0054b5d5.PowerDialogPane.md)
-- Current recovered sources: `source-3/simroot_v2/class_PowerDialogPane.cpp` and the constructor currently mis-emitted in `source-3/simroot_v2/class_PowerListPane.cpp`.
+- Generated-output caveat: recovered one-class output splits the dialog/list material and mis-emits the constructor under `PowerListPane`; the IDA-backed ownership notes below are the authority for reconstruction.
 
 ## Class Purpose
 
@@ -47,7 +47,7 @@ The dialog contains four embedded [UID:0000AQ][PowerListPane](by-class/PowerList
 - IDA MCP confirms `0x00549c20` is a real `0x852`-byte function and is called from `MapPane::HandlePacket` at `0x0050876a`, where packet case `0x46` allocates `740` bytes and calls this initializer with the packet payload.
 - 2026-05-26 IDA MCP recheck also reports a second caller at `0x00513b93` currently mislabeled `___std_parallel_algorithms_hw_threads@0_2`; keep that caller under review, but it does not change the constructor ownership.
 - IDA MCP callees for `0x00549c20` include the `DialogPane` constructor, `ListPane` constructor at `0x004f3a50`, list append helper at `0x004f3c50`, list sort helper at `0x004f3540`, and `MultiByteToWideChar`.
-- `source-3/simroot_v2/class_PowerListPane.cpp` explicitly shows the function calling `DialogPane::DialogPane(L"Power", -1, 1)` and writing three `PowerDialogPane` vtables before creating controls.
+- Constructor evidence records the function calling the `DialogPane` constructor and writing three `PowerDialogPane` vtables before creating controls.
 - IDA MCP xrefs to `0x0069ba34` show the constructor writes the dialog pointer at `0x0054a44c`, the cleanup/destructor clears it at `0x0054a49a` and `0x0054b540`, and `PowerListPane::OnMouseEvent` reads it at `0x0054b010` only to coordinate sibling list controls.
 - IDA MCP confirms `0x0054a480` and `0x0054a4b0` as real singleton cleanup/getter helpers, but direct `callers` and `xrefs_to` are empty in the current IDB.
 - IDA MCP confirms `0x0054b4f0`, `0x0054b4fb`, `0x0054b506`, and `0x0054b511` as four `0xb` adjustor thunks. These are now recorded in [UID:0000VN][-ignored](by-memory/-ignored.md).
@@ -57,6 +57,12 @@ The dialog contains four embedded [UID:0000AQ][PowerListPane](by-class/PowerList
 ## Source Layout Decision
 
 Move the full dialog constructor at `0x00549c20` into `PowerDialogPane`. Keep the embedded list class in the same likely original source module as a private/helper UI class. This matches the late-1999 through mid-2000s pattern already seen in other feature dialogs: a `DialogPane` subclass and its private row/list control class usually live in one `.cpp`/`.h` pair unless the control has broad reuse.
+
+## Parent Attachment Decision
+
+Attach this class to [UID:0000MO][PowerDialogPane](by-file/PowerDialogPane.md). The file page is scored `88/80`, stages under `NexusTK/ui/dialogs/`, and explicitly groups the dialog, feature-private [UID:0000AQ][PowerListPane](by-class/PowerListPane.md), singleton helpers, and corrected generated-owner split in one source module. The aggregate [UID:0001F6][0x00549c20-0x0054b5d5.PowerDialogPane](by-memory/0x00549c20-0x0054b5d5.PowerDialogPane.md) is already attached to that file-level root and records that class-level attachment was deferred only because this page was still below the confidence gate.
+
+Keep final C++ blank. The class is reconstructable source, but final output still needs a source-shape pass for packet row records, threshold/config field names, the second constructor caller at `0x00513b93`, generated owner pollution, and exact private-list/control boundaries.
 
 ## Cross-References
 
@@ -74,6 +80,20 @@ Move the full dialog constructor at `0x00549c20` into `PowerDialogPane`. Keep th
 
 ## Changes
 
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and left `AUTOGEN_PARENT_UID` blank.
+  - Before: reconstruction autogen classification was blank despite detailed power-dialog construction, action, paint, singleton, packet, and destructor documentation.
+  - After: classified as reconstructable source but intentionally unassigned.
+  - Evidence: live IDA MCP `lookup_funcs` confirms modeled starts at `0x00549c20`, `0x0054a480`, `0x0054a4b0`, `0x0054a4c0`, `0x0054a6f0`, `0x0054a7f0`, `0x0054b4f0`, `0x0054b4fb`, `0x0054b506`, `0x0054b511`, and `0x0054b520`; existing [UID:0000MO][PowerDialogPane](by-file/PowerDialogPane.md) evidence places the module under `NexusTK/ui/dialogs/`. Parent attachment is deferred because the class has `CONFIDENCE:78`, below the 80/80 attach gate.
+
 - Before: completion/confidence metadata were `0/0` despite detailed dialog purpose, constructor re-ownership, method map, layout notes, singleton evidence, packet behavior, and source-layout decision.
 - Changed to: `COMPLETION:86` and `CONFIDENCE:78`.
 - Evidence: IDA-backed constructor range, `OnDialogAction`, `OnPaint`, `ApplyPowerSlot`, singleton helpers, destructor/thunks, layout offsets, packet opcode `0x4c`, vtable/source-placement decisions, and Wave3 data caveats are documented; confidence stays medium-high because exact original filename and generated ownership pollution remain unresolved.
+
+- 2026-06-06 A006 provenance cleanup:
+  - Before: status/evidence lines cited recovered one-class source paths directly.
+  - Changed to: generated-output caveat wording that points back to the documented IDA-backed ownership evidence.
+  - Evidence: [UID:0001F5][0x00549c20-0x0054a472.PowerDialogPaneConstructor](by-memory/0x00549c20-0x0054a472.PowerDialogPaneConstructor.md), [UID:0001F6][0x00549c20-0x0054b5d5.PowerDialogPane](by-memory/0x00549c20-0x0054b5d5.PowerDialogPane.md), and the singleton/list pages already record the relevant boundary, vtable, caller, and global-xref proof.
+- 2026-06-07 A008 parent-chain refresh:
+  - What existed before: `CONFIDENCE:78` and no autogen parent, despite the file and aggregate docs meeting the parent gate.
+  - Changed to: `CONFIDENCE:82` and `AUTOGEN_PARENT_UID:0000MO`.
+  - Summary/evidence: existing IDA-backed file, memory, singleton, and constructor docs now support the class-level source-root chain through [UID:0000MO][PowerDialogPane](by-file/PowerDialogPane.md). The class page already documents the corrected `0x00549c20` dialog-constructor ownership, opcode `0x46` construction route, opcode `0x4c` action paths, `POWER.EPF` paint path, embedded private list controls, [UID:0000S0][g_pPowerDialog](by-global/g_pPowerDialog.md), ignored adjustor thunks, generated `0x0054aec0` exclusion, and broad-config threshold reads. C++ remains blank because final row/config names, private-list split, and the second constructor caller still need a final-source pass.

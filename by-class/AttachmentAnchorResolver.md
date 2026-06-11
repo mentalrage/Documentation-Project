@@ -1,5 +1,5 @@
 *** UID:00000O | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HL | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -14,7 +14,8 @@
 
 - Confidence: strong for behavior, modeled ranges, caller-backed light apply helper, and raw-neighbor caveats.
 - Likely source file: [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md)
-- Current recovered file: `source-3/simroot_v2/class_AttachmentAnchorResolver.cpp`
+- Documentation basis: IDA-confirmed anchor resolver/light-apply ranges plus the linked by-file and by-memory pages.
+- Reconstruction state: reconstructable custom map-overlay placement code; final C++ stays blank because raw helper reachability, original field names, and the final standalone-file-versus-private-helper split are not source-quality yet.
 
 ## Class Purpose
 
@@ -32,7 +33,7 @@
 | Method | Address | Role |
 | --- | --- | --- |
 | raw image/bounds metric helper | [UID:0002TX][0x0053c6b0-0x0053c6f7.AttachmentAnchorImageBoundsMetricRaw](by-memory/0x0053c6b0-0x0053c6f7.AttachmentAnchorImageBoundsMetricRaw.md) | Code-shaped no-function island that selects a global image/bounds table entry by `+0x128`; reachability unresolved. |
-| probable `ResolveAnchorPoint` | `0x0053c700-0x0053c802` | Resolves the source anchor into a screen point; current generated output emits this helper, but final field/type names remain provisional. |
+| probable `ResolveAnchorPoint` | `0x0053c700-0x0053c802` | Resolves the source anchor into a screen point; IDA confirms the modeled helper, but final field/type names remain provisional. |
 | `ComputeScreenBounds` | `0x0053c810-0x0053c92e` | Builds the image bounds rectangle and offsets it to the resolved anchor point plus local offsets. |
 | raw screen-bounds notification helper | [UID:0002TY][0x0053c930-0x0053c97b.AttachmentAnchorScreenBoundsNotifyRaw](by-memory/0x0053c930-0x0053c97b.AttachmentAnchorScreenBoundsNotifyRaw.md) | Code-shaped no-function island that calls `ComputeScreenBounds` and passes the rectangle through a global map/pane virtual slot. |
 | `ApplyLightAtAnchor` / light-table apply helper | [UID:0002TZ][0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight](by-memory/0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight.md) | Live caller-backed helper used after bounds/intersection and anchor-point resolution; calls global light table slot `+0x0c`. |
@@ -45,6 +46,12 @@
 - Anchor modes `2` and `4` use `BalloonObjectPane::GetAttachedScreenPos`.
 - Other modes fall back to world-to-screen conversion through [UID:0000L3][MapPane](by-file/MapPane.md).
 - The `+0x128` field is used as the image/bounds table index in `0x0053c810` and as the light-table index in `0x0053c9c0`; keep the final field name provisional until the shared table semantics are audited.
+
+## Attachment State
+
+- Parent attachment to [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md) is now above the 80% completion/confidence gate for both pages.
+- Exact modeled children are [UID:0001DH][0x0053c700-0x0053c92e.AttachmentAnchorResolver](by-memory/0x0053c700-0x0053c92e.AttachmentAnchorResolver.md) and [UID:0002TZ][0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight](by-memory/0x0053c9c0-0x0053c9eb.AttachmentAnchorApplyLight.md). The neighboring raw helper pages remain siblings, not proof of a larger continuous class range.
+- Do not attach this class under [UID:0000KO][LightingObjectPane](by-file/LightingObjectPane.md); the memory adjacency is explained by layout, while the callers and behavior keep these helpers in the attachment-anchor family.
 
 ## Evidence Notes
 
@@ -68,8 +75,15 @@
 
 - What existed before: the page identified the resolver methods and inferred fields but remained scored as unevaluated.
 - What it was changed to: scores were set to `70/84`, and class-shape notes were added for role, state, coordinate dependencies, and source placement.
-- Summary and evidence: the compact by-memory range and field/mode notes support strong behavior confidence; completion stays moderate because the generated output omits one helper and the final field names still need direct C++ reconstruction.
+- Summary and evidence: the compact by-memory range and field/mode notes support strong behavior confidence; completion stays moderate because raw helper reachability, the final source split, and final field names still need direct C++ reconstruction.
 - 2026-06-03 raw-neighbor update:
-  - Before: the method inventory only covered `0x0053c700` and `0x0053c810`, and still said active generated output omitted `0x0053c700`.
+  - Before: the method inventory only covered `0x0053c700` and `0x0053c810`, and did not integrate the adjacent raw/modeled helper siblings.
   - Changed to: `76/86`, `RECONSTRUCTABLE:TRUE`, parent [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md) at position `10`, and method inventory expanded with raw siblings at `0x0053c6b0`, `0x0053c930`, `0x0053c9f0`, plus modeled light-apply helper `0x0053c9c0`.
-  - Evidence: restarted IDA MCP function/xref checks, caller-context disassembly, decompilation of `0x0053c9c0`, raw pointer scans, and current `simroot_v2` source/source-map.
+  - Evidence: restarted IDA MCP function/xref checks, caller-context disassembly, decompilation of `0x0053c9c0`, and raw pointer scans.
+- 2026-06-06 provenance cleanup:
+  - Scores and autogen parent metadata unchanged.
+  - Summary/evidence: replaced stale recovered-output framing with the linked IDA/by-* evidence basis. C++ remains blank because raw helper reachability, field names, and final file split are not final-source quality.
+- 2026-06-06 attachment-gate cleanup:
+  - Before: the page stayed at `76/86` even though the modeled resolver, bounds, light-apply, and raw-neighbor split evidence was already cross-linked and the class was attached to a file root.
+  - Changed to: `82/86`, explicit reconstruction-state and attachment-state notes, and unchanged blank C++ below the 95/95 source gate.
+  - Evidence: the existing by-memory pages cover exact modeled ranges, caller-backed light apply behavior, raw sibling exclusions, layout offsets, and source-placement caveats; remaining unknowns are final names/source organization rather than coverage identity.

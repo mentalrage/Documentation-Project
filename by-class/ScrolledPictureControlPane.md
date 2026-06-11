@@ -1,8 +1,8 @@
 *** UID:0000CH | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NH | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -58,6 +58,11 @@
 - [UID:0000J3][EPFImageResources](by-file/EPFImageResources.md)
 
 ## Changes
+
+- 2026-06-05: Changed `RECONSTRUCTABLE` from blank to `TRUE` and assigned parent `0000NH`.
+  - Before: The EPF picture scroller remained unclassified in autogen coverage even though the class and parent file both met the 80/80 attach gate.
+  - After: The class contributes to `ScrolledPictureControlPane.cpp` as a reconstructable child without emitting final C++ yet.
+  - Evidence: Live IDA MCP lookup confirms constructor/destructor/timer/paint starts at `0x004ff7d0`, `0x004ff970`, `0x004ff9e0`, `0x004ffa60`, adjustor thunks at `0x00502550` and `0x0050255b`, and scalar deleting destructor `0x00502ab0`; parent [UID:0000NH][ScrolledPictureControlPane](by-file/ScrolledPictureControlPane.md) records the same EPF/palette control ownership.
 
 - 2026-05-30: Changed completion/confidence from `0/0` to `76/76`.
   - Before: The page was unevaluated despite documenting image scrolling behavior, constructor/destructor/timer/paint ranges, destructor thunks, and generated-owner pollution.

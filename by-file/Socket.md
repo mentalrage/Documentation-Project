@@ -1,6 +1,6 @@
 *** UID:0000NS | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/network/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Socket
@@ -62,6 +62,11 @@ network/
 
 Expected dependencies include `Thread`, `Application`/window access, configuration, memory allocation helpers, Winsock, Win32 serial APIs, and [UID:0000M9][PacketTransform](by-file/PacketTransform.md) helpers/tables. Feature packet construction should depend on this module through the recovered `QueueAndSendPacket`/request-send API or direct transport sends, not own the socket implementation.
 
+## Score Rationale
+
+- Completion `88`: the page covers the Socket source root, transport responsibilities, generated container, important method/range families, packet-transform and packet-buffer split exclusions, packet-sender ownership, projected path, and related memory/global/class references.
+- Confidence `85`: Socket is the direct source root for the transport class and `g_packetSender` lifetime under the strict `85/85` gate. IDA-backed constructor/destructor, send/receive, transform, and global write/clear evidence support the assignment; confidence remains below near-final because exact original folder name, class fields, and the packet-transform/source split are still open.
+
 ## Open Questions
 
 - Whether the original folder was named `network`, `net`, or a flatter top-level source file group.
@@ -105,3 +110,6 @@ Expected dependencies include `Thread`, `Application`/window access, configurati
   - Before: validator reported the by-file root as missing `PROPOSED_RECONSTRUCTION_PATH`.
   - After: the page stages as `auto-generated/NexusTK/network/Socket.cpp`.
   - Evidence: `by-project-structure/proposed-source-tree.md` lists `network/Socket.cpp`, and this page's placement hypothesis uses `network/Socket.cpp` for the stateful transport class and `g_packetSender` lifetime.
+- 2026-06-10 A001 strict gate repair:
+  - Changed confidence from `82` to `85`.
+  - Summary/evidence: the page already documents a coherent Socket source root with constructor/destructor, transport setup, receive/send, transform, `g_packetSender` lifetime, projected path, and explicit file-split exclusions. This clears the direct-parent side of the corrected `85/85` gate for Socket-owned children while keeping final C++ blocked by field names, exact sender interface type, and packet-transform source split questions.

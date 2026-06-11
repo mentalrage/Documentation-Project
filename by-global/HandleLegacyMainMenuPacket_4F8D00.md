@@ -30,7 +30,7 @@ Observed behavior:
 - copies the following byte string into a local buffer and NUL-terminates it;
 - checks the shared packet/session object at [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / `dword_67A7EC`;
 - when the packet/session status probe succeeds but the returned status byte is false, constructs an `AlertPane` with localized string id `157` and requests application exit through the application object;
-- builds an outbound packet beginning with opcode `0x10`, appends the copied text, appends [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / `byte_66DA97`, zero-terminates the scratch byte after the sent payload, then queues `length + 2` bytes through the shared packet sender;
+- builds an outbound packet beginning with opcode `0x10`, appends the copied text, appends [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97`, zero-terminates the scratch byte after the sent payload, then queues `length + 2` bytes through the shared packet sender;
 - resets/opens the packet/session send state before the queue call;
 - triggers the optional global dimmer/modal callback at `dword_69AE08` with flag `1`;
 - calls `MetaMan::LoadMetaDatAndRequestSync` through [UID:0000RL][g_pMetaMan](by-global/g_pMetaMan.md).
@@ -42,7 +42,7 @@ The exact packet semantic name is still open. The durable ownership fact is that
 - Live IDA MCP on 2026-06-04 confirms `sub_4F8D00` at `0x004f8d00` with size `0x202`.
 - IDA MCP `callers 0x004f8d00` reports one direct caller: `0x004f74b7` inside `sub_4F6D80`.
 - IDA MCP decompilation of `sub_4F6D80` shows that call is the top-level `case 3` return path for `MainMenuPane::OnServerMessage`, passing `this - 40` and the message payload pointer from `a2 + 12`.
-- IDA MCP decompilation of `sub_4F8D00` confirms reads at payload offsets `+1`, `+5`, and `+7`, the bounded local copy from `payload + 8`, the failed-status `AlertPane` / application-exit branch, outbound opcode `0x10`, appended `byte_66DA97`, send length `stringLength + 2`, optional `dword_69AE08` callback, and final `sub_5228F0(dword_69B410)` metadata-sync call.
+- IDA MCP decompilation of `sub_4F8D00` confirms reads at payload offsets `+1`, `+5`, and `+7`, the bounded local copy from `payload + 8`, the failed-status `AlertPane` / application-exit branch, outbound opcode `0x10`, appended [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97`, send length `stringLength + 2`, optional `dword_69AE08` callback, and final `sub_5228F0(dword_69B410)` metadata-sync call.
 - IDA MCP callees for `0x004f8d00` include packet helpers `0x00575380`, `0x00575480`, `0x005754c0`, `0x00574b30`, `0x00574b50`, `0x00574bb0`, and `0x00574cd0`, allocator `0x004f4aa0`, `AlertPane` constructor `0x0049feb0`, application-exit helper `0x00464e40`, and metadata sync at `0x005228f0`.
 - IDA MCP disassembly confirms the helper is a `thiscall`-shaped function ending with `retn 4`, with the local 256-byte inbound string buffer and larger outbound scratch buffer visible in the stack frame.
 
@@ -83,4 +83,6 @@ Keep as a private/static helper in `login/MainMenuPane.cpp` or a small adjacent 
 - 2026-06-04 live IDA refresh:
   - Before: the page still included older non-IDA evidence and did not record the exact top-level dispatch or outbound packet shape from the current database.
   - Changed to: `COMPLETION:84`, `CONFIDENCE:88`, `RECONSTRUCTABLE:TRUE`, and parent [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md).
-  - Summary/evidence: live IDA MCP reconfirmed `sub_4F8D00` size `0x202`, single direct caller `0x004f74b7`, the `MainMenuPane::OnServerMessage` top-level `case 3` dispatch, payload reads at `+1`/`+5`/`+7`, the copied string from `payload + 8`, the failed-status `AlertPane`/exit branch, outbound opcode `0x10` with appended `byte_66DA97`, optional `dword_69AE08` callback, and final `g_pMetaMan` metadata-sync call. C++ remains blank because the helper has not reached the 95/95 reconstruction threshold.
+  - Summary/evidence: live IDA MCP reconfirmed `sub_4F8D00` size `0x202`, single direct caller `0x004f74b7`, the `MainMenuPane::OnServerMessage` top-level `case 3` dispatch, payload reads at `+1`/`+5`/`+7`, the copied string from `payload + 8`, the failed-status `AlertPane`/exit branch, outbound opcode `0x10` with appended [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / `byte_66DA97`, optional `dword_69AE08` callback, and final `g_pMetaMan` metadata-sync call. C++ remains blank because the helper has not reached the 95/95 reconstruction threshold.
+- 2026-06-07 A008 alias cleanup:
+  - Normalized the appended mode-byte evidence to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), retaining `byte_66DA97` as the historical IDA lookup alias.

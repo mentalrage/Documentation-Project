@@ -1,13 +1,13 @@
 *** UID:0000MR | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/profile/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ProfileDialog
 
 ## Status
 
-- Confidence: strong for `ProfileDialog` ownership and module placement, medium-high for one short unmodeled cleanup helper.
+- Confidence: strong for `ProfileDialog` ownership, module placement, and the dialog/storage split; medium-high for final source-visible destructor/thunk and field names.
 - Proposed module: `profile/ProfileDialog.cpp`
 - Current recovered source: `class_ProfileDialog.cpp`
 - Evidence basis: generated source, existing profile-storage notes, and IDA MCP boundary/xref/callee checks through 2026-06-01.
@@ -41,6 +41,7 @@ This should live under `profile/` near `ProfileStorage.cpp`, but it should not o
 - 2026-06-01 MCP recheck: constructor xrefs are `0x0053e139` and `0x005bd273`; the action-handler vtable/data ref is `0x00620fc8`; scalar deleting destructor refs are `0x00620f80`, `0x0054263f`, and `0x0054264a`; adjustor-thunk refs are `0x00620fe0` and `0x00621010`.
 - 2026-06-01 MCP recheck: callee evidence keeps storage refresh and persistence split out of this source. The action handler calls text read `0x00498c10`, sanitizer `0x005957c0`, `_wcscpy_s`, dialog apply/close `0x0049eb90`, refresh `0x005063e0`, and dispatcher notify `0x00469180`; the wrapper `0x0053fe90` is only `mov ecx, dword_67A764; jmp 0x005063e0`.
 - Raw byte review shows `0xcc` padding before the constructor at `0x0053f939-0x0053f940`, after the action handler at `0x0053fe87-0x0053fe90`, and after the wrapper at `0x0053fe9b-0x0053fea0`.
+- 2026-06-10 gate review reconciled the already-recorded IDA MCP evidence across the file, class, core memory, wrapper, and helper-index pages. The parent file now clears the current `85/85` attachment gate for the ProfileDialog class/core/helper chain while final C++ emission remains deferred below the `95/95` source-quality bar.
 
 ## Cross-References
 
@@ -59,3 +60,6 @@ This should live under `profile/` near `ProfileStorage.cpp`, but it should not o
 - 2026-06-01: Changed `PROPOSED_RECONSTRUCTION_PATH` from blank to `NexusTK/profile/`, raised completion/confidence from `82/78` to `84/82`, and added current IDA xref/callee/boundary evidence.
   - Before: the page had a proposed module name but no validator path and parent confidence was below the child-attachment threshold.
   - After: the source path is explicit and confidence is high enough for child pages to attach to this file while keeping final C++ reconstruction deferred.
+- 2026-06-10: Raised completion/confidence from `84/82` to `86/86`.
+  - Before: the file parent still sat below the current strict `85/85` child-assignment gate even though its child pages already contained endpoint, xref, callee, vtable, padding, and storage-split evidence.
+  - After: the file parent clears the gate for the ProfileDialog class, core memory range, destructor/helper index, and refresh wrapper. Final source emission remains blank because field/helper names and destructor/thunk source shape are not yet final.

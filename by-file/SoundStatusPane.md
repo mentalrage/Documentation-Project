@@ -1,7 +1,7 @@
 *** UID:0000NX | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SoundStatusPane
 
@@ -9,11 +9,11 @@
 
 - Confidence: strong for class/file role, medium for exact base-class naming.
 - Proposed module: `ui/panels/SoundStatusPane.cpp`
-- Current generated source: `class_SoundStatusPane.cpp`
+- Projected reconstruction path: `NexusTK/ui/panels/SoundStatusPane.cpp`
 - Main class: [UID:0000DJ][SoundStatusPane](by-class/SoundStatusPane.md)
 - Main address doc: [UID:0001IG][0x0057bf70-0x0057c2cf.SoundStatusPane](by-memory/0x0057bf70-0x0057c2cf.SoundStatusPane.md)
 - Singleton global: [UID:0000SB][g_pSoundStatusPane](by-global/g_pSoundStatusPane.md)
-- Evidence basis: `simroot_v2` generated source, Wave2 readonly metadata, and IDA MCP decompilation/caller/xref checks on 2026-05-24.
+- Evidence basis: live IDA MCP decompilation, caller, and xref checks on 2026-05-24 and 2026-05-30.
 
 ## File Role
 
@@ -52,7 +52,7 @@ It should cross-reference [UID:0000LN][MusicControlDialog](by-file/MusicControlD
 
 ## Data Caveats
 
-Current active generated output omits IDA-confirmed helpers at `0x0057c050` and `0x0057c240`, and disabled output has a missing thunk at `0x0057c24b` plus a bad adjusted-this expression at `0x0057c256`. Use the memory doc as the range anchor before applying source migration.
+Earlier source-output views did not consistently model IDA-confirmed helpers at `0x0057c050` and `0x0057c240`, and they mishandled thunk/adjusted-this evidence around `0x0057c24b` and `0x0057c256`. Use the memory doc as the range anchor before applying source migration.
 
 The destructor output labels base cleanup as `TextButtonExControlPane::~Pane`. IDA confirms a shared pane-base cleanup call at `0x00544580`, but the exact inherited class name should stay provisional until the control-pane hierarchy is reviewed.
 
@@ -67,6 +67,10 @@ The destructor output labels base cleanup as `TextButtonExControlPane::~Pane`. I
 
 ## Changes
 
+- 2026-06-05: Assigned projected reconstruction path `NexusTK/ui/panels/` to resolve the by-file generated-root coverage error.
+  - Before: the validator path metadata was blank even though the document and proposed source tree both placed `SoundStatusPane.cpp` under `ui/panels/`.
+  - After: set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/ui/panels/` without changing completion/confidence or writing reconstruction C++.
+  - Evidence: `by-project-structure/proposed-source-tree.md` lists `SoundStatusPane.cpp` with the HUD status panels, and live IDA xrefs show [UID:0000SB][g_pSoundStatusPane](by-global/g_pSoundStatusPane.md) is created and destroyed inside the `0x0057bf70-0x0057c2cf` pane island.
 - 2026-05-30: Scored documentation completeness/confidence.
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `84` and confidence to `80`.

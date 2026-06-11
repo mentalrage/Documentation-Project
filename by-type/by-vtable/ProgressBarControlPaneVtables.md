@@ -1,8 +1,8 @@
 *** UID:0001YH | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000AW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -54,10 +54,15 @@ The destructor adjustor thunks are covered by [UID:000120][0x0049af3d-0x0049af52
 - IDA `xrefs_to 0x00494de0` reports only the primary-table data reference at `0x00617b78`, confirming the draw routine is reached virtually.
 - IDA MCP `py_eval` on 2026-06-01 confirms the exact [UID:0002OL][0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData](by-memory/0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData.md) child range: previous `ControlPane` tertiary data ends at `0x00617b30`, primary/secondary/tertiary `ProgressBarControlPane` RTTI and vtable views occupy `0x00617b30-0x00617bd4`, and `0x00617bd4` starts `ButtonControlPane` RTTI.
 - Current `class_ProgressBarControlPane.meta_wave3` reports `vtable_count: 0`, so the generated vtable inventory is incomplete.
+- 2026-06-08 A002 Batch123 parent-gate follow-up confirms the direct class parent [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md) is `86/85` and file parent [UID:0000MT][ProgressBarControlPane](by-file/ProgressBarControlPane.md) is `86/85`. The exact vtable-data child [UID:0002OL][0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData](by-memory/0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData.md) is `88/92`. This type page therefore now satisfies the strict child-and-parent gate for class-level assignment.
 
 ## Source-Layout Implication
 
 Model `ProgressBarControlPane` as a `ControlPane`-derived reusable UI control with three vtable views at `+0x00`, `+0xa0`, and `+0xa4`. The primary table owns the confirmed paint virtual at `+0x44`; adjacent local helpers in the `0x00494b80-0x00494c30` range should stay with the control-family cluster until their exact source names are recovered.
+
+## Assignment Gate
+
+`AUTOGEN_PARENT_UID` is set to [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md). The child type page is `86/91`, the direct class parent is `86/85`, and the vtable type is generated from the `ProgressBarControlPane` class declaration. [UID:0000MT][ProgressBarControlPane](by-file/ProgressBarControlPane.md) remains the source module parent; the class is the more direct owner for the vtable declaration.
 
 ## Cross-References
 
@@ -72,6 +77,10 @@ Model `ProgressBarControlPane` as a `ControlPane`-derived reusable UI control wi
 
 ## Changes
 
+- 2026-06-08 A002 Batch123:
+  - Before: `COMPLETION:84`, `CONFIDENCE:90`, `AUTOGEN_PARENT_UID` blank.
+  - After: `COMPLETION:86`, `CONFIDENCE:91`, `AUTOGEN_PARENT_UID:0000AW`.
+  - Evidence: [UID:0000AW][ProgressBarControlPane](by-class/ProgressBarControlPane.md) and [UID:0000MT][ProgressBarControlPane](by-file/ProgressBarControlPane.md) both now clear `86/85`, and [UID:0002OL][0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData](by-memory/0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData.md) records the exact primary/secondary/tertiary RTTI/vtable range at `88/92`. The type page remains below final because inherited slot names and source declarations are not final-audit quality.
 - 2026-06-01: Grading changed from validator-header `0/0` to `84/90`, and `RECONSTRUCTABLE` was set to `TRUE`.
   - Before: the page had useful table notes and a stale coverage-row grade, but no exact by-memory child page for the vtable data and no validator-visible score.
   - After: [UID:0002OL][0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData](by-memory/0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData.md) records the exact primary/secondary/tertiary RTTI/vtable-data range while this page remains the type-level inventory.

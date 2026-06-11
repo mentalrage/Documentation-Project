@@ -1,8 +1,8 @@
 *** UID:0000D3 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000O2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -47,6 +47,11 @@
 - [UID:0000VH][SpellMenuActionButtonState_51d6c0_51e600](by-item/SpellMenuActionButtonState_51d6c0_51e600.md)
 
 ## Changes
+
+- 2026-06-05: Changed `RECONSTRUCTABLE` from blank to `TRUE` and assigned parent `0000O2`.
+  - Before: The server-supplied spell menu dialog remained unclassified in autogen coverage even though the class and parent file both met the 80/80 attach gate.
+  - After: The class contributes to `SpellMenuDialogs.cpp` as a reconstructable child without emitting final C++ yet.
+  - Evidence: Live IDA MCP lookup confirms constructor/command/update starts at `0x0051ca40`, `0x0051d520`, and `0x0051d6c0`; parent [UID:0000O2][SpellMenuDialogs](by-file/SpellMenuDialogs.md) groups the server/client spell menu dialog family.
 
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `88`, confidence `90`.

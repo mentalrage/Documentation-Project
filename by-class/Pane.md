@@ -1,8 +1,8 @@
 *** UID:0000A2 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -73,7 +73,7 @@ GrafPort state block:
 - 2026-06-03 IDA MCP confirms [UID:0002V7][0x005446b0-0x005446d4.PaneSetMode](by-memory/0x005446b0-0x005446d4.PaneSetMode.md) as the exact mode-byte setter at `0x005446b0-0x005446d4`; it writes `+0xb5` only when changed and dispatches vtable slot `+0x20` with `this + 0x44`.
 - IDA maps `Pane` vtable bases at `0x006219e8`, `0x00621a34`, and `0x00621a64`; the secondary and tertiary destructor slots are the adjustor thunks `0x00544f2e` and `0x00544f39`.
 - IDA caller checks tie the `0x00544690-0x00544b7d` dirty/motion helpers to `Layer` recursion and shared surface presentation. Current generated `class_MapPane.cpp` ownership for these helpers should not be treated as source-file evidence.
-- The base [UID:00004N][EventHandler](by-class/EventHandler.md) methods at `0x004a8970-0x004a8a83` are shared UI event infrastructure used by pane-derived handlers and [UID:00004M][EventDispatcher](by-class/EventDispatcher.md).
+- The base [UID:00004N][EventHandler](by-class/EventHandler.md) methods at `0x004a8970-0x004a8a84` are shared UI event infrastructure used by pane-derived handlers and [UID:00004M][EventDispatcher](by-class/EventDispatcher.md); the next bytes are the documented padding before `EventObjects`.
 
 ## Cross-References
 
@@ -92,6 +92,7 @@ GrafPort state block:
 
 ## Changes
 
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000MC][Pane](by-file/Pane.md) because this class is 88/86 and the parent file is 88/84. Live IDA MCP on `NexusTK.exe` confirmed core constructor/destructor/mode/visibility/dirty/layer/default/thunk starts at `0x00544460`, `0x004b8d20`, `0x005446b0`, `0x00544730`, `0x00544690`, `0x00544b80`, `0x00544c50`, `0x0041d680`, `0x00544e90`, `0x00544f2e`, and `0x00544f39`.
 - Before: the `PaneCore` memory page reference ended at `0x00545085`.
 - Changed to: the page ends at `0x00545086`.
 - Summary/evidence: 2026-05-28 IDA MCP byte/function review shows `0x00545085` is the final operand byte of `sub_544F50`'s `retn 4`.

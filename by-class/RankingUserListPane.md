@@ -35,7 +35,7 @@
 
 - Live IDA recheck on 2026-06-04 used `NexusTK.exe` at image base `0x00400000` with MD5 `4247e04e20b65d6414c7238aa8ff5515`.
 - Constructor `0x0045f340-0x0045f377` has one code caller at `0x0045875f` in the `RankingDialog` constructor; it calls `0x004949e0`, then writes vtables `0x00610cd0`, `0x00610d38`, and `0x00610d68`.
-- `OnPaint` initializes the EPF tile context (`0x00457a60`), loads the layout resource through `0x004d02f0(dword_67A744, off_60DB5C, ...)`, marks `this+0x70`, paints the background with `0x004ba6b0`, and reads the selected ranking category from `dword_67A7E4 + 0x26c` through `0x0045ce70`.
+- `OnPaint` initializes the EPF tile context (`0x00457a60`), loads the layout resource through `0x004d02f0([UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / dword_67A744, off_60DB5C, ...)`, marks `this+0x70`, paints the background with `0x004ba6b0`, and reads the selected ranking category from `dword_67A7E4 + 0x26c` through `0x0045ce70`.
 - The paint body draws the category title, `"Total : %d"`, `"From : %02d/%02d/%04d %02d:%02d:%02d"`, `"To : %02d/%02d/%04d %02d:%02d:%02d"`, and the `Rank`/`Name`/`Score` headers, then loops over ten `0x0045bfe0(category, index)` row lookups.
 - Row rendering formats rank from `row+4`, name from `row+8`, score from `row+72`, draws separator lines with `0x004b9600`/`0x004b98f0`, and draws the local-player footer when category field `+0x268` is positive.
 - `0x0045f950-0x0045f97d` wraps `__stdio_common_vswprintf_s` with a fixed `0x40` character buffer count and has exactly nine callers, all from `OnPaint`.
@@ -57,9 +57,14 @@
 - [UID:0000BL][RankingCategoryRecord](by-class/RankingCategoryRecord.md)
 - [UID:0001YJ][RankingDialogVtableFamily](by-type/by-vtable/RankingDialogVtableFamily.md)
 - [UID:0000YC][0x0045f97d-0x0045f992.RankingUserListPaneAdjustorThunks](by-memory/0x0045f97d-0x0045f992.RankingUserListPaneAdjustorThunks.md)
+- [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md)
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: ranking-list paint evidence used only historical `dword_67A744`.
+  - After: the page records canonical `g_pEPFLib` beside the historical label and cross-links the global page.
+  - Evidence: generated resolved-name report maps `dword_67A744` to `g_pEPFLib`; existing IDA-backed evidence already ties the reference to ranking pane EPF layout loading.
 - 2026-06-04: Grading changed from `72/78` to `84/88`; marked reconstructable and attached to parent [UID:0000MZ][RankingDialog](by-file/RankingDialog.md).
   - Before: page identified the class and broad paint path but still carried stale recovered-source wording, inclusive method endpoints, no parent attachment, and only aggregate evidence for the score.
   - After: live IDA evidence records exact exclusive method ranges, constructor caller, vtable stores/xrefs, `OnPaint` resource/category/row/footer flow, formatter caller isolation, and destructor thunk behavior.

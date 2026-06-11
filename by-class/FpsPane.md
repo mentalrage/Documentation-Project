@@ -1,6 +1,6 @@
 *** UID:00005F | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000JK | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for overlay/statistics responsibility, medium for the constructor/session-start boundaries.
+- Confidence: strong for overlay/statistics responsibility, vtable/global ownership, and modeled paint/statistics/destructor behavior; medium for the raw constructor/session-start boundaries.
 - Likely source file: [UID:0000JK][FpsPane](by-file/FpsPane.md)
 - Current recovered file: `source-3/simroot_v2/class_FpsPane.cpp`
 - Related generated-data caveat: `source-3/simroot_v2/class_ParcelPane.meta_wave3` and ParcelPane global-data rows still reference FPS globals and the old `0x004b64a0` owner context.
@@ -46,6 +46,10 @@ See [UID:0001UO][FpsPaneLayout](by-type/by-struct/FpsPaneLayout.md) for the norm
 
 ## Evidence Notes
 
+- 2026-06-10 A001 live IDA pass reconfirmed the current boundary split: `0x004b6470`, `0x004b67b0`, `0x004b68b0`, `0x004b6c2b`, `0x004b6c36`, and `0x004b6c50` are functions, while `0x004b6410`, `0x004b64a0`, `0x004b69b0`, and `0x004b6ae0` remain raw code starts with no direct xrefs.
+- 2026-06-10 A001 xrefs show `g_pFpsPane` writes only from the raw constructor start, non-deleting destructor, and scalar deleting destructor. The three FpsPane vtable views at `0x0061a620`, `0x0061a66c`, and `0x0061a69c` are likewise installed by the constructor/destructor/scalar-delete paths, and the `0x0061a66c`/`0x0061a69c` slots point to the two adjustor thunks.
+- 2026-06-10 A001 decompilation check confirms `OnPaint` formats the `"%5.1f FPS"` string, increments the frame counter, and performs the paired foreground/shadow text draws; `UpdateStatistics` resets the sampled frame counter, updates min/max/sample/total fields, reads the `MapPane` visible row range, accumulates front/back/object-list bucket counts, and schedules the next 1000 ms timer.
+- 2026-06-10 A001 raw disassembly check keeps the session helpers as unresolved private/raw starts: `0x004b69b0` duplicates the session reset/log filename setup shape and `0x004b6ae0` gates summary writing on `g_fpsLogEnabled`, but both have no direct xrefs in the current IDB.
 - IDA MCP confirms real functions at `0x004b6470`, `0x004b67b0`, `0x004b68b0`, `0x004b6c2b`, `0x004b6c36`, and `0x004b6c50`.
 - IDA MCP does not currently mark `0x004b6410`, `0x004b64a0`, `0x004b69b0`, or `0x004b6ae0` as functions, while raw disassembly shows method-shaped code starts. Treat those starts as unresolved boundary data, not as proof the code is absent.
 - IDA MCP vtable inspection shows the FpsPane primary vtable at `0x0061a620`, secondary view at `0x0061a66c`, and timer/update view at `0x0061a69c`.
@@ -90,6 +94,7 @@ See [UID:0001UO][FpsPaneLayout](by-type/by-struct/FpsPaneLayout.md) for the norm
   - Changed to: parent [UID:0000JK][FpsPane](by-file/FpsPane.md).
   - Summary/evidence: the by-file page now has a validated `ui/diagnostics/` reconstruction path, and IDA MCP recheck confirms the class-owned vtable/global/function cluster belongs to the FPS diagnostics module.
 
+- 2026-06-10 A001 score update: existed before as `82/80`; changed to `84/86`. Summary/evidence: live IDA reconfirmed the FpsPane function/nonfunction split, singleton/vtable xrefs, vtable-only paint/statistics/adjustor reachability, scalar-delete cleanup, OnPaint rendering behavior, UpdateStatistics timer and MapPane/ObjectList counting behavior, and raw session-helper/no-xref caveats. Completion remains below the final-source gate because raw constructor/session starts and final helper names are still unresolved.
 - Completion/confidence score update: existed before as `0/0`; changed to `82/80`. Summary: diagnostic overlay purpose, FPS/session methods, layout normalization, raw-start caveats, vtable addresses, global ownership, and ObjectList/MapPane consumer boundaries are documented; confidence remains limited by constructor/session boundary discrepancies. Evidence: diagnostics memory cluster `0x004b6410-0x004b6caf`, individual by-memory pages for constructor/destructor/session/paint/statistics helpers, `FpsPaneLayout`, and `FpsPane_vtables`.
 - 2026-05-31: Reconstructable metadata clarified.
   - Before: `RECONSTRUCTABLE` was blank despite the class being documented as NexusTK-owned diagnostic pane source.

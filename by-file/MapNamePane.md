@@ -42,6 +42,7 @@ This is map UI, not generic text-control code. It should stay in the map feature
 - Constructor xrefs from the main UI setup path at `0x004f8051` and `0x004f8695` support map UI ownership and two layout placements.
 - IDA also confirms [UID:00008B][MiniMapButtonPane](by-class/MiniMapButtonPane.md) starts at `0x00503580`, so the old MapName-only aggregate span crosses a separate minimap button class.
 - Keep `0x0050380b` and `0x00503816` documented as thunks, but do not migrate them as source-level logic.
+- 2026-06-07 Batch 043 live IDA MCP reconfirmed `0x0069b4b4-0x0069b4b8` as a clean `0xffffffff` singleton item with six xrefs: constructor publish/fallback writes, destructor clear, singleton helper clear, scalar deleting destructor clear, and an external map-side reader. The exact storage now has a split page [UID:0002XD][0x0069b4b4-0x0069b4b8.g_pMapNamePane](by-memory/0x0069b4b4-0x0069b4b8.g_pMapNamePane.md) and a canonical global page [UID:0002XC][g_pMapNamePane](by-global/g_pMapNamePane.md).
 
 ## Cross-References
 
@@ -62,3 +63,6 @@ This is map UI, not generic text-control code. It should stay in the map feature
   - Changed from: `COMPLETION:82`, `CONFIDENCE:80`, and blank `PROPOSED_RECONSTRUCTION_PATH`.
   - Changed to: `COMPLETION:86`, `CONFIDENCE:86`, and `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/"`.
   - Reason for score increase: live IDA confirmed the missing `0x005034a0` map-name update handler, singleton-clear helper, vtable slot map, constructor callers, singleton lifecycle refs, exact function sizes, and internal padding around the interleaved MiniMapButtonPane island. The score remains below final reconstruction because the final standalone-vs-file-local split and source-level field/helper names are still unresolved.
+- 2026-06-07 Batch 043 split-parent note:
+  - Score unchanged at `86/86`.
+  - Evidence: live IDA MCP reconfirmed the exact singleton slot and all six xrefs; this page already clears the corrected `85/85` gate for the new direct global page and exact memory split.

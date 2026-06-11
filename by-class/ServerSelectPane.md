@@ -1,8 +1,8 @@
 *** UID:0000D2 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -53,6 +53,11 @@
 - [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
 
 ## Changes
+
+- 2026-06-05: Changed `RECONSTRUCTABLE` from blank to `TRUE` and assigned parent `0000NO`.
+  - Before: The pre-login server-selection dialog remained unclassified in autogen coverage even though the class and parent file both met the 80/80 attach gate.
+  - After: The class contributes to `ServerSelectPane.cpp` as a reconstructable child without emitting final C++ yet.
+  - Evidence: Live IDA MCP lookup confirms constructor/action/update/destructor-family starts at `0x00573d20`, `0x00574310`, `0x00574340`, `0x00574440`, `0x00574750`, `0x0057475b`, `0x00574766`, and `0x00574780`; parent [UID:0000NO][ServerSelectPane](by-file/ServerSelectPane.md) owns the pre-login server-selection module.
 
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `86`, confidence `88`.

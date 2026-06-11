@@ -1,8 +1,8 @@
 *** UID:00007W | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MN | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -50,4 +50,5 @@
 
 ## Changes
 
+- 2026-06-05: Marked reconstructable and attached to [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md) because the class is `82/86` and the parent is `84/80`, satisfying the 80/80 parent gate. Live IDA MCP evidence: `lookup_funcs` confirms exact starts at `0x00516290`, `0x00516350`, `0x005164e0`, `0x00516790`, `0x00516940`, `0x00516a70`, and `0x00517320`; `callers` confirms the constructor is reached from `0x004980f6` inside `PopupMenuControlPane`.
 - Completion/confidence score update: existed before as `0/0`; changed to `82/86`. Summary: the popup/context menu pane has clear role, exact method boundaries, selection callback behavior, entry ownership, pointer/key navigation, and restored ownership evidence, with only final C++ rewrite and deeper state-field naming below full completion. Evidence: linked `MenuPaneAndItems` memory range, IDA-confirmed starts, Wave2 restoration note for `GetItemByIndex`, and popup selection callback reference.

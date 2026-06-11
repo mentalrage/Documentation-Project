@@ -32,7 +32,7 @@
 ## Evidence Notes
 
 - 2026-06-04 live IDA MCP confirms no function object at `0x005744a0`, real modeled virtuals at `0x00574660-0x0057466b` and `0x00574670-0x00574748`, the server-selection helper at `0x00574510-0x0057454e`, and the packet/helper body at `0x005745b0-0x0057465e`.
-- Raw constructor disassembly at `0x005744a0` checks `byte_66DA97`, calls the `ListPane` constructor at `0x005744c7 -> 0x004f3a50`, stores the owner pointer from `[ebp+8]` to `[this + 0x14c]`, and writes vtables `0x00624dc4`, `0x00624e24`, and `0x00624e54`.
+- Raw constructor disassembly at `0x005744a0` checks [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97`, calls the `ListPane` constructor at `0x005744c7 -> 0x004f3a50`, stores the owner pointer from `[ebp+8]` to `[this + 0x14c]`, and writes vtables `0x00624dc4`, `0x00624e24`, and `0x00624e54`.
 - Parent `ServerSelectPane` construction also installs the primary `ServerSelectMenuItemList` vtable at `0x00573f0b` and `0x005741c8`, matching the inline/class-local construction path documented by [UID:0001HR][0x00573d20-0x005747df.ServerSelectPane](by-memory/0x00573d20-0x005747df.ServerSelectPane.md).
 - Vtable slots confirm `0x00624e40 -> 0x00574660` and `0x00624e44 -> 0x00574670`; `xrefs_to` for those methods are vtable data refs, not ordinary code calls.
 - `0x00574660` is a compact activation thunk (`mov ecx, [ecx+0x14c]; jmp 0x0049de70`), proving that row activation forwards to the owning server-select context.
@@ -46,9 +46,11 @@
 - [UID:0001HR][0x00573d20-0x005747df.ServerSelectPane](by-memory/0x00573d20-0x005747df.ServerSelectPane.md)
 - [UID:0000D2][ServerSelectPane](by-class/ServerSelectPane.md)
 - [UID:0000VG][ServerSelectHelpers_574510_5745b0](by-item/ServerSelectHelpers_574510_5745b0.md)
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup: normalized the raw constructor's `byte_66DA97` layout branch to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the IDA lookup alias.
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `78`, confidence `76`.
 - Evidence: the page documents active list behavior, owner/file grouping, by-memory range, confirmed virtual methods, entry layout, and helper relationship; confidence is limited by the projected constructor boundary.

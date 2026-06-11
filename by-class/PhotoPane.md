@@ -1,8 +1,8 @@
 *** UID:0000AG | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MK | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for class behavior, medium for final field names.
+- Confidence: strong for class behavior, map-photo ownership, destructor-family evidence, and parent placement; medium-high for final field names and one secondary constructor caller.
 - Likely source file: [UID:0000MK][PhotoPane](by-file/PhotoPane.md)
 - Main address range: `0x00549620-0x00549afe`
 - Current recovered file: `source-3/simroot_v2/class_PhotoPane.cpp`
@@ -44,6 +44,13 @@
 - IDA MCP 2026-06-01 also confirms raw executable cleanup code at `0x00549920-0x00549950`; IDA does not model it as a function, but its vtable writes and `this + 0xf8` cleanup identify it as `PhotoPane` destructor-family behavior.
 - `MapPane::HandlePacket` calls the constructor, so this class should be documented as map-feature UI rather than a generic image control.
 - The paint method is intentionally simple because the expensive snapshot composition happens in the constructor.
+- [UID:0000MK][PhotoPane](by-file/PhotoPane.md) is scored `86/80`, has valid `NexusTK/map/` placement, and documents the paired `PhotoPane`/`PictureViewPane` source-module decision, function map, ownership caveats, and current split uncertainty.
+- [UID:0001F2][0x00549620-0x00549bc5.PhotoAndPicturePanes](by-memory/0x00549620-0x00549bc5.PhotoAndPicturePanes.md) is attached to the same file and records exact constructor, paint, destructor, padding, callee, touched-state, and resource-rendering evidence for this class.
+- [UID:0000AH][PictureViewPane](by-class/PictureViewPane.md) is already attached to [UID:0000MK][PhotoPane](by-file/PhotoPane.md), which supports keeping this derived map-photo pane and the viewer base under the same source module.
+
+## Autogen Handling
+
+Attach this class to [UID:0000MK][PhotoPane](by-file/PhotoPane.md). Both the class and parent now satisfy the 80/80 attachment gate, and the parent file already owns the adjacent `PhotoPane`/`PictureViewPane` module. Keep reconstructed C++ blank until cached-surface type names, constructor parameter names, helper names, field names, and the second constructor caller reach final-source confidence.
 
 ## Cross-References
 
@@ -59,6 +66,11 @@
 
 ## Changes
 
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and left `AUTOGEN_PARENT_UID` blank.
+  - Before: reconstruction autogen classification was blank despite map-photo pane documentation covering constructor, paint, destructor-family behavior, cached `GrafPort`, and render dependencies.
+  - After: classified as reconstructable source but intentionally unassigned.
+  - Evidence: live IDA MCP `lookup_funcs` confirms modeled starts at `0x00549620`, `0x00549950`, `0x005499a2`, `0x005499ad`, `0x005499c0`, and `0x00549ae0`; `0x00549920` remains raw executable cleanup code not modeled as an IDA function, matching the existing raw-body note. Parent attachment to [UID:0000MK][PhotoPane](by-file/PhotoPane.md) is deferred because the class has `CONFIDENCE:78`, below the 80/80 attach gate.
+
 - Before: the containing `PhotoAndPicturePanes` memory page ended at `0x00549bc4`.
 - Changed to: the page ends at `0x00549bc5`.
 - Summary/evidence: 2026-05-28 IDA MCP byte/function review shows the final byte at `0x00549bc4` belongs to `PictureViewPane::ScalarDeletingDestructor`.
@@ -68,3 +80,5 @@
 - Before: completion/confidence metadata were `0/0` despite detailed constructor, paint, destructor, map snapshot, resource, and caller documentation.
 - Changed to: `COMPLETION:80` and `CONFIDENCE:78`.
 - Evidence: off-screen `GrafPort`, map DAT loading, terrain/object/avatar rendering, cached blit paint path, destructor family, `MapPane` caller, and resource/library dependencies are documented; confidence remains medium-high because final field names and exact source-level layout remain open.
+- 2026-06-06: Raised confidence to `84` and attached `AUTOGEN_PARENT_UID:0000MK`.
+  - Evidence: [UID:0000MK][PhotoPane](by-file/PhotoPane.md) is `86/80` with `NexusTK/map/` placement; [UID:0001F2][0x00549620-0x00549bc5.PhotoAndPicturePanes](by-memory/0x00549620-0x00549bc5.PhotoAndPicturePanes.md) is attached to the same parent and records exact constructor/callee/touched-state/destructor evidence; [UID:0002R8][0x00549920-0x00549950.PhotoPaneCleanupDestructorBodyRaw](by-memory/0x00549920-0x00549950.PhotoPaneCleanupDestructorBodyRaw.md) resolves the raw cleanup body; and [UID:0000AH][PictureViewPane](by-class/PictureViewPane.md) is already attached as the adjacent viewer base. Final C++ remains blank because final field/helper names and one secondary constructor caller are not yet at the 95/95 gate.

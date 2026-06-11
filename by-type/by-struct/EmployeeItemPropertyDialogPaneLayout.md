@@ -1,8 +1,8 @@
 *** UID:0001UB | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00004D | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Likely owner source: [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md).
 - Size: `0x284` bytes on the live allocation path.
 - Confidence: strong for feature-specific tail fields and vtable offsets; medium for inherited `DialogPane` member names.
+- Autogen status: attached under [UID:00004D][EmployeeItemPropertyDialogPane](by-class/EmployeeItemPropertyDialogPane.md) as the derived dialog layout; final C++ remains blank under the `95/95` gate.
 
 ## Layout Hypothesis
 
@@ -57,6 +58,10 @@ Model the source type as a feature-private property dialog with a typed `Employe
 
 The scalar deleting destructor decompiles with polluted base labels in both current simroot and IDA. Treat it as `EmployeeItemPropertyDialogPane` deleting destructor plus inherited dialog teardown until the shared base destructor name is settled.
 
+## Parent Rationale
+
+Attach this layout declaration to [UID:00004D][EmployeeItemPropertyDialogPane](by-class/EmployeeItemPropertyDialogPane.md). The offsets describe that dialog's derived tail and vtable views, the owner class clears the `80/80` attachment gate and is already attached to [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md), and the broader file page owns the employee-dialog feature family without changing this layout's single-class identity.
+
 ## Cross-References
 
 - [UID:00004D][EmployeeItemPropertyDialogPane](by-class/EmployeeItemPropertyDialogPane.md)
@@ -71,6 +76,10 @@ The scalar deleting destructor decompiles with polluted base labels in both curr
 
 ## Changes
 
+- 2026-06-07 parent attachment update:
+  - What existed before: the layout page had strong constructor/paint/command and field-offset evidence, but no autogen parent.
+  - Changed to: `COMPLETION:80` and `AUTOGEN_PARENT_UID:00004D`, with an explicit class-parent rationale.
+  - Summary/evidence: [UID:00004D][EmployeeItemPropertyDialogPane](by-class/EmployeeItemPropertyDialogPane.md) owns the `+0x26c/+0x270/+0x280` derived tail, clears the attachment gate, and links the same exact method and vtable-data pages; final C++ remains blank because inherited `DialogPane` field names and destructor-base labels remain provisional.
 - 2026-05-31 completion/reconstruction metadata:
   - What existed before: metadata remained unevaluated at `COMPLETION:0`, `CONFIDENCE:0`, and `RECONSTRUCTABLE:` blank despite detailed layout notes.
   - Changed to: `COMPLETION:78`, `CONFIDENCE:88`, and `RECONSTRUCTABLE:TRUE`; exact constructor/paint/command memory pages were added to cross-references.

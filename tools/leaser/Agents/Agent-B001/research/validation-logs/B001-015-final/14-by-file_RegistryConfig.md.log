@@ -1,0 +1,303 @@
+﻿root: C:\FastStorage\NTK_Sources\source-3\project-documentation
+ini: C:\FastStorage\NTK_Sources\source-3\project-documentation\tools\validator.ini
+lock: C:\FastStorage\NTK_Sources\source-3\project-documentation\tools\validator.lock
+mode: file
+scope: direct by-* folders under root
+apply: True
+remove missing: False
+uid phase: True
+reference phase: True
+scanned markdown files: 1
+last used UID: 00032I
+autogen_cpp_noop: 274
+autogen_parent_has_no_code: 1
+autogen_registry_rebuild: 1
+autogen_report_noop: 7
+ok: 1
+projected_stats_update: 1
+stats_incremental_noop: 1
+stats_incremental_noop 0000N4 project-level/-auto-completion-stats.md file is not present in generated stats lists
+projected_stats_update ------ project-level/-auto-completion-stats.md updated projected path completion section
+autogen_registry_rebuild ------ validator.ini 3508 metadata nodes, 2845 edges
+autogen_cpp_noop 0000HM auto-generated/NexusTK/util/AUTOBUF.cpp no assembled code for root
+autogen_cpp_noop 00020J auto-generated/NexusTK/util/AesBlockCipher.cpp no assembled code for root
+autogen_cpp_noop 0000HE auto-generated/NexusTK/ui/dialogs/AlertPanes.cpp no assembled code for root
+autogen_cpp_noop 0000HF auto-generated/NexusTK/render/AlphaMaskSurface.cpp no assembled code for root
+autogen_parent_has_no_code 00000D by-class/Application.md emitting children only
+autogen_cpp_noop 0000HG auto-generated/NexusTK/app/Application.cpp unchanged
+autogen_cpp_noop 0000HH auto-generated/NexusTK/ui/dialogs/ArgumentedItemInputDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000HI auto-generated/NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000HJ auto-generated/NexusTK/map/AttachedObjectPane.cpp no assembled code for root
+autogen_cpp_noop 0000HL auto-generated/NexusTK/map/AttachmentAnchorResolver.cpp no assembled code for root
+autogen_cpp_noop 0000HN auto-generated/NexusTK/platform/AutoInit.cpp no assembled code for root
+autogen_cpp_noop 0000HO auto-generated/NexusTK/map/BackPane.cpp no assembled code for root
+autogen_cpp_noop 0000HP auto-generated/NexusTK/login/BackStoryDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000HQ auto-generated/NexusTK/util/BinaryCodec.cpp no assembled code for root
+autogen_cpp_noop 0000HR auto-generated/NexusTK/ui/core/BlackHole.cpp no assembled code for root
+autogen_cpp_noop 0000HS auto-generated/NexusTK/social/BlockListenInputPanes.cpp no assembled code for root
+autogen_cpp_noop 0000HT auto-generated/NexusTK/ui/dialogs/BoardDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000HU auto-generated/NexusTK/ui/panels/BowGaugeObjectPane.cpp no assembled code for root
+autogen_cpp_noop 0000HV auto-generated/NexusTK/browser/Browser.cpp no assembled code for root
+autogen_cpp_noop 0000HW auto-generated/NexusTK/ui/dialogs/BulletinReplyAlerts.cpp no assembled code for root
+autogen_cpp_noop 0000HX auto-generated/NexusTK/ui/dialogs/BulletinSession.cpp no assembled code for root
+autogen_cpp_noop 0000HY auto-generated/NexusTK/ui/controls/ButtonControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000HZ auto-generated/NexusTK/util/CachedHashTable.cpp no assembled code for root
+autogen_cpp_noop 0000I0 auto-generated/NexusTK/cashshop/CashShopRequest.cpp no assembled code for root
+autogen_cpp_noop 0000I1 auto-generated/NexusTK/cashshop/CashShopVersionRequest.cpp no assembled code for root
+autogen_cpp_noop 0000I2 auto-generated/NexusTK/app/ChangeMan.cpp no assembled code for root
+autogen_cpp_noop 0000I3 auto-generated/NexusTK/login/ChangePasswordDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000I5 auto-generated/NexusTK/social/Chatting.cpp no assembled code for root
+autogen_cpp_noop 0000I6 auto-generated/NexusTK/security/CheatDetector.cpp no assembled code for root
+autogen_cpp_noop 0000I7 auto-generated/NexusTK/ui/controls/CheckBoxControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000I8 auto-generated/NexusTK/social/Clan.cpp no assembled code for root
+autogen_cpp_noop 0000I9 auto-generated/NexusTK/social/ClanBank.cpp no assembled code for root
+autogen_cpp_noop 0000IB auto-generated/NexusTK/ui/dialogs/CollectionDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000IC auto-generated/NexusTK/ui/panels/CollectionPane.cpp no assembled code for root
+autogen_cpp_noop 0000ID auto-generated/NexusTK/ui/dialogs/CommandInputPanes.cpp no assembled code for root
+autogen_cpp_noop 0000IE auto-generated/NexusTK/config/Config.cpp no assembled code for root
+autogen_cpp_noop 0000IF auto-generated/NexusTK/network/ConnStatusPane.cpp no assembled code for root
+autogen_cpp_noop 0000IG auto-generated/NexusTK/ui/core/ControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000IH auto-generated/NexusTK/ui/dialogs/CopyWindow.cpp no assembled code for root
+autogen_cpp_noop 0000II auto-generated/NexusTK/platform/Crasher.cpp no assembled code for root
+autogen_cpp_noop 0000IJ auto-generated/NexusTK/login/CreateUserDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000IK auto-generated/NexusTK/login/CreateUserDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000IN auto-generated/NexusTK/archive/DATFile.cpp no assembled code for root
+autogen_cpp_noop 0000IO auto-generated/NexusTK/archive/DATFileMgr.cpp no assembled code for root
+autogen_cpp_noop 0000IP auto-generated/NexusTK/archive/DATIndexVector.cpp no assembled code for root
+autogen_cpp_noop 0000IV auto-generated/NexusTK/render/DIBitmap.cpp no assembled code for root
+autogen_cpp_noop 0000IQ auto-generated/NexusTK/util/Decoder.cpp no assembled code for root
+autogen_cpp_noop 0000IR auto-generated/NexusTK/util/Deque.cpp no assembled code for root
+autogen_cpp_noop 0000IS auto-generated/NexusTK/ui/controls/DescPane.cpp no assembled code for root
+autogen_cpp_noop 0000IT auto-generated/NexusTK/ui/core/DialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000IU auto-generated/NexusTK/ui/dialogs/DialogSession.cpp no assembled code for root
+autogen_cpp_noop 0000IW auto-generated/NexusTK/render/DirectX.cpp no assembled code for root
+autogen_cpp_noop 0000J2 auto-generated/NexusTK/ui/controls/EPFImageControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000J4 auto-generated/NexusTK/render/EPFTileContext.cpp no assembled code for root
+autogen_cpp_noop 0000IX auto-generated/NexusTK/ui/dialogs/EditablePaperPane.cpp no assembled code for root
+autogen_cpp_noop 0000IY auto-generated/NexusTK/render/EffectObjImageLib.cpp no assembled code for root
+autogen_cpp_noop 0000IZ auto-generated/NexusTK/render/Effects.cpp no assembled code for root
+autogen_cpp_noop 0000J0 auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000J1 auto-generated/NexusTK/util/Encoder.cpp no assembled code for root
+autogen_cpp_noop 0000J5 auto-generated/NexusTK/util/Error.cpp no assembled code for root
+autogen_cpp_noop 0000J6 auto-generated/NexusTK/ui/core/Event.cpp no assembled code for root
+autogen_cpp_noop 0000J7 auto-generated/NexusTK/ui/core/EventDispatcher.cpp no assembled code for root
+autogen_cpp_noop 0000J8 auto-generated/NexusTK/platform/ExceptionHandler.cpp no assembled code for root
+autogen_cpp_noop 0000J9 auto-generated/NexusTK/ui/dialogs/ExchangeDialog.cpp no assembled code for root
+autogen_cpp_noop 0000JA auto-generated/NexusTK/map/FieldMapPane.cpp no assembled code for root
+autogen_cpp_noop 0000JB auto-generated/NexusTK/util/File.cpp no assembled code for root
+autogen_cpp_noop 0000JC auto-generated/NexusTK/network/FileDownloader.cpp no assembled code for root
+autogen_cpp_noop 0000JE auto-generated/NexusTK/cashshop/FittingRoom.cpp no assembled code for root
+autogen_cpp_noop 0000JF auto-generated/NexusTK/ui/dialogs/FolderSelectDialog.cpp no assembled code for root
+autogen_cpp_noop 0000JG auto-generated/NexusTK/ui/controls/FolderTreePane.cpp no assembled code for root
+autogen_cpp_noop 0000JH auto-generated/NexusTK/render/FontImageLib.cpp no assembled code for root
+autogen_cpp_noop 0000JI auto-generated/NexusTK/ui/controls/FontStyle.cpp no assembled code for root
+autogen_cpp_noop 0000JJ auto-generated/NexusTK/login/ForcedInformMessageDialog.cpp no assembled code for root
+autogen_cpp_noop 0000JK auto-generated/NexusTK/ui/diagnostics/FpsPane.cpp no assembled code for root
+autogen_cpp_noop 0000JL auto-generated/NexusTK/ui/core/FrameChrome.cpp no assembled code for root
+autogen_cpp_noop 0000JM auto-generated/NexusTK/ui/core/FrameMgr.cpp no assembled code for root
+autogen_cpp_noop 0000JN auto-generated/NexusTK/social/FriendListDialog.cpp no assembled code for root
+autogen_cpp_noop 0000JO auto-generated/NexusTK/util/FunctionObjects.cpp no assembled code for root
+autogen_cpp_noop 0000JP auto-generated/NexusTK/map/GameServerConfig.cpp no assembled code for root
+autogen_cpp_noop 0000JQ auto-generated/NexusTK/ui/panels/GeneralPurposePanel.cpp no assembled code for root
+autogen_cpp_noop 0000JR auto-generated/NexusTK/render/GrafPort.cpp no assembled code for root
+autogen_cpp_noop 0000JS auto-generated/NexusTK/social/Group.cpp no assembled code for root
+autogen_cpp_noop 0000JT auto-generated/NexusTK/ui/dialogs/HeadSelectDialog.cpp no assembled code for root
+autogen_cpp_noop 0000JU auto-generated/NexusTK/ui/controls/HelpPanes.cpp no assembled code for root
+autogen_cpp_noop 0000JV auto-generated/NexusTK/util/HierList.cpp no assembled code for root
+autogen_cpp_noop 0000JW auto-generated/NexusTK/login/HistoryViewingPane.cpp no assembled code for root
+autogen_cpp_noop 0000JX auto-generated/NexusTK/ui/panels/HourPane.cpp no assembled code for root
+autogen_cpp_noop 0000JY auto-generated/NexusTK/render/HumanImageLib.cpp no assembled code for root
+autogen_cpp_noop 0000K5 auto-generated/NexusTK/input/IMEPanes.cpp no assembled code for root
+autogen_cpp_noop 0000JZ auto-generated/NexusTK/ui/panels/IconsPane.cpp no assembled code for root
+autogen_cpp_noop 0000K0 auto-generated/NexusTK/app/IdleWatcher.cpp no assembled code for root
+autogen_cpp_noop 0000K1 auto-generated/NexusTK/render/ImageFrameTable.cpp no assembled code for root
+autogen_cpp_noop 0000K2 auto-generated/NexusTK/render/ImageLib.cpp no assembled code for root
+autogen_cpp_noop 0000K3 auto-generated/NexusTK/render/ImageLoaders.cpp no assembled code for root
+autogen_cpp_noop 0000K4 auto-generated/NexusTK/render/ImageWriters.cpp no assembled code for root
+autogen_cpp_noop 0000K6 auto-generated/NexusTK/input/InputMan.cpp no assembled code for root
+autogen_cpp_noop 0000K7 auto-generated/NexusTK/ui/dialogs/InputPanes.cpp no assembled code for root
+autogen_cpp_noop 0000K8 auto-generated/NexusTK/render/IntAlphaSurface.cpp no assembled code for root
+autogen_cpp_noop 0000K9 auto-generated/NexusTK/ui/InterfaceEfx.cpp no assembled code for root
+autogen_cpp_noop 0000KA auto-generated/NexusTK/ui/inventory/InventoryPane.cpp no assembled code for root
+autogen_cpp_noop 0000KB auto-generated/NexusTK/ui/inventory/InventoryScrollPane.cpp no assembled code for root
+autogen_cpp_noop 0000KC auto-generated/NexusTK/ui/dialogs/ItemActionInputPanes.cpp no assembled code for root
+autogen_cpp_noop 0000KD auto-generated/NexusTK/cashshop/ItemCatalog.cpp no assembled code for root
+autogen_cpp_noop 0000KE auto-generated/NexusTK/ui/dialogs/ItemDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000KF auto-generated/NexusTK/ui/dialogs/ItemMenuDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000KH auto-generated/NexusTK/render/ItemObjImageLib.cpp no assembled code for root
+autogen_cpp_noop 0000KG auto-generated/NexusTK/map/ItemObjectPane.cpp no assembled code for root
+autogen_cpp_noop 0000KI auto-generated/NexusTK/third_party/jsoncpp/JsonCpp.cpp no assembled code for root
+autogen_cpp_noop 0000KJ auto-generated/NexusTK/input/KeySpeedMgr.cpp no assembled code for root
+autogen_cpp_noop 0000KV auto-generated/NexusTK/util/LObject.cpp no assembled code for root
+autogen_cpp_noop 0000KK auto-generated/NexusTK/localization/LanguageMan.cpp no assembled code for root
+autogen_cpp_noop 0000KL auto-generated/NexusTK/ui/core/Layer.cpp no assembled code for root
+autogen_cpp_noop 0000KM auto-generated/NexusTK/ui/panels/LegendPane.cpp no assembled code for root
+autogen_cpp_noop 0000KN auto-generated/NexusTK/third_party/libjpeg/LibJPEG.cpp no assembled code for root
+autogen_cpp_noop 0000KP auto-generated/NexusTK/render/LightObjImageLib.cpp no assembled code for root
+autogen_cpp_noop 0000KO auto-generated/NexusTK/map/LightingObjectPane.cpp no assembled code for root
+autogen_cpp_noop 0000KQ auto-generated/NexusTK/ui/panels/LineIterator.cpp no assembled code for root
+autogen_cpp_noop 0000KR auto-generated/NexusTK/util/LinkedList.cpp no assembled code for root
+autogen_cpp_noop 0000KS auto-generated/NexusTK/util/List.cpp no assembled code for root
+autogen_cpp_noop 0000KT auto-generated/NexusTK/ui/controls/ListPane.cpp no assembled code for root
+autogen_cpp_noop 0000KU auto-generated/NexusTK/map/LivingObjectPane.cpp no assembled code for root
+autogen_cpp_noop 0000KW auto-generated/NexusTK/third_party/LodePNG.cpp no assembled code for root
+autogen_cpp_noop 0000KX auto-generated/NexusTK/login/LoginDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000L6 auto-generated/NexusTK/util/MD5.cpp unchanged
+autogen_cpp_noop 0000LM auto-generated/NexusTK/app/MSGHandler.cpp no assembled code for root
+autogen_cpp_noop 0000KY auto-generated/NexusTK/ui/dialogs/MacroDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000KZ auto-generated/NexusTK/ui/dialogs/MailDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000L0 auto-generated/NexusTK/login/MainMenuPane.cpp no assembled code for root
+autogen_cpp_noop 0000L1 auto-generated/NexusTK/ui/MainUiGraph.cpp no assembled code for root
+autogen_cpp_noop 0000L2 auto-generated/NexusTK/map/MapNamePane.cpp no assembled code for root
+autogen_cpp_noop 0000L3 auto-generated/NexusTK/map/MapPane.cpp no assembled code for root
+autogen_cpp_noop 0000L4 auto-generated/NexusTK/map/MapRefreshDimmer.cpp no assembled code for root
+autogen_cpp_noop 0000L5 auto-generated/NexusTK/render/MapTileImageLib.cpp no assembled code for root
+autogen_cpp_noop 0000L7 auto-generated/NexusTK/util/MemoryMan.cpp no assembled code for root
+autogen_cpp_noop 0000L8 auto-generated/NexusTK/ui/menu/MenuVarietyPanes.cpp no assembled code for root
+autogen_cpp_noop 0000L9 auto-generated/NexusTK/ui/dialogs/MerchantDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000LA auto-generated/NexusTK/ui/dialogs/MessageDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000LB auto-generated/NexusTK/ui/dialogs/MessageShowPane.cpp no assembled code for root
+autogen_cpp_noop 0000LC auto-generated/NexusTK/metadata/MetaMan.cpp no assembled code for root
+autogen_cpp_noop 0000LD auto-generated/NexusTK/audio/MidiPlayer.cpp no assembled code for root
+autogen_cpp_noop 0000LE auto-generated/NexusTK/map/MiniMap.cpp no assembled code for root
+autogen_cpp_noop 0000LF auto-generated/NexusTK/map/MiniMapVersionManager.cpp no assembled code for root
+autogen_cpp_noop 0000LG auto-generated/NexusTK/app/MiscWorkThread.cpp no assembled code for root
+autogen_cpp_noop 0000LH auto-generated/NexusTK/ui/core/ModelessDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000LI auto-generated/NexusTK/util/Monitor.cpp no assembled code for root
+autogen_cpp_noop 0000LJ auto-generated/NexusTK/render/MonsterImageLib.cpp no assembled code for root
+autogen_cpp_noop 0000LK auto-generated/NexusTK/render/MonsterImageLibTables.cpp no assembled code for root
+autogen_cpp_noop 0000LL auto-generated/NexusTK/render/Motion.cpp no assembled code for root
+autogen_cpp_noop 0000LN auto-generated/NexusTK/ui/dialogs/MusicControlDialog.cpp no assembled code for root
+autogen_cpp_noop 0000LO auto-generated/NexusTK/ui/dialogs/MyItemListPane.cpp no assembled code for root
+autogen_cpp_noop 0000LP auto-generated/NexusTK/login/NewCreateUserDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000LQ auto-generated/NexusTK/login/NewHistoryDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000LR auto-generated/NexusTK/render/NewHumanImageLib.cpp no assembled code for root
+autogen_cpp_noop 0000LS auto-generated/NexusTK/ui/inventory/NewInventoryPane.cpp no assembled code for root
+autogen_cpp_noop 0000LT auto-generated/NexusTK/ui/dialogs/NewPredefinedFormArticleDialog.cpp no assembled code for root
+autogen_cpp_noop 0000LU auto-generated/NexusTK/ui/inventory/NewSpellInventoryPane.cpp no assembled code for root
+autogen_cpp_noop 0000LV auto-generated/NexusTK/login/NewUserDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000LW auto-generated/NexusTK/login/NewUserDialogPane2.cpp no assembled code for root
+autogen_cpp_noop 0000LX auto-generated/NexusTK/login/NewUserMiscDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000LY auto-generated/NexusTK/login/NewUserShapeSelectControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000LZ auto-generated/NexusTK/ui/dialogs/NexonclubProxyDialog.cpp no assembled code for root
+autogen_cpp_noop 0000M0 auto-generated/NexusTK/ui/dialogs/NexonclubRegistrationDialog.cpp no assembled code for root
+autogen_cpp_noop 0000M1 auto-generated/NexusTK/ui/dialogs/NumberInputDialog.cpp no assembled code for root
+autogen_cpp_noop 0000M2 auto-generated/NexusTK/ui/controls/NumericStringControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000M3 auto-generated/NexusTK/ui/controls/ObjectImageControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000M4 auto-generated/NexusTK/map/ObjectList.cpp no assembled code for root
+autogen_cpp_noop 0000M5 auto-generated/NexusTK/map/ObjectPane.cpp no assembled code for root
+autogen_cpp_noop 0000M6 auto-generated/NexusTK/map/ObjectStatusBlob.cpp no assembled code for root
+autogen_cpp_noop 0000M7 auto-generated/NexusTK/ui/dialogs/OptionPane.cpp no assembled code for root
+autogen_cpp_noop 0000M8 auto-generated/NexusTK/network/PacketBuffer.cpp no assembled code for root
+autogen_cpp_noop 0000M9 auto-generated/NexusTK/network/PacketTransform.cpp no assembled code for root
+autogen_cpp_noop 0000MA auto-generated/NexusTK/render/Palette.cpp no assembled code for root
+autogen_cpp_noop 0000MB auto-generated/NexusTK/render/PaletteLib.cpp no assembled code for root
+autogen_cpp_noop 0000MC auto-generated/NexusTK/ui/core/Pane.cpp no assembled code for root
+autogen_cpp_noop 0000ME auto-generated/NexusTK/ui/core/PanelPane.cpp no assembled code for root
+autogen_cpp_noop 0000MF auto-generated/NexusTK/ui/panels/ParcelPane.cpp no assembled code for root
+autogen_cpp_noop 0000MG auto-generated/NexusTK/auth/PasswordGuard.cpp no assembled code for root
+autogen_cpp_noop 0000MH auto-generated/NexusTK/patch/PatchPane.cpp no assembled code for root
+autogen_cpp_noop 0000MI auto-generated/NexusTK/util/PathUtil.cpp no assembled code for root
+autogen_cpp_noop 0000MJ auto-generated/NexusTK/login/PhoneBookDialog.cpp no assembled code for root
+autogen_cpp_noop 0000MK auto-generated/NexusTK/map/PhotoPane.cpp no assembled code for root
+autogen_cpp_noop 0000ML auto-generated/NexusTK/platform/PlatformApi.cpp no assembled code for root
+autogen_cpp_noop 0000MM auto-generated/NexusTK/util/PoolAllocator.cpp no assembled code for root
+autogen_cpp_noop 0000MN auto-generated/NexusTK/ui/menu/PopupMenuControls.cpp no assembled code for root
+autogen_cpp_noop 0000MO auto-generated/NexusTK/ui/dialogs/PowerDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000MP auto-generated/NexusTK/ui/controls/PrettyButtonControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000MQ auto-generated/NexusTK/util/PrimeNumberGenerator.cpp no assembled code for root
+autogen_cpp_noop 0000MR auto-generated/NexusTK/profile/ProfileDialog.cpp no assembled code for root
+autogen_cpp_noop 0000MS auto-generated/NexusTK/profile/ProfileStorage.cpp no assembled code for root
+autogen_cpp_noop 0000MT auto-generated/NexusTK/ui/controls/ProgressBarControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000MU auto-generated/NexusTK/util/ProtectedArray.cpp no assembled code for root
+autogen_cpp_noop 0000MW auto-generated/NexusTK/util/Queue.cpp no assembled code for root
+autogen_cpp_noop 0000MX auto-generated/NexusTK/ui/dialogs/QuitDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000MY auto-generated/NexusTK/map/RainingLayerPane.cpp no assembled code for root
+autogen_cpp_noop 0000MZ auto-generated/NexusTK/ui/dialogs/RankingDialog.cpp no assembled code for root
+autogen_cpp_noop 0000N0 auto-generated/NexusTK/network/ReconnectDialog.cpp no assembled code for root
+autogen_cpp_noop 0000N2 auto-generated/NexusTK/ui/core/RectBounds.cpp no assembled code for root
+autogen_cpp_noop 0000N1 auto-generated/NexusTK/ui/controls/RectangleControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000N3 auto-generated/NexusTK/ui/core/Region.cpp no assembled code for root
+autogen_cpp_noop 0000N4 auto-generated/NexusTK/config/RegistryConfig.cpp no assembled code for root
+autogen_cpp_noop 0000N6 auto-generated/NexusTK/render/RidingImageLib.cpp no assembled code for root
+autogen_cpp_noop 0000N7 auto-generated/NexusTK/ui/menu/RightButtonMenuPane.cpp no assembled code for root
+autogen_cpp_noop 0000N8 auto-generated/NexusTK/util/RingBuffer.cpp no assembled code for root
+autogen_cpp_noop 0000N9 auto-generated/NexusTK/social/SayInputPanes.cpp no assembled code for root
+autogen_cpp_noop 0000NA auto-generated/NexusTK/ui/core/ScreenDimmer.cpp no assembled code for root
+autogen_cpp_noop 0000NB auto-generated/NexusTK/ui/core/ScreenPane.cpp no assembled code for root
+autogen_cpp_noop 0000ND auto-generated/NexusTK/render/ScreenshotCapture.cpp no assembled code for root
+autogen_cpp_noop 0000NF auto-generated/NexusTK/ui/core/ScrollBar.cpp no assembled code for root
+autogen_cpp_noop 0000NG auto-generated/NexusTK/ui/core/ScrollCollectionPane.cpp no assembled code for root
+autogen_cpp_noop 0000NJ auto-generated/NexusTK/ui/inventory/ScrollSpellInventoryPane.cpp no assembled code for root
+autogen_cpp_noop 0000NK auto-generated/NexusTK/ui/controls/ScrollVolumePane.cpp no assembled code for root
+autogen_cpp_noop 0000NE auto-generated/NexusTK/ui/controls/ScrollableControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000NH auto-generated/NexusTK/ui/controls/ScrolledPictureControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000NI auto-generated/NexusTK/ui/controls/ScrolledTextControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000NL auto-generated/NexusTK/ui/panels/SelfLookPane.cpp no assembled code for root
+autogen_cpp_noop 0000NM auto-generated/NexusTK/ui/dialogs/SelfSaveInputPane.cpp no assembled code for root
+autogen_cpp_noop 0000NN auto-generated/NexusTK/ui/dialogs/SelfSaveOKPane.cpp no assembled code for root
+autogen_cpp_noop 0000NO auto-generated/NexusTK/login/ServerSelectPane.cpp no assembled code for root
+autogen_cpp_noop 0000NQ auto-generated/NexusTK/ui/controls/SimpleListPane.cpp no assembled code for root
+autogen_cpp_noop 0000NR auto-generated/NexusTK/map/SnowingLayerPane.cpp no assembled code for root
+autogen_cpp_noop 0000NS auto-generated/NexusTK/network/Socket.cpp no assembled code for root
+autogen_cpp_noop 0000NT auto-generated/NexusTK/render/SoftwareBlend16.cpp no assembled code for root
+autogen_cpp_noop 0000NU auto-generated/NexusTK/util/SortedList.cpp no assembled code for root
+autogen_cpp_noop 0000NV auto-generated/NexusTK/audio/SoundManager.cpp no assembled code for root
+autogen_cpp_noop 0000NW auto-generated/NexusTK/map/SoundObjectPane.cpp no assembled code for root
+autogen_cpp_noop 0000NX auto-generated/NexusTK/ui/panels/SoundStatusPane.cpp no assembled code for root
+autogen_cpp_noop 0000NY auto-generated/NexusTK/ui/controls/SpecializedButtonPanes.cpp no assembled code for root
+autogen_cpp_noop 0000O0 auto-generated/NexusTK/ui/dialogs/SpellInputPanes.cpp no assembled code for root
+autogen_cpp_noop 0000O1 auto-generated/NexusTK/ui/inventory/SpellInventoryPane.cpp no assembled code for root
+autogen_cpp_noop 0000O2 auto-generated/NexusTK/ui/dialogs/SpellMenuDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000NZ auto-generated/NexusTK/ui/panels/SpelledPane.cpp no assembled code for root
+autogen_cpp_noop 0000O3 auto-generated/NexusTK/login/StaffsDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000O4 auto-generated/NexusTK/app/StartupLogoPanes.cpp no assembled code for root
+autogen_cpp_noop 0000O5 auto-generated/NexusTK/app/StartupWindow.cpp no assembled code for root
+autogen_cpp_noop 0000O7 auto-generated/NexusTK/render/StaticObjImageLib.cpp no assembled code for root
+autogen_cpp_noop 0000O6 auto-generated/NexusTK/map/StaticObjectPane.cpp no assembled code for root
+autogen_cpp_noop 0000O8 auto-generated/NexusTK/ui/controls/StaticTextControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000O9 auto-generated/NexusTK/util/StdioFile.cpp no assembled code for root
+autogen_cpp_noop 0000OA auto-generated/NexusTK/util/StringBase.cpp no assembled code for root
+autogen_cpp_noop 0000OB auto-generated/NexusTK/util/StringUtil.cpp no assembled code for root
+autogen_cpp_noop 0000OC auto-generated/NexusTK/render/Surface.cpp no assembled code for root
+autogen_cpp_noop 0000OE auto-generated/NexusTK/social/SystemMessagePanes.cpp no assembled code for root
+autogen_cpp_noop 0000OF auto-generated/NexusTK/ui/panels/TabPane.cpp no assembled code for root
+autogen_cpp_noop 0000OG auto-generated/NexusTK/ui/dialogs/TargetOptionDialog.cpp no assembled code for root
+autogen_cpp_noop 0000OH auto-generated/NexusTK/ui/dialogs/TargetSelectionInputPanes.cpp no assembled code for root
+autogen_cpp_noop 0000OI auto-generated/NexusTK/login/TerminalPane.cpp no assembled code for root
+autogen_cpp_noop 0000OJ auto-generated/NexusTK/ui/controls/TextBoxPane.cpp no assembled code for root
+autogen_cpp_noop 0000OK auto-generated/NexusTK/ui/controls/TextButtonControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000OL auto-generated/NexusTK/ui/dialogs/TextDialog.cpp no assembled code for root
+autogen_cpp_noop 0000OM auto-generated/NexusTK/ui/controls/TextEditControlPane.cpp no assembled code for root
+autogen_cpp_noop 0000ON auto-generated/NexusTK/ui/controls/TextEditPane.cpp no assembled code for root
+autogen_cpp_noop 0000OO auto-generated/NexusTK/ui/controls/TextFilter.cpp no assembled code for root
+autogen_cpp_noop 0000OP auto-generated/NexusTK/ui/dialogs/TextMenuDialogs.cpp no assembled code for root
+autogen_cpp_noop 0000OQ auto-generated/NexusTK/ui/dialogs/TextPad.cpp no assembled code for root
+autogen_cpp_noop 0000OR auto-generated/NexusTK/util/Thread.cpp no assembled code for root
+autogen_cpp_noop 0000OT auto-generated/NexusTK/util/TimerMgr.cpp no assembled code for root
+autogen_cpp_noop 0000OU auto-generated/NexusTK/map/TimerPane.cpp no assembled code for root
+autogen_cpp_noop 0000OV auto-generated/NexusTK/ui/panels/TotemFrame.cpp no assembled code for root
+autogen_cpp_noop 0000OW auto-generated/NexusTK/ui/dialogs/TransferServerDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000OX auto-generated/NexusTK/login/UserCreateAppearanceControls.cpp no assembled code for root
+autogen_cpp_noop 0000OY auto-generated/NexusTK/login/UserInfoDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000OZ auto-generated/NexusTK/social/UserListDialogPane.cpp no assembled code for root
+autogen_cpp_noop 0000P0 auto-generated/NexusTK/ui/panels/UserLookPane.cpp no assembled code for root
+autogen_cpp_noop 0000P1 auto-generated/NexusTK/ui/panels/UserPane.cpp no assembled code for root
+autogen_cpp_noop 0000P2 auto-generated/NexusTK/ui/panels/UserStatusPane.cpp no assembled code for root
+autogen_cpp_noop 0000P3 auto-generated/NexusTK/util/VectorHelpers.cpp no assembled code for root
+autogen_cpp_noop 0000P4 auto-generated/NexusTK/ui/core/VideoPlayerPane.cpp no assembled code for root
+autogen_cpp_noop 0000P5 auto-generated/NexusTK/security/VirusChecker.cpp no assembled code for root
+autogen_cpp_noop 0000P6 auto-generated/NexusTK/ui/menu/VoteMenuPane.cpp no assembled code for root
+autogen_cpp_noop 0000P7 auto-generated/NexusTK/util/WaitableTimer.cpp no assembled code for root
+autogen_cpp_noop 0000P8 auto-generated/NexusTK/map/WeatherLayerPane.cpp no assembled code for root
+autogen_cpp_noop 0000P9 auto-generated/NexusTK/ui/dialogs/WebBoardDialog.cpp no assembled code for root
+autogen_cpp_noop 0000PA auto-generated/NexusTK/app/WinMain.cpp no assembled code for root
+autogen_cpp_noop 0000PB auto-generated/NexusTK/map/WorldMapPane.cpp no assembled code for root
+autogen_cpp_noop 0000PC auto-generated/NexusTK/third_party/zlib/Zlib.cpp no assembled code for root
+autogen_report_noop ------ auto-generated/-ag-class-coverage.md unchanged
+autogen_report_noop ------ auto-generated/-ag-file-coverage.md unchanged
+autogen_report_noop ------ auto-generated/-ag-function-coverage.md unchanged
+autogen_report_noop ------ auto-generated/-ag-global-coverage.md unchanged
+autogen_report_noop ------ auto-generated/-ag-item-coverage.md unchanged
+autogen_report_noop ------ auto-generated/-ag-memory-coverage.md unchanged
+autogen_report_noop ------ auto-generated/-ag-type-coverage.md unchanged

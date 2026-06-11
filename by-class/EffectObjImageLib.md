@@ -57,7 +57,7 @@ The object is at least `0x60` bytes. The layout is IDA-confirmed from constructo
 - Active generated `class_EffectObjImageLib.cpp` omits `RenderEffectFrame` and the ordinary destructor; `RenderEffectFrame` currently lives in `class_EffectObjImageLib.cpp.disabled`.
 - Active generated metadata reports `vtable_count: 0`, but IDA confirms the class vtable at `0x0061b724`.
 - The generated `EffectPixMapInfo` name is retained for traceability, but IDA currently proves a four-byte remap entry read from `EFFECT.FRM`, not a rich structure.
-- `byte_69B420` acts as an effect-data load error/suspend flag in loader and renderer paths; keep it near this file until a broader render-resource error-state owner is proven.
+- `byte_69B420` / `ImageLibraryLoadErrorFlag` acts as an effect-data load error/suspend flag in loader and renderer paths; keep it near this file until a broader render-resource error-state owner is proven.
 
 ## Cross-References
 
@@ -77,6 +77,10 @@ The object is at least `0x60` bytes. The layout is IDA-confirmed from constructo
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: render-resource error-state evidence used only the historical `byte_69B420` label.
+  - After: the page records resolved name `ImageLibraryLoadErrorFlag` beside the historical label.
+  - Evidence: generated resolved-name report maps `byte_69B420` to `ImageLibraryLoadErrorFlag`; existing page evidence already ties the byte to effect-data loader and renderer suspend/error paths.
 - 2026-06-03 autogen parent attachment:
   - Before: the class had strong file-owner evidence but blank autogen parent metadata.
   - After: attached to [UID:0000IY][EffectObjImageLib](by-file/EffectObjImageLib.md) at position `10`.

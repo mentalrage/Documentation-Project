@@ -1,6 +1,6 @@
 *** UID:0001VN | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000BL | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -15,7 +15,7 @@
 - Confidence: strong for observed offsets and vector/date helper behavior; medium for semantic names of date/time parts and user-entry tail fields.
 - Likely owner: [UID:0000MZ][RankingDialog](by-file/RankingDialog.md)
 - Primary memory evidence: [UID:0000Y9][0x0045bf60-0x0045c257.RankingCategoryRecord](by-memory/0x0045bf60-0x0045c257.RankingCategoryRecord.md)
-- Size evidence: `688` bytes from category collection stride usage in IDA decompilation; generated metadata is only a lead.
+- Size evidence: `688` bytes from category collection stride usage in IDA decompilation and deep-copy helper behavior.
 - Reconstructable: source-declared fixed-record layout for the reconstructed ranking dialog module. Final C++ declaration is deferred until the row/date-time types and field names are stronger.
 
 ## Layout Hypothesis
@@ -29,11 +29,11 @@
 | `+0x08` | 4 | `stateCode` | `0x0045bf80` returns `this[2]`; event-card drawing branches on it. |
 | `+0x0c` | 36 | start time/date parts | `0x0045bf90` copies 36 bytes from this offset; `0x0045c050` writes six packed date/time parts into dwords `+0x0c..+0x20`. |
 | `+0x30` | 36 | end time/date parts | `0x0045bfb0` copies 36 bytes from this offset; `0x0045c100` writes six packed date/time parts into dwords `+0x30..+0x44`. |
-| `+0x54` | 516 | wide title text buffer | `0x0045bfd0` returns `this + 84`; the next confirmed vector field begins at `+0x258`. |
+| `+0x54` | 516 | wide title text buffer | `0x0045bfd0` returns record offset `+0x54`; the next confirmed vector field begins at `+0x258`. |
 | `+0x258` | 4 | user entries begin | `0x0045bfe0` and `0x0045c240` read this as the vector begin pointer. |
 | `+0x25c` | 4 | user entries current/end | `0x0045bfe0` uses this as the end pointer; `0x0045c240` resets it to begin. |
-| `+0x260` | 4 | user entries capacity | Disabled generated layout names this as capacity. |
-| `+0x264` | 4 | reserved/vector bookkeeping | Present between capacity and selected index in generated disabled layout. |
+| `+0x260` | 4 | user entries capacity | Append/growth helpers compare the current-end pointer against this slot. |
+| `+0x264` | 4 | reserved/vector bookkeeping | Present between capacity and selected index; current direct reads/writes are not yet named. |
 | `+0x268` | 4 | selected/local user index | `0x0045c240` writes `-1`. |
 | `+0x26c` | 68 | tail storage / padding | Remainder to 688-byte stride; not yet named. |
 
@@ -67,8 +67,6 @@ Observed packed-date setter writes:
 ## Evidence Notes
 
 - 2026-05-31 IDA MCP recheck confirmed all eleven method starts, current decompilation of the date/time setters, the 76-byte user-entry copy in `AppendUserEntry`, caller sets for every accessor/helper, and `688`-byte category-record stride in collection parser loops.
-- Current active generated source emits only the category-id accessor; `class_RankingCategoryRecord.cpp.disabled` contains the other seven methods.
-- Current active and disabled generated source both omit the date-part setters at `0x0045c050`/`0x0045c100` and the user-entry append helper at `0x0045c1e0`.
 - IDA caller evidence confirms the disabled helpers are used by ranking event-list drawing, user-list painting, reward-info drawing, and selected-category reset paths.
 
 ## Cross-References
@@ -81,6 +79,7 @@ Observed packed-date setter writes:
 
 ## Changes
 
+- 2026-06-05: Raised from `78/86` to `82/88` after live IDA reconfirmed all method starts, start/end packed-date writes, title and user-entry vector offsets, append/growth use of `+0x258/+0x25c/+0x260`, and the deep-copy helper's 688-byte record copy. Removed recovered-output caveats and kept final declaration blank.
 - 2026-05-31: Grading changed from `0/0` to `78/86`, marked reconstructable, and attached to [UID:0000BL][RankingCategoryRecord](by-class/RankingCategoryRecord.md).
   - Before: page contained a useful offset table but still looked unevaluated to validator/stat tooling.
   - After: score reflects current IDA-verified method starts, caller evidence, date/time setter writes, vector offsets, record stride, and known remaining caveats for final field names and tail storage.

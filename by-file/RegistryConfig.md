@@ -1,6 +1,6 @@
 *** UID:0000N4 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/config/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # RegistryConfig
@@ -11,7 +11,7 @@
 - Proposed module: `config/RegistryConfig.cpp`
 - Current generated source: `class_RegistryConfig.cpp`
 - Primary class doc: [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md)
-- Main address docs: [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md), [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md), [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md), [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md), [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md), [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md), and [UID:0002PA][0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md)
+- Main address docs: [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md), exact defaults children [UID:00032F][0x0048e780-0x0048e85a.RegistryConfigDestructor](by-memory/0x0048e780-0x0048e85a.RegistryConfigDestructor.md), [UID:00030U][0x0048e860-0x0048e94f.RegistryConfigLoadOrInitialize](by-memory/0x0048e860-0x0048e94f.RegistryConfigLoadOrInitialize.md), [UID:00032G][0x0048e950-0x0048ea6e.RegistryConfigTypeProbeRaw](by-memory/0x0048e950-0x0048ea6e.RegistryConfigTypeProbeRaw.md), [UID:00030W][0x0048ebc0-0x0048eecf.RegistryConfigInitializeUserDataDefaults](by-memory/0x0048ebc0-0x0048eecf.RegistryConfigInitializeUserDataDefaults.md), [UID:00030Y][0x0048eed0-0x0048f3f1.RegistryConfigInitializeDefaults](by-memory/0x0048eed0-0x0048f3f1.RegistryConfigInitializeDefaults.md), [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md), [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md), [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md), [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md), [UID:0002VB][0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw](by-memory/0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw.md), [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md), and [UID:0002PA][0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md)
 
 ## File Role
 
@@ -27,7 +27,9 @@ The user-profile/settings slice owned by this class is documented as [UID:0001VR
 
 | Entity | Address evidence | Role |
 | --- | --- | --- |
-| `RegistryConfig` | `0x00467340`, `0x0048e780-0x00493e29` | Registry-backed subclass lifecycle, default reset, registry load/save, and user-data defaults. |
+| `RegistryConfig` | `0x00467340`, [UID:00032F][0x0048e780-0x0048e85a.RegistryConfigDestructor](by-memory/0x0048e780-0x0048e85a.RegistryConfigDestructor.md), `0x0048e860-0x00493e29` | Registry-backed subclass lifecycle, default reset, registry load/save, and user-data defaults. |
+| Registry type probe helper | [UID:00032G][0x0048e950-0x0048ea6e.RegistryConfigTypeProbeRaw](by-memory/0x0048e950-0x0048ea6e.RegistryConfigTypeProbeRaw.md) | Private raw registry helper that reads a machine-specific `Type` value; no class `this` parameter, so it is a file-level helper rather than a `RegistryConfig` method. |
+| Adapter physical-address formatter clone | [UID:0002VB][0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw](by-memory/0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw.md) | Private raw adapter-formatting helper/dead clone associated with `LoadFromRegistry`; no class `this` parameter or xrefs, so it is a file-level helper rather than a `RegistryConfig` method. |
 | registry/default helper data | emitted globals in `class_RegistryConfig.cpp` | Screen dimensions, empty string handles, language/config globals, and wide-string sentinel aliases. |
 | `ConfigEntryBlock` interactions | `0x00494130` callers from registry load/destructor paths | Cleanup support shared with [UID:0000IE][Config](by-file/Config.md). Final owner likely remains `Config.cpp` or a private config-entry helper file. |
 
@@ -35,15 +37,17 @@ The user-profile/settings slice owned by this class is documented as [UID:0001VR
 
 | Area | Representative anchors | Notes |
 | --- | --- | --- |
-| Lifecycle | `0x00467340`, `0x0048e780` | Scalar deleting wrapper and real destructor; releases registry/config resources and clears base state. |
-| Load/default flow | `0x0048e860`, `0x0048eed0` | Applies defaults, attempts registry load, and normalizes command-line state. |
+| Lifecycle | `0x00467340`, [UID:00032F][0x0048e780-0x0048e85a.RegistryConfigDestructor](by-memory/0x0048e780-0x0048e85a.RegistryConfigDestructor.md) | Scalar deleting wrapper and real destructor; releases registry/config resources and clears base state. |
+| Load/default flow | [UID:00030U][0x0048e860-0x0048e94f.RegistryConfigLoadOrInitialize](by-memory/0x0048e860-0x0048e94f.RegistryConfigLoadOrInitialize.md), [UID:00030Y][0x0048eed0-0x0048f3f1.RegistryConfigInitializeDefaults](by-memory/0x0048eed0-0x0048f3f1.RegistryConfigInitializeDefaults.md) | Applies defaults, attempts registry load, and normalizes command-line state. |
 | Command-line/session parser helpers | `0x0048f400-0x00491b28` | Login/session command-line modes, DNS/host resolution, and connection parameter setup. |
-| User-data defaults | `0x0048ebc0` | Resets the [UID:0001VR][RegistryConfigUserProfileBlock](by-type/by-struct/RegistryConfigUserProfileBlock.md) before `.usr` or legacy `.cfg` overlay. |
+| User-data defaults | [UID:00030W][0x0048ebc0-0x0048eecf.RegistryConfigInitializeUserDataDefaults](by-memory/0x0048ebc0-0x0048eecf.RegistryConfigInitializeUserDataDefaults.md) | Resets the [UID:0001VR][RegistryConfigUserProfileBlock](by-type/by-struct/RegistryConfigUserProfileBlock.md) before `.usr` or legacy `.cfg` overlay. |
 | Registry persistence | `0x00491b30`, `0x004926a0` | Saves and loads Kingdom of the Winds/NexusTK registry options, server metadata, adapter state, and CLSID data. |
 
 ## Boundary Notes
 
-- IDA confirms exact starts/ranges for `0x00467340`, `0x0048e780`, `0x0048e860`, `0x0048ebc0`, `0x0048eed0`, `0x00491b30`, `0x004926a0`, `0x00494020`, and `0x00494130`; exact child pages now document registry save/load and the adjacent config cleanup helpers.
+- IDA confirms exact starts/ranges for `0x00467340`, `0x0048e780`, `0x0048e860`, `0x0048ebc0`, `0x0048eed0`, `0x00491b30`, `0x004926a0`, `0x00494020`, and `0x00494130`; exact child pages now document default/load methods, registry save/load, and the adjacent config cleanup helpers.
+- 2026-06-10 B001-015 split pass: [UID:00032F][0x0048e780-0x0048e85a.RegistryConfigDestructor](by-memory/0x0048e780-0x0048e85a.RegistryConfigDestructor.md) is the exact non-deleting destructor child assigned to [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md); [UID:00032G][0x0048e950-0x0048ea6e.RegistryConfigTypeProbeRaw](by-memory/0x0048e950-0x0048ea6e.RegistryConfigTypeProbeRaw.md) is a file-private raw registry helper assigned here after IDA confirmed registry-only `Type` probe behavior and no direct class `this` parameter.
+- 2026-06-08 split pass: [UID:00030U][0x0048e860-0x0048e94f.RegistryConfigLoadOrInitialize](by-memory/0x0048e860-0x0048e94f.RegistryConfigLoadOrInitialize.md), [UID:00030W][0x0048ebc0-0x0048eecf.RegistryConfigInitializeUserDataDefaults](by-memory/0x0048ebc0-0x0048eecf.RegistryConfigInitializeUserDataDefaults.md), and [UID:00030Y][0x0048eed0-0x0048f3f1.RegistryConfigInitializeDefaults](by-memory/0x0048eed0-0x0048f3f1.RegistryConfigInitializeDefaults.md) are direct `RegistryConfig` children and clear the strict gate against [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md) `86/86`.
 - `list missing-ref --class RegistryConfig` returns zero entries.
 - Current emitted source omits bodies for `SaveToRegistry` and `LoadFromRegistry` after their source markers; this is tracked in [wave3_data_issues](../wave3_data_issues.md) and the shared [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) note.
 - `show grade class RegistryConfig` now reports a low effective grade because child rollup uses low auto grades despite high manual/effective child grades. This is tracked in [wave3_noticed_problems](../wave3_noticed_problems.md) as a grading/tool issue.
@@ -53,6 +57,7 @@ The user-profile/settings slice owned by this class is documented as [UID:0001VR
 - 2026-05-27 gap pass: [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md) is an ignored MSVC COM/CRT helper island used by the command-line/parser helpers and broad formatting/scanning callers; do not place it in `RegistryConfig.cpp` as NexusTK-authored source.
 - 2026-05-25 MD5 pass: IDA confirms `0x004926a0` calls [UID:0000L6][MD5](by-file/MD5.md) helper `0x005153e0` at `0x004928ba`, passing a registry-derived string buffer, its length, and an output pointer near the config object. This is a dependency on `util/MD5.cpp`, not evidence that MD5 belongs in `RegistryConfig.cpp`.
 - Current `simroot_v2/class_RegistryConfig.cpp` still contains only `WAVE3 OMITTED METHOD BODY` markers for `SaveToRegistry` and `LoadFromRegistry`, so this source is not migration-ready for registry persistence.
+- 2026-06-10 B001-016 source-owner update: [UID:0002VB][0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw](by-memory/0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw.md) begins after `RegistryConfig::LoadFromRegistry` ends at `0x00493e29` and after seven padding bytes. IDA still reports no modeled function, no xrefs, and no callers at `0x00493e30`, but B001-016 verified the body duplicates the `LoadFromRegistry` adapter physical-address formatter using `GetAdaptersAddresses`, adapter offsets `+0x08/+0x2c/+0x34`, `"%s%.2X]"` / `"%s%.2X-"`, and `sub_443A00`. It is now assigned here as a file-private raw helper/dead clone, not to the [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md) class page.
 
 ## Cross-References
 
@@ -65,10 +70,16 @@ The user-profile/settings slice owned by this class is documented as [UID:0001VR
 - [UID:0001VR][RegistryConfigUserProfileBlock](by-type/by-struct/RegistryConfigUserProfileBlock.md)
 - [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md)
 - [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md)
+- [UID:00032F][0x0048e780-0x0048e85a.RegistryConfigDestructor](by-memory/0x0048e780-0x0048e85a.RegistryConfigDestructor.md)
+- [UID:00030U][0x0048e860-0x0048e94f.RegistryConfigLoadOrInitialize](by-memory/0x0048e860-0x0048e94f.RegistryConfigLoadOrInitialize.md)
+- [UID:00032G][0x0048e950-0x0048ea6e.RegistryConfigTypeProbeRaw](by-memory/0x0048e950-0x0048ea6e.RegistryConfigTypeProbeRaw.md)
+- [UID:00030W][0x0048ebc0-0x0048eecf.RegistryConfigInitializeUserDataDefaults](by-memory/0x0048ebc0-0x0048eecf.RegistryConfigInitializeUserDataDefaults.md)
+- [UID:00030Y][0x0048eed0-0x0048f3f1.RegistryConfigInitializeDefaults](by-memory/0x0048eed0-0x0048f3f1.RegistryConfigInitializeDefaults.md)
 - [UID:000220][0x0048f400-0x00491b28.RegistryCommandLineParsers](by-memory/0x0048f400-0x00491b28.RegistryCommandLineParsers.md)
 - [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md)
 - [UID:0002P7][0x00491b30-0x00492695.RegistryConfigSaveToRegistry](by-memory/0x00491b30-0x00492695.RegistryConfigSaveToRegistry.md)
 - [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md)
+- [UID:0002VB][0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw](by-memory/0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw.md)
 - [UID:0002P9][0x00494020-0x00494126.ConfigDeletingDestructor](by-memory/0x00494020-0x00494126.ConfigDeletingDestructor.md)
 - [UID:0002PA][0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers](by-memory/0x00494130-0x004941d6.ConfigEntryBlockReleaseOwnedBuffers.md)
 - [UID:000221][0x004941e0-0x00494519.MsvcComAndFormattingHelpers](by-memory/0x004941e0-0x00494519.MsvcComAndFormattingHelpers.md)
@@ -89,3 +100,17 @@ The user-profile/settings slice owned by this class is documented as [UID:0001VR
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `88`, confidence `82`.
 - Summary/evidence: the page documents registry-backed config role, method families, profile/config split, MD5 dependency, IDA boundary evidence, command-line parser split, generated caveats, and cross-references; confidence remains capped by omitted Wave3 method bodies and parser-family ownership caveats.
+- 2026-06-08 A010 Batch112: Raised confidence from `82` to `85`.
+  - Before: the load/default flow was documented mainly as raw ranges inside the mixed Config/RegistryConfig aggregate.
+  - After: linked exact child pages for `RegistryConfig::LoadOrInitialize`, `RegistryConfig::InitializeUserDataDefaults`, and `RegistryConfig::InitializeDefaults`, all assigned to [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md).
+  - Evidence: the exact child pages isolate the three default/load methods, tie user-data defaults to [UID:0001VR][RegistryConfigUserProfileBlock](by-type/by-struct/RegistryConfigUserProfileBlock.md), and preserve the separate [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md) consumer relationship.
+- 2026-06-08 A003 Batch113: Added an explicit rejection note for direct ownership of [UID:0002VB][0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw](by-memory/0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw.md).
+  - Before: the file page documented `SaveToRegistry` / `LoadFromRegistry` ownership but did not say whether the adjacent unreferenced adapter-formatting clone belonged to this source file.
+  - After: the boundary notes and cross-references record that adjacency to `LoadFromRegistry` is insufficient because the raw clone has no modeled function, callers, xrefs, or direct source-boundary proof.
+  - Evidence: Batch113 IDA checks on `0x00493e30` and the containing mixed aggregate [UID:000111][0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup](by-memory/0x00491b30-0x004941d6.RegistryPersistenceAndConfigEntryCleanup.md).
+- 2026-06-10 B001-015 split repair:
+  - Changed to: no score change.
+  - Summary/evidence: added exact non-deleting destructor child [UID:00032F][0x0048e780-0x0048e85a.RegistryConfigDestructor](by-memory/0x0048e780-0x0048e85a.RegistryConfigDestructor.md) and private registry file-helper child [UID:00032G][0x0048e950-0x0048ea6e.RegistryConfigTypeProbeRaw](by-memory/0x0048e950-0x0048ea6e.RegistryConfigTypeProbeRaw.md). B001-015 IDA MCP confirmed the destructor caller/cleanup chain, the raw `Type` probe body, and why the master [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md) is now a parent-blank non-emitting mixed inventory.
+- 2026-06-10 B001-016 split audit:
+  - Changed to: no score change.
+  - Summary/evidence: accepted [UID:0002VB][0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw](by-memory/0x00493e30-0x00493ef0.UnreferencedAdapterPhysicalAddressFormatterRaw.md) as a RegistryConfig file-level raw helper/dead clone after IDA MCP compared the no-xref body with the adapter physical-address formatting block inside [UID:0002P8][0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry](by-memory/0x004926a0-0x00493e29.RegistryConfigLoadFromRegistry.md).

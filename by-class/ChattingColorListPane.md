@@ -1,8 +1,8 @@
 *** UID:00001S | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000I5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -78,3 +78,4 @@
   - Before: the reliable local core was summarized as a broad `0x00482fb0-0x00483486` range with method starts only.
   - After: exact by-memory child pages cover the constructor, select-current helper, raw selected-color accessor, find-index helper, draw-item virtual, selected-item virtual, and internal padding through `0x00483490`.
   - Summary and evidence: IDA MCP function iteration, decompilation, xref review, vtable-slot review, color-table constant review, and raw byte audit support the split; confidence remains below 100 because later generated class attachments remain polluted and destructor/thunk cleanup still needs a focused pass.
+- 2026-06-05: Reclassified autogen metadata from unclassified to `RECONSTRUCTABLE:TRUE` and attached the class to [UID:0000I5][Chatting](by-file/Chatting.md). Current IDA MCP `lookup_funcs` reconfirmed constructor/select/find/draw/selected/destructor starts at `0x00482fb0`, `0x00483210`, `0x00483270`, `0x004832c0`, `0x00483420`, and `0x00483b00`, and `callers` shows construction from the chat-color dialog path. Both class (`86/88`) and file (`83/87`) clear the 80+ attachment gate; reconstruction C++ remains blank because generated owner pollution and final field names are still unresolved.

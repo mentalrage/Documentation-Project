@@ -1,8 +1,8 @@
 *** UID:0001U6 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00003V | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,9 +16,10 @@
 - Owner class: [UID:00003V][DIBitmap](by-class/DIBitmap.md)
 - Likely source file: [UID:0000IV][DIBitmap](by-file/DIBitmap.md)
 - Primary memory range: [UID:000135][0x004a1600-0x004a1b5e.DIBitmapAndPcxLoaders](by-memory/0x004a1600-0x004a1b5e.DIBitmapAndPcxLoaders.md)
-- Tiny-method cluster: [UID:000136][0x004a1740-0x004a17ac.DIBitmapDestructorAndAccessors](by-memory/0x004a1740-0x004a17ac.DIBitmapDestructorAndAccessors.md)
+- Tiny-method cluster: [UID:000136][0x004a1740-0x004a17ad.DIBitmapDestructorAndAccessors](by-memory/0x004a1740-0x004a17ad.DIBitmapDestructorAndAccessors.md)
 - Vtable: [UID:0001XE][DIBitmapDirectXVtables](by-type/by-vtable/DIBitmapDirectXVtables.md)
-- Evidence basis: 2026-05-31 IDA MCP `decompile`/`disasm` checks of constructor `0x004a1600`, raw destructor/accessors `0x004a1740-0x004a17ac`, and scalar deleting destructor `0x004a1b10`.
+- Evidence basis: 2026-05-31 and 2026-06-08 IDA MCP `decompile`/`disasm` checks of constructor `0x004a1600`, raw destructor/accessors `0x004a1740-0x004a17ad`, scalar deleting destructor `0x004a1b10`, and PCX factory inline construction.
+- Assignment: direct parent is [UID:00003V][DIBitmap](by-class/DIBitmap.md). This child is `86/91`, the class parent is `86/87`, and the source-file parent [UID:0000IV][DIBitmap](by-file/DIBitmap.md) is `86/86`, so the corrected `85/85` gate is satisfied.
 
 ## Confirmed Fields
 
@@ -34,6 +35,13 @@
 | `+0x38` | `4` | requested height | Constructor stores the caller-requested height; accessor `0x004a1790` returns it when `m_pBits` is non-null. |
 
 Minimum confirmed object size is `0x3c` bytes. No IDA-confirmed method in the checked cluster requires fields beyond `+0x38`.
+
+## 2026-06-08 IDA Refresh
+
+- IDB: `NexusTK.exe`, MD5 `4247e04e20b65d6414c7238aa8ff5515`.
+- `lookup_funcs` confirms modeled entries at `0x004a1600` (`0x138` bytes), `0x004a1760`, `0x004a1770`, `0x004a1780`, `0x004a1790`, `0x004a1b10` (`0x4e` bytes), and `0x004a1cd0` for the adjacent `DirectX` destructor. Raw addresses `0x004a1740` and `0x004a17a0` are not standalone IDA functions, matching the tiny destructor/accessor cluster caveat.
+- `xrefs_to 0x00618e54` reconfirms DIBitmap vtable writes at `0x004a1638`, `0x004a1746`, `0x004a195c`, and `0x004a1b19`. The `0x004a195c` write ties the PCX factory inline object path back to the same compact DIBitmap layout.
+- The exact constructor child [UID:000313][0x004a1600-0x004a1738.DIBitmapConstructor](by-memory/0x004a1600-0x004a1738.DIBitmapConstructor.md), scalar destructor child [UID:000316][0x004a1b10-0x004a1b5e.DIBitmapScalarDeletingDestructor](by-memory/0x004a1b10-0x004a1b5e.DIBitmapScalarDeletingDestructor.md), and vtable child [UID:0002MC][0x00618e50-0x00618e60.DIBitmapVtableData](by-memory/0x00618e50-0x00618e60.DIBitmapVtableData.md) all support the same class-level parent.
 
 ## Constructor Behavior
 
@@ -54,6 +62,12 @@ Minimum confirmed object size is `0x3c` bytes. No IDA-confirmed method in the ch
 ## Generated-Data Caveat
 
 Current `source-3/simroot_v2/class_DIBitmap.meta_wave3` reports a `0x60`-byte struct with a noisy `LObject` base and large undefined byte fields. Treat that generated size/layout as provisional data, not binary truth. The offsets above are IDA-confirmed from constructor stores, destructor loads, accessor bodies, and the PCX factory's inline construction path.
+
+## Score Rationale
+
+- Completion is raised from `82` to `86` because the layout now has an explicit direct-parent gate, current IDA refresh evidence, and exact child support for the constructor, scalar destructor, PCX factory construction path, and vtable data.
+- Confidence is raised from `90` to `91` because the refreshed xrefs and function-boundary checks reconfirm the field offsets and class ownership without changing the remaining caveat that original member names are provisional.
+- This page is assigned to [UID:00003V][DIBitmap](by-class/DIBitmap.md); the broader file page remains a source-file cross-reference rather than the direct type parent.
 
 ## Reconstruction Notes
 
@@ -87,8 +101,11 @@ Keep the method names provisional until caller-side usage confirms original nami
 - [UID:00003V][DIBitmap](by-class/DIBitmap.md)
 - [UID:0000IV][DIBitmap](by-file/DIBitmap.md)
 - [UID:000135][0x004a1600-0x004a1b5e.DIBitmapAndPcxLoaders](by-memory/0x004a1600-0x004a1b5e.DIBitmapAndPcxLoaders.md)
-- [UID:000136][0x004a1740-0x004a17ac.DIBitmapDestructorAndAccessors](by-memory/0x004a1740-0x004a17ac.DIBitmapDestructorAndAccessors.md)
+- [UID:000313][0x004a1600-0x004a1738.DIBitmapConstructor](by-memory/0x004a1600-0x004a1738.DIBitmapConstructor.md)
+- [UID:000136][0x004a1740-0x004a17ad.DIBitmapDestructorAndAccessors](by-memory/0x004a1740-0x004a17ad.DIBitmapDestructorAndAccessors.md)
+- [UID:000316][0x004a1b10-0x004a1b5e.DIBitmapScalarDeletingDestructor](by-memory/0x004a1b10-0x004a1b5e.DIBitmapScalarDeletingDestructor.md)
 - [UID:0001XE][DIBitmapDirectXVtables](by-type/by-vtable/DIBitmapDirectXVtables.md)
+- [UID:0002MC][0x00618e50-0x00618e60.DIBitmapVtableData](by-memory/0x00618e50-0x00618e60.DIBitmapVtableData.md)
 - [UID:0000U9][CreateDIBitmapFromPcxBuffer_004A18B0](by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md)
 
 ## Changes
@@ -97,3 +114,6 @@ Keep the method names provisional until caller-side usage confirms original nami
   - What existed before: completion/confidence metadata was unevaluated at `0/0`, and `RECONSTRUCTABLE` was blank.
   - Changed to: `COMPLETION:82`, `CONFIDENCE:90`, and `RECONSTRUCTABLE:TRUE`.
   - Summary/evidence: IDA MCP directly confirms the constructor header copy, `CreateDIBSection` output storage, bitmap handle storage, raw destructor cleanup, scalar deleting destructor cleanup, and accessor offsets. The page remains below `95+` because exact original member names, source declaration shape, PCX factory relationship, and neighboring loader ownership still need a fuller audit before final C++ is safe.
+- 2026-06-08 A007 Batch 130 parent-gate refresh:
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:91`, with `AUTOGEN_PARENT_UID:00003V`.
+  - Summary/evidence: current IDA MCP reconfirmed DIBitmap constructor/destructor/accessor boundaries, DIBitmap vtable writes, and PCX factory inline construction. The direct class parent [UID:00003V][DIBitmap](by-class/DIBitmap.md) is now `86/87`, so both child and parent clear the corrected `85/85` gate.

@@ -1,8 +1,8 @@
 *** UID:00003I | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for module ownership, medium for exact public/private split.
+- Confidence: strong for public wrapper ownership and direct module placement, medium-high for exact private helper class names and unresolved internal field names.
 - Current files: `class_DATFileMgr.cpp`, `class__DATFileMgr.cpp`, `class_DATFileContainer.cpp`, `class_DATFileResolver.cpp`
 - Likely source module: [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md)
 - Current relevant ranges: `0x0049bd30-0x0049d6ed` aggregate, with exact child ranges in [UID:00012B][0x0049bd30-0x0049d6ed.DATManagers](by-memory/0x0049bd30-0x0049d6ed.DATManagers.md)
@@ -78,6 +78,19 @@ The mapped entry table uses 17-byte records. `_DATFileMgr::LoadDATFileIndex` tre
 - [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) is a free helper in this same module. It probes [UID:0000QQ][g_pDATFileMgr](by-global/g_pDATFileMgr.md) without returning an entry location.
 - `_DATFileMgr::FindEntryByName` normalizes lookup names to uppercase wide strings before hashing/comparison, matching the load-time uppercase conversion of DAT entry names.
 - [UID:00003K][DATIndexVector](by-class/DATIndexVector.md) helpers are called by manager construction and `_DATFileMgr::InsertOrFindEntry`, but 2026-05-24 IDA caller checks show broader minimap, fitting-room, and monster-image users. Treat it as a standalone helper module, not a private manager member file.
+- 2026-06-07 Batch 083 live IDA MCP `py_eval` recheck reconfirmed the class/file boundary: public wrapper constructor `0x0049bd30-0x0049be41`, public load-index wrapper `0x0049be70-0x0049be7c`, scalar deleting destructor `0x0049d350-0x0049d38b`, and no modeled function at the raw find forwarder `0x0049bd20` or ordinary internal cleanup start `0x0049c750`. The same check still places `_DATFileMgr` load/find/create/insert/node helpers and the resolver cleanup inside the `DATFileMgr.cpp` source family, while `HasDATEntry` remains a free helper beside the manager.
+- The same recheck found `??_7DATFileMgr@@6B@` at `0x00618914` referenced by the public constructor/destructor and `??_7_DATFileMgr@@6B@` at `0x006189cc` referenced by the public constructor, internal deleting destructor, and raw ordinary cleanup bytes. This supports one direct source module for the public wrapper and its private implementation rather than a separate generated class-file split.
+
+## Assignment Decision
+
+`AUTOGEN_PARENT_UID` is set to [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md). This class page is now `86/86`, and the direct file parent is `89/85` after the Batch 083 parent recheck. The by-file page directly owns the public wrapper, `_DATFileMgr` implementation, mapped archive container, resolver subobject, manager singleton, and local free helpers; assigning this class to any narrower class or global page would hide the public/private manager relationship.
+
+C++ remains blank because the class declaration, private field names, and helper class source spelling are not at the final `95/95` reconstruction-code gate.
+
+## Score Rationale
+
+- Completion `86`: public wrapper responsibility, exact method inventory, internal implementation relationship, mapped archive container layout, resolver cleanup, singleton/global helper ownership, vtable data, raw-gap caveats, direct file parent, and cross-references are documented. Remaining work is final private-field naming and deciding whether `_DATFileMgr`/`DATFileResolver` were original source names or reconstruction labels.
+- Confidence `86`: live IDA evidence confirms boundaries, vtable references, callers, and module-local ownership well enough for assignment. It remains below very-high/final quality because several internal fields and exact private class names still depend on reconstruction inference.
 
 ## Data Issues To Track Later
 
@@ -121,3 +134,6 @@ The mapped entry table uses 17-byte records. `_DATFileMgr::LoadDATFileIndex` tre
   - What existed before: the class linked only the generic `DATManagerVtables` type page and did not mark `RECONSTRUCTABLE`.
   - Changed to: marked `RECONSTRUCTABLE:TRUE`, raised confidence to `84`, and linked the exact `0x00618910-0x00618918` vtable-data page.
   - Summary/evidence: IDA MCP `list_globals`, `xrefs_to`, and dword scan prove the one-slot public-wrapper vtable and the `DATFileContainer` RTTI boundary at `0x00618918`.
+- 2026-06-07 A006 Batch 083:
+  - Changed score from `78/84` to `86/86` and set `AUTOGEN_PARENT_UID:0000IO`.
+  - Summary/evidence: live IDA MCP reconfirmed public wrapper method boundaries, the raw find-forwarder and raw ordinary-destructor starts, internal manager helper boundaries, resolver cleanup calls, and both public/internal vtable reference sets. The direct by-file parent also clears the corrected `85/85` gate.

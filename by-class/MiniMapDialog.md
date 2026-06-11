@@ -1,8 +1,8 @@
 *** UID:00008C | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,10 +16,13 @@
 - Likely source file: [UID:0000LE][MiniMap](by-file/MiniMap.md), probably `map/MiniMapDialog.cpp` or a combined `map/MiniMap.cpp`.
 - Current recovered file: `source-3/simroot_v2/class_MiniMapDialog.cpp`
 - Main memory doc: [UID:0000XK][0x00450ca0-0x0045381b.MiniMapDialog](by-memory/0x00450ca0-0x0045381b.MiniMapDialog.md)
+- Parent attachment: [UID:0000LE][MiniMap](by-file/MiniMap.md), now that the file root and this class both satisfy the corrected 85/85 gate.
 
 ## Class Purpose
 
 `MiniMapDialog` is the in-game minimap window. It owns the `DialogPane`-derived shell, the 768x768 map view, toggle controls for map symbol categories, coordinate display controls, tooltip/hit-test behavior, timer-driven map refresh, and the embedded [UID:00008F][MiniMapRenderer](by-class/MiniMapRenderer.md) runtime object at dialog offset `+0x1cc`.
+
+The active dialog singleton storage is [UID:00028P][0x0067a7c4-0x0067a7c8.g_pMiniMapDialog](by-memory/0x0067a7c4-0x0067a7c8.g_pMiniMapDialog.md). The constructor publishes `this`, teardown/helper paths clear the slot, and packet/UI paths use the global to close or avoid constructing a duplicate minimap dialog.
 
 Its static labels use a local [UID:00005C][FontStyle](by-class/FontStyle.md) configured with `Configure(0x80, 6, 1, 0)`. That style object remains reusable UI control support, not minimap-owned code.
 
@@ -57,6 +60,10 @@ The class is minimap/map UI feature code. It calls map, renderer, downloader, ti
 
 ## Changes
 
+- 2026-06-07 A010 Batch032 parent-gate update:
+  - Before: `80/84`, `AUTOGEN_PARENT_UID` blank because the MiniMap file root and class page did not clear the corrected assignment gate.
+  - After: `85/88`, `AUTOGEN_PARENT_UID:0000LE`; added explicit singleton-storage ownership evidence from live IDA xrefs for `g_pMiniMapDialog`. Final class C++ remains blank because method names, projected generated labels, and source split are still below the final-source gate.
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` after live IDA MCP on `NexusTK.exe` confirmed the minimap dialog constructor/destructor, input/timer/layout, adjustor, and cleanup starts at `0x00450ca0`, `0x00451330`, `0x004537bc`, `0x004537c7`, `0x004537e0`, `0x004518b0`, `0x004519b0`, `0x00451a10`, `0x00451c90`, `0x00452260`, `0x004523d0`, `0x00452d20`, and `0x00452f70`. At that time `AUTOGEN_PARENT_UID` stayed blank because likely parent [UID:0000LE][MiniMap](by-file/MiniMap.md) was below the 80 completion attachment gate.
 - 2026-05-30: Grading changed from `0/0` to `80/84`.
   - Before: page had a useful class summary and method-family inventory but remained unevaluated by the completion/confidence header.
   - After: score reflects documented class purpose, owner module, major method families, embedded renderer relationship, shared-control dependencies, and explicit boundary caveats for projected generated labels.

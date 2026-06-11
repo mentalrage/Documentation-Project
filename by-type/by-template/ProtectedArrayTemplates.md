@@ -1,6 +1,6 @@
 *** UID:0001WR | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -27,13 +27,13 @@ The current `class_ProtectedArray_struct_*.cpp` files are generated template-ins
 | Method family | Evidence | Behavior |
 | --- | --- | --- |
 | Ordinary destructor | `0x004e5a70-0x004e5b6f` | Resets the concrete vtable and frees the backing record array at offset `+0x08`. |
-| Bounds-checked accessor | `0x004e5f20`, `0x004e5f40` | Returns `m_entries[index]` when `0 <= index < count`, otherwise returns the inline default record at `this + 0x10`. |
+| Bounds-checked accessor | `0x004e5f20`, `0x004e5f40`, `0x004e5f70` | Returns `m_entries[index]` when `0 <= index < count`, otherwise returns the inline default record at `this + 0x10`; the three documented image-info strides are `0x10`, `0x14`, and `0x0c`. |
 | Scalar deleting destructor | `0x004e5fa0-0x004e629f`, `0x00514d50` | Performs ordinary cleanup and conditionally deletes `this` when delete flag bit `1` is set. |
 
 ## IDA Verification Notes
 
 - `0x004e5a70-0x004e5b6f` is a compact ordinary-destructor island in disassembly. Each 16-byte body writes a concrete `ProtectedArray<T>` vtable, frees the backing pointer at object offset `+0x08`, and returns.
-- `0x004e5f20` and `0x004e5f40` decompile as bounds-checked accessors. Both read `count` at offset `+0x04`, `entries` at `+0x08`, return fallback storage at `+0x10` when out of range, and otherwise use concrete element strides (`0x10` for `HairInfo`, `0x14` for `Acc2Info`).
+- `0x004e5f20`, `0x004e5f40`, and `0x004e5f70` decompile as bounds-checked accessors. All three read `count` at offset `+0x04`, `entries` at `+0x08`, return fallback storage at `+0x10` when out of range, and otherwise use concrete element strides (`0x10` for `HairInfo`, `0x14` for `Acc2Info`, and `0x0c` for an unresolved old-human image-info record).
 - `0x004e5fa0`, `0x004e6240`, and `0x00514d50` decompile as scalar deleting destructors with the same vtable reset and backing-pointer free pattern, followed by optional delete when flag bit `1` is set.
 - `0x005039f0-0x00503a41` disassembly initializes an embedded `ProtectedArray<GameServerConfig::NationEntry>` object and proves the shared layout also applies outside the image-info island.
 - `0x00514ee0` decompiles as a concrete nation-entry resize helper using 68-byte records, matching the `GameServerConfig::NationEntry` protected-array instantiation.
@@ -58,6 +58,7 @@ The current `class_ProtectedArray_struct_*.cpp` files are generated template-ins
 | `ProtectedArray<NecklaceInfo>` | `0x004e5b40` | - | `0x004e6210` | [UID:0000JY][HumanImageLib](by-file/HumanImageLib.md) |
 | `ProtectedArray<ShoeInfo>` | `0x004e5b50` | - | `0x004e6240` | [UID:0000JY][HumanImageLib](by-file/HumanImageLib.md) |
 | `ProtectedArray<WeaponInfo>` | `0x004e5b60` | - | `0x004e6270` | [UID:0000JY][HumanImageLib](by-file/HumanImageLib.md) |
+| `ProtectedArray<unknown 12-byte old-human image info>` | - | `0x004e5f70` | - | [UID:0000JY][HumanImageLib](by-file/HumanImageLib.md) |
 | `ProtectedArray<GameServerConfig::NationEntry>` | - | - | `0x00514d50` | [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md) |
 
 ## Generation Caveats
@@ -70,7 +71,7 @@ The current `class_ProtectedArray_struct_*.cpp` files are generated template-ins
 
 - [UID:0000MU][ProtectedArray](by-file/ProtectedArray.md)
 - [UID:00017V][0x004e5a70-0x004e5b6f.ProtectedArrayImageInfoOrdinaryDestructors](by-memory/0x004e5a70-0x004e5b6f.ProtectedArrayImageInfoOrdinaryDestructors.md)
-- [UID:000186][0x004e5f20-0x004e5f64.ProtectedArrayImageInfoAccessors](by-memory/0x004e5f20-0x004e5f64.ProtectedArrayImageInfoAccessors.md)
+- [UID:000186][0x004e5f20-0x004e5f95.ProtectedArrayImageInfoAccessors](by-memory/0x004e5f20-0x004e5f95.ProtectedArrayImageInfoAccessors.md)
 - [UID:000187][0x004e5fa0-0x004e629f.ProtectedArrayImageInfoDeletingDestructors](by-memory/0x004e5fa0-0x004e629f.ProtectedArrayImageInfoDeletingDestructors.md)
 
 ## Changes
@@ -78,3 +79,7 @@ The current `class_ProtectedArray_struct_*.cpp` files are generated template-ins
 - Before: completion/confidence metadata was unevaluated at `0/0`; `RECONSTRUCTABLE` was blank.
 - Changed to: completion `78`, confidence `86`, `RECONSTRUCTABLE:TRUE`.
 - Summary/evidence: IDA MCP verification now records the ordinary destructor island, accessor pair, scalar deleting destructors, GameServerConfig constructor bytes, and nation-entry resize helper. Scores remain below `95` because the original header spelling, complete declaration surface, and every concrete owner integration point still need a final audit before reconstructed C++ should be emitted.
+- 2026-06-08 A003 Batch122: Raised completion/confidence from `78/86` to `82/88`.
+  - Before: the template page still listed only the `0x004e5f20` and `0x004e5f40` accessors.
+  - After: added the `0x004e5f70` `0x0c`-stride accessor, recorded it in the common behavior and instantiation evidence tables, and clarified that its concrete old-human record name remains unresolved.
+  - Summary/evidence: Batch122 IDA `lookup_funcs`, `decompile`, xref grouping, and byte review reconfirmed the third accessor and its shared `ProtectedArray<T>::GetAtOrDefault` shape.

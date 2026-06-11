@@ -1,8 +1,8 @@
 *** UID:00009T | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -76,3 +76,4 @@ The score is raised from `78/76` to `82/84` because the page now records current
   - Before: the page had the right high-level role but relied on stale source-output caveats and lacked current live evidence for vtable slots, singleton xrefs, constructor callsites, help-key conditions, and destructor cleanup details.
   - After: the page records exact live function boundaries, direct old UI graph caller, singleton writes/reads, three vtable installs, tile-context/resource setup, message-entry setup, help shortcut conditions, destructor thunk offsets, and destructor cleanup behavior.
   - Evidence: 2026-06-04 live IDA MCP `lookup_funcs`, `xrefs_to`, disassembly, vtable dword reads, and constructor/destructor callsite checks for `0x00588e30`, `0x00589540-0x00589668`, `0x00589670`, `0x00589920`, `0x00589c80`, `0x0058ab1d`, `0x0058ab28`, `0x0058adb0`, `0x0062d8c8`, `0x0062d93c`, `0x0062d96c`, and `0x0069b4c8`.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000OE][SystemMessagePanes](by-file/SystemMessagePanes.md) because the class is `82/84` and the parent is `88/82`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts at `0x00588e30`, `0x00589180`, `0x00589540`, `0x00589670`, `0x005896c0`, `0x00589920`, `0x00589c80`, `0x0058ab1d`, and `0x0058adb0`; current `callers` confirms the old UI graph constructor caller at `0x004f8861`.

@@ -1,5 +1,5 @@
 *** UID:0000OO | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
@@ -13,6 +13,7 @@
 - Main address cluster: `0x00595760-0x005958fe`
 - Exact memory page: [UID:0001JU][0x00595760-0x005958fe.TextFilterAndSanitizer](by-memory/0x00595760-0x005958fe.TextFilterAndSanitizer.md)
 - Vtable/layout anchor: [UID:0001YY][TextFilterVtable](by-type/by-vtable/TextFilterVtable.md)
+- Exact singleton storage: `0x0067adc8` inside the former mixed UI/chat/clan singleton run.
 
 ## File Role
 
@@ -63,3 +64,6 @@ The exact final folder is open. `ui/controls/TextFilter.cpp` matches the current
 - 2026-06-04: Raised completion/confidence from `82/80` to `84/86`.
   - Evidence: live IDA MCP rechecked constructor/destructor/sanitizer extents, the one startup constructor caller, the one-slot vtable and its constructor/destructor xrefs, the `g_pTextFilter` lifecycle at `0x0067adc8`, 19 singleton data xrefs, 14 sanitizer call sites across 12 submit-path functions, and padding boundaries before `TextPad`.
   - Remaining limits: score stays below final-source level because the final original-source folder and sanitizer helper signature spelling are not fully proven.
+- 2026-06-07 A008 Batch 037 parent-gate refresh:
+  - Raised `COMPLETION` from `84` to `85`.
+  - Evidence: the singleton storage has been split out of [UID:0002B5][0x0067adc4-0x0067adec.UiChatClanSingletonSlots](by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md) as a direct four-byte TextFilter slot with 19 xrefs, so the file-level parent now clears the stricter `85/85` gate for [UID:0000SG][g_pTextFilter](by-global/g_pTextFilter.md).

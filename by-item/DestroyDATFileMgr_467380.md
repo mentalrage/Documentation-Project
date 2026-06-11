@@ -1,7 +1,7 @@
 *** UID:0000UF | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,10 +12,12 @@
 
 ## Status
 
-- Confidence: strong for behavior, medium for final source owner.
+- Confidence: strong for behavior, high for Application cleanup ownership, medium-high for original helper spelling.
 - Address: `0x00467380`
 - Exact memory range: [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md)
-- Likely source family: [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md) cleanup glue or [UID:0000HG][Application](by-file/Application.md) fatal resource-load cleanup.
+- Selected source family: [UID:0000HG][Application](by-file/Application.md) fatal resource-load cleanup.
+- Related object owner: [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md) owns the manager class and [UID:0000QQ][g_pDATFileMgr](by-global/g_pDATFileMgr.md) singleton that this helper deletes.
+- Parent attachment: canonical reconstruction is now carried by [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md), which attaches to [UID:0000HG][Application](by-file/Application.md). This by-item page remains a name/index note and intentionally does not duplicate the autogen parent.
 - Evidence basis: IDA MCP lookup/decompile/caller/callee checks through 2026-05-30.
 
 ## Behavior
@@ -31,10 +33,11 @@ Final C++ should be expressed as `delete g_pDATFileMgr;`; the explicit vtable ca
 - IDA MCP `callees 0x00467380` reports no direct callees because the destructor call is indirect through the vtable.
 - IDA MCP callers are concentrated in resource/image load failure paths, including [UID:0000L5][MapTileImageLib](by-file/MapTileImageLib.md), [UID:0000JY][HumanImageLib](by-file/HumanImageLib.md), [UID:0000O7][StaticObjImageLib](by-file/StaticObjImageLib.md), [UID:0000IY][EffectObjImageLib](by-file/EffectObjImageLib.md), and [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) loader code.
 - The same caller sites immediately call [UID:0000UG][DestroyExceptionHandler_4673A0](by-item/DestroyExceptionHandler_4673A0.md), making this pair fatal-load cleanup glue rather than a normal DAT API.
+- B001-012 IDA MCP recheck confirms all 22 direct caller sites pair this helper with [UID:0000UG][DestroyExceptionHandler_4673A0](by-item/DestroyExceptionHandler_4673A0.md) in fatal image/resource load exits. The normal `g_pDATFileMgr` constructor/destructor writes and clears live in [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md); this helper is external Application/startup cleanup policy.
 
 ## Ownership Notes
 
-Keep this as a standalone item until final source grouping is decided. The helper destroys a DAT manager object, so the concrete object ownership stays with `archive/DATFileMgr.cpp`; however, the repeated paired callers suggest the helper itself may have been a local application/resource-failure cleanup routine.
+Treat this item as a name/index note for the exact [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md). The helper destroys a DAT manager object, so concrete object ownership stays with `archive/DATFileMgr.cpp`; the repeated paired fatal-load callers make [UID:0000HG][Application](by-file/Application.md) the best direct source owner for the helper body.
 
 Do not treat this as evidence that image-library modules own the DAT manager. They only call the helper while unwinding after failed asset loads.
 
@@ -49,5 +52,15 @@ Do not treat this as evidence that image-library modules own the DAT manager. Th
 - [UID:0000YR][0x00463310-0x004679be.ApplicationLifecycle](by-memory/0x00463310-0x004679be.ApplicationLifecycle.md)
 
 ## Changes
+
+- 2026-06-10 B001-012 ownership sync:
+  - What existed before: the item page still described final source ownership as deferred between DATFileMgr object ownership and Application/resource failure cleanup.
+  - Changed to: selected Application fatal-load cleanup as the source family and clarified that the canonical by-memory page carries the autogen parent while this by-item remains an index note.
+  - Evidence: B001-012 IDA MCP confirmed the exact deleting wrapper, all 22 paired fatal resource-load callers, normal DAT manager singleton lifetime writes/clears in the DAT manager cluster, and Application/startup neighboring helper context.
+
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE`; parent attachment remains blank.
+  - Before: the tiny DAT manager deletion helper was documented but unclassified in autogen coverage.
+  - After: it is marked as source-authored cleanup behavior that must be reproduced, but not attached because the final source owner is still unresolved between `DATFileMgr.cpp` object ownership and application/resource-failure glue.
+  - Evidence: live IDA MCP confirms `sub_467380` at `0x00467380`, size `0x11`, no direct callees, and a broad paired caller set from image/resource failure paths.
 
 - 2026-05-30: Raised completion/confidence from `0/0` to `84/88`. Previously the page had the right helper identity but no score; it now carries the current IDA MCP no-direct-callee result, final C++ `delete g_pDATFileMgr` form, and unchanged source-owner caveat.

@@ -1,8 +1,8 @@
 *** UID:0001YT | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:70 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000CO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Covered class: [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md).
 - Likely source file: [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md).
 - Confidence: strong for vtable bases and installed slots.
+- Autogen parent: attach this vtable cluster to [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md); reconstruction C++ remains blank because these are compiler-emitted table records, not standalone source functions.
 
 ## Vtable Bases
 
@@ -50,6 +51,10 @@ The adjacent `0x005654ec` and `0x005654f7` thunks are not evidence for a `Scroll
 
 Model `ScrollVolumePane` as a `Pane`-derived control with primary, secondary, and tertiary views at `+0x00`, `+0xa0`, and `+0xa4`. Keep the source in `ui/controls/ScrollVolumePane.cpp`; the vtable cluster strengthens class layout evidence but does not move option-policy callbacks into the slider source.
 
+## Parent And Slot Rationale
+
+Attach this type page to [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md), which is already reconstructable at the 80/80+ parent threshold and attached to [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md). The class page records the same primary, secondary, and tertiary view layout, the same option-slider method map, and the same excluded-tail boundary that keeps the adjacent `ScrollablePane` destructor thunks out of `ScrollVolumePane` ownership. The vtable page should therefore travel with the class in generated organization, while its C++ block stays blank until a final audit names the inherited pane-interface slots and proves every declaration shape.
+
 ## Cross-References
 
 - [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md)
@@ -70,3 +75,7 @@ Model `ScrollVolumePane` as a `Pane`-derived control with primary, secondary, an
   - Before: The page had IDA vtable evidence but ungraded validator metadata and no links to the newly split raw helper pages.
   - After: The page records the verified vtable state as reconstructable type data while keeping source reconstruction code blank below the 95+ gate.
   - Evidence: Constructor stores at `0x00564761`, `0x00564767`, and `0x00564771`, xrefs to `0x006240b4`, `0x00624100`, and `0x00624130`, and the current split `ScrollVolumePane` memory pages.
+- 2026-06-07: Raised completion from `70` to `74` and set `AUTOGEN_PARENT_UID:0000CO`.
+  - Before: The vtable cluster was reconstructable and cross-linked to `ScrollVolumePane`, but it had no autogen parent despite the class and file already clearing the 80/80+ attachment threshold.
+  - After: The page is attached to the reconstructable class while leaving reconstruction C++ blank and confidence unchanged.
+  - Evidence: [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md) and [UID:0000NK][ScrollVolumePane](by-file/ScrollVolumePane.md) document the same three vtable views, slider method map, raw helper caveats, and excluded `ScrollablePane` tail.

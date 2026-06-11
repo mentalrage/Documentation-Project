@@ -1,8 +1,8 @@
 *** UID:00009U | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -60,6 +60,7 @@
 
 ## Changes
 
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000P2][UserStatusPane](by-file/UserStatusPane.md) because this class is 82/80 and the parent file is 88/80. Live IDA MCP on `NexusTK.exe` confirmed constructor/cleanup/accessor/router/hover/paint/rect/glyph/status/tail starts from `0x005bda40` through `0x005bfda0`, including `0x005bdcb0`, `0x005bf150`, `0x005bf7c0`, `0x005bfbe0`, `0x005bfc37`, and `0x005bfc42`.
 - Before: completion/confidence metadata were `0/0` even though the page already documented purpose, singleton storage, method families, field offsets, resources, callers, and generated-output omissions.
 - Changed to: `COMPLETION:82` and `CONFIDENCE:80`.
 - Evidence: the page covers constructor/cleanup, packet routing, hover help, painting, status payload application, glyph drawing, field evidence, and cross-class caller relationships; confidence remains medium-high because active generated output omits several IDA-confirmed bodies and contains malformed constructor text.

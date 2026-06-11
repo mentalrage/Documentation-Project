@@ -1,7 +1,7 @@
 *** UID:0000NZ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # SpelledPane
 
@@ -59,6 +59,10 @@ IDA confirms four `SpelledPane` vtable views at `0x006242c8`, `0x00624340`, `0x0
 
 ## Changes
 
+- 2026-06-05: Assigned projected reconstruction folder.
+  - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank, so the by-file row remained a generated-root coverage error.
+  - After: set the folder to `NexusTK/ui/panels/`.
+  - Evidence: live IDA MCP lookup confirms the documented `SpelledPane` constructor anchor at `0x0056bb20`; proposed-source-tree places the reusable child text pane in the self-look/status panel family while preserving the documented final split caveat.
 - Before: the entry-vector helper summary omitted the `0x00573880` helper and used older end addresses for the insert/erase helpers.
 - Changed to: the helper list now follows the IDA-confirmed ranges and links to the new by-memory pages that split the former unknown coverage gaps.
 - Evidence: 2026-05-28 IDA MCP disassembly and xref sweep over `0x005729c3-0x005739a0`.

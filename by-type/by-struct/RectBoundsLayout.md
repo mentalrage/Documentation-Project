@@ -14,9 +14,9 @@
 
 - Confidence: strong.
 - Likely owner: [UID:0000N2][RectBounds](by-file/RectBounds.md)
-- Primary memory evidence: [UID:00022G][0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods](by-memory/0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods.md) RectBounds predicate/combination methods, [UID:00015Q][0x004b78d0-0x004b7ae8.RectBoundsMethods](by-memory/0x004b78d0-0x004b7ae8.RectBoundsMethods.md), [UID:00022H][0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md) RectBounds quarter-scale helpers, and [UID:00015S][0x004b7c30-0x004b7f87.RectGeometryHelpers](by-memory/0x004b7c30-0x004b7f87.RectGeometryHelpers.md)
+- Primary memory evidence: [UID:00022G][0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods](by-memory/0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods.md) RectBounds predicate/combination methods, [UID:00015Q][0x004b78d0-0x004b7ae8.RectBoundsMethods](by-memory/0x004b78d0-0x004b7ae8.RectBoundsMethods.md), [UID:00022H][0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers.md) RectBounds quarter-scale helpers, and [UID:00015S][0x004b7c30-0x004b7f87.RectGeometryHelpers](by-memory/0x004b7c30-0x004b7f87.RectGeometryHelpers.md)
 - Size evidence: 16 bytes from method writes and helper signatures.
-- Verification basis: IDA MCP `lookup_funcs`, decompilation, and raw disassembly review on 2026-05-31. Generated Wave3/simroot data is not used as authority for this layout score.
+- Verification basis: IDA MCP `lookup_funcs`, decompilation, and raw disassembly review on 2026-05-31; older recovered metadata is not used as authority for this layout score.
 
 ## Layout
 
@@ -46,7 +46,7 @@
 - Quarter-scale helpers derive inset/outset rectangles using `0.25f` of width/height and `0.5f` rounding offsets for left/top edges.
 - Anchor transform helpers remap 3x3 anchor indices and adjust low/high edge pairs in place through pointer arguments.
 - `RectArea` computes signed `(right - left) * (bottom - top)` without checking for empty/invalid rectangles.
-- Current generated output repeats this layout declaration inside every `class_RectBounds.cpp` method body. Source reconstruction should keep one shared declaration.
+- Older recovered method bodies repeated this layout declaration inside individual RectBounds methods. Source reconstruction should keep one shared declaration.
 
 ## Cross-References
 
@@ -54,7 +54,7 @@
 - [UID:0000BU][RectBounds](by-class/RectBounds.md)
 - [UID:00022G][0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods](by-memory/0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods.md) RectBoundsPredicateAndCombinationMethods
 - [UID:00015Q][0x004b78d0-0x004b7ae8.RectBoundsMethods](by-memory/0x004b78d0-0x004b7ae8.RectBoundsMethods.md)
-- [UID:00022H][0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md) RectBoundsQuarterScaleHelpers
+- [UID:00022H][0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers.md) RectBoundsQuarterScaleHelpers
 - [UID:00022I][0x004b7f90-0x004b8198.RectAnchorTransformHelpers](by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md) RectAnchorTransformHelpers
 - [UID:00022L][0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper](by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md) RectAnchorAxisAdjustHelper
 - [UID:00015R][0x004b7910-0x004b795e.RectBoundsInset](by-memory/0x004b7910-0x004b795e.RectBoundsInset.md)

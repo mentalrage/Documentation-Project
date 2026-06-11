@@ -1,6 +1,6 @@
 *** UID:0000L5 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MapTileImageLib
@@ -29,6 +29,17 @@ This should stay separate from [UID:0000K2][ImageLib](by-file/ImageLib.md). `Ima
 
 IDA also confirms an ordinary non-deleting destructor at [UID:000178][0x004d19a0-0x004d1a1c.MapTileImageLibDestructor](by-memory/0x004d19a0-0x004d1a1c.MapTileImageLibDestructor.md). Active `simroot_v2/class_MapTileImageLib.cpp` currently emits only the scalar deleting destructor at `0x004e66a0`, so use the exact memory page for final lifetime coverage.
 
+## 2026-06-08 Batch133 Parent-Gate Evidence
+
+Live IDA MCP rechecked the file parent evidence against `NexusTK.exe` `sha256 9aec210bbc5ce592176a21dd8e9d9fd8f250b8d9ea78237915a99ba8cfa9a632`:
+
+- Function bounds remained stable for constructor `0x004d1860-0x004d199e`, ordinary destructor `0x004d19a0-0x004d1a1c`, draw method `0x004d1a20-0x004d1b72`, metadata loader `0x004d1b80-0x004d1f22`, singleton clear helper `0x004e5bc0-0x004e5bcb`, and scalar deleting destructor `0x004e66a0-0x004e6748`.
+- `callers` reports the constructor's single startup caller at `0x004f6055`, `DrawTile` callers at `0x00424441`, `0x0050d984`, and `0x005497d0`, and the metadata loader called only from the constructor at `0x004d18d1`.
+- `xrefs_to 0x0067a75c` reports the expected singleton lifecycle/draw references, including constructor writes at `0x004d18a3`/`0x004d18aa`, destructor clear at `0x004d19f9`, clear helper `0x004e5bc0`, scalar deleting destructor clear at `0x004e6700`, startup cleanup `0x004f6622`, and draw consumers.
+- `py_eval` and `xrefs_to` reconfirm the vtable locator/table at `0x0061b660/0x0061b664`, vtable stores at `0x004d18bb`, `0x004d19ca`, and `0x004e66d1`, and the successor `ProtectedArray<HeadInfo>` locator at `0x0061b670`.
+
+This raises confidence to the corrected parent gate for direct `MapTileImageLib` children. Confidence remains capped at `85` because exact original filename/folder and final source-level names are not final-audit quality.
+
 ## Resource Inputs
 
 | Resource | Role |
@@ -53,6 +64,10 @@ IDA also confirms an ordinary non-deleting destructor at [UID:000178][0x004d19a0
 
 ## Changes
 
+- 2026-06-08 A005 Batch133 parent-gate refresh:
+  - Before: `86/82`, below the corrected confidence gate for [UID:00007T][MapTileImageLib](by-class/MapTileImageLib.md) and [UID:0001Y3][MapTileImageLibVtable](by-type/by-vtable/MapTileImageLibVtable.md).
+  - Changed to: `86/85`.
+  - Summary/evidence: live IDA MCP reconfirmed the method/helper bounds, constructor/draw/helper caller sets, singleton xrefs, vtable dwords/store refs, and successor RTTI boundary. The file now clears the parent-side gate for direct `MapTileImageLib` class/type children, while final source naming keeps confidence capped at 85.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:86` and `CONFIDENCE:82`.

@@ -1,6 +1,6 @@
 *** UID:0000IR | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Deque
@@ -9,7 +9,7 @@
 
 - Proposed module: `util/Deque.cpp`
 - Proposed header: `util/Deque.h`
-- Confidence: strong for utility ownership, medium for exact original source filename.
+- Confidence: strong for utility ownership and direct source-root placement, medium-high for exact original source filename/class-template spelling.
 - Current recovered source: `source-3/simroot_v2/class_Deque.cpp`
 - Primary class: [UID:00003P][Deque](by-class/Deque.md)
 
@@ -39,6 +39,7 @@ This is generic infrastructure. It should not be owned by EventDispatcher, Folde
 - A 2026-05-25 IDA MCP recheck identifies `0x0054c0c0` as a 0x50-byte element-address helper: it computes the block-map slot and in-block offset for a 4-byte element. Active `class_Deque.cpp` does not currently emit this helper.
 - A 2026-05-26 recheck confirms active `class_Deque.cpp` still omits `0x0054c0c0`; IDA still reports no modeled callers, with the only xref coming from raw `PrimeNumberGenerator::GetPrimeAt` code at `0x0054bce1`.
 - A 2026-05-31 IDA MCP recheck confirms the current boundaries for `0x00439e00-0x00439ea3`, `0x0043e0b0-0x0043e241`, `0x004a88e0-0x004a8966`, `0x0054c0c0-0x0054c110`, `0x0054c160-0x0054c1f1`, and `0x0057b9e0-0x0057baa3`. Xrefs still fan into event traversal, folder-tree/map/world-map style callers, prime-table helper code, and SoundManager cleanup, supporting shared utility ownership rather than feature ownership.
+- 2026-06-07 Batch 083 live IDA MCP recheck reconfirmed the same six non-contiguous Deque helpers and refreshed caller counts: 11 entry callers for `Destroy`, 13 for `EnsureCapacity`, 7 for `PushBack`, 1 raw caller for `ElementAddress`, 4 for `Clear`, and 2 for `DestroyOwnedEntries`. The sampled caller starts still cross event, folder-tree, map/world-map, prime-table, and sound-manager code, so [UID:00003P][Deque](by-class/Deque.md) now clears the direct class-to-file assignment gate under this utility source root.
 
 ## Source-Structure Decision
 
@@ -83,3 +84,6 @@ The final original name may have been a local container helper rather than liter
   - What existed before: the evidence section said active generated `class_Deque.cpp` showed the shared layout as `m_blockMap`, `m_blockCount`, `m_frontIndex`, and `m_count`, which could imply `blockMap` starts at `+0x00`.
   - Changed to: the evidence section now records the IDA-confirmed layout with `+0x00` auxiliary pointer/storage, `+0x04` block map, `+0x08` block count, `+0x0c` front index, and `+0x10` count, and treats generated source as a lead only.
   - Summary/evidence: IDA MCP decompilation of Deque cleanup, growth, push, and ownership-aware cleanup helpers consistently proves the corrected offsets.
+- 2026-06-07 A006 Batch 083:
+  - Changed score from `84/82` to `85/86`.
+  - Summary/evidence: live IDA MCP reconfirmed all six helper ranges, broad utility caller fan-in, the raw `PrimeNumberGenerator` element-address call, and shared container placement. Remaining uncertainty is exact original source/class spelling, not direct file ownership.

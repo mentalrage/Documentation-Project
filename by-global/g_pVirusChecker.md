@@ -1,6 +1,6 @@
 *** UID:0000SO | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000P5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for address and singleton role.
+- Confidence: strong for address, size, initialization, local lifecycle, and file owner; medium-high for live activation.
 - Address: [UID:0001Q3][0x0069bf94-0x0069bf98.g_pVirusChecker](by-memory/0x0069bf94-0x0069bf98.g_pVirusChecker.md)
 - Likely owner file: [UID:0000P5][VirusChecker](by-file/VirusChecker.md)
 
@@ -20,14 +20,21 @@
 
 `g_pVirusChecker` stores the active [UID:0000FW][VirusChecker](by-class/VirusChecker.md) singleton. The constructor writes it, and destructor/clear helpers reset it. Current IDA xrefs do not prove the singleton is constructed during the normal startup path, so treat it as real retained scanner state with uncertain live activation.
 
+## Storage
+
+| Range | Segment | IDA name | Proposed symbol | Type | Initial bytes | Initial value | Meaning |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `0x0069bf94-0x0069bf98` | `.data` | `dword_69BF94` | `g_pVirusChecker` | `VirusChecker *` | `ff ff ff ff` | `0xffffffff` | Active retained V3 scanner singleton pointer. |
+
 ## Evidence Notes
 
-- IDA MCP decompilation of `0x005c0460` stores the singleton.
-- IDA MCP decompilation of `0x005c0eb0` clears `dword_69BF94`.
-- 2026-05-24 IDA recheck found five refs, all inside the local VirusChecker lifecycle/helpers: constructor refs at `0x005c0496` and `0x005c049d`, destructor ref at `0x005c0582`, clear helper `0x005c0eb0`, and scalar deleting destructor ref at `0x005c0f63`.
-- 2026-05-26 exact memory page: [UID:0001Q3][0x0069bf94-0x0069bf98.g_pVirusChecker](by-memory/0x0069bf94-0x0069bf98.g_pVirusChecker.md). Current IDA state still shows only local VirusChecker refs and no proven normal startup constructor caller.
-- IDA MCP `py_eval` rechecked `0x0069bf94` on 2026-05-31 and confirmed IDA name `dword_69BF94`, initial dword `0xffffffff`, and the same 5 local lifecycle refs: constructor writes at `0x005c0496` and `0x005c049d`, destructor clear at `0x005c0582`, clear helper at `0x005c0eb0`, and scalar deleting destructor clear at `0x005c0f63`.
-- Generated source names the same storage `g_pVirusChecker`.
+- IDA MCP `py_eval` on 2026-06-05 reports item head `0x0069bf94`, size 4, segment `.data`, IDA name `dword_69BF94`, bytes `ff ff ff ff`, value `0xffffffff`, and five direct data references.
+- `xrefs_to 0x0069bf94` reports all five data refs inside the local `VirusChecker` lifecycle: constructor publish/null-clear refs at `0x005c0496` and `0x005c049d`, ordinary destructor clear at `0x005c0582`, clear helper write at `0x005c0eb0`, and scalar deleting destructor clear at `0x005c0f63`.
+- Decompilation of `0x005c0460-0x005c04e0` publishes `this` to `dword_69BF94` unless the adjusted pointer is null, installs the `VirusChecker` vtable, initializes the embedded tree header/count fields, and allocates the sentinel through `sub_5796D0`.
+- Decompilation of `0x005c04e0-0x005c059d` restores the `VirusChecker` vtable, frees the V3 module handles when present, clears the V3 function pointers, destroys the embedded path tree, frees the sentinel, and clears `dword_69BF94` at `0x005c0582`.
+- `0x005c0eb0-0x005c0ebb` is a tiny clear helper that stores zero to `dword_69BF94`; `xrefs_to 0x005c0eb0` reports the EH cleanup thunk edge at `0x0060bc76`.
+- Decompilation of `0x005c0ec0-0x005c0f94` is the scalar deleting destructor path. It repeats the V3/tree teardown, clears `dword_69BF94` at `0x005c0f63`, and conditionally frees the object; `xrefs_to 0x005c0ec0` reports the vtable data ref at `0x006310e0`.
+- `callers 0x005c0460`, `0x005c04e0`, `0x005c0eb0`, and `0x005c0ec0` report no direct static callers in the current graph, so normal runtime activation remains unproven.
 
 ## Cross-References
 
@@ -43,3 +50,4 @@
   - Before: completion/confidence were `0/0`, reconstructable state was blank, and no parent file UID was assigned.
   - After: `COMPLETION:74`, `CONFIDENCE:82`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000P5` for [UID:0000P5][VirusChecker](by-file/VirusChecker.md). `RECONSTRUCTION_CPP CODE` remains blank because the page is below the 95+ final-source threshold.
   - Evidence: IDA MCP rechecked `0x0069bf94` as a 4-byte singleton pointer with 5 local VirusChecker lifecycle xrefs. Confidence remains below the other singleton pass because IDA still has no proven normal startup constructor caller.
+- 2026-06-05: Raised completion/confidence from `74/82` to `82/88` and expanded the evidence around the exact singleton storage and local lifecycle refs. The score now clears the parent gate for the memory page, but remains below the higher singleton score used for globals with proven startup/consumer paths because IDA still reports no direct normal constructor caller.

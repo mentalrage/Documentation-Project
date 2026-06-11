@@ -1,8 +1,8 @@
 *** UID:00002Y | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -68,3 +68,7 @@
   - What existed before: the page had the broad method list but still relied on stale external caveats, had non-exclusive endpoints for two false-return helpers, and did not tie the class methods to the live `CollectionPane2` vtable island or render resource xrefs.
   - Changed to: documented the current IDA binary identity, raw constructor disassembly facts, exact modeled function ranges, vtable slots, destructor/adjustor linkage, and `ITEMINV.PAL`/`CLTINV.EPF` resource xrefs; removed stale external-output reliance.
   - Reason for score increase: live IDA evidence now proves the alternate pane's class shape, destructor paths, render helper, and vtable ownership strongly enough for an `82/88` class page, while the raw constructor's lack of an IDA function object and direct caller keeps C++ reconstruction below the final bar.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000IC][CollectionPane](by-file/CollectionPane.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving the class coverage row unclassified.
+  - After: `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000IC`.
+  - Evidence: live IDA MCP reconfirms `0x0056fd70` is not modeled as a function but confirms modeled class methods/destructor at `0x0056fda0`, `0x0056fdd0`, `0x0056fe50`, and `0x00573310`; this class and the parent file both meet the 80% completion/confidence attachment gate, while final C++ remains gated by the raw constructor caveat.

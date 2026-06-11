@@ -37,7 +37,7 @@
 - IDA MCP recheck on 2026-05-26 confirms the adjacent packet helper at `0x005b2f70` is only called by `OnCharInput`.
 - IDA MCP decompile on 2026-05-26 confirms `OnCharInput` uses the shared one-character input helpers `0x004f2310`/`0x004f2300`, calls `SendEmotionPacket` from `0x005b2aef`, `0x005b2b15`, and `0x005b2f52`, and uses localized string ids `31` plus `15-30` when building the help/menu list.
 - IDA MCP refresh on 2026-06-02 confirms constructor callers at `0x005a6138`, `0x005a9390`, and the `?` help/menu reopen path at `0x005b2f38`; `OnCharInput` is reached through vtable data xref `0x0062fa00`.
-- IDA MCP confirms two menu-backend branches in `OnCharInput`: when `byte_66DA97 == 1`, the help/menu path uses `dword_67ADC4` and helpers `0x005854b0`/`0x005854d0`/`0x00585560`/`0x00585360`; otherwise it uses `dword_69B4C8` and helpers `0x00589330`/`0x00589350`/`0x00589470`/`0x005892a0`.
+- IDA MCP confirms two menu-backend branches in `OnCharInput`: when [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97` is `1`, the help/menu path uses `dword_67ADC4` and helpers `0x005854b0`/`0x005854d0`/`0x00585560`/`0x00585360`; otherwise it uses `dword_69B4C8` and helpers `0x00589330`/`0x00589350`/`0x00589470`/`0x005892a0`.
 - IDA MCP confirms the adjacent alignment spans `0x005b2f68-0x005b2f70` and `0x005b2fcb-0x005b2fd0` are pure `0xcc` bytes, so the class/helper boundary is now proven before `ChangeItemSlotInputPane`.
 - Wave3 method notes explicitly state the current code override is a struct definition rather than the function body; track this under [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md).
 - The class belongs with command input panes rather than item action panes.
@@ -49,9 +49,11 @@
 - [UID:0001M3][0x005b29c0-0x005b2f68.EmotionInputPane](by-memory/0x005b29c0-0x005b2f68.EmotionInputPane.md)
 - [UID:0001M4][0x005b2f70-0x005b2fcb.SendEmotionPacket](by-memory/0x005b2f70-0x005b2fcb.SendEmotionPacket.md)
 - [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md)
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup: normalized the `OnCharInput` `byte_66DA97` menu-backend branch to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the IDA lookup alias.
 - 2026-05-30:
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `70/74`.

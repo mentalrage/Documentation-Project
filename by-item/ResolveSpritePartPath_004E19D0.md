@@ -43,7 +43,7 @@ This helper is too specific to new-human part archives to live in raw DAT archiv
 - [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md)
 - [UID:000092][NewHumanImageLib](by-class/NewHumanImageLib.md)
 - [UID:0002VD][0x004e19d0-0x004e1f27.ResolveSpritePartPath](by-memory/0x004e19d0-0x004e1f27.ResolveSpritePartPath.md)
-- [UID:00017R][0x004dfd10-0x004e68a7.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md)
+- [UID:00017R][0x004dfd10-0x004e68a8.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a8.NewHumanImageLib.md)
 - [UID:0000J3][EPFImageResources](by-file/EPFImageResources.md)
 - [UID:0000IM][DATArchive](by-file/DATArchive.md)
 

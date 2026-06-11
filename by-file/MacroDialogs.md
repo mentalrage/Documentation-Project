@@ -1,13 +1,13 @@
 *** UID:0000KY | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MacroDialogs
 
 ## Status
 
-- Confidence: strong for class behavior; medium for whether all generations shared one original file.
+- Confidence: strong for class behavior and vtable/class grouping; medium-high for whether all generations shared one original file.
 - Proposed module: `ui/dialogs/MacroDialogs.cpp`
 - Current recovered sources: `class_MacroDialog.cpp`, `class_SpellMacroDialog.cpp`, `class_NewMacroDialog.cpp`, `class_IntegrateMacroDialog.cpp`, `class_NewMacroEditControlPane.cpp`, `class_SpellMacroEditControlPane.cpp`, and `class_IntegrateMacroEditControlPane.cpp`
 - Main address docs: [UID:0001DR][0x0053e520-0x0053f2b6.MacroDialogs](by-memory/0x0053e520-0x0053f2b6.MacroDialogs.md), [UID:0001E1][0x00541b30-0x00542265.IntegrateMacroDialog](by-memory/0x00541b30-0x00542265.IntegrateMacroDialog.md), and [UID:0001IK][0x0057f750-0x005807c5.MacroEditControlPanes](by-memory/0x0057f750-0x005807c5.MacroEditControlPanes.md)
@@ -45,6 +45,7 @@
 - IDA MCP recheck on 2026-05-25 confirms `IntegrateMacroDialog` binds ten [UID:0001V1][MacroHotkeyRecord](by-type/by-struct/MacroHotkeyRecord.md) rows per page from `g_pConfig + 0x28f2ec + index * 0x108`, and the edit control reads/writes state at row `+4` with text/key payload at row `+8`.
 - The integrated edit control's alphabetic assignment uses the active [UID:0000JQ][GeneralPurposePanel](by-file/GeneralPurposePanel.md) child: child index `3` / spell inventory writes state `2` / `.usr` `S`, while child index `2` / inventory writes state `3` / `.usr` `I`.
 - IDA symbol enumeration on 2026-05-26 confirms decorated vtable/RTTI families for all seven classes. The dialog classes each have primary, secondary, and tertiary vtable views; the edit controls use the larger `ControlPane`-derived primary view plus secondary/tertiary adjustor views. Current `simroot_v2` metadata still reports `vtable_count: 0` for all seven classes, so source migration should use [UID:0001Y1][MacroDialogFamilyVtables](by-type/by-vtable/MacroDialogFamilyVtables.md) for ABI layout evidence.
+- 2026-06-08 Agent-A002 live IDA MCP `py_eval` rechecked the seven primary macro-family vtable globals: `??_7MacroDialog@@6B@` at `0x00620d10`, `??_7SpellMacroDialog@@6B@` at `0x00620dac`, `??_7NewMacroDialog@@6B@` at `0x00620e48`, `??_7IntegrateMacroDialog@@6B@` at `0x00621130`, `??_7SpellMacroEditControlPane@@6B@` at `0x0062d1e4`, `??_7NewMacroEditControlPane@@6B@` at `0x0062d288`, and `??_7IntegrateMacroEditControlPane@@6B@` at `0x0062d32c`. Each has an RTTI complete-object-locator pointer at `base - 4` and three current xrefs, matching constructor/destructor-family installation for one coherent macro-dialog/edit-control family.
 
 ## Caveats
 
@@ -75,3 +76,7 @@ The edit-control island contains several IDA-confirmed helper/thunk starts that 
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:88` and `CONFIDENCE:82`.
   - Summary/evidence: macro dialog generations, edit-control panes, boundaries, registry macro record interaction, vtable family, helper/thunk caveats, and range corrections are documented; confidence is capped by whether all generations shared one original file.
+- 2026-06-08 Agent-A002 Batch 134 parent-gate refresh:
+  - Before: `COMPLETION:88`, `CONFIDENCE:82`.
+  - After: `COMPLETION:88`, `CONFIDENCE:85`.
+  - Summary/evidence: live IDA MCP rechecked all seven primary macro-family vtable globals, their RTTI locator pointers, and current xref counts. This is enough for the file page to clear the strict parent confidence gate for [UID:0001Y1][MacroDialogFamilyVtables](by-type/by-vtable/MacroDialogFamilyVtables.md), while the final exact original file split remains below final-source confidence.

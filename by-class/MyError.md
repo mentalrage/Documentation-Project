@@ -1,5 +1,5 @@
 *** UID:00008V | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000J5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -13,10 +13,12 @@
 ## Status
 
 - Confidence: strong for class responsibility and shared error-module placement.
-- Current Wave3 file: `class_MyError.cpp`
-- Likely source module: [UID:0000J5][Error](by-file/Error.md)
-- Current range: [UID:00013X][0x004a60d0-0x004a6a76.ErrorWrappers](by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md)
-- Evidence basis: `simroot_v2`, Wave3 summary, and IDA MCP checks through 2026-05-25.
+- Source module: [UID:0000J5][Error](by-file/Error.md)
+- Exact constructor: [UID:0002HO][0x004a67a0-0x004a683d.MyErrorConstructor](by-memory/0x004a67a0-0x004a683d.MyErrorConstructor.md)
+- Destructor/name helper tail: [UID:0002TV][0x004a68a0-0x004a6a76.ErrorDestructorAndNameHelpers](by-memory/0x004a68a0-0x004a6a76.ErrorDestructorAndNameHelpers.md)
+- Aggregate range: [UID:00013X][0x004a60d0-0x004a6a76.ErrorWrappers](by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md)
+- Parent attachment: attached to [UID:0000J5][Error](by-file/Error.md) because the file page is `87/84` and this class page is now `82/86`.
+- Evidence basis: existing IDA-backed by-memory constructor/destructor pages, error vtable/layout docs, and the shared `Error.cpp` file page.
 
 ## Responsibility
 
@@ -26,9 +28,9 @@
 
 | Address | Current name | Notes |
 | --- | --- | --- |
-| `0x004a67a0` | `MyError` | Allocates and copies the supplied wide message. |
-| `0x004a6860` | `~MyError` | Frees owned message and tears down base error state. |
-| `0x004a6a10` | `ScalarDeletingDestructor` | Destructor plus optional `operator delete`. |
+| [UID:0002HO][0x004a67a0-0x004a683d.MyErrorConstructor](by-memory/0x004a67a0-0x004a683d.MyErrorConstructor.md) | `MyError` | Allocates and copies the supplied wide message into the owned pointer field at `+0x04`. |
+| `0x004a6860` | `~MyError` | Frees owned message and tears down base error state; still aggregate-only inside [UID:00013X][0x004a60d0-0x004a6a76.ErrorWrappers](by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md). |
+| [UID:0002TV][0x004a68a0-0x004a6a76.ErrorDestructorAndNameHelpers](by-memory/0x004a68a0-0x004a6a76.ErrorDestructorAndNameHelpers.md) | scalar deleting destructor family | The `0x004a6a10` storage-family destructor frees the `+0x04` wide-string pointer and optionally deletes `this`. |
 
 ## Ownership Notes
 
@@ -40,6 +42,11 @@ The object layout is the heap-message storage family: vtable at `+0x00`, owned `
 
 Attach this class to [UID:0000J5][Error](by-file/Error.md) as reconstructable error-hierarchy metadata, with C++ blank until allocator naming and the `PasswordError` subclass split are final-source quality.
 
+## Score Rationale
+
+- Completion raised from `74` to `82` because the page now links the exact constructor and destructor-family pages, records the parent gate, names the heap-message layout family, and separates the `Error.cpp` class implementation from password-guard throw-site ownership.
+- Confidence remains `86` because the constructor/destructor/layout evidence is strong, but final allocator naming, the aggregate-only `0x004a6860` destructor body, and the exact original header split with `PasswordError` remain open.
+
 ## Cross-References
 
 - [UID:0000J5][Error](by-file/Error.md)
@@ -47,6 +54,8 @@ Attach this class to [UID:0000J5][Error](by-file/Error.md) as reconstructable er
 - [UID:0001XI][ErrorHierarchyVtables](by-type/by-vtable/ErrorHierarchyVtables.md)
 - [UID:0001UE][ErrorObjectLayouts](by-type/by-struct/ErrorObjectLayouts.md)
 - [UID:00013X][0x004a60d0-0x004a6a76.ErrorWrappers](by-memory/0x004a60d0-0x004a6a76.ErrorWrappers.md)
+- [UID:0002HO][0x004a67a0-0x004a683d.MyErrorConstructor](by-memory/0x004a67a0-0x004a683d.MyErrorConstructor.md)
+- [UID:0002TV][0x004a68a0-0x004a6a76.ErrorDestructorAndNameHelpers](by-memory/0x004a68a0-0x004a6a76.ErrorDestructorAndNameHelpers.md)
 
 ## Changes
 
@@ -55,3 +64,7 @@ Attach this class to [UID:0000J5][Error](by-file/Error.md) as reconstructable er
   - Before: reconstructable and parent metadata were blank.
   - After: marked reconstructable and attached to [UID:0000J5][Error](by-file/Error.md), leaving C++ blank.
   - Summary/evidence: constructor/destructor/layout evidence supports shared `Error.cpp` ownership; password/fatal helpers remain separate ownership caveats.
+- 2026-06-06 A004 parent-gate cleanup:
+  - Before: the class page was `74/86` while child constructor pages were already attached to it.
+  - After: `COMPLETION:82`, exact constructor/destructor-family links, parent-gate wording, by-* evidence basis, and score rationale.
+  - Summary/evidence: [UID:0002HO][0x004a67a0-0x004a683d.MyErrorConstructor](by-memory/0x004a67a0-0x004a683d.MyErrorConstructor.md), [UID:0002TV][0x004a68a0-0x004a6a76.ErrorDestructorAndNameHelpers](by-memory/0x004a68a0-0x004a6a76.ErrorDestructorAndNameHelpers.md), [UID:0001UE][ErrorObjectLayouts](by-type/by-struct/ErrorObjectLayouts.md), and [UID:0001XI][ErrorHierarchyVtables](by-type/by-vtable/ErrorHierarchyVtables.md) support the higher completion score. Final C++ remains blank below the 95/95 gate.

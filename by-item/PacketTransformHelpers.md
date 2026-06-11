@@ -1,6 +1,6 @@
 *** UID:0000V3 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000M9 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Likely source module: [UID:0000M9][PacketTransform](by-file/PacketTransform.md)
 - Related class: [UID:0000DD][Socket](by-class/Socket.md)
 - Related globals: [UID:0000TG][PacketTransformGlobals](by-global/PacketTransformGlobals.md)
+- Exact mutable state: [UID:0002AL][0x0069ba40-0x0069bac4.PacketTransformMutableState](by-memory/0x0069ba40-0x0069bac4.PacketTransformMutableState.md)
 - Evidence basis: `simroot_v2` generated output and IDA MCP lookup/xref/decompile/disassembly checks on 2026-05-24, 2026-05-25, and 2026-06-02.
 
 ## Helpers
@@ -45,6 +46,7 @@ The packet digest helper at `0x00515380` is intentionally excluded from this tab
 - `InitializePacketNonce` uses `nonceMiddle * nonceMiddle` and an incrementing offset to index a 1024-byte key/process buffer, writes the scratch bytes, terminates them with zero, and copies the scratch bytes into four alternate table windows.
 - `XorTransformBuffer` processes `len >> 2` dword blocks with `key[index % step]`, then handles one to three trailing bytes from the next key word.
 - The shared global state is address-backed: alternate size `0x0066fe50`, dword LUT `0x0066fe58`, handshake seed `0x0069ba40`, nonce scratch `0x0069ba4c`, process/key pointer `0x0069ba58`, stride `0x0069ba5c`, sequence byte `0x0069ba60`, primary table `0x0069ba64`, and alternate table `0x0069ba94`.
+- The exact writable state block [UID:0002AL][0x0069ba40-0x0069bac4.PacketTransformMutableState](by-memory/0x0069ba40-0x0069bac4.PacketTransformMutableState.md) bounds the handshake seed, nonce scratch, process/key pointer, stride, sequence byte, and primary/alternate table windows before the neighboring StartupWindow globals.
 
 ## Signature Caveat
 
@@ -73,10 +75,18 @@ These helpers should be reconstructed as packet/protocol transform support, not 
 
 The reconstructed C++ block remains blank. The overview is now attached to [UID:0000M9][PacketTransform](by-file/PacketTransform.md), but final helper prototypes and the raw `0x00575b90` source shape are not final-source quality.
 
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `82` | The overview now ties the helper cluster to exact string-key, nonce, handshake, XOR, mutable-state, global-state, Socket caller, and packet-digest pages. Completion remains below final-source level because `0x00575b90` is still raw/no-xref and the source-facing prototypes for the transform helpers are unresolved. |
+| Confidence `86` | Existing by-memory and by-file pages strongly support PacketTransform ownership and helper behavior, while confidence remains capped by original-file ambiguity, generated prototype conflicts, and the unresolved liveness/name of the raw string-key setup helper. |
+
 ## Cross-References
 
 - [UID:0000M9][PacketTransform](by-file/PacketTransform.md)
 - [UID:0000TG][PacketTransformGlobals](by-global/PacketTransformGlobals.md)
+- [UID:0002AL][0x0069ba40-0x0069bac4.PacketTransformMutableState](by-memory/0x0069ba40-0x0069bac4.PacketTransformMutableState.md)
 - [UID:000244][0x00575b90-0x00575caa.PacketTransformStringKeyHelpers](by-memory/0x00575b90-0x00575caa.PacketTransformStringKeyHelpers.md)
 - [UID:0001I0][0x00575cb0-0x00575d83.PacketNonceInitialization](by-memory/0x00575cb0-0x00575d83.PacketNonceInitialization.md)
 - [UID:0001I2][0x00577030-0x0057713d.BuildHandshakeBlock](by-memory/0x00577030-0x0057713d.BuildHandshakeBlock.md)
@@ -90,6 +100,7 @@ The reconstructed C++ block remains blank. The overview is now attached to [UID:
 ## Changes
 
 - 2026-06-02: Raised grading to `74/82` and attached to [UID:0000M9][PacketTransform](by-file/PacketTransform.md) after setting the parent projected path. IDA MCP rechecked helper starts and xrefs: `0x00575b90` remains raw/no-function, while `0x00575c30`, `0x00575cb0`, `0x00577030`, and `0x00578e00` retain the documented function ranges and callers. C++ remains blank because final prototypes and raw helper shape are still unresolved.
+- 2026-06-07 A009 overview synchronization: raised to `82/86`, added the exact mutable-state page and score rationale, and aligned the overview with the stronger child pages for string-key setup, nonce initialization, handshake setup, XOR transform, transform globals, Socket callers, and digest exclusion. C++ remains blank because the raw `0x00575b90` helper liveness and final prototypes are still below the 95/95 gate.
 - 2026-05-31: Grading and reconstruction status changed from unevaluated/blank to `50/70` and `RECONSTRUCTABLE:TRUE`.
   - Before: the page body documented packet transform helpers, but the validator metadata still showed `0/0` and no reconstruction status.
   - After: the metadata now tracks the group as rebuild-relevant packet transform code, while staying below high confidence because `0x00575b90` is still not an IDA-modeled function and final signatures remain open.

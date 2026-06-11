@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000AM | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Entity kind: class layout support struct
 - Confidence: strong for offsets and object size, medium for final field names.
 - Proposed owner: [UID:0000MM][PoolAllocator](by-file/PoolAllocator.md)
+- Autogen parent: attached to [UID:0000AM][PoolAllocator](by-class/PoolAllocator.md); the class scores `86/82` and this layout scores `84/88`, so both sides satisfy the 80/80 parent gate.
 - Evidence basis: IDA MCP `lookup_funcs` and decompilation of the allocator island, chunk helpers, and string-pool users. Generated `simroot_v2` output remains only a lead/caveat source, not authority.
 
 ## Layout
@@ -97,6 +98,7 @@ The full current inventory is tracked in [UID:0000TI][PoolAllocatorStaticInstanc
 
 ## Changes
 
+- 2026-06-06: Attached the allocator layout to [UID:0000AM][PoolAllocator](by-class/PoolAllocator.md). Scores remain `84/88`; this parent metadata update follows the already documented class ownership and allocator method evidence.
 - Before: validator metadata was unevaluated at completion `0`, confidence `0`, and reconstructable blank, and the evidence basis still cited generated `class_PoolAllocator` output as if it were primary evidence.
 - Changed to: `RECONSTRUCTABLE:TRUE`, completion `84`, confidence `88`, with IDA MCP evidence as the stated authority.
 - Evidence: IDA MCP verified the constructor, allocate, free, destructor, chunk-allocation helper, and chunk-free helper offsets and behavior. Scores remain below `95+` because final public/private names, complete static-pool source placement, and all concrete pool owner declarations still need a full source-structure audit.

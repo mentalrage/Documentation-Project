@@ -84,7 +84,7 @@ Rechecked with live IDA MCP on 2026-06-03:
 
 - [UID:00006E][ImageLib](by-class/ImageLib.md)
 - [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md)
-- [UID:000174][0x004d0120-0x004d182e.ResourceLayoutTable](by-memory/0x004d0120-0x004d182e.ResourceLayoutTable.md)
+- [UID:000174][0x004d0120-0x004d182f.ResourceLayoutTable](by-memory/0x004d0120-0x004d182f.ResourceLayoutTable.md)
 - [UID:0001VS][ResourceLayoutBucket](by-type/by-struct/ResourceLayoutBucket.md)
 - [UID:0001VU][ResourceLayoutStore](by-type/by-struct/ResourceLayoutStore.md)
 - [UID:00004I][EPFTileContext](by-class/EPFTileContext.md)

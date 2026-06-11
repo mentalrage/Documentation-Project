@@ -1,8 +1,8 @@
 *** UID:00005Y | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:81 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JS | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,10 +12,10 @@
 
 ## Status
 
-- Confidence: strong for current behavior; medium for relationship to `GroupPane2` and `NewGroupPane`.
-- Likely source file: [UID:0000JS][Group](by-file/Group.md)
+- Confidence: strong for current `GroupPane` behavior, exact vtable/destructor evidence, and source-file parent; medium-high for final relationship to `GroupPane2` and `NewGroupPane`.
+- Source file parent: [UID:0000JS][Group](by-file/Group.md), now assigned after both class and file clear the corrected `85/85` gate.
 - Address range: [UID:0001HC][0x0056c4c0-0x0056e939.GroupPanes](by-memory/0x0056c4c0-0x0056e939.GroupPanes.md); exact vtable data [UID:0002NJ][0x00624438-0x006244c4.GroupPaneVtableData](by-memory/0x00624438-0x006244c4.GroupPaneVtableData.md); destructor thunks at [UID:0001HM][0x00573273-0x005732b5.GroupPaneAdjustorThunks](by-memory/0x00573273-0x005732b5.GroupPaneAdjustorThunks.md)
-- Current recovered file: `source-3/simroot_v2/class_GroupPane.cpp`
+- Vtable-family parent: [UID:0001XP][GroupPaneFamilyVtables](by-type/by-vtable/GroupPaneFamilyVtables.md)
 
 ## Class Purpose
 
@@ -25,12 +25,12 @@
 
 | Method | Address | Role |
 | --- | --- | --- |
-| `GroupPane` | `0x0056c4c0-0x0056c5b0` | Constructs the panel and list child. |
-| `~GroupPane` | `0x0056c5c0-0x0056c62b` | Destroys the child and base panel. |
-| `RefreshGroupListDisplayArea` | `0x0056c630-0x0056c6be` | Repositions the list child and invalidates the panel. |
-| `OnPaint` | `0x0056c6c0-0x0056c730` | Loads and draws `GROUP.EPF`. |
+| `GroupPane` | `0x0056c4c0-0x0056c5b1` | Constructs the panel and inline `GroupListPane`/text-list child. |
+| `~GroupPane` | `0x0056c5c0-0x0056c62c` | Destroys the child and base panel. |
+| `RefreshGroupListDisplayArea` | `0x0056c630-0x0056c6bf` | Repositions the list child and invalidates the panel. |
+| `OnPaint` | `0x0056c6c0-0x0056c731` | Loads and draws `GROUP.EPF`. |
 | false/default virtual stub | `0x0056c4a0-0x0056c4a5` or sibling slot | Tiny `return false` stub adjacent to the group pane constructors; exact class slot still open. |
-| trivial virtuals | `0x0056c740`, `0x0056c750` | Small return stubs in IDA. |
+| trivial virtuals | `0x0056c740-0x0056c745`, `0x0056c750-0x0056c755`, `0x0056c760-0x0056c765` | Small return stubs in IDA and the `GroupPane` secondary table. |
 | scalar deleting destructor | `0x00573490-0x0057353d` | Virtual destructor wrapper; documented in [UID:00023Z][0x00573310-0x0057353d.CollectionAndGroupPaneDestructors](by-memory/0x00573310-0x0057353d.CollectionAndGroupPaneDestructors.md). |
 
 ## Evidence Notes
@@ -42,6 +42,15 @@
 - Secondary and tertiary destructor entries use compiler adjustor thunks at `0x00573289` and `0x00573294`; these should be generated from the inheritance layout rather than written as source methods.
 - 2026-05-31 IDA MCP confirms the exact vtable-data child [UID:0002NJ][0x00624438-0x006244c4.GroupPaneVtableData](by-memory/0x00624438-0x006244c4.GroupPaneVtableData.md): the range starts after `LegendPane` and ends before `GroupPane2`.
 - 2026-05-28 IDA MCP identifies two adjacent false virtual stubs at `0x0056c4a0` and `0x0056c4b0` before the `GroupPane` constructor range. Their exact slot ownership across `GroupPane`/`GroupPane2` remains open, but they belong with the group pane family rather than `LegendPane`.
+- 2026-06-07 live vtable refresh in [UID:0002NJ][0x00624438-0x006244c4.GroupPaneVtableData](by-memory/0x00624438-0x006244c4.GroupPaneVtableData.md) reconfirms every dword, all three table-base xref sets, primary paint/layout slots, secondary tiny stubs, destructor adjustor thunks, and the exact `GroupPane2` successor boundary at `0x006244c4`.
+- [UID:0001HC][0x0056c4c0-0x0056e939.GroupPanes](by-memory/0x0056c4c0-0x0056e939.GroupPanes.md) confirms the group-pane executable aggregate is attached to [UID:0000JS][Group](by-file/Group.md), while preserving raw helper and source-split caveats for the broader group pane family.
+
+## Assignment Gate
+
+- Child score after the Batch 089 refresh: `COMPLETION:85`, `CONFIDENCE:87`.
+- Direct proposed parent: [UID:0000JS][Group](by-file/Group.md), currently `COMPLETION:89`, `CONFIDENCE:85`.
+- Assignment decision: `AUTOGEN_PARENT_UID:0000JS` is justified because the class, exact vtable-data child, destructor/thunk evidence, and executable aggregate all point to the same `NexusTK/social/Group.cpp` source root, and both child and direct parent satisfy the corrected `85/85` gate.
+- Final C++ remains blank because the exact original split between older/alternate group pane variants, `GroupListPane`, and custom scroll helpers is still below final-audit quality.
 
 ## Cross-References
 
@@ -71,3 +80,7 @@
   - Before: vtable evidence was only linked through the family page.
   - After: exact vtable-data bounds, constructor/destructor stores, and adjustor-thunk slots are linked directly.
   - Evidence: IDA MCP `py_eval` and `xrefs_to` checks on `0x00624438-0x006244c4` confirmed the RTTI boundaries and store sites.
+- 2026-06-07 Batch 089 class-gate refresh:
+  - Before: `COMPLETION:81`, `CONFIDENCE:86`, `AUTOGEN_PARENT_UID` blank.
+  - After: `COMPLETION:85`, `CONFIDENCE:87`, `AUTOGEN_PARENT_UID:0000JS`.
+  - Summary/evidence: refreshed exact method endpoints from the current executable aggregate, linked the 2026-06-07 exact vtable-data audit, documented the direct parent gate to [UID:0000JS][Group](by-file/Group.md) at `89/85`, and retained the source-split caveat against treating the older group pane variants as final-source complete.

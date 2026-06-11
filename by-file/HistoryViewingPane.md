@@ -1,7 +1,7 @@
 *** UID:0000JW | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # HistoryViewingPane
 
@@ -13,7 +13,6 @@
 - Main class: [UID:000066][HistoryViewingPane](by-class/HistoryViewingPane.md)
 - Core address range: [UID:0001A1][0x004ffd80-0x0050008b.HistoryViewingPaneCore](by-memory/0x004ffd80-0x0050008b.HistoryViewingPaneCore.md)
 - Support ranges: [UID:0001A0][0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage](by-memory/0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage.md), [UID:0001A7][0x005023b0-0x005023bb.HistoryViewingPaneSingletonClear](by-memory/0x005023b0-0x005023bb.HistoryViewingPaneSingletonClear.md), [UID:0001AB][0x005024b6-0x005024cc.HistoryViewingPaneDestructorThunks](by-memory/0x005024b6-0x005024cc.HistoryViewingPaneDestructorThunks.md), [UID:0001AG][0x00502760-0x005027cc.HistoryViewingPaneDestructor](by-memory/0x00502760-0x005027cc.HistoryViewingPaneDestructor.md), [UID:0001PU][0x0069b494-0x0069b498.g_pHistoryViewingPane](by-memory/0x0069b494-0x0069b498.g_pHistoryViewingPane.md)
-- Current generated file: `source-3/simroot_v2/class_HistoryViewingPane.cpp`
 
 ## File Role
 
@@ -29,14 +28,14 @@ This module should own the full-screen story/history frame viewer opened from th
 | `g_pHistoryViewingPane` | [UID:0001PU][0x0069b494-0x0069b498.g_pHistoryViewingPane](by-memory/0x0069b494-0x0069b498.g_pHistoryViewingPane.md) | Active singleton pointer used by constructor, cleanup helper, destructor, and main-menu singleton cleanup. |
 | Resource selector callers | `0x004f7a10`, `0x004f90c0`, `0x004f9140` | Main-menu/menu-helper code that allocates a 264-byte viewer and passes `STORY.*` or `HISTORY.*`. Keep these with `MainMenuPane.cpp` unless later evidence proves file-local wrappers. |
 
-## Current Generated Split
+## Source-Layout Split
 
-| Current emitted owner | Address | Corrected source-layout decision |
+| Current owner evidence | Address | Corrected source-layout decision |
 | --- | --- | --- |
 | omitted/scattered helper | `0x004ffd40` | Keep as private `HistoryViewingPane` advance-page support called from `OnKeyDown`; it is not BulletinSession. |
-| `class_HistoryViewingPane.cpp` | `0x004ffd80`, `0x004fff10`, `0x004fff90`, `0x004fffa0`, `0x00500020`, `0x005024b6`, `0x00502760` | Keep in `login/HistoryViewingPane.cpp`. |
-| omitted from active output | `0x005023b0` | Account for as compiler-generated constructor EH cleanup that clears `g_pHistoryViewingPane`; documented in [UID:0000VN][-ignored](by-memory/-ignored.md). |
-| disabled `class_HistoryViewingPane.cpp` | `0x005024c1` | Keep as a compiler-generated destructor adjustor thunk in [UID:0000VN][-ignored](by-memory/-ignored.md); it is real despite missing generated code. |
+| IDA function island | `0x004ffd80`, `0x004fff10`, `0x004fff90`, `0x004fffa0`, `0x00500020`, `0x005024b6`, `0x00502760` | Keep in `login/HistoryViewingPane.cpp`. |
+| constructor cleanup support | `0x005023b0` | Account for as compiler-generated constructor EH cleanup that clears `g_pHistoryViewingPane`; documented in [UID:0000VN][-ignored](by-memory/-ignored.md). |
+| destructor adjustor support | `0x005024c1` | Keep as a compiler-generated destructor adjustor thunk in [UID:0000VN][-ignored](by-memory/-ignored.md); it is real despite not being handwritten source. |
 | `class_ChattingColorPane.cpp` | `0x004fff10` | Owner pollution. The method body is `HistoryViewingPane::OnKeyDown`, not chat-color UI. |
 
 ## Evidence Notes
@@ -52,9 +51,9 @@ This module should own the full-screen story/history frame viewer opened from th
 
 ## Migration Notes
 
-- Proposed Wave3 source migration after review: set `class_HistoryViewingPane.cpp` simpath to `login/HistoryViewingPane.cpp`.
+- Proposed source migration after review: place the `HistoryViewingPane` class island in `login/HistoryViewingPane.cpp`.
 - Keep `0x005023b0` documented as a constructor EH singleton-clear helper in [UID:0000VN][-ignored](by-memory/-ignored.md).
-- Materialize or mark `0x005024c1` as a real compiler-generated thunk instead of missing code.
+- Materialize or mark `0x005024c1` as a real compiler-generated thunk.
 - Reassign the stray `HistoryViewingPane::OnKeyDown` emission from `class_ChattingColorPane.cpp` back to this class/file.
 
 ## Cross-References
@@ -70,11 +69,14 @@ This module should own the full-screen story/history frame viewer opened from th
 - [UID:0001RG][main-menu-story-resources](by-resource/main-menu-story-resources.md)
 - [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
 - [UID:0000HP][BackStoryDialogPane](by-file/BackStoryDialogPane.md)
-- [Wave3 data issues](../wave3_data_issues.md)
 
 ## Changes
 
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:80`.
-  - Summary/evidence: main-menu story/history viewer role, singleton ownership, resource selector wrappers, generated split corrections, IDA evidence, migration notes, and resource/menu cross-references are documented; confidence is capped by exact login path and generated ownership caveats.
+  - Summary/evidence: main-menu story/history viewer role, singleton ownership, resource selector wrappers, split corrections, IDA evidence, migration notes, and resource/menu cross-references are documented; confidence is capped by exact login path and ownership caveats.
+- 2026-06-05 reconstruction path classification:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, leaving the file row in error.
+  - Changed to: `NexusTK/login/`.
+  - Summary/evidence: `by-project-structure/proposed-source-tree.md` places `HistoryViewingPane.cpp` under `NexusTK/login/`, and live IDA MCP xrefs/decompilation confirm `0x004ffd80`, `0x005023b0`, and `0x00502760` write/clear `dword_69B494` in the `HistoryViewingPane` lifecycle and cleanup island.

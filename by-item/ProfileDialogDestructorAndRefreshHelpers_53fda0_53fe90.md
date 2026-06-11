@@ -1,6 +1,6 @@
 *** UID:0000V9 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000MR | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for helper behavior, medium for final emitted-source modeling policy.
+- Confidence: strong for helper behavior, ownership split, and parent attachment; medium-high for final emitted-source modeling policy.
 - Current generated-code caveat: `0x0053fda0` and `0x0053fe90` are not modeled as ordinary ProfileDialog methods in the active generated file; generated destructor labels the shared base teardown through `TransferReplyAlert`.
 - Proposed owner file: [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md), with `0x0053fe90` also calling into [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md).
 - Rebuild handling: mixed `source-declared/generated-binary` destructor/thunk output plus a tiny `source-authored` or source-visible refresh wrapper. Keep parent attachment and C++ blank until the ProfileDialog source shape and surrounding destructor islands reach the 95% gate.
@@ -58,6 +58,23 @@ Keep the destructor/thunk island with `ProfileDialog.cpp`. The generated `Transf
 
 Keep the real profile sidecar work at `0x005063e0` with `ProfileStorage.cpp`, but document `0x0053fe90` as a small ProfileDialog-side wrapper because it sits in the dialog neighborhood and forwards directly to that storage helper.
 
+## Current Cross-Document Split
+
+| Evidence page | What it now owns | Why it matters for this item |
+| --- | --- | --- |
+| [UID:0001DT][0x0053f940-0x0053fe87.ProfileDialog](by-memory/0x0053f940-0x0053fe87.ProfileDialog.md) | Constructor, non-deleting destructor helper, and action handler. | Records the exact ProfileDialog executable neighborhood, vtable writes at `+0x0`, `+0xa0`, and `+0xa4`, action-handler call to `0x005063e0`, and boundary padding around the standalone wrapper. |
+| [UID:0001DU][0x0053fe90-0x0053fe9b.ProfileDialogRefreshHelper](by-memory/0x0053fe90-0x0053fe9b.ProfileDialogRefreshHelper.md) | The tiny `mov ecx, dword_67A764; jmp 0x005063e0` wrapper. | Keeps the wrapper attached to ProfileDialog while making clear that it is only a forwarding shim into ProfileStorage behavior. |
+| [UID:0001AS][0x005063e0-0x00506962.ProfileSidecarRefresh](by-memory/0x005063e0-0x00506962.ProfileSidecarRefresh.md) | Selected-profile sidecar probing, optional FaceRipper launch, `.jpf` validation, and opcode `79` packet queueing. | Confirms the wrapper target is storage/profile-image logic and should not be folded into `ProfileDialog.cpp` beyond the local wrapper. |
+| [UID:00023J][0x0054259f-0x0054267b.DialogPaneAdjustorThunkIsland](by-memory/0x0054259f-0x0054267b.DialogPaneAdjustorThunkIsland.md) and [UID:00023K][0x005426e0-0x00542ab5.DialogPaneScalarDeletingDestructorIsland](by-memory/0x005426e0-0x00542ab5.DialogPaneScalarDeletingDestructorIsland.md) | Shared dialog adjustor thunk and scalar deleting destructor islands. | Preserve the exact ProfileDialog thunk/deleting-destructor ranges without pretending the thunk island has a single ProfileDialog-only source owner. |
+| [UID:000261][0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData](by-memory/0x00620c74-0x0062179c.OptionMacroProfileReadOnlyData.md) | Mixed option/macro/friend/profile `.rdata`, including `0x00620f40-0x00621010` ProfileDialog vtables. | Supports ProfileDialog vtable ownership and keeps profile storage/refresh as a dependency instead of a vtable-data owner. |
+
+## Remaining Modeling Gaps
+
+- The helper behavior is strong enough for parent attachment to [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md), but not for final C++ emission: the source-visible destructor/thunk shape, shared base teardown name for `0x0049d9f0`, and whether the `0x0053fe90` wrapper was authored or compiler-emitted remain below the 95/95 gate.
+- The storage boundary is now explicit: `0x0053fe90` belongs with the dialog neighborhood, while `0x005063e0` and the sidecar extension table stay with [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md).
+- The ProfileDialog vtables are documented through the mixed `.rdata` aggregate, so this item should not create a separate data-owner page unless a later pass splits exact ProfileDialog vtable data from the surrounding option/macro/profile island.
+- The page now clears the strict `85/85` parent-assignment gate to [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md), but remains below final C++ emission because the destructor/thunk source shape and wrapper visibility are still unresolved.
+
 ## Cross-References
 
 - [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md)
@@ -80,3 +97,9 @@ Keep the real profile sidecar work at `0x005063e0` with `ProfileStorage.cpp`, bu
 - 2026-06-01: Changed completion/confidence from `70/85` to `72/88`, attached parent [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md), and corrected the local helper endpoints to exclusive-end ranges.
   - Before: the helper table still used `0x0053fda0-0x0053fdbe` and `0x0053fe90-0x0053fe9a`, and parent attachment was blank.
   - After: current IDA MCP evidence records the exact helper ends, wrapper boundary padding, and vtable/destructor xrefs. C++ remains blank pending final emitted-source policy.
+- 2026-06-07 A009: Raised completion from `72` to `76` while keeping confidence at `88`.
+  - Before: the page listed helper behavior but did not summarize how the current ProfileDialog core, wrapper, ProfileStorage sidecar, dialog thunk islands, and mixed `.rdata` pages divide ownership.
+  - After: added the cross-document split and remaining modeling gaps so future work can update the exact page that owns each unresolved destructor/wrapper/data question. No final C++ was emitted because the source-visible destructor/thunk shape and wrapper modeling remain below the 95/95 gate.
+- 2026-06-10 A002: Raised completion/confidence from `76/88` to `85/90`.
+  - Before: the helper index had enough endpoint, xref, vtable, split-ownership, and remaining-gap evidence to justify attachment, but its completion score still failed the current strict gate.
+  - After: the page clears the gate to [UID:0000MR][ProfileDialog](by-file/ProfileDialog.md) while keeping final C++ blank below the `95/95` source-quality bar.

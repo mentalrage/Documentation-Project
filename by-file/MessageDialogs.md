@@ -1,13 +1,13 @@
 *** UID:0000LA | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MessageDialogs
 
 ## Status
 
-- Confidence: strong for packet-driven message/menu-question dialog ownership, medium for whether `Message` lived here or in a nearby message model/overlay file.
+- Confidence: strong for packet-driven message/menu-question dialog ownership and `Message` base-model routing; medium-high for whether the final tree keeps `Message` in this file or a tiny adjacent message-model file.
 - Proposed module folder: `ui/dialogs/`
 - Candidate files: `ui/dialogs/MessageDialogs.cpp` and [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md).
 - Current generated sources: `class_Message.cpp`, `class_MessageShowPane.cpp`, `class_PursuitMessageDialogPane.cpp`, `class_MessageDialog.cpp`, `class_MessageDialogLarger.cpp`, `class_MenuQuestionDialog.cpp`, `class_MenuQuestionDialogLarger.cpp`, `class_MenuQuestionItemList.cpp`, and `class_MenuQuestionItemListLarger.cpp`.
@@ -34,7 +34,7 @@ ui/dialogs/MessageShowPane.cpp
 
 | Entity | Current range | Current file | Role |
 | --- | --- | --- | --- |
-| `Message` | `0x00520e30-0x00521d94` | `class_Message.cpp` | Base message object with a sorted entry list and scalar deleting destructor. |
+| [UID:000084][Message](by-class/Message.md) | [UID:0002Y5][0x00520e30-0x00521d94.MessageCore](by-memory/0x00520e30-0x00521d94.MessageCore.md) | `class_Message.cpp` | Base message object with a sorted entry list, raw entry insert/lookup helper band, sequence normalizer, compare callback, and scalar deleting destructor. |
 | `MessageShowPane` | `0x00521da0-0x005227c6` | `class_MessageShowPane.cpp`, plus polluted `0x00522530` owner | Floating message overlay pane that wraps wide text, draws shadow/face palette text rows, and tracks `g_pMessageShowPane`; now documented as a split candidate in [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md). |
 | [UID:0000BE][PursuitMessageDialogPane](by-class/PursuitMessageDialogPane.md) | raw constructor `0x0054cab0-0x0054cae9`, vtables `0x00622428/0x00622488/0x006224b8`, shared destructor glue at `0x00520aa5+` | `class_PursuitMessageDialogPane.cpp` | Tiny message-dialog base/companion class; constructor initializes a blank `DialogPane` shell and installs three vtables. |
 | [UID:0001FF][0x0054caf0-0x0054cc2f.MessageDialogObjectResponseVirtual](by-memory/0x0054caf0-0x0054cc2f.MessageDialogObjectResponseVirtual.md) | `0x0054caf0-0x0054cc2f` | omitted from current active simroot output | Shared vtable action handler that parses dialog object-response payloads and sends opcode `0x3a` replies. |
@@ -71,6 +71,7 @@ IDA xrefs show the dialog constructors are called from the packet dispatch area 
 - `0x0054caf0-0x0054cc2f` is a real shared vtable action handler omitted from current active simroot output. Its vtable refs span `PursuitMessageDialogPane`, `MessageDialog`, `MessageDialogLarger`, `MenuQuestionDialog`, and sibling message/menu dialog tables.
 - The destructor thunks at `0x00520aa5`/`0x00520ab0` and scalar destructor at `0x00520b70` still have broad vtable reuse, remain shared glue, and are excluded through [UID:0000VN][-ignored](by-memory/-ignored.md).
 - 2026-05-28 IDA MCP recheck splits the old undocumented `0x0054c1f1-0x0054cab0` gap into dispatcher/wrapper code at [UID:00023M][0x0054c200-0x0054caa9.MessageDialogPacketDispatcherAndWrappers](by-memory/0x0054c200-0x0054caa9.MessageDialogPacketDispatcherAndWrappers.md) plus boundary padding. The wrapper island allocates and calls `MessageDialog`, `MessageDialogLarger`, `MenuQuestionDialog`, `MenuQuestionDialogLarger`, `TextDialog`, `NexonclubProxyDialog`, and `HeadSelectDialog` constructors.
+- 2026-06-07 A008 parent-chain recheck uses [UID:0002Y5][0x00520e30-0x00521d94.MessageCore](by-memory/0x00520e30-0x00521d94.MessageCore.md) and [UID:000084][Message](by-class/Message.md) to close the base `Message` model evidence: the exact child covers the constructor/destructor, raw helper band, sequence normalizer, `SortedList` compare callback, and scalar deleting destructor, and the class page is now `85/86`.
 
 ## Ownership Notes
 
@@ -82,6 +83,7 @@ IDA xrefs show the dialog constructors are called from the packet dispatch area 
 - Re-own the packet dispatcher at `0x0054c200` with this file during migration. It is currently labeled `Motion::HandleDialogPacket`, but IDA callers and callees tie it to message/menu-question dialog construction, not runtime motion/region behavior.
 - `MenuQuestionItemList` and `MenuQuestionItemListLarger` are private support widgets for the menu-question constructors and should be kept with the dialog family unless later xrefs show broader reuse.
 - `MessageShowPane` is physically near `Message` and behaviorally message-related, but it is a floating overlay rather than a packet dialog. It is now documented as a strong split candidate in [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md).
+- `Message` is now attached to this source family for autogen routing. A tiny adjacent `MessageModel.cpp` remains possible in a final hand-authored tree, but current evidence gives no stronger direct by-file parent than this message/dialog source family: [UID:0002Y5][0x00520e30-0x00521d94.MessageCore](by-memory/0x00520e30-0x00521d94.MessageCore.md) is the base model half of the former message/message-show split, and [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md) explicitly owns only the overlay half.
 - Generic popup/menu infrastructure such as `MenuPane`/`MenuVarietyPane` and scrolling system messages such as `SystemMessagePane` are separate clusters; do not merge them into this source file solely because the names include "menu" or "message".
 - Shared alert infrastructure belongs in [UID:0000HE][AlertPanes](by-file/AlertPanes.md). Keep only message/NPC packet dialog code here unless a derived alert is tightly coupled to this message family.
 - The previous/next/current packet helpers at `0x0054cc30-0x0054ce0f` are shared with [UID:0000OL][TextDialog](by-file/TextDialog.md). Do not treat those helpers as private `TextDialog` methods during migration.
@@ -91,6 +93,7 @@ IDA xrefs show the dialog constructors are called from the packet dispatch area 
 ## Cross-References
 
 - [UID:000084][Message](by-class/Message.md)
+- [UID:0002Y5][0x00520e30-0x00521d94.MessageCore](by-memory/0x00520e30-0x00521d94.MessageCore.md)
 - [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md)
 - [UID:000087][MessageShowPane](by-class/MessageShowPane.md)
 - [UID:0000BE][PursuitMessageDialogPane](by-class/PursuitMessageDialogPane.md)
@@ -131,3 +134,7 @@ IDA xrefs show the dialog constructors are called from the packet dispatch area 
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:88` and `CONFIDENCE:80`.
   - Summary/evidence: message/menu-question dialog family, dispatcher/wrapper ownership, `MessageShowPane` split, raw base constructor, shared virtual/navigation helpers, IDA evidence, generated omissions, and ownership notes are documented; confidence is capped by generated source placeholders and final split between message model, overlay pane, and packet-dialog source.
+- 2026-06-07 A008 Batch 053 parent-chain repair:
+  - What existed before: `88/80`; the file page listed `Message` but kept confidence below the corrected gate because the exact base-model child split and class parent route were not reflected in this page.
+  - Changed to: `89/85`; added [UID:0002Y5][0x00520e30-0x00521d94.MessageCore](by-memory/0x00520e30-0x00521d94.MessageCore.md) evidence and clarified that [UID:000084][Message](by-class/Message.md) routes here for autogen while the overlay half remains in [UID:0000LB][MessageShowPane](by-file/MessageShowPane.md).
+  - Assignment effect: [UID:000084][Message](by-class/Message.md) can now attach to this file parent under the corrected `85/85` gate, which gives [UID:0002Y5][0x00520e30-0x00521d94.MessageCore](by-memory/0x00520e30-0x00521d94.MessageCore.md) a complete parent chain.

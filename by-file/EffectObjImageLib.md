@@ -1,13 +1,13 @@
 *** UID:0000IY | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # EffectObjImageLib
 
 ## Status
 
-- Confidence: strong for class role, resource ownership, singleton storage, and core method boundaries; medium for exact original filename and final field names.
+- Confidence: strong for class role, resource ownership, singleton storage, vtable ownership, and core method boundaries; medium for exact original filename and final field names.
 - Proposed module: `render/EffectObjImageLib.cpp`
 - Current recovered source: `source-3/simroot_v2/class_EffectObjImageLib.cpp`
 - Disabled generated source containing a real method: `source-3/simroot_v2/class_EffectObjImageLib.cpp.disabled`
@@ -59,11 +59,18 @@ The generated `ProtectedArray_struct_EffectInfo_` and `ProtectedArray_struct_Eff
 - IDA MCP recheck on 2026-05-31 confirms exact boundaries for constructor (`0xee` bytes), `GetEffectInfo` (`0x40` bytes), `LoadEffectTables` (`0x453` bytes), and scalar deleting destructor (`0x166` bytes).
 - Current `class_EffectObjImageLib.meta_wave3` reports `vtable_count: 0` and keeps `RenderEffectFrame` disabled, so the IDA-backed docs are the accuracy anchor until generated data catches up.
 
+## Batch 012 Parent-Gate Evidence
+
+The exact vtable-data child [UID:0002MK][0x0061b720-0x0061b730.EffectObjImageLibVtableData](by-memory/0x0061b720-0x0061b730.EffectObjImageLibVtableData.md) is directly owned by this source module. Live IDA MCP on 2026-06-07 rechecked `NexusTK.exe` (`sha256 9aec210bbc5ce592176a21dd8e9d9fd8f250b8d9ea78237915a99ba8cfa9a632`) and confirmed the `EffectObjImageLib` RTTI locator at `0x0061b720`, vtable slot dwords at `0x0061b724-0x0061b72c`, constructor/destructor/scalar-deleting-destructor vptr stores, and adjacent `ProtectedArray<EffectInfo>`, `ProtectedArray<EffectPixMapInfo>`, and `ProtectedArray<ItemInfo>` boundaries.
+
+That evidence is enough to treat this by-file page as an `85/85` direct parent for the vtable-data child under the corrected Batch 012 assignment gate. The vtable bytes remain `source-declared/generated-binary`; this page owns the class declaration and virtual method set that should cause the rebuilt compiler/linker to emit the equivalent RTTI/vtable artifact, but the child should not contribute handwritten C++ code.
+
 ## Cross-References
 
 - [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md)
 - [UID:00017K][0x004ddf60-0x004e6455.EffectObjImageLib](by-memory/0x004ddf60-0x004e6455.EffectObjImageLib.md)
 - [UID:0002H9][0x004ddf60-0x004de04e.EffectObjImageLibConstructor](by-memory/0x004ddf60-0x004de04e.EffectObjImageLibConstructor.md)
+- [UID:0002MK][0x0061b720-0x0061b730.EffectObjImageLibVtableData](by-memory/0x0061b720-0x0061b730.EffectObjImageLibVtableData.md)
 - [UID:0000QT][g_pEffectObjImageLib](by-global/g_pEffectObjImageLib.md)
 - [UID:0001XG][EffectObjImageLibVtable](by-type/by-vtable/EffectObjImageLibVtable.md)
 - [UID:0001U9][EffectObjImageLibLayout](by-type/by-struct/EffectObjImageLibLayout.md)
@@ -90,3 +97,7 @@ The generated `ProtectedArray_struct_EffectInfo_` and `ProtectedArray_struct_Eff
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank and several method rows were text-only entries inside the broad file page.
   - Changed to: projected path `NexusTK/render/`, with exact by-memory pages linked for constructor, `GetEffectInfo`, `LoadEffectTables`, and scalar deleting destructor.
   - Summary/evidence: `by-project-structure/proposed-source-tree.md` places `EffectObjImageLib.cpp` under `render/`, and IDA MCP rechecked exact function sizes, callers, resource names, and core field offsets on 2026-05-31.
+- 2026-06-07 A003 Batch 012 parent gate:
+  - What existed before: the page was `88/84`, below the corrected direct-parent assignment gate for [UID:0002MK][0x0061b720-0x0061b730.EffectObjImageLibVtableData](by-memory/0x0061b720-0x0061b730.EffectObjImageLibVtableData.md).
+  - Changed to: `89/86`, added current hash-backed vtable ownership evidence, and documented why this source-file page directly owns the source declaration effect.
+  - Summary/evidence: the source module already documents the effect image-library role, methods, singleton, resources, and layout; the Batch 012 IDA recheck closes the specific vtable-data ownership gate while leaving final field names and exact original filename below final-audit confidence.

@@ -1,6 +1,6 @@
 *** UID:0000CA | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -56,6 +56,11 @@ This class is adjacent to [UID:0000C8][ScreenDimmer](by-class/ScreenDimmer.md), 
 - The active generated source contains `OnUpdate`, but metadata records its range as `0x0055a020-0x0055a020`; live IDA reports `nullsub_46` at `0x0055a020` with size 1.
 - Metadata says the destructor chain is `TextButtonExControlPane::~TextButtonExControlPane -> Pane::~Pane`, which looks like stale base-name pollution. Treat `Pane` as the confirmed base/member evidence.
 - 2026-05-26 recheck: current `class_ScreenFadeOut.cpp` still omits the `0x0055a051` and `0x0055a05c` adjustor thunks, while IDA MCP still reports them as real 11-byte functions with vtable data xrefs and decompiles them as `this - 0xa0` / `this - 0xa4` forwards to `0x0055a180`.
+- [UID:0001VY][ScreenOverlayPaneLayouts](by-type/by-struct/ScreenOverlayPaneLayouts.md) records the `0x10c`-byte object layout, fade fields, timer/interface vtable offset at `0xa4`, and IDA vtable bases `0x0062350c`, `0x00623558`, and `0x00623588`. [UID:00026C][0x00623480-0x00623d58.ScreenEffecterReadOnlyData](by-memory/0x00623480-0x00623d58.ScreenEffecterReadOnlyData.md) records the neighboring read-only-data island that also contains the ScreenDimmer/FadeOut vtable table family.
+
+## Assignment Decision
+
+Left unassigned. The child page improved from `84/82` to `85/84`, so it still fails the corrected child confidence gate. Even if later class confidence reaches `85`, the current direct parent is not settled: [UID:0000NA][ScreenDimmer](by-file/ScreenDimmer.md) is now strong enough for direct `ScreenDimmer` ownership, but it deliberately keeps `ScreenFadeOut` as either part of the same small overlay module or a neighboring `ui/core/ScreenFadeOut.cpp`; the imported source hint also names `ScreenFadeOut.cpp`. No `AUTOGEN_PARENT_UID` is set until a direct by-file owner is justified.
 
 ## Cross-References
 
@@ -65,9 +70,15 @@ This class is adjacent to [UID:0000C8][ScreenDimmer](by-class/ScreenDimmer.md), 
 - [UID:0001GC][0x0055a051-0x0055a05c.ScreenFadeOutVtable2AdjustorThunk](by-memory/0x0055a051-0x0055a05c.ScreenFadeOutVtable2AdjustorThunk.md)
 - [UID:0001GD][0x0055a05c-0x0055a067.ScreenFadeOutVtable3AdjustorThunk](by-memory/0x0055a05c-0x0055a067.ScreenFadeOutVtable3AdjustorThunk.md)
 - [UID:0001VY][ScreenOverlayPaneLayouts](by-type/by-struct/ScreenOverlayPaneLayouts.md)
+- [UID:00026C][0x00623480-0x00623d58.ScreenEffecterReadOnlyData](by-memory/0x00623480-0x00623d58.ScreenEffecterReadOnlyData.md)
 - [UID:0000IZ][Effects](by-file/Effects.md)
 
 ## Changes
+
+- 2026-06-07: Batch 095 raised score from `84/82` to `85/84` and left the class unassigned.
+  - Before: The page documented the fade overlay class but did not explicitly connect the layout/vtable support pages to the assignment gate.
+  - After: The page records the stricter no-assignment decision: behavior and layout coverage are sufficient for `85` completion, but confidence remains below `85` because generated metadata defects and the `ScreenDimmer.cpp` versus `ScreenFadeOut.cpp` source split are unresolved.
+  - Evidence: [UID:0001VY][ScreenOverlayPaneLayouts](by-type/by-struct/ScreenOverlayPaneLayouts.md) provides the object layout and vtable-base evidence, [UID:00026C][0x00623480-0x00623d58.ScreenEffecterReadOnlyData](by-memory/0x00623480-0x00623d58.ScreenEffecterReadOnlyData.md) covers the read-only-data/vtable island, and [UID:0000NA][ScreenDimmer](by-file/ScreenDimmer.md) now explicitly limits its parent-gate refresh to direct `ScreenDimmer` children.
 
 - 2026-05-30: Changed completion/confidence from `0/0` to `84/82`.
   - Before: The page was unevaluated despite documenting fade overlay behavior, timer/layout fields, adjustor thunks, scalar destructor, and metadata caveats.

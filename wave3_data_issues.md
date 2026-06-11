@@ -4237,7 +4237,7 @@ Follow-up:
 Observed:
 
 - `class_DIBitmap.meta_wave3` reports `vtable_count: 0`, but IDA confirms the primary `DIBitmap` vtable at `0x00618e54`. Xrefs land at constructor store `0x004a1638`, raw destructor store `0x004a1746`, inline factory construction `0x004a195c`, and scalar destructor store `0x004a1b19`.
-- Active `source-3/simroot_v2/class_DIBitmap.cpp` emits the constructor and scalar deleting destructor but omits the real `0x004a1740-0x004a17ac` cluster: raw non-deleting destructor/cleanup, `GetBits`, `GetBitmapHandle`, guarded width/height accessors, and guarded aligned-width accessor.
+- Active `source-3/simroot_v2/class_DIBitmap.cpp` emits the constructor and scalar deleting destructor but omits the real `0x004a1740-0x004a17ad` half-open cluster: raw non-deleting destructor/cleanup, `GetBits`, `GetBitmapHandle`, guarded width/height accessors, and guarded aligned-width accessor.
 - Current `class_DIBitmap.meta_wave3` reports a `0x60`-byte object with noisy undefined byte fields, while IDA-confirmed constructor/accessor/destructor evidence only requires fields through `+0x38` in the checked cluster.
 - `class_DirectX.meta_wave3` reports `vtable_count: 0`, but IDA confirms the primary `DirectX` vtable at `0x00618e64`. Xrefs land at `0x004a1bbf`, `0x004a1c88`, and `0x004a1cf8`.
 - Active `source-3/simroot_v2/class_DirectX.cpp` omits the real helper at `0x004a1cc0-0x004a1ccb`, which only clears `dword_67AB20` / `g_pDirectX` and returns. IDA shows a cref from the constructor unwind/chunk context at `0x005fd71e`.
@@ -4245,11 +4245,11 @@ Observed:
 Expected:
 
 - Generated vtable inventory should record `DIBitmap` vtable `0x00618e54` and `DirectX` vtable `0x00618e64` instead of leaving both classes at `vtable_count: 0`.
-- Generated source or generated docs should account for the `DIBitmap` `0x004a1740-0x004a17ac` tiny-method cluster and the `DirectX` `0x004a1cc0` singleton-clear helper, even if some starts remain raw/not modeled as IDA functions.
+- Generated source or generated docs should account for the `DIBitmap` `0x004a1740-0x004a17ad` half-open tiny-method cluster and the `DirectX` `0x004a1cc0` singleton-clear helper, even if some starts remain raw/not modeled as IDA functions.
 
 Impact:
 
-- Added [DIBitmap destructor and accessors](by-memory/0x004a1740-0x004a17ac.DIBitmapDestructorAndAccessors.md), [DIBitmap and DirectX vtables](by-type/by-vtable/DIBitmapDirectXVtables.md), and [g_pDirectX](by-global/g_pDirectX.md).
+- Added [DIBitmap destructor and accessors](by-memory/0x004a1740-0x004a17ad.DIBitmapDestructorAndAccessors.md), [DIBitmap and DirectX vtables](by-type/by-vtable/DIBitmapDirectXVtables.md), and [g_pDirectX](by-global/g_pDirectX.md).
 - Added [DIBitmap layout](by-type/by-struct/DIBitmapLayout.md) to pin the IDA-confirmed object offsets separately from generated layout noise.
 - Updated [DIBitmap](by-file/DIBitmap.md), [DIBitmap class](by-class/DIBitmap.md), [DIBitmap and PCX memory](by-memory/0x004a1600-0x004a1b5e.DIBitmapAndPcxLoaders.md), [DirectX](by-file/DirectX.md), [DirectX class](by-class/DirectX.md), [DirectX memory](by-memory/0x004a1b60-0x004a1d6a.DirectX.md), and [proposed source tree](by-project-structure/proposed-source-tree.md).
 

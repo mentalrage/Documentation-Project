@@ -1,8 +1,8 @@
 *** UID:0000EH | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OI | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -41,6 +41,9 @@
 
 ## Changes
 
+- Before: reconstruction autogen metadata was unclassified.
+- Changed to: marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000OI][TerminalPane](by-file/TerminalPane.md).
+- Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the documented setup constructor, control-state updater, and command handler function starts at `0x0058b650`, `0x0058c1a0`, and `0x0058c240`; this page and parent [UID:0000OI][TerminalPane](by-file/TerminalPane.md) both meet the 80/80 parent gate. No C++ was emitted because the page is below the 95/95 reconstruction-code bar.
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `82`, confidence `86`.
 - Evidence: the page documents terminal setup purpose, source ownership, contiguous range, constructor/update/apply-cancel methods, config persistence, setup packet behavior, and relationship to `TerminalPane`; remaining completion gap is source-ready C++ detail.

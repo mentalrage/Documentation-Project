@@ -1,8 +1,8 @@
 *** UID:0000BM | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -66,6 +66,11 @@
 - [UID:0000G3][WebBoardDialogOld](by-class/WebBoardDialogOld.md)
 
 ## Changes
+
+- 2026-06-05: Changed `RECONSTRUCTABLE` from blank to `TRUE` and assigned parent `0000MZ`.
+  - Before: The main ranking dialog remained unclassified in autogen coverage even though the page and parent file both met the 80/80 attach gate.
+  - After: The class contributes to `RankingDialog.cpp` as a reconstructable child without emitting final C++ yet.
+  - Evidence: Live IDA MCP lookup confirms the core ranking methods from `0x00458610` through `0x00459840`; the parent [UID:0000MZ][RankingDialog](by-file/RankingDialog.md) records the same boundaries, ranking opcode `0x7d` ownership, and generated-source pollution caveats.
 
 - 2026-05-30: Grading changed from `0/0` to `82/86`.
   - Before: page documented core ranking dialog methods, controls, globals, packet dispatch, vtables, and owner-pollution caveats but remained unevaluated.

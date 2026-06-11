@@ -1,8 +1,8 @@
 *** UID:0001XR | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00006E | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,7 +14,8 @@
 
 - Confidence: strong for address, RTTI locator, slot targets, adjacent boundary, and vptr-store xrefs.
 - Owner class: [UID:00006E][ImageLib](by-class/ImageLib.md).
-- Backing memory page: [UID:00025H][0x0061b344-0x0061b664.HourIconsIdleReadOnlyData](by-memory/0x0061b344-0x0061b664.HourIconsIdleReadOnlyData.md).
+- Exact backing memory page: [UID:00031R][0x0061b650-0x0061b660.ImageLibVtableData](by-memory/0x0061b650-0x0061b660.ImageLibVtableData.md).
+- Containing mixed aggregate: [UID:00025H][0x0061b344-0x0061b664.HourIconsIdleReadOnlyData](by-memory/0x0061b344-0x0061b664.HourIconsIdleReadOnlyData.md).
 - RTTI pointer: `0x0061b650` -> `0x006486d4` (`??_R4ImageLib@@6B@`).
 - Primary vtable: `0x0061b654` (`off_61B654`)
 - Rebuild handling: `source-declared/generated-binary`.
@@ -54,6 +55,12 @@ IDA xrefs to `0x0061b654` land at:
 
 Generated `class_ImageLib.meta_wave3` data has previously omitted this vtable, so use the IDA-confirmed symbol and dword evidence above as the authority.
 
+## 2026-06-08 Assignment Gate Recheck
+
+Batch 139 split the exact concrete vtable data out of the mixed UI/Idle aggregate as [UID:00031R][0x0061b650-0x0061b660.ImageLibVtableData](by-memory/0x0061b650-0x0061b660.ImageLibVtableData.md). Live IDA evidence in that child records the IDB hashes, `0x0061b650` RTTI pointer, three slot dwords, target function sizes, constructor/destructor/scalar-deleting-destructor xrefs, and the `MapTileImageLib` boundary at `0x0061b660`.
+
+The direct parent for this type page is [UID:00006E][ImageLib](by-class/ImageLib.md), now `86/86`, and the source-file parent below that class is [UID:0000K2][ImageLib](by-file/ImageLib.md), `87/86`. The child page is `86/91`, so the corrected child-and-direct-parent `85/85` gate is satisfied. `AUTOGEN_PARENT_UID` is therefore set to the class page, while the exact memory child attaches here to keep concrete vtable bytes under the source-level vtable declaration.
+
 ## Rebuild Notes
 
 This is source-declared/generated-binary data. Recreate it by preserving the `ImageLib` class declaration, inherited virtual interface, scalar deleting destructor behavior, and virtual slot ordering; do not hand-port the vtable bytes as source.
@@ -64,6 +71,7 @@ No `RECONSTRUCTION_CPP CODE` is emitted here. Source declarations and method bod
 
 - [UID:0000K2][ImageLib](by-file/ImageLib.md)
 - [UID:00006E][ImageLib](by-class/ImageLib.md)
+- [UID:00031R][0x0061b650-0x0061b660.ImageLibVtableData](by-memory/0x0061b650-0x0061b660.ImageLibVtableData.md)
 - [UID:0001US][ImageLibLayout](by-type/by-struct/ImageLibLayout.md)
 - [UID:000172][0x004cffb0-0x004e6572.ImageLib](by-memory/0x004cffb0-0x004e6572.ImageLib.md)
 - [UID:000173][0x004d0070-0x004d011b.ImageLibDestructor](by-memory/0x004d0070-0x004d011b.ImageLibDestructor.md)
@@ -71,6 +79,10 @@ No `RECONSTRUCTION_CPP CODE` is emitted here. Source declarations and method bod
 
 ## Changes
 
+- 2026-06-08 A007 Batch 139 gate update:
+  - What existed before: the vtable page was `82/90`, had no autogen parent, and pointed only to the mixed Hour/Icons/Idle read-only aggregate.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:91`, `AUTOGEN_PARENT_UID:00006E`, and an exact backing child link to [UID:00031R][0x0061b650-0x0061b660.ImageLibVtableData](by-memory/0x0061b650-0x0061b660.ImageLibVtableData.md).
+  - Summary/evidence: Batch 139 exact child evidence records the RTTI/vtable dwords, target sizes, xrefs, and neighboring `MapTileImageLib` boundary; [UID:00006E][ImageLib](by-class/ImageLib.md) was refreshed to `86/86`, satisfying the strict child-and-direct-parent gate.
 - 2026-05-31 completion/confidence and reconstructable update:
   - What existed before: page had useful vtable notes but metadata was still `COMPLETION:0`, `CONFIDENCE:0`, and `RECONSTRUCTABLE:` blank.
   - Changed to: `COMPLETION:82`, `CONFIDENCE:90`, and `RECONSTRUCTABLE:TRUE`.

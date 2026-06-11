@@ -1,8 +1,8 @@
 *** UID:0000DE | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -43,3 +43,5 @@
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `82`, confidence `86`.
 - Evidence: the page documents effect role, ownership, constructor/destructor/fill/scalar-destructor ranges, base-class relationship, and stale global-alias handling; remaining completion gap is source-ready reconstruction detail.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000IZ][Effects](by-file/Effects.md).
+- Evidence: live IDA MCP `lookup_funcs` confirms the documented NexusTK-owned method anchors at `0x0055ae00`, `0x0055aed0`, `0x0055af60`, and `0x0055c000`; both this class (`82/86`) and the parent file (`88/80`) meet the 80/80 parent gate. C++ remains blank under the final-code threshold.

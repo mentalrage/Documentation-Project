@@ -1,19 +1,19 @@
 *** UID:0000IU | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # DialogSession
 
 ## Status
 
-- Confidence: strong for class grouping and session-stack behavior; medium for final folder name.
+- Confidence: strong for class grouping, session-stack behavior, and file-root ownership; medium-high for exact original folder name.
 - Proposed source file: `ui/dialogs/DialogSession.cpp`
 - Alternative placement: `ui/session/DialogSession.cpp`
 - Current generated sources: `class_DialogSession.cpp` and `class_DialogInSession.cpp`
 - Type docs: [UID:0001U5][DialogSessionLayouts](by-type/by-struct/DialogSessionLayouts.md)
 - Vtables: [UID:0001XD][DialogSessionVtables](by-type/by-vtable/DialogSessionVtables.md), exact data [UID:0002NB][0x00618d30-0x00618e50.DialogSessionVtableData](by-memory/0x00618d30-0x00618e50.DialogSessionVtableData.md)
-- Evidence basis: `source-3/simroot_v2` generated files plus IDA MCP checks on 2026-05-24 and 2026-05-26.
+- Evidence basis: current by-class/by-memory/by-type pages, `source-3/simroot_v2` generated files, IDA MCP checks on 2026-05-24 and 2026-05-26, and the 2026-06-06 `DialogSessionCore` memory audit.
 
 ## Hypothesis
 
@@ -37,6 +37,15 @@ This source is a shared dialog/session infrastructure file. Feature dialogs such
 
 The short tertiary tables end at `0x00618db4` for `DialogSession` and `0x00618e50` for `DialogInSession`; the following RTTI belongs to the next class.
 
+## Exact Support Pages
+
+| Evidence page | Current score | Why it supports this file root |
+| --- | ---: | --- |
+| [UID:000131][0x004a0d80-0x004a15f8.DialogSessionCore](by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md) | `86/88` | Exact mixed code island covering the `DialogSession` constructor/destructor/stack helpers, `DialogInSession` constructor/destructor, adjustor thunks, runtime-helper caveat, and the separately owned ScreenDimmer factory split. |
+| [UID:0002NB][0x00618d30-0x00618e50.DialogSessionVtableData](by-memory/0x00618d30-0x00618e50.DialogSessionVtableData.md) | `86/90` | Exact six-table `.rdata` cluster for the `DialogSession` and `DialogInSession` primary/secondary/tertiary views, with constructor/destructor store xrefs and DIBitmap boundary. |
+| [UID:0001U5][DialogSessionLayouts](by-type/by-struct/DialogSessionLayouts.md) | `82/88` | Layout page records `DialogSession +0xf8/+0xfc` stack state and `DialogInSession +0x26c/+0x270` tail fields. |
+| [UID:0001XD][DialogSessionVtables](by-type/by-vtable/DialogSessionVtables.md) | `86/90` | Type-level vtable owner for the same six table bases and destructor adjustor thunk relationships. |
+
 ## IDA MCP Evidence
 
 - IDA confirms `DialogSession` constructor/destructor at `0x004a0d80` and `0x004a0e70`.
@@ -50,9 +59,14 @@ The short tertiary tables end at `0x00618db4` for `DialogSession` and `0x00618e5
 
 - Keep `DialogSession` infrastructure out of feature-specific files like [UID:0000HX][BulletinSession](by-file/BulletinSession.md) except as a dependency/base.
 - `DialogInSession` should stay beside `DialogSession`; it is the session-bound dialog base used by bulletin-style dialogs.
+- [UID:00003U][DialogSession](by-class/DialogSession.md) and [UID:00003S][DialogInSession](by-class/DialogInSession.md) are now intended direct class children of this file root once their class pages clear 85/85. The shared physical memory island and vtable/type pages document both classes together, so splitting one class into a different source root is not supported by current evidence.
 - The active generated `class_DialogSession.cpp` is incomplete as a source-layout guide because it omits the central stack push/pop helpers.
 - The active generated `class_DialogInSession.cpp` omits the non-deleting destructor and has local type alias pollution referencing `BackGroundPane`.
 - Current Wave3 metadata for both classes reports `vtable_count: 0`; use the IDA-confirmed table bases until generated metadata is corrected.
+
+## Parent-Gate Readiness
+
+This file page now clears the strict 85/85 gate as a direct parent for [UID:00003U][DialogSession](by-class/DialogSession.md) and [UID:00003S][DialogInSession](by-class/DialogInSession.md). Completion is `86` because the page records the proposed source path, class grouping, exact code island, vtable cluster, layout evidence, generated-output omissions, caller/ownership notes, and the ScreenDimmer exclusion. Confidence is `86` because the direct file-root relationship is corroborated by the exact memory/type pages and proposed source tree, while exact historical folder naming and final method declarations remain below final-source certainty.
 
 ## Cross-References
 
@@ -69,6 +83,10 @@ The short tertiary tables end at `0x00618db4` for `DialogSession` and `0x00618e5
 - [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md)
 
 ## Changes
+
+- 2026-06-07 A003 Batch 084 parent-gate update:
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:86`.
+  - Summary/evidence: added exact support-page table and parent-gate rationale for using this file as the direct owner of [UID:00003U][DialogSession](by-class/DialogSession.md) and [UID:00003S][DialogInSession](by-class/DialogInSession.md). The raised scores are justified by [UID:000131][0x004a0d80-0x004a15f8.DialogSessionCore](by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md) at `86/88`, [UID:0002NB][0x00618d30-0x00618e50.DialogSessionVtableData](by-memory/0x00618d30-0x00618e50.DialogSessionVtableData.md) at `86/90`, the layout/vtable type pages, and the documented ScreenDimmer ownership split.
 
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.

@@ -35,12 +35,13 @@
 | `OnAttachToParent` | `0x004958c0-0x0049591f` | Chains parent attach, queries child bounds through vtable slot `+0x28`, then attaches the text provider through child slot `+0x30`. |
 | `OnDetachFromParent` | `0x00495920-0x00495936` | Detaches/removes the text provider through child slot `+0x38`, then chains base detach. |
 | `OnPaint` | `0x00495940-0x00495a95` | Draws BUTTONEX resources, applies disabled-state offset for state `11`, and optionally overlays text/icon variants based on local flags. |
-| adjustor thunks | `0x0049b071-0x0049b087` | Secondary and tertiary destructor thunks subtract `0xa0`/`0xa4` and forward to `0x0049b860`. |
-| `ScalarDeletingDestructor` | `0x0049b860-0x0049b8c7` | Restores vtables, releases the `+0x10c` text-provider child, calls shared pane cleanup, and conditionally frees storage unless `flags & 4` is set. |
+| adjustor thunks | [UID:0002Y6][0x0049b071-0x0049b087.TextButtonExControlPaneAdjustorThunks](by-memory/0x0049b071-0x0049b087.TextButtonExControlPaneAdjustorThunks.md) | Secondary and tertiary destructor thunks subtract `0xa0`/`0xa4` and forward to `0x0049b860`. |
+| `ScalarDeletingDestructor` | [UID:0002Y7][0x0049b860-0x0049b8c7.TextButtonExControlPaneScalarDeletingDestructor](by-memory/0x0049b860-0x0049b8c7.TextButtonExControlPaneScalarDeletingDestructor.md) | Restores vtables, releases the `+0x10c` text-provider child, calls shared pane cleanup, and conditionally frees storage unless `flags & 4` is set. |
 
 ## Evidence Notes
 
 - Live IDA reports core function boundaries at `0x00495450-0x004955dc`, `0x00495620-0x0049574c`, `0x00495750-0x004957b2`, `0x004957c0-0x00495836`, `0x00495840-0x004958b6`, `0x004958c0-0x0049591f`, `0x00495920-0x00495936`, and `0x00495940-0x00495a95`, plus destructor thunks `0x0049b071-0x0049b087` and scalar deleting destructor `0x0049b860-0x0049b8c7`.
+- 2026-06-07 A004 split-recheck created exact destructor-side children [UID:0002Y6][0x0049b071-0x0049b087.TextButtonExControlPaneAdjustorThunks](by-memory/0x0049b071-0x0049b087.TextButtonExControlPaneAdjustorThunks.md) and [UID:0002Y7][0x0049b860-0x0049b8c7.TextButtonExControlPaneScalarDeletingDestructor](by-memory/0x0049b860-0x0049b8c7.TextButtonExControlPaneScalarDeletingDestructor.md); the scalar deleting destructor is assigned here because the child is `86/88` and this direct class parent is `86/86`.
 - The constructor has a single direct caller at `0x00518d9c` inside `0x00517f30`; no fitting-room constructor caller was observed in this pass.
 - Constructor setup calls [UID:00001E][ButtonControlPane](by-class/ButtonControlPane.md) construction at `0x0049548c`, writes temporary `ButtonControlPane` vtables at `0x0049549c/0x004954a2/0x004954ac`, then writes `TextButtonExControlPane` vtables at `0x004954dc/0x004954e2/0x004954ec`.
 - The child text provider pointer lives at `this+0x10c`; constructor allocates `372` bytes via `0x004f4aa0`, constructs the provider through `0x00595390`, sets its rect through vtable slot `+0x2c`, calls `0x0058ea80`, and shows it through `0x005446b0`.
@@ -49,7 +50,7 @@
 - The raw ordinary teardown at `0x004955e0` has no IDA function object, no direct xrefs, and no entrypoint pointer hits. Its vtable writes match the constructor and scalar destructor, so it belongs with this class even though it remains an unmodeled body.
 - `SetState` uses provider text helpers `0x0058e380`, text measurement `0x004baa70`, bounds helpers `0x004b8e00`, `0x004b7cc0`, and `0x004b7e10`, then updates the provider via child slot `+0x2c` and invalidates the owner through vtable slot `+0x20`.
 - `ShowControl` and `HideControl` toggle the provider through `0x0058eb30` with values `134` and `128`, then invalidate the provider and owner bounds when the visible flag changes.
-- `OnPaint` branches on `byte_66DA97`, loads resources through `dword_67A744`, `0x00457a60`, and `0x004d02f0`, uses resource names at `0x006186bc`, `0x006186d8`, `0x006186ec`, and `"NP"` at `0x0061484c`, and applies the state `11` one-pixel disabled offset before drawing.
+- `OnPaint` branches on [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97`, loads resources through [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / `dword_67A744`, `0x00457a60`, and `0x004d02f0`, uses resource names at `0x006186bc`, `0x006186d8`, `0x006186ec`, and `"NP"` at `0x0061484c`, and applies the state `11` one-pixel disabled offset before drawing.
 - The scalar deleting destructor releases the `+0x10c` child through its virtual destructor, calls shared pane cleanup `0x00544580`, and only calls `0x004f4ac0` when scalar delete is requested and the no-delete flag bit is clear.
 
 ## Score Rationale
@@ -62,9 +63,18 @@ Completion and confidence are raised because live IDA now records exact function
 - [UID:0000EJ][TextButtonControlPane](by-class/TextButtonControlPane.md)
 - [UID:000118][0x00494b50-0x00499e30.ButtonChoiceControlCore](by-memory/0x00494b50-0x00499e30.ButtonChoiceControlCore.md)
 - [UID:00011Y][0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors](by-memory/0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors.md)
+- [UID:0002Y6][0x0049b071-0x0049b087.TextButtonExControlPaneAdjustorThunks](by-memory/0x0049b071-0x0049b087.TextButtonExControlPaneAdjustorThunks.md)
+- [UID:0002Y7][0x0049b860-0x0049b8c7.TextButtonExControlPaneScalarDeletingDestructor](by-memory/0x0049b860-0x0049b8c7.TextButtonExControlPaneScalarDeletingDestructor.md)
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
+- [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md)
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: text-button paint evidence used only historical `dword_67A744`.
+  - After: the page records canonical `g_pEPFLib` beside the historical label and cross-links the global page.
+  - Evidence: generated resolved-name report maps `dword_67A744` to `g_pEPFLib`; existing IDA-backed evidence already ties the reference to EPF text-button resource loading.
+- 2026-06-07 A008 alias cleanup: normalized the `OnPaint` `byte_66DA97` resource branch to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the IDA lookup alias.
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `82`, confidence `76`.
 - Evidence: the page documents extended button role, constructor/state/text/show/hide/attach/paint/destructor ranges, text-provider child behavior, caller evidence, and unreliable owner-name pollution; confidence remains capped by destructor/helper owner names.
@@ -72,3 +82,7 @@ Completion and confidence are raised because live IDA now records exact function
   - Before: completion `82`, confidence `76`, reconstructable metadata blank.
   - Changed to: completion `86`, confidence `86`, `RECONSTRUCTABLE:TRUE`, and parent [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md).
   - Evidence: live IDA verified exact function boundaries, constructor caller, vtable slots/writes, text-provider child lifecycle, raw ordinary teardown at `0x004955e0`, state/text/show/hide/attach/detach/paint behavior, destructor thunks, and scalar destructor flag handling; remaining uncertainty is limited to private field names, resource labels, and final text-button source split.
+- 2026-06-07 A004 Batch 046 split-recheck:
+  - Before: destructor/thunk evidence pointed only to the broad [UID:00011Y][0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors](by-memory/0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors.md) aggregate.
+  - Changed to: linked exact adjustor child [UID:0002Y6][0x0049b071-0x0049b087.TextButtonExControlPaneAdjustorThunks](by-memory/0x0049b071-0x0049b087.TextButtonExControlPaneAdjustorThunks.md) and exact scalar deleting destructor child [UID:0002Y7][0x0049b860-0x0049b8c7.TextButtonExControlPaneScalarDeletingDestructor](by-memory/0x0049b860-0x0049b8c7.TextButtonExControlPaneScalarDeletingDestructor.md).
+  - Evidence: A004 read-only IDA MCP confirmed two `0x0b` adjustors, `sub_49B860` ending at `0x0049b8c7`, vtable cell `0x00617d24`, and padding `0x0049b8c7-0x0049b8d0`.

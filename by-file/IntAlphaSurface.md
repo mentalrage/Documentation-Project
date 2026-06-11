@@ -1,5 +1,5 @@
 *** UID:0000K8 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
@@ -15,7 +15,7 @@
 
 `IntAlphaSurface` appears to be an integer or per-pixel alpha surface related to the byte-mask `AlphaMaskSurface` family. Live IDA evidence proves object teardown and one vtable helper: the scalar deleting destructor resets the vtable, frees `m_pixelData` when `m_ownsBuffer` is set, clears the buffer pointer, and optionally frees the object storage; slot 1 at `0x00462260` performs the same owned-buffer release without scalar-delete semantics.
 
-The concrete object offsets are recorded in [UID:0001TP][AlphaMaskSurfaceLayout](by-type/by-struct/AlphaMaskSurfaceLayout.md), and the recovered vtable slots are recorded in [UID:0001XT][IntAlphaSurfaceVtable](by-type/by-vtable/IntAlphaSurfaceVtable.md). These pages intentionally keep the class-name caveat visible because the same vtable is written by `AlphaMaskSurface` constructor/helper code.
+The concrete object offsets are recorded in [UID:0001TP][AlphaMaskSurfaceLayout](by-type/by-struct/AlphaMaskSurfaceLayout.md), and the recovered vtable slots are recorded in [UID:0001XT][IntAlphaSurfaceVtable](by-type/by-vtable/IntAlphaSurfaceVtable.md). The vtable's class/type owner is now [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md) because RTTI names `IntAlphaSurface`; the same vtable is written by `AlphaMaskSurface` constructor/helper code, so the physical source-file split remains visible as a separate caveat.
 
 The source-file split is provisional. IDA shows the `IntAlphaSurface` vtable at `0x006112ec`, with the first slot pointing at the destructor and the next slot pointing at `0x00462260`. References to that vtable come from `AlphaMaskSurface` constructor/helper code as well as the destructor, so this may be a base/sibling surface implementation rather than a large independent file.
 
@@ -28,7 +28,7 @@ The source-file split is provisional. IDA shows the `IntAlphaSurface` vtable at 
 | `InitAlphaSurfaceView` provisional | [UID:0002NM][0x004623c0-0x00462514.InitAlphaSurfaceView](by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md) | Writes `off_6112EC` and initializes a full or clipped non-owning view object. |
 | Active alpha-surface owning constructor | `0x00462170-0x00462227` | Real IDA-modeled constructor/helper that writes `off_6112EC`, initializes bounds, allocates `width * height` bytes, and ties this vtable to live alpha-surface construction. |
 | Raw default-constructor-shaped block | [UID:0000YK][0x00462120-0x00462161.AlphaMaskSurfaceRawDefaultConstructor](by-memory/0x00462120-0x00462161.AlphaMaskSurfaceRawDefaultConstructor.md) | Raw code only; writes the same vtable and zero/owning state, but IDA still has no function object or xrefs to the start. |
-| `IntAlphaSurface` vtable | `0x006112ec` | Vtable slot 0 points to `0x00463270`; slot 1 points to `0x00462260`. |
+| `IntAlphaSurface` vtable | [UID:0001XT][IntAlphaSurfaceVtable](by-type/by-vtable/IntAlphaSurfaceVtable.md) | RTTI-backed class vtable; slot 0 points to `0x00463270`, slot 1 points to `0x00462260`, and the direct class owner is [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md). |
 
 ## Evidence Notes
 
@@ -44,10 +44,14 @@ The source-file split is provisional. IDA shows the `IntAlphaSurface` vtable at 
 - 2026-06-04 live IDA MCP `decompile 0x00462170` confirms the active owning constructor/helper writes `off_6112EC`, initializes bounds, calls the vtable release slot before reallocating, stores width/height/stride, and allocates `width * height` bytes. `callers 0x00462170` reports four callers at `0x004df9a9`, `0x0050442c`, `0x005a288d`, and `0x005a2b8e`.
 - 2026-06-04 live IDA MCP confirms `sub_4623C0` is `0x004623c0-0x00462514` and owns tail chunks `0x00462230-0x00462258` and `0x005fa580-0x005fa5be`; `xrefs_to 0x00462230` reports the EH funclet xref at `0x005fa593`, so the cleanup remains compiler support rather than a source method.
 - 2026-06-04 live IDA MCP reads the first four vtable dwords at `0x006112ec` as `0x00463270`, `0x00462260`, `0x00000000`, and `0x00000000`. `xrefs_to 0x006112ec` still reports the five data stores at `0x0046212c`, `0x0046217b`, `0x00462237`, `0x00462415`, and `0x0046327a`.
+- 2026-06-07 Agent-A002 IDA MCP recheck confirms the direct parent-gate evidence for [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md): raw `0x00462120` still has no IDA function object or xrefs; `0x00462170-0x00462227` remains the active constructor/helper with four direct code xrefs from three unique caller functions; `0x00462260-0x00462282` and `0x00463270-0x004632b1` remain vtable-only virtual targets; and `off_6112EC` still contains `0x00463270`, `0x00462260`, `0x00000000`, and `0x00000000` with stores at `0x0046212c`, `0x0046217b`, `0x00462237`, `0x00462415`, and `0x0046327a`.
+- 2026-06-08 B001 ownership follow-up confirms the vtable RTTI chain `0x006112e8 -> 0x00641e9c -> 0x006744ec`, naming `IntAlphaSurface` through `??_R4IntAlphaSurface@@6B@` and `??_R0?AVIntAlphaSurface@@@8`. This supports assigning the vtable artifact to the class while keeping this file-level page cautious about original source colocation.
 
 ## Ownership Decision
 
 Keep `IntAlphaSurface` in the render surface layer. Do not assign it to an image-library consumer such as `LightObjImageLib`; the only proven behavior is generic surface ownership and teardown. Keep the standalone `render/IntAlphaSurface.cpp` node in the proposed tree as a research anchor, but allow migration to fold it into `AlphaMaskSurface.cpp` or `Surface.cpp` if the constructor or full vtable later proves a smaller original source grouping.
+
+[UID:0001XT][IntAlphaSurfaceVtable](by-type/by-vtable/IntAlphaSurfaceVtable.md) is class-owned by [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md) because the RTTI attached to the vtable names `IntAlphaSurface`. That assignment does not prove this by-file page was a standalone original `.cpp`; it only resolves the direct type-owner relationship for the vtable artifact.
 
 The validator path is `NexusTK/render/` because [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) already lists `render/IntAlphaSurface.cpp` as a provisional node next to `AlphaMaskSurface.cpp`. That is a placement anchor, not proof that the original project had a separate source file.
 
@@ -74,3 +78,10 @@ The validator path is `NexusTK/render/` because [UID:0001R1][proposed-source-tre
   - Before: the page still had a blank validator path, stale one-method import wording, and older evidence that did not capture the live tail-chunk ownership for `sub_4623C0`.
   - After: the page records the provisional render placement, removes importer-derived evidence, links the canonical `0x004623c0-0x00462514` by-memory page, and documents the current IDA boundaries, vtable dwords, active constructor callers, raw-default-constructor caveat, and EH-only cleanup chunk.
   - Summary/evidence: live IDA MCP confirms the destructor/release slot behavior and vtable-only xrefs, proves the active `0x00462170` constructor/helper with four callers, proves `0x00462120` remains raw/no-xref code, and proves `0x00462230` is an EH tail chunk owned by `sub_4623C0`. Completion/confidence remain below final-code levels because the final source split between `IntAlphaSurface`, `AlphaMaskSurface`, and a broader surface module is still unresolved.
+- 2026-06-07 Agent-A002 Batch 091 parent-gate refresh:
+  - Before: `84/88`, just below the strict parent-side completion gate for [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md).
+  - Changed to: `85/88`.
+  - Summary/evidence: live IDA MCP reconfirmed the active constructor/helper, raw default-constructor caveat, release/destructor vtable-only dispatch, exact vtable dwords, and `0x004632c0` exclusion. The page now clears the direct file-parent gate for the class, but confidence and final C++ remain capped by the unresolved `IntAlphaSurface` versus `AlphaMaskSurface` source split.
+- 2026-06-08 B001/supervisor RTTI ownership application:
+  - Scores unchanged at `85/88`.
+  - Summary/evidence: recorded that [UID:0001XT][IntAlphaSurfaceVtable](by-type/by-vtable/IntAlphaSurfaceVtable.md) now attaches to [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md) on RTTI evidence. The file-level caveat remains: original source colocation with `AlphaMaskSurface.cpp` or a broader render surface file is still not proven.

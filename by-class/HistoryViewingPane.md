@@ -1,8 +1,8 @@
 *** UID:000066 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -79,3 +79,7 @@ Place this in `login/HistoryViewingPane.cpp` next to [UID:0000L0][MainMenuPane](
 ## Changes
 
 - Completion/confidence score update: existed before as `0/0`; changed to `88/86`. Summary: main-menu story/history viewer behavior, input handling, constructor/destructor/support thunks, singleton, layout fields, resource usage, caller reachability, source placement, and owner-pollution caveat are documented in depth. Evidence: `HistoryViewingPaneCore`, `HistoryViewingPaneAdvancePage`, singleton/global pages, resource pages, `MainMenuPane` caller evidence, and ignored cleanup/thunk notes.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000JW][HistoryViewingPane](by-file/HistoryViewingPane.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving the main-menu story/history viewer unclassified in generated class coverage.
+  - After: set `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000JW`; left the C++ block blank because the page is below the final reconstruction bar.
+  - Summary/evidence: live IDA MCP reconfirms real starts at `0x004ffd40`, `0x004ffd80`, `0x004fff10`, `0x004fff90`, `0x004fffa0`, `0x00500020`, and `0x00502760`; constructor callers remain the four `MainMenuPane` sites plus story/history helper wrappers. The class score `88/86` and parent score `84/80` meet the 80/80 attachment gate.

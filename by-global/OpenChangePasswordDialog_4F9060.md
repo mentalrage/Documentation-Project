@@ -1,6 +1,6 @@
 *** UID:0000TA | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,12 +12,13 @@
 
 ## Status
 
-- Confidence: strong for behavior and current unreferenced status, medium for why the wrapper was retained.
+- Confidence: very strong for byte range, behavior, constructor target, and current unreferenced status; medium for why the wrapper was retained.
 - Address range: [UID:00019Q][0x004f9060-0x004f90b4.OpenChangePasswordDialog](by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md)
 - Symbol kind: retained duplicate main-menu/account launcher helper.
 - Current IDA name: `___std_parallel_algorithms_hw_threads@0_0` (misleading).
 - Likely owner file: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md), with target behavior in [UID:0000I3][ChangePasswordDialogPane](by-file/ChangePasswordDialogPane.md)
-- Autogen status: reconstructable retained launcher attached to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md); C++ is intentionally blank because live reachability and final helper grouping are not source-final.
+- Autogen status: reconstructable retained launcher currently attached to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md); treat that as a likely owner/provisional historical attachment under the current strict gate because this page remains below `85` completion and the parent file is `88/82`.
+- C++ status: intentionally blank because live reachability, final helper grouping, and strict parent confidence are not source-final.
 
 ## Behavior
 
@@ -25,11 +26,11 @@
 
 Observed behavior:
 
-- calls the local allocator at `0x004f4aa0` with size `620`;
-- on success calls `ChangePasswordDialogPane::ChangePasswordDialogPane` at `0x004fdd40`;
+- calls [UID:000196][0x004f4aa0-0x004f4ab4.OperatorNewWrapper](by-memory/0x004f4aa0-0x004f4ab4.OperatorNewWrapper.md) with size `620`;
+- on success calls the `ChangePasswordDialogPane` constructor at `0x004fdd40`, documented in [UID:0002QA][0x004fdd40-0x004fe782.ChangePasswordDialogPaneCore](by-memory/0x004fdd40-0x004fe782.ChangePasswordDialogPaneCore.md);
 - returns the constructed dialog pointer.
 
-IDA reports no direct caller/xref to the helper start in the current database. The active [UID:00019I][0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs](by-memory/0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs.md) action handler case `2` directly allocates `620` bytes and calls `ChangePasswordDialogPane::ChangePasswordDialogPane`, so this wrapper is best treated as retained duplicate launcher code unless a hidden callback path is later proven.
+IDA reports no direct caller/xref to the helper start in the current database. The active [UID:00019I][0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs](by-memory/0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs.md) action handler case `2` directly allocates `620` bytes through [UID:000196][0x004f4aa0-0x004f4ab4.OperatorNewWrapper](by-memory/0x004f4aa0-0x004f4ab4.OperatorNewWrapper.md) and calls the same `ChangePasswordDialogPane` constructor, so this wrapper is best treated as retained duplicate launcher code unless a hidden callback path is later proven.
 
 ## Evidence
 
@@ -45,21 +46,31 @@ IDA reports no direct caller/xref to the helper start in the current database. T
 - 2026-05-27 IDA raw-pointer scan across loaded segments found no dword equal to `0x004f9060`.
 - 2026-05-28 IDA MCP recheck still reports no code/data refs, no little-endian pointer byte match for `60 90 4F 00`, and no immediate-value search hits for `0x004f9060`.
 - 2026-05-28 IDA MCP decompile of `0x004f7a10` shows main-menu case `2` directly allocating `620` bytes and calling `0x004fdd40`, matching this wrapper's behavior without calling the wrapper.
+- 2026-06-10 A001 live MCP recheck reconfirmed `0x004f9060` as the misleadingly named `___std_parallel_algorithms_hw_threads@0_0`, size `0x54`, with no callers and no xrefs to the entry.
+- 2026-06-10 `xrefs_to 0x004fdd40` reports exactly two constructor call sites: `0x004f7b49` inside `MainMenuPane::ActivateMenuItem` and `0x004f90a0` inside this retained helper.
+- 2026-06-10 `callees 0x004f9060` reports only [UID:000196][0x004f4aa0-0x004f4ab4.OperatorNewWrapper](by-memory/0x004f4aa0-0x004f4ab4.OperatorNewWrapper.md) and the `0x004fdd40` `ChangePasswordDialogPane` constructor target.
+- 2026-06-10 `lookup_funcs` reconfirmed the sibling launcher boundaries: `0x004f8fa0` size `0xb5`, this helper `0x004f9060` size `0x54`, story helper `0x004f90c0` size `0x7f`, history helper `0x004f9140` size `0x7f`, and terminal helper `0x004f91c0` size `0xbd`.
+- 2026-06-10 `xrefs_to 0x004f4aa0` was truncated after confirming 1,785 project-wide code references, matching the [UID:000196][0x004f4aa0-0x004f4ab4.OperatorNewWrapper](by-memory/0x004f4aa0-0x004f4ab4.OperatorNewWrapper.md) ownership evidence and confirming this helper is using shared allocation plumbing rather than a feature-local allocator.
 
 ## Source Placement
 
 Keep this as a retained private helper in the login/main-menu family for address-matching reconstruction. It may sit in `login/MainMenuPane.cpp` beside the other retained launch helpers or in `login/ChangePasswordDialogPane.cpp` if account-dialog helpers are grouped by target. A behavior-only source rebuild can rely on the direct action-handler construction path unless later evidence proves this wrapper is reachable.
 
+Under the current strict `85/85` child/parent gate, do not use this retained helper as proof for additional child assignment yet: this symbol page is now `84/88`, and likely owner [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) is `88/82`. The owner hypothesis is still useful and likely, but final assignment confidence depends on either raising the parent file confidence or proving a direct callback/source grouping path.
+
 ## Score Rationale
 
 | Score | Rationale |
 | --- | --- |
-| Completion `80` | The page documents exact behavior, allocation size, constructor target, boundary/padding checks, repeated no-xref checks, raw pointer/immediate searches, active duplicate main-menu path, disassembly-level instruction shape, and source-placement caveat. Completion remains capped because the reason for retention and final helper grouping are unresolved. |
-| Confidence `86` | Confidence is strong for what the helper does and for the current unreferenced/duplicate status after the 2026-06-04 live IDA recheck. It is not higher because no live caller or callback table has been found and an address-matching rebuild may choose different grouping. |
+| Completion `84` | The page documents exact behavior, allocation size, constructor target, boundary/padding checks, repeated no-xref checks, raw pointer/immediate searches, active duplicate main-menu path, disassembly-level instruction shape, linked allocator/constructor owners, current sibling-boundary verification, and strict-gate/source-placement caveats. Completion remains below `85` because the reason for retention and final helper grouping are unresolved. |
+| Confidence `88` | Confidence is very strong for what the helper does and for the current unreferenced/duplicate status after the 2026-06-10 live IDA recheck. It is not higher because no live caller or callback table has been found, the likely parent file is still below `85` confidence, and an address-matching rebuild may choose different grouping. |
 
 ## Cross-References
 
 - [UID:00019Q][0x004f9060-0x004f90b4.OpenChangePasswordDialog](by-memory/0x004f9060-0x004f90b4.OpenChangePasswordDialog.md)
+- [UID:000196][0x004f4aa0-0x004f4ab4.OperatorNewWrapper](by-memory/0x004f4aa0-0x004f4ab4.OperatorNewWrapper.md)
+- [UID:0002QA][0x004fdd40-0x004fe782.ChangePasswordDialogPaneCore](by-memory/0x004fdd40-0x004fe782.ChangePasswordDialogPaneCore.md)
+- [UID:00019I][0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs](by-memory/0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs.md)
 - [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
 - [UID:0000I3][ChangePasswordDialogPane](by-file/ChangePasswordDialogPane.md)
 - [UID:00001L][ChangePasswordDialogPane](by-class/ChangePasswordDialogPane.md)
@@ -76,3 +87,9 @@ Keep this as a retained private helper in the login/main-menu family for address
 - After: documented as a retained duplicate launcher whose lack of current refs has been rechecked; the active main-menu action path is now recorded as directly duplicating the allocation/constructor sequence.
 - Why: IDA MCP found no direct or raw-pointer references to `0x004f9060`, while `0x004f7a10` case `2` performs the same `620`-byte allocation and `0x004fdd40` constructor call.
 - Evidence: 2026-05-28 IDA MCP `xrefs_to`, `callers`, `find_bytes`, immediate `search`, and `decompile 0x004f7a10`.
+
+### 2026-06-10 A001 linked-helper and strict-gate refresh
+
+- What existed before: score was `80/86`; behavior was documented, but the page still leaned on raw generated names `sub_4F4AA0`, `sub_4F7A10`, and `sub_4FDD40` without linking the stable allocator, active main-menu aggregate, or exact password-dialog core page.
+- What changed: score raised to `84/88`, linked the allocator and constructor owner pages, added current MCP evidence, and made the strict `85/85` parent-gate caveat explicit.
+- Summary and evidence: live MCP reconfirmed the `0x004f9060` size `0x54` helper has no entry xrefs/callers, calls only the shared [UID:000196][0x004f4aa0-0x004f4ab4.OperatorNewWrapper](by-memory/0x004f4aa0-0x004f4ab4.OperatorNewWrapper.md) and the `0x004fdd40` constructor, and shares the constructor target with `MainMenuPane::ActivateMenuItem` at `0x004f7b49`. Scores remain below assignment/final-source level because retained-helper reachability is still unresolved and likely parent [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) is below `85` confidence.

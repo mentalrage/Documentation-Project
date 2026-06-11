@@ -1,8 +1,8 @@
 *** UID:000048 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -87,3 +87,7 @@ The tertiary table is short: it owns only the destructor adjustor `0x00545de8` a
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `84/86`.
   - Summary/evidence: paper-dialog responsibility, detailed tail layout, constructor/action/setup/parse/save/draw/destructor families, vtable evidence, packet behavior, and stale generated method pollution are documented; remaining uncertainty is the exact semantic for byte `+0x26d` and wrapper ownership.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000IX][EditablePaperPane](by-file/EditablePaperPane.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving the class coverage row unclassified.
+  - After: `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000IX`.
+  - Evidence: live IDA MCP confirms modeled starts at `0x00545170`, `0x00545220`, `0x00545250`, `0x00545660`, `0x00545880`, `0x005459b0`, `0x00545d50`, and `0x00545e00`, with paper-open caller paths into the constructor; this class and the parent file both meet the 80% completion/confidence attachment gate.

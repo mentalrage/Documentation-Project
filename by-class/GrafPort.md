@@ -1,6 +1,6 @@
 *** UID:00005V | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000JR | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -54,12 +54,16 @@ The outer object also owns an exposed `Region`, primary surface handle, lock-sta
 
 [UID:00016C][0x004ba9a0-0x004bad66.GrafPortTextRunHelpers](by-memory/0x004ba9a0-0x004bad66.GrafPortTextRunHelpers.md) and [UID:00016I][0x004bb5e0-0x004bb7df.GrafPortDrawGlyph](by-memory/0x004bb5e0-0x004bb7df.GrafPortDrawGlyph.md) are shared GrafPort text helpers under review. Current generated ownership spreads them across FittingRoom, Collection, and Ranking classes, but the bodies read GrafPort draw-state fields and call [UID:0000JH][FontImageLib](by-file/FontImageLib.md).
 
+[UID:00016D][0x004bad70-0x004baf92.DrawTextInRect](by-memory/0x004bad70-0x004baf92.DrawTextInRect.md) and [UID:00016E][0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects](by-memory/0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects.md) are the adjacent wrapped-rect and outlined/shadowed text helpers. Batch 119 IDA evidence confirms they are `__thiscall` helpers on the same GrafPort receiver state rather than static text, help-pane, chat, or button-private code.
+
 ## Method Notes
 
 | Method | Address | Role |
 | --- | --- | --- |
 | `GrafPort::GrafPort` | `0x004b8bf0-0x004b8d17` | Initializes base state, regions, defaults, and null backing storage. |
 | `UpdateRenderRegion` | `0x004b8e20-0x004b94e1` | Updates bounds/dirty state and creates or resizes DirectDraw/software backing storage. |
+| `DrawTextInRect` | `0x004bad70-0x004baf92` | Draws wrapped UTF-16 text inside a rectangle using GrafPort cursor, font, color, and alignment state. |
+| `DrawOutlinedText` / `DrawShadowedText` | `0x004bafa0-0x004bb0db` | Reuses `DrawTextInRect` with temporary color/rectangle offsets for outline and shadow effects. |
 | `ScalarDeletingDestructor` | `0x004bb7e0-0x004bb8c4` | Releases software buffer and DirectDraw surface, destroys embedded regions, and conditionally deletes. |
 
 ## Evidence Notes
@@ -69,6 +73,7 @@ The outer object also owns an exposed `Region`, primary surface handle, lock-sta
 - IDA MCP reports fifteen direct callers of `UpdateRenderRegion`, spanning pane, screen, map, and render update code.
 - `UpdateRenderRegion` reads `g_pDirectX` and calls the DirectDraw `CreateSurface` slot in the hardware-surface path.
 - A 2026-05-26 IDA MCP recheck resolves the generated `g_maxSurfacePitch` reference in `UpdateRenderRegion` to `word_66DA94` / [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md), not to a separate GrafPort-owned pitch global.
+- 2026-06-08 A004 Batch 119 review confirmed [UID:00016D][0x004bad70-0x004baf92.DrawTextInRect](by-memory/0x004bad70-0x004baf92.DrawTextInRect.md) is a 130-caller `__thiscall` wrapped renderer that saves/restores GrafPort cursor fields at `+0x68/+0x6c`, checks enabled byte `+0x71`, uses font/style field `+0x8a`, selects alignment from `+0x8c`, and delegates fit/run/glyph work to adjacent GrafPort text helpers. The same review confirmed [UID:00016E][0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects](by-memory/0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects.md) only offsets rectangles, swaps draw color state, and calls `DrawTextInRect`; its StaticText, HelpPane, and chat callers are consumer paths.
 
 ## Cross-References
 
@@ -82,6 +87,8 @@ The outer object also owns an exposed `Region`, primary surface handle, lock-sta
 - [UID:000163][0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers](by-memory/0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers.md)
 - [UID:000164][0x004b96c0-0x004b9767.GrafPortClipRectHelper](by-memory/0x004b96c0-0x004b9767.GrafPortClipRectHelper.md)
 - [UID:00016C][0x004ba9a0-0x004bad66.GrafPortTextRunHelpers](by-memory/0x004ba9a0-0x004bad66.GrafPortTextRunHelpers.md)
+- [UID:00016D][0x004bad70-0x004baf92.DrawTextInRect](by-memory/0x004bad70-0x004baf92.DrawTextInRect.md)
+- [UID:00016E][0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects](by-memory/0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects.md)
 - [UID:00016I][0x004bb5e0-0x004bb7df.GrafPortDrawGlyph](by-memory/0x004bb5e0-0x004bb7df.GrafPortDrawGlyph.md)
 - [UID:00003Y][DirectX](by-class/DirectX.md)
 - [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md)
@@ -89,6 +96,10 @@ The outer object also owns an exposed `Region`, primary surface handle, lock-sta
 
 ## Changes
 
+- 2026-06-08 A004 Batch 119 parent-gate update:
+  - Before: `COMPLETION:84`, `CONFIDENCE:86`; the class page documented core GrafPort state and adjacent text-run/glyph helpers but not the wrapped text and text-effect helpers needed for direct parent routing.
+  - After: `COMPLETION:85`, `CONFIDENCE:87`.
+  - Evidence: Batch 119 IDA-backed review tied [UID:00016D][0x004bad70-0x004baf92.DrawTextInRect](by-memory/0x004bad70-0x004baf92.DrawTextInRect.md) and [UID:00016E][0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects](by-memory/0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects.md) to GrafPort receiver state and shared text-helper call chains. [UID:0000JR][GrafPort](by-file/GrafPort.md) was also raised to the corrected `85` confidence gate, so the class/file chain now supports direct assignment of those helper bodies to this class.
 - Completion/confidence score update: existed before as `0/0`; changed to `84/86`. Summary: core graphics-port role, state block, backing storage, dirty/clip/draw helpers, text/glyph helper boundaries, constructor/update/destructor, caller counts, DirectDraw path, and global-name correction are documented in depth; remaining work is exact private field naming and final ownership for a few adjacent helper clusters. Evidence: `0x004b8bf0-0x004bb8c4` memory page, helper memory pages, `FontImageLib` text helper references, DirectX path notes, and `g_screenWidth` correction.
 - 2026-06-01: Marked reconstructable and attached to [UID:0000JR][GrafPort](by-file/GrafPort.md).
   - Before: The page described a source-owned graphics-port class but left autogen metadata blank.

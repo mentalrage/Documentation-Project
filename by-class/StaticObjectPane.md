@@ -1,8 +1,8 @@
 *** UID:0000E1 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000O6 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -53,3 +53,5 @@
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `84`, confidence `86`.
 - Evidence: the page documents map-object role, constructor/helper/render/event/packet/destructor ranges, caller and vtable evidence, generated omissions, and packet helper ownership; remaining completion gap is source-ready field naming and C++ detail.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000O6][StaticObjectPane](by-file/StaticObjectPane.md).
+- Evidence: live IDA MCP `lookup_funcs` confirms the constructor, hit-test helper, bounds copy, render, event handler, and scalar deleting destructor at `0x00537900`, `0x00537950`, `0x00537970`, `0x005379a0`, `0x005379d0`, and `0x0053d740`; `0x00537ac0` remains a raw/not-modeled helper as documented. Both class (`84/86`) and parent file (`82/86`) meet the 80/80 gate.

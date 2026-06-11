@@ -1,5 +1,5 @@
 *** UID:00005M | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000JO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -15,13 +15,13 @@
 - Confidence: strong for string-argument callback-base support.
 - Likely source: [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md)
 - Reconstruction parent: [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md)
-- Current recovered file: `source-3/simroot_v2/class_FunctionObjectT_class_mystr__StringBase_wchar_t__struct_mystr__mychar_traits_wchar_t_____.cpp`
 - Known method address: `0x0052a460-0x0052a49e`
 - Reconstructable: true as emitted callback-template destructor support; C++ remains blank under the project-level 95/95 source-quality gate.
+- Parent gate: [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md) is above `80/80`, and this page now clears the child-side threshold for source-family attachment.
 
 ## Class Purpose
 
-This is a generated instantiation of `FunctionObjectT<mystr::StringBase<wchar_t, mystr::mychar_traits<wchar_t>>>`. Current output only exposes scalar deleting destructor support for the string-argument callback base.
+This is a compiler-emitted instantiation of `FunctionObjectT<mystr::StringBase<wchar_t, mystr::mychar_traits<wchar_t>>>`. The observed binary evidence for this class page is narrow: one scalar deleting destructor support body for the string-argument callback base.
 
 ## Method Notes
 
@@ -60,6 +60,13 @@ This is a generated instantiation of `FunctionObjectT<mystr::StringBase<wchar_t,
 - Do not create a standalone feature file from the long generated class filename.
 - Do not emit final C++ on this page yet. The destructor behavior is clear, but final-source-quality names and template structure are not proven to the project 95/95 threshold.
 
+## Score Rationale
+
+| Metric | Value | Rationale |
+| --- | --- | --- |
+| Completion | `80` | The page now records the string-argument callback-template role, parent file, exact destructor-support page, ownership boundaries against MusicControlDialog/StringUtil/StringBase, source-declared/generated-binary handling, parent gate, and final C++ blocker. It remains below higher completion because the full original template/header declaration shape and final source spelling are still open. |
+| Confidence | `86` | IDA decompilation, exact memory-page evidence, FunctionObjects/template docs, and neighboring callback pages strongly support the owner and behavior. Confidence stays unchanged because final source names and header structure remain unresolved. |
+
 ## Cross-References
 
 - [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md)
@@ -78,4 +85,8 @@ This is a generated instantiation of `FunctionObjectT<mystr::StringBase<wchar_t,
   - What existed before: `COMPLETION:66`, `CONFIDENCE:82`, blank reconstructable flag, and no autogen parent.
   - Changed to: `COMPLETION:74`, `CONFIDENCE:86`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000JO`.
   - Summary/evidence: attached to [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md) after parent confidence was raised to the project threshold from shared callback-template evidence. Added exact memory-page evidence, destructor behavior, ownership boundaries, string-type relationship notes, and MusicControlDialog adjacency caveats. C++ remains blank because the page is below the final-source reconstruction threshold.
+- 2026-06-06 A004 parent-gate cleanup:
+  - Changed completion from `74` to `80`; confidence remains `86`.
+  - Removed generated-source path framing, added parent-gate status and score rationale, and clarified this as compiler-emitted callback-template destructor support.
+  - Evidence: [UID:0001CQ][0x0052a460-0x0052a49e.FunctionObjectTStringDestructor](by-memory/0x0052a460-0x0052a49e.FunctionObjectTStringDestructor.md), [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md), and [UID:0001WQ][FunctionObjectTemplates](by-type/by-template/FunctionObjectTemplates.md) support the shared callback-template ownership while final source remains below the code gate.
 - Completion/confidence score update: existed before as `0/0`; changed to `66/82`. Summary: generated string-argument callback template purpose and scalar destructor behavior are documented, but the page is intentionally narrow and does not yet recover the full template/header structure. Evidence: destructor range `0x0052a460-0x0052a49e`, MusicControlDialog adjacency, and FunctionObject template documentation.

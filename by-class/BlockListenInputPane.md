@@ -2,7 +2,7 @@
 *** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HS | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,10 +14,11 @@
 
 - Confidence: strong for behavior and source grouping.
 - Likely source file: [UID:0000HS][BlockListenInputPanes](by-file/BlockListenInputPanes.md)
+- Autogen parent: blank under the strict 85/85 gate. The direct file parent now clears at `85/89`, but this child remains `78/86`, so assignment waits on more completion.
 - Exact memory pages: [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md), [UID:0001MX][0x005b6900-0x005b6a1b.BlockListenInputPaneKeyHandler](by-memory/0x005b6900-0x005b6a1b.BlockListenInputPaneKeyHandler.md), [UID:0001MY][0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher](by-memory/0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher.md)
 - Module index: [UID:0001MW][0x005b68c0-0x005b7354.BlockListenInputPanes](by-memory/0x005b68c0-0x005b7354.BlockListenInputPanes.md)
 - Vtable family: [UID:0001XA][CommandInputPaneVtableFamily](by-type/by-vtable/CommandInputPaneVtableFamily.md)
-- Current recovered file: `source-3/simroot_v2/class_BlockListenInputPane.cpp`
+- Documentation basis: IDA-confirmed handler boundaries, raw constructor bytes, vtable-family evidence, module-index split, and sibling add/delete class docs.
 
 ## Class Purpose
 
@@ -66,3 +67,13 @@
   - Before: the class was not marked reconstructable or attached to a source parent.
   - After: marked `RECONSTRUCTABLE:TRUE`, attached to [UID:0000HS][BlockListenInputPanes](by-file/BlockListenInputPanes.md), and raised to `78/86`.
   - Summary/evidence: source folder is now validated as `NexusTK/social/`, and fresh IDA MCP confirms the handler/vtable evidence while the aggregate records raw helper boundaries.
+
+- 2026-06-06 provenance cleanup:
+  - Before: the status still described the class through a direct recovered-source path while the sibling add/delete panes already used IDA/by-* evidence.
+  - After: replaced the recovered-path status with the documented IDA, vtable, module-index, and sibling-class evidence basis; scores, parent attachment, and blank final C++ were unchanged.
+  - Summary/evidence: [UID:0001MV][0x005b68c0-0x005b6900.BlockListenInputPaneConstructor](by-memory/0x005b68c0-0x005b6900.BlockListenInputPaneConstructor.md), [UID:0001MX][0x005b6900-0x005b6a1b.BlockListenInputPaneKeyHandler](by-memory/0x005b6900-0x005b6a1b.BlockListenInputPaneKeyHandler.md), [UID:0001MY][0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher](by-memory/0x005b6a20-0x005b6bff.BlockListenInputPaneCommandDispatcher.md), and [UID:0001XA][CommandInputPaneVtableFamily](by-type/by-vtable/CommandInputPaneVtableFamily.md) already carry the authoritative evidence.
+
+- 2026-06-10 A002 strict-gate repair:
+  - Before: `AUTOGEN_PARENT_UID:0000HS` attached this class to [UID:0000HS][BlockListenInputPanes](by-file/BlockListenInputPanes.md).
+  - After: `AUTOGEN_PARENT_UID:` is blank; score remains `78/86`.
+  - Summary/evidence: the direct file parent is now `85/89`, but the child page is below the required child completion threshold. Keep the source-owner cross-reference and evidence, but do not emit this class through validator autogen until the child page reaches `85/85`.

@@ -1,6 +1,6 @@
 *** UID:0000HP | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # BackStoryDialogPane
@@ -10,11 +10,11 @@
 - Confidence: strong for constructor/UI behavior, singleton lifecycle, resources, and login/main-menu ownership; medium-high for direct constructor reachability.
 - Proposed module folder: `login/`
 - Proposed source file: `login/BackStoryDialogPane.cpp`
-- Current generated source: `source-3/simroot_v2/class_BackStoryDialogPane.cpp`
+- Documentation basis: IDA-confirmed constructor/button-handler/support ranges plus the class, memory, global, resource, and main-menu file docs listed below.
 - Main class: [UID:00000T][BackStoryDialogPane](by-class/BackStoryDialogPane.md)
 - Main address doc: [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md)
 - Related resources: [UID:0001RG][main-menu-story-resources](by-resource/main-menu-story-resources.md) and [UID:0001RF][main-menu-history-resources](by-resource/main-menu-history-resources.md)
-- Evidence basis: generated `simroot_v2` source, IDA MCP decompilation/string checks, and recovered `CloseMainMenuDialogSingletons_004F69A0.cpp` on 2026-05-24. `wave3.py` was not executed for this pass.
+- Evidence basis: IDA MCP decompilation/string checks, the core by-memory range, singleton/global docs, and the main-menu cleanup helper documentation.
 
 ## File Role
 
@@ -54,17 +54,18 @@ Legacy asset mode:
 
 - IDA MCP confirms real functions at `0x00500090`, `0x005003f0`, `0x00502390`, `0x0050245e`, `0x00502469`, and `0x00502600`.
 - IDA string checks confirm `STORY.EPF`, `STORY.EPD`, `PAL01.PAL`, `NPAL8.PAL`, and `BACKTALE` at the expected referenced addresses.
-- `CloseMainMenuDialogSingletons_004F69A0.cpp` calls `g_pBackStoryDialogPane->CloseDialog()` if the singleton is live.
-- `xrefs_to 0x00500090` found no direct constructor xrefs in the current IDA database. This may be an indirect/vtable allocation path, dead/older dialog path, or a generated-data gap.
+- The documented `CloseMainMenuDialogSingletons` helper calls `g_pBackStoryDialogPane->CloseDialog()` if the singleton is live.
+- `xrefs_to 0x00500090` found no direct constructor xrefs in the current IDA database. This may be an indirect/vtable allocation path, dead/older dialog path, or a recovered-data gap.
 - IDA MCP `xrefs_to 0x0069b498` on 2026-05-25 confirms the singleton storage behind [UID:0000Q9][g_pBackStoryDialogPane](by-global/g_pBackStoryDialogPane.md): constructor writes, the clear helper/destructor clear it, and `CloseMainMenuDialogSingletons` reads it.
 - 2026-06-01 IDA MCP recheck confirms the core constructor and button handler boundaries, no direct constructor caller, button-handler vtable data at `0x0061daa0`, constructor vtable writes through `0x0061da58`, and singleton xrefs at `0x004f69ce`, `0x005000e5`, `0x005000ec`, `0x00502390`, and `0x00502606`.
 - The refreshed core memory page records exact branch-specific layout coordinates, child control allocations (`332`, `276`, `476` byte allocations), resource xrefs for `STORY.EPF`, `STORY.EPD`, and `BACKTALE`, and palette xrefs for `PAL01.PAL` and `NPAL8.PAL`.
+- 2026-06-07 Batch 043 live IDA MCP reconfirmed [UID:0000Q9][g_pBackStoryDialogPane](by-global/g_pBackStoryDialogPane.md) as a clean four-byte `0xffffffff` singleton slot with five lifecycle xrefs and no extra neighboring storage inside [UID:00029F][0x0069b498-0x0069b49c.g_pBackStoryDialogPane](by-memory/0x0069b498-0x0069b49c.g_pBackStoryDialogPane.md). That closes the remaining parent-chain confidence issue for the global declaration while keeping direct constructor reachability as a documented caveat.
 
 ## Ownership Notes
 
 Keep [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) as the menu dispatcher/owner of menu selection flow. `BackStoryDialogPane` is a child dialog in the same source family, not the top-level menu controller.
 
-Do not confuse this with [UID:0000JW][HistoryViewingPane](by-file/HistoryViewingPane.md): generated `MainMenuPane::ActivateMenuItem` and IDA both show direct construction of `HistoryViewingPane` for story/history frame-viewer branches, while `BackStoryDialogPane` is still present as an older text dialog and cleaned through the singleton helper.
+Do not confuse this with [UID:0000JW][HistoryViewingPane](by-file/HistoryViewingPane.md): existing `MainMenuPane` documentation and IDA evidence show direct construction of `HistoryViewingPane` for story/history frame-viewer branches, while `BackStoryDialogPane` is still present as an older text dialog and cleaned through the singleton helper.
 
 ## Cross-References
 
@@ -86,3 +87,9 @@ Do not confuse this with [UID:0000JW][HistoryViewingPane](by-file/HistoryViewing
   - Before: the file page had a blank validator-managed projected path and confidence stayed below the parent-link threshold because current IDA evidence was only summarized.
   - After: the page has a concrete login folder, exact child UID row for the core range, and refreshed singleton/vtable/resource evidence.
   - Evidence: 2026-06-01 IDA MCP `lookup_funcs`, `callers`, `callees`, `xrefs_to`, `decompile`, `disasm`, and byte checks recorded in [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md).
+- 2026-06-06: Cleaned stale recovered-output provenance wording and synchronized the by-file coverage row to the already-recorded `82/84` page score.
+  - Evidence: the page already cites IDA-backed [UID:0001A2][0x00500090-0x0050040d.BackStoryDialogPaneCore](by-memory/0x00500090-0x0050040d.BackStoryDialogPaneCore.md), [UID:0000Q9][g_pBackStoryDialogPane](by-global/g_pBackStoryDialogPane.md), resource docs, and main-menu cleanup ownership.
+- 2026-06-07 Batch 043 parent-gate refresh:
+  - Before: `82/84`; the page had strong constructor/resource evidence but the global parent chain was still under the corrected `85/85` gate.
+  - After: `85/86`.
+  - Evidence: live IDA MCP reconfirmed the exact singleton storage item and lifecycle xrefs, and the existing core/resource/main-menu docs already document source placement under `NexusTK/login/`. The score remains below final reconstruction because direct constructor reachability is still not observed in current IDA.

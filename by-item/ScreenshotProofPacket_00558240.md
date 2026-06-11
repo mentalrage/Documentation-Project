@@ -28,7 +28,7 @@
 - Calls [UID:0000L6][MD5](by-file/MD5.md) stream helper `0x00515570` to get a 32-byte lowercase hex digest string.
 - XORs digest bytes with fixed key `w-pu6a4Es*5pA@eg+tetayAp6us6EcrE`.
 - Starts a packet with [UID:0000M8][PacketBuffer](by-file/PacketBuffer.md) byte writer `0x00575380` and opcode `0x83`.
-- Copies 13 masked digest bytes, writes 16 random pad bytes, copies the remaining 19 masked digest bytes, appends a zero terminator, and queues 49 bytes through `CashShopRequest::QueueAndSendPacket` at `0x00574bb0`.
+- Copies 13 masked digest bytes, writes 16 random pad bytes, copies the remaining 19 masked digest bytes, appends a zero terminator, and queues 49 bytes through `CashShopRequest::QueueAndSendPacket` at `0x00574bb0` using [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / historical `dword_67A7EC`.
 - Frees the digest string after queuing the packet.
 
 ## Caller Evidence
@@ -42,9 +42,9 @@ Rechecked with live IDA MCP on 2026-06-03:
 - `lookup_funcs` reports `sub_558240` as an exact modeled function at `0x00558240-0x00558391`. `0x00558391` is not a function start and `0x005583a0` starts the next modeled function.
 - `lookup_funcs` reports modeled screenshot callers at `0x00557aa0-0x00557e73` and `0x00557e80-0x00558239`; `0x00557840` and `0x00557a78` remain raw/non-function starts for the adjacent JPG path.
 - `xrefs_to 0x00558240` reports exactly three code references: raw JPG call `0x00557a78`, BMP call `0x00557e55`, and PNG call `0x0055821b`.
-- Decompilation confirms `0x00558240` copies the fixed key `w-pu6a4Es*5pA@eg+tetayAp6us6EcrE`, calls the MD5 stream helper `0x00515570(Stream)`, XORs 32 digest bytes, initializes packet state, writes opcode `0x83` through `0x00575380`, copies 13 masked bytes, fills 16 random pad bytes, copies the remaining 19 masked bytes, writes a zero terminator, queues 49 bytes through `0x00574bb0(dword_67A7EC, packet, 49)`, and frees the digest allocation.
+- Decompilation confirms `0x00558240` copies the fixed key `w-pu6a4Es*5pA@eg+tetayAp6us6EcrE`, calls the MD5 stream helper `0x00515570(Stream)`, XORs 32 digest bytes, initializes packet state, writes opcode `0x83` through `0x00575380`, copies 13 masked bytes, fills 16 random pad bytes, copies the remaining 19 masked bytes, writes a zero terminator, queues 49 bytes through `0x00574bb0` with [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / historical `dword_67A7EC` as the receiver, and frees the digest allocation.
 - Callee enumeration confirms the proof helper calls `0x00515570`, `0x00516030`, `0x00575380`, `0x00516220`, `_rand`, `0x00574bb0`, `free`, and the stack-cookie check.
-- Data xrefs from the proof helper hit the XOR key fragments at `0x006232e0`, `0x00623300`, and `0x006232f0`, plus packet sender state `dword_67A7EC`.
+- Data xrefs from the proof helper hit the XOR key fragments at `0x006232e0`, `0x00623300`, and `0x006232f0`, plus packet sender state [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / historical `dword_67A7EC`.
 - Raw disassembly around `0x00557a78` confirms the JPG path opens the saved file with `"rb"`, passes that stream to `0x00558240`, then closes it. That makes the raw JPG xref a real third proof-submit path even though IDA does not model `0x00557840` as a function.
 - Parent evidence: the proof helper is contained in the `ScreenshotCaptureAndProof` aggregate, is called by BMP/PNG screenshot functions and the adjacent raw JPG screenshot path, consumes screenshot file streams, and emits the screenshot-specific proof packet. The [UID:0000ND][ScreenshotCapture](by-file/ScreenshotCapture.md) parent is strong enough for autogen attachment.
 
@@ -58,9 +58,15 @@ Keep this helper with [UID:0000ND][ScreenshotCapture](by-file/ScreenshotCapture.
 - [UID:0001G9][0x00557aa0-0x00558391.ScreenshotCaptureAndProof](by-memory/0x00557aa0-0x00558391.ScreenshotCaptureAndProof.md)
 - [UID:0001B6][0x005151f0-0x00515f48.MD5HashHelpers](by-memory/0x005151f0-0x00515f48.MD5HashHelpers.md)
 - [UID:0000M8][PacketBuffer](by-file/PacketBuffer.md)
+- [UID:0000Q5][g_packetSender](by-global/g_packetSender.md)
 - [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md)
 
 ## Changes
+
+- 2026-06-07: Replaced raw screenshot-proof packet sender references with canonical [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) wording.
+  - Before: the proof packet behavior and decompilation evidence used historical `dword_67A7EC` for the queue/send receiver.
+  - After: the page links the resolved packet sender while retaining the historical label and exact 49-byte send shape.
+  - Evidence: the generated resolved-name report maps `dword_67A7EC` to `g_packetSender`, and this page's existing live IDA evidence ties the screenshot proof helper to `0x00574bb0(..., packet, 49)`.
 
 - What existed before: the page was unevaluated (`COMPLETION:0`, `CONFIDENCE:0`) and had no reconstructable classification.
 - What it was changed to: the page is now marked reconstructable with moderate completion and strong confidence, while C++ remains blank.

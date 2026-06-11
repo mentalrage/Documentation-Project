@@ -1,8 +1,8 @@
 *** UID:00004M | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000J7 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -50,6 +50,18 @@
 - IDA MCP recheck on 2026-05-25 confirms the unresolved helper starts under `0x004a78f0-0x004a87a0` are dispatcher handler-tree/list/vector support, not independent feature files.
 - IDA MCP confirms `0x00597580` is a function and still names it as a Boost exception destructor, but decompilation writes `TimerHandler::vftable` and calls the timer-manager remove-all helper. Treat `EventDispatcher` as a caller/derived timer owner, not the owner of that range.
 - 2026-05-26 recheck against current `simroot_v2` and IDA MCP: the generated source still externs `sub_4A78F0`, still splits the concrete tree/iterator/predicate helper files, and still mis-attaches `0x00597580` to `~EventDispatcher`. IDA callers continue to keep `0x004a78f0`, `0x004a7b10`, `0x004a7d00`, and `0x004a87a0` inside the dispatcher handler-tree/list/vector cleanup paths.
+- 2026-06-07 A010 live IDA refresh reconfirmed constructor `0x004a6a80` with caller `0x00464613`, central dispatch `0x004a6ef0` with broad UI/event caller coverage, and `RouteEventToHandlers` at `0x004a7130` as the immediate callee from dispatch. The same refresh keeps `0x004a78f0`, `0x004a7b10`, `0x004a7d00`, and `0x004a87a0` in dispatcher-owned handler search/vector/list cleanup paths through their callers.
+- 2026-06-07 callee refresh shows `0x004a7130` calls keyboard-state helpers plus the child-dispatch/helper fanout, including `0x004a78f0`, `0x004a7570`, `0x004a7690`, and `0x004a77d0`; screenshot helper calls from this route are event-action side effects, not evidence for moving the dispatcher to image-writer ownership. `0x00597580` remains a modeled function with a stale public name and is still treated as TimerHandler base cleanup rather than an EventDispatcher method.
+
+## Assignment Gate
+
+`AUTOGEN_PARENT_UID` is set to [UID:0000J7][EventDispatcher](by-file/EventDispatcher.md). The child is now `85/86`, the direct source-file parent is already `89/85`, and the relationship is direct by-structure ownership because this class is the principal class implemented by the EventDispatcher file.
+
+## Score Rationale
+
+- Completion is `85` because singleton role, source placement, constructor/dispatch/routing methods, handler tree/vector support islands, memory cross-references, timer-base exclusion, and direct parent routing are documented.
+- Confidence is `86` because live IDA confirms constructor, central dispatch, route helper, and internal handler-support xrefs while the by-file parent already clears the corrected 85/85 gate.
+- The score stays below final-code range because final helper names, header placement for adjacent event types, and generated ownership refresh still need cleanup before C++ emission.
 
 ## Open Questions
 
@@ -63,10 +75,14 @@
 
 - File: [UID:0000J7][EventDispatcher](by-file/EventDispatcher.md)
 - Related classes: [UID:00004N][EventHandler](by-class/EventHandler.md), [UID:000060][HandlerFindFunc](by-class/HandlerFindFunc.md), [UID:0000F8][Tree_near_class_EventHandler___](by-class/Tree_near_class_EventHandler___.md), [UID:0000FA][TreeItor_near_class_EventHandler___](by-class/TreeItor_near_class_EventHandler___.md), [UID:00004L][Event](by-class/Event.md), [UID:00000E][ApplicationHelper_4A6C40](by-class/ApplicationHelper_4A6C40.md), [UID:00000D][Application](by-class/Application.md), [UID:0000A2][Pane](by-class/Pane.md)
-- Memory: [UID:000141][0x004a6a80-0x004a82a9.EventDispatcher](by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md), [UID:000144][0x004a78f0-0x004a7978.EventDispatcherFindHandlerIterator](by-memory/0x004a78f0-0x004a7978.EventDispatcherFindHandlerIterator.md), [UID:000145][0x004a7b10-0x004a7c29.EventDispatcherHandlerRecordVectorInsert](by-memory/0x004a7b10-0x004a7c29.EventDispatcherHandlerRecordVectorInsert.md), [UID:000146][0x004a7cd0-0x004a7df3.EventDispatcherHandlerTreeSupport](by-memory/0x004a7cd0-0x004a7df3.EventDispatcherHandlerTreeSupport.md), [UID:000147][0x004a7d00-0x004a7d42.EventDispatcherHandlerListDestructor](by-memory/0x004a7d00-0x004a7d42.EventDispatcherHandlerListDestructor.md), [UID:00022A][0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers](by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md), [UID:000148][0x004a87a0-0x004a8810.EventDispatcherHandlerRecordVectorFree](by-memory/0x004a87a0-0x004a8810.EventDispatcherHandlerRecordVectorFree.md), [UID:00022B][0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers](by-memory/0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers.md), [UID:00014A][0x004a8970-0x004a8a84.EventHandlerBase](by-memory/0x004a8970-0x004a8a84.EventHandlerBase.md), [UID:0001K7][0x00597580-0x005975c3.TimerHandlerDestructor](by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md)
+- Memory: [UID:000141][0x004a6a80-0x004a82a9.EventDispatcher](by-memory/0x004a6a80-0x004a82a9.EventDispatcher.md), [UID:000144][0x004a78f0-0x004a7979.EventDispatcherFindHandlerIterator](by-memory/0x004a78f0-0x004a7979.EventDispatcherFindHandlerIterator.md), [UID:000145][0x004a7b10-0x004a7c2a.EventDispatcherHandlerRecordVectorInsert](by-memory/0x004a7b10-0x004a7c2a.EventDispatcherHandlerRecordVectorInsert.md), [UID:000146][0x004a7cd0-0x004a7df3.EventDispatcherHandlerTreeSupport](by-memory/0x004a7cd0-0x004a7df3.EventDispatcherHandlerTreeSupport.md), [UID:000147][0x004a7d00-0x004a7d43.EventDispatcherHandlerListDestructor](by-memory/0x004a7d00-0x004a7d43.EventDispatcherHandlerListDestructor.md), [UID:00022A][0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers](by-memory/0x004a82b0-0x004a8795.EventDispatcherHandlerRecordRelinkHelpers.md), [UID:000148][0x004a87a0-0x004a8810.EventDispatcherHandlerRecordVectorFree](by-memory/0x004a87a0-0x004a8810.EventDispatcherHandlerRecordVectorFree.md), [UID:00022B][0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers](by-memory/0x004a8820-0x004a88d2.EventDispatcherHandlerRecordVectorAllocationHelpers.md), [UID:00014A][0x004a8970-0x004a8a84.EventHandlerBase](by-memory/0x004a8970-0x004a8a84.EventHandlerBase.md), [UID:0001K7][0x00597580-0x005975c3.TimerHandlerDestructor](by-memory/0x00597580-0x005975c3.TimerHandlerDestructor.md)
 
 ## Changes
 
+- 2026-06-07 A010 Batch086 class coverage toss-up:
+  - Before: score `82/82`, `AUTOGEN_PARENT_UID` blank.
+  - After: score `85/86`, `AUTOGEN_PARENT_UID:0000J7`.
+  - Evidence: live IDA reconfirmed constructor caller, broad `DispatchEvent` caller coverage, `RouteEventToHandlers` fanout, handler search/vector/list helper ownership, and the TimerHandler destructor exclusion; [UID:0000J7][EventDispatcher](by-file/EventDispatcher.md) was already `89/85`, so both child and direct parent meet the corrected 85/85 gate.
 - 2026-05-30:
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `82/82`.

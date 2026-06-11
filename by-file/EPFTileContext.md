@@ -1,13 +1,13 @@
 *** UID:0000J4 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # EPFTileContext
 
 ## Status
 
-- Confidence: strong for source-file ownership and method boundaries, medium for final field names.
+- Confidence: strong for source-file ownership, method boundaries, caller/callee evidence, and direct class parent routing; medium-high for final field names.
 - Proposed module: `render/EPFTileContext.cpp`
 - Evidence basis: live IDA MCP and Hex-Rays review of EPFTileContext boundaries, bodies, callers, and callees through 2026-06-04.
 
@@ -67,7 +67,7 @@ Live body access consistently uses a 0x28-byte layout:
 - Live IDA MCP confirms the exact input identity recorded in [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md), the aggregate start at `0x00457a60`, and the half-open end at `0x00458610`.
 - Live function inventory confirms all defined starts and ranges listed above, plus the code-typed raw body at `0x00457f30-0x00457fe9`.
 - Live boundary bytes confirm `0xcc` alignment between all neighboring function/body ranges.
-- Live caller checks show `CopyTo` is called by [UID:0002KR][ResourceLayoutTableCopyEntryTileContext](by-memory/0x004d04d0-0x004d0521.ResourceLayoutTableCopyEntryTileContext.md) at `0x004d050a` and pane/effect copy paths at `0x004ff226` and `0x004ff5e6`.
+- Live caller checks show `CopyTo` is called by [UID:0002KR][0x004d04d0-0x004d0522.ResourceLayoutTableCopyEntryTileContext](by-memory/0x004d04d0-0x004d0522.ResourceLayoutTableCopyEntryTileContext.md) at `0x004d050a` and pane/effect copy paths at `0x004ff226` and `0x004ff5e6`.
 - Live caller checks show the allocation helpers are used by shared image decode wrappers: `0x004d0a16` for byte pixels, `0x004d06c8`/`0x004d076d`/`0x004d08ad`/`0x004d0b65` for word pixels, and `0x004d0c9e`/`0x004d0e34` for word-plus-auxiliary buffers.
 - Live caller checks show `ReleaseBuffers` has 71 direct call sites across controls, image loaders, render support, copy helpers, and cleanup paths, supporting a shared render support owner.
 
@@ -82,6 +82,13 @@ Live body access consistently uses a 0x28-byte layout:
 - Confirm the original names for `pixelMode`, `auxiliaryData`, and encoded-mask fields.
 - Identify all producers of `auxiliaryData`; the copy/release logic treats it as pixel-buffer-sized data.
 - Confirm which draw paths consume the encoded mask directly versus rebuilding it on demand.
+
+## Corrected Parent Gate Audit
+
+- Current file-root score after Batch 102: `COMPLETION:89`, `CONFIDENCE:86`.
+- Direct child now eligible: [UID:00004I][EPFTileContext](by-class/EPFTileContext.md), refreshed to `85/86`.
+- Assignment basis: `render/EPFTileContext.cpp` is the direct source root for the decoded tile/image context because the aggregate owns buffer lifecycle, RLE mask construction, deep copy, half-scale helpers, allocation/reset helpers, post-decode normalization, and pixel-range tests consumed by resource layout, image loaders, controls, font rendering, and pane/effect paths.
+- Remaining caveat: field names such as `pixelMode`, `auxiliaryData`, and encoded-mask fields are still working names, so no final C++ is emitted.
 
 ## Cross-References
 
@@ -102,6 +109,12 @@ Live body access consistently uses a 0x28-byte layout:
 - Before: the file page listed seven EPFTileContext methods and did not account for the middle copy, decimation, and allocation helpers inside `0x00457f30-0x004584fa`.
 - Changed to: replaced the stale evidence basis with live IDA/Hex-Rays evidence and expanded the method table to include the raw copy body, two decimation helpers, and three allocation/reset helpers.
 - Summary/evidence: [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md) records the exact function/body inventory, padding, caller/callee evidence, and behavior. File metadata is unchanged because this page already had high file-level completion and final names remain provisional.
+
+### 2026-06-08 - Batch 102 parent-gate refresh
+
+- Before: `COMPLETION:88`, `CONFIDENCE:84`; the file page had the full aggregate inventory but was just below the corrected `85` confidence gate for retaining class routing under the stricter rule.
+- Changed to: `COMPLETION:89`, `CONFIDENCE:86`.
+- Summary/evidence: the page now explicitly records the parent-gate basis for [UID:00004I][EPFTileContext](by-class/EPFTileContext.md), tying the full method/body inventory, broad caller/callee evidence, render-support ownership, and dependency boundaries to `NexusTK/render/EPFTileContext.cpp` while retaining final field-name caveats and blank C++.
 
 ### 2026-06-02 - Projected render path
 

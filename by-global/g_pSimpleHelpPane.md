@@ -1,8 +1,8 @@
 *** UID:0000S9 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,7 +15,7 @@
 - Address: [UID:0001PC][0x0069ae00-0x0069ae04.g_pSimpleHelpPane](by-memory/0x0069ae00-0x0069ae04.g_pSimpleHelpPane.md)
 - Symbol kind: process-wide singleton pointer.
 - Likely owner file: [UID:0000JU][HelpPanes](by-file/HelpPanes.md)
-- Current generated names: `g_pSimpleHelpPane`, `dword_69AE00`
+- Preferred source name: `g_pSimpleHelpPane`.
 - Confidence: strong.
 
 ## Purpose
@@ -24,11 +24,11 @@
 
 ## Evidence Notes
 
-- 2026-05-30 live IDA MCP storage check reports `0x0069ae00` as a 4-byte `.data` item named `dword_69AE00` with 23 data references.
-- [UID:00016S][0x004c6f90-0x004c7680.SimpleHelpPanes](by-memory/0x004c6f90-0x004c7680.SimpleHelpPanes.md) contains the core lifetime sites: constructor-like code at `0x004c6ff1` writes the active pointer, the same path clears it on null fallback at `0x004c6ff8`, and teardown/helper paths clear it at `0x004c72e8`, `0x004ce330`, and `0x004ce5bf`.
-- [UID:000228][0x004a0d40-0x004a0d71.HelpPaneSingletonCloseHelpers](by-memory/0x004a0d40-0x004a0d71.HelpPaneSingletonCloseHelpers.md) includes a singleton close helper at `0x004a0d60` that reads this pointer and closes the active pane when present.
+- 2026-06-06 live IDA MCP reports `0x0069ae00` as an exact four-byte `.data` singleton slot, initialized to `0xff 0xff 0xff 0xff`, with 23 data references.
+- [UID:00016S][0x004c6f90-0x004c7680.SimpleHelpPanes](by-memory/0x004c6f90-0x004c7680.SimpleHelpPanes.md) contains the core lifetime sites: `SimpleHelpPane` construction stores the active pointer at `0x004c6ff1`, the same path clears it on null fallback at `0x004c6ff8`, ordinary teardown clears it at `0x004c72e8`, a compact unwind/support helper clears it at `0x004ce330`, and the scalar deleting destructor clears it at `0x004ce5bf`.
+- [UID:000228][0x004a0d40-0x004a0d71.HelpPaneSingletonCloseHelpers](by-memory/0x004a0d40-0x004a0d71.HelpPaneSingletonCloseHelpers.md) includes a singleton close helper at `0x004a0d60` that reads this pointer and calls the first virtual slot with flag `1` when an active pane exists.
 - Feature/UI callers read the pointer before opening or updating simple help popups, including `0x0049e5bd`, `0x004cef6c`, `0x004ead71`, `0x004eafca`, `0x004edad1`, `0x004edf2a`, `0x004ef368`, `0x004ef5b1`, `0x004fc7cc`, `0x00568d2e`, `0x00568d41`, `0x00568e03`, `0x00569892`, `0x00571d25`, `0x005a15e5`, `0x005b8a4b`, and `0x005bdff4`.
-- The live xref set supports `g_pSimpleHelpPane` as the canonical singleton pointer; no separate storage was observed for the generated name variants.
+- The live xref set supports `g_pSimpleHelpPane` as the canonical singleton pointer; no separate storage was observed for the alias variants.
 
 ## Cross-References
 
@@ -41,6 +41,11 @@
 
 ## Changes
 
-- What existed before: the page had correct address and role notes but still had unevaluated completion/confidence metadata and one generated-output evidence bullet.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000JU][HelpPanes](by-file/HelpPanes.md) to resolve the global unclassified coverage row.
+  - Reasoning: live IDA xrefs bind the singleton to the `SimpleHelpPane` constructor, teardown, close-helper, and feature callers within the HelpPanes tooltip module. No score change and no reconstruction C++ were added.
+- What existed before: the page had correct address and role notes but still had unevaluated completion/confidence metadata and stale raw-label wording.
 - What changed to: the page now uses the live IDA MCP xref set for storage shape, lifetime writes, close-helper reads, and feature callers. Completion/confidence were set to `78/88`.
-- Summary and evidence: IDA MCP on 2026-05-30 verified `0x0069ae00` / `dword_69AE00` as a 4-byte `.data` singleton pointer with 23 xrefs, constructor assignment at `0x004c6ff1`, fallback clear at `0x004c6ff8`, destructor/cleanup clears at `0x004c72e8`, `0x004ce330`, and `0x004ce5bf`, and close-helper read at `0x004a0d60`.
+- Summary and evidence: IDA MCP on 2026-05-30 verified `0x0069ae00` as a four-byte `.data` singleton pointer with 23 xrefs, constructor assignment at `0x004c6ff1`, fallback clear at `0x004c6ff8`, destructor/cleanup clears at `0x004c72e8`, `0x004ce330`, and `0x004ce5bf`, and close-helper read at `0x004a0d60`.
+- 2026-06-06: Raised completion from `78` to `84` and removed raw storage-label wording.
+  - Reasoning: current live IDA MCP verifies exact initialized storage bytes, all 23 data references, constructor publish and fallback clear, ordinary destructor clear, unwind/support clear, scalar deleting destructor clear, the close helper, and broad feature consumers. The page remains below final-reconstruction quality because exact source spelling and neighboring helper ownership are still not final.
+  - Summary and evidence: `0x0069ae00` is an exact four-byte `.data` singleton slot initialized to `0xff 0xff 0xff 0xff`; xrefs cover publish `0x004c6ff1`, fallback clear `0x004c6ff8`, teardown clears `0x004c72e8`, `0x004ce330`, and `0x004ce5bf`, close-helper read `0x004a0d60`, and feature reads through `0x005bdff4`.

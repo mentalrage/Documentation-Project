@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000J1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,11 +14,11 @@
 
 - Confidence: strong.
 - Likely source file: [UID:0000J1][Encoder](by-file/Encoder.md), under the [UID:0000HQ][BinaryCodec](by-file/BinaryCodec.md) utility layer
-- Current recovered file: `source-3/simroot_v2/class_Encoder.cpp`
+- Autogen parent: [UID:0000J1][Encoder](by-file/Encoder.md)
 - Main address evidence: [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md), plus vtable glue in [UID:00013M][0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue](by-memory/0x004a5630-0x004a5e54.DecoderAndCodecVtableGlue.md)
 - Layout docs: [UID:0001TS][BinaryCodecCursorLayout](by-type/by-struct/BinaryCodecCursorLayout.md)
 - Primary vtable: [UID:0001X1][BinaryCodecVtables](by-type/by-vtable/BinaryCodecVtables.md)
-- Size/layout: observed fields span through offset `+0x11`; generated metadata reports 18 bytes, but final source `sizeof` padding remains open.
+- Size/layout: observed fields span through offset `+0x11`; final source `sizeof` padding remains open.
 
 ## Class Purpose
 
@@ -64,7 +64,7 @@ The constructor initializes the flags word to `0x0101`, so new instances default
 
 ## Current Caveats
 
-- Active `class_Encoder.cpp` does not emit the no-op vtable slot at `0x004a5630`.
+- The no-op vtable slot at `0x004a5630` still needs to be modeled in final source even though it has no ordinary code callers.
 - The only confirmed direct caller is a text-edit serializer. Do not assume network packet ownership from the generic "encoder" name without caller evidence.
 
 ## Cross-References
@@ -88,3 +88,7 @@ The constructor initializes the flags word to `0x0101`, so new instances default
   - Before: the class was documented as reconstructable in prose but validator `RECONSTRUCTABLE` metadata was blank.
   - After: `RECONSTRUCTABLE` is set to `TRUE`.
   - Summary/evidence: IDA MCP reconfirmed the Encoder constructor/destructor/no-op/scalar-deleting vtable surface and direct consumer boundary; C++ code remains blank because final-source confidence is below the `95+` gate.
+- 2026-06-05:
+  - Before: `AUTOGEN_PARENT_UID` was blank, leaving reconstructable Encoder children unable to resolve to an autogen root.
+  - After: `AUTOGEN_PARENT_UID` is set to [UID:0000J1][Encoder](by-file/Encoder.md), and stale generated-source wording was removed from the status/caveat text.
+  - Summary/evidence: [UID:0000J1][Encoder](by-file/Encoder.md) is a validated `NexusTK/util/` file root with documented Encoder ownership; live autogen coverage showed [UID:00013D][0x004a4e70-0x004a5621.EncoderCore](by-memory/0x004a4e70-0x004a5621.EncoderCore.md) already using this class as parent, so the class needed a file-root parent chain.

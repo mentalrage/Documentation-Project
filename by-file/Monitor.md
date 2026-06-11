@@ -1,6 +1,6 @@
 *** UID:0000LI | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Monitor
@@ -10,7 +10,6 @@
 - Proposed module: `util/Monitor.cpp`
 - Proposed header: `util/Monitor.h`
 - Confidence: strong for synchronization ownership, medium for exact source-file split.
-- Current recovered sources: `class_Monitor.cpp`, `class_MonitorCondition.cpp`, `class_RequestSyncGate.cpp`, `class_CriticalSectionLock.cpp`
 
 ## File Role
 
@@ -34,15 +33,15 @@ This code is lower-level than `Thread.cpp`: [UID:0000OR][Thread](by-file/Thread.
 - `MonitorCondition::Signal` releases one condition waiter and synchronizes through the monitor semaphore when waiters exist.
 - [UID:000226][0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers](by-memory/0x0049bcb0-0x0049bce8.CriticalSectionApiWrappers.md) and `CriticalSectionLock` at `0x0049bcf0-0x0049bd19` are not memory-adjacent to the monitor cluster, but they are tiny Win32 critical-section synchronization helpers. The RAII lock has application message-loop callers.
 
-## Generated Output Caveats
+## Recovery Caveats
 
-Active `class_MonitorCondition.cpp` currently has a malformed constructor marker and emits only the scalar deleting destructor body. IDA confirms real omitted methods at:
+The MonitorCondition documentation still needs a final source-quality rewrite before this module can receive C++ output. IDA confirms real methods at:
 
 - `0x00528740`: `MonitorCondition` constructor
 - `0x00528810`: wait helper
 - `0x00528860`: signal helper
 
-The active `class_CriticalSectionLock.cpp` duplicates local struct declarations and includes, but the behavior is simple and IDA-aligned.
+`CriticalSectionLock` has simple IDA-aligned RAII behavior, but the final decision between a local helper in `Monitor.cpp` and a separate companion source file remains unresolved.
 
 ## Source-Structure Decision
 
@@ -52,8 +51,8 @@ Use one `util/Monitor.cpp` module for these synchronization primitives. A later 
 
 | Score | Rationale |
 | --- | --- |
-| Completion `82` | The page records the synchronization primitive family, valid projected path, exact monitor/condition/gate aggregate, critical-section companion helpers, consumer boundaries, generated-output caveats, and source-structure decision. Completion remains capped because final original split between Monitor and CriticalSectionLock is still not proven. |
-| Confidence `82` | Confidence is strong enough for child attachment because IDA-backed docs tie `Monitor`, `MonitorCondition`, and `RequestSyncGate` into one exact Win32 synchronization cluster under `util/Monitor.cpp`. It is not higher because `CriticalSectionLock` may later split into a companion file. |
+| Completion `84` | The page records the synchronization primitive family, valid projected path, exact monitor/condition/gate aggregate, critical-section companion helpers, consumer boundaries, recovery caveats, and source-structure decision. Completion remains capped because final original split between Monitor and CriticalSectionLock is still not proven. |
+| Confidence `86` | Confidence is strong enough for child attachment because live IDA-backed docs tie `Monitor`, `MonitorCondition`, `RequestSyncGate`, the critical-section API wrappers, and the RAII lock into one synchronization family. It is not higher because `CriticalSectionLock` may later split into a companion file. |
 
 ## Cross-References
 
@@ -70,6 +69,10 @@ Use one `util/Monitor.cpp` module for these synchronization primitives. A later 
 
 ## Changes
 
+- 2026-06-05:
+  - Before: scored `82/82`.
+  - After: scored `84/86`.
+  - Why: removed stale recovered-output wording, converted the remaining output caveats into source-facing recovery caveats, and synced the attached critical-section wrapper evidence to the now-strong `82/90` memory page.
 - 2026-06-02:
   - Before: scored `80/78`.
   - After: scored `82/82`.
@@ -84,4 +87,4 @@ Use one `util/Monitor.cpp` module for these synchronization primitives. A later 
 
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `80`, confidence `78`.
-- Summary/evidence: the page documents synchronization ownership, contained classes, IDA evidence, generated-output caveats, and range corrections; confidence remains medium-high because the original source-file split for `CriticalSectionLock` versus monitor primitives is still unresolved.
+- Summary/evidence: the page documents synchronization ownership, contained classes, IDA evidence, recovery caveats, and range corrections; confidence remains medium-high because the original source-file split for `CriticalSectionLock` versus monitor primitives is still unresolved.

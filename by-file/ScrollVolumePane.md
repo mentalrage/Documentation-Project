@@ -1,19 +1,19 @@
 *** UID:0000NK | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ScrollVolumePane
 
 ## Status
 
-- Confidence: strong for class/source-family identity; medium-high for final `ui/controls` folder placement.
+- Confidence: strong for class/source-family identity, direct `ui/controls` module placement, and ScrollVolumePane/OptionPane ownership split; medium cap remains for final helper names.
 - Proposed module: `ui/controls/ScrollVolumePane.cpp`
 - Proposed header: `ui/controls/ScrollVolumePane.h`
 - Current recovered source: `source-3/simroot_v2/ui/controls/class_ScrollVolumePane.cpp`
 - Main class: [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md)
 - Main address doc: [UID:0001H2][0x00564710-0x005654ec.ScrollVolumePane](by-memory/0x00564710-0x005654ec.ScrollVolumePane.md)
-- Evidence basis: `simroot_v2`, cached prewave metadata, read-only Wave2 recovered methods, Wave2 report entries, and IDA MCP checks through 2026-05-26.
+- Evidence basis: existing by-* documentation, generated output as a lead, and IDA MCP checks through 2026-06-08. Generated source/Wave metadata remains non-authoritative where it conflicts with IDA evidence.
 
 ## File Role
 
@@ -26,6 +26,9 @@ Keep this separate from [UID:0000M7][OptionPane](by-file/OptionPane.md). `NewOpt
 | Entity | Address evidence | Role |
 | --- | --- | --- |
 | [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md) | `0x00564710-0x005654ec` | Volume slider pane constructor, value/range API, mouse handling, drawing, and helper methods. |
+| [UID:00031M][0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw](by-memory/0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw.md) | `0x005647c0-0x005647e7` | Raw helper that stores word `+0xf8` and invalidates the bounds rect when changed. |
+| [UID:00031N][0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw](by-memory/0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw.md) | `0x005647f0-0x00564814` | Raw helper that stores byte `+0xfa` and invalidates the bounds rect when changed. |
+| [UID:00031O][0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw](by-memory/0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw.md) | `0x005648f0-0x0056490a` | Raw predicate that returns enabled-and-positive-range state. |
 | [UID:0001H3][0x00564e30-0x00565006.ScrollVolumePaneHitTestPart](by-memory/0x00564e30-0x00565006.ScrollVolumePaneHitTestPart.md) | `0x00564e30-0x00565006` | Omitted helper that maps a point to slider part id `0..4` or `-1`. |
 | [UID:0002LB][0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw](by-memory/0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw.md) | `0x00565170-0x005651e0` | Raw helper that invalidates old/new highlighted slider parts and stores highlight state. |
 | [UID:0002LC][0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw](by-memory/0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw.md) | `0x005651e0-0x005652a0` | Raw helper that initializes drag/highlight state, calls commit, and starts timer/update handling. |
@@ -47,11 +50,13 @@ Keep this separate from [UID:0000M7][OptionPane](by-file/OptionPane.md). `NewOpt
 - Constructor callers are two allocations from [UID:0000M7][OptionPane](by-file/OptionPane.md) constructor at `0x00540097` and `0x005400c6`, corresponding to music and sound sliders.
 - `SetRange`, `SetValue`, `Enable`, and `Disable` are called by `NewOptionPane` helpers at `0x005403b0` and `0x00541a90`.
 - Wave2 recovered `ScrollVolumePane::SetRange`, `SetValue`, `Enable`, and `Disable` match the active generated methods and were restored to close previous missing refs.
+- 2026-06-08 A008 IDA MCP recheck confirms the source-module boundary and parent gate: constructor calls only from `NewOptionPane::NewOptionPane` at `0x00540097`/`0x005400c6`, setters from `0x005403b0`/`0x00541a90`, internal helper callers from `OnMouseEvent`/`OnLoseFocus`/raw helper spans, vtable bases installed by the constructor, and the `0x005654ec`/`0x005654f7` thunks still belonging to neighboring `ScrollablePane` destructor glue.
+- The same pass found raw source-looking helpers at `0x005647c0`, `0x005647f0`, and `0x005648f0`; these now have exact by-memory pages and remain in this source file as unresolved-name helpers, not TextEditPane or OptionPane ownership.
 
 ## Generated Output Caveats
 
 - Active `class_ScrollVolumePane.cpp` now emits helper bodies at `0x00564e30`, `0x005652a0`, and `0x00565360`, but the generated C++ still uses stale `TextEditPane::*` signatures for those helper bodies while the source map keeps them in the `ScrollVolumePane` file/method partition.
-- Active output includes `SetHighlightPart` at `0x00565170` and `ResetInteractionState` at `0x00565490`; both are function-shaped raw code in IDA disassembly, but IDA `lookup_funcs` reports `Not a function` and `xrefs_to` reports no xrefs. Keep them as raw/projected helpers until the function table is corrected.
+- Active output includes raw/projected helper-shaped starts at `0x005647c0`, `0x005647f0`, `0x005648f0`, `0x00565170`, and `0x00565490`; IDA `lookup_funcs` reports these starts as `Not a function` and `xrefs_to` reports no direct xrefs. Keep them as raw/projected helpers until the function table and final source names are corrected.
 - The adjacent `0x005654ec`, `0x005654f7`, and `0x00565510` destructor tail is currently [UID:0001H6][0x005654ec-0x00565608.ScrollablePaneVirtualDefaults](by-memory/0x005654ec-0x00565608.ScrollablePaneVirtualDefaults.md) glue, not `ScrollVolumePane` ownership evidence. The canonical memory page now starts at `0x005654ec` so those thunks are covered by `ScrollablePane`, not this file.
 - `class_ScrollVolumePane.cpp.source_map.json` still reports generated `g_pEPFLibrary` as unresolved global-data provenance with no memory range. Use [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) as the reviewed canonical global, or run a dedicated alias/global pass before treating the local comment as a distinct ownership record.
 
@@ -74,6 +79,10 @@ Keep this separate from [UID:0000M7][OptionPane](by-file/OptionPane.md). `NewOpt
   - After: The file stages as `auto-generated/NexusTK/ui/controls/ScrollVolumePane.cpp`, matching the proposed source tree, and contents link the exact raw helper pages by UID.
   - Evidence: `by-project-structure/proposed-source-tree.md` already places `ScrollVolumePane.cpp` under controls; IDA MCP confirms the raw helper boundaries and the class remains a reusable UI control consumed by `OptionPane`.
 - `GetPartRect` has broad helper use inside this source and possibly text-edit/scroll helpers; do not move it to [UID:0000ON][TextEditPane](by-file/TextEditPane.md) solely from generated notes.
+- 2026-06-08 A008 Batch 137 strict-gate refresh:
+  - Before: score was `88/80`, with source placement strong but confidence capped by generated-output caveats and missing raw helper splits.
+  - Changed to: confidence `85`; completion remains `88`.
+  - Evidence: live IDA MCP rechecked constructor/setter callers, vtable installs, internal helper callers, the neighboring `ScrollablePane` thunk boundary, and exact raw helper pages [UID:00031M][0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw](by-memory/0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw.md), [UID:00031N][0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw](by-memory/0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw.md), and [UID:00031O][0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw](by-memory/0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw.md). The file now meets the strict gate as direct parent for [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md), while final helper names remain below final-source confidence.
 
 ## Source-Structure Decision
 
@@ -83,6 +92,9 @@ Use a separate `ui/controls/ScrollVolumePane.cpp` module. It is more specific th
 
 - [UID:0000CO][ScrollVolumePane](by-class/ScrollVolumePane.md)
 - [UID:0001H2][0x00564710-0x005654ec.ScrollVolumePane](by-memory/0x00564710-0x005654ec.ScrollVolumePane.md)
+- [UID:00031M][0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw](by-memory/0x005647c0-0x005647e7.ScrollVolumePaneSetLowStateWordRaw.md)
+- [UID:00031N][0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw](by-memory/0x005647f0-0x00564814.ScrollVolumePaneSetStateByteRaw.md)
+- [UID:00031O][0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw](by-memory/0x005648f0-0x0056490a.ScrollVolumePaneCanAdjustRaw.md)
 - [UID:0001H3][0x00564e30-0x00565006.ScrollVolumePaneHitTestPart](by-memory/0x00564e30-0x00565006.ScrollVolumePaneHitTestPart.md)
 - [UID:0002LB][0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw](by-memory/0x00565170-0x005651e0.ScrollVolumePaneSetHighlightPartRaw.md)
 - [UID:0002LC][0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw](by-memory/0x005651e0-0x005652a0.ScrollVolumePaneBeginInteractionRaw.md)

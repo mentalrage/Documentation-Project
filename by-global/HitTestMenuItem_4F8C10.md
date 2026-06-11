@@ -1,8 +1,8 @@
 *** UID:0000T1 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,6 @@
 - Address range: [UID:00019N][0x004f8c10-0x004f8cfa.MainMenuHitTest](by-memory/0x004f8c10-0x004f8cfa.MainMenuHitTest.md)
 - Symbol kind: file-local helper function.
 - Likely owner file: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
-- Current generated evidence: `source-3/simroot_v2/class_MainMenuPane.cpp` declares `HitTestMenuItem` for `MainMenuPane::OnMouseEvent`, but the active generated file does not emit this helper body.
 
 ## Behavior
 
@@ -37,7 +36,7 @@ The high-resolution branch uses left/right `781..972` and vertical rows beginnin
 - IDA MCP `lookup_funcs 0x004f8c10` reports `sub_4F8C10`, size `0xea`.
 - IDA MCP callers are only `MainMenuPane::OnMouseEvent` call sites at `0x004f6b37` and `0x004f6b6f`.
 - IDA MCP callees are the rectangle builder at `0x004b7c50`, point containment helper at `0x004b7e80`, and compiler security-cookie check.
-- `source-3/simroot_v2/class_MainMenuPane.cpp` uses the cleaned name `HitTestMenuItem` in `OnMouseEvent`, which matches the IDA behavior, but the missing standalone body remains a generated-data caveat.
+- IDA MCP recheck on 2026-06-05 confirmed `sub_4F8C10`, size `0xea`, the same two `MainMenuPane::OnMouseEvent` callers, rectangle builder `0x004b7c50`, point containment helper `0x004b7e80`, and security-cookie check.
 
 ## Source Placement
 
@@ -56,4 +55,6 @@ Keep this as a private/static helper in `login/MainMenuPane.cpp`, next to [UID:0
 - 2026-05-30: Grading changed from `0/0` to `84/88`.
   - Before: page documented menu hit-test behavior, constants, caller/callee evidence, and source placement but remained unevaluated.
   - After: score reflects near-complete behavior and ownership documentation for this small main-menu helper.
-  - Evidence: IDA notes confirm function size, only `MainMenuPane::OnMouseEvent` callers, rectangle-builder/point-containment callees, and generated-source omission caveat.
+  - Evidence: IDA notes confirm function size, only `MainMenuPane::OnMouseEvent` callers, rectangle-builder/point-containment callees, and source placement.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md).
+  - Reason: live IDA MCP recheck confirms source-authored main-menu hit-test helper behavior and only main-menu mouse-event callers.

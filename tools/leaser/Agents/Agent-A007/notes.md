@@ -1,0 +1,39 @@
+## Active Follow-Ups
+
+- Pending class coverage report sync from 2026-06-08 A007 Batch 139: `by-class/-coverage-report.md` was leased by A008 when target docs were updated. Apply these row updates when free:
+  - [UID:00005B] `FontImageLib` -> keep `86% : strong`; add exact vtable child [UID:00031Q] `0x0061a5f0-0x0061a600.FontImageLibVtableData` and note it supports [UID:0001XM] `FontImageLibVtable` assignment after child `85/91` and direct class parent `86/88` cleared the gate.
+  - [UID:00006E] `ImageLib` -> `86% : strong`; note exact vtable child [UID:00031R] `0x0061b650-0x0061b660.ImageLibVtableData`, [UID:0001XR] `ImageLibVtable` assignment, and remaining below-final caveat for `ResourceLayoutTable` helper/API membership.
+  - [UID:000076] `LightObjImageLib` -> `86% : strong`; note exact vtable child [UID:00031S] `0x0061b750-0x0061b768.LightObjImageLibVtableData`, [UID:0001XY] `LightObjImageLibVtable` assignment, adjacent `ProtectedArray<LightInfo>` kept separate, and final field-name caveats.
+- Pending coverage report sync from 2026-06-08 A007 Batch 116: manual coverage reports were leased by other agents after validation (`by-memory/-coverage-report.md`, `by-class/-coverage-report.md`, and `by-file/-coverage-report.md` by A010; `by-type/by-vtable/-coverage-report.md` by A002). Apply these row updates when free:
+  - Memory report:
+    - [UID:000135] `0x004a1600-0x004a1b5e.DIBitmapAndPcxLoaders` -> `88% : strong`; note exact children [UID:000313], [UID:000314], [UID:000315], [UID:000316], direct DIBitmap/ImageLoaders source split, and keep parent blank because no single direct owner covers the mixed aggregate.
+    - [UID:00014T] `0x004ae4c0-0x004b0b15.ItemExchangeMixDialogs` -> `82% : strong`; note exact children [UID:000317], [UID:000318], [UID:000319], [UID:00031A], current ItemDialogs/ExchangeDialog source-candidate check, and keep parent blank because the child is below 85 completion and no single direct owner covers the item/list/mix/exchange-tail span.
+    - [UID:00014V] `0x004b0490-0x004b0ba5.ExchangeDialogTail` -> `83% : strong`; note Batch 116 parent/source recheck against ExchangeDialog, ItemDialogs, MixItemDialog, and FunctionObjects; keep parent blank because the aggregate remains below 85 completion and has mixed direct ownership.
+    - Add new rows for [UID:000313] `0x004a1600-0x004a1738.DIBitmapConstructor` -> `86% : strong`, parent [UID:00003V] `DIBitmap`.
+    - Add new row for [UID:000314] `0x004a17b0-0x004a18a8.LoadPcxImage` -> `86% : strong`, parent [UID:0000K3] `ImageLoaders`.
+    - Add new row for [UID:000315] `0x004a18b0-0x004a1b0c.CreateDIBitmapFromPcxBuffer` -> `86% : strong`, parent [UID:0000K3] `ImageLoaders`.
+    - Add new row for [UID:000316] `0x004a1b10-0x004a1b5e.DIBitmapScalarDeletingDestructor` -> `86% : strong`, parent [UID:00003V] `DIBitmap`.
+    - Add new row for [UID:000317] `0x004aea80-0x004aeab0.AddItemDialogExchangePacketCloseHandler` -> `86% : strong`, parent [UID:000007] `AddItemDialog`.
+    - Add new row for [UID:000318] `0x004af4c0-0x004af4f0.AddItemWithCountDialogExchangePacketCloseHandler` -> `86% : strong`, parent [UID:000008] `AddItemWithCountDialog`.
+    - Add new row for [UID:000319] `0x004afcc0-0x004afe38.MixItemDialogQuantityPromptHelper` -> `86% : strong`, parent [UID:00008J] `MixItemDialog`.
+    - Add new row for [UID:00031A] `0x004afe40-0x004afff7.MixItemDialogQuantityCallback` -> `86% : strong`, parent [UID:00008J] `MixItemDialog`.
+  - File report:
+    - [UID:0000IV] `DIBitmap` -> `86% : strong`; note exact constructor/destructor children and ImageLoaders split.
+    - [UID:0000K3] `ImageLoaders` -> `89% : strong`; note exact PCX loader/factory child rows [UID:000314]/[UID:000315].
+    - [UID:0000KE] `ItemDialogs` -> `90% : strong`; note exact helper child rows [UID:000317]-[UID:00031A] and broad aggregate no-parent result.
+    - [UID:0000J9] `ExchangeDialog` -> `88% : strong`; note it owns exchange tail rows but not neighboring item/mix/function-object rows.
+    - [UID:0000JO] `FunctionObjects` -> unchanged `87% : strong`; add Batch 116 MixItemDialog callback construction/target evidence [UID:000319]/[UID:00031A].
+  - Class report:
+    - [UID:00003V] `DIBitmap` -> `86% : strong`; note exact constructor/destructor children.
+    - [UID:000007] `AddItemDialog` -> `85% : strong`; note exact packet-close handler child [UID:000317].
+    - [UID:000008] `AddItemWithCountDialog` -> `85% : strong`; note exact packet-close handler child [UID:000318].
+    - [UID:00008J] `MixItemDialog` -> `87% : strong`; note exact quantity helper/callback children [UID:000319]/[UID:00031A].
+  - Vtable report:
+    - [UID:0001XV] `ItemDialogVtableFamily` -> `86% : strong`; note AddItemDialog/AddItemWithCountDialog packet-handler slot refs `0x00619efc`/`0x0061a05c` and MixItemDialog callback target evidence.
+- Pending memory coverage report sync from 2026-06-08 A007 Batch 106: `by-memory/-coverage-report.md` was leased by another agent when target docs were updated. Apply these row updates when free:
+  - [UID:0000ZF] `0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers` -> `84% : strong`; note 2026-06-08 A007 reconfirmed the 125-function inventory, BrowserWindow/BrowserPane tail-child vtable refs, and standard browser COM GUID identities; keep parent blank because child is `84/89` and whole aggregate still has mixed/table/raw-data island caveats.
+  - [UID:000216] `0x004710b8-0x004710cc.BrowserWindowReleaseAdjustorTailThunks` -> still `85% : strong`; remove stale parent-blocked text and note it is assigned to [UID:00001B] `BrowserWindow` after the parent reached `85/88`.
+  - [UID:000217] `0x004710d0-0x004710df.BrowserPanePlaySound` -> `85% : strong`; remove stale `82%`/parent-blocked text and note it is assigned to [UID:000019] `BrowserPane` after the parent reached `85/86`.
+  - [UID:000272] `0x00631570-0x00632560.BrowserComGuidReadOnlyData` -> `86% : strong`; mention exact standard GUID identities through `0x00631640`, including [UID:0000T2] `DIID_DWebBrowserEvents2`, and remaining `0x00631570` lead-in plus post-`0x00631650` interface-map caveats.
+- Pending new-file workflow follow-up from 2026-06-06 A007: validator file-mode has been run for `by-class/TargetObjectWithKeyboardPane.md` and `by-file/TargetSelectionInputPanes.md`, but `leaser.py` rejected leases for nonexistent split-page targets. Create exact by-memory pages for `0x005b0510-0x005b05a3`, `0x005b05b0-0x005b05cf`, `0x005b05d0-0x005b06ef`, and `0x005b06f0-0x005b077a` once a valid new-file lease workflow is available; then validate those pages, replace temporary plain range references in the class/file pages with UID links, and add the manual by-memory coverage rows.
+- Follow-up from 2026-06-07 A007: retry live IDA MCP read-only boundary lookup for `InventoryPanes` when MCP is responsive; an earlier retry saw `tools/list` succeed, but combined `lookup_funcs`/`xrefs_to`/`disasm` timed out after 180s, the reduced two-address `lookup_funcs` retry for `0x004ee650` and `0x004ee6b0` timed out, and a minimal `idb_meta` status call also timed out. A later 2026-06-07 A007 retry could not connect to `http://127.0.0.1:13337/mcp` twice (`Unable to connect to the remote server`). Do this before any future score raise or constructor-boundary claim around generated `InventoryPane2::InventoryPane2` at `0x004ee650`.

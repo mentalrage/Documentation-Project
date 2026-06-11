@@ -1,8 +1,8 @@
 *** UID:000088 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -97,4 +97,5 @@ Current high-value consumers:
 
 ## Changes
 
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000LC][MetaMan](by-file/MetaMan.md) because this class is 86/80 and the parent file is 88/82. Live IDA MCP on `NexusTK.exe` confirmed the metadata-manager lifecycle, load/sync, lookup, table-tree, save/cache, singleton-clear, scalar-deleting, and node-destroy starts from `0x005227d0` through `0x00524590`.
 - Completion/confidence score update: existed before as `0/0`; changed to `86/80`. Summary: the metadata manager is documented in high detail across singleton ownership, loose `Meta.dat` cache handling, packet synchronization, lookup behavior, consumer relationships, helper ownership, and IDA evidence, but confidence remains medium-high because final helper names around `0x005237d0-0x00523c99` and the exact field layout still need a struct/name pass. Evidence: linked `MetaMan` range, `MetaTable` relationship, `g_pMetaMan`, alias-table lookup, packet subtype breakdown, IDA callers/xrefs, and node-destroy helper evidence.

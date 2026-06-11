@@ -19,7 +19,7 @@ This file should own the per-entry stream reader and the small helpers that trea
 
 | Entity | Range | Proposed placement | Notes |
 | --- | --- | --- | --- |
-| [UID:00003G][DATFile](by-class/DATFile.md) | `0x0049c130-0x0049d2cc` aggregate | `archive/DATFile.cpp` | File-like reader for one DAT entry. |
+| [UID:00003G][DATFile](by-class/DATFile.md) | [UID:00012D][0x0049c130-0x0049d2cc.DATFile](by-memory/0x0049c130-0x0049d2cc.DATFile.md) aggregate | `archive/DATFile.cpp` | File-like reader for one DAT entry. |
 | [UID:0001XK][FileStreamVtables](by-type/by-vtable/FileStreamVtables.md) | `0x00618924-0x00618950` | `archive/DATFile.h` declaration, `archive/DATFile.cpp` implementation | Implements the shared `File` stream contract over mapped DAT entry payloads. |
 | [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md) | [UID:00016G][0x004bb120-0x004bb1d2.LoadDatFileBuffer](by-memory/0x004bb120-0x004bb1d2.LoadDatFileBuffer.md) | `archive/DATFile.cpp` | Convenience loader that constructs `DATFile`, opens a named entry, allocates a buffer, reads bytes, closes, and destructs. |
 | [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md) | [UID:00013W][0x004a5e60-0x004a609f.ParseEntries](by-memory/0x004a5e60-0x004a609f.ParseEntries.md) | `archive/DATFile.cpp` private/static helper | Called only by the two bulk-entry readers currently attached to `DATFile`; distinct from standalone [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md). |
@@ -71,7 +71,7 @@ IDA MCP confirms these exact function starts and half-open ranges:
 ## Cross-References
 
 - [UID:00003G][DATFile](by-class/DATFile.md)
-- [UID:00012D][0x0049c130-0x0049d2cb.DATFile](by-memory/0x0049c130-0x0049d2cb.DATFile.md)
+- [UID:00012D][0x0049c130-0x0049d2cc.DATFile](by-memory/0x0049c130-0x0049d2cc.DATFile.md)
 - [UID:0001XK][FileStreamVtables](by-type/by-vtable/FileStreamVtables.md)
 - [UID:0001UG][FileStreamLayouts](by-type/by-struct/FileStreamLayouts.md)
 - [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md)
@@ -98,3 +98,6 @@ IDA MCP confirms these exact function starts and half-open ranges:
 - 2026-06-03 ParseEntries evidence cleanup:
   - What changed: status provenance was narrowed to live IDA MCP and DAT-format evidence; scores and reconstruction path are unchanged.
   - Summary/evidence: live IDA MCP reconfirmed `ParseEntries` range `0x004a5e60-0x004a609f`, the two direct DATFile wrapper call sites, wrapper decompile behavior, lack of project callees, and the padding split after the helper.
+- 2026-06-07 A008 Batch 082 class-route sync:
+  - Scores remain `87/89`.
+  - Updated the exact DATFile aggregate reference to [UID:00012D][0x0049c130-0x0049d2cc.DATFile](by-memory/0x0049c130-0x0049d2cc.DATFile.md) after the stale `0x0049d2cb` filename was repaired, and confirmed this file as the direct parent for [UID:00003G][DATFile](by-class/DATFile.md), now `86/88`.

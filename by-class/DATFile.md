@@ -1,8 +1,8 @@
 *** UID:00003G | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IN | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,11 +12,10 @@
 
 ## Status
 
-- Confidence: strong for responsibility and methods, medium for field names.
-- Current file: `class_DATFile.cpp`
+- Confidence: strong for responsibility, method/vtable boundaries, source module ownership, and helper relationships; medium-high for final field names.
 - Likely source module: [UID:0000IN][DATFile](by-file/DATFile.md)
-- Current range: `0x0049c130-0x0049d2cb`
-- Evidence basis: Wave3 class/layout inspection, helper summaries, and IDA MCP caller/callee/decompile checks through 2026-05-25.
+- Current range: [UID:00012D][0x0049c130-0x0049d2cc.DATFile](by-memory/0x0049c130-0x0049d2cc.DATFile.md)
+- Evidence basis: existing DAT format/helper docs plus IDA MCP caller/callee/decompile/vtable checks through Batch 082.
 - Type docs: [UID:0001XK][FileStreamVtables](by-type/by-vtable/FileStreamVtables.md), [UID:0001UG][FileStreamLayouts](by-type/by-struct/FileStreamLayouts.md)
 
 ## Responsibility
@@ -25,7 +24,7 @@
 
 ## Layout
 
-Observed Wave3 layout:
+Observed binary layout:
 
 | Offset | Current field | Interpreted role |
 | --- | --- | --- |
@@ -57,6 +56,10 @@ Total known size is 20 bytes. The vtable at `0x00618924` implements the same str
 | `0x0049c720` | `OpenByIndex` | Opens by archive/index location rather than name. |
 | `0x0049d280` | `ScalarDeletingDestructor` | Compiler delete wrapper. |
 
+## Assignment Gate
+
+`AUTOGEN_PARENT_UID` is set to [UID:0000IN][DATFile](by-file/DATFile.md). This class is now scored `86/88`, and the direct source-file parent is scored `87/89`, so both sides satisfy the corrected 85/85 gate. The parent is direct because the file page is the `NexusTK/archive/DATFile.cpp` source root and explicitly owns this per-entry reader class, its stream vtable, the `LoadDatFileBuffer` lifecycle wrapper, and the private/static-style `ParseEntries` helper used only by the DATFile bulk readers.
+
 ## Ownership Notes
 
 - `DATFile` should live in the archive module with [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md) and [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md).
@@ -64,6 +67,8 @@ Total known size is 20 bytes. The vtable at `0x00618924` implements the same str
 - [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md) is a strong helper candidate for the same source module because IDA MCP confirms it uses the complete `DATFile` lifecycle.
 - `ReadAllEntries` and `ReadAllEntriesAlt` form the direct bridge from archive entry data to the [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md) header decoder. The 2026-05-25 IDA MCP recheck shows they are the only callers, which resolves the helper as `archive/DATFile.cpp` private/static-style code rather than a separate shared module.
 - `Open` and `OpenByIndex` both interpret DAT entry records as 17-byte records whose first dword is the payload start offset. The payload size is computed from the next record/sentinel start offset.
+- 2026-06-07 A008 Batch 082 IDA MCP refresh reconfirmed the constructor, destructor, stream virtuals, bulk readers, support helpers at `0x0049c540`/`0x0049c570`, `OpenByIndex`, scalar deleting destructor endpoint `0x0049d2cc`, and four `0xcc` bytes at `0x0049d2cc-0x0049d2d0`.
+- The same refresh reconfirmed broad consumer fan-in: constructor 83 callers, destructor 142 callers, `Open` 67 callers, `Read` 131 callers, `ReadAllEntries` 87 callers, `ReadAllEntriesAlt` 6 callers, and `OpenByIndex` 2 callers; the `DATFile` vtable at `0x00618924` targets the scalar deleting destructor, stream operations, `Open`, `Close`, `Tell`, `Seek`, `GetSize`, `Read`, `ReadLine`, and `ReadLineRaw`.
 
 ## Open Questions
 
@@ -86,7 +91,12 @@ Total known size is 20 bytes. The vtable at `0x00618924` implements the same str
 - [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md)
 - [UID:00013W][0x004a5e60-0x004a609f.ParseEntries](by-memory/0x004a5e60-0x004a609f.ParseEntries.md)
 - [UID:0000V5][ParseEntries_004A5E60](by-item/ParseEntries_004A5E60.md)
-- [UID:00012D][0x0049c130-0x0049d2cb.DATFile](by-memory/0x0049c130-0x0049d2cb.DATFile.md)
+- [UID:00012D][0x0049c130-0x0049d2cc.DATFile](by-memory/0x0049c130-0x0049d2cc.DATFile.md)
+
+## Score Rationale
+
+- Completion `86`: class purpose, direct source parent, binary layout, method table, vtable contract, broad caller fan-in, DAT manager/helper relationships, private `ParseEntries` ownership, exact aggregate memory child, and open field/API questions are documented.
+- Confidence `88`: current IDA MCP evidence strongly supports method boundaries, vtable slots, archive source ownership, and helper relationships. Confidence stays below final-source quality because member field names and source-facing method signatures remain provisional.
 
 ## Changes
 
@@ -99,3 +109,7 @@ Total known size is 20 bytes. The vtable at `0x00618924` implements the same str
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `78/82`.
   - Summary/evidence: responsibility, layout, stream methods, DAT-manager links, parser bridge, ownership notes, and open questions are documented from Wave3 and IDA-backed ranges; remaining work is exact field naming and final C++ source reconstruction.
+- 2026-06-07 A008 Batch 082 class-coverage pass:
+  - Before: `78/82`, `AUTOGEN_PARENT_UID:` blank, and range references still used the stale `0x0049d2cb` filename endpoint.
+  - After: `86/88`, `AUTOGEN_PARENT_UID:0000IN`, and range references point at [UID:00012D][0x0049c130-0x0049d2cc.DATFile](by-memory/0x0049c130-0x0049d2cc.DATFile.md).
+  - Evidence: current IDA MCP reconfirmed the method/vtable map, broad DATFile caller fan-in, `ParseEntries` and `LoadDatFileBuffer` relationships through existing docs, support-helper caveats, and the `0x0049d2cc` half-open endpoint.

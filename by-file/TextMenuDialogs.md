@@ -1,15 +1,15 @@
 *** UID:0000OP | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # TextMenuDialogs
 
 ## Status
 
-- Confidence: strong for the text-menu classes and argumented-menu classes as dialog-family ownership; medium for whether argumented item menus were split into a separate original `.cpp`.
+- Confidence: strong for the text-menu classes as a source owner; argumented-menu classes are now treated as the separate [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) owner bucket, with only final physical file folding still provisional.
 - Proposed module folder: `ui/dialogs/`
-- Candidate files: `ui/dialogs/TextMenuDialogs.cpp`, possibly `ui/dialogs/ArgumentedMenuDialogs.cpp`, plus adjacent [UID:0000HH][ArgumentedItemInputDialogs](by-file/ArgumentedItemInputDialogs.md)
+- Candidate file: `ui/dialogs/TextMenuDialogs.cpp`; adjacent but separately owned candidates are [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) and [UID:0000HH][ArgumentedItemInputDialogs](by-file/ArgumentedItemInputDialogs.md)
 - Current generated sources: `class_MerchantDialogPane.cpp`, `class_TextMenuDialog.cpp`, `class_TextInputMenuDialog.cpp`, `class_TextMenuItemList.cpp`, `class_ArgumentedMenuMenuDialog.cpp`, and `class_ArgumentedMenuMenuItemList.cpp`
 - Evidence basis: Wave3 class metadata, generated `simroot_v2` source, and targeted IDA MCP checks on 2026-05-23 and 2026-05-26.
 - Vtable/layout anchor: [UID:0001Y5][MerchantMenuDialogVtableFamily](by-type/by-vtable/MerchantMenuDialogVtableFamily.md)
@@ -31,6 +31,8 @@ A compact late-1999/early-2000s project could also have kept the argumented clas
 
 IDA confirms the dialog/list vtable family from `0x0061ec10` through `0x0061f57c`. Current generated metadata reports `vtable_count: 0` for the checked menu-dialog classes, so do not use generated vtable absence as source-layout evidence.
 
+B001-008 ownership split: use this file as the direct owner for `TextMenuDialog`, `TextMenuItemList`, and `TextInputMenuDialog`. Keep `ArgumentedMenuMenuDialog` and `ArgumentedMenuMenuItemList` with [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) for assignment and coverage, while preserving this page's historical note that a final source migration could physically fold the argumented code into a broader text/menu dialog source.
+
 ## Proposed Contents
 
 | Entity | Current range | Current file | Role |
@@ -41,10 +43,8 @@ IDA confirms the dialog/list vtable family from `0x0061ec10` through `0x0061f57c
 | `TextMenuItemList` | `0x00519520-0x005198d0`, destructor island `0x00520b55-0x00520e2a` | `class_TextMenuItemList.cpp` | Private list pane for scrollable text-menu rows. |
 | `TextInputMenuDialog` | `0x005198e0-0x0051a416`, destructor island `0x00520b29-0x00520d97` | `class_TextInputMenuDialog.cpp` | Merchant/NPC dialog that includes a text input control and submits entered text with opcode `0x39`. |
 | [UID:000239][0x0051a420-0x0051a51c.TextInputMenuDialogReplyPacketHelper](by-memory/0x0051a420-0x0051a51c.TextInputMenuDialogReplyPacketHelper.md) | `0x0051a420-0x0051a51c` | omitted raw helper | Raw text-input reply serializer for opcode `0x39`; likely belongs with `TextInputMenuDialog`. |
-| `ArgumentedMenuMenuDialog` | `0x0051e9a0-0x0051f28c` | `class_ArgumentedMenuMenuDialog.cpp` | Packet-driven item/menu dialog with parameterized entries and buy-confirm dispatch. |
-| `ArgumentedMenuMenuItemList` | `0x0051f290-0x0051fc8c`, destructor island `0x00520abb-0x00520c16` | `class_ArgumentedMenuMenuItemList.cpp` | Specialized list pane for argumented item entries; updates description text, item help, and row rendering. |
-| `ArgumentedItemConfirmInputDialogPane` | `0x005200d0-0x00520538` | `class_ArgumentedItemConfirmInputDialogPane.cpp` | Adjacent price-confirm dialog for argumented item purchase flow; documented separately. |
-| `ArgumentedItemQuantityInputDialogPane` | `0x0051fc90-0x005200c3` | `class_ArgumentedItemQuantityInputDialogPane.cpp` | Adjacent quantity-entry dialog for argumented item purchase flow; documented separately. |
+| [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) | `0x0051e9a0-0x0051fc8c`, destructor island `0x00520abb-0x00520c16` | separate owner bucket | Adjacent argumented menu dialog/list family; related to text menus but not assigned to this file under the current split. |
+| [UID:0000HH][ArgumentedItemInputDialogs](by-file/ArgumentedItemInputDialogs.md) | `0x0051fc90-0x00520538` | separate owner bucket | Adjacent quantity/confirm input dialog flow; documented separately. |
 
 ## IDA MCP Evidence
 
@@ -87,6 +87,7 @@ If the argumented-menu split is preferred, attach the two `Argumented*` classes 
 
 - [UID:0000ES][TextMenuDialog](by-class/TextMenuDialog.md)
 - [UID:0001Y5][MerchantMenuDialogVtableFamily](by-type/by-vtable/MerchantMenuDialogVtableFamily.md)
+- [TextMenuDialogVtables](by-type/by-vtable/TextMenuDialogVtables.md)
 - [UID:0000L9][MerchantDialogPane](by-file/MerchantDialogPane.md)
 - [UID:000083][MerchantDialogPane](by-class/MerchantDialogPane.md)
 - [UID:0001BL][0x00517d30-0x00517ebf.MerchantDialogPaneBase](by-memory/0x00517d30-0x00517ebf.MerchantDialogPaneBase.md)
@@ -113,3 +114,6 @@ If the argumented-menu split is preferred, attach the two `Argumented*` classes 
   - After: set completion to `90` and confidence to `82`.
   - Evidence: document covers dialog-family hypothesis, proposed contents, factory helpers, text/input/argumented menu classes, IDA/vtable evidence, ownership notes, migration caveats, split alternatives, and cross-references; confidence is capped by final argumented-menu split and unresolved generated method caveats.
 - 2026-06-01: Set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/ui/dialogs/` so reviewed child memory pages can attach to this parent without autogen path errors.
+- 2026-06-10 B001-008 ownership-gate refresh:
+  - Changed confidence to `86`.
+  - Summary/evidence: live IDA MCP reconfirmed text-menu vtable views and constructor stores for `TextMenuDialog`, `TextMenuItemList`, and `TextInputMenuDialog`; the new split child [TextMenuDialogVtables](by-type/by-vtable/TextMenuDialogVtables.md) is assigned here. Argumented-menu classes are now explicitly routed to [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md), so the previous confidence cap from argumented split ambiguity no longer blocks this text-menu owner bucket.

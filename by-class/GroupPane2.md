@@ -1,8 +1,8 @@
 *** UID:00005Z | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:81 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JS | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Likely source file: [UID:0000JS][Group](by-file/Group.md)
 - Address range: [UID:0001HC][0x0056c4c0-0x0056e939.GroupPanes](by-memory/0x0056c4c0-0x0056e939.GroupPanes.md); exact vtable data [UID:0002NK][0x006244c4-0x00624550.GroupPane2VtableData](by-memory/0x006244c4-0x00624550.GroupPane2VtableData.md); destructor thunks at [UID:0001HM][0x00573273-0x005732b5.GroupPaneAdjustorThunks](by-memory/0x00573273-0x005732b5.GroupPaneAdjustorThunks.md)
 - Current recovered file: `source-3/simroot_v2/class_GroupPane2.cpp`
+- Autogen parent: [UID:0000JS][Group](by-file/Group.md). This class is `85/88`, and the direct file parent is `89/85` after the Batch 067 parent-gate refresh.
 
 ## Class Purpose
 
@@ -40,8 +41,16 @@
 - The constructor inlines the `GroupListPane` child setup and installs the child vtables `0x00624214`, `0x0062428c`, and `0x006242bc`.
 - Secondary and tertiary destructor entries use compiler adjustor thunks at `0x00573273` and `0x0057327e`; these should be generated from the inheritance layout rather than written as source methods.
 - 2026-05-31 IDA MCP confirms the exact vtable-data child [UID:0002NK][0x006244c4-0x00624550.GroupPane2VtableData](by-memory/0x006244c4-0x00624550.GroupPane2VtableData.md): the range starts at `GroupPane2` RTTI and ends before `NewGroupPane`.
+- The 2026-06-07 vtable-family refresh recorded on [UID:0002NK][0x006244c4-0x00624550.GroupPane2VtableData](by-memory/0x006244c4-0x00624550.GroupPane2VtableData.md) and [UID:0001XP][GroupPaneFamilyVtables](by-type/by-vtable/GroupPaneFamilyVtables.md) reconfirms all three `GroupPane2` table-base store sets from constructor `0x0056c770`, destructor `0x0056c870`, and scalar deleting destructor `0x005733e0`, plus the draw/layout/stub function extents.
 - `GroupPane2` likely represents a variant shell rather than a separate gameplay feature.
 - 2026-05-28 IDA MCP identifies the adjacent `0x0056c4a0` and `0x0056c4b0` false virtual stubs; keep them with the group pane family until exact slot ownership is confirmed.
+
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `85` | The class page now records constructor/destructor/layout/draw/stub/scalar-destructor coverage, exact vtable-data child, adjustor thunk children, sibling false-virtual caveat, and direct source-file parent route. Completion stays below final because the exact original split from `GroupPane`, final field names, and full class declaration remain unresolved. |
+| Confidence `88` | Existing IDA-backed memory pages and the 2026-06-07 vtable refresh strongly support `GroupPane2` method and vtable ownership. Confidence remains below final because the class is an alternate shell with some source-split uncertainty against `GroupPane` and inherited pane/control slots. |
 
 ## Cross-References
 
@@ -57,6 +66,10 @@
 
 ## Changes
 
+- 2026-06-07 Batch 067 parent-chain repair:
+  - Before: `COMPLETION:81`, `CONFIDENCE:86`, and blank `AUTOGEN_PARENT_UID`.
+  - After: `COMPLETION:85`, `CONFIDENCE:88`, and `AUTOGEN_PARENT_UID:0000JS`.
+  - Evidence: this page now uses the exact [UID:0002NK][0x006244c4-0x00624550.GroupPane2VtableData](by-memory/0x006244c4-0x00624550.GroupPane2VtableData.md) child, destructor/thunk pages, method inventory, and refreshed [UID:0000JS][Group](by-file/Group.md) parent gate to support class routing.
 - 2026-05-28: Added the adjacent `0x0056c4a0-0x0056c4b5` false virtual stub island.
   - Before: `GroupPane2` documentation did not account for the two real false-return stubs before `GroupPane`.
   - After: the stubs are recorded as group-pane-family support code with exact slot ownership still open.

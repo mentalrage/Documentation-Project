@@ -1,8 +1,8 @@
 *** UID:000089 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -93,4 +93,5 @@ The inflate and checksum helpers are bundled [UID:0000PC][Zlib](by-file/Zlib.md)
 
 ## Changes
 
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000LC][MetaMan](by-file/MetaMan.md) because this class is 84/80 and the parent file is 88/82. Live IDA MCP on `NexusTK.exe` confirmed table lifecycle/decode/materialization/reset/helper starts at `0x00524630`, `0x00524690`, `0x00524730`, `0x00524870`, `0x00524c60`, `0x00524d10`, `0x00525780`, and `0x005258b0`.
 - Completion/confidence score update: existed before as `0/0`; changed to `84/80`. Summary: the per-table metadata object has strong lifecycle, payload, decode, validation, reset, materialization, helper-island, and dependency documentation, but field names and helper names remain partly provisional. Evidence: linked `MetaTable` range, materializer and row-tree helper pages, decoded payload/row-node type docs, `MetaMan` lookup flow, IDA creation/caller evidence, and Zlib dependency classification.

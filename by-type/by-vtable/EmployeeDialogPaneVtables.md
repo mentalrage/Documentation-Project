@@ -1,8 +1,8 @@
 *** UID:0001XH | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000J0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for vtable addresses and class-specific slots, medium for inherited slot names.
 - Likely owner source: [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md)
+- Autogen status: attached under the file-level [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md) parent because the vtable family spans four employee-dialog classes; final C++ remains blank under the `95/95` gate.
 - Memory evidence: [UID:000138][0x004a1d70-0x004a4e6b.EmployeeDialogPanes](by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md), [UID:000256][0x00618efc-0x0061929c.EmployeeDialogReadOnlyData](by-memory/0x00618efc-0x0061929c.EmployeeDialogReadOnlyData.md), [UID:000139][0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor](by-memory/0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor.md), [UID:00013B][0x004a4cb1-0x004a4cf3.EmployeeDialogAdjustorThunks](by-memory/0x004a4cb1-0x004a4cf3.EmployeeDialogAdjustorThunks.md)
 - Layout docs: [UID:0001UB][EmployeeItemPropertyDialogPaneLayout](by-type/by-struct/EmployeeItemPropertyDialogPaneLayout.md), [UID:0001TN][AddEmployeeItemDialogLayout](by-type/by-struct/AddEmployeeItemDialogLayout.md), [UID:0001UC][EmployeeQuantityInputDialogPaneLayout](by-type/by-struct/EmployeeQuantityInputDialogPaneLayout.md)
 
@@ -78,6 +79,10 @@ Exact data range: [UID:0002MH][0x006190d0-0x0061916c.AddEmployeeItemDialogVtable
 
 The adjustor thunk slots are compiler-generated and are recorded in [UID:0000VN][-ignored](by-memory/-ignored.md). Reconstruct normal class inheritance and destructors in `EmployeeDialogPane.cpp`; do not emit these thunks as handwritten methods.
 
+## Parent Rationale
+
+Attach this vtable family to [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md), not to a single class. The page covers `EmployeeDialogPane`, `EmployeeItemPropertyDialogPane`, `EmployeeQuantityInputDialogPane`, and `AddEmployeeItemDialog`; the file page explicitly groups those four classes as one employee-shop source module and clears the `80/80` attachment gate. File-scope ownership also preserves the documented split from generic [UID:0000KE][ItemDialogs](by-file/ItemDialogs.md) while avoiding a misleading single-class parent.
+
 ## Cross-References
 
 - [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md)
@@ -100,6 +105,10 @@ The adjustor thunk slots are compiler-generated and are recorded in [UID:0000VN]
 
 ## Changes
 
+- 2026-06-07 parent attachment update:
+  - What existed before: the page had strong four-class vtable evidence and exact by-memory children, but no autogen parent.
+  - Changed to: `COMPLETION:88` and `AUTOGEN_PARENT_UID:0000J0`, with an explicit file-level parent rationale.
+  - Summary/evidence: [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md) owns the employee-dialog family, links the same exact vtable children, and clears the attachment gate; final C++ remains blank because inherited slot names and source-split questions keep the page below the `95/95` reconstruction threshold.
 - 2026-05-31 exact `.rdata` child split:
   - What existed before: metadata was unevaluated `0/0`, `RECONSTRUCTABLE` was blank, and the page listed vtable bases without exact by-memory child pages for the read-only data bytes.
   - Changed to: scored `86/88`, marked `RECONSTRUCTABLE:TRUE`, and linked four exact vtable-data child pages.

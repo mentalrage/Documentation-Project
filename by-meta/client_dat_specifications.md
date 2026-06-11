@@ -10,7 +10,7 @@
 - Scope: DAT archives, DAT-backed resource lookup, PCX/DIB loading, EPF/EPD image metadata, palette/image-library ownership, DAT-backed audio resource use, and adjacent loose resource/cache formats that must not be confused with packed DAT archives.
 - Primary source modules: [UID:0000IN][DATFile](by-file/DATFile.md), [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), and [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md), with [UID:0000IM][DATArchive](by-file/DATArchive.md) as the umbrella resource note
 - Core class docs: [UID:00003G][DATFile](by-class/DATFile.md), [UID:00003I][DATFileMgr](by-class/DATFileMgr.md), [UID:00003K][DATIndexVector](by-class/DATIndexVector.md)
-- Core address docs: [UID:00012D][0x0049c130-0x0049d2cb.DATFile](by-memory/0x0049c130-0x0049d2cb.DATFile.md), [UID:00012B][0x0049bd30-0x0049d6ed.DATManagers](by-memory/0x0049bd30-0x0049d6ed.DATManagers.md), [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md), [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md), exact [UID:00003K][DATIndexVector](by-class/DATIndexVector.md), and the DATIndexVector [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md)
+- Core address docs: [UID:00012D][0x0049c130-0x0049d2cc.DATFile](by-memory/0x0049c130-0x0049d2cc.DATFile.md), [UID:00012B][0x0049bd30-0x0049d6ed.DATManagers](by-memory/0x0049bd30-0x0049d6ed.DATManagers.md), [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md), [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md), exact [UID:00003K][DATIndexVector](by-class/DATIndexVector.md), and the DATIndexVector [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md)
 
 ## Observed Archive Model
 
@@ -146,7 +146,7 @@ EPF/EPD image work appears to sit between archive and rendering. `EPFTileContext
 - `MonsterImageLib` owns `MONSTER.DNA`/`MONSTER.DND` parsing, `DATA/MON%d.DAT` archive indexing, render/projection paths, and lazy monster archive bounds buckets. IDA confirms [UID:0000RR][g_pMonsterImageLib](by-global/g_pMonsterImageLib.md) at `0x0069b440`, [UID:0001VD][MonsterImageLibLayout](by-type/by-struct/MonsterImageLibLayout.md), vtable `0x0061b6e4`, ordinary destructor `0x004db010`, and disabled-but-real `GetArchiveBoundsBucket` at `0x004dbe60`.
 - `RidingImageLib` owns `RIDINGS.DNA` parsing and loads `RIDINGS.EPF` through the shared frame-table loader. The DNA parser fills `0x0c`-byte [UID:0001VV][RidingDefinition](by-type/by-struct/RidingDefinition.md) rows plus nested 8-byte bucket rows and 10-byte bucket-entry rows, and seeds [UID:0000TJ][RidingDefinitionGlobalTable](by-global/RidingDefinitionGlobalTable.md) with 21 default groups spanning `0..30000`.
 - `LightObjImageLib` reads `LIGHT.TBL` through the DAT path and builds procedural radial light frames; it belongs with render/image ownership, but is not itself an EPF frame-table loader.
-- `FontImageLib` reads `BA0`/`BA1` font archives through `DATFile`, owns the glyph table and scratch decode buffer, and returns glyph metrics or `EPFTileContext` output for text rendering.
+- `FontImageLib` reads `BARAM00.EFT`/`BARAM01.EFT` font archives through `DATFile`, owns the glyph table and scratch decode buffer, and returns glyph metrics or `EPFTileContext` output for text rendering.
 - `AlphaMaskSurface` and the mask blitters are shared render primitives. They consume image-library frame/mask data but own byte alpha-mask buffers, gradients, and replace/add/subtract transfer modes.
 - `IntAlphaSurface` is a provisional neighboring render-surface type. Only its destructor and vtable are recovered, so it should remain near `AlphaMaskSurface` or `Surface` until the constructor/source boundary is proved.
 - `Surface` is the provisional bucket for generic paint lifecycle, surface metadata, scroll-buffer, presentation, and DirectDraw blit helpers that currently have caller-biased owners.
@@ -157,7 +157,7 @@ Important helpers and classes:
 
 - `EPFTileContext` `0x00457a60-0x00458610`
 - `ImageLib` `0x004cffb0-0x004e6571`
-- `ResourceLayoutTable` `0x004d0120-0x004d182e`
+- `ResourceLayoutTable` `0x004d0120-0x004d182f`
 - `LoadImageFrameTable` `0x004d0f50-0x004d15c5`
 - `LoadFrameDrawRecord` `0x004d1600-0x004d165d`
 - `LoadTileEpfMetadata` `0x004d1b80-0x004d1f21`

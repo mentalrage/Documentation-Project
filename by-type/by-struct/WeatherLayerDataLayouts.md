@@ -2,7 +2,7 @@
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for fields directly indexed by IDA-verified weather code; medium for final source type names and exact original declaration placement.
 - Likely owner header: `map/WeatherLayerPane.h` or a private weather-layer `.cpp` header block.
+- Autogen parent: attached to [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md); the file scores `86/80` and this multi-layout page scores `80/88`, so both sides satisfy the 80/80 parent gate.
 - Global storage notes: [UID:0000TP][WeatherLayerGlobals](by-global/WeatherLayerGlobals.md)
 - Exact memory docs: [UID:0001ON][0x006702c8-0x00670784.RainCoordinateTables](by-memory/0x006702c8-0x00670784.RainCoordinateTables.md), [UID:0001OO][0x00670784-0x006707d0.SnowPatternByteTables](by-memory/0x00670784-0x006707d0.SnowPatternByteTables.md), and [UID:0001Q4][0x0069bf98-0x0069c044.SnowLookupDescriptorStorage](by-memory/0x0069bf98-0x0069c044.SnowLookupDescriptorStorage.md)
 
@@ -87,6 +88,7 @@ struct SnowPatternDescriptor {
 
 ## Changes
 
+- 2026-06-06: Attached the weather data layouts to [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md). Scores remain `80/88`; the file-level parent covers the rain/snow descriptor families and shared weather globals better than one pane class.
 - 2026-05-31 IDA-verified scoring:
   - What existed before: `COMPLETION:0`, `CONFIDENCE:0`, blank `RECONSTRUCTABLE`, and useful but ungraded layout hypotheses.
   - Changed to: `COMPLETION:80`, `CONFIDENCE:88`, and `RECONSTRUCTABLE:TRUE`.

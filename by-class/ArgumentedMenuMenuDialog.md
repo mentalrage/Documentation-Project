@@ -1,5 +1,5 @@
 *** UID:00000H | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HI | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -15,7 +15,7 @@
 - Confidence: strong for behavior, vtable slots, constructor callers, and the exact dialog memory child; medium for exact source split from `TextMenuDialogs.cpp`.
 - Likely source file: [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md), or folded into [UID:0000OP][TextMenuDialogs](by-file/TextMenuDialogs.md)
 - Address range: [UID:0002TW][0x0051e9a0-0x0051f28d.ArgumentedMenuMenuDialog](by-memory/0x0051e9a0-0x0051f28d.ArgumentedMenuMenuDialog.md), nested under [UID:0001BS][0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs](by-memory/0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs.md)
-- Current recovered file: `source-3/simroot_v2/class_ArgumentedMenuMenuDialog.cpp`
+- Documentation basis: the reviewed by-file owner, exact by-memory child, broad aggregate, and merchant-menu vtable-family page.
 
 ## Class Purpose
 
@@ -40,7 +40,9 @@
 
 ## Evidence Notes
 
-- Wave3 summary identifies this as a menu dialog with parameterized menu entries.
+- [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) now records the validator-staged file root, child ordering, factory route, vtable-family anchor, and source-tree placement for the argumented menu family.
+- [UID:0002TW][0x0051e9a0-0x0051f28d.ArgumentedMenuMenuDialog](by-memory/0x0051e9a0-0x0051f28d.ArgumentedMenuMenuDialog.md) documents the constructor, raw `0x0051f140` island, command handler, action-button updater, padding boundaries, constructor callers, command strings, and vtable slots.
+- [UID:0001BS][0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs](by-memory/0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs.md) ties this exact dialog slice to the still-unsplit item-list/purchase-helper tail and keeps the final split from [UID:0000OP][TextMenuDialogs](by-file/TextMenuDialogs.md) open.
 - IDA MCP confirms all three method starts and vtable refs for `0x0051f160` and `0x0051f250`.
 - 2026-06-03 restarted IDA MCP recheck corrects the exact half-open function ranges to `0x0051e9a0-0x0051f136`, `0x0051f160-0x0051f24c`, and `0x0051f250-0x0051f28d`.
 - Focused disassembly confirms a raw code-shaped island at `0x0051f140-0x0051f158`, but IDA has no function object, no xrefs to `0x0051f140`, and no dialog vtable slot targeting that address.
@@ -49,6 +51,12 @@
 - The command `1` path opens [UID:00000F][ArgumentedItemConfirmInputDialogPane](by-class/ArgumentedItemConfirmInputDialogPane.md) at `0x005200d0` with the prompt text `Do you want to buy this?\n\nConfirm the price.`
 - A separate generated helper at `0x0051f450` builds the same confirm pane but is currently emitted under `ChattingColorListPane`; treat it as an argumented item purchase helper, not chat-color code.
 - Command `2` reuses `TextMenuDialog::SendMenuRequestPacket`, which ties this class to the text-menu dialog family.
+
+## Split and Reconstruction State
+
+- This class page is attached to [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) because both the class and file pages now clear the 80%+ attachment gate.
+- Keep [UID:0002TW][0x0051e9a0-0x0051f28d.ArgumentedMenuMenuDialog](by-memory/0x0051e9a0-0x0051f28d.ArgumentedMenuMenuDialog.md) as the exact executable range; this page should summarize class ownership and method families rather than duplicate every boundary detail.
+- Do not emit final C++ yet. The constructor/control flow and vtable ownership are strong, but packet field names, final class declaration, and the unresolved `TextMenuDialogs.cpp` fold option are still below the 95/95 gate.
 
 ## Cross-References
 
@@ -64,6 +72,10 @@
 
 ## Changes
 
+- 2026-06-06 evidence refresh:
+  - Before: the page still used a generated-source line and Wave-derived evidence summary while the by-file owner, exact child page, aggregate, and vtable-family page had become stronger supporting sources.
+  - Changed to: `82/84`, documented the by-* evidence basis, clarified the class/file attachment gate, and added split/reconstruction state while leaving C++ blank below the final-source threshold.
+  - Evidence: [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) is `82/86`, [UID:0001BS][0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs](by-memory/0x0051e9a0-0x0051fc8d.ArgumentedMenuDialogs.md) is `82/86`, [UID:0002TW][0x0051e9a0-0x0051f28d.ArgumentedMenuMenuDialog](by-memory/0x0051e9a0-0x0051f28d.ArgumentedMenuMenuDialog.md) carries the exact method/range evidence, and [UID:0001Y5][MerchantMenuDialogVtableFamily](by-type/by-vtable/MerchantMenuDialogVtableFamily.md) supports the dialog vtables.
 - What existed before: the page had behavior and boundary evidence but remained scored as unevaluated.
 - What it was changed to: scores were set to `68/82`, and a class-shape section was added for base family, child list, resource anchor, command behavior, and source placement.
 - Summary and evidence: IDA-confirmed method starts and vtable references support strong behavior confidence, but final split from `TextMenuDialogs.cpp` and packet/layout fields remain unresolved.

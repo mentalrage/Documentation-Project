@@ -40,14 +40,14 @@
 - `g_startupWindowClassAtom` caches the registered notice window class.
 - `g_startupUpdateNoticeState` points to the notice-state structure used by `UpdateCheckWindowProc`.
 - `g_szBaramNoticeWndClass` and `g_szNoticeTitle` are ANSI window-class/title strings.
-- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / `byte_66DA97` is forced to `1` by the constructor.
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97` is forced to `1` by the constructor.
 
 ## Live IDA Evidence
 
 - IDA MCP on 2026-06-04 used IDB `C:\Users\admin\Desktop\Clone\NexusTK\NexusTK.exe`, MD5 `4247e04e20b65d6414c7238aa8ff5515`.
 - Exact IDA function records: constructor `0x005807d0-0x0058080c`, `RunUpdateCheck` `0x00580870-0x005810fd`, WndProc `0x00581100-0x005815aa`, modeled notice helpers `0x00581660-0x005817dd`, curl/string/draw/destructor helpers `0x00581b80-0x0058206e`, and next StdioFile function at `0x00582070`.
 - `_WinMain@16` is the only code caller for both constructor and `RunUpdateCheck`, at `0x004f5d3a` and `0x004f5d52`.
-- Constructor disassembly/decompilation writes `dword_69BAC8 = this`, `*this = StartupWindow::vftable`, `byte_66DA97 = 1`, stores the startup `HINSTANCE` at `this + 8`, and clears bytes at `this + 4` and `this + 0x54`.
+- Constructor disassembly/decompilation writes `dword_69BAC8 = this`, `*this = StartupWindow::vftable`, [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97 = 1`, stores the startup `HINSTANCE` at `this + 8`, and clears bytes at `this + 4` and `this + 0x54`.
 - The StartupWindow vtable slot at `0x0062d470` contains `0x00581d30`; xrefs to the slot come from constructor/destructor writes at `0x005807ed` and `0x00581d3a`, plus an adjacent constructor-gap write at `0x00580817`.
 - WndProc pointer refs remain narrow: `xrefs_to 0x00581100` reports `0x005808e4` inside `RunUpdateCheck` and raw `0x005819fc` inside the alternate notice setup helper.
 - Raw helper starts `0x005815b0`, `0x005817e0`, `0x00581860`, `0x005818d0`, and `0x005819d0` still have no IDA function objects but begin with function-shaped prologues (`55 8b ec ...`). The modeled WndProc-to-raw gap `0x005815aa-0x005815b0` and final aggregate gap `0x0058206e-0x00582070` are `0xcc` alignment.
@@ -67,6 +67,7 @@
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup: normalized the constructor's `byte_66DA97 = 1` write to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the historical IDA lookup alias.
 - 2026-06-04:
   - Before: scored `84/76`, reconstructability and parent attachment were blank, and the page still carried stale source-reference phrasing.
   - After: scored `86/84`, marked reconstructable, attached to [UID:0000O5][StartupWindow](by-file/StartupWindow.md), and replaced the evidence section with live IDA function/xref/raw-helper/vtable/string checks.

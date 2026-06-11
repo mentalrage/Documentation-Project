@@ -1,8 +1,8 @@
 *** UID:0000EO | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000ON | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,9 +12,9 @@
 
 ## Status
 
-- Confidence: strong.
+- Confidence: strong for core editor ownership, method families, exact draw/key/mouse/invalidation children, active-editor global, text storage fields, and TextEditPane source-file routing; medium-high for final field names and generated helper-name cleanup.
 - Likely source file: [UID:0000ON][TextEditPane](by-file/TextEditPane.md)
-- Main address ranges: `0x0058dce0-0x005917c8`, `0x00591d60-0x00594e11`, plus mixed scrollbar variants at `0x0055d960-0x00565488`
+- Main address ranges: `0x0058dce0-0x005917c9`, `0x00591d60-0x00594e11`, plus mixed scrollbar variants at `0x0055d960-0x00565488`
 - Current recovered file: `source-3/simroot_v2/class_TextEditPane.cpp`
 
 ## Class Purpose
@@ -57,8 +57,8 @@ The process-wide active editor pointer is [UID:0000Q7][g_pActiveTextEditPane](by
 | Viewport and scroll queries | `0x0058e890-0x0058edc4` | Scroll to caret/line, report scroll range/position/page/content size, convert scroll units/deltas. |
 | Layout and selection | `0x0058edd0-0x0058fb8a` | Resize, measure lines, locate cursor/format/word/line ranges, set selection, compute caret pixels, and recalc line breaks. |
 | Text mutation and clipboard | `0x0058fc30-0x0059079b` | Insert/set text, copy to `TextEditScrap`, paste, select all, read text, and find next format handler. |
-| Drawing and events | `0x00590810-0x0059116b` | Draw background/text/selection/caret, handle key events, idle, and mouse selection/drag/double-click behavior. |
-| Invalidations and limits | `0x00591180-0x005917c8` | Enforce max length/lines, cleanup format records, update caret, and invalidate lines/selection/caret/text region. |
+| Drawing and events | [UID:00030C][0x00590810-0x005909e3.TextEditPaneOnDraw](by-memory/0x00590810-0x005909e3.TextEditPaneOnDraw.md), [UID:00030F][0x005909f0-0x00590dc5.TextEditPaneOnKeyEvent](by-memory/0x005909f0-0x00590dc5.TextEditPaneOnKeyEvent.md), [UID:00030E][0x00590de0-0x00591180.TextEditPaneOnMouseEvent](by-memory/0x00590de0-0x00591180.TextEditPaneOnMouseEvent.md) | Draw background/text/selection/caret, handle key events, and mouse selection/drag/double-click behavior. |
+| Invalidations and limits | `0x00591180-0x0059173f`, [UID:00030D][0x00591740-0x005917c9.TextEditPaneInvalidateTextRegion](by-memory/0x00591740-0x005917c9.TextEditPaneInvalidateTextRegion.md) | Enforce max length/lines, cleanup format records, update caret, and invalidate lines/selection/caret/text region. |
 | Format runs/range editing | `0x00591d60-0x00593a10` | Build format arrays, apply/get range attributes, replace/delete ranges, manage style runs, and iterate text runs. |
 | Input navigation and wrapping | `0x00594040-0x00594e11` | Character input, delete, cursor movement, wrapping, wrap position recalculation, and autoscroll during selection. |
 | Scrollbar handler variants | `0x0055d960-0x00565488` excluding the corrected `0x00561420-0x00561d4d` group-scrollbar helper family | Hit-test, draw, track, and drag repeated scrollbar variants used by the editor and neighboring scrollbar classes. |
@@ -68,6 +68,7 @@ The process-wide active editor pointer is [UID:0000Q7][g_pActiveTextEditPane](by
 - Wave3 class summary describes a rich text edit control with copy, paste, cut, multiline selection, caret cursor, scrollbar variants, double/triple-click selection, and text formatting.
 - IDA MCP reports 26 direct references to the constructor and six references to `CopySelectionToScrap`.
 - `TextEditPane::OnDraw` calls `IterateTextRuns` with [UID:0000UK][DrawTextRunCallback_00593DB0](by-item/DrawTextRunCallback_00593DB0.md).
+- 2026-06-07 A004 Batch 068 split exact child docs for [UID:00030C][0x00590810-0x005909e3.TextEditPaneOnDraw](by-memory/0x00590810-0x005909e3.TextEditPaneOnDraw.md), [UID:00030F][0x005909f0-0x00590dc5.TextEditPaneOnKeyEvent](by-memory/0x005909f0-0x00590dc5.TextEditPaneOnKeyEvent.md), [UID:00030E][0x00590de0-0x00591180.TextEditPaneOnMouseEvent](by-memory/0x00590de0-0x00591180.TextEditPaneOnMouseEvent.md), and [UID:00030D][0x00591740-0x005917c9.TextEditPaneInvalidateTextRegion](by-memory/0x00591740-0x005917c9.TextEditPaneInvalidateTextRegion.md), confirming boundaries, virtual handler shape, key/mouse selection behavior, render/invalidation callees, and the mouse switch-table tail.
 - [UID:0002O9][0x0058e380-0x0058e3d7.TextEditPaneCopyWideText](by-memory/0x0058e380-0x0058e3d7.TextEditPaneCopyWideText.md) confirms text storage at `+0x134` can be copied out through a bounded UTF-16 accessor used by [UID:0002OA][0x00498c10-0x00498c1f.TextEditControlPaneReadTextForwarder](by-memory/0x00498c10-0x00498c1f.TextEditControlPaneReadTextForwarder.md).
 - IDA data xrefs pass [UID:0001JQ][0x00593c20-0x00593ce4.TextRunMeasureCallback](by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md) into the same text-run/layout family; the current generated `0x00593b20` fitting-room owner marker is not an IDA function.
 - `TextEditPane::OnDraw` and `InvalidateTextRegion` call [UID:000169][0x004ba540-0x004ba6ad.CompositePixels16](by-memory/0x004ba540-0x004ba6ad.CompositePixels16.md), currently emitted by `simroot_v2` as a BowGauge helper but proven shared by IDA callers.
@@ -88,7 +89,11 @@ The process-wide active editor pointer is [UID:0000Q7][g_pActiveTextEditPane](by
 - [UID:000039][CopyWindow](by-class/CopyWindow.md)
 - [UID:0000EP][TextEditScrap](by-class/TextEditScrap.md)
 - [UID:0000Q7][g_pActiveTextEditPane](by-global/g_pActiveTextEditPane.md)
-- [UID:0001JM][0x0058dce0-0x005917c8.TextEditPaneCore](by-memory/0x0058dce0-0x005917c8.TextEditPaneCore.md)
+- [UID:0001JM][0x0058dce0-0x005917c9.TextEditPaneCore](by-memory/0x0058dce0-0x005917c9.TextEditPaneCore.md)
+- [UID:00030C][0x00590810-0x005909e3.TextEditPaneOnDraw](by-memory/0x00590810-0x005909e3.TextEditPaneOnDraw.md)
+- [UID:00030F][0x005909f0-0x00590dc5.TextEditPaneOnKeyEvent](by-memory/0x005909f0-0x00590dc5.TextEditPaneOnKeyEvent.md)
+- [UID:00030E][0x00590de0-0x00591180.TextEditPaneOnMouseEvent](by-memory/0x00590de0-0x00591180.TextEditPaneOnMouseEvent.md)
+- [UID:00030D][0x00591740-0x005917c9.TextEditPaneInvalidateTextRegion](by-memory/0x00591740-0x005917c9.TextEditPaneInvalidateTextRegion.md)
 - [UID:0001JP][0x00591d60-0x00593a10.TextEditPaneFormattingRuns](by-memory/0x00591d60-0x00593a10.TextEditPaneFormattingRuns.md)
 - [UID:0001JQ][0x00593c20-0x00593ce4.TextRunMeasureCallback](by-memory/0x00593c20-0x00593ce4.TextRunMeasureCallback.md)
 - [UID:0001JR][0x00593db0-0x00593ef5.DrawTextRunCallback](by-memory/0x00593db0-0x00593ef5.DrawTextRunCallback.md)
@@ -101,6 +106,19 @@ The process-wide active editor pointer is [UID:0000Q7][g_pActiveTextEditPane](by
 
 ## Changes
 
+- 2026-06-07 A004 Batch 068 parent-gate refresh:
+  - Before: `88/82`; confidence was below the corrected direct-parent gate for exact TextEditPane method children.
+  - After: `88/85`.
+  - Evidence: live IDA MCP split exact child pages for draw, key event, mouse event plus local switch table, and final text-region invalidation; these combine with existing constructor/destructor/copy/serialization/formatting/input-navigation evidence and the already refreshed [UID:0000ON][TextEditPane](by-file/TextEditPane.md) source-file parent at `88/85`.
+  - Remaining cap: final field names, generated helper-name pollution, and several still-unsplit core helper slices prevent higher confidence/completion.
+
+- 2026-06-07 A004 Batch 046 range sync:
+  - Updated [UID:0001JM][0x0058dce0-0x005917c9.TextEditPaneCore](by-memory/0x0058dce0-0x005917c9.TextEditPaneCore.md) to the corrected half-open endpoint `0x0058dce0-0x005917c9` after IDA MCP confirmed `sub_591740` covers the prior endpoint byte and the next function begins at `0x005917d0`.
+  - Score unchanged at `88/82`; final field names and generated helper-name pollution still cap confidence.
+
+- Before: reconstruction autogen metadata was unclassified.
+- Changed to: marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000ON][TextEditPane](by-file/TextEditPane.md).
+- Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed representative editor method starts across construction/destruction, text access, serialization, viewport, layout, mutation, drawing/events, invalidation, and input navigation at `0x0058dce0`, `0x0058e140`, `0x0058e380`, `0x0058e490`, `0x0058e890`, `0x0058edd0`, `0x0058fc30`, `0x00590810`, `0x00591180`, and `0x00594040`; `0x00591d60` remains a raw non-function formatting-run island inside the documented range. This page and parent [UID:0000ON][TextEditPane](by-file/TextEditPane.md) both meet the 80/80 parent gate. No C++ was emitted because the page is below the 95/95 reconstruction-code bar.
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `88`, confidence `82`.
 - Evidence: the page documents core editor responsibility, stable offsets, active editor global, major method families, callbacks, rendering/helper links, clipboard/scrap behavior, source-owner caveats, and excluded `ScrollNewGroupPane` helper family; confidence remains capped by generated helper-name pollution and unresolved final field names.

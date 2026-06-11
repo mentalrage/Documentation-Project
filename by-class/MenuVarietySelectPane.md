@@ -1,8 +1,8 @@
 *** UID:000082 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -58,4 +58,5 @@
 
 ## Changes
 
+- 2026-06-05: Marked reconstructable and attached to [UID:0000L8][MenuVarietyPanes](by-file/MenuVarietyPanes.md) because the class is `84/86` and the parent is `86/82`, satisfying the 80/80 parent gate. Live IDA MCP evidence: `lookup_funcs` confirms exact starts at `0x005bc970`, `0x005bcf80`, `0x005bd000`, `0x005bd3a0`, `0x005bd3c0`, `0x005bd5b0`, `0x005bd9b0`, `0x005bfbd0`, and `0x005bfce0`; `callers` confirms the constructor is reached from `0x005bc765` in `MenuVarietyPane` click handling.
 - Completion/confidence score update: existed before as `0/0`; changed to `84/86`. Summary: the menu selector pane is documented in high detail across construction, labels/actions, mouse dispatch, draw/frame helpers, singleton cleanup, hit-test helper, quit-dialog dependency, and generic vector-helper exclusion. Evidence: linked `MenuVarietyPanes` range, IDA-confirmed method starts, singleton global references, 2026-05-26 hit-test caller recheck, and adjacent vector-helper classification.

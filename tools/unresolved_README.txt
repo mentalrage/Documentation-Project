@@ -78,6 +78,19 @@ Occurrence `kind` values:
 These kinds are important for future replacement tooling. Injecting text into a
 `markdown_link` or `path` occurrence can break links or filenames.
 
+When `Ignore_Not_Reconstructable` is enabled in `tools/unresolved.json`, report
+output hides file references and occurrences from Markdown files explicitly
+marked:
+
+```text
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+```
+
+The scan still reads those files and `tools/unresolved.ini` still keeps their
+raw match and occurrence data. The setting only changes what appears in the
+generated Markdown reports.
+
 `project-level/-resolved.md` lists resolved-name records in this form:
 
 ```text
@@ -128,6 +141,14 @@ Resolved names are stored in `tools/unresolved.ini` under `[resolved_names]`.
 Temporary aliases are stored under `[resolved_aliases]`. They do not edit
 documentation files by themselves. They only change report classification.
 
+Resolved names and alias names must be valid C++ variable identifiers under
+40 characters. They may contain letters, numbers, and underscores, must not
+start with a number, and must not be C++ keywords. Invalid input fails with:
+
+```text
+Must be valid c++ varaiable name under 40 characters.
+```
+
 When scanning finds a generated token that has a resolved name:
 
 1. For each file containing the generated token, unresolved.py checks whether
@@ -163,17 +184,15 @@ Apply full scan and write `tools/unresolved.ini`,
 python unresolved.py --mode full --apply
 ```
 
-Dry-run one file:
+Dry-run one file for inspection:
 
 ```powershell
 python unresolved.py --mode file --file ..\by-memory\example.md
 ```
 
-Apply one-file scan:
-
-```powershell
-python unresolved.py --mode file --file ..\by-memory\example.md --apply
-```
+File-scoped scans are dry-run only. Do not use `--apply` with `--mode file`;
+that would replace the global project-level indexes with one file's results.
+Run `python unresolved.py --mode full --apply` to refresh generated reports.
 
 Record a resolved name:
 
@@ -251,6 +270,8 @@ python unresolved.py unalias g_oldOrAlternateName
 Alias safety rules:
 
 - An alias target must already resolve to an existing resolved name.
+- Resolved names and alias names must be valid C++ variable identifiers under
+  40 characters.
 - An alias name cannot already exist as another alias.
 - An alias name cannot be the canonical resolved name for any generated token.
 - An alias name cannot be a generated token that already has a resolved name.
@@ -295,8 +316,15 @@ Important fields:
 - `scan_extensions`
   File extensions to scan. Currently Markdown only.
 
+- `exclude_by_folder_names`
+  Direct documentation folders ignored before recursive scanning. Use this for
+  top-level `by-*` folders that should not contribute unresolved-name report
+  data, such as `by-meta`, `by-external-research`, and
+  `by-project-structure`.
+
 - `exclude_directory_names`
-  Directory names ignored during scanning.
+  Directory names ignored during recursive scanning. Use this for generic
+  nested folder names such as `.git`, `__pycache__`, or `auto-generated`.
 
 - `exclude_file_suffixes`
   Filename suffixes ignored during scanning, such as `.bak`.
@@ -304,6 +332,13 @@ Important fields:
 - `filters`
   Ordered regex filters. Each filter has `name`, `enabled`, `pattern`, and
   `description`.
+
+- `Ignore_Not_Reconstructable`
+  Boolean output filter. When `true`, `-unresolved.md` and `-resolved.md` hide
+  references from files whose metadata explicitly says
+  `RECONSTRUCTABLE:FALSE` or `RECONSTRUCTABLE:0`, matching validator false
+  semantics. Files with blank, missing, or true reconstructable metadata are
+  still shown. This does not change scanning or INI data capture.
 
 Do not add overly broad filters that match human-authored address-suffixed
 names. Names such as `InitializeMainUiGraph_004F7D10`,

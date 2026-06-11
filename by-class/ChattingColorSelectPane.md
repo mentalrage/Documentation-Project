@@ -1,8 +1,8 @@
 *** UID:00001U | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000I5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -59,3 +59,4 @@
 - What existed before: the page only listed broad method anchors at `0x00482ca0`, `0x00482d60`, and `0x00482f50`.
 - What it was changed to: exact by-memory child pages now cover constructor, two raw helpers, draw item, selection changed, and internal padding through `0x00482fb0`; score was updated from `70/80` to `82/88`.
 - Summary and evidence: IDA MCP function iteration, decompilation, vtable data, string review, raw disassembly, and padding audit verify the selector cluster. Remaining uncertainty is the source-level names for the two unxrefed raw helpers and final file split.
+- 2026-06-05: Reclassified autogen metadata from unclassified to `RECONSTRUCTABLE:TRUE` and attached the class to [UID:0000I5][Chatting](by-file/Chatting.md). Current IDA MCP `lookup_funcs` reconfirmed constructor/draw/selection/destructor starts at `0x00482ca0`, `0x00482d60`, `0x00482f50`, and `0x0047e9d0`; direct constructor xrefs remain absent, matching the existing inline-construction caveat. Both class (`82/88`) and file (`83/87`) clear the 80+ attachment gate; reconstruction C++ remains blank pending final helper names and source split.

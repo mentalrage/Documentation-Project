@@ -1,8 +1,8 @@
 *** UID:0000D8 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NQ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,9 +12,9 @@
 
 ## Status
 
-- Confidence: medium-high for reusable control ownership; final split from [UID:0000KT][ListPane](by-file/ListPane.md) remains a source-layout decision.
+- Confidence: strong enough for reusable control ownership and layout parenting; final split from [UID:0000KT][ListPane](by-file/ListPane.md) remains a source-layout decision.
 - Likely source file: [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md), or folded into [UID:0000KT][ListPane](by-file/ListPane.md) if final source layout favors compact control files.
-- Current recovered file: `source-3/simroot_v2/class_SimpleListPane.cpp`
+- Autogen parent: [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md)
 
 ## Class Purpose
 
@@ -41,10 +41,16 @@
 - The destructor reads the item-list state through the same storage area used by `ListPane` helpers; see [UID:0001W3][SimpleListPaneLayout](by-type/by-struct/SimpleListPaneLayout.md).
 - IDA confirms no local `SimpleListPane` fields beyond inherited `ListPane` storage; scalar deleting destructor uses object size `0x14c`.
 
+## Batch 129 Parent-Gate Audit
+
+This class is the direct owner for [UID:0001W3][SimpleListPaneLayout](by-type/by-struct/SimpleListPaneLayout.md). The layout page describes this class's vptr placements and inherited `ListPane` storage, not a reusable file-level helper type. [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md) was refreshed to `86/85`, so this class can retain that direct source-root parent under the strict gate.
+
+2026-06-08 live IDA MCP reconfirmed the current evidence boundary: `0x005739a0` is still not modeled as a function, preserving the raw-constructor caveat; `0x00573a00` is the modeled cleanup body (`0x98` bytes); `0x00573c38` and `0x00573c43` are two `0xb` adjustor thunks; and `0x00573c50` is the `0xc5` main destructor. The vtable data refs and written layout evidence identify the primary, secondary, and tertiary vptrs at `+0x00`, `+0xa0`, and `+0xa4`, while the destructor and base cleanup evidence confirms object extent `0x14c`.
+
 ## Evidence Notes
 
 - IDA MCP confirms the destructor and both thunks. It does not currently model the constructor at `0x005739a0` as a function, so the constructor remains raw-boundary evidence.
-- Active Wave3 output only emits the destructor. The constructor and both thunks are in the disabled companion; this is tracked in [wave3_data_issues](../wave3_data_issues.md).
+- The constructor and both thunks remain documented through raw-boundary/vtable evidence rather than ordinary IDA function modeling.
 - The active destructor's `ClientItemMenuItemList` base-call name is not reliable ownership evidence. Behavior and address context match the shared `ListPane` destructor family.
 - 2026-05-26 recheck: the active/disabled generated split is unchanged, and the thunk pair is now recorded as compiler-generated ignored memory in [UID:0000VN][-ignored](by-memory/-ignored.md).
 - 2026-05-31 IDA pass split `0x00573a00-0x00573c38` into exact destructor and copied-text helper pages, and confirmed the vtable bases `0x00624c64`, `0x00624cec`, and `0x00624d1c`.
@@ -66,7 +72,7 @@
 
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `80`, confidence `74`.
-- Evidence: the page documents the class role, likely ownership, constructor-shaped range, destructor/helper islands, thunk ranges, layout notes, Wave3 split, and ignored thunk tracking; confidence remains medium-high because the constructor is raw-boundary evidence and generated base-call names are polluted.
+- Evidence: the page documents the class role, likely ownership, constructor-shaped range, destructor/helper islands, thunk ranges, layout notes, source-materialization caveats, and ignored thunk tracking; confidence remains medium-high because the constructor is raw-boundary evidence and base-call names are polluted.
 - Before: this page jumped from the raw constructor directly to the scalar deleting destructor/thunk range, leaving `0x00573a00-0x00573c38` undocumented.
 - Changed to: the non-scalar destructor and entry helper island is now documented through [UID:000241][0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers](by-memory/0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers.md).
 - Evidence: 2026-05-28 IDA MCP disassembly shows the vtable-restoring destructor at `0x00573a00`, followed by raw wide-string entry helpers at `0x00573aa0`, `0x00573b10`, and `0x00573b70`.
@@ -78,3 +84,11 @@
   - Before: the class page linked the old short ranges `0x00573aa0-0x00573b05` and `0x00573b10-0x00573b6a`, which stopped at the starts of return instructions.
   - After: the class page links `0x00573aa0-0x00573b08` and `0x00573b10-0x00573b6d`.
   - Evidence: IDA MCP raw disassembly shows `retn 4` bytes at `0x00573b05-0x00573b08` and `retn 8` bytes at `0x00573b6a-0x00573b6d`.
+- 2026-06-05: Set the autogen parent to [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md).
+  - Before: `AUTOGEN_PARENT_UID` was blank, leaving reconstructable SimpleListPane child memory pages unable to resolve to an autogen root.
+  - After: the class attaches to the validated `NexusTK/ui/controls/` SimpleListPane file root, while C++ remains blank below the 95+ final-code gate.
+  - Evidence: [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md) is the current validated file root and the error rows showed [UID:000241][0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers](by-memory/0x00573a00-0x00573c38.SimpleListPaneDestructorAndEntryHelpers.md) already attached to this class UID.
+- 2026-06-08 A002 Batch129 parent-gate refresh:
+  - Before: `COMPLETION:84`, `CONFIDENCE:82`.
+  - After: `COMPLETION:85`, `CONFIDENCE:85`.
+  - Evidence: added the direct layout-parent audit for [UID:0001W3][SimpleListPaneLayout](by-type/by-struct/SimpleListPaneLayout.md), after [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md) was refreshed to `86/85`. Live IDA MCP reconfirmed the raw-constructor caveat, destructor/thunk starts, and destructor evidence supporting the vptr offsets and `0x14c` object extent. Scores remain at the gate because constructor callers and final source split are still unresolved.

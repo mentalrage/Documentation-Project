@@ -1,8 +1,8 @@
 *** UID:0001XB | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Covered classes: [UID:00003I][DATFileMgr](by-class/DATFileMgr.md) and [UID:000004][_DATFileMgr](by-class/_DATFileMgr.md)
 - Likely source module: [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md)
 - Confidence: strong for table bases, short extents, and exact child ranges.
+- Autogen status: attached to the `DATFileMgr` file page because this page covers the public/private manager pair; final C++ remains blank under the `95/95` reconstruction gate.
 
 ## Vtable Inventory
 
@@ -43,6 +44,10 @@
 
 Do not read past either single-slot vtable. `DATFileMgr` is immediately followed by `DATFileContainer` RTTI/vtable data, while `_DATFileMgr` is immediately followed by a string/data island before `DescPane` RTTI/vtable data. Any generated method rows past the first slot should be treated as vtable-boundary pollution unless independently confirmed by IDA.
 
+## Parent Rationale
+
+Attach this vtable inventory to [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), not to one individual class, because it covers both the public wrapper [UID:00003I][DATFileMgr](by-class/DATFileMgr.md) and private implementation [UID:000004][_DATFileMgr](by-class/_DATFileMgr.md). The file page is already reconstructable as the archive manager source root, owns both classes, and records the same exact vtable-data child ranges and non-slot boundary warnings. This page remains the narrow evidence home for the two one-slot vtables and their adjacent `.rdata` boundaries.
+
 ## Cross-References
 
 - [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md)
@@ -54,6 +59,11 @@ Do not read past either single-slot vtable. `DATFileMgr` is immediately followed
 - [UID:0002MB][0x006189c8-0x006189d0._DATFileMgrVtableData](by-memory/0x006189c8-0x006189d0._DATFileMgrVtableData.md)
 
 ## Changes
+
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable inventory was reconstructable but unassigned in generated type coverage.
+  - What changed: attached the inventory to [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), raised completion to `86`, and added an explicit file-level parent rationale.
+  - Summary/evidence: exact [UID:0002MA][0x00618910-0x00618918.DATFileMgrVtableData](by-memory/0x00618910-0x00618918.DATFileMgrVtableData.md) and [UID:0002MB][0x006189c8-0x006189d0._DATFileMgrVtableData](by-memory/0x006189c8-0x006189d0._DATFileMgrVtableData.md) children plus the [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md) file page's `89/84` score support a file-level attachment; final helper class naming and method rewrites remain below the final-code gate.
 
 - 2026-05-31 exact child split:
   - What existed before: metadata was `0/0` with `RECONSTRUCTABLE` blank, and this page described the two one-slot vtables without exact by-memory child pages.

@@ -166,7 +166,7 @@ Evidence:
 - [UID:0000VZ][0x004064a0-0x00406d8c.LibJpegMarkerWriter](by-memory/0x004064a0-0x00406d8c.LibJpegMarkerWriter.md) maps `jcmarker.c`.
 - [UID:0000W0][0x00406d90-0x00406e46.LibJpegCompressMasterInit](by-memory/0x00406d90-0x00406e46.LibJpegCompressMasterInit.md) maps `jcinit.c`.
 - [UID:0000W1][0x00406e50-0x00406ed1.LibJpegNoBackingStoreMemoryBackend](by-memory/0x00406e50-0x00406ed1.LibJpegNoBackingStoreMemoryBackend.md) maps `jmemnobs.c`, not a temp-file backing-store backend.
-- [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md) identify two product-owned libjpeg decode callers: `DecodeJpfImageToTileContext` at `0x004d07b0` for profile/look `JPF` portraits and `DecodeJpegBufferToTileContext` at `0x004d0a90` for minimap tile blobs.
+- [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0f4a.ImageDecodeWrappers.md) identify two product-owned libjpeg decode callers: `DecodeJpfImageToTileContext` at `0x004d07b0` for profile/look `JPF` portraits and `DecodeJpegBufferToTileContext` at `0x004d0a90` for minimap tile blobs.
 - [UID:00018N][0x004efbc0-0x004efe94.JpegScreenshotWriter](by-memory/0x004efbc0-0x004efe94.JpegScreenshotWriter.md) identifies a product-owned compression wrapper used by a raw/retained `.jpg` screenshot path at `0x00557840-0x00557a95`.
 - IDA data inspection finds the 121-entry JPEG message pointer table at `0x00631660-0x00631840`.
 - IDA rejects the previous provisional `0x00469640-0x00470dc9` neighborhood for LibJPEG: `0x00469640` and `0x00470a00` decompile as BrowserWindow/WebBrowser COM code.
@@ -321,7 +321,7 @@ Open questions:
 - [UID:0000VZ][0x004064a0-0x00406d8c.LibJpegMarkerWriter](by-memory/0x004064a0-0x00406d8c.LibJpegMarkerWriter.md)
 - [UID:0000W0][0x00406d90-0x00406e46.LibJpegCompressMasterInit](by-memory/0x00406d90-0x00406e46.LibJpegCompressMasterInit.md)
 - [UID:0000W1][0x00406e50-0x00406ed1.LibJpegNoBackingStoreMemoryBackend](by-memory/0x00406e50-0x00406ed1.LibJpegNoBackingStoreMemoryBackend.md)
-- [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md)
+- [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0f4a.ImageDecodeWrappers.md)
 - [UID:00018N][0x004efbc0-0x004efe94.JpegScreenshotWriter](by-memory/0x004efbc0-0x004efe94.JpegScreenshotWriter.md)
 - [UID:0000KI][JsonCpp](by-file/JsonCpp.md)
 - [UID:0000WY][0x00424630-0x00428b4b.JsonCppValueCore](by-memory/0x00424630-0x00428b4b.JsonCppValueCore.md)

@@ -1,6 +1,6 @@
 *** UID:00004I | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000J4 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for behavior, boundaries, and local layout, medium for final field names.
+- Confidence: strong for behavior, boundaries, local layout, method inventory, and direct file parent; medium-high for final field names.
 - Likely source module: [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md)
 - Current relevant range: `0x00457a60-0x00458610`
 - Main address doc: [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md)
@@ -65,6 +65,15 @@ This implies a 0x28-byte context. Field names are working names until the class 
 - This class should live with render/image support, not DAT parsing.
 - EPF/EPD table loaders produce bounds and payload offsets; `EPFTileContext` holds decoded pixels and masks after payload interpretation.
 - Consumers include frame, minimap, dialog, and image-control rendering paths.
+- [UID:0002HT][0x004b61e0-0x004b6341.FontImageLibDecodeGlyphBitmap](by-memory/0x004b61e0-0x004b6341.FontImageLibDecodeGlyphBitmap.md) is a font-specific producer that writes the decoded pixel pointer at `+0x04`, row stride at `+0x0c`, bounds at `+0x10..+0x1c`, and clears mask fields at `+0x20/+0x24` after its caller releases prior buffers.
+
+## Assignment Gate
+
+- Current class score after Batch 102: `COMPLETION:85`, `CONFIDENCE:86`.
+- Direct file parent: [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md), refreshed to `89/86`.
+- Exact memory child now eligible: [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md), already `86/90`.
+- Assignment basis: this class is the direct source/type parent for the aggregate because the memory page's 0x28-byte layout, buffer lifecycle, mask builders, copy/decimation/allocation helpers, post-decode normalization, and range scan all operate on the same EPFTileContext object shape documented here.
+- Final C++ remains blank until `pixelMode`, `auxiliaryData`, encoded-mask naming, and any source-level declaration details are final-source quality.
 
 ## Open Questions
 
@@ -82,6 +91,7 @@ This implies a 0x28-byte context. Field names are working names until the class 
 - [UID:000201][0x00458590-0x00458610.EPFTileContextPixelRangeTest](by-memory/0x00458590-0x00458610.EPFTileContextPixelRangeTest.md)
 - [UID:0000UN][EPFArchiveMetadataTable](by-item/EPFArchiveMetadataTable.md)
 - [UID:0001QC][client_dat_specifications](by-meta/client_dat_specifications.md)
+- [UID:0002HT][0x004b61e0-0x004b6341.FontImageLibDecodeGlyphBitmap](by-memory/0x004b61e0-0x004b6341.FontImageLibDecodeGlyphBitmap.md)
 
 ## Changes
 
@@ -90,6 +100,12 @@ This implies a 0x28-byte context. Field names are working names until the class 
 - Before: the method table listed the initializer, two mask builders, copy, release, and two tail helpers only.
 - Changed to: added the live middle bodies at `0x00457f30`, `0x00457ff0`, `0x00458260`, `0x004583d0`, `0x00458430`, and `0x00458490`, and replaced stale evidence wording with the live IDA/Hex-Rays basis.
 - Summary/evidence: [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md) now records exact boundaries, padding, caller/callee evidence, and behavior for every body in the aggregate. Class metadata is unchanged because final field and method names remain provisional.
+
+### 2026-06-08 - Batch 102 parent-gate refresh
+
+- Before: `COMPLETION:80`, `CONFIDENCE:82`; the class carried the render file parent but was below the corrected child-and-parent `85/85` gate for assigning the full aggregate memory child.
+- Changed to: `COMPLETION:85`, `CONFIDENCE:86`; parent remains [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md).
+- Summary/evidence: the page now records the full aggregate inventory as class-owned behavior, direct file parent readiness at `89/86`, the exact memory child at `86/90`, FontImageLib producer evidence, shared image-loader allocation callers, and final field-name caveats. This supports routing [UID:0000XY][0x00457a60-0x00458610.EPFTileContext](by-memory/0x00457a60-0x00458610.EPFTileContext.md) to this class while leaving final C++ blank.
 
 - 2026-06-02:
   - Before: reconstructability and parent were blank despite `80/82` scoring and a high-confidence source-file page.
@@ -105,3 +121,7 @@ This implies a 0x28-byte context. Field names are working names until the class 
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `80/82`.
   - Summary/evidence: decoded tile-context responsibility, inferred layout, mask/copy/release/normalize/range-test methods, ownership notes, open questions, and corrected tail helpers are documented; remaining uncertainty is final field names and some pixel-mode semantics.
+- 2026-06-06: Added FontImageLib decode producer evidence.
+  - Before: FontImageLib was listed only indirectly through consumers/dependencies.
+  - After: ownership notes explicitly record that [UID:0002HT][0x004b61e0-0x004b6341.FontImageLibDecodeGlyphBitmap](by-memory/0x004b61e0-0x004b6341.FontImageLibDecodeGlyphBitmap.md) writes the pixel pointer, stride, bounds, and mask fields in the same layout.
+  - Summary/evidence: live IDA disassembly at `0x004b6290`, `0x004b6296`, `0x004b6299`, and `0x004b62a0`.

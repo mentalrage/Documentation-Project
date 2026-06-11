@@ -1,8 +1,8 @@
 *** UID:00006L | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -57,3 +57,4 @@ IDA confirms constructor callers from `UserPane::OnKeyEvent` and `MenuVarietySel
 - What it was changed to: the main range now ends at `0x00542265`, and the scalar deleting destructor wrapper is documented as `0x00542740-0x00542795` in the shared destructor island.
 - Summary and evidence: IDA MCP review on 2026-05-28 showed `sub_5421F0` ends at `0x00542265` and the generated destructor wrapper ends at `0x00542795`.
 - Completion/confidence score update: existed before as `0/0`; changed to `82/88`. Summary: integrated macro dialog behavior, ten-row edit controls, RegistryConfig macro table mapping, method inventory, caller evidence, child control relationship, vtable family, and corrected ranges are documented with strong confidence. Evidence: `IntegrateMacroDialog`, `MacroDialogFamilyVtables`, `MacroHotkeyRecord`, `DialogPaneScalarDeletingDestructorIsland`, and IDA caller/recheck notes.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000KY][MacroDialogs](by-file/MacroDialogs.md) because the class is `82/88` and the parent is `88/82`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts at `0x00541b30`, `0x00541e30`, `0x00541e50`, `0x00541fa0`, `0x005420c0`, `0x005420d0`, `0x005421f0`, and `0x00542740`; current `callers` confirms constructor calls from `0x005a7399` and `0x005bd1a7`.

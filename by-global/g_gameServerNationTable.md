@@ -1,8 +1,8 @@
 *** UID:0000Q1 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JP | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -13,7 +13,6 @@
 ## Status
 
 - Confidence: strong for storage address and lifecycle, medium for final type name.
-- Current Wave3 kind: `global-data`.
 - IDA storage: `0x0069b4c4` (`dword_69B4C4`).
 - Proposed owner: [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md) under `map/`, or private [UID:0000L3][MapPane](by-file/MapPane.md) helper state if the table is folded into `MapPane.cpp`.
 
@@ -43,10 +42,11 @@ If later class cleanup splits the table from the map-pane initializer, prefer a 
 - `0x00503c70` sends the fixed opcode `0x66` / subcode `0x4000` request packet when the table is empty.
 - IDA xrefs also show readers in the `MapPane` packet path and in the user-list/status UI neighborhood, including `0x00507c90` and `0x0059bc90` range functions.
 - 2026-05-25 IDA recheck reports concrete xrefs at `0x00503a0d`, `0x00503a6b`, `0x00504467`, `0x0050446e`, `0x00504668`, `0x00507cf6`, `0x00514d9e`, multiple `0x0059bc90` sites, `0x005a5010`, `0x005a5bd0`, `0x005b8c70`, and `0x005be520`.
+- IDA MCP `py_eval` on 2026-06-07 reconfirmed the exact storage item as `0x0069b4c4-0x0069b4c8`, bytes `ff ff ff ff`, initial dword `0xffffffff`, and 18 xrefs spanning raw constructor/destructor writes, map initializer writes, map teardown read, scalar destructor clear, user/status readers, request paths, and copy/fallback consumers. The exact split memory page is [UID:0002XS][0x0069b4c4-0x0069b4c8.g_gameServerNationTable](by-memory/0x0069b4c4-0x0069b4c8.g_gameServerNationTable.md).
 
 ## Caveats
 
-The generated name `GameServerConfig` is misleading if read as general configuration. The global is map/gameplay nation state. Keep it out of `config/` unless later evidence proves a broader server-config module existed.
+The `GameServerConfig` module name is misleading if read as general configuration. The global is map/gameplay nation state. Keep it out of `config/` unless later evidence proves a broader server-config module existed.
 
 ## Cross-References
 
@@ -60,3 +60,8 @@ The generated name `GameServerConfig` is misleading if read as general configura
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `86/80`. Summary/evidence: the page documents storage, role, lifecycle, allocation/destruction, access patterns, IDA xrefs, caveats, and owner/type refs, with final type name still medium-confidence.
 - 2026-06-03: Updated the raw destructor lifecycle range to `0x00503a50-0x00503a7d`. Evidence: IDA MCP disassembly shows the tail jump starts at `0x00503a78`, runs through `0x00503a7c`, and is followed by `0xcc` padding.
+- 2026-06-05: Marked reconstructable under [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md). Evidence: live IDA MCP xrefs to `0x0069b4c4` include the initialization corridor at `0x00504110`, the cleanup body at `0x00514d80`, and nation-table readers in map/status/user code; decompilation confirms `0x00504110` stores the table object and `0x00514d80` clears the global.
+- 2026-06-07 Batch 043 split-parent refresh:
+  - Before: confidence `80`, below the corrected `85/85` gate for assigning an exact memory storage child.
+  - After: confidence `86`; completion remains `86`.
+  - Evidence: live IDA MCP reconfirmed exact four-byte storage bounds, initial value, and 18 xrefs across constructor/destructor, map initialization/teardown, user/status presentation, request, and nation-entry copy paths. The final class/type name remains caveated, but the storage and direct global ownership are now strong.

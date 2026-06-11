@@ -30,7 +30,7 @@
 
 ## Evidence Notes
 
-- [UID:0001HB][0x0056c400-0x0056c493.LegendPane](by-memory/0x0056c400-0x0056c493.LegendPane.md) records IDA-confirmed exact bounds, raw bytes, surrounding `0xcc` padding, the `byte_66DA97` resolution branch, `sub_4B60B0` and `sub_58DCE0` callees, and the `this+0x104 = 63` state write.
+- [UID:0001HB][0x0056c400-0x0056c493.LegendPane](by-memory/0x0056c400-0x0056c493.LegendPane.md) records IDA-confirmed exact bounds, raw bytes, surrounding `0xcc` padding, the [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97` resolution branch, `sub_4B60B0` and `sub_58DCE0` callees, and the `this+0x104 = 63` state write.
 - IDA caller/xref checks in the memory page confirm exactly three direct constructor callers: `SelfLookPane::SelfLookPane` at `0x0056571c`, `SelfLookPane2::SelfLookPane2` at `0x0056ff6e`, and `UserLookPane::UserLookPane` at `0x0059f428`.
 - [UID:0001Y0][LookPaneVtableFamily](by-type/by-vtable/LookPaneVtableFamily.md) records `LegendPane` vtable bases at `0x00624388`, `0x00624400`, and `0x00624430`; current generated metadata reporting no vtables is a Wave3 data issue, not source-layout evidence.
 - [UID:0000KM][LegendPane](by-file/LegendPane.md) has a valid `NexusTK/ui/panels/` reconstruction path and documents why `LegendPane` is a shared look/status child instead of being exclusively owned by either self-look or user-look source.
@@ -53,11 +53,13 @@
 - [UID:0000KM][LegendPane](by-file/LegendPane.md)
 - [UID:0001Y0][LookPaneVtableFamily](by-type/by-vtable/LookPaneVtableFamily.md)
 - [UID:0001HB][0x0056c400-0x0056c493.LegendPane](by-memory/0x0056c400-0x0056c493.LegendPane.md)
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
 - [UID:0000CU][SelfLookPane](by-class/SelfLookPane.md)
 - [UID:0000FP][UserLookPane](by-class/UserLookPane.md)
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup: normalized the constructor's `byte_66DA97` resolution branch to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the IDA lookup alias.
 - Completion/confidence score update: existed before as `0/0`; changed to `72/74`. Summary: the small constructor-only class has clear behavior, vtable family, geometry, and caller evidence, but final source-file ownership remains only medium confidence. Evidence: constructor range, look-pane xrefs, `UserLookPane` storage evidence, and self-look path caveat.
 - 2026-06-03 source-owner and score update:
   - What existed before: the page was scored `72/74`, had no reconstructable/autogen parent metadata, and summarized vtable/caller evidence indirectly.

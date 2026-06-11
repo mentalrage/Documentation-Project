@@ -3,7 +3,7 @@
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_POSITION_OPTIONAL:30 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
@@ -68,6 +68,7 @@
 ## Reconstruction Notes
 
 - Attached to [UID:0000HE][AlertPanes](by-file/AlertPanes.md) as an assigned/no-code class. The parent file has a valid `NexusTK/ui/dialogs/` reconstruction path and already groups the shared `AlertPane`, `VersatileAlertPane`, `BlueAlertPane`, and `UrlAlertPane` family from IDA-backed evidence.
+- Parent position is `30`, following the intended source-family order `AlertPane`, `VersatileAlertPane`, `BlueAlertPane`, then `UrlAlertPane` recorded on [UID:0000HE][AlertPanes](by-file/AlertPanes.md).
 - Do not emit class C++ yet. The older constructor body notes are contradicted by IDA evidence, and the final source declaration still needs a constructor rewrite, exact field names, and a live-reachability explanation.
 - 2026-06-05 live IDA MCP retry succeeded. It refreshed method ranges, vtable/xref ownership, action-handler behavior, and frame-resource evidence, while still finding no direct constructor xrefs.
 
@@ -102,3 +103,7 @@ Completion is raised to `82` because live IDA now confirms the method ranges, vt
   - What existed before: the class was `72/82`, assigned to AlertPanes, and still carried stale constructor/render caveats plus a failed-MCP note.
   - Changed to: `COMPLETION:82`, `CONFIDENCE:86`, stale evidence wording removed, and current live IDA facts added for method ranges, xrefs, vtable slots, action dispatch, and resource-frame rendering.
   - Summary/evidence: IDA MCP confirms no direct xrefs to constructor `0x005008c0`, virtual handler xrefs only through the BlueAlertPane vtable data, constructor vptr stores at `0x00500920/0x00500926/0x00500930`, layout reference store at `0x00500bfe`, action ids `1` and `2`, `DrawContent` frame `8`, and `DrawBorderFrame` frames `0` through `7`. The score is capped because constructor source recovery and live construction reachability are still unresolved.
+- 2026-06-07 A004 parent-order sync:
+  - What existed before: the class was attached to [UID:0000HE][AlertPanes](by-file/AlertPanes.md), but its optional child position was blank and the manual by-class coverage row still showed the older `72%` score.
+  - Changed to: set `AUTOGEN_PARENT_POSITION_OPTIONAL:30` and documented the intended order within the shared alert-family source root. The coverage row is pending because [UID:000001][-coverage-report](by-class/-coverage-report.md) is currently leased by another agent.
+  - Summary/evidence: [UID:0000HE][AlertPanes](by-file/AlertPanes.md) lists the reusable alert family in order as `AlertPane`, `VersatileAlertPane`, `BlueAlertPane`, and `UrlAlertPane`; this page already carries the IDA-backed `82/86` method, vtable, layout, and resource evidence.

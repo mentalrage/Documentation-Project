@@ -1,8 +1,8 @@
 *** UID:0000RZ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MH | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -13,8 +13,9 @@
 ## Status
 
 - Address: `0x0069ba2c`
+- Primary memory doc: [UID:0002ZP][0x0069ba2c-0x0069ba30.g_pPatchPane2](by-memory/0x0069ba2c-0x0069ba30.g_pPatchPane2.md)
 - Likely type: `PatchPane2*`
-- Likely owner file: [UID:0000MH][PatchPane](by-file/PatchPane.md)
+- Direct owner file: [UID:0000MH][PatchPane](by-file/PatchPane.md)
 - Confidence: strong
 
 ## Purpose
@@ -33,23 +34,59 @@
 - IDA MCP `py_eval` on 2026-05-30 confirms `0x0069ba2c` is `dword_69BA2C`, size `4`, in `.data`, with 5 data xrefs.
 - Live IDA xrefs confirm constructor writes at `0x005486f4` and `0x005486fb` in `sub_548690`, a cleanup/body reference at `0x00548a6d`, singleton clear helper at `0x00549340` in `sub_549340`, and scalar deleting destructor clear at `0x005493d0` in `sub_549370`.
 - Live IDA MCP also confirms adjacent `0x0069ba28` as the `ParcelPane` singleton slot, matching [UID:0002A0][0x0069ba28-0x0069ba30.ParcelAndPatchPaneSingletonSlots](by-memory/0x0069ba28-0x0069ba30.ParcelAndPatchPaneSingletonSlots.md).
-- Completion remains below full because the `0x00548a6d` reference needs precise source-level classification inside the PatchPane2 lifecycle.
+- Live IDA decompilation on 2026-06-05 confirms `0x00548690` stores `this` into `dword_69BA2C` and installs the `PatchPane2` vtable, while `0x00549340` and `0x00549370` clear the singleton during cleanup/destruction.
+- Completion now reaches the corrected assignment gate because the adjacent parcel/patch singleton cluster has been split into exact child storage pages. Remaining uncertainty is final source declaration spelling and precise classification of the `0x00548a6d` lifecycle reference.
+
+## 2026-06-07 A001 Gate Review
+
+- Live IDA MCP reconfirmed the exact storage as `dword_69BA2C`, four bytes in `.data`, initialized to `ff ff ff ff`, with five data xrefs.
+- The former mixed memory aggregate [UID:0002A0][0x0069ba28-0x0069ba30.ParcelAndPatchPaneSingletonSlots](by-memory/0x0069ba28-0x0069ba30.ParcelAndPatchPaneSingletonSlots.md) has been split; the exact child storage page is [UID:0002ZP][0x0069ba2c-0x0069ba30.g_pPatchPane2](by-memory/0x0069ba2c-0x0069ba30.g_pPatchPane2.md).
+- At the time of the A001 gate review, this page was no longer auto-assigned to [UID:0000MH][PatchPane](by-file/PatchPane.md) because that direct by-file parent was `88/80`, below the corrected `85/85` confidence gate. The likely owner text and cross-reference remained as evidence until the Batch124 parent refresh below cleared the file gate.
+
+## 2026-06-07 A005 Generated Coverage Note
+
+- At the time of Batch079, [UID:0002ZP][0x0069ba2c-0x0069ba30.g_pPatchPane2](by-memory/0x0069ba2c-0x0069ba30.g_pPatchPane2.md) left `AUTOGEN_PARENT_UID` blank because generated memory coverage rejected this then-parentless by-global UID as `autogen_parent_unknown`.
+- This page remained the canonical by-global evidence anchor for the exact storage slot, but stayed blank upward because [UID:0000MH][PatchPane](by-file/PatchPane.md) was below the corrected confidence gate and [UID:0000AA][PatchPane2](by-class/PatchPane2.md) was also below the corrected confidence gate.
+
+## 2026-06-08 A005 Batch124 Parent-Gate Refresh
+
+- Live IDA MCP reconfirmed `0x0069ba2c` as `dword_69BA2C`, a 4-byte `.data` singleton slot initialized to `0xffffffff`.
+- `xrefs_to 0x0069ba2c` still reports the `PatchPane2` constructor publish/clear pair at `0x005486f4` and `0x005486fb`, the raw cleanup/body reference at `0x00548a6d`, the singleton clear helper at `0x00549340`, and the scalar deleting destructor clear at `0x005493d0`.
+- The direct file parent [UID:0000MH][PatchPane](by-file/PatchPane.md) now clears the corrected gate at `88/85`, and [UID:0000AA][PatchPane2](by-class/PatchPane2.md) now clears the associated lifecycle-class gate at `86/85`.
+- `AUTOGEN_PARENT_UID` is therefore set to [UID:0000MH][PatchPane](by-file/PatchPane.md). The exact memory child [UID:0002ZP][0x0069ba2c-0x0069ba30.g_pPatchPane2](by-memory/0x0069ba2c-0x0069ba30.g_pPatchPane2.md) can again attach to this rooted by-global evidence anchor under the corrected child-and-parent gate.
 
 ## Ownership Decision
 
-Declare this with the patch/update module. It is not an application-wide manager; it is lifecycle-bound to `PatchPane2`.
+Declare this with the patch/update module under [UID:0000MH][PatchPane](by-file/PatchPane.md). It is not an application-wide manager; it is lifecycle-bound to `PatchPane2`.
 
 ## Cross-References
 
 - [UID:0000MH][PatchPane](by-file/PatchPane.md)
 - [UID:0000AA][PatchPane2](by-class/PatchPane2.md)
 - [UID:0001VJ][PatchPane2Layout](by-type/by-struct/PatchPane2Layout.md)
+- [UID:0002ZP][0x0069ba2c-0x0069ba30.g_pPatchPane2](by-memory/0x0069ba2c-0x0069ba30.g_pPatchPane2.md)
 - [UID:0001EQ][0x005470b0-0x0054940f.PatchPaneAndPatchPane2](by-memory/0x005470b0-0x0054940f.PatchPaneAndPatchPane2.md)
 - [UID:0001EZ][0x00549340-0x0054934b.ClearPatchPane2Singleton](by-memory/0x00549340-0x0054934b.ClearPatchPane2Singleton.md)
 - [UID:0002A0][0x0069ba28-0x0069ba30.ParcelAndPatchPaneSingletonSlots](by-memory/0x0069ba28-0x0069ba30.ParcelAndPatchPaneSingletonSlots.md)
 
 ## Changes
 
-- Before: completion/confidence were ungraded at `0/0`, and Evidence included generated metadata.
-- Changed to: completion `80`, confidence `88`; generated metadata was removed from Evidence.
+- Before: completion/confidence were ungraded at `0/0`, and Evidence included weak metadata.
+- Changed to: completion `80`, confidence `88`; weak metadata was removed from Evidence.
 - Summary/evidence: live IDA MCP on 2026-05-30 verified exact storage, size, segment, 5 xrefs, constructor writes, clear-helper write, and scalar-deleting-destructor clear. Completion remains below full until the `0x00548a6d` lifecycle reference is precisely classified.
+
+- 2026-06-05 autogen classification:
+  - What existed before: autogen metadata was blank, so the singleton was reported as unclassified.
+  - Changed to: `RECONSTRUCTABLE:TRUE` with `AUTOGEN_PARENT_UID:0000MH`; `RECONSTRUCTION_CPP CODE` remains empty.
+  - Summary/evidence: live IDA MCP `xrefs_to 0x0069ba2c` and decompilation of `0x00548690`, `0x00549340`, and `0x00549370` prove NexusTK-owned `PatchPane2` singleton storage owned by [UID:0000MH][PatchPane](by-file/PatchPane.md). No final C++ body was added because the page is below the 95/95 reconstruction gate.
+- 2026-06-07 A001 Batch 054 parent-gate refresh:
+  - Before: score `80/88`; `AUTOGEN_PARENT_UID` pointed to [UID:0000MH][PatchPane](by-file/PatchPane.md), whose confidence is below the corrected `85/85` gate.
+  - Changed to: score `85/90`, `AUTOGEN_PARENT_UID` blank, explicit primary exact memory child, and an assignment-gate note.
+  - Summary/evidence: live IDA reconfirmed the exact four-byte storage, five xrefs, constructor publish/fallback clears, cleanup/body reference, clear-helper write, scalar deleting destructor clear, and the new split child. The direct by-file parent was not raised because its broader source-unit confidence remains below gate.
+- 2026-06-07 A005 Batch 079:
+  - Changed to: documentation only; scores remain `85/90` and parent metadata remains blank.
+  - Summary/evidence: recorded that exact memory child [UID:0002ZP][0x0069ba2c-0x0069ba30.g_pPatchPane2](by-memory/0x0069ba2c-0x0069ba30.g_pPatchPane2.md) now clears its unsupported by-global autogen parent link. This page remains the evidence anchor until [UID:0000MH][PatchPane](by-file/PatchPane.md) or another direct owner clears the corrected `85/85` gate.
+- 2026-06-08 A005 Batch124:
+  - Before: `85/90`, parent metadata blank because [UID:0000MH][PatchPane](by-file/PatchPane.md) and [UID:0000AA][PatchPane2](by-class/PatchPane2.md) were below the corrected confidence gate.
+  - Changed to: `86/90` and `AUTOGEN_PARENT_UID:0000MH`.
+  - Summary/evidence: live IDA MCP reconfirmed exact storage, initial value, five data xrefs, constructor publish/clear, cleanup/body reference, helper clear, scalar-destructor clear, and PatchPane2 owner boundaries. [UID:0000MH][PatchPane](by-file/PatchPane.md) now clears `88/85`, making it the justified direct file parent.

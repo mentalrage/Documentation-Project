@@ -16,6 +16,21 @@ Add entries only after verifying the symbol is compiler/runtime support, third-p
   - Replacement owner: [UID:0000S7][g_pScreenPane](by-global/g_pScreenPane.md) in [UID:0000NB][ScreenPane](by-file/ScreenPane.md); browser code should use a typed local view or accessor.
   - Data issue: [wave3 data issues](../wave3_data_issues.md).
 
+- `g_pBrowserOverlayLayer` - generated BrowserControlPane alias for `dword_69B374` / [UID:0001PG][0x0069b374-0x0069b378.g_layoutContext_69B374](by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md).
+  - Why ignored: the storage is one shared main UI layout/context slot, not a browser-owned overlay-layer global. Reconstructing this alias separately would duplicate the MainUiGraph layer-slot declaration and preserve a generated consumer-biased name.
+  - Evidence: [UID:0000QD][g_pBrowserOverlayLayer](by-global/g_pBrowserOverlayLayer.md) and [UID:0001PG][0x0069b374-0x0069b378.g_layoutContext_69B374](by-memory/0x0069b374-0x0069b378.g_layoutContext_69B374.md) record 13 direct refs across browser layout, alert/dialog placement, startup allocation/initialization, and shutdown release/clear. [UID:0000HV][Browser](by-file/Browser.md) marks Browser as a consumer only, while [UID:0000T6][MainUiLayerSlots](by-global/MainUiLayerSlots.md) records the sibling slot family.
+  - Replacement owner: [UID:0000T6][MainUiLayerSlots](by-global/MainUiLayerSlots.md) under [UID:0000L1][MainUiGraph](by-file/MainUiGraph.md).
+
+- `g_pBrowserFileLoadText` - generated BrowserPane alias for the direct `Navigation Failed` UTF-16 literal.
+  - Why ignored: IDA evidence resolves the generated name to direct string-literal storage, not a separate writable pointer global or active global-data row.
+  - Evidence: [UID:0000QC][g_pBrowserFileLoadText](by-global/g_pBrowserFileLoadText.md) and [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) record the `0x00613a30-0x00613a54` `Navigation Failed` literal, the `BrowserPane::OnCommand` `BCfl` use, and the absence of separate pointer storage.
+  - Replacement owner: [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) under [UID:0000HV][Browser](by-file/Browser.md).
+
+- `g_pBrowserTimeoutText` - generated BrowserPane alias for the direct `Navigation Timeout` UTF-16 literal.
+  - Why ignored: IDA evidence resolves the generated name to direct string-literal storage, not a separate writable pointer global or active global-data row.
+  - Evidence: [UID:0000QF][g_pBrowserTimeoutText](by-global/g_pBrowserTimeoutText.md) and [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) record the `0x00613a54-0x00613a7a` `Navigation Timeout` literal, the `BrowserPane::OnCommand` `BCto` use, and the absence of separate pointer storage.
+  - Replacement owner: [UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) under [UID:0000HV][Browser](by-file/Browser.md).
+
 - `g_pScreenEffecterList` - stale generated global-data alias for `dword_69B364` / `0x0069b364`.
   - Why ignored: live IDA shows the backing storage is a broadly used UI layer/context slot, not a screen-effecter-list object and not a `SolidColorFilterEffecter`-owned global.
   - Evidence: [UID:0000S6][g_pScreenEffecterList](by-global/g_pScreenEffecterList.md) records IDA MCP xrefs showing startup assignment at `0x004f6268`, layer registration at `0x004f6338`/`0x004f6340`, shutdown removal/release/clear at `0x004f64f3`/`0x004f64ff`/`0x004f6584`/`0x004f6594`, broad [UID:00019K][0x004f7d10-0x004f8b2a.InitializeMainUiGraph](by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md) pane setup use, and the `SolidColorFilterEffecter` consumer at `0x0055ae9a`.

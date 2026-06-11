@@ -1,7 +1,7 @@
 *** UID:00007R | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -17,11 +17,10 @@
 - Likely final owner: [UID:00009Q][ObjectList](by-class/ObjectList.md)
 - Likely source file: [UID:0000M4][ObjectList](by-file/ObjectList.md), used by [UID:0000L3][MapPane](by-file/MapPane.md)
 - Address range: [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md)
-- Current recovered file: `source-3/simroot_v2/class_MapPaneSpatialIndex.cpp`
 
 ## Class Purpose
 
-`MapPaneSpatialIndex` is a useful generated name for the row-bucket accessor surface currently emitted in `class_MapPaneSpatialIndex.cpp`. Fresh IDA/Wave3 comparison indicates it is probably not a separate allocated class. The accessors use the same offsets initialized by [UID:00009Q][ObjectList](by-class/ObjectList.md), and generated `MapPane` callers already refer to adjacent helpers as `ObjectList::*`.
+`MapPaneSpatialIndex` is a useful compatibility name for the row-bucket accessor surface documented at [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md). Existing IDA-backed ObjectList documentation indicates it is probably not a separate allocated class. The accessors use the same offsets initialized by [UID:00009Q][ObjectList](by-class/ObjectList.md), and neighboring ObjectList pages place the broader accessor/sweep surface under ObjectList ownership.
 
 Use this page as a compatibility/provisional alias. The final source model should place these methods in `map/ObjectList.cpp` or document them as a private view over the `ObjectList` layout.
 
@@ -50,7 +49,7 @@ Use this page as a compatibility/provisional alias. The final source model shoul
 - `ObjectList::ObjectList` initializes the same field offsets used by these accessors: `+0x14`, `+0x18`, `+0x1c`, `+0x20`, `+0x24`, `+0x28`, and `+0x2c`.
 - IDA MCP enumerates adjacent non-lifecycle ObjectList helpers from `0x00532530` through `0x0053728e`; see [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md) and [UID:00023F][0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers](by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md).
 - The class is not a standalone feature; it should migrate with `ObjectList` and remain coupled to `MapPane`.
-- 2026-05-25 `simroot_v2` comparison confirms `class_MapPaneSpatialIndex.cpp` emits only the early accessors through `0x005326d0`; the larger shift/detach/prune/find helpers remain outside this generated alias but use the same concrete `ObjectList` layout.
+- 2026-06-06 A009 sync records [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md) at `80/86` as a compatibility alias subset and [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md) at `84/86` as the broader ObjectList owner range.
 
 ## Cross-References
 
@@ -63,6 +62,14 @@ Use this page as a compatibility/provisional alias. The final source model shoul
 - [UID:00023F][0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers](by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md)
 
 ## Changes
+
+### 2026-06-06 A009 - Alias Evidence Sync
+
+- What existed before: this ignored alias page still referenced generated-source output while pointing to ObjectList as the replacement owner.
+- What changed: removed generated-source framing, linked the refreshed [UID:0001D2][0x00532530-0x0053272e.MapPaneSpatialIndex](by-memory/0x00532530-0x0053272e.MapPaneSpatialIndex.md) memory alias and [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md) owner range, and kept `RECONSTRUCTABLE:FALSE` with `-1/-1` scoring.
+- Why: local IDA-backed ObjectList documentation is sufficient to preserve this as a compatibility alias without relying on generated source output as evidence.
+
+- 2026-06-05: Marked not reconstructable as a standalone class because this page is already an ignored generated/provisional alias for [UID:00009Q][ObjectList](by-class/ObjectList.md), with replacement owner recorded in [UID:000003][-ignored](by-class/-ignored.md). Live IDA MCP evidence still confirms the accessor starts at `0x00532530`, `0x00532550`, and `0x005326d0`, and `callers` for `0x00532550` come from MapPane/ObjectList paths at `0x00509a3b` and `0x0050e967`; those facts support ObjectList ownership, not a separate allocated class.
 
 ### 2026-05-28 - Extended Adjacent ObjectList Helper Surface
 

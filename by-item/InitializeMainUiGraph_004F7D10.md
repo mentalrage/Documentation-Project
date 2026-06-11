@@ -52,7 +52,7 @@ When [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / `byte_66DA97 ==
 | [UID:0000NX][SoundStatusPane](by-file/SoundStatusPane.md) | `0x004f8460` | Newer layout sound/music HUD status. |
 | [UID:0000P1][UserPane](by-file/UserPane.md) | `0x004f84ca`, `0x004f84e2` | Avatar/user pane allocation/setup under playfield. |
 
-This branch also calls the user-name helper at `0x005a2d80`, a ready hook through `dword_67A748`, and a multibyte user-name notification through `WideCharToMultiByte` and `0x00575c30`.
+This branch also calls the user-name helper at `0x005a2d80`, a ready hook through [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) / historical `dword_67A748`, and a multibyte user-name notification through `WideCharToMultiByte` and `0x00575c30`.
 
 ## Older Layout Construction
 
@@ -79,7 +79,7 @@ After either branch, the function:
 
 - calls [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md) through `LoadUserProfileData` at `0x004f8a83`;
 - refreshes the shared screen/root object through `0x00557820`;
-- calls [UID:0000HR][BlackHole](by-file/BlackHole.md) helper `0x00469180` at `0x004f8a9a`; current evidence says this is a pane/object deferred-deletion queue path, not child registration;
+- calls [UID:0000HR][BlackHole](by-file/BlackHole.md) helper `0x00469180` at `0x004f8a9a` through [UID:0000Q8][g_pApplicationCleanupQueue](by-global/g_pApplicationCleanupQueue.md) / historical `dword_67A74C`; current evidence says this is a pane/object deferred-deletion queue path, not child registration;
 - calls an optional ready hook through `dword_69AE08`;
 - calls [UID:0000K6][InputMan](by-file/InputMan.md) `TrackInputTarget(0, false)` at `0x004f8aee`;
 - arms a `3000` ms delayed path at `0x004f8afe`;
@@ -94,7 +94,7 @@ Checked on 2026-06-04:
 - Caller context shows `mov ecx, dword_67ABA4` at `0x004fac95` immediately before `call sub_4F7D10`, matching the [UID:0000RF][g_pMainUiGraph](by-global/g_pMainUiGraph.md) handoff.
 - Direct code-reference enumeration reports 282 direct code-ref sites to 183 unique out-of-body targets.
 - Key live target sites include BackPane construction at `0x004f7d7d` and `0x004f8573`, MapPane setup at `0x004f7dfa` and `0x004f85ef`, frame-border construction at `0x004f802c` and `0x004f8670`, SoundStatusPane construction at `0x004f8460` and `0x004f89c7`, UserPane setup at `0x004f84e2` and `0x004f8a49`, profile load at `0x004f8a83`, deferred-deletion queue touch at `0x004f8a9a`, input retarget at `0x004f8aee`, and old-layout InterfaceEfxMgr construction at `0x004f8ad8`.
-- Data refs from the body include `byte_66DA97` at `0x004f7d40` and `0x004f8aaf`, `word_66DAA0` at `0x004f7e11` and `0x004f8606`, `word_66DA9C` at `0x004f7e18` and `0x004f860d`, `dword_69B364` at 12 pane-setup push sites, `dword_69B368` at 10 pane-setup push sites, `dword_67A74C` at `0x004f8a93`, `dword_69AE08` at `0x004f8a9f`, `dword_67AB44` at `0x004f8ae4`, and `dword_67AB1C` at `0x004f8b03`.
+- Data refs from the body include `byte_66DA97` at `0x004f7d40` and `0x004f8aaf`, `word_66DAA0` at `0x004f7e11` and `0x004f8606`, `word_66DA9C` at `0x004f7e18` and `0x004f860d`, `dword_69B364` at 12 pane-setup push sites, `dword_69B368` at 10 pane-setup push sites, [UID:0000Q8][g_pApplicationCleanupQueue](by-global/g_pApplicationCleanupQueue.md) / historical `dword_67A74C` at `0x004f8a93`, `dword_69AE08` at `0x004f8a9f`, `dword_67AB44` at `0x004f8ae4`, and `dword_67AB1C` at `0x004f8b03`.
 
 ## Data And Naming Caveats
 
@@ -109,12 +109,24 @@ Checked on 2026-06-04:
 - [UID:00019K][0x004f7d10-0x004f8b2a.InitializeMainUiGraph](by-memory/0x004f7d10-0x004f8b2a.InitializeMainUiGraph.md)
 - [UID:0000RF][g_pMainUiGraph](by-global/g_pMainUiGraph.md)
 - [UID:0000T6][MainUiLayerSlots](by-global/MainUiLayerSlots.md)
+- [UID:0000Q8][g_pApplicationCleanupQueue](by-global/g_pApplicationCleanupQueue.md)
+- [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md)
 - [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
 - [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md)
 - [UID:0000HR][BlackHole](by-file/BlackHole.md)
 - [UID:00019I][0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs](by-memory/0x004f6700-0x004fb62a.MainMenuLoginAndAccountDialogs.md)
 
 ## Changes
+
+- 2026-06-07: Replaced the raw `dword_67A74C` cleanup-queue reference with canonical [UID:0000Q8][g_pApplicationCleanupQueue](by-global/g_pApplicationCleanupQueue.md) wording.
+  - Before: the common-tail/data-ref evidence described the BlackHole deferred-deletion path through the historical generated global only.
+  - After: the page links the resolved application cleanup queue while retaining the historical label and exact data-reference site.
+  - Evidence: the generated resolved-name report maps `dword_67A74C` to `g_pApplicationCleanupQueue`, and this page's existing live IDA evidence places the deferred-deletion queue touch at `0x004f8a9a` with the data ref at `0x004f8a93`.
+
+- 2026-06-07: Replaced the raw `dword_67A748` ready-hook reference with canonical [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) wording.
+  - Before: the newer-layout branch described the hook target only by the historical generated global name.
+  - After: the page links the resolved collection-data global while retaining the historical label for traceability.
+  - Evidence: the generated resolved-name report maps `dword_67A748` to `g_pCollectionData`, and the existing live IDA notes keep the hook in the newer-layout post-login UI bootstrap path.
 
 - 2026-05-31: Grading and reconstruction status changed from unevaluated/blank to `70/85` and `RECONSTRUCTABLE:TRUE`.
   - Before: the page body documented the main UI bootstrap, but the validator metadata still showed `0/0` and no reconstruction status.

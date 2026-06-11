@@ -1,15 +1,15 @@
 *** UID:0000HJ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # AttachedObjectPane
 
 ## Status
 
-- Confidence: strong for `AttachedObjectPane` as the shared overlay base; medium-high for grouping the derived overlay classes in the same original source area.
+- Confidence: strong for `AttachedObjectPane` as the shared overlay base and for grouping the derived attached-map overlay classes in this source area.
 - Proposed module: `map/AttachedObjectPane.cpp`
-- Current generated sources: `class_AttachedObjectPane.cpp`, `class_AttachedObjectPaneHelper_53AEC0.cpp`, `class_AttachmentAnchorResolver.cpp`, `class_BalloonObjectPane.cpp`, `class_ObjectInfoObjectPane.cpp`, `class_DamageNumberObjectPane.cpp`, `class_HitBarObjectPane.cpp`
+- Documentation basis: linked class pages, executable memory ranges, detach-registry helper docs, anchor resolver docs, MapPane caller evidence, and static-pool records.
 - Main address docs: [UID:0001D8][0x005380b0-0x005387a3.AttachedObjectPane](by-memory/0x005380b0-0x005387a3.AttachedObjectPane.md), [UID:0001DF][0x0053aec0-0x0053b011.AttachedObjectDetachRegistry](by-memory/0x0053aec0-0x0053b011.AttachedObjectDetachRegistry.md), [UID:0001DH][0x0053c700-0x0053c92e.AttachmentAnchorResolver](by-memory/0x0053c700-0x0053c92e.AttachmentAnchorResolver.md), [UID:0000YZ][0x00467b30-0x0046904e.BalloonObjectPane](by-memory/0x00467b30-0x0046904e.BalloonObjectPane.md), [UID:0001DB][0x00538bc0-0x00539bb2.ObjectOverlayPanes](by-memory/0x00538bc0-0x00539bb2.ObjectOverlayPanes.md), and [UID:0001DL][0x0053cfa0-0x0053d65b.ObjectPaneCompanionDestructors](by-memory/0x0053cfa0-0x0053d65b.ObjectPaneCompanionDestructors.md)
 
 ## File Role
@@ -43,25 +43,38 @@ The grouping is stronger than a one-class split because these classes share `Obj
 
 ## Boundary Notes
 
-- `BalloonObjectPane::RefreshBubbleSurface` is modeled by Wave3/Ghidra at `0x00468250-0x004682bb`, but IDA currently has no function record at `0x00468250`. Treat the Wave3 range as recovered code with an IDA-boundary caveat until IDA is repaired or Wave3 marks the difference.
-- `class_AttachedObjectPaneHelper_53AEC0.cpp` is a generated one-method split imported from Wave2 recovered output. IDA shows `0x0053aec0` is only called by `AttachedObjectPane::~AttachedObjectPane`, so fold it here unless later constructor/setup evidence identifies a real named owner class.
-- The helper's generated `g_attachmentModeFlag` alias is [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / `byte_66DA97`, the broad new/legacy UI asset selector. Do not treat it as attachment-specific.
-- [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md) may ultimately fold into this original source file rather than stay as a separate `.cpp`; current docs keep it separate because `simroot_v2` imports a named `AttachmentAnchorResolver.cpp` and the helper has a clear class-like layout.
-- Several constructor callers in the MapPane packet cluster are IDA-confirmed but currently unknown to Wave3, including `0x0050e100`, `0x0050e690`, and `0x0050ef00`.
+- `BalloonObjectPane::RefreshBubbleSurface` remains an IDA-boundary caveat at `0x00468250`: current IDA has no function record there, so keep it as a raw/recovered-code issue until a later pass proves a callable function boundary.
+- `0x0053aec0` is a one-method detach-registry helper. IDA shows it is only called by `AttachedObjectPane::~AttachedObjectPane`, so fold it here unless later constructor/setup evidence identifies a real named owner class.
+- The helper's historical generated `g_attachmentModeFlag` alias refers to [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97`, the broad new/legacy UI asset selector. Do not treat it as attachment-specific.
+- [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md) may ultimately fold into this original source file rather than stay as a separate `.cpp`; current docs keep it separate because the helper has a clear class-like layout and a reviewed standalone file page.
+- Several constructor callers in the MapPane packet cluster are IDA-confirmed and should stay in this placement discussion, including `0x0050e100`, `0x0050e690`, and `0x0050ef00`.
 - [UID:0000HU][BowGaugeObjectPane](by-file/BowGaugeObjectPane.md) is excluded from this file despite the name. It derives from `Pane`, is constructed by [UID:0000P1][UserPane](by-file/UserPane.md), and behaves like a local-player HUD gauge rather than a map-object attachment.
 
 ## IDA MCP Evidence
 
-Targeted checks on 2026-05-23 confirmed exact starts/ranges for all listed `AttachedObjectPane`, `BalloonObjectPane`, `ObjectInfoObjectPane`, `HitBarObjectPane`, and `DamageNumberObjectPane` anchors except `0x00468250`, where Wave3/Ghidra recovered a function but IDA has no function record.
+Targeted checks on 2026-05-23 confirmed exact starts/ranges for all listed `AttachedObjectPane`, `BalloonObjectPane`, `ObjectInfoObjectPane`, `HitBarObjectPane`, and `DamageNumberObjectPane` anchors except `0x00468250`, where IDA has no function record and the code must remain a boundary caveat.
 
 Constructor xrefs observed:
 
 - `ItemObjectPane` and overlay constructors are mainly reached from [UID:0000L3][MapPane](by-file/MapPane.md) object, speech, hit/damage, and object-label packet handlers.
 - `BalloonObjectPane` constructor at `0x004682c0` calls `AttachedObjectPane::AttachedObjectPane` at `0x005380b0`.
 - `AttachedObjectPane::~AttachedObjectPane` at `0x00538100` calls `sub_53AEC0` at `0x005382b0`; IDA reports no other callers for `0x0053aec0`.
-- 2026-05-25 IDA MCP recheck found the current `simroot_v2` output still emits `class_AttachedObjectPaneHelper_53AEC0.cpp` as a standalone one-method split, but IDA caller/xref evidence is unchanged.
+- 2026-05-25 IDA MCP recheck found historical generated output still split `0x0053aec0` as a standalone one-method helper, but IDA caller/xref evidence is unchanged.
 - 2026-05-26 IDA MCP recheck reconfirmed `sub_53AEC0` size `0x152`, the sole `0x005382b0` destructor call, and the `AttachedObjectPane + 0x128` registry-pointer call shape. Keep the helper folded here unless later setup evidence recovers a real manager class.
 - 2026-05-26 IDA static-pool review identifies [UID:0000TI][PoolAllocatorStaticInstances](by-global/PoolAllocatorStaticInstances.md) for `BalloonObjectPane` at `0x0069b9fc`, `DamageNumberObjectPane` at `0x0069b95c`, and `HitBarObjectPane` at `0x0069b934`.
+- 2026-06-07 Batch 090 live IDA MCP reconfirmed [UID:000067][HitBarObjectPane](by-class/HitBarObjectPane.md) as a direct attached-overlay child of this file: constructors at `0x00538d50` and `0x00538dc0` are called from MapPane hit/damage packet handlers, helper callers at `0x0050e4c0`, `0x0050e690`, and `0x0050e810` stay inside MapPane event/update flow, vtable refs target `0x00620738`/`0x006207b0`/`0x006207e0`, and the scalar deleting destructor at `0x0053d240` calls `AttachedObjectPane` cleanup at `0x00538100` before static-pool release through `0x0069b934`.
+
+## File-Root State
+
+- The page has a valid projected path, `NexusTK/map/`, and enough linked class/memory evidence to serve as the current source root for the attached-overlay family.
+- [UID:00000M][AttachedObjectPane](by-class/AttachedObjectPane.md) can attach after its matching class-page refresh because both the class and file pages clear the 80%+ gate.
+- [UID:000067][HitBarObjectPane](by-class/HitBarObjectPane.md) is now attachable under the corrected 85/85 child-and-parent gate because the class page is `85/89`, this direct file parent is `85/85`, and the live vtable/destructor/static-pool/MapPane caller evidence all point to this attached-overlay source root.
+- Final C++ remains blank at the file root. The source grouping is strong, but the `0x00468250` raw boundary, anchor-resolver folding question, registry helper naming, and final field names keep the page below final-source quality.
+
+## Score Rationale
+
+- Completion is `85` because the page now records durable by-* evidence, source-root state, attachable child gates, explicit helper/anchor boundary decisions, and current HitBar-specific vtable/destructor/static-pool evidence.
+- Confidence is `85` because the shared overlay grouping, MapPane construction paths, destructor/base-cleanup relationship, and static-pool evidence are strong enough for direct child routing, while the `0x00468250` raw boundary and final helper/anchor folding questions still cap the file below final-source quality.
 
 ## Cross-References
 
@@ -81,6 +94,18 @@ Constructor xrefs observed:
 
 ## Changes
 
+- 2026-06-07 A006 Batch 090 parent-gate refresh:
+  - Before: scores were `82/84`, below the corrected parent gate for [UID:000067][HitBarObjectPane](by-class/HitBarObjectPane.md).
+  - Changed to: scores `85/85`; documented the HitBar constructors, helper callers, vtable refs, scalar deleting destructor, attached-base cleanup call, and static-pool byte `0x0069b934` as direct evidence for this file parent.
+  - Summary/evidence: live IDA MCP verified `HitBarObjectPane` belongs with the attached map-object overlay family already owned here. Remaining raw balloon boundary and helper-folding caveats still block higher scoring and final C++, but no longer block direct HitBar class assignment.
+- 2026-06-07 A008 alias cleanup:
+  - Before: the boundary note still referred to the helper's generated `g_attachmentModeFlag` alias first.
+  - Changed to: canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) wording while retaining `g_attachmentModeFlag` and `byte_66DA97` as historical/generated lookup aliases.
+  - Evidence: the selector remains broad new/legacy UI asset state and is not attachment-specific.
+- 2026-06-06 source-root refresh:
+  - Before: the status and boundary notes still framed the page around current generated sources and Wave-derived split evidence.
+  - Changed to: `82/84`, by-* documentation basis, neutral IDA-boundary wording for `0x00468250`, detach-registry helper folding language, file-root state, and score rationale.
+  - Evidence: linked class pages, [UID:0001D8][0x005380b0-0x005387a3.AttachedObjectPane](by-memory/0x005380b0-0x005387a3.AttachedObjectPane.md), [UID:0001DF][0x0053aec0-0x0053b011.AttachedObjectDetachRegistry](by-memory/0x0053aec0-0x0053b011.AttachedObjectDetachRegistry.md), [UID:0001DH][0x0053c700-0x0053c92e.AttachmentAnchorResolver](by-memory/0x0053c700-0x0053c92e.AttachmentAnchorResolver.md), [UID:0001DB][0x00538bc0-0x00539bb2.ObjectOverlayPanes](by-memory/0x00538bc0-0x00539bb2.ObjectOverlayPanes.md), [UID:0000L3][MapPane](by-file/MapPane.md), and [UID:0000TI][PoolAllocatorStaticInstances](by-global/PoolAllocatorStaticInstances.md).
 - What existed before: the page had a strong attached-overlay source hypothesis and detailed boundary notes but remained scored as unevaluated.
 - What it was changed to: scores were set to `78/84`.
 - Summary and evidence: class grouping, MapPane construction paths, shared teardown, registry helper, and static-pool evidence support the module; completion/confidence are limited by one IDA boundary caveat and final folding of anchor/helper pages.

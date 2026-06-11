@@ -9,7 +9,6 @@
 
 - Confidence: medium-strong for class role and startup construction, medium for final file/folder placement.
 - Proposed module: `security/CheatDetector.cpp`
-- Current recovered source: `source-3/simroot_v2/class_CheatDetector.cpp`
 - Main address range: [UID:000108][0x00483f00-0x0048402c.CheatDetector](by-memory/0x00483f00-0x0048402c.CheatDetector.md)
 - Projected reconstruction path: `NexusTK/security/`, matching [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) and the paired [UID:0000P5][VirusChecker](by-file/VirusChecker.md) security module placement.
 
@@ -36,15 +35,14 @@ The only currently visible virtual check method returns true unconditionally, so
 - IDA xrefs show the virtual method and scalar deleting destructor are referenced by the vtable around `0x00615564`.
 - IDA vtable read on 2026-05-26 confirms object vptr `0x00615564`, RTTI pointer `0x00615560`, slot `+0x00 -> 0x00484000`, and slot `+0x04 -> 0x00483fe0`.
 - 2026-05-24 IDA recheck confirms `0x00483fe0` is a vtable-only function returning true, `0x00483ff0` clears `g_pCheatDetector`, and `0x00484000` is vtable-referenced from `0x00615564`.
-- Current generated source still calls the destructor base `EventDispatcher`, while the constructor and metadata indicate timer-handler style ownership; treat that base label as suspect until inheritance is resolved.
-- 2026-05-26 recheck using `simroot_v2` and IDA MCP only: active output still disables `0x00483fe0`, omits `0x00483ff0`, and emits `0x00484000` with polluted base teardown naming.
-- 2026-06-03 IDA raw helper refresh confirms [UID:0002EN][0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper](by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md) as executable project code inside the `CheatDetector` island, with no IDA function record, no incoming/literal xrefs, a `GetSystemTimeAsFileTime` import call, and a `g_pTimerMgr + 0x18` read.
+- Live IDA still labels the destructor base-teardown target with a polluted local type name, while constructor and timer-helper evidence indicate timer-handler-style ownership; treat the exact base label as unresolved until inheritance is recovered from project-documentation/live IDA evidence.
+- Live IDA confirms [UID:0002EN][0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper](by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md) as executable project code inside the `CheatDetector` island, with no IDA function record, no incoming xrefs, a `GetSystemTimeAsFileTime` import call, and a `g_pTimerMgr + 0x18` read.
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) already places `CheatDetector.cpp` and `VirusChecker.cpp` under `security/`; assigning `NexusTK/security/` here aligns the file page with that documented project-structure decision while keeping confidence capped by unresolved base-type and helper reachability questions.
 
 ## Migration Notes
 
 - Candidate simpath: `security/CheatDetector.cpp`.
-- Keep the disabled `0x00483fe0` always-true virtual method documented; it is a real vtable slot even though active Wave3 output disables it.
+- Keep the `0x00483fe0` always-true virtual method documented; it is a real vtable slot even though its caller surface is currently only the vtable data.
 - Keep [UID:0002EN][0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper](by-memory/0x00483f90-0x00483fd9.CheatDetectorTimeSnapshotHelper.md) visible as source-authored project code, but do not emit final C++ for it until caller/reachability and field names reach the `95+` code-emission gate.
 - Do not merge this into `Application.cpp`: application startup constructs it, but the singleton/vtable and timer base make it a distinct module.
 
@@ -70,4 +68,8 @@ The only currently visible virtual check method returns true unconditionally, so
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:78`.
-  - Summary/evidence: file-level role, singleton/vtable/global ownership, startup construction, migration target, and generated-output caveats are documented; confidence remains below strong because final source folder and the exact timer/event base label are still unresolved.
+  - Summary/evidence: file-level role, singleton/vtable/global ownership, startup construction, migration target, and base-type caveats are documented; confidence remains below strong because final source folder and the exact timer/event base label are still unresolved.
+- 2026-06-05 stale-evidence cleanup:
+  - Before: the status/evidence sections referenced recovered-output paths and generated-output state.
+  - After: file evidence relies on project-documentation and live IDA only.
+  - Evidence: live IDA confirms the constructor, raw time-snapshot helper, vtable helper, singleton-clear helper, scalar deleting destructor, vtable slots, singleton slot, startup caller, and timer-manager dependency.

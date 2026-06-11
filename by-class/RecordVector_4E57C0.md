@@ -36,7 +36,7 @@ IDA caller checks show one direct call from `0x004e4c14` inside `NewHumanImageLi
 ## Evidence Notes
 
 - [UID:00017U][0x004e57c0-0x004e5989.RecordVectorInsert](by-memory/0x004e57c0-0x004e5989.RecordVectorInsert.md) records the exact function range, `0x28`-byte element size, vector-growth behavior, and single caller at `0x004e4c14`.
-- [UID:00017R][0x004dfd10-0x004e68a7.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md) and [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) identify the caller as `RenderComposition`, not a standalone feature class.
+- [UID:00017R][0x004dfd10-0x004e68a8.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a8.NewHumanImageLib.md) and [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md) identify the caller as `RenderComposition`, not a standalone feature class.
 - [UID:00022R][0x004e6ae0-0x004e70e9.ImageLibVectorSupportHelpers](by-memory/0x004e6ae0-0x004e70e9.ImageLibVectorSupportHelpers.md) records `CopyRecordVector40Range` at `0x004e6ff0-0x004e7026`, called twice by this insert helper.
 - The older by-memory report records a 2026-03-22 Wave2/IDA recheck for the single executable caller and the fixed-record insert behavior; treat it as supporting history, with current durable docs carrying the actionable evidence.
 
@@ -51,7 +51,7 @@ IDA caller checks show one direct call from `0x004e4c14` inside `NewHumanImageLi
 - [UID:0000P3][VectorHelpers](by-file/VectorHelpers.md)
 - [UID:00017U][0x004e57c0-0x004e5989.RecordVectorInsert](by-memory/0x004e57c0-0x004e5989.RecordVectorInsert.md)
 - [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md)
-- [UID:00017R][0x004dfd10-0x004e68a7.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a7.NewHumanImageLib.md)
+- [UID:00017R][0x004dfd10-0x004e68a8.NewHumanImageLib](by-memory/0x004dfd10-0x004e68a8.NewHumanImageLib.md)
 - [UID:00022R][0x004e6ae0-0x004e70e9.ImageLibVectorSupportHelpers](by-memory/0x004e6ae0-0x004e70e9.ImageLibVectorSupportHelpers.md)
 - [UID:0001QA][client_containers](by-meta/client_containers.md)
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md)

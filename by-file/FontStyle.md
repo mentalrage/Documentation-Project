@@ -1,7 +1,7 @@
 *** UID:0000JI | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # FontStyle
 
@@ -10,7 +10,7 @@
 - Confidence: strong for the recovered class behavior and layout; medium for exact original file placement.
 - Proposed module: `ui/controls/FontStyle.cpp`, or a private support type folded into `ui/controls/StaticTextControlPane.cpp`.
 - Proposed header: `ui/controls/FontStyle.h`, or declarations in the static/help text control header.
-- Current recovered source: `source-3/simroot_v2/class_FontStyle.cpp`
+- Projected reconstruction path: `NexusTK/ui/controls/FontStyle.cpp`
 - Exact code ranges: `0x004536e0-0x00453732`, `0x00499f10-0x00499fda`; compiler/vector support at `0x0049ac60-0x0049ad74`
 
 ## File Role
@@ -27,18 +27,20 @@ The current best source-layout placement is a small UI control support file near
 | [UID:0001UN][FontStyleLayout](by-type/by-struct/FontStyleLayout.md) | data layout | 0x20-byte object layout plus 16-byte rule record layout. |
 | `FontStyle::ClearRules` | [UID:0000XM][0x004536e0-0x00453732.FontStyleClearRules](by-memory/0x004536e0-0x00453732.FontStyleClearRules.md) | Releases rule-vector backing storage and zeros the begin/end/capacity triplet. |
 | `FontStyle::FontStyle` | `0x00499f10-0x00499f51` | Initializes default enabled state, 0.2f opacity fields, scalar defaults, and empty vector pointers. |
+| `FontStyle::GetRule` / bounded rule lookup | `0x00499f60-0x00499f85` | Copies one 16-byte rule record to a caller buffer when the requested index is in range; used by the HelpPane text renderer. |
 | `FontStyle::Configure` | `0x00499f90-0x00499fda` | Appends one 16-byte rule record, using `0x0049ac60` as the vector growth slow path. |
 | [UID:00011W][0x0049ac60-0x0049ad74.FontStyleRuleVectorGrowth](by-memory/0x0049ac60-0x0049ad74.FontStyleRuleVectorGrowth.md) | `0x0049ac60-0x0049ad74` | Compiler/template-style vector insert/growth helper; do not treat as a separate handwritten project method. |
 
 ## Evidence Notes
 
-- IDA MCP confirms `0x004536e0`, `0x00499f10`, and `0x00499f90` as real functions with the same compact sizes reported by generated metadata.
+- IDA MCP confirms `0x004536e0`, `0x00499f10`, `0x00499f60`, and `0x00499f90` as real functions with compact source-shaped bodies.
 - 2026-05-26 IDA MCP recheck confirms `0x0049ac60` has one direct caller, `0x00499fcf` inside `FontStyle::Configure`, and decompiles as allocator/memmove-backed growth for 16-byte vector entries.
 - Constructor callers include [UID:00008C][MiniMapDialog](by-class/MiniMapDialog.md), [UID:000096][NewMailDialog](by-class/NewMailDialog.md), and [UID:000063][HelpPane](by-class/HelpPane.md).
+- The bounded rule lookup has two direct callers inside [UID:000064][HelpPane__SimpleHelpTextPartPane](by-class/HelpPane__SimpleHelpTextPartPane.md)'s draw path, at `0x004c6723` and `0x004c67b3`.
 - Configure callers include `MiniMapDialog` and `NewMailDialog` constructor paths and additional minimap-local style setup paths.
 - `HelpPane::HelpPane` constructs an embedded style record at object offset `+0xfc`, then copies a caller-provided `FontStyle`-compatible record into it.
 - `MiniMapDialog::MiniMapDialog` builds one local style object, configures it as `Configure(0x80, 6, 1, 0)`, and passes it to several `StaticTextControlPane2` labels.
-- `NewMailDialog::NewMailDialog` uses a similar local style object for the "Keep a copy" static label in the EPF mail-skin path. The active generated source currently hides this behind `TextStyle labelStyle = BuildDialogTextStyle(...)`, but IDA shows raw calls to `0x00499f10` and `0x00499f90`.
+- `NewMailDialog::NewMailDialog` uses a similar local style object for the "Keep a copy" static label in the EPF mail-skin path. Earlier source-output views hide this behind `TextStyle labelStyle = BuildDialogTextStyle(...)`, but IDA shows raw calls to `0x00499f10` and `0x00499f90`.
 
 ## Ownership Decision
 
@@ -53,8 +55,8 @@ The separate file is safer for documentation because it has its own constructor,
 
 ## Current Caveats
 
-- `class_FontStyle.cpp` repeats `FontStyleRule`, `FontStyleLayout`, and `GetFontStyleLayout` inside every emitted method body. Treat that as generated normalization noise, not original source style.
-- IDA decompilation of `Configure` only proves the low byte at rule offset `+0x08` carries the selector argument. The generated source widens it to a full `uint32_t`, but the safer layout records the high three bytes as padding/unknown until rendering consumers are typed.
+- `class_FontStyle.cpp` repeats `FontStyleRule`, `FontStyleLayout`, and `GetFontStyleLayout` inside every emitted method body. Treat that as source-output normalization noise, not original source style.
+- IDA decompilation of `Configure` only proves the low byte at rule offset `+0x08` carries the selector argument. Earlier source output widens it to a full `uint32_t`, but the safer layout records the high three bytes as padding/unknown until rendering consumers are typed.
 - The helper at `0x0049ac60` is a vector growth routine called only by `FontStyle::Configure` in current IDA caller output. Treat it as compiler/template support and keep it in the ignored memory ledger rather than as a hand-written `FontStyle` member.
 
 ## Cross-References
@@ -71,4 +73,9 @@ The separate file is safer for documentation because it has its own constructor,
 
 ## Changes
 
+- 2026-06-05: A004 raised the file page to `84/88`, added the live `0x00499f60` bounded rule lookup, updated caller evidence for HelpPane text rendering, and kept final C++ blank pending original source-placement and rule-field naming proof.
+- 2026-06-05: Assigned projected reconstruction path `NexusTK/ui/controls/` to resolve the by-file generated-root coverage error.
+  - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though the document and proposed source tree both place `FontStyle.cpp` with UI controls.
+  - After: set the validator path to `NexusTK/ui/controls/` without changing completion/confidence or writing reconstruction C++.
+  - Evidence: `by-project-structure/proposed-source-tree.md` lists `FontStyle.cpp` under `ui/controls`, and live IDA MCP lookup on 2026-06-05 confirms the constructor anchor at `0x00499f10` as a real function of size `0x41`.
 - 2026-05-30: Scored the file page from 0/0 to 76/84 and linked the `FontStyle::ClearRules` row to its detailed by-memory page. Evidence: current IDA MCP recheck confirms `ClearRules` bounds/callers/callees, while existing docs already cover the constructor/configure functions, 0x20-byte layout, rule-vector growth helper, and cross-feature consumers.

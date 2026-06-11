@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00006W | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for field offsets, `ProtectedArray<ItemInfo>` shape, fallback row placement, singleton/vtable anchors, and destructor cleanup; medium-high overall because final source-facing names remain provisional.
 - Owner class: [UID:00006W][ItemObjImageLib](by-class/ItemObjImageLib.md).
+- Autogen parent: attached to [UID:00006W][ItemObjImageLib](by-class/ItemObjImageLib.md); the class scores `86/84` and this layout scores `84/86`, so both sides satisfy the 80/80 parent gate.
 - Evidence: IDA constructor/destructor/draw decompilation, vtable xrefs, singleton xrefs, and byte-boundary checks through 2026-05-31.
 
 ## Layout
@@ -56,6 +57,7 @@ Expanded view:
 
 ## Changes
 
+- 2026-06-06: Attached the object layout to [UID:00006W][ItemObjImageLib](by-class/ItemObjImageLib.md). Scores remain `84/86`; this parent sync follows the already documented class/layout relationship and 80/80 gate.
 - 2026-05-31 IDA-backed scoring update:
   - What existed before: `COMPLETION:0`, `CONFIDENCE:0`, and `RECONSTRUCTABLE:` blank.
   - Changed to: `COMPLETION:84`, `CONFIDENCE:86`, and `RECONSTRUCTABLE:TRUE`.

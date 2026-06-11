@@ -1,7 +1,7 @@
 *** UID:0000OS | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NONE" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ThreadSafeNodeList
 
@@ -51,6 +51,10 @@ Do not promote `util/ThreadSafeNodeList.cpp` as a primary source file without ne
 
 ## Changes
 
+- 2026-06-05: Marked the projected reconstruction path as `NONE`.
+  - Before: the path was blank even though the page is excluded from score queues and documented as a generated alias, so file coverage still reported it as an error.
+  - After: the page remains `-1/-1` and non-standalone; no `ThreadSafeNodeList.cpp` generated root should be emitted.
+  - Evidence: live IDA MCP `lookup_funcs` confirms `sub_4B14C0` at `0x004b14c0` (`0x2f` bytes), and `callers` shows allocator/string-buffer and UI/object helper fan-in consistent with the documented locked intrusive free-list push alias owned by [UID:0000MM][PoolAllocator](by-file/PoolAllocator.md).
 - 2026-05-30: Excluded this generated-alias page from completion/confidence stats.
   - Before: completion/confidence metadata was ungraded at `0/0`, which placed the page in low-score work queues.
   - After: set completion and confidence to `-1/-1`.

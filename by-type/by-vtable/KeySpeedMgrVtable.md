@@ -2,7 +2,7 @@
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00006Z | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -48,11 +48,24 @@ The dwords at `0x0061c9d4` and `0x0061c9d8` both contain `0x400`; they are not c
 
 `KeySpeedMgr` is a compact `LObject`-derived input/platform singleton, not a plain C helper struct. Reconstruct the vtable as normal class inheritance; do not emit the inherited no-op slot or class-name helper as handwritten `KeySpeedMgr` source unless the final `LObject` header requires explicit overrides.
 
+## 2026-06-08 Batch133 Live IDA Recheck
+
+- IDA MCP `idb_meta` rechecked `NexusTK.exe` `sha256 9aec210bbc5ce592176a21dd8e9d9fd8f250b8d9ea78237915a99ba8cfa9a632`.
+- `py_eval` reconfirmed `0x0061c9c4 -> ??_R4KeySpeedMgr@@6B@`, `0x0061c9c8 -> 0x004effc0`, `0x0061c9cc -> 0x004f4b10`, `0x0061c9d0 -> 0x0041b6c0`, non-slot constants `0x400` at `0x0061c9d4` and `0x0061c9d8`, and the next `LanguageMan` locator at `0x0061c9dc`.
+- The same pass reconfirmed the three vtable-store xrefs to `0x0061c9c8`: constructor store at `0x004efecb`, ordinary destructor store at `0x004efee0`, and scalar deleting destructor store at `0x004effc6`.
+- Function metadata stayed stable for the class parent evidence: constructor `0x004efea0-0x004efedd`, ordinary destructor `0x004efee0-0x004efef5`, load helper `0x004eff00-0x004eff25`, restore helper `0x004eff30-0x004eff5d`, fast-repeat helper `0x004effa0-0x004effbd`, and scalar deleting destructor `0x004effc0-0x004f0008`; raw `0x004eff60` remains not an IDA function object.
+
+## Assignment Gate
+
+- `AUTOGEN_PARENT_UID` points to [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md). This page remains `86/90`, the direct class parent is `86/88`, and the class is already attached to [UID:0000KJ][KeySpeedMgr](by-file/KeySpeedMgr.md) at `90/88`.
+- This is a single-class vtable layout. The direct owner is the `KeySpeedMgr` class declaration, not the broader mixed [UID:00031P][0x0061c9c4-0x0061c9dc.KeySpeedMgrVtableData](by-memory/0x0061c9c4-0x0061c9dc.KeySpeedMgrVtableData.md) physical data child or the surrounding [UID:00025M][0x0061c9c4-0x0061ca44.KeySpeedStringResourceReadOnlyData](by-memory/0x0061c9c4-0x0061ca44.KeySpeedStringResourceReadOnlyData.md) linker island.
+
 ## Cross-References
 
 - [UID:0001UV][KeySpeedMgrLayout](by-type/by-struct/KeySpeedMgrLayout.md)
 - [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md)
 - [UID:0000KJ][KeySpeedMgr](by-file/KeySpeedMgr.md)
+- [UID:00031P][0x0061c9c4-0x0061c9dc.KeySpeedMgrVtableData](by-memory/0x0061c9c4-0x0061c9dc.KeySpeedMgrVtableData.md)
 - [UID:00018O][0x004efea0-0x004f0008.KeySpeedMgr](by-memory/0x004efea0-0x004f0008.KeySpeedMgr.md)
 - [UID:00018P][0x004eff30-0x004eff5d.KeySpeedMgrRestoreSystemKeyboardSettings](by-memory/0x004eff30-0x004eff5d.KeySpeedMgrRestoreSystemKeyboardSettings.md)
 - [UID:00018Q][0x004effa0-0x004effbd.ApplyFastKeyboardRepeatSettings](by-memory/0x004effa0-0x004effbd.ApplyFastKeyboardRepeatSettings.md)
@@ -60,6 +73,11 @@ The dwords at `0x0061c9d4` and `0x0061c9d8` both contain `0x400`; they are not c
 - [UID:0000RB][g_pKeySpeedMgr](by-global/g_pKeySpeedMgr.md)
 
 ## Changes
+
+- 2026-06-08 A005 Batch133:
+  - What existed before: the page was `86/90` with a blank parent even though the direct class parent [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md) was already `86/88`.
+  - Changed to: set `AUTOGEN_PARENT_UID:00006Z`, added a live IDA recheck, documented the corrected assignment gate, and linked the new exact vtable-data child page for the physical `0x0061c9c4-0x0061c9dc` data island.
+  - Summary/evidence: live IDA MCP reconfirmed the locator, three virtual slots, two non-slot `0x400` constants, successor `LanguageMan` locator, constructor/destructor/deleting-destructor vtable-store xrefs, and stable class method boundaries. Child and direct parent both clear the corrected `85/85` gate.
 
 ### 2026-05-31 - Rechecked score against IDA vtable evidence
 

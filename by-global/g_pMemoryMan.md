@@ -1,8 +1,8 @@
 *** UID:0000RH | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L7 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,7 +14,7 @@
 
 - Confidence: strong for storage address, singleton lifecycle, accessor, and allocator bootstrap role; medium-high for final source spelling/placement.
 - Address: `0x0069b4fc` (`dword_69B4FC` / `DAT_0069b4fc`)
-- Current generated id: `g_pMemoryMan`
+- Working id: `g_pMemoryMan`
 - Likely owner: [UID:0000L7][MemoryMan](by-file/MemoryMan.md)
 - Memory storage page: [UID:0002B0][0x0069b4fc-0x0069b500.g_pMemoryMan](by-memory/0x0069b4fc-0x0069b500.g_pMemoryMan.md)
 
@@ -38,8 +38,6 @@ static MemoryMan* g_pMemoryMan;
 
 ## Evidence
 
-- Current `source-3/simroot_v2/class_MemoryMan.cpp` emits `MemoryMan* g_pMemoryMan`, constructor assignment `g_pMemoryMan = this`, reset/destructor clears, `GetMemoryMan`, the static initializer/atexit reset path, and allocation/free/realloc/copy helpers in the same generated source family.
-- Current `source-3/simroot_v2/class_MemoryMan.cpp.source_map.json` maps `global-data:g_pMemoryMan` to six declaration/reference lines and records the storage evidence as manual, from documented by-global address evidence.
 - Live IDA MCP decompilation for `0x00516000` writes `dword_69B4FC = this`.
 - Live IDA MCP decompilation for `0x00516030` returns `dword_69B4FC`.
 - Live IDA MCP decompilation for `0x00516260` clears `dword_69B4FC`.
@@ -47,11 +45,9 @@ static MemoryMan* g_pMemoryMan;
 - `operator_new` at `0x004f4aa0` and `operator_delete` at `0x004f4ac0` call `GetMemoryMan` before forwarding to allocation/free helpers, so this singleton is part of the global allocation bootstrap path.
 - 2026-05-26 IDA MCP `xrefs_to 0x0069b4fc` still ties this storage to the constructor, reset/accessor, and destructor paths, not to a feature module.
 
-## Current Data Caveats
+## Source Migration Caveats
 
-Older generated snapshots duplicated marker-only `g_pMemoryMan` comment rows and omitted the constructor/accessor functions that prove the singleton lifecycle. The current `simroot_v2` active source has improved and now includes those lifecycle lines, but the output is still generated evidence with rewrite-quality issues such as modern C++ spelling, raw-address throw helpers, and active-file source boundaries that should be verified against [UID:0001BA][0x00516000-0x0051628e.MemoryManAndAllocationHelpers](by-memory/0x00516000-0x0051628e.MemoryManAndAllocationHelpers.md).
-
-Live IDA MCP was unavailable during this 2026-05-30 review pass, so the existing 2026-05-26 IDA notes were not refreshed.
+Keep rewrite work grounded in [UID:0001BA][0x00516000-0x0051628e.MemoryManAndAllocationHelpers](by-memory/0x00516000-0x0051628e.MemoryManAndAllocationHelpers.md) because this utility island mixes the singleton, static initializer/reset path, operator wrappers, allocation/free/realloc helpers, and copy wrappers.
 
 ## Cross-References
 
@@ -65,6 +61,7 @@ Live IDA MCP was unavailable during this 2026-05-30 review pass, so the existing
 ## Changes
 
 - 2026-05-30 completion/confidence review:
-  - What existed before: `COMPLETION:0`, `CONFIDENCE:0`, and stale caveat text saying active `class_MemoryMan.cpp` only duplicated marker-only `g_pMemoryMan` rows and omitted constructor/accessor lifecycle functions.
-  - Changed to: `COMPLETION:88`, `CONFIDENCE:86`, exact storage-page link, current source-map/source evidence, and corrected generated-output caveats.
-  - Summary/evidence: exact storage page [UID:0002B0][0x0069b4fc-0x0069b500.g_pMemoryMan](by-memory/0x0069b4fc-0x0069b500.g_pMemoryMan.md), `MemoryMan` file/class docs, [UID:0001BA][0x00516000-0x0051628e.MemoryManAndAllocationHelpers](by-memory/0x00516000-0x0051628e.MemoryManAndAllocationHelpers.md), and current `simroot_v2/class_MemoryMan.cpp(.source_map.json)` support the singleton lifecycle and allocator-bootstrap role. Confidence is capped because live IDA was unavailable for this pass and final original source placement/spelling remains reconstructed.
+  - What existed before: `COMPLETION:0`, `CONFIDENCE:0`, and stale caveat text around omitted constructor/accessor lifecycle functions.
+  - Changed to: `COMPLETION:88`, `CONFIDENCE:86`, exact storage-page link, and corrected source migration caveats.
+  - Summary/evidence: exact storage page [UID:0002B0][0x0069b4fc-0x0069b500.g_pMemoryMan](by-memory/0x0069b4fc-0x0069b500.g_pMemoryMan.md), `MemoryMan` file/class docs, and [UID:0001BA][0x00516000-0x0051628e.MemoryManAndAllocationHelpers](by-memory/0x00516000-0x0051628e.MemoryManAndAllocationHelpers.md) support the singleton lifecycle and allocator-bootstrap role. Confidence is capped because final original source placement/spelling remains reconstructed.
+- 2026-06-05: Marked reconstructable under [UID:0000L7][MemoryMan](by-file/MemoryMan.md). Evidence: live IDA MCP reports four xrefs to `0x0069b4fc`; decompilation confirms constructor `0x00516000`, atexit reset tail `0x0060c260`, accessor `0x00516030`, and scalar deleting destructor `0x00516260` write/clear/read `dword_69B4FC`.

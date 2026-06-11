@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:000076 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for size, offsets, constructor/destructor/draw usage, and generated-frame lifetime; medium for final names of the first two integer fields.
 - Owner: [UID:000076][LightObjImageLib](by-class/LightObjImageLib.md).
+- Autogen parent: attached to [UID:000076][LightObjImageLib](by-class/LightObjImageLib.md); the class scores `84/80` and this row page scores `82/86`, so both sides satisfy the 80/80 parent gate.
 - Source placement: [UID:0000KP][LightObjImageLib](by-file/LightObjImageLib.md).
 
 ## Layout
@@ -59,6 +60,7 @@ LightInfo
 
 ## Changes
 
+- 2026-06-06: Attached the light table row to [UID:000076][LightObjImageLib](by-class/LightObjImageLib.md). Scores remain `82/86`; the parent sync follows the documented constructor/draw/destructor ownership and the class page's 80/80 gate.
 - 2026-05-31 LightObjImageLib split pass:
   - What existed before: metadata scores were `0/0`; field evidence did not mention the IDA-confirmed light-bounds helper.
   - Changed to: `COMPLETION:82`, `CONFIDENCE:86`, `RECONSTRUCTABLE:TRUE`, plus the `0x004dfb40` bounds-helper evidence and exact method cross-references.

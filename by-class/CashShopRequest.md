@@ -16,7 +16,7 @@
 - Current reconstruction source module: [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md) at `NexusTK/cashshop/`.
 - Autogen status: reconstructable/attached for placeholder routing only; C++ remains blank because field/helper names and source split boundaries are not final-source quality.
 - Current relevant ranges: `0x0041a5d0-0x0041b5da`, `0x00453a30-0x00453a9c`, `0x00574b90-0x00575377`, and `0x00596620-0x005969b0`
-- Ownership correction: `0x00528290-0x005283d4` is now corrected to [UID:00008I][MiscWorkThread](by-class/MiscWorkThread.md); keep [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md) only as a correction record.
+- Ownership correction: `0x00528290-0x005283d5` is now corrected to [UID:00008I][MiscWorkThread](by-class/MiscWorkThread.md); keep [UID:0001CK][0x00528290-0x005283d5.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d5.CashShopRequestAuthDirectory.md) only as a correction record.
 - Evidence basis: live IDA MCP function, xref, raw-byte, and global-reference checks through 2026-06-04.
 
 ## Score Rationale
@@ -69,7 +69,7 @@ Field names should remain provisional until layout review is fast enough to run 
 | `0x00574bb0` | `QueueAndSendPacket` | Exact page: [UID:0001HU][0x00574bb0-0x00574c13.QueueAndSendPacket](by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md). Copies packet bytes, appends a zero byte, and dispatches request code `8`; IDA confirms 416 direct code refs. |
 | `0x00574d00` | `SendRawData` | Raw/provisional page: [UID:0001HV][0x00574d00-0x00574d3f.SendRawDataRaw](by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md). IDA has no function object, no external xrefs to the start, and no loaded dword refs equal to `0x00574d00`; raw bytes allocate/copy data and dispatch request code `0x0e`. |
 | `0x00574d40` | `SendPositionUpdate` | Exact page: [UID:0001HW][0x00574d40-0x00574e44.SendPositionUpdate](by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md). Builds an 8-byte position/status upload and dispatches it through request code `8`; callers are reconnect and terminal-stream paths. |
-| `0x00574e50` | `BuildAndSendInventoryData` | Exact page: [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md). Builds opcode `0x77` records from 20 config name slots; caller evidence and [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) point to [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md), not item inventory. |
+| `0x00574e50` | `BuildAndSendFriendNameListSync` | Exact page: [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendFriendNameListSync](by-memory/0x00574e50-0x0057536b.BuildAndSendFriendNameListSync.md). Builds opcode `0x77` records from 20 config name slots; former `BuildAndSendInventoryData` caller evidence and [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) / `g_friendNameListSyncEnabled` point to [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md), not item inventory. |
 | `0x00575370` | `GetConnectionStatus` | Exact page: [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md). Returns the connection-status byte at `this + 240207`. |
 | `0x00596620` | `SubmitAndWait` | Creates an event, enqueues a synchronous request, waits, removes result entry, and closes the event. |
 | `0x00596760` | `WaitForResult` | Waits for a matching result-list entry and returns the result payload/handle. |
@@ -82,7 +82,7 @@ Field names should remain provisional until layout review is fast enough to run 
 - IDA confirms exact modeled submit/destructor functions at `0x0041b180-0x0041b1f5`, `0x0041b200-0x0041b26d`, `0x0041b270-0x0041b2c9`, and `0x0041b570-0x0041b5db`. The submit helpers call `0x00596960`; the scalar deleting destructor is reached through the `0x0060d7a0` CashShopRequest vtable.
 - IDA still does not model `0x00453a30` or `0x00574d00` as functions. The raw `0x00574d00` start has no external start xrefs and no loaded dword references equal to `0x00574d00`; keep it provisional despite function-shaped bytes.
 - IDA confirms `QueueAndSendPacket` at `0x00574bb0-0x00574c13` with 416 direct code xrefs, packet-buffer helper calls at `0x00516030`, `0x00516050`, and `0x00516220`, and queue dispatch through `0x00596960`.
-- IDA confirms `SendPositionUpdate` at `0x00574d40-0x00574e44` with two callers, `BuildAndSendInventoryData` at `0x00574e50-0x0057536b` with three callers, and `GetConnectionStatus` at `0x00575370-0x00575377` with three callers.
+- IDA confirms `SendPositionUpdate` at `0x00574d40-0x00574e44` with two callers, `BuildAndSendFriendNameListSync` at `0x00574e50-0x0057536b` with friend-list/map callers, and `GetConnectionStatus` at `0x00575370-0x00575377` with three callers.
 - IDA confirms wait/dispatch helpers at `0x00596620-0x0059675e`, `0x00596760-0x005967c7`, and `0x00596960-0x005969b0`; the first two use `WaitForSingleObject`/`CloseHandle`, while `0x00596960` enqueues work and calls `ReleaseSemaphore`.
 - Current global xrefs show `0x0067a7ec` has 489 references from broad packet-send call sites, `0x0067a738` has FileDownloader/fitting-room request-submit reads and writes, and `0x0066dee0` has three xrefs from the MapPane/friend-list upload paths.
 
@@ -91,7 +91,7 @@ Field names should remain provisional until layout review is fast enough to run 
 - Cash-shop/download/auth-specific payload creation should remain with this class.
 - Downloader request submission helpers at `0x0041b180`, `0x0041b200`, and `0x0041b270` should remain provisional until the FileDownloader singleton and payload class split is settled.
 - `QueueAndSendPacket` is heavily cross-feature; keep it here until a clearer base queue or network send class is recovered.
-- `SendPositionUpdate`, `BuildAndSendInventoryData`, and `GetConnectionStatus` are currently in the same send/status cluster, but their callers are reconnect/terminal/map/friend-list paths rather than cash-shop UI paths.
+- `SendPositionUpdate`, `BuildAndSendFriendNameListSync`, and `GetConnectionStatus` are currently in the same send/status cluster, but their callers are reconnect/terminal/map/friend-list paths rather than cash-shop UI paths.
 - `0x00596960` should be treated as a generic [UID:0000OR][Thread](by-file/Thread.md) queue post helper in source-layout planning unless a later class-layout pass proves a CashShopRequest override/wrapper.
 - Final packet transport and encryption belong to [UID:0000DD][Socket](by-class/Socket.md).
 - Big-endian packet scalar helpers belong to [UID:0000M8][PacketBuffer](by-file/PacketBuffer.md), not this class.
@@ -105,7 +105,7 @@ Field names should remain provisional until layout review is fast enough to run 
 - Reconcile the generic queue-dispatch role at `0x00596960` with older CashShopRequest ownership notes.
 - Decide whether `0x0041b180`, `0x0041b200`, and `0x0041b270` belong to this class or to [UID:0000JC][FileDownloader](by-file/FileDownloader.md) / a download-request dispatcher.
 - Confirm ownership of globals `g_cashShopRequestPending`, `g_isHighResMode`, `g_pApplication`, and `g_pConfig`; current file ownership should not be treated as final.
-- Review a final name for `BuildAndSendInventoryData`; current evidence favors social/account friend-name-list opcode `0x77` upload semantics, with [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) as the server-controlled upload flag.
+- Review the final source-facing owner for `BuildAndSendFriendNameListSync`; current evidence favors social/account friend-name-list opcode `0x77` upload semantics, with [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) / `g_friendNameListSyncEnabled` as the server-controlled upload flag. The former `BuildAndSendInventoryData` name should remain only as a searchable generated alias.
 
 ## Cross-References
 
@@ -117,15 +117,15 @@ Field names should remain provisional until layout review is fast enough to run 
 - [UID:0002CK][0x0041b200-0x0041b26d.FileDownloaderSubmitCashShopCatalogRequest](by-memory/0x0041b200-0x0041b26d.FileDownloaderSubmitCashShopCatalogRequest.md)
 - [UID:0002CL][0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest](by-memory/0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest.md)
 - [UID:0002CM][0x0041b570-0x0041b5db.CashShopRequestScalarDeletingDestructor](by-memory/0x0041b570-0x0041b5db.CashShopRequestScalarDeletingDestructor.md)
-- [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md)
+- [UID:0001CK][0x00528290-0x005283d5.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d5.CashShopRequestAuthDirectory.md)
 - [UID:0001HT][0x00574b90-0x00575377.CashShopRequestSendQueue](by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md)
 - [UID:0001HU][0x00574bb0-0x00574c13.QueueAndSendPacket](by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md)
 - [UID:0001HV][0x00574d00-0x00574d3f.SendRawDataRaw](by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md)
 - [UID:0001HW][0x00574d40-0x00574e44.SendPositionUpdate](by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md)
-- [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md)
+- [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendFriendNameListSync](by-memory/0x00574e50-0x0057536b.BuildAndSendFriendNameListSync.md)
 - [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md)
 - [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md)
-- [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md)
+- [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) / `g_friendNameListSyncEnabled`
 - [UID:0001JY][0x00596620-0x005969b0.CashShopRequestWaitDispatch](by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md)
 - [UID:0000OR][Thread](by-file/Thread.md)
 - [UID:00008I][MiscWorkThread](by-class/MiscWorkThread.md)
@@ -138,6 +138,10 @@ Field names should remain provisional until layout review is fast enough to run 
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: send-queue/friend-list caveats referenced the upload flag only as historical `byte_66DEE0`.
+  - After: the page records resolved name `g_friendNameListSyncEnabled` beside the historical label.
+  - Evidence: generated resolved-name report maps `byte_66DEE0` to `g_friendNameListSyncEnabled`; existing IDA-backed evidence already ties the flag to map/friend-list upload paths rather than cash-shop inventory.
 - 2026-06-04: Raised completion/confidence from `72/80` to `82/86`; reconstructable and parent attachment remain unchanged.
   - Before: the page had useful child links and ownership caveats, but still used stale provenance wording and did not record fresh IDA evidence for the raw starts, caller counts, global xrefs, and queue-dispatch boundary.
   - After: live IDA evidence records the binary identity, modeled and raw method starts, submit helper callers, `QueueAndSendPacket` reachability, wait/dispatch helper ranges, `g_packetSender`/`g_pCashShopRequest`/friend-upload flag xrefs, and the lack of loaded references for raw `0x00574d00`.

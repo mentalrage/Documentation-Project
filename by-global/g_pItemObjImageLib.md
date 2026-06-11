@@ -1,8 +1,8 @@
 *** UID:0000RA | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KH | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,7 +16,7 @@
 - Kind: process-wide singleton pointer.
 - Backing storage: [UID:0001OT][0x0067a758-0x0067a75c.g_pItemObjImageLib](by-memory/0x0067a758-0x0067a75c.g_pItemObjImageLib.md), IDA `dword_67A758`.
 - Canonical owner: [UID:00006W][ItemObjImageLib](by-class/ItemObjImageLib.md) in [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md).
-- Generated aliases seen in current material: `g_pItemObjectImageLib`, `g_pItemImageLib`, and raw `dword_67A758`.
+- Observed aliases: `g_pItemObjectImageLib`, `g_pItemImageLib`, and raw `dword_67A758`.
 
 ## Meaning
 
@@ -38,11 +38,7 @@ IDA MCP on 2026-05-25 reports 65 xrefs to `0x0067a758` across 29 recognized func
 
 The constructor at `0x004dec30` also chooses `ITEM.TBL` versus `ITEM.TBD`, installs the `ItemObjImageLib` and `ProtectedArray<ItemInfo>` vtables, and loads the item metadata rows.
 
-Current `simroot_v2/class_ItemObjImageLib.cpp` declares `ItemObjImageLib* g_pItemObjImageLib;`, assigns `g_pItemObjImageLib = this` in `ItemObjImageLib::ItemObjImageLib`, clears it in `~ItemObjImageLib`, clears it in `ClearItemObjImageLibSingleton`, and clears it in `ScalarDeletingDestructor`.
-
-`simroot_v2/class_ItemObjImageLib.cpp.source_map.json` maps `global-data:g_pItemObjImageLib` to data range `0x0067a758-0x0067a75b` with `memory_range_coverage_status: resolved`; the mapped source text includes the declaration and the constructor/destructor/helper references.
-
-`simroot_v2/class_ItemObjImageLib.meta_wave3` lists `g_pItemObjImageLib` in the active `global_data` partition for `class_ItemObjImageLib.cpp`, with Wave3 global-data grade `100.0`. Treat this as a useful lead, not a replacement for the IDA-backed storage/xref evidence above.
+Live IDA MCP decompilation confirms the constructor, destructor/helper, singleton-clear helper, and scalar deleting destructor references to `dword_67A758`; use that storage/xref evidence as the ownership basis.
 
 ## Consumer Evidence
 
@@ -56,7 +52,7 @@ Known readers include:
 
 `g_pItemObjImageLib` is source-owned by `ItemObjImageLib`, not by `MyItemListPane`, `ArgumentedMenuMenuItemList`, `ClientItemMenuItemList`, `Application`, or any caller that only consumes item icons.
 
-When rewriting generated source, normalize current generated aliases back to this canonical global unless stronger original-name evidence appears.
+When rewriting source, normalize noncanonical aliases back to this canonical global unless stronger original-name evidence appears.
 
 ## Cross-References
 
@@ -74,5 +70,6 @@ When rewriting generated source, normalize current generated aliases back to thi
 ### 2026-05-30 completion/confidence evidence pass
 
 - What existed before: the page had `0` completion/confidence header values while already carrying detailed IDA-backed address, owner, write-site, and consumer evidence.
-- What changed: completion/confidence were raised to `88/88`, and the evidence notes now include current generated declaration/use sites, source-map binding to `0x0067a758-0x0067a75b`, and active Wave3 partition data.
-- Summary and evidence: the current source map directly resolves `global-data:g_pItemObjImageLib` to the singleton storage and maps the constructor/destructor/helper writes to the same range; existing by-memory notes independently record the IDA xrefs and write addresses. The score remains below complete because not all 65 reader xrefs are enumerated and the final original spelling remains slightly caveated by older generated aliases.
+- What changed: completion/confidence were raised to `88/88`, and the evidence notes now include lifecycle writes/clears and ownership caveats.
+- Summary and evidence: existing by-memory notes independently record the IDA xrefs and write addresses. The score remains below complete because not all 65 reader xrefs are enumerated and the final original spelling remains slightly caveated by older aliases.
+- 2026-06-05: Marked reconstructable under [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md). Evidence: live IDA MCP reports 65 xrefs to `0x0067a758`; decompilation confirms constructor `0x004dec30`, clear helper `0x004e5ba0`, and scalar deleting destructor `0x004e6580` write/clear `dword_67A758`.

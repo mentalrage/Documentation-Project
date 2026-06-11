@@ -1,5 +1,5 @@
 *** UID:00005N | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000JO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -17,10 +17,12 @@
 - Reconstruction parent: [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md)
 - Related memory: [UID:0001CS][0x0052f780-0x0052f7fe.FunctionObjectTConstStringDestructors](by-memory/0x0052f780-0x0052f7fe.FunctionObjectTConstStringDestructors.md)
 - Reconstructable: true as emitted callback-template destructor support; C++ remains blank under the project-level 95/95 source-quality gate.
+- Parent gate: [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md) is above `80/80`, and this page now clears the child-side threshold for source-family attachment.
+- Rebuild handling: `source-declared/generated-binary`; source should provide the shared callback-template declaration/destructor semantics, while the compiler/linker emits these concrete destructor bodies.
 
 ## Class Purpose
 
-This is a generated/emitted instantiation of `FunctionObjectT<const mystr::StringBase<wchar_t, mystr::mychar_traits<wchar_t>>&>`. Current output exposes destructor support for const-reference string callback bases used by dialog callback vtables.
+This is a compiler-emitted instantiation of `FunctionObjectT<const mystr::StringBase<wchar_t, mystr::mychar_traits<wchar_t>>&>`. Observed binary evidence exposes destructor support for const-reference string callback bases used by dialog callback vtables.
 
 ## Method Notes
 
@@ -55,6 +57,13 @@ IDA reads of the vtable data show `0x0061ff70`, `0x0062004c`, `0x00620094`, and 
 - Do not create a standalone feature file from the long emitted class filename.
 - Do not emit final C++ on this page yet. The destructor behavior is clear, but the final template declaration names and all construction sites are not proven to the project 95/95 threshold.
 
+## Score Rationale
+
+| Metric | Value | Rationale |
+| --- | --- | --- |
+| Completion | `80` | The page now records the const-reference string callback-template role, exact destructor-support page, IDA bounds/xref/caller evidence, FunctionObjects parent gate, ownership boundaries against create-user/Nexonclub/StringUtil/StringBase, source-declared/generated-binary handling, and final C++ blocker. It remains below higher completion because the original template/header declaration spelling and all construction sites remain open. |
+| Confidence | `88` | IDA function bounds, vtable xrefs, no-direct-caller shape, decompilation behavior, and related FunctionObjects/template docs strongly support the interpretation. Confidence stays unchanged because final source spelling and exact emitted-template split are still inferred. |
+
 ## Cross-References
 
 - [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md)
@@ -70,4 +79,8 @@ IDA reads of the vtable data show `0x0061ff70`, `0x0062004c`, `0x00620094`, and 
   - What existed before: `COMPLETION:70`, `CONFIDENCE:82`, blank reconstructable flag, blank autogen parent, and only short evidence notes.
   - Changed to: `COMPLETION:78`, `CONFIDENCE:88`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000JO`.
   - Summary/evidence: live IDA MCP reconfirmed both destructor functions at `0x0052f780` and `0x0052f7c0` as `0x3e`-byte modeled functions, with no direct callers, vtable/data xrefs, base cleanup through `sub_4F4A90`, conditional scalar delete through `sub_4F4AC0`, and the same `flags & 4` guard shape in both bodies. Parent attachment is justified by the already documented `FunctionObjects` parent policy; final C++ stays blank because template declarations and construction sites remain below the 95/95 gate.
+- 2026-06-06 A004 parent-gate cleanup:
+  - Changed completion from `78` to `80`; confidence remains `88`.
+  - Added parent-gate status, source-declared/generated-binary rebuild handling, score rationale, and clarified compiler-emitted callback-template wording.
+  - Evidence: [UID:0001CS][0x0052f780-0x0052f7fe.FunctionObjectTConstStringDestructors](by-memory/0x0052f780-0x0052f7fe.FunctionObjectTConstStringDestructors.md), [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md), and [UID:0001WQ][FunctionObjectTemplates](by-type/by-template/FunctionObjectTemplates.md) support shared callback-template ownership while final source remains below the code gate.
 - Completion/confidence score update: existed before as `0/0`; changed to `70/82`. Summary: const-reference string callback-template purpose, destructor variants, vtable-reference evidence, and generated-support caveat are documented; full template split and exact vtable distinction remain open. Evidence: memory page `0x0052f780-0x0052f7fe`, IDA vtable xref note, and FunctionObject template documentation.

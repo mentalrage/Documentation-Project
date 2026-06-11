@@ -33,7 +33,7 @@ The dirty/motion helper family inside the main `0x00544460-0x00545086` cluster i
 | adjustor thunk helpers | `0x00544f2e`, `0x00544f39` | Compiler-generated secondary/tertiary destructor thunks; not handwritten pane behavior. |
 | dirty/motion helpers | `0x00544690-0x00544b7d` | Deferred deletion marker plus dirty-region, motion-region, and paint-state helpers used by layer traversal. |
 | layer membership helper | `0x00544c50` | Shared attached-layer test over `Pane +0xa8`; current ParcelPane ownership is generated callsite pollution. |
-| `EventHandler` base | `0x004a8970-0x004a8a83` | Shared event-handler interface embedded by pane state and traversed by `EventDispatcher`. |
+| `EventHandler` base | `0x004a8970-0x004a8a84` | Shared event-handler interface embedded by pane state and traversed by `EventDispatcher`; the following `0x004a8a84-0x004a8a90` span is alignment padding. |
 | `BlackHole` pane queue helper | `0x00469180-0x004691fa` | Pane detach/event unregister/timer cancel path before deferred deletion. |
 
 ## Ownership Decision

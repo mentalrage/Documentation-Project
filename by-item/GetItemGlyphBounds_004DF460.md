@@ -1,8 +1,8 @@
 *** UID:0000UQ | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KH | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Confidence: strong for behavior and current canonical name, medium for final source-file placement.
 - Entity kind: shared global helper.
 - Likely source module: [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md) or a small item-image helper module.
+- Autogen parent: [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md).
 - Exact range: `0x004df460-0x004df4f9`
 
 ## Behavior
@@ -53,6 +54,11 @@ Keep this as a free helper, not a UI-pane method. Its caller spread is broad and
 - [UID:0000J3][EPFImageResources](by-file/EPFImageResources.md)
 
 ## Changes
+
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE` and attached to [UID:0000KH][ItemObjImageLib](by-file/ItemObjImageLib.md).
+  - Before: the item bounds helper was documented but unclassified in autogen coverage.
+  - After: it is marked as NexusTK-owned item-image helper source under the validated ItemObjImageLib file root; C++ remains blank because final helper/file split and item archive field names are not at the 95/95 final-code bar.
+  - Evidence: live IDA MCP confirms `sub_4DF460` at `0x004df460`, size `0x99`, with callees to the resource-layout lookup and rectangle offset helpers, matching the documented broad item-render helper behavior.
 
 - Before: the page had `COMPLETION:0` and `CONFIDENCE:0`, cited generated metadata, and used an older exact range spelling.
 - Changed to: `COMPLETION:82` and `CONFIDENCE:88`, IDA-backed function bounds and caller count, and current Hex-Rays behavior for remapping, lookup, and centering.

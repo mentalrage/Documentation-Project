@@ -98,7 +98,7 @@ Observed sidecar behavior:
 - It then looks for `<profile>.jpf` in `Documents\NexusTK\users`, with `./users/<profile>.jpf` as a fallback.
 - Missing or invalid `.jpf` data sends profile refresh packet opcode `79` with length `0` plus the profile name.
 - Present `.jpf` data must be smaller than `0x2710` bytes.
-- The `.jpf` payload is decoded through [UID:000175][0x004d05f0-0x004d0c58.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0c58.ImageDecodeWrappers.md); only a decoded span of `48 x 56` causes the profile name to be appended to the outbound packet.
+- The `.jpf` payload is decoded through [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0f4a.ImageDecodeWrappers.md); only a decoded span of `48 x 56` causes the profile name to be appended to the outbound packet.
 
 ## IDA MCP Evidence
 

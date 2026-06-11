@@ -1,6 +1,6 @@
 *** UID:0000CW | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000NM | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -44,10 +44,22 @@
 - 2026-06-02 IDA MCP recheck keeps `0x005b67c0` and `0x005b6870` as non-modeled raw starts, confirms `0x005b6800-0x005b686c` as `sub_5B6800`, confirms `0x005aa140-0x005aa1c0` as `sub_5AA140`, and reconfirms no direct callers for the constructor/factory/helper addresses.
 - 2026-06-02 IDA MCP raw bytes show constructor-shaped code from `0x005b67c0`, the modeled handler from `0x005b6800`, the raw send helper from `0x005b6870`, and `0xcc` alignment after `0x005b68b0`.
 
+## Batch 023 Vtable Parent Evidence
+
+Live IDA MCP on 2026-06-07 rechecked `NexusTK.exe` (`sha256 9aec210bbc5ce592176a21dd8e9d9fd8f250b8d9ea78237915a99ba8cfa9a632`) for the exact vtable-data child [UID:0002N8][0x006305c0-0x00630648.SelfSaveInputPaneVtableData](by-memory/0x006305c0-0x00630648.SelfSaveInputPaneVtableData.md):
+
+- The three vtable bases remain `0x006305c0`, `0x00630610`, and `0x00630640`, named as the primary, secondary, and tertiary `SelfSaveInputPane` views.
+- Key class-owned slot `0x00630608 -> 0x005b6800` still points at the modeled confirmation handler.
+- Store xrefs remain the factory/open-helper writes at `0x005aa196/0x005aa19c/0x005aa1a6`, plus raw constructor-shaped stores at `0x005b67df/0x005b67e7/0x005b67f1`.
+- Boundary dwords at `0x0063060c` and `0x0063063c` are the secondary and tertiary RTTI locators; the exclusive end remains `0x00630648` before `BlockListenInputPane`.
+
+This class page is the direct source-level owner for the vtable-data child because the child is a compiler-emitted artifact of this class declaration and virtual method set. The page now meets the corrected `85/85` parent gate for assigning [UID:0002N8][0x006305c0-0x00630648.SelfSaveInputPaneVtableData](by-memory/0x006305c0-0x00630648.SelfSaveInputPaneVtableData.md) here. The raw send helper and final file grouping still block final-source C++.
+
 ## Cross-References
 
 - [UID:0000NM][SelfSaveInputPane](by-file/SelfSaveInputPane.md)
 - [UID:0001XA][CommandInputPaneVtableFamily](by-type/by-vtable/CommandInputPaneVtableFamily.md)
+- [UID:0002N8][0x006305c0-0x00630648.SelfSaveInputPaneVtableData](by-memory/0x006305c0-0x00630648.SelfSaveInputPaneVtableData.md)
 - [UID:0000ID][CommandInputPanes](by-file/CommandInputPanes.md)
 - [UID:0001MU][0x005b67c0-0x005b68b0.SelfSaveInputPane](by-memory/0x005b67c0-0x005b68b0.SelfSaveInputPane.md)
 - [UID:0001KQ][0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory](by-memory/0x005aa140-0x005aa1bf.SelfSaveInputPaneFactory.md)
@@ -62,3 +74,7 @@
 - Evidence: the page documents the confirmation role, vtable family, constructor-shaped bytes, real input handler, opcode behavior, shared packet sender, and factory/open-helper caveats; completion remains limited because the raw send helper and factory ownership still need final placement.
 - 2026-06-02: Raised to `80/82`, marked `RECONSTRUCTABLE:TRUE`, and attached to [UID:0000NM][SelfSaveInputPane](by-file/SelfSaveInputPane.md).
   Evidence: current IDA MCP reconfirms the exact factory boundary, modeled handler, vtable data reachability, raw constructor/helper byte layout, and absence of direct caller xrefs.
+- 2026-06-07 A003 Batch 023 parent gate:
+  - Before: `80/82`, below the corrected direct-parent gate for the exact vtable-data child.
+  - After: `85/86`, with current hash-backed vtable slot, xref, and boundary evidence.
+  - Summary/evidence: the class page already documented confirmation behavior, raw constructor/helper caveats, factory evidence, packet sender state, and source placement; the Batch 023 IDA recheck closes the specific vtable ownership gate while keeping final C++ blocked by the raw helper and file-grouping questions.

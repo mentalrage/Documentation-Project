@@ -1,6 +1,6 @@
 *** UID:0000JK | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/diagnostics/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # FpsPane
@@ -9,7 +9,7 @@
 
 - Proposed module: `ui/diagnostics/FpsPane.cpp`
 - Proposed header: `ui/diagnostics/FpsPane.h`
-- Confidence: strong for separate diagnostic module, medium-high for final folder.
+- Confidence: strong for separate diagnostic module and FPS global ownership; medium-high for final folder.
 - Current generated source: `class_FpsPane.cpp`
 - Related generated-data caveat: `class_ParcelPane.meta_wave3` and ParcelPane global-data rows still reference FPS diagnostics ownership, even though active `class_FpsPane.cpp` now emits `0x004b64a0`.
 - Type docs: [UID:0001UO][FpsPaneLayout](by-type/by-struct/FpsPaneLayout.md), [UID:0001XN][FpsPane_vtables](by-type/by-vtable/FpsPane_vtables.md)
@@ -36,6 +36,8 @@ Keep this separate from [UID:0000MF][ParcelPane](by-file/ParcelPane.md) and [UID
 | [UID:0000QZ][g_pFpsPane](by-global/g_pFpsPane.md) | `0x0069b334` | `class_FpsPane.cpp` | `FpsPane.cpp` module global |
 | [UID:0000PY][g_fpsDebugActive](by-global/g_fpsDebugActive.md) | `0x0066da90` | generated under `class_ParcelPane.cpp` global-data | `FpsPane.cpp` module global |
 | [UID:0000PZ][g_fpsLogEnabled](by-global/g_fpsLogEnabled.md) | `0x0069b338` | generated under `class_ParcelPane.cpp` global-data | `FpsPane.cpp` module global |
+| [UID:0002W0][0x0069b334-0x0069b338.g_pFpsPane](by-memory/0x0069b334-0x0069b338.g_pFpsPane.md) | `0x0069b334-0x0069b338` | exact global-data slot | Physical `.data` storage for the active FpsPane singleton. |
+| [UID:0002W1][0x0069b338-0x0069b339.g_fpsLogEnabled](by-memory/0x0069b338-0x0069b339.g_fpsLogEnabled.md) | `0x0069b338-0x0069b339` | exact global-data byte | Physical `.data` storage for the FPS log gate. |
 | [UID:0001XN][FpsPane_vtables](by-type/by-vtable/FpsPane_vtables.md) | `0x0061a620`, `0x0061a66c`, `0x0061a69c` | type data | `FpsPane.cpp` / `FpsPane.h` |
 | [UID:0002MJ][0x0061a61c-0x0061a6a4.FpsPaneVtableData](by-memory/0x0061a61c-0x0061a6a4.FpsPaneVtableData.md) | `0x0061a61c-0x0061a6a4` | exact RTTI/vtable data | compiler-generated from `FpsPane` declarations |
 
@@ -50,6 +52,7 @@ Keep this separate from [UID:0000MF][ParcelPane](by-file/ParcelPane.md) and [UID
 - 2026-05-26 IDA layout follow-up confirms the apparent field split between `OnPaint` and `UpdateStatistics` is caused by `UpdateStatistics` using the timer/update subobject at `+0xa4`; normalized owner offsets are documented in [UID:0001UO][FpsPaneLayout](by-type/by-struct/FpsPaneLayout.md).
 - `FpsPane::UpdateStatistics` reads `g_pMapPane`, visible tile bounds, and ObjectList row-bucket counts, but does not own map/object code.
 - 2026-05-26 IDA MCP reconfirmed the thunk pair at `0x004b6c2b` and `0x004b6c36` as vtable-only compiler adjustors into `FpsPane::ScalarDeletingDestructor`; these are now listed in [UID:0000VN][-ignored](by-memory/-ignored.md).
+- 2026-06-07 Batch038 IDA refresh confirms exact FPS `.data` children: [UID:0002W0][0x0069b334-0x0069b338.g_pFpsPane](by-memory/0x0069b334-0x0069b338.g_pFpsPane.md) refs at `0x004b6434`, `0x004b648a`, and `0x004b6c70`; [UID:0002W1][0x0069b338-0x0069b339.g_fpsLogEnabled](by-memory/0x0069b338-0x0069b339.g_fpsLogEnabled.md) refs at `0x004b653f`, `0x004b6645`, `0x004b6a17`, and `0x004b6ae4`.
 
 ## Source-Structure Decision
 
@@ -85,6 +88,11 @@ Do not merge this into `MapPane.cpp`; the object-count calls are diagnostic read
 - `ParcelPane` generated-source ownership caveat in [Wave3 data issues](../wave3_data_issues.md)
 
 ## Changes
+
+- 2026-06-07 A009 Batch038 singleton split:
+  - What existed before: `COMPLETION:86`, `CONFIDENCE:80`; FPS global ownership was documented through by-global pages but not tied to exact split memory children.
+  - Changed to: `COMPLETION:87`, `CONFIDENCE:85`; added [UID:0002W0][0x0069b334-0x0069b338.g_pFpsPane](by-memory/0x0069b334-0x0069b338.g_pFpsPane.md), [UID:0002W1][0x0069b338-0x0069b339.g_fpsLogEnabled](by-memory/0x0069b338-0x0069b339.g_fpsLogEnabled.md), and exact Batch038 xrefs.
+  - Summary/evidence: live IDA confirms both split children are directly FpsPane diagnostics state. Confidence rises to the corrected parent gate while preserving final-folder and raw-helper caveats.
 
 - 2026-06-01 projected reconstruction path:
   - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, and the status kept the final folder open between `ui/diagnostics/` and a flat original source file.

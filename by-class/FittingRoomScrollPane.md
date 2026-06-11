@@ -1,6 +1,6 @@
 *** UID:000054 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000JE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -13,10 +13,10 @@
 ## Status
 
 - Confidence: strong for the local `0x0041d870-0x0041eb8c` scroll-pane interaction/draw core and medium for final source placement.
-- Current Wave3 file: `class_FittingRoomScrollPane.cpp`
+- Historical projection: `class_FittingRoomScrollPane.cpp` remains useful only as prior naming context; it was not used as evidence for the 2026-06-05 score update.
 - Proposed source module: [UID:0000JE][FittingRoom](by-file/FittingRoom.md), with possible later move to `ui/core/ScrollBar.cpp`
 - Autogen status: reconstructable class attached to the fitting-room source module; C++ is intentionally blank until field names, base-adjusted receiver layout, and source placement versus generic scrollbar code are final.
-- Evidence basis: Wave3 inspection, generated source, and IDA MCP checks on 2026-05-23 with constructor-boundary recheck on 2026-05-25 and scroll-pane core split on 2026-05-30.
+- Evidence basis: existing project documentation and IDA MCP checks on 2026-05-23, 2026-05-25, 2026-05-30, and the A003 live refresh on 2026-06-05.
 
 ## Role
 
@@ -39,23 +39,29 @@ Scrollbar pane used by fitting-room list controls. It draws EPF-backed scroll pa
 | [UID:0002DY][0x00421480-0x004214bb.ScrollPaneFamilyScalarDeletingDestructor](by-memory/0x00421480-0x004214bb.ScrollPaneFamilyScalarDeletingDestructor.md) | scalar deleting destructor wrapper | Shared generated wrapper used by several scroll-pane-family vtables; base teardown plus optional delete. |
 | `0x0045aa00-0x0045ab48` | `BeginScrollDrag` | Drag setup helper. |
 | `0x0045ab50-0x0045ac0f` | `UpdateScrollOnMove` | Scroll update during drag. |
-| `0x00497aa0-0x0049802f` | parent scroll helpers | Additional scroll handling currently attached by Wave3. |
+| `0x00497aa0-0x0049802f` | parent scroll helpers | Additional scroll handling remains provisional and is not treated as fitting-room-private code on this page. |
 
 ## Boundary Cautions
 
-- Wave3 lists a constructor at `0x0041d6c0`, but IDA MCP reports `0x0041d6c0` is not a function start. Generated source for that constructor is still useful as layout evidence, but source migration should not treat the address as a confirmed IDA function.
+- An older projected constructor start exists at `0x0041d6c0`, but IDA MCP reports `0x0041d6c0` is not a function start. Treat that address as raw layout/code evidence only, not as a confirmed IDA function boundary.
 - 2026-05-25 IDA MCP recheck: `xrefs_to 0x0041d6c0` reports no references. Disassembly at that address is constructor-shaped raw code that calls `0x00544460`, installs `FittingRoomScrollPane` vtables, and initializes scroll state bytes/words, but the confirmed `FittingRoomListPane` constructor at `0x0041eb90` performs equivalent child setup inline after allocating `272` bytes.
-- The generated `OnMouseEvent` source currently casts through `TextEditPane` and `FittingRoomDialog` helpers. That may be inherited scrollbar infrastructure rather than true fitting-room-only ownership.
+- `OnMouseEvent` decompilation casts through `TextEditPane` and `FittingRoomDialog` helpers. That may be inherited scrollbar infrastructure rather than true fitting-room-only ownership.
 - 2026-05-30 IDA MCP function inventory reports modeled scroll-pane method starts at `0x0041d870`, `0x0041da60`, `0x0041da70`, `0x0041dab0`, `0x0041e1d0`, `0x0041e4f0`, `0x0041e8b0`, and `0x0041e970`. IDA still lacks function records at `0x0041e780`, `0x0041e7f0`, and `0x0041eb30`, but byte review confirms raw helper bodies that need function-boundary repair.
 - `OnMouseEvent` is reached through a vtable data xref at `0x0060dcd8`, not direct code callers. IDA decompilation uses an adjusted receiver and accesses the logical scroll-pane base at `this - 0xa0`.
 - [UID:0002DY][0x00421480-0x004214bb.ScrollPaneFamilyScalarDeletingDestructor](by-memory/0x00421480-0x004214bb.ScrollPaneFamilyScalarDeletingDestructor.md) is generated binary support shared by scroll-pane-family vtables. Document it for vtable completeness, but do not hand-author a distinct source method unless a later class-layout pass proves the original source exposed one.
+
+## Live IDA Evidence
+
+- 2026-06-05 A003 IDA MCP refresh confirms the modeled method starts in the local cluster: `0x0041d870`, `0x0041da60`, `0x0041da70`, `0x0041dab0`, `0x0041e1d0`, `0x0041e4f0`, `0x0041e8b0`, and `0x0041e970`. IDA still reports no function records at raw helper starts `0x0041e780`, `0x0041e7f0`, and `0x0041eb30`.
+- The `OnDraw` vtable slot at `0x0060dccc` points to `0x0041dab0`; `OnMouseEvent` remains in the same virtual cluster at `0x0041d870`. The `OnDraw` function has no direct code callers, has `int3` padding before and after, and references fitting-room scrollbar resource data at `off_60DDB0`, `off_60DDC8`, `off_60DDE0`, and `aBu`.
+- The class remains source-reconstructable because the interaction, timer, drawing, hit-test, geometry, active-part, drag-update, and reset behavior is anchored by exact local pages. It remains below final-source confidence because the constructor boundary is still raw/non-modeled and the scrollbar could share original source with generic UI infrastructure.
 
 ## Score Rationale
 
 | Score | Rationale |
 | --- | --- |
-| Completion `72` | The local mouse, timer, draw, hit-test, geometry, active-part, drag-update, reset, and deleting-destructor evidence is split into exact pages. Completion remains capped by the raw constructor boundary, unresolved field names, and possible later migration of generic scrollbar behavior out of `FittingRoom`. |
-| Confidence `84` | Modeled function starts, vtable data xrefs, sibling cross-calls, and fitting-room resource tables consistently identify this scroll-pane class. Confidence is not higher because the constructor is raw/non-modeled and decompiler output uses a secondary-base receiver adjustment. |
+| Completion `82` | The local mouse, timer, draw, hit-test, geometry, active-part, drag-update, reset, and deleting-destructor evidence is split into exact pages, with the draw path refreshed against live IDA boundaries, vtable slot, resource refs, and field accesses. Completion remains capped by the raw constructor boundary, unresolved field names, and possible later migration of generic scrollbar behavior out of `FittingRoom`. |
+| Confidence `88` | Modeled function starts, vtable data xrefs, sibling cross-calls, and fitting-room resource tables consistently identify this scroll-pane class. Confidence is not higher because the constructor is raw/non-modeled and decompiler output uses a secondary-base receiver adjustment. |
 
 ## Cross-References
 
@@ -77,6 +83,7 @@ Scrollbar pane used by fitting-room list controls. It draws EPF-backed scroll pa
 
 ## Changes
 
+- 2026-06-05: Raised the class page to 82/88 after A003 live IDA MCP refreshed the scroll-pane cluster, `OnDraw` vtable slot, resource refs, raw-helper gaps, and exact padding around `0x0041dab0-0x0041e1c6`. Kept C++ blank because final field names, constructor boundary, and generic-scrollbar source placement remain open.
 - 2026-06-02: Raised the class page to 72/84, marked it reconstructable, and attached it to [UID:0000JE][FittingRoom](by-file/FittingRoom.md). Added score rationale and kept C++ blank because the class layout and possible generic scrollbar source split are not final.
 - 2026-05-30: Existing `OnMouseEvent` row used an address-only range ending at `0x0041da50`. Changed it to an exact by-memory UID link ending at `0x0041da51` and recorded the vtable-only caller model. Evidence: IDA MCP `py_eval`, `decompile`, `callees`, `callers`, and `xrefs_to` for `0x0041d870`.
 - 2026-05-30: Existing method rows for timer, draw, geometry, hot-part state, and reset state were address-only and left most of the local core unresolved. Changed them to exact by-memory UID links for all modeled `0x0041d870-0x0041eb24` functions and raw helper pages for `0x0041e780-0x0041e8af` and `0x0041eb30-0x0041eb8c`. Evidence: IDA MCP function inventory, decompilation/xrefs/callees, and byte/disassembly review across the helper gaps.

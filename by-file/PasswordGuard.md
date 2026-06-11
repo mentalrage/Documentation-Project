@@ -1,6 +1,6 @@
 *** UID:0000MG | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/auth/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PasswordGuard
@@ -9,8 +9,8 @@
 
 - Confidence: strong for exact function boundaries, guard globals, decompiled transform behavior, and caller split; medium-high for the exact original folder/name.
 - Proposed module: `NexusTK/auth/PasswordGuard.cpp`.
-- Main address docs: [UID:0000YS][0x004657d0-0x00467406.PasswordGuardAndFatalError](by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md), [UID:000275][0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals](by-memory/0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals.md), and [UID:000290][0x0067a940-0x0067a980.PasswordGuardProtectedToken](by-memory/0x0067a940-0x0067a980.PasswordGuardProtectedToken.md)
-- Evidence basis: live IDA MCP lookup, caller, xref, decompile, and data reads on 2026-06-04.
+- Main address docs: [UID:0000YS][0x004657d0-0x00467406.PasswordGuardAndFatalError](by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md), [UID:0002VG][0x004657d0-0x00465827.SetProtectedPasswordToken](by-memory/0x004657d0-0x00465827.SetProtectedPasswordToken.md), [UID:0002VH][0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError](by-memory/0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError.md), [UID:00035L][0x0066d410-0x0066d412.PasswordGuardXorSeed](by-memory/0x0066d410-0x0066d412.PasswordGuardXorSeed.md), [UID:000275][0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals](by-memory/0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals.md), and [UID:000290][0x0067a940-0x0067a980.PasswordGuardProtectedToken](by-memory/0x0067a940-0x0067a980.PasswordGuardProtectedToken.md)
+- Evidence basis: live IDA MCP lookup, caller, xref, decompile, and data reads through 2026-06-05.
 
 ## Responsibility
 
@@ -18,8 +18,8 @@ This module caches the active login password in an XOR-obfuscated wide-character
 
 ## Likely Contents
 
-- `SetProtectedPasswordToken` at `0x004657d0`.
-- `ValidateChatInputOrThrowPasswordError` at `0x00465890`.
+- [UID:0002VG][0x004657d0-0x00465827.SetProtectedPasswordToken](by-memory/0x004657d0-0x00465827.SetProtectedPasswordToken.md).
+- [UID:0002VH][0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError](by-memory/0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError.md).
 - `g_protectedPasswordToken[32]`.
 - `g_passwordProtectSeed`, initialized from `word_66D410 = 0xd544`.
 - Private helpers for token decode and `PASS_ENG.STR` message loading.
@@ -29,10 +29,10 @@ This module caches the active login password in an XOR-obfuscated wide-character
 
 | Entity | Rebuild owner | Evidence/caveat |
 | --- | --- | --- |
-| `SetProtectedPasswordToken` | `auth/PasswordGuard.cpp` | Called from [UID:0002Q5][0x004fb2d0-0x004fb62a.SendLoginRequest](by-memory/0x004fb2d0-0x004fb62a.SendLoginRequest.md) after login packet submission, proving login/session code supplies the protected token. |
-| `ValidateChatInputOrThrowPasswordError` | `auth/PasswordGuard.cpp` | Called by chat/social input submitters such as [UID:0001MC][0x005b3940-0x005b3bba.ChatInputPane](by-memory/0x005b3940-0x005b3bba.ChatInputPane.md), [UID:0001MB][0x005b34d0-0x005b37ea.SayInputPane](by-memory/0x005b34d0-0x005b37ea.SayInputPane.md), [UID:0001LZ][0x005b1ec0-0x005b2152.SayToGroupMessageInputPane](by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md), and [UID:0001MF][0x005b4260-0x005b43bc.ShoutInputPane](by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md). |
+| [UID:0002VG][0x004657d0-0x00465827.SetProtectedPasswordToken](by-memory/0x004657d0-0x00465827.SetProtectedPasswordToken.md) | `auth/PasswordGuard.cpp` | Called from [UID:0002Q5][0x004fb2d0-0x004fb62a.SendLoginRequest](by-memory/0x004fb2d0-0x004fb62a.SendLoginRequest.md) after login packet submission, proving login/session code supplies the protected token. |
+| [UID:0002VH][0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError](by-memory/0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError.md) | `auth/PasswordGuard.cpp` | Called by chat/social input submitters such as [UID:0001MC][0x005b3940-0x005b3bba.ChatInputPane](by-memory/0x005b3940-0x005b3bba.ChatInputPane.md), [UID:0001MB][0x005b34d0-0x005b37ea.SayInputPane](by-memory/0x005b34d0-0x005b37ea.SayInputPane.md), [UID:0001LZ][0x005b1ec0-0x005b2152.SayToGroupMessageInputPane](by-memory/0x005b1ec0-0x005b2152.SayToGroupMessageInputPane.md), and [UID:0001MF][0x005b4260-0x005b43bc.ShoutInputPane](by-memory/0x005b4260-0x005b43bc.ShoutInputPane.md). |
 | `g_protectedPasswordToken[32]` | `auth/PasswordGuard.cpp` | [UID:000290][0x0067a940-0x0067a980.PasswordGuardProtectedToken](by-memory/0x0067a940-0x0067a980.PasswordGuardProtectedToken.md) documents the static wide buffer and ownership. |
-| `word_66D410` seed | `auth/PasswordGuard.cpp` | [UID:000275][0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals](by-memory/0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals.md) documents the initialized `0xd544` seed and both transform xrefs. |
+| `word_66D410` seed | `auth/PasswordGuard.cpp` | Exact child [UID:00035L][0x0066d410-0x0066d412.PasswordGuardXorSeed](by-memory/0x0066d410-0x0066d412.PasswordGuardXorSeed.md) documents the initialized `0xd544` seed and both transform xrefs; mixed aggregate [UID:000275][0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals](by-memory/0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals.md) remains non-emitting. |
 | `PasswordError` class | [UID:0000J5][Error](by-file/Error.md) | Constructed by the guard, but the class/vtable/error hierarchy belongs with the shared error source. |
 | `FatalError` | unresolved app/error helper | Keep out of `PasswordGuard.cpp` until caller review decides between `app/Application.cpp`, `util/Error.cpp`, or a small fatal-dialog source. |
 
@@ -43,10 +43,11 @@ This module caches the active login password in an XOR-obfuscated wide-character
 - IDA decompilation of `0x00465890` copies `word_67A940` into a local 32-wchar buffer, decodes it with the same `word_66D410` incrementing-seed loop, checks `wcsstr(Str, SubStr)`, loads `PASS_ENG.STR` via `off_612E8C`, converts/appends resource lines into a wide message, constructs `PasswordError`, and throws it with `_CxxThrowException`.
 - IDA caller evidence for `0x004657d0` is a single login caller at `0x004fb60b` in `sub_4FB2D0`, matching token capture after login submission.
 - IDA caller evidence for `0x00465890` includes 13 text/social submit sites: `0x00477606`, `0x00477612`, `0x0047de03`, `0x0047de0f`, `0x0059e480`, `0x005ae0a0`, `0x005b1680`, `0x005b1aa0`, `0x005b1fc0`, `0x005b23d0`, `0x005b36d1`, `0x005b3aa1`, and `0x005b42b2`, consistent with a shared outbound-input guard rather than one pane method.
-- IDA MCP xrefs tie `word_66D410` at [UID:000275][0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals](by-memory/0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals.md) to both encode/decode loops: `SetProtectedPasswordToken` loads it at `0x004657e5`, and `ValidateChatInputOrThrowPasswordError` loads it at `0x004658d2` before XORing each wchar with the incrementing seed.
+- IDA MCP xrefs tie `word_66D410` at exact child [UID:00035L][0x0066d410-0x0066d412.PasswordGuardXorSeed](by-memory/0x0066d410-0x0066d412.PasswordGuardXorSeed.md) to both encode/decode loops: `SetProtectedPasswordToken` loads it at `0x004657e5`, and `ValidateChatInputOrThrowPasswordError` loads it at `0x004658d2` before XORing each wchar with the incrementing seed.
 - IDA xrefs tie the protected token buffer at `word_67A940` to setter accesses `0x004657db`, `0x004657f7`, `0x004657fe` and validator access `0x004658c5`; the setter writes the terminal word at `word_67A97E` via `0x004657ee`.
 - IDA data reads identify `off_612E8C` as the wide string `PASS_ENG.STR`, `word_66D410` as initialized to `0xd544`, and `0x006125bc` as the `Password Warning` descriptor returned by `PasswordError`'s descriptor virtual.
 - IDA lookup/decompile confirms `PasswordError` constructor `0x00467160-0x00467181` is called from `0x00465abe` inside the guard throw path, while the destructor `0x00467300-0x00467338` and descriptor helper `0x00467400-0x00467406` are class/error-hierarchy members.
+- 2026-06-05 exact child split records [UID:0002VG][0x004657d0-0x00465827.SetProtectedPasswordToken](by-memory/0x004657d0-0x00465827.SetProtectedPasswordToken.md) and [UID:0002VH][0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError](by-memory/0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError.md) as the two PasswordGuard-owned code ranges; [UID:0002VI][0x00465cb0-0x00465ce0.FatalErrorDialogAndBreak](by-memory/0x00465cb0-0x00465ce0.FatalErrorDialogAndBreak.md) remains excluded from this file because its callers are application/resource fatal-error paths.
 - IDA caller evidence for `FatalError` is application/error oriented (`Application__Constructor` at `0x00463964`, repeated `sub_4639D0` startup/error sites, `sub_467410`, and `sub_4918E0` sites), supporting its exclusion from `PasswordGuard.cpp`.
 - [UID:0002Q5][0x004fb2d0-0x004fb62a.SendLoginRequest](by-memory/0x004fb2d0-0x004fb62a.SendLoginRequest.md) records `0x004657d0` as the post-submit password-token helper after the login packet is queued.
 - Chat/social input pages record `0x00465890` as a callee before message sanitizer/packet send paths, establishing this as a shared outbound-text guard rather than a single chat-pane method.
@@ -65,9 +66,13 @@ Use a dedicated file during reconstruction. Keeping this code separate from gene
 ## Cross-References
 
 - [UID:0000YS][0x004657d0-0x00467406.PasswordGuardAndFatalError](by-memory/0x004657d0-0x00467406.PasswordGuardAndFatalError.md)
+- [UID:0002VG][0x004657d0-0x00465827.SetProtectedPasswordToken](by-memory/0x004657d0-0x00465827.SetProtectedPasswordToken.md)
+- [UID:0002VH][0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError](by-memory/0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError.md)
+- [UID:0002VI][0x00465cb0-0x00465ce0.FatalErrorDialogAndBreak](by-memory/0x00465cb0-0x00465ce0.FatalErrorDialogAndBreak.md)
 - [UID:0002Q5][0x004fb2d0-0x004fb62a.SendLoginRequest](by-memory/0x004fb2d0-0x004fb62a.SendLoginRequest.md)
 - [UID:0001MC][0x005b3940-0x005b3bba.ChatInputPane](by-memory/0x005b3940-0x005b3bba.ChatInputPane.md)
 - [UID:0001MB][0x005b34d0-0x005b37ea.SayInputPane](by-memory/0x005b34d0-0x005b37ea.SayInputPane.md)
+- [UID:00035L][0x0066d410-0x0066d412.PasswordGuardXorSeed](by-memory/0x0066d410-0x0066d412.PasswordGuardXorSeed.md)
 - [UID:000275][0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals](by-memory/0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals.md)
 - [UID:000290][0x0067a940-0x0067a980.PasswordGuardProtectedToken](by-memory/0x0067a940-0x0067a980.PasswordGuardProtectedToken.md)
 - [UID:0000A8][PasswordError](by-class/PasswordError.md)
@@ -88,3 +93,13 @@ Use a dedicated file during reconstruction. Keeping this code separate from gene
   - Before: the page still relied on older non-IDA summaries for the two guard functions and had not recorded the full live caller/global split.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:88`.
   - Summary/evidence: live IDA MCP verified exact function ranges, the single login caller for `0x004657d0`, the 13 outbound-input callers for `0x00465890`, the `word_67A940`/`word_67A97E` token-buffer xrefs, the `word_66D410 = 0xd544` seed, the `PASS_ENG.STR` resource path, the `PasswordError` throw path, and the separate `FatalError` caller fanout. The score remains below reconstruction-ready because original source filename/folder and the local resource helper shape are still not proven.
+
+- 2026-06-05 exact child split:
+  - Before: the file relied on the mixed aggregate for both PasswordGuard-owned functions.
+  - Changed to: exact child pages [UID:0002VG][0x004657d0-0x00465827.SetProtectedPasswordToken](by-memory/0x004657d0-0x00465827.SetProtectedPasswordToken.md) and [UID:0002VH][0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError](by-memory/0x00465890-0x00465ae2.ValidateChatInputOrThrowPasswordError.md) now hold the function-level evidence; score raised to `86/90`.
+  - Summary/evidence: IDA MCP reverified boundaries, callers, seed/token globals, `PASS_ENG.STR`, and the PasswordError throw path while preserving the exclusion of FatalError from `auth/PasswordGuard.cpp`.
+
+- 2026-06-10 B001-040 seed child split:
+  - Score unchanged at `86/90`.
+  - Added exact seed child [UID:00035L][0x0066d410-0x0066d412.PasswordGuardXorSeed](by-memory/0x0066d410-0x0066d412.PasswordGuardXorSeed.md) as the PasswordGuard-owned initialized seed split from mixed aggregate [UID:000275][0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals](by-memory/0x0066d408-0x0066d414.DisplayStartupAndPasswordGuardGlobals.md).
+  - Evidence: prior IDA-backed docs show both PasswordGuard transform loops load `word_66D410`; Application/display globals and padding remain outside this file.

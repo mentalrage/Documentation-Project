@@ -1,8 +1,8 @@
 *** UID:0000PI | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,7 +14,6 @@
 
 - Confidence: strong for behavior and source-family placement.
 - Address range: [UID:00019M][0x004f8b90-0x004f8c07.ComputeMenuItemRect](by-memory/0x004f8b90-0x004f8c07.ComputeMenuItemRect.md)
-- Current generated file: `source-3/simroot_v2/recovered/ComputeMenuItemRect_004F8B90.cpp`
 - Likely owner source: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
 
 ## Function Role
@@ -33,7 +32,8 @@
 - IDA MCP `lookup_funcs 0x004f8b90` reports a real function of size `0x77`.
 - IDA MCP callers are [UID:00007O][MainMenuPane](by-class/MainMenuPane.md) mouse/key/paint methods: `0x004f6b94`, `0x004f6baf`, `0x004f6c75`, `0x004f6c90`, `0x004f77d1`, `0x004f785d`, and `0x004f7966`.
 - IDA MCP callees show only the rectangle initializer at `0x004b7c50`.
-- The helper reads `g_useEpfAssets` / `byte_66DA97` at `0x0066da97`.
+- The helper reads [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97` at `0x0066da97`.
+- IDA MCP recheck on 2026-06-05 confirmed `sub_4F8B90`, size `0x77`, the same seven main-menu callers, and the rectangle initializer callee `0x004b7c50`.
 
 ## Source Layout Decision
 
@@ -50,4 +50,8 @@ Keep this helper with `login/MainMenuPane.cpp`. It is shared by menu hit testing
 - 2026-05-30: Grading changed from `0/0` to `84/88`.
   - Before: page documented rectangle behavior, constants, callers, callee, asset-mode global, and owner source but remained unevaluated.
   - After: score reflects nearly complete behavior/source-owner documentation for this small menu-layout helper.
-  - Evidence: IDA notes confirm function size, MainMenuPane mouse/key/paint callers, rectangle initializer callee, and `g_useEpfAssets`/`byte_66DA97` dependency.
+  - Evidence: IDA notes confirm function size, MainMenuPane mouse/key/paint callers, rectangle initializer callee, and [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / `byte_66DA97` dependency.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md).
+  - Reason: live IDA MCP recheck confirms this is source-authored main-menu layout helper code and every observed caller is inside `MainMenuPane` logic.
+- 2026-06-07 A008 alias cleanup:
+  - Normalized the asset-mode dependency to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), retaining `byte_66DA97` as the historical IDA lookup alias.

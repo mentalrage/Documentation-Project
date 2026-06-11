@@ -1,6 +1,6 @@
 *** UID:0000MH | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/patch/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PatchPane
@@ -9,7 +9,7 @@
 
 - Proposed module: `patch/PatchPane.cpp` or original flat `PatchPane.cpp`
 - Proposed header: `patch/PatchPane.h`
-- Confidence: strong for patcher/update responsibility, medium for final folder.
+- Confidence: strong for patcher/update responsibility, singleton ownership, and patch-pane island boundaries; medium for final folder and `PatchPane`/`PatchPane2` source split.
 - Current generated sources: `class_PatchPane.cpp`, `class_PatchPane2.cpp`, `class_PatchPane__PatchFileData.cpp`, `class_PatchPane__PatchFileSlice.cpp`
 
 ## File Role
@@ -40,6 +40,16 @@ This should stay separate from [UID:0000MF][ParcelPane](by-file/ParcelPane.md). 
 - `PatchFileData` and `PatchFileSlice` are nested support types whose vtables are referenced from the PatchPane range.
 - [UID:0001YF][PatchPaneVtableFamily](by-type/by-vtable/PatchPaneVtableFamily.md) confirms the primary/secondary/tertiary vtables for both `PatchPane` and `PatchPane2`, plus the nested `PatchFileData` / `PatchFileSlice` vtables. Current generated metadata reports `vtable_count: 0`, so IDA vtable evidence should take precedence.
 - [UID:0001VJ][PatchPane2Layout](by-type/by-struct/PatchPane2Layout.md) pins the `PatchPane2` tail fields from `+0x26c` through `+0x290`, including final/temp patcher paths, the filename vector, active `FILE*`, retry/index counters, and request version components.
+
+## 2026-06-08 Batch124 Parent-Gate Review
+
+This file is the direct source parent for the module-global [UID:0000RZ][g_pPatchPane2](by-global/g_pPatchPane2.md). Live IDA MCP rechecked the exact singleton storage and owner neighborhood against `NexusTK.exe` (`sha256 9aec210bbc5ce592176a21dd8e9d9fd8f250b8d9ea78237915a99ba8cfa9a632`):
+
+- `0x0069ba2c` remains `dword_69BA2C`, a 4-byte `.data` item initialized to `0xffffffff`.
+- `xrefs_to 0x0069ba2c` reports the `PatchPane2` constructor publish/clear pair at `0x005486f4` and `0x005486fb`, the raw cleanup/body reference at `0x00548a6d`, the compact clear helper at `0x00549340`, and the scalar deleting destructor clear at `0x005493d0`.
+- `lookup_funcs` confirms the current owner-side boundaries: constructor `0x00548690` size `0x376`, main loop `0x00548a80` size `0x49a`, clear helper `0x00549340` size `0x0b`, scalar deleting destructor `0x00549370` size `0x9f`, and raw `0x00549020` still not an IDA function.
+
+This evidence raises confidence for file-level ownership to the corrected parent gate. The score is capped at `88/85` because the exact original folder and whether `PatchPane2` had a companion `.cpp` remain source-layout questions, but the singleton belongs to this patch/update module rather than `Application`, `ParcelPane`, or `MiscWorkThread`.
 
 ## Source-Structure Decision
 
@@ -81,3 +91,7 @@ The top-level folder could also be `app/` if the original project was flatter. A
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `88`, confidence `80`.
 - Summary/evidence: the page documents patch/update responsibility, class/helper/global ownership, IDA evidence, vtable/layout types, source-structure decision, migration cautions, and cross-references; confidence remains capped by final folder choice and unresolved Wave3 method-name/body issues.
+- 2026-06-08 A005 Batch124 parent-gate refresh:
+  - Before: `88/80`, below the corrected confidence gate for [UID:0000RZ][g_pPatchPane2](by-global/g_pPatchPane2.md).
+  - Changed to: `88/85`.
+  - Summary/evidence: live IDA MCP reconfirmed exact `g_pPatchPane2` storage, all five singleton xrefs, PatchPane2 constructor/cleanup/destructor boundaries, the main-loop boundary, and the raw `0x00549020` caveat. This page is now a justified direct file parent for the module-global singleton, while broader folder/source-split uncertainty keeps confidence capped at 85.

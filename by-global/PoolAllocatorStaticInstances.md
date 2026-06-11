@@ -1,7 +1,7 @@
 *** UID:0000TI | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -98,8 +98,11 @@ Boundary note: `0x0060c440-0x0060c44b` is `UniAPIInit` cleanup, not a pool clean
 - 2026-05-26 IDA MCP decompiled nineteen matching static destructor wrappers at `0x0060c320-0x0060c430` and `0x0060c450`; `0x0060c440` is the neighboring `UniAPIInit` cleanup wrapper.
 - 2026-05-26 IDA MCP xrefs to the non-string pool addresses show constructor/allocator/destructor users matching the class names in the owner-hypothesis column.
 - The per-object block sizes line up with known destructor pools: for example `Motion::ScalarDeletingDestructor` at `0x0053d590` returns objects to `0x0069b984`, and `UserPane::ScalarDeletingDestructor` at `0x005b8230` returns the large local user pane allocation to `0x0069bf34`.
-- Active generated output sometimes names these calls through `ThreadSafeNodeList::PushFront` or `cls_0x4b14c0::meth_0x4b14c0`; IDA call targets and pool layout show these are `PoolAllocator::Free` calls at the consuming destructor paths.
+- Some analysis aliases name these calls through `ThreadSafeNodeList::PushFront` or `cls_0x4b14c0::meth_0x4b14c0`; IDA call targets and pool layout show these are `PoolAllocator::Free` calls at the consuming destructor paths.
 - The constructor-failure wrappers at `0x00502420`, `0x00514ae0-0x00514d1e`, and `0x0053ce50` all have the same MSVC EH/security-cookie wrapper shape and call `PoolAllocator::Free`; they are ignored as standalone source in [UID:0000VN][-ignored](by-memory/-ignored.md).
+- 2026-06-07 live IDA MCP recheck confirmed the object/pane pool xref shape: each non-string pool has a static constructor wrapper, a registered cleanup wrapper, and allocator/free consumers matching the owner-hypothesis column. Examples include the `UserPane` pool at `0x0069bf34` with constructor `0x0041a4b0`, use from `0x004f7d10` and `0x00502420`, destructor use at `0x005b8230`, and cleanup `0x0060c450`.
+- The same recheck confirmed that each of the eight string-buffer pools has exactly four direct xref groups: one static constructor wrapper, one allocation helper, one release helper, and one static cleanup wrapper. The ANSI pools route through `0x00582d80` / `0x005832f0`, and the wide pools route through `0x00582e30` / `0x005833a0`.
+- Function-size rechecks keep the allocator island bounded: constructor helper `0x004b13d0` is `0x30` bytes, allocation helper `0x004b1400` is `0xb8` bytes, free helper `0x004b14c0` is `0x2f` bytes, and chunk cleanup `0x004b1520` is `0x65` bytes.
 
 ## Source-Structure Decision
 
@@ -111,6 +114,10 @@ Declare the `PoolAllocator` type and lifecycle methods in the shared utility/str
 - string-buffer pools with `StringUtil.cpp` or a future `StringBase.cpp`.
 
 Do not collapse all concrete globals into `PoolAllocator.cpp`; that file should own allocator mechanics, not every typed pool instance.
+
+## Assignment Gate
+
+No parent UID is set. [UID:0000MM][PoolAllocator](by-file/PoolAllocator.md) is the allocator-mechanics owner but is currently `86/80`, below the corrected `85/85` direct-parent gate. More importantly, this page is a distributed inventory: concrete static instances belong beside object-pane, motion, user-pane, and string-buffer modules rather than one single source root. Parent attachment should wait until the relevant direct owners are both scored and source ownership is narrowed per pool family.
 
 ## Cross-References
 
@@ -138,3 +145,8 @@ Do not collapse all concrete globals into `PoolAllocator.cpp`; that file should 
   - Before: page documented the static pool instances, object/string pool tables, failure wrappers, init/cleanup ranges, evidence, and source-structure decision but remained unevaluated.
   - After: score reflects detailed addresses, block sizes/counts, constructor/destructor wrappers, owner hypotheses, wrapper classification, and concrete pool source-placement guidance.
   - Evidence: IDA notes confirm nineteen static constructor/destructor wrappers, xrefs matching class owners, PoolAllocator layout/calls, and constructor-failure wrapper shapes.
+- 2026-06-05: Marked reconstructable and left parent attachment blank.
+  - Reason: the static pool instances are source-declared data, but this page intentionally documents a distributed inventory whose concrete declarations belong beside multiple consuming modules rather than one single source root.
+- 2026-06-07: Grading changed from `84/88` to `86/88`.
+  - Before: page documented the pool inventory and source-placement rule but lacked a current grouped xref/function-boundary recheck.
+  - After: score reflects live confirmation that the object/pane pools have constructor/use/free/cleanup relationships, the eight string pools each have the expected four xref groups, and the allocator core boundaries remain stable.

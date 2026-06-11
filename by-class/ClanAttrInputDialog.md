@@ -1,8 +1,8 @@
 *** UID:000024 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000I8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -55,3 +55,4 @@ The persistent submitted-field storage is at `+0x26c`, `+0x46c`, `+0x66c`, and `
 - What existed before: the page documented the multi-field clan attribute dialog, core method boundaries, submitted-field storage, layout docs, and IDA-backed range correction, but metadata was still `0/0`.
 - What it was changed to: scores were set to `82/88`.
 - Summary and evidence: constructor, action, validation, input refresh, destructor/thunk family, field offsets, derived submit use, and layout references are covered; exact final source/header form and some widget field names remain below exhaustive.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000I8][Clan](by-file/Clan.md) because the class is `82/88` and the parent is `90/82`, satisfying the 80/80 parent gate. Live IDA MCP `lookup_funcs` confirms exact starts at `0x00489600`, `0x00489df0`, `0x00489ec0`, `0x00489f50`, `0x0048c291`, `0x0048c29c`, and `0x0048c390`; current `callers` confirms constructor references from the clan packet/dialog flow at `0x004852e9`, `0x00487f2f`, and `0x004883e8`.

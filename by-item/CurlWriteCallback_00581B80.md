@@ -1,8 +1,8 @@
 *** UID:0000UA | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000O5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,9 +15,9 @@
 - Disposition: project-owned libcurl callback helper
 - Address range: `0x00581b80-0x00581ce6`
 - Likely source module: [UID:0000O5][StartupWindow](by-file/StartupWindow.md)
+- Autogen parent: [UID:0000O5][StartupWindow](by-file/StartupWindow.md)
 - Exact memory range: [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md)
 - Parent memory range: [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md)
-- Current generated source: `source-3/simroot_v2/recovered/CurlWriteCallback_00581B80.cpp`
 - Confidence: strong for ownership and behavior; medium for final public signature naming.
 
 ## Behavior
@@ -64,8 +64,6 @@ The surrounding parse helpers at `0x00581cf0`, `0x00581e40`, and `0x00581f50` ar
 
 The callback measures the incoming chunk with `strlen(source)` instead of `elementSize * elementCount`. That is safe only for the observed text metadata downloads (`nexustk.ver` and `HashList.txt`) and should not be generalized as a binary-safe curl write sink.
 
-The simroot generated active view currently emits this as a global recovered file and duplicates `<cstddef>`, `<cstring>`, and `<new>` includes. Treat that as generated-output shape, not final source-layout evidence.
-
 ## Cross-References
 
 - [UID:0000O5][StartupWindow](by-file/StartupWindow.md)
@@ -76,7 +74,12 @@ The simroot generated active view currently emits this as a global recovered fil
 
 ## Changes
 
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE`, attached to [UID:0000O5][StartupWindow](by-file/StartupWindow.md), and stale generated-source wording was removed.
+  - Before: the libcurl write callback was documented but unclassified in autogen coverage.
+  - After: it is marked as NexusTK-owned startup updater glue under the validated StartupWindow file root; C++ remains blank because final callback typedef/signature and surrounding startup string helpers are not at the 95/95 final-code bar.
+  - Evidence: live IDA MCP confirms `sub_581B80` at `0x00581b80`, size `0x166`, no direct callers, and string-buffer append callees; the page's xref evidence ties the function-pointer setup to `StartupWindow::RunUpdateCheck`.
+
 - 2026-05-30: Grading changed from `0/0` to `84/88`.
   - Before: page documented the libcurl write callback behavior, repeated IDA checks, ownership decision, and text-only caveat but remained unevaluated.
-  - After: score reflects detailed callback semantics, setup xrefs, startup-local ownership, and generated-output caveats.
+  - After: score reflects detailed callback semantics, setup xrefs, startup-local ownership, and text-only caveat.
   - Evidence: IDA checks confirm callback-pointer setup inside `StartupWindow::RunUpdateCheck`, no direct callers, ANSI SSO append behavior, and `elementSize * elementCount` return.

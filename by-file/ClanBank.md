@@ -1,13 +1,13 @@
 *** UID:0000I9 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/social/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ClanBank
 
 ## Status
 
-- Confidence: strong for local bank/item dialog classes and packet senders; medium for exact original file split between bank pane, item deposit/withdraw dialogs, and shared text helpers.
+- Confidence: strong for local bank/item dialog classes, packet senders, and `g_pClanBankPane` lifecycle ownership; medium for exact original file split between bank pane, item deposit/withdraw dialogs, and shared text helpers.
 - Proposed module folder: `social/`
 - Proposed source file: `social/ClanBank.cpp`
 - Possible split file: `social/ClanItemDialogs.cpp`
@@ -100,3 +100,6 @@ Before non-dry-run ownership changes, exclude or re-own the outlier `0x00430041`
   - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank even though the status and hypothesis sections already place the likely source as `social/ClanBank.cpp`.
   - After: projected path is `NexusTK/social/`, matching sibling [UID:0000I8][Clan](by-file/Clan.md) and the documented `social/ClanBank.cpp` split.
   - Evidence: the proposed contents and migration notes keep `ClanBankPane`, `ClanBankItemListPane`, clan item dialogs, and raw bank packet helpers together under the clan-bank social module.
+- 2026-06-07 A008 Batch 037 parent-gate refresh:
+  - Raised confidence from `80` to `85`.
+  - Evidence: the `0x0067ade8` slot has been isolated from [UID:0002B5][0x0067adc4-0x0067adec.UiChatClanSingletonSlots](by-memory/0x0067adc4-0x0067adec.UiChatClanSingletonSlots.md) as `g_pClanBankPane`; constructor writes, destructor-family clears, and clan-bank UI action reads all stay inside the documented `ClanBankPane`/`ClanBank.cpp` owner family, clearing the direct-parent gate for the exact singleton global.

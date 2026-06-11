@@ -1,8 +1,8 @@
 *** UID:0001VR | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000BW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,10 +16,13 @@
 - Owner class: [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md)
 - Owner module: [UID:0000N4][RegistryConfig](by-file/RegistryConfig.md), consumed by [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md)
 - Evidence basis: IDA MCP caller/decompile checks on 2026-05-25 and 2026-05-31 for `LoadUserProfileData`, `SaveUserSettings_50ABA0`, `ImportLegacyUserProfileData`, `RefreshSelectedProfileData`, `RegistryConfig::InitializeUserDataDefaults`, and macro dialog/hotkey consumers.
+- Parent attachment: attached to [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md), which is scored `86/86` and is the narrow owner of this embedded profile/settings slice.
 
 ## Role
 
 This is not a confirmed standalone C++ struct name. It is a documentation name for the user-profile/settings slice inside the large `RegistryConfig` object. `RegistryConfig::InitializeUserDataDefaults` resets this slice, while `ProfileStorage.cpp` overlays it from `.usr` / legacy `.cfg` files and serializes it back to disk.
+
+The source-level reconstruction should express these offsets as fields or nested helper records within `RegistryConfig`, not as an independent global object. Profile storage helpers consume the slice through [UID:00028Q][0x0067a7c8-0x0067a7cc.g_pConfig](by-memory/0x0067a7c8-0x0067a7cc.g_pConfig.md) `g_pConfig`; that makes [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md) an IO consumer rather than the owner of the declaration.
 
 ## Layout Slice
 
@@ -44,6 +47,27 @@ Offsets are relative to `g_pConfig` / the active `RegistryConfig` object.
 - [UID:0001AV][0x0050aba0-0x0050b078.SaveUserSettings](by-memory/0x0050aba0-0x0050b078.SaveUserSettings.md) writes this slice back to `Documents\NexusTK\users\<user-id>.usr`.
 - [UID:0001AS][0x005063e0-0x00506962.ProfileSidecarRefresh](by-memory/0x005063e0-0x00506962.ProfileSidecarRefresh.md) reads `+0x2912b8` as the selected profile name and sends packet opcode `79` with optional `.jpf` payload.
 
+## Consumer Groups
+
+| Consumer | Slice role |
+| --- | --- |
+| [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md) / [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md) | Owns/defaults the storage before profile overlay; establishes `RegistryConfig` class ownership. |
+| [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md) / [UID:00019T][0x004f9280-0x004f9d28.ProfileLoadAndLegacyImport](by-memory/0x004f9280-0x004f9d28.ProfileLoadAndLegacyImport.md) | Reads modern `.usr` data, imports legacy `.cfg` data, and migrates older shortcut records into the integrated macro/hotkey table. |
+| [UID:0001AV][0x0050aba0-0x0050b078.SaveUserSettings](by-memory/0x0050aba0-0x0050b078.SaveUserSettings.md) | Serializes the slice back to the user `.usr` file. |
+| [UID:0001AS][0x005063e0-0x00506962.ProfileSidecarRefresh](by-memory/0x005063e0-0x00506962.ProfileSidecarRefresh.md) | Uses the selected-profile field at `+0x2912b8` to locate sidecar image assets and send profile refresh packet `79`. |
+| [UID:0001V1][MacroHotkeyRecord](by-type/by-struct/MacroHotkeyRecord.md) and macro/hotkey UI/runtime docs | Explain the nested 30-row macro table at `+0x28f2ec` and its edit/dispatch consumers. |
+
+## Attachment And Reconstruction Notes
+
+- `AUTOGEN_PARENT_UID` is [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md). The parent class and this page now clear the `80/80` attachment gate.
+- The broader [UID:0000N4][RegistryConfig](by-file/RegistryConfig.md) file page is also above the gate at `88/82`, but the class page is the more precise owner for an object-layout slice.
+- `RECONSTRUCTION_CPP CODE` remains blank. The slice is reconstructable source data, but final C++ needs stable names for the fixed wide-string arrays, compact shortcut records, twenty small-string handles, and dynamic vector at `+0x2918fc`.
+
+## Score Rationale
+
+- Completion raised from `74` to `82` because the page now records the owner/consumer split, parent attachment, consumer groups, and final-C++ blockers in addition to the existing offset table and runtime flow.
+- Confidence remains `82` because the offsets and dataflow are IDA-backed through existing linked docs, but several source-facing names and the dynamic vector role are still open.
+
 ## Open Questions
 
 - Final field names for the ten fixed wide-string slots, twenty small string slots, and dynamic vector need caller-by-caller naming before this becomes a source header.
@@ -57,9 +81,18 @@ Offsets are relative to `g_pConfig` / the active `RegistryConfig` object.
 - [UID:0000N4][RegistryConfig](by-file/RegistryConfig.md)
 - [UID:0000IE][Config](by-file/Config.md)
 - [UID:0001V1][MacroHotkeyRecord](by-type/by-struct/MacroHotkeyRecord.md)
+- [UID:00028Q][0x0067a7c8-0x0067a7cc.g_pConfig](by-memory/0x0067a7c8-0x0067a7cc.g_pConfig.md) `g_pConfig` singleton storage and class/runtime-layout access.
+- [UID:000110][0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults](by-memory/0x0048e480-0x0048f3f1.ConfigAndRegistryDefaults.md) Registry/config defaulting evidence for the owning class.
+- [UID:00019T][0x004f9280-0x004f9d28.ProfileLoadAndLegacyImport](by-memory/0x004f9280-0x004f9d28.ProfileLoadAndLegacyImport.md) Profile load and legacy import aggregate.
+- [UID:0001AV][0x0050aba0-0x0050b078.SaveUserSettings](by-memory/0x0050aba0-0x0050b078.SaveUserSettings.md) Save-user-settings serializer.
+- [UID:0001AS][0x005063e0-0x00506962.ProfileSidecarRefresh](by-memory/0x005063e0-0x00506962.ProfileSidecarRefresh.md) Selected-profile sidecar refresh.
 - [Wave3 data issues](../../wave3_data_issues.md)
 
 ## Changes
 
 - Completion/confidence metadata: existed before as `0/0`; changed to `74/82`. Summary: the major profile/settings slice offsets and row/table relationships are now IDA-backed, but final names for several fixed strings, small strings, and the dynamic vector remain open. Evidence: `sub_48EBC0` default writes, `sub_4F95B0` load/import flow, `sub_50ABA0` save flow, `sub_5063E0` selected-profile use, and the macro dialog/hotkey consumers documented in [UID:0001V1][MacroHotkeyRecord](by-type/by-struct/MacroHotkeyRecord.md).
 - Reconstructable metadata: existed before as blank; changed to `TRUE`. Summary: this is source-owned `RegistryConfig` profile state that must be represented by fields or nested records in the rebuilt client. Evidence: IDA-confirmed reads/writes from profile storage, config defaults, UI dialogs, and runtime hotkey dispatch. Parent UID and C++ reconstruction remain blank because the whole slice is not yet at final source-placement or `95+` code-readiness confidence.
+- 2026-06-06 A004 owner/consumer refresh:
+  - What existed before: completion was `74`, `AUTOGEN_PARENT_UID` was blank, and the page mixed RegistryConfig ownership with ProfileStorage consumers without an explicit attachment decision.
+  - Changed to: completion `82`, parent [UID:0000BW][RegistryConfig](by-class/RegistryConfig.md), explicit owner/consumer split, consumer-group table, and final-C++ blockers.
+  - Summary/evidence: existing IDA-backed docs prove RegistryConfig defaulting ownership, ProfileStorage load/save consumers, selected-profile sidecar use, macro/hotkey nested-row behavior, and `g_pConfig` access. Confidence remains `82` because final source member names and the dynamic vector role are still open.

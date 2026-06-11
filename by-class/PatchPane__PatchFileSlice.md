@@ -1,6 +1,6 @@
 *** UID:0000AC | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000MH | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,9 +12,9 @@
 
 ## Status
 
-- Confidence: medium
+- Confidence: strong for PatchPane ownership, constructor/destructor pairing, and vtable identity; medium for final member names.
 - Likely source file: [UID:0000MH][PatchPane](by-file/PatchPane.md)
-- Current recovered file: `source-3/simroot_v2/class_PatchPane__PatchFileSlice.cpp`
+- Current generated-output caveat: the deleting-destructor path is represented elsewhere, but live IDA evidence shows the constructor and non-deleting destructor must also be documented for source reconstruction.
 - Memory range: [UID:0001EQ][0x005470b0-0x0054940f.PatchPaneAndPatchPane2](by-memory/0x005470b0-0x0054940f.PatchPaneAndPatchPane2.md)
 
 ## Class Purpose
@@ -25,19 +25,19 @@
 
 | Range | Method | Notes |
 | --- | --- | --- |
-| `0x005483a0-0x005483bb` | [UID:0001ES][0x005483a0-0x005483bb.PatchFileSliceConstructor](by-memory/0x005483a0-0x005483bb.PatchFileSliceConstructor.md) | Installs the vtable and clears state/data fields. Not emitted in active generated source. |
-| `0x00548410-0x00548425` | [UID:0001ET][0x00548410-0x00548425.PatchFileSliceDestructor](by-memory/0x00548410-0x00548425.PatchFileSliceDestructor.md) | Frees payload pointer and leaves object storage in place. Not emitted in active generated source. |
+| `0x005483a0-0x005483bb` | [UID:0001ES][0x005483a0-0x005483bb.PatchFileSliceConstructor](by-memory/0x005483a0-0x005483bb.PatchFileSliceConstructor.md) | Installs the vtable and clears byte `+0x04`, dword `+0x08`, and pointer/dword `+0x0c`; attached to the PatchPane file parent after A009 IDA refresh. |
+| `0x00548410-0x00548425` | [UID:0001ET][0x00548410-0x00548425.PatchFileSliceDestructor](by-memory/0x00548410-0x00548425.PatchFileSliceDestructor.md) | Reinstalls the vtable, frees payload pointer `+0x0c` when non-null, and leaves storage ownership to the vector/deleting path; attached to the PatchPane file parent after A009 IDA refresh. |
 | `0x00548430-0x005484da` | vector deleting destructor | Handles single-object and array destruction, freeing payload buffers and optionally freeing storage. |
 
 ## Evidence Notes
 
-- IDA MCP decompilation of `0x005474f0` shows vector construction of `PatchFileSlice` entries using `0x005483a0` and `0x00548410`.
+- IDA MCP decompilation of `0x005474f0` shows vector construction of `PatchFileSlice` entries using `0x005483a0` and `0x00548410`; A009 2026-06-06 refresh confirms the `eh vector constructor iterator` uses 0x10-byte elements and pairs constructor `0x005483a0` with destructor `0x00548410`.
 - Constructor callback xref evidence places `0x005483a0` at `0x005477e4` inside `PatchPanePacketResponseHandler`, where the slice array is constructed.
 - The constructor installs the `PatchPane::PatchFileSlice` vtable, clears byte state at `+0x04`, clears the dword field at `+0x08`, and clears the payload pointer at `+0x0c`.
 - The non-deleting destructor reinstalls the same vtable and frees the payload pointer at `+0x0c` if present; storage ownership is left to the vector/deleting-destructor path.
+- A009 2026-06-06 IDA MCP caller/callee refresh reports no ordinary direct callers for the constructor or non-deleting destructor; the constructor has no callees, while the destructor calls only `j_j_j___free_base`.
 - [UID:0002OI][0x00621db8-0x00621e64.PatchPaneVtableData](by-memory/0x00621db8-0x00621e64.PatchPaneVtableData.md) records the RTTI at `0x00621db8`, the one-slot vtable at `0x00621dbc`, and the slot target `0x00548430`.
 - The vtable-data boundary ends before the `Auto Patch` string at `0x00621e64`, so the slice RTTI/vtable data is separated from later PatchPane read-only strings.
-- Active Wave3 emits only `0x00548430`, so constructor and non-deleting destructor coverage should be restored before migration.
 - [UID:0001YF][PatchPaneVtableFamily](by-type/by-vtable/PatchPaneVtableFamily.md) confirms the `PatchFileSlice` vtable at `0x00621dbc` with only the vector/scalar deleting destructor slot.
 
 ## Autogen Status
@@ -48,8 +48,8 @@
 
 ## Score Rationale
 
-- Completion is raised to 76 because the class purpose, parent, memory ranges, callback construction path, destructor behavior, and vtable evidence are documented, while exact member names and complete layout remain open.
-- Confidence is raised to 84 because ownership by PatchPane is supported by the parent file, aggregate memory range, constructor/destructor xrefs, and vtable metadata.
+- Completion is raised to 80 because the class purpose, parent, memory ranges, vector construction/destruction path, constructor/destructor behavior, and vtable evidence are documented, while exact member names and complete layout remain open.
+- Confidence is raised to 88 because ownership by PatchPane is supported by the parent file, aggregate memory range, constructor/destructor xrefs, vtable metadata, and current IDA caller/callee/decompile evidence.
 
 ## Cross-References
 
@@ -67,3 +67,4 @@
 - Changed to: `COMPLETION:70` and `CONFIDENCE:72`.
 - Evidence: constructor, non-deleting destructor, vector deleting destructor, payload pointer cleanup, `PatchPane` packet-handler construction evidence, and vtable slot are documented; remaining gaps are field names, complete layout, and active generated-source coverage.
 - 2026-06-02: Raised to `76/84`, marked reconstructable, attached to [UID:0000MH][PatchPane](by-file/PatchPane.md), and added constructor callback, offset-state, destructor cleanup, vtable-data, and scoring rationale evidence. C++ remains blank pending final member names.
+- 2026-06-06 A009: Raised to `80/88`, removed generated-source wording as authority, and synchronized the class summary with current IDA evidence from the constructor/destructor pages: 0x10-byte vector-constructor elements, no ordinary direct callers for the paired helpers, no constructor callees, destructor free-base callee, and PatchPane file-parent attachment.

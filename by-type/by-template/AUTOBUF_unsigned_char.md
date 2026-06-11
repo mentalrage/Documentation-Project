@@ -1,6 +1,6 @@
 *** UID:0001WN | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000HM | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:20 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -23,7 +23,7 @@
 
 ## Declaration Hypothesis
 
-`AUTOBUF<unsigned char>` is an `LObject`-derived or `LObject`-compatible auto-buffer wrapper used to own byte buffers loaded by file and packet helpers. Known uses include a stack/local compressed map payload in `MapPane::LoadMapFromFile`, an embedded segmented Bink payload buffer in `LogoPlayerPane`, and profile/look payload storage in `UserLookPane`.
+`AUTOBUF<unsigned char>` is an `LObject`-derived or `LObject`-compatible auto-buffer wrapper used to own byte buffers loaded by file and packet helpers. Known uses include a stack/local compressed map payload in `MapPane::LoadMapFromFile`, an embedded segmented Bink payload buffer in `LogoPlayerPane`, main-menu/image-loader scratch buffers, and profile/look payload storage in `UserLookPane`.
 
 Likely fields from the local constructor:
 
@@ -32,6 +32,15 @@ Likely fields from the local constructor:
 | `+0x00` | vtable pointer for `_AUTOBUF<unsigned char>`; concrete vtable at `0x0061b868` with RTTI locator at `0x0061b864` |
 | `+0x04` | buffer pointer, initialized to null |
 | `+0x08` | count/capacity/state field, initialized to zero |
+
+## Instantiation Evidence
+
+| Evidence | Meaning |
+| --- | --- |
+| [UID:000188][0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize.md) | Concrete resize helper for this instantiation; frees existing byte storage, allocates `byteCount`, and updates the `+0x04/+0x08` pointer/count fields. |
+| [UID:00019E][0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor.md) | Concrete constructor helper; calls the `LObject` runtime shell constructor, installs vtable `0x0061b868`, and clears the payload fields. |
+| [UID:0002MR][0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData](by-memory/0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData.md) | Exact RTTI/vtable slice for `??_R4?$_AUTOBUF@E@@6B@` and `??_7?$_AUTOBUF@E@@6B@`; the following bytes at `0x0061b874` start string data, so the vtable boundary is tight. |
+| [UID:00000P][AUTOBUF_unsigned_char](by-class/AUTOBUF_unsigned_char.md) | Concrete class documentation now records the MapPane/UserLookPane call sites, 21-reference vtable fan-out, and utility/template ownership decision. |
 
 ## Evidence Notes
 
@@ -47,7 +56,7 @@ Likely fields from the local constructor:
 
 ## Ownership Notes
 
-Do not migrate `0x004f5640` as a `LogoPlayerPane` member. It should become template support, an inline emitted constructor, or a type-support helper once Wave3 can represent template-owned routines cleanly.
+Do not migrate `0x004f5640` as a `LogoPlayerPane` member. It should become template support, an inline emitted constructor, or a type-support helper under [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md). The direct constructor caller at `0x00504d49` is `MapPane::LoadMapFromFile`, while the resize helper callers are `UserLookPane` profile/look parsing paths; the 21-reference vtable fan-out spans unrelated feature modules.
 
 ## Reconstruction Notes
 
@@ -58,6 +67,8 @@ Do not migrate `0x004f5640` as a `LogoPlayerPane` member. It should become templ
 ## Cross-References
 
 - [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md)
+- [UID:00000P][AUTOBUF_unsigned_char](by-class/AUTOBUF_unsigned_char.md)
+- [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md)
 - [UID:00019D][0x004f53b0-0x004f570c.LogoPlayerPane](by-memory/0x004f53b0-0x004f570c.LogoPlayerPane.md)
 - [UID:000188][0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize](by-memory/0x004e6ab0-0x004e6ad7.AUTOBUFUnsignedCharResize.md)
 - [UID:00019E][0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor](by-memory/0x004f5640-0x004f566a.AUTOBUFUnsignedCharConstructor.md)
@@ -70,3 +81,7 @@ Do not migrate `0x004f5640` as a `LogoPlayerPane` member. It should become templ
 
 - 2026-05-31: Replaced unevaluated `0/0` scoring with IDA-backed `76/86` and marked the type reconstructable. Evidence: IDA MCP verified the constructor, resize helper, direct callers, and exact `_AUTOBUF<unsigned char>` vtable data; completion remains below high-final levels because exact original spelling/header placement and the full template contract are still open.
 - 2026-06-02: Attached the template-instantiation documentation to [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md) after the file page was assigned to `NexusTK/util/`. No C++ emitted because the final source declaration is not at the 95+ gate.
+- 2026-06-06: Raised grading from `76/86` to `78/88`.
+  - Before: the page recorded helper behavior, direct callers, and vtable data, but did not link the newer class/file ownership refresh into the template declaration rationale.
+  - After: added an instantiation evidence table and clarified that constructor, resize, vtable, MapPane/UserLookPane callers, and 21-reference fan-out all support utility/template ownership under [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md).
+  - Evidence: [UID:00000P][AUTOBUF_unsigned_char](by-class/AUTOBUF_unsigned_char.md) is now `78/88`; [UID:0000HM][AUTOBUF](by-file/AUTOBUF.md) is `84/88`; the exact helper and vtable pages provide IDA-backed boundaries. C++ remains blank because original template spelling/header placement and the full template contract are still unresolved.

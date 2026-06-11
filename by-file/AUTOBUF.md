@@ -1,6 +1,6 @@
 *** UID:0000HM | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # AUTOBUF
@@ -54,6 +54,12 @@ The `util/` placement is supported by [UID:0001WN][AUTOBUF_unsigned_char](by-typ
 - Vtable data at `0x0061b864-0x0061b874` contains RTTI locator `0x00649194`, first slot `0x004e62a0`, inherited `0x004f4b10`, and `nullsub_18` at `0x0041b6c0`; `0x0061b874` begins adjacent string data and is not part of the vtable.
 - IDA MCP reports 21 xrefs to `0x0061b868`: `0x004d0651`, `0x004d06fa`, `0x004e5c16`, `0x004e62a9`, `0x004f5419`, `0x004f5544`, `0x004f564f`, `0x004f56b7`, `0x004f57a6`, `0x004f5995`, `0x004f6884`, `0x004f68c5`, `0x00504da4`, `0x00504f7f`, `0x00505031`, `0x0050673b`, `0x005068a5`, `0x00527a37`, `0x0059f2c9`, `0x0059f5cf`, and `0x005a24c6`. This fan-out spans image decode, logo playback, main-menu media, map load/save, profile refresh, and user-look paths.
 
+## Batch 012 Parent-Gate Evidence
+
+The exact vtable-data child [UID:0002MR][0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData](by-memory/0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData.md) is directly owned by this utility/template source bucket. Live IDA MCP on 2026-06-07 rechecked `NexusTK.exe` (`sha256 9aec210bbc5ce592176a21dd8e9d9fd8f250b8d9ea78237915a99ba8cfa9a632`) and confirmed the preceding `aSDEpf` string terminator, `_AUTOBUF<unsigned char>` RTTI locator at `0x0061b864`, vtable slot dwords at `0x0061b868-0x0061b870`, the 21-reference cross-feature vtable fan-out, and following `aZpf` boundary at `0x0061b874`.
+
+That evidence is enough to treat this by-file page as an `85/85` direct parent for the vtable-data child under the corrected Batch 012 assignment gate. The vtable bytes remain `source-declared/generated-binary`; this page owns the source-level template/utility declaration bucket that should cause the rebuilt compiler/linker to emit the equivalent concrete `_AUTOBUF<unsigned char>` artifact, but the child should not contribute handwritten C++ code.
+
 ## Cross-References
 
 - [UID:0001WN][AUTOBUF_unsigned_char](by-type/by-template/AUTOBUF_unsigned_char.md)
@@ -81,3 +87,7 @@ The `util/` placement is supported by [UID:0001WN][AUTOBUF_unsigned_char](by-typ
   - Before: the page was scored `72/86` and still had stale source-output wording despite strong child evidence.
   - Changed to: `COMPLETION:84`, `CONFIDENCE:88`, with C++ still blank.
   - Summary/evidence: live IDA reconfirms exact helper ranges, resize and constructor bodies, the direct MapPane and UserLookPane call sites, exact vtable data through `0x0061b874`, and the 21-reference vtable fan-out across unrelated feature paths. The score remains below final because the exact original spelling/casing and header/template split are not proven to source-quality confidence.
+- 2026-06-07 A003 Batch 012 parent gate:
+  - What existed before: the page was `84/88`, below the corrected direct-parent assignment gate for [UID:0002MR][0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData](by-memory/0x0061b864-0x0061b874.AUTOBUFUnsignedCharVtableData.md).
+  - Changed to: `86/89`, added current hash-backed vtable ownership evidence, and documented why this utility/template source bucket directly owns the source declaration effect.
+  - Summary/evidence: the source bucket already documents helper ranges, constructor/resize behavior, MapPane/UserLookPane callers, and cross-feature fan-out; the Batch 012 IDA recheck closes the specific vtable-data ownership gate while exact original filename/casing and header/template split remain below final-audit confidence.

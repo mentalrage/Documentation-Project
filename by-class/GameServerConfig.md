@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000JP | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,7 +14,7 @@
 
 - Confidence: medium for the class boundary, strong for map/nation-table behavior.
 - Proposed file: [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md)
-- Autogen parent: [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md). This class is source-owned, but final C++ remains blank until the `MapPane` split and source-facing type names are final.
+- Autogen parent: blank under the strict 85/85 gate. This class is source-owned by [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md), but the child is `82/80` and the direct file parent is `86/80`, so both sides need more confidence before validator attachment.
 - Current generated file: `class_GameServerConfig.cpp`
 - Current ranges: `0x005039f0-0x00504520`, `0x00514d80-0x00514ddb`
 - Evidence basis: Wave3 class inspection, generated source, Wave2 report notes, and IDA MCP checks.
@@ -84,3 +84,7 @@
   - What existed before: confidence remained `78` and `AUTOGEN_PARENT_UID` was blank.
   - Changed to: `CONFIDENCE:80` and `AUTOGEN_PARENT_UID:0000JP`.
   - Evidence: [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md) is now placed under `NexusTK/map/` using the proposed source tree, and this class page links exact IDA-backed raw constructor/destructor, lookup/request/parser, map-initializer, global, type, and resource evidence. The score is only 80 because final source ownership may split some initializer code into [UID:0000L3][MapPane](by-file/MapPane.md).
+- 2026-06-10 A002 strict-gate repair:
+  - What existed before: `AUTOGEN_PARENT_UID:0000JP` attached this class to the GameServerConfig file page.
+  - Changed to: `AUTOGEN_PARENT_UID:` blank with the score left at `82/80`.
+  - Evidence: the class remains below the child side of the strict `85/85` gate, and the direct file parent [UID:0000JP][GameServerConfig](by-file/GameServerConfig.md) is `86/80`, so the parent side also fails confidence. Keep the source-owner cross-reference, but do not emit this class through validator autogen until both pages clear the gate.

@@ -1,8 +1,8 @@
 *** UID:00002R | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000O2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -52,3 +52,7 @@
 - What existed before: the page documented client spell-menu construction, command handling, action-button state, and generated owner-pollution caveat, but metadata was still `0/0`.
 - What it was changed to: scores were set to `82/88`.
 - Summary and evidence: method ranges, dispatcher xrefs, local spell data use, list child semantics, and polluted `ChattingColorListPane` type are covered; final row/action enum naming and full layout remain below exhaustive.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000O2][SpellMenuDialogs](by-file/SpellMenuDialogs.md).
+  - Before: `RECONSTRUCTABLE` and `AUTOGEN_PARENT_UID` were blank, leaving the class coverage row unclassified.
+  - After: `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000O2`.
+  - Evidence: live IDA MCP confirms modeled method starts at `0x0051db40`, `0x0051e4e0`, and `0x0051e600`, plus constructor callers from `0x0051770b` and `0x00517c07`; this class and the parent file both meet the 80% completion/confidence attachment gate.

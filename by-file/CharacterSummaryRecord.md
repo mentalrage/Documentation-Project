@@ -1,7 +1,7 @@
 *** UID:0000I4 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NONE" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # CharacterSummaryRecord
 
@@ -60,6 +60,10 @@ Fold this generated file into `ui/panels/UserStatusPane.cpp`. If a separate type
 
 ## Changes
 
+- 2026-06-05: Marked the projected reconstruction path as `NONE`.
+  - Before: the path was blank, so the validator treated this reviewed generated accessor alias as a missing by-file generated root.
+  - After: the page is an explicit non-standalone disposition; the accessor island remains folded into [UID:0000P2][UserStatusPane](by-file/UserStatusPane.md).
+  - Evidence: live IDA MCP `lookup_funcs` confirms the accessor island at `0x005b85b0` (`0x1c` bytes) and the adjacent `UserStatusPane` constructor/core at `0x005b83b0` (`0x176` bytes), matching the existing `g_activeUserStatusPane` ownership notes.
 - 2026-05-30: Grading changed from `0/0` to `86/90`.
   - Before: page documented that this generated file is not a standalone original source file but remained unevaluated.
   - After: score reflects strong negative placement evidence: the emitted accessors/setters are assigned to [UID:0000P2][UserStatusPane](by-file/UserStatusPane.md), with exact memory/type/global anchors and generated-abstraction caveats.

@@ -9,7 +9,7 @@
 
 - Confidence: strong for class behavior and anchors; medium for final file split.
 - Proposed module: `map/SnowingLayerPane.cpp` or part of [UID:0000P8][WeatherLayerPane](by-file/WeatherLayerPane.md)
-- Current generated source: `class_SnowingLayerPane.cpp`
+- Documentation basis: IDA-confirmed SnowingLayerPane ranges plus the by-* memory/table docs below.
 - Primary class doc: [UID:0000DC][SnowingLayerPane](by-class/SnowingLayerPane.md)
 - Main address docs: [UID:0001O1][0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes](by-memory/0x005c1bd0-0x005c2ab5.SnowingAndSwallowLayerPanes.md) and [UID:0001O0][0x005c1bd0-0x005c2a5a.SnowingLayerPane](by-memory/0x005c1bd0-0x005c2a5a.SnowingLayerPane.md)
 
@@ -43,10 +43,10 @@ The base and sibling weather layers are now documented in [UID:0000P8][WeatherLa
 
 - IDA confirms all listed method and thunk starts as exact functions.
 - 2026-05-24 IDA recheck: the constructor `0x005c1bd0` is called by `MapPane::SetMapState` at `0x0050dc17`; vtable refs point at `UpdateAndRenderSnowParticles` (`0x006312f4`), `RandomizeSnowParticles` (`0x006312fc`), `RenderSnowParticles` (`0x006312c0`), and the scalar deleting destructor (`0x006312b0`).
-- Wave3 lists no missing refs for the class, but `show grade class SnowingLayerPane` currently fails completion because excluded thunk children at `0x005c29ec` and `0x005c29f7` overflow the class aggregate ranges. The ownership/range issue is tracked in [wave3_data_issues](../wave3_data_issues.md).
+- The excluded thunk starts at `0x005c29ec` and `0x005c29f7` are class-family artifacts, but they should stay documented as thunk/ownership caveats rather than used to widen the Snowing method aggregate.
 - The legacy `0x005c1bd0-0x005c2a5a` aggregate crosses [UID:0000OD][SwallowLayerPane](by-file/SwallowLayerPane.md) code beginning at `0x005c2230`; use the shared island doc for per-method migration.
-- The global names in current generated source are useful but provisional; broad render/global naming should review `g_snow*` and callback aliases before final migration. [UID:0000TP][WeatherLayerGlobals](by-global/WeatherLayerGlobals.md) records the current table addresses, exact range docs, and the render callback dependency caveat.
-- Current `source-3/simroot_v2/class_SnowingLayerPane.cpp` still contains generated helper placeholders such as `InitializeSnowLookupDescriptor` and base/destructor name pollution such as `TextButtonExControlPane::~TextButtonExControlPane`; do not use those names as source-ownership evidence.
+- The current `g_snow*` names and render callback aliases are provisional; broad render/global naming should review them before final migration. [UID:0000TP][WeatherLayerGlobals](by-global/WeatherLayerGlobals.md) records the current table addresses, exact range docs, and the render callback dependency caveat.
+- Provisional helper/base aliases such as `InitializeSnowLookupDescriptor` and `TextButtonExControlPane::~TextButtonExControlPane` should not be used as source-ownership evidence.
 
 ## Cross-References
 
@@ -68,5 +68,6 @@ The base and sibling weather layers are now documented in [UID:0000P8][WeatherLa
 - 2026-05-30: Scored documentation completeness/confidence.
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `86` and confidence to `80`.
-  - Evidence: document captures weather-layer role, proposed contents, method families, constructor/vtable evidence, global table refs, boundary notes, Wave3 issue caveat, and cross-references; confidence remains capped by final split between a standalone snow file and shared `WeatherLayerPane`.
+- Evidence: document captures weather-layer role, proposed contents, method families, constructor/vtable evidence, global table refs, boundary notes, thunk ownership caveats, and cross-references; confidence remains capped by final split between a standalone snow file and shared `WeatherLayerPane`.
 - 2026-06-02 source-path update: `PROPOSED_RECONSTRUCTION_PATH` set to `NexusTK/map/`, matching current proposed source tree placement for map weather companion modules.
+- 2026-06-06 provenance cleanup: removed stale generated-output framing and kept scores unchanged. The page now anchors ownership cautions to IDA/by-* evidence, the shared Snowing/Swallow island, and provisional alias status while final file split remains unresolved.

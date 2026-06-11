@@ -1,23 +1,26 @@
 *** UID:0000L3 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MapPane
 
 ## Status
 
-- Confidence: strong for `map/MapPane.cpp` as a major original source module, medium for companion-class file split.
+- Confidence: strong for `map/MapPane.cpp` as a major original source module and for the coordinate/movement helper surface that owns [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md); medium-high for companion-class file split.
 - Proposed module folder: `map/`
 - Candidate file: `map/MapPane.cpp`
 - Current generated sources: `class_MapPane.cpp`, `class_MapPaneSpatialIndex.cpp`, `class_ObjectList.cpp`, `class_ObjectStatusBlob.cpp`, `class_StaticObjectPane.cpp`, `class_LightingObjectPane.cpp`, `class_SoundObjectPane.cpp`, `class_AttachmentAnchorResolver.cpp`, `class_MapNamePane.cpp`, `class_MapRefreshDimmer.cpp`, `class_TimerPane.cpp`, `class_WeatherLayerPane.cpp`, `class_RainingLayerPane.cpp`, `class_SnowingLayerPane.cpp`, and `class_SwallowLayerPane.cpp`.
 - Evidence basis: `simroot_v2` Wave3 metadata, targeted IDA MCP boundary checks on 2026-05-23 through 2026-05-25, and local project-structure comparison with [UID:0000LE][MiniMap](by-file/MiniMap.md).
 - System overview: [UID:0001QG][client_map_system](by-meta/client_map_system.md)
 - Key global: [UID:0000PR][g_activeMapPane](by-global/g_activeMapPane.md), currently mislabeled by Wave3 as `g_activeGameServerConfig`.
+- Coordinate/movement global: [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md) with exact storage [UID:00027F][0x0066da96-0x0066da97.g_movementSubstepScale](by-memory/0x0066da96-0x0066da97.g_movementSubstepScale.md).
 
 ## Hypothesis
 
 `MapPane` was likely a large central source file in the original client. It owns the live game-world pane: map tile state, visible-object indexing, object pane creation/destruction, world-to-screen conversion, server packet dispatch for map/object/weather state, paint invalidation, transition effects, and links to minimap/world-map child UI.
+
+B001's 2026-06-08 ownership audit resolves [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md) into this source root. IDA ties that byte to the MapPane coordinate/movement helper surface rather than to a standalone globals/config file: direct readers either are MapPane coordinate helpers or route through MapPane direction-to-offset, tile-to-pixel, viewport, object-placement, scroll, and recenter helpers.
 
 The strongest original-source reconstruction is:
 
@@ -50,7 +53,7 @@ Those helper splits are lower confidence. They may have been nested declarations
 
 | Entity | Current range | Current file | Proposed ownership |
 | --- | --- | --- | --- |
-| `MapPane` | `0x00503ef0-0x00514e1a` plus map-owned render/packet islands, including shared hit-test helper [UID:0001AU][0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane](by-memory/0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane.md) | `class_MapPane.cpp` plus generated BackPane owner caveat | Main `map/MapPane.cpp` owner. Consumes [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md) for playfield sizing and coordinate scaling. Excludes shared render helpers such as `0x004ba250`. |
+| `MapPane` | `0x00503ef0-0x00514e1a` plus map-owned render/packet islands, including shared hit-test helper [UID:0001AU][0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane](by-memory/0x00506ce0-0x00506d15.GeneratedBackPaneHitTestMapPane.md) | `class_MapPane.cpp` plus generated BackPane owner caveat | Main `map/MapPane.cpp` owner. Consumes [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md) and owns [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md) for coordinate scaling, movement interpolation, and movement-timer substeps. Excludes shared render helpers such as `0x004ba250`. |
 | `ObjectList` / `MapPaneSpatialIndex` alias | `0x00530d00-0x00532530`, `0x00532530-0x00532f67`, `0x00532f70-0x0053728e`, `0x00537290-0x005372c8` | `class_ObjectList.cpp`, `class_MapPaneSpatialIndex.cpp` | Separate map object-index companion; see [UID:0000M4][ObjectList](by-file/ObjectList.md). |
 | `GameServerConfig` / nation table | `0x005039f0-0x00504521`, `0x00514d50-0x00514ddc` | `class_GameServerConfig.cpp` | Map/gameplay helper for object nation mapping and status nation-entry data; current `InitializeMapPane` attribution should be reviewed. |
 | `MapNamePane` | `0x005031f0-0x0050349e`, `0x0050380b`, `0x00503816`, `0x00503840-0x005038fd` | `class_MapNamePane.cpp` | Small companion pane; see [UID:0000L2][MapNamePane](by-file/MapNamePane.md) and the shared [UID:0001AL][0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes](by-memory/0x005031f0-0x0050395f.MapNameAndMiniMapButtonPanes.md). |
@@ -67,7 +70,7 @@ Current `simroot_v2/class_MapPane.cpp` also emits shared UI/render helpers at `0
 | Area | Representative methods | Notes |
 | --- | --- | --- |
 | Weather and effects | `SetWeatherEffect`, `ClearEffects`, `SetMapState`, raw `0x00510400` day/night packet body, `HandleEffectPacket` | Creates rain, water filter, snow, and lighting/day-night state. Runtime effect classes belong in [UID:0000IZ][Effects](by-file/Effects.md). Treat the generated `HandleWeatherPacket` as a boundary duplicate until the dispatcher split is repaired. |
-| Coordinate conversion | `WorldToScreenCoords`, `ScreenToMapCoords`, `GetVisibleTileBounds`, `GetExtendedMapBounds`, `MapCoordsToScreenRect`, [UID:0000VC][ScaleDirectionOffsetToPixels_00505100](by-item/ScaleDirectionOffsetToPixels_00505100.md) | Central conversion layer between tile coordinates, viewport origin, [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md), and pixel rectangles. |
+| Coordinate conversion | `WorldToScreenCoords`, `ScreenToMapCoords`, `GetVisibleTileBounds`, `GetExtendedMapBounds`, `MapCoordsToScreenRect`, [UID:0000VC][ScaleDirectionOffsetToPixels_00505100](by-item/ScaleDirectionOffsetToPixels_00505100.md) | Central conversion layer between tile coordinates, viewport origin, [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md), [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md), direction offsets, and pixel rectangles. |
 | Object indexing | `AddObjectToMap`, `LookupObjectById`, `RefreshObjectBand`, `FindLivingObjectAtCoords`, `FindNearestObject` | Uses an owned [UID:0000M4][ObjectList](by-file/ObjectList.md) at `MapPane + 0x424` and row bucket tables. |
 | Tile and cached surface rendering | `DrawTileRange`, `RenderMapView`, `DrawVisibleTiles`, `DrawTileAt`, `DrawGroundTiles`, `RenderTileWithEffects` | Renders tile layers, static/effect objects, and cached map surfaces. |
 | Input and interaction | `OnCommand`, `OnMouseEvent`, `OnNotify`, `ProcessObjectInteraction` | Handles key shortcuts, click-to-move, hover, targeting, auto-attack, and timers. |
@@ -80,6 +83,16 @@ Current `simroot_v2/class_MapPane.cpp` also emits shared UI/render helpers at `0
 [UID:0000IX][EditablePaperPane](by-file/EditablePaperPane.md) is another packet-driven UI consumer rather than a `MapPane` child class. `MapPane::HandlePacket` constructs it for opcode `0x1b` in editable mode and opcode `0x35` in read-only mode, while `EditablePaperPane` owns paper parsing, rendering, editor setup, and opcode `0x23` save serialization.
 
 [UID:0000NN][SelfSaveOKPane](by-file/SelfSaveOKPane.md) is a packet-created alert/status consumer rather than a `MapPane` child class. `MapPane::HandlePacket` constructs it inline for opcode `0x21`, while the small text-box/timer behavior belongs with SelfSaveOKPane.
+
+## Coordinate And Movement Globals
+
+[UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md) is assigned to this file as a MapPane coordinate/movement scalar. The exact storage byte [UID:00027F][0x0066da96-0x0066da97.g_movementSubstepScale](by-memory/0x0066da96-0x0066da97.g_movementSubstepScale.md) has initial value `1`, and IDA reports exactly 23 direct operand references across 14 functions. B001's follow-up checked direct store encodings and raw address byte patterns and found no direct write or initializer references. All observed direct operand uses are reads, generally `movsx` loads that feed either `4 * byte_66DA96` coordinate divisors or direct movement-delay divisors.
+
+The strongest owner signal is the coordinate-helper chain, not physical data adjacency. Direct readers include MapPane coordinate/object placement helpers at `0x005055e0`, `0x00506980`, and `0x0050b080`. Those helpers use [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md), direction offsets, and `4 * g_movementSubstepScale` while converting map/object movement into screen-space positions. The living-object and user-pane readers are consumers of the same MapPane movement surface: `0x005a36f0` and `0x005a3770` schedule movement and call back into `0x00506980`, while `0x005a83b0` and `0x005a88d0` call MapPane direction/coordinate helpers such as `0x00505080`, `0x00505100`, `0x00505130`, `0x005055e0`, `0x005058b0`, and `0x005059d0`.
+
+The local `.data` neighborhood is mixed and should not be treated as one owner. B001's nearby-global matrix found no function overlap between this byte and the folder-select buffer, `g_fpsDebugActive`, `g_screenWidth`, `g_useEpfAssets`, or `g_screenHeight`. The only meaningful adjacent overlap is with [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md) in five coordinate/placement functions: `0x00468520`, `0x005055e0`, `0x00506980`, `0x0050b080`, and `0x005a88d0`. That supports MapPane coordinate ownership; it does not support a broad data-island owner.
+
+Rejected owners: [UID:0000P1][UserPane](by-file/UserPane.md), [UID:0000KU][LivingObjectPane](by-file/LivingObjectPane.md), [UID:0000HJ][AttachedObjectPane](by-file/AttachedObjectPane.md), and [UID:0000HL][AttachmentAnchorResolver](by-file/AttachmentAnchorResolver.md) are consumers or partial users, not declaration owners. A standalone `MapMovementGlobals.cpp` or `MapMovementConfig.cpp` is also rejected: IDA found no writer, initializer, source metadata, isolated data cluster, or source-tree entry supporting an independent file, and the MapPane helper chain explains the byte better.
 
 ## IDA MCP Evidence
 
@@ -101,7 +114,7 @@ A later 2026-05-24 IDA MCP pass confirmed `MapPane::HandlePacket` at `0x00507c90
 
 2026-05-26 SelfSave recheck: packet case `0x21` allocates `372` bytes and performs the same [UID:0000NN][SelfSaveOKPane](by-file/SelfSaveOKPane.md) construction sequence documented at [UID:0001B0][0x005147d0-0x00514914.SelfSaveOKPane](by-memory/0x005147d0-0x00514914.SelfSaveOKPane.md), writing vtables at `0x0061e7a4`, `0x0061e81c`, and `0x0061e84c`, setting localized string id `61`, attaching the pane, and scheduling a one-second timer. Keep that construction as SelfSaveOKPane source ownership, not MapPane child-class ownership.
 
-2026-05-25 send-helper recheck: IDA MCP callers show `MapPane::HandlePacket` calls [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md), and both `MapPane::HandlePacket` and the `0x00511440` spawn/movement/chat handler call [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md). The upload caller is specifically inbound case `0x6a`: it reads one flag byte, writes [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md), and calls the outbound opcode `0x77` helper at `0x00508b14` only when the flag is nonzero. A raw duplicate handler at [UID:0001AZ][0x00514380-0x005143b7.FriendNameListSyncRawHandler](by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md) has the same behavior but no current xrefs. See [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md). This ties the name-list upload/status getter into map packet flow without making those helpers `MapPane`-owned source.
+2026-05-25 send-helper recheck: IDA MCP callers show `MapPane::HandlePacket` calls [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendFriendNameListSync](by-memory/0x00574e50-0x0057536b.BuildAndSendFriendNameListSync.md), and both `MapPane::HandlePacket` and the `0x00511440` spawn/movement/chat handler call [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md). The upload caller is specifically inbound case `0x6a`: it reads one flag byte, writes [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) / `g_friendNameListSyncEnabled`, and calls the outbound opcode `0x77` helper at `0x00508b14` only when the flag is nonzero. A raw duplicate handler at [UID:0001AZ][0x00514380-0x005143b7.FriendNameListSyncRawHandler](by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md) has the same behavior but no current xrefs. See [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md). This ties the name-list upload/status getter into map packet flow without making those helpers `MapPane`-owned source.
 
 The object/world-map creation path at `0x00511db0` calls [UID:0000FD][UInt32Vector](by-class/UInt32Vector.md) construction for temporary dword-vector/bitset state. Keep that helper under [UID:0000P3][VectorHelpers](by-file/VectorHelpers.md), not as a `MapPane` class.
 
@@ -116,6 +129,8 @@ The object/world-map creation path at `0x00511db0` calls [UID:0000FD][UInt32Vect
 The active map-pane singleton is [UID:0000PR][g_activeMapPane](by-global/g_activeMapPane.md) at `0x0067a764`. It is set by the current `GameServerConfig::InitializeMapPane` body, cleared by `0x00504530`, and used by minimap, icon/input, targeting, spell-selection, and application cleanup paths.
 
 The shared [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md) at `0x0066da9c` / `0x0066daa0` are consumed by MapPane setup and coordinate helpers but are not MapPane instance fields. `InitializeMapPane` uses them to size the backing playfield from tile counts plus a two-tile border, while `ScaleDirectionOffsetToPixels` uses them for in-place tile-offset scaling.
+
+2026-06-08 B001 ownership audit for [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md): IDA operand search found 23 instruction hits to `0x0066da96`, all direct reads, and no direct store encodings. The reader set ties the byte to MapPane coordinate conversion and movement scheduling: `0x005055e0` calls `0x00505080` and divides tile-scaled offsets by `4 * byte_66DA96`; `0x00506980` calls `0x00505080`, uses `word_66DA9C`/`word_66DAA0`, and applies the same scale while converting object movement offsets; `0x0050b080` uses tile dimensions and divides by `4 * byte_66DA96` for object screen-position logic; `0x005a83b0` uses the byte as a movement subframe modulus and calls MapPane helpers; `0x005a88d0` calls `0x00505080`, `0x00505100`, and `0x00505130` while computing local-player screen/hit bounds. This raises the MapPane confidence gate and supports direct parentage for both the semantic global and exact storage byte.
 
 ## File-Split Guidance
 
@@ -141,6 +156,8 @@ map/SwallowLayerPane.cpp
 
 If a smaller migration batch is needed, `MapPaneSpatialIndex` can stay in a temporary `map/MapPaneSpatialIndex.cpp`, but the final structure should treat it as part of [UID:0000M4][ObjectList](by-file/ObjectList.md) rather than a standalone feature.
 
+Do not create a separate `MapMovementGlobals.cpp`, `MapMovementConfig.cpp`, or `MapMovementConstants.cpp` for [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md) based on current evidence. If a narrow documentation grouping is useful, model it as a MapPane-owned coordinate/movement helper surface inside `MapPane.cpp`, covering the movement scale, tile dimensions, direction-offset helpers, viewport conversion, object placement helpers, and direction-mask constants where each item independently clears its gate.
+
 Do not merge [UID:0000PB][WorldMapPane](by-file/WorldMapPane.md) into `MapPane.cpp`. `MapPane` creates or triggers it through world-map packets, but `WorldMapPane` owns a separate modal map/travel UI and has its own private vector/bitset helpers.
 
 Do not merge [UID:0000HO][BackPane](by-file/BackPane.md) into `MapPane.cpp`. `BackPane` is the root backdrop/container pane constructed by `InitializeMainUiGraph`, while `MapPane` owns game-world map state, objects, packets, and rendering.
@@ -164,6 +181,8 @@ Do not merge [UID:0000HO][BackPane](by-file/BackPane.md) into `MapPane.cpp`. `Ba
 
 - [UID:00007Q][MapPane](by-class/MapPane.md)
 - [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md)
+- [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md)
+- [UID:00027F][0x0066da96-0x0066da97.g_movementSubstepScale](by-memory/0x0066da96-0x0066da97.g_movementSubstepScale.md)
 - [UID:0000VC][ScaleDirectionOffsetToPixels_00505100](by-item/ScaleDirectionOffsetToPixels_00505100.md)
 - [UID:0000M4][ObjectList](by-file/ObjectList.md)
 - [UID:0000M6][ObjectStatusBlob](by-file/ObjectStatusBlob.md)
@@ -191,11 +210,14 @@ Do not merge [UID:0000HO][BackPane](by-file/BackPane.md) into `MapPane.cpp`. `Ba
 - [UID:0001QG][client_map_system](by-meta/client_map_system.md)
 - [UID:0001SO][MapServerPacketOpcode](by-type/by-enum/MapServerPacketOpcode.md)
 - [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md)
-- [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md)
+- [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) / `g_friendNameListSyncEnabled`
 - [UID:0001AZ][0x00514380-0x005143b7.FriendNameListSyncRawHandler](by-memory/0x00514380-0x005143b7.FriendNameListSyncRawHandler.md)
-- [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md)
+- [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendFriendNameListSync](by-memory/0x00574e50-0x0057536b.BuildAndSendFriendNameListSync.md)
 - [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md)
 - [UID:0001AP][0x00503ef0-0x0050637a.MapPaneWeatherCoordinateObjectCore](by-memory/0x00503ef0-0x0050637a.MapPaneWeatherCoordinateObjectCore.md)
+- [UID:0001AQ][0x00505100-0x00505123.ScaleDirectionOffsetToPixels](by-memory/0x00505100-0x00505123.ScaleDirectionOffsetToPixels.md)
+- [UID:0002QL][0x005058b0-0x0050593e.MapPaneScrollViewportByDirection](by-memory/0x005058b0-0x0050593e.MapPaneScrollViewportByDirection.md)
+- [UID:0002QM][0x005059d0-0x00505bf8.MapPaneRecenterAndSendPosition](by-memory/0x005059d0-0x00505bf8.MapPaneRecenterAndSendPosition.md)
 - [UID:000231][0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper](by-memory/0x00506380-0x005063db.MapPaneOpcode0CObjectIdPacketHelper.md)
 - [UID:0001AT][0x00506970-0x0050e320.MapPaneInputPacketRenderCore](by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md)
 - [UID:000232][0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch](by-memory/0x0050e320-0x0050e4b6.MapPaneObjectEffectDescriptorDispatch.md)
@@ -207,6 +229,14 @@ Do not merge [UID:0000HO][BackPane](by-file/BackPane.md) into `MapPane.cpp`. `Ba
 
 ## Changes
 
+- 2026-06-08 B001/supervisor movement-scale ownership application:
+  - Before: `COMPLETION:88`, `CONFIDENCE:80`; [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md) and [UID:00027F][0x0066da96-0x0066da97.g_movementSubstepScale](by-memory/0x0066da96-0x0066da97.g_movementSubstepScale.md) were left unassigned because the source owner was unresolved.
+  - After: `COMPLETION:89`, `CONFIDENCE:85`; this file is the direct parent for the movement scale global and its exact storage byte.
+  - Evidence: B001's IDA pass found 23 direct read refs to `0x0066da96`, no direct write encodings, repeated `4 * byte_66DA96` coordinate divisors in MapPane helpers `0x005055e0`, `0x00506980`, and `0x0050b080`, movement-delay/subframe uses in local-player paths that call back through MapPane helpers, and meaningful adjacent-global overlap only with MapTilePixelDimensions. This supports `MapPane.cpp` over consumer owners and over a standalone `MapMovementGlobals.cpp`.
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: map file split evidence referenced the friend-list upload flag only as historical `byte_66DEE0`.
+  - After: the page records resolved name `g_friendNameListSyncEnabled` beside the historical label.
+  - Evidence: generated resolved-name report maps `byte_66DEE0` to `g_friendNameListSyncEnabled`; existing IDA-backed evidence already ties the flag write to inbound case `0x6a` before the opcode `0x77` upload helper.
 - 2026-05-28: Corrected the `PhotoAndPicturePanes` endpoint from `0x00549bc4` to `0x00549bc5`. Evidence: IDA MCP byte/function review shows `0x00549bc4` is the final operand byte of `PictureViewPane::ScalarDeletingDestructor`; `0x00549bc5-0x00549bd0` is alignment padding.
 - 2026-05-28: Updated MapName/MiniMapButton shared memory-island references from `0x005031f0-0x0050395e` to `0x005031f0-0x0050395f`. Evidence: IDA MCP reports the interleaved `MiniMapButtonPane` destructor ending at `0x0050395f`; the previous boundary omitted the final `retn 4` immediate byte.
 - 2026-05-28: Updated `MapPaneWeatherCoordinateObjectCore` from `0x00503ef0-0x00506379` to `0x00503ef0-0x0050637a` and added the adjacent `0x00506380-0x005063db` opcode `0x0c` packet helper. Evidence: IDA MCP reports `sub_5062f0` ending at `0x0050637a` and `sub_506380` called from MapPane packet/object paths.

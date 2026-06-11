@@ -1,8 +1,8 @@
 *** UID:000013 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,9 +12,9 @@
 
 ## Status
 
-- Confidence: strong for subsystem placement, Browser COM/event-sink identity, major method ranges, and vtable anchors; medium for exact original class/file split and final multiple-inheritance declaration.
+- Confidence: strong for subsystem placement, Browser COM/event-sink identity, exact promoted method ranges, vtable anchors, connection cleanup, and dispatch-event behavior; medium for final multiple-inheritance/interface declaration details.
 - Likely source module: [UID:0000HV][Browser](by-file/Browser.md)
-- Current relevant ranges: Browser method body cluster `0x0046f480-0x00470406`, notification helper evidence at `0x00470740-0x00470782` / `0x00470f20-0x00470fb9`, connection helpers `0x004708d0-0x00470a00`, and GUID helper `0x004710e0-0x0047110e`.
+- Current relevant ranges: Browser method body cluster `0x0046f480-0x00470406`, notification helper evidence at `0x00470740-0x00470782` / `0x00470f20-0x00470fb9`, connection helpers `0x004708d0-0x00470a00`, GUID helper `0x004710e0-0x0047110e`, and Browser vtable slices at `0x00613830-0x00613908`.
 - Evidence basis: live IDA MCP function-boundary, decompile, call/xref, and vtable checks plus linked browser subsystem documentation.
 
 ## Responsibility
@@ -46,7 +46,11 @@ Disabled/adjustor-like methods:
 - `Browser::~Browser` and `ScalarDeletingDestructor` call `UnadviseConnectionPoint`, release COM interfaces, destroy hosted windows, and clear URL/string state.
 - `Browser::Invoke` handles browser event dispatch IDs such as download begin/complete, navigation, and new-window cases.
 - This class should stay with `BrowserWindow`, `BrowserThread`, `BrowserControlPaneOld`, `browser__Notification`, and the COM helper globals in the browser module.
-- The shared COM event id and IID evidence is tracked in [UID:0001SJ][BrowserDispatchEventId](by-type/by-enum/BrowserDispatchEventId.md) and [UID:0000T2][IID_BrowserEventSink](by-global/IID_BrowserEventSink.md).
+- The shared COM event id and IID evidence is tracked in [UID:0001SJ][BrowserDispatchEventId](by-type/by-enum/BrowserDispatchEventId.md) and [UID:0000T2][DIID_DWebBrowserEvents2](by-global/DIID_DWebBrowserEvents2.md).
+
+## Assignment Decision
+
+`AUTOGEN_PARENT_UID` is [UID:0000HV][Browser](by-file/Browser.md). The child class is now `85/86`, and the direct file parent is `86/88`, so both sides clear the corrected `85/85` gate. The file parent is a direct owner because it documents the cohesive browser/OLE source module containing `Browser`, `BrowserWindow`, `BrowserThread`, `BrowserControlPaneOld`, `browser::Notification`, browser COM helpers, and the related vtable/string data. Final C++ remains blank because the exact source-level COM interface declarations and multiple-inheritance spelling remain below the `95/95` reconstruction-code gate.
 
 ## IDA Evidence
 
@@ -55,6 +59,12 @@ Disabled/adjustor-like methods:
 - `QueryInterface` compares browser COM GUID/IID data around `0x00631580-0x00631610`, including a call to [UID:000218][0x004710e0-0x0047110e.BrowserGuidCompareHelper](by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md).
 - `~Browser` and `ScalarDeletingDestructor` both reset Browser vtables, release string/state at offset `+0x228`, call `UnadviseConnectionPoint` at `0x00470980` for the connection point/interface at `+0x18` / cookie at `+0x1c`, release the COM interface, destroy the hosted window at `+0x14`, and clean up the wide/string field at `+0x230`.
 - `Browser::Invoke` handles dispatch/event cases including `104`, `106`, `250`, `251`, `263`, and `270`, posts thread message `0x500` for close/resource redirects, calls `0x00470dd0` navigation helper for close handling, and constructs/posts [UID:000014][browser__Notification](by-class/browser__Notification.md) payloads inline or through `0x00470f20`.
+- 2026-06-07 Batch080 live IDA MCP `py_eval` rechecked the promoted Browser method starts: `0x0046f480-0x0046f53e`, `0x0046f540-0x0046f66f`, `0x0046f7e0-0x0046f7e8`, `0x0046f7f0-0x0046f7f8`, `0x0046f800-0x0046f808`, `0x0046f810-0x0046fab6`, and `0x00470330-0x00470406`. The same pass confirmed Browser vtable-slice xrefs at `0x00613830` and `0x00613908` from `0x0046f480`, `0x0046ff50`, and `0x00470330`, matching destructor, setup, and scalar-delete vptr stores.
+
+## Score Rationale
+
+- Completion `85`: the page now carries exact Browser method boundaries, vtable-slice xrefs, QueryInterface GUID/helper evidence, connection cleanup behavior, dispatch-event behavior, notification posting, and a corrected direct-file parent assignment. Remaining work is detailed COM interface layout and final header/source spelling.
+- Confidence `86`: class identity and direct browser-module ownership are backed by live IDA MCP and linked browser data pages. Confidence stays below higher levels because the final source declarations for the five interface slices remain provisional.
 
 ## Open Questions
 
@@ -66,7 +76,7 @@ Disabled/adjustor-like methods:
 
 - [UID:0000HV][Browser](by-file/Browser.md)
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md)
-- [UID:0000ZF][0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b7.BrowserOleLegacyAndHelpers.md)
+- [UID:0000ZF][0x0046f010-0x004710b8.BrowserOleLegacyAndHelpers](by-memory/0x0046f010-0x004710b8.BrowserOleLegacyAndHelpers.md)
 - [UID:000218][0x004710e0-0x0047110e.BrowserGuidCompareHelper](by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md)
 - [UID:0001OB][0x006131b4-0x006139df.BrowserVtablesAndStrings](by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md)
 
@@ -79,3 +89,8 @@ Disabled/adjustor-like methods:
   - What existed before: `COMPLETION:72` and `CONFIDENCE:78`, with stale generated-output evidence references and only partial method-boundary notes.
   - Changed to: `COMPLETION:78` and `CONFIDENCE:84`.
   - Summary/evidence: live IDA confirms exact ranges for the destructor, QueryInterface, COM stubs, Invoke, scalar deleting destructor, Browser vtable-slice stores, GUID comparison helper, connection-point cleanup, hosted-window destruction, string cleanup, and browser notification posting. Completion remains below high because final COM interface declarations, vtable slice naming, and old/new browser source split still need a full layout pass.
+- 2026-06-05: Reclassified autogen metadata from unclassified to `RECONSTRUCTABLE:TRUE`. Current IDA MCP `lookup_funcs` reconfirmed the destructor, QueryInterface, Invoke, and scalar deleting destructor starts at `0x0046f480`, `0x0046f540`, `0x0046f810`, and `0x00470330`. `AUTOGEN_PARENT_UID` remains blank even though [UID:0000HV][Browser](by-file/Browser.md) is the likely owner because the class completion score is still below the 80+ attachment gate.
+- 2026-06-07 Batch080 class coverage pass:
+  - Changed score from `78/84` to `85/86`.
+  - Set `AUTOGEN_PARENT_UID:0000HV` because this class and the direct [UID:0000HV][Browser](by-file/Browser.md) source root both clear the corrected `85/85` gate.
+  - Evidence: live IDA MCP rechecked all promoted Browser method boundaries and Browser vtable-slice xrefs from destructor/setup/scalar-delete stores; linked browser file and read-only-data docs support direct source-module ownership. C++ remains blank because the final COM interface declaration is not at `95/95`.

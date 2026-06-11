@@ -15,7 +15,7 @@
 - Confidence: high for class anchors, global lifecycle, timer-helper ownership, resource/vtable evidence, and local-player HUD behavior; medium-high for final source split because it may be standalone or a private `UserPane` companion.
 - Likely source file: [UID:0000HU][BowGaugeObjectPane](by-file/BowGaugeObjectPane.md), possibly private to [UID:0000P1][UserPane](by-file/UserPane.md)
 - Singleton global: [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md) at `0x0069ba24`
-- Vtable/resource data: [UID:0002SM][0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData](by-memory/0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData.md) and [UID:0002SO][0x00620b90-0x00620bf8.ObjectPaneResourceStrings](by-memory/0x00620b90-0x00620bf8.ObjectPaneResourceStrings.md)
+- Vtable/resource data: [UID:000352][0x006206ac-0x00620734.BowGaugeObjectPaneVtableData](by-memory/0x006206ac-0x00620734.BowGaugeObjectPaneVtableData.md) and [UID:0002YQ][0x00620b90-0x00620bc0.BowGaugeResourceStrings](by-memory/0x00620b90-0x00620bc0.BowGaugeResourceStrings.md)
 
 ## Class Purpose
 
@@ -27,8 +27,8 @@
 | --- | --- |
 | Source owner | [UID:0000HU][BowGaugeObjectPane](by-file/BowGaugeObjectPane.md) documents `NexusTK/ui/panels/` placement, with an open caveat that the original source may have kept this as a private [UID:0000P1][UserPane](by-file/UserPane.md) companion. |
 | Base/role separation | [UID:0000HJ][AttachedObjectPane](by-file/AttachedObjectPane.md) and [UID:0000M5][ObjectPane](by-file/ObjectPane.md) both exclude this class despite the object-pane-like name because it constructs through `Pane` and is allocated by `UserPane`, not the attached-object base. |
-| Vtable data | [UID:0002SM][0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData](by-memory/0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData.md) maps the mixed object-pane vtable child to `BowGaugeObjectPane` via the executable anchors in [UID:0001DB][0x00538bc0-0x00539bb2.ObjectOverlayPanes](by-memory/0x00538bc0-0x00539bb2.ObjectOverlayPanes.md). |
-| Resource strings | [UID:0002SO][0x00620b90-0x00620bf8.ObjectPaneResourceStrings](by-memory/0x00620b90-0x00620bf8.ObjectPaneResourceStrings.md) records object-pane resource strings, including the bow-gauge paint consumer at `0x00538cbc`. |
+| Vtable data | [UID:000352][0x006206ac-0x00620734.BowGaugeObjectPaneVtableData](by-memory/0x006206ac-0x00620734.BowGaugeObjectPaneVtableData.md) maps the exact `BowGaugeObjectPane` RTTI/vtable child to constructor stores at `0x00538beb`, `0x00538bf1`, and `0x00538bfb`. |
+| Resource strings | [UID:0002YQ][0x00620b90-0x00620bc0.BowGaugeResourceStrings](by-memory/0x00620b90-0x00620bc0.BowGaugeResourceStrings.md) records `BGAUGE.EPF` and `BGAUGE.pal`, including the bow-gauge paint consumers at `0x00538cbc` and `0x00538cc8`. |
 | Singleton state | [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md) and [UID:0001PY][0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane](by-memory/0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane.md) document the constructor write, destructor clear, and `UserPane` show/hide/destructor consumers. |
 
 ## Method Notes
@@ -46,7 +46,7 @@
 
 - IDA MCP confirms `sub_538BC0` at `0x00538bc0-0x00538c0a`. It calls `sub_544460(this, 1)`, stores `this` to `dword_69BA24` / [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md), and installs three BowGauge vtable views at offsets `+0x00`, `+0xa0`, and `+0xa4`.
 - IDA MCP confirms `sub_538C40` at `0x00538c40-0x00538c4b` as a timer cleanup wrapper around `sub_597600(this+0xa4)`.
-- IDA MCP confirms `sub_538C50` at `0x00538c50-0x00538cfa` as paint: it initializes scratch state, clears pane text state, invalidates `this+0x44`, gates drawing on byte `dword_67A748+0x1d1`, derives a frame from `(timeGetTime() - this+0xf8) / 0x8a` clamped to `36`, looks up `BGAUGE.EPF`, renders with `BGAUGE.pal`, then calls shared compositor `sub_4BA540`.
+- IDA MCP confirms `sub_538C50` at `0x00538c50-0x00538cfa` as paint: it initializes scratch state, clears pane text state, invalidates `this+0x44`, gates drawing on byte [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) / `dword_67A748` `+0x1d1`, derives a frame from `(timeGetTime() - this+0xf8) / 0x8a` clamped to `36`, looks up `BGAUGE.EPF`, renders with `BGAUGE.pal`, then calls shared compositor `sub_4BA540`.
 - Resource refs are direct and unique to paint: `0x00538cbc -> 0x00620b90` (`BGAUGE.EPF`) and `0x00538cc8 -> 0x00620ba8` (`BGAUGE.pal`).
 - `sub_4BA540` at `0x004ba540-0x004ba6ad` has code callers at `0x00538ce5` from BowGauge paint and at `0x00590960`/`0x005917a3` from TextEditPane paths, confirming it remains a shared compositor dependency.
 - IDA MCP confirms `sub_538D10` at `0x00538d10-0x00538d4b` as the show/timer path: it invokes a secondary-base virtual callback through the `this-0xa4` view and schedules timer work through `sub_597910(dword_67AB80, adjustedThis, 1, 1, 0, 0)`.
@@ -67,12 +67,17 @@
 - [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md)
 - [UID:0001PY][0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane](by-memory/0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane.md)
 - [UID:0001DC][0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers](by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md)
-- [UID:0002SM][0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData](by-memory/0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData.md)
-- [UID:0002SO][0x00620b90-0x00620bf8.ObjectPaneResourceStrings](by-memory/0x00620b90-0x00620bf8.ObjectPaneResourceStrings.md)
+- [UID:000352][0x006206ac-0x00620734.BowGaugeObjectPaneVtableData](by-memory/0x006206ac-0x00620734.BowGaugeObjectPaneVtableData.md)
+- [UID:0002YQ][0x00620b90-0x00620bc0.BowGaugeResourceStrings](by-memory/0x00620b90-0x00620bc0.BowGaugeResourceStrings.md)
 - [UID:0000FQ][UserPane](by-class/UserPane.md)
+- [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md)
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: BowGauge paint evidence used only historical `dword_67A748`.
+  - After: the page records canonical `g_pCollectionData` beside the historical label and cross-links the global page.
+  - Evidence: generated resolved-name report maps `dword_67A748` to `g_pCollectionData`; existing IDA-backed evidence already ties the byte at `+0x1d1` to player/client state gating BowGauge drawing.
 - 2026-06-02:
   - Before: scored `68/76`, with reconstructable/parent blank and no class-level vtable/resource/global evidence map.
   - After: scored `78/84`, marked reconstructable, and attached to [UID:0000HU][BowGaugeObjectPane](by-file/BowGaugeObjectPane.md).
@@ -84,3 +89,7 @@
   - Before: the class was scored `78/84` and had strong anchors but lacked current method-body, resource, vtable-slot, and global-consumer detail.
   - Changed to: `COMPLETION:86`, `CONFIDENCE:88`, with C++ reconstruction still blank.
   - Summary/evidence: live IDA confirms exact method ranges, constructor/global/vtable writes, `g_pBowGaugeObjectPane` lifecycle and UserPane consumer xrefs, paint behavior with `BGAUGE.EPF`/`BGAUGE.pal`, the shared `sub_4BA540` caller set, show/timer scheduling, and vtable slots for destructor/paint/show. The score remains below final because field names and standalone-vs-UserPane source split are still not final-source quality.
+- 2026-06-10 B001-035 vtable split update:
+  - What existed before: vtable/resource references pointed at broad mixed read-only data aggregates.
+  - Changed to: references now point at exact [UID:000352][0x006206ac-0x00620734.BowGaugeObjectPaneVtableData](by-memory/0x006206ac-0x00620734.BowGaugeObjectPaneVtableData.md) BowGauge vtable data and exact [UID:0002YQ][0x00620b90-0x00620bc0.BowGaugeResourceStrings](by-memory/0x00620b90-0x00620bc0.BowGaugeResourceStrings.md) BowGauge resource strings.
+  - Evidence: fresh IDA MCP confirms exact BowGauge RTTI/vtable range `0x006206ac-0x00620734` and resource literals at `0x00620b90/0x00620ba8`.

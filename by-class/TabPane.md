@@ -14,7 +14,7 @@
 
 - Confidence: strong for local function boundaries, vtable identity, singleton lifecycle, input behavior, and hit-test geometry; medium for final tab labels and final source grouping with `IconsPane`.
 - Likely source module: [UID:0000OF][TabPane](by-file/TabPane.md)
-- Main range: [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
+- Split range inventory: [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
 - Singleton global: [UID:0000SE][g_pTabPane](by-global/g_pTabPane.md)
 - Evidence basis: live IDA MCP checks on 2026-06-04 against `NexusTK.exe` MD5 `4247e04e20b65d6414c7238aa8ff5515`.
 
@@ -32,18 +32,18 @@
 
 ## Important Methods
 
-| Address | Current name | Notes |
+| Range doc | Current name | Notes |
 | --- | --- | --- |
-| `0x004cf980-0x004cf9ca` | constructor | Registers singleton and installs vtables. |
-| `0x004cf9d0-0x004cf9f9` | cleanup helper | Reinstalls vtables, clears singleton, then jumps to shared pane cleanup at `0x00544580`. |
-| `0x004cfa00-0x004cfa01` | null virtual | Empty virtual slot referenced from primary vtable slot `0x0061b514`. |
-| `0x004cfa10-0x004cfb0a` | `HandleInputEvent` | Dispatches tab action codes for event modes `1` and `2`. |
-| `0x004cfb10-0x004cfb15` | `CanHandleInputEvent` | Returns false. |
-| `0x004cfb20-0x004cfc5c` | raw rectangle builder | No IDA function object, no entrypoint xrefs, and no pointer hits; mirrors the six tab rectangles by calling `0x004b7c50`. Keep as boundary evidence, not final source, until reachability is proved. |
-| `0x004cfc60-0x004cfd4d` | `ResolveTabActionCode` | Hit-tests six fixed rectangles and returns code `0..5` or `-1`. |
-| `0x004cfd82-0x004cfd8d` | adjustor thunk | Subtracts `0xa0`, forwards to `0x004cfe00`. |
-| `0x004cfd8d-0x004cfd98` | adjustor thunk | Subtracts `0xa4`, forwards to `0x004cfe00`. |
-| `0x004cfe00-0x004cfe5f` | scalar deleting destructor | Clears singleton, calls shared pane cleanup, optionally frees `this` unless `flags & 4` is set. |
+| [UID:00034L][0x004cf980-0x004cf9ca.TabPaneConstructor](by-memory/0x004cf980-0x004cf9ca.TabPaneConstructor.md) | constructor | Registers singleton and installs vtables. |
+| [UID:00034M][0x004cf9d0-0x004cf9f9.TabPaneCleanupHelper](by-memory/0x004cf9d0-0x004cf9f9.TabPaneCleanupHelper.md) | cleanup helper | Reinstalls vtables, clears singleton, then jumps to shared pane cleanup at `0x00544580`. |
+| [UID:00034N][0x004cfa00-0x004cfa01.TabPaneNullVirtual](by-memory/0x004cfa00-0x004cfa01.TabPaneNullVirtual.md) | null virtual | Empty virtual slot referenced from primary vtable slot `0x0061b514`. |
+| [UID:00034O][0x004cfa10-0x004cfb0a.TabPaneHandleInputEvent](by-memory/0x004cfa10-0x004cfb0a.TabPaneHandleInputEvent.md) | `HandleInputEvent` | Dispatches tab action codes for event modes `1` and `2`. |
+| [UID:00034P][0x004cfb10-0x004cfb15.TabPaneFalseReturnVirtual](by-memory/0x004cfb10-0x004cfb15.TabPaneFalseReturnVirtual.md) | false-return virtual | Returns false. |
+| [UID:00034Q][0x004cfb20-0x004cfc5c.TabPaneRawRectangleBuilder](by-memory/0x004cfb20-0x004cfc5c.TabPaneRawRectangleBuilder.md) | raw rectangle builder | No IDA function object, no entrypoint xrefs, and no pointer hits; mirrors the six tab rectangles by calling `0x004b7c50`. Keep as retained evidence until reachability is proved. |
+| [UID:00034R][0x004cfc60-0x004cfd4d.TabPaneResolveActionCode](by-memory/0x004cfc60-0x004cfd4d.TabPaneResolveActionCode.md) | `ResolveTabActionCode` | Hit-tests six fixed rectangles and returns code `0..5` or `-1`. |
+| [UID:00034S][0x004cfd4d-0x004cfd6c.TabPaneResolveActionCodeJumpTable](by-memory/0x004cfd4d-0x004cfd6c.TabPaneResolveActionCodeJumpTable.md) | resolver jump table | Non-reconstructable switch/alignment bytes. |
+| [UID:00034U][0x004cfd82-0x004cfd98.TabPaneDestructorAdjustorThunks](by-memory/0x004cfd82-0x004cfd98.TabPaneDestructorAdjustorThunks.md) | adjustor thunks | Compiler-generated `this - 0xa0`/`this - 0xa4` forwards to `0x004cfe00`; parent blank. |
+| [UID:00034W][0x004cfe00-0x004cfe5f.TabPaneScalarDeletingDestructor](by-memory/0x004cfe00-0x004cfe5f.TabPaneScalarDeletingDestructor.md) | scalar deleting destructor | Clears singleton, calls shared pane cleanup, optionally frees `this` unless `flags & 4` is set. |
 
 ## Live IDA Evidence
 
@@ -70,7 +70,7 @@
 ## External State
 
 - [UID:0000SE][g_pTabPane](by-global/g_pTabPane.md) at `0x0069adfc`.
-- `g_pAppMan` / `dword_67A748`; the input handler checks byte `+0x13eb1d` before dispatching selected action helpers.
+- [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) / historical `dword_67A748` (older generated `g_pAppMan` label); the input handler checks byte `+0x13eb1d` before dispatching selected action helpers.
 - Action helpers around `0x005a4db0-0x005a4f70`; names remain provisional until the shortcut/action family is reviewed.
 
 ## Open Questions
@@ -87,11 +87,26 @@ Completion and confidence are raised because the page now records the live IDA f
 
 - [UID:0000OF][TabPane](by-file/TabPane.md)
 - [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
+- [UID:00034L][0x004cf980-0x004cf9ca.TabPaneConstructor](by-memory/0x004cf980-0x004cf9ca.TabPaneConstructor.md)
+- [UID:00034M][0x004cf9d0-0x004cf9f9.TabPaneCleanupHelper](by-memory/0x004cf9d0-0x004cf9f9.TabPaneCleanupHelper.md)
+- [UID:00034N][0x004cfa00-0x004cfa01.TabPaneNullVirtual](by-memory/0x004cfa00-0x004cfa01.TabPaneNullVirtual.md)
+- [UID:00034O][0x004cfa10-0x004cfb0a.TabPaneHandleInputEvent](by-memory/0x004cfa10-0x004cfb0a.TabPaneHandleInputEvent.md)
+- [UID:00034P][0x004cfb10-0x004cfb15.TabPaneFalseReturnVirtual](by-memory/0x004cfb10-0x004cfb15.TabPaneFalseReturnVirtual.md)
+- [UID:00034Q][0x004cfb20-0x004cfc5c.TabPaneRawRectangleBuilder](by-memory/0x004cfb20-0x004cfc5c.TabPaneRawRectangleBuilder.md)
+- [UID:00034R][0x004cfc60-0x004cfd4d.TabPaneResolveActionCode](by-memory/0x004cfc60-0x004cfd4d.TabPaneResolveActionCode.md)
+- [UID:00034S][0x004cfd4d-0x004cfd6c.TabPaneResolveActionCodeJumpTable](by-memory/0x004cfd4d-0x004cfd6c.TabPaneResolveActionCodeJumpTable.md)
+- [UID:00034U][0x004cfd82-0x004cfd98.TabPaneDestructorAdjustorThunks](by-memory/0x004cfd82-0x004cfd98.TabPaneDestructorAdjustorThunks.md)
+- [UID:00034W][0x004cfe00-0x004cfe5f.TabPaneScalarDeletingDestructor](by-memory/0x004cfe00-0x004cfe5f.TabPaneScalarDeletingDestructor.md)
 - [UID:0000SE][g_pTabPane](by-global/g_pTabPane.md)
+- [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md)
 - [UID:00006B][IconsPane](by-class/IconsPane.md)
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: tab input-state evidence used historical `dword_67A748` and the older generated `g_pAppMan` label.
+  - After: the page records canonical `g_pCollectionData` beside the historical label and cross-links the global page.
+  - Evidence: generated resolved-name report maps `dword_67A748` to `g_pCollectionData`; existing page evidence already ties the checked byte at `+0x13eb1d` to client/player state gating tab action dispatch.
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `82`, confidence `76`.
 - Evidence: the page documents old-layout tab-pane responsibility, layout/vtable evidence, singleton, method map, external state, and open action-code/source-grouping questions; confidence remains capped by unresolved tab-region names and final grouping with `IconsPane`.
@@ -99,3 +114,6 @@ Completion and confidence are raised because the page now records the live IDA f
   - Before: completion `82`, confidence `76`, reconstructable metadata blank.
   - Changed to: completion `86`, confidence `86`, `RECONSTRUCTABLE:TRUE`, and parent [UID:0000OF][TabPane](by-file/TabPane.md).
   - Evidence: live IDA verified exact function boundaries, constructor caller, singleton xrefs, vtable slots/writes, destructor flag behavior, action-helper dispatch, exact tab rectangles, and the raw unreferenced `0x004cfb20-0x004cfc5c` rectangle helper; remaining uncertainty is limited to final tab labels, helper names, and source grouping.
+- 2026-06-10 B001-034 split repair:
+  - Changed: replaced the broad main-range-only method inventory with exact child pages [UID:00034L][0x004cf980-0x004cf9ca.TabPaneConstructor](by-memory/0x004cf980-0x004cf9ca.TabPaneConstructor.md) through [UID:00034W][0x004cfe00-0x004cfe5f.TabPaneScalarDeletingDestructor](by-memory/0x004cfe00-0x004cfe5f.TabPaneScalarDeletingDestructor.md) for the `TabPane` constructor, cleanup, virtuals, input handler, raw rectangle helper, resolver, jump-table artifact, destructor thunks, and scalar deleting destructor.
+  - Evidence: IDA MCP reconfirmed all target-range boundaries, vtable refs, singleton writes/clears, raw helper negative xrefs/pointer hits, resolver table bytes, thunk disassembly, and successor `IdleWatcher` boundary. Score remains `86/86`; the parent gate was already met.

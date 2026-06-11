@@ -1,8 +1,8 @@
 *** UID:0000CG | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,11 +12,11 @@
 
 ## Status
 
-- Likely source file: [UID:0000NG][ScrollCollectionPane](by-file/ScrollCollectionPane.md), or final merge into [UID:0000NF][ScrollBar](by-file/ScrollBar.md)
+- Likely source file: [UID:0000NG][ScrollCollectionPane](by-file/ScrollCollectionPane.md), or final merge into [UID:0000NF][ScrollBar](by-file/ScrollBar.md). `ScrollCollectionPane` is the current by-file parent because it records the reviewed `ui/core/` projection, dedicated themed-scrollbar source hypothesis, and 82/82 parent score.
 - Address range: [UID:0001GT][0x00561db0-0x0056325b.ScrollCollectionPane](by-memory/0x00561db0-0x0056325b.ScrollCollectionPane.md)
 - Type evidence: [UID:0001VZ][ScrollCollectionPaneLayout](by-type/by-struct/ScrollCollectionPaneLayout.md), [UID:0001YP][ScrollCollectionPaneVtables](by-type/by-vtable/ScrollCollectionPaneVtables.md)
 - Current recovered file: `source-3/simroot_v2/class_ScrollCollectionPane.cpp`
-- Confidence: strong for behavior, medium for final original source file.
+- Confidence: strong for behavior, constructor and `CollectionPane` caller ownership, layout/vtable anchors, and documented helper boundaries; medium for final standalone-vs-`ScrollBar` source placement and raw helper starts.
 
 ## Class Purpose
 
@@ -48,6 +48,18 @@
 - Raw IDA disassembly still shows complete executable bodies at both addresses.
 - Wave3 omits the raw helper at `0x00562ef0` and IDA-confirmed helpers at `0x00562fb0` and `0x00563070`.
 - Constructor stores vtables `0x00623fa4`, `0x00623ff0`, and `0x00624020`; local state offsets are recorded in [UID:0001VZ][ScrollCollectionPaneLayout](by-type/by-struct/ScrollCollectionPaneLayout.md).
+- [UID:0000NG][ScrollCollectionPane](by-file/ScrollCollectionPane.md) now gives the file-level container an `82/82` score, projected `NexusTK/ui/core/` path, and a documented caveat that this class may later fold into the broader [UID:0000NF][ScrollBar](by-file/ScrollBar.md) module.
+- The executable aggregate [UID:0001GT][0x00561db0-0x0056325b.ScrollCollectionPane](by-memory/0x00561db0-0x0056325b.ScrollCollectionPane.md) is already attached to the file parent and records the function map, vtable stores, caller/callee evidence, raw helper gaps, and padding boundaries; its 78 completion still keeps by-memory child attachment decisions separate from this class-parent update.
+
+## Parent And Score Rationale
+
+| Item | Score | Relevance |
+| --- | ---: | --- |
+| [UID:0000NG][ScrollCollectionPane](by-file/ScrollCollectionPane.md) | `82/82` | Current parent: documents the dedicated themed-scrollbar file hypothesis, projected `ui/core/` path, possible `ScrollBar` merge, layout/vtable refs, and raw helper caveats. |
+| [UID:0001GT][0x00561db0-0x0056325b.ScrollCollectionPane](by-memory/0x00561db0-0x0056325b.ScrollCollectionPane.md) | `78/86` | Confirms the full executable aggregate, caller/callee evidence, constructor field stores, vtable bases, helper chain, raw/manual starts, and exact boundary before `ScrollInventoryPane`. |
+| [UID:0001GY][0x00563200-0x0056325c.ScrollCollectionPaneClearHighlightRaw](by-memory/0x00563200-0x0056325c.ScrollCollectionPaneClearHighlightRaw.md) | `74/86` | Confirms one raw helper child is source-authored and already attached to the file parent, but remains below the by-memory completion gate for broad child promotion. |
+
+The class confidence is raised only to `80`, not higher, because the behavior and file parent are well supported but final source placement and several raw/manual helper identities remain open.
 
 ## Cross-References
 
@@ -70,3 +82,7 @@
   - Before: The page documented source-owned scrollbar behavior but left `RECONSTRUCTABLE` blank.
   - After: `RECONSTRUCTABLE` is set to `TRUE`; parent UID and C++ remain blank because the standalone-vs-`ScrollBar` source placement and raw helper split are not at the 95+ source-code gate.
   - Evidence: IDA MCP confirms constructor, setters, input/paint helpers, vtable stores, and associated layout offsets in the linked memory/type pages.
+- 2026-06-07: Raised confidence from `78` to `80` and attached the class to [UID:0000NG][ScrollCollectionPane](by-file/ScrollCollectionPane.md).
+  - Before: The class had strong method/layout/vtable evidence but stayed just below the parent-attachment confidence gate.
+  - Changed to: `AUTOGEN_PARENT_UID` is now `0000NG`, with added parent/score rationale explaining the file attachment, source-placement caveat, and why by-memory child pages and final C++ are not changed here.
+  - Evidence: [UID:0000NG][ScrollCollectionPane](by-file/ScrollCollectionPane.md) records the reviewed `ui/core/` file hypothesis, [UID:0001GT][0x00561db0-0x0056325b.ScrollCollectionPane](by-memory/0x00561db0-0x0056325b.ScrollCollectionPane.md) records the function/caller/vtable/helper evidence, and the raw-helper children preserve the completion/source-quality cap.

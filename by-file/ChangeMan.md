@@ -10,7 +10,7 @@
 - Proposed module: `app/ChangeMan.cpp`
 - Proposed header: `app/ChangeMan.h` or a private application message header.
 - Confidence: strong for class/module ownership, medium for exact original folder.
-- Current recovered source: `source-3/simroot_v2/class_ChangeMan.cpp`
+- Documentation basis: IDA-confirmed ChangeMan method ranges plus the by-class, by-memory, by-global, and by-type anchors below.
 - Type/storage anchors: [UID:0001TW][ChangeManLayout](by-type/by-struct/ChangeManLayout.md), [UID:0001X7][ChangeManVtable](by-type/by-vtable/ChangeManVtable.md), and [UID:0001P4][0x0067ab2c-0x0067ab30.g_pChangeMan](by-memory/0x0067ab2c-0x0067ab30.g_pChangeMan.md)
 
 ## File Role
@@ -47,11 +47,11 @@ The [UID:0000ZV][0x0047ed20-0x0047ed50.ChangeManConstructorCleanup](by-memory/0x
 - 2026-05-25 IDA MCP recheck reconfirmed `0x0047ed50` and `0x0047ed80` as real omitted methods and reconfirmed their only callers as Application wrappers.
 - 2026-05-26 IDA MCP recheck reconfirmed all ChangeMan method boundaries, the Application wrapper callers for `0x0047ed50`, `0x0047ed80`, and `0x0047ee20`, and the tiny singleton-clear helper at `0x0047ef40`.
 
-## Generated Output Caveats
+## Method Inventory And Alias Caveats
 
-Current `simroot_v2` output omits `0x0047ed50` and `0x0047ed80`, even though IDA confirms both as ChangeMan methods and direct callees of application wrapper methods. Do not migrate active `class_ChangeMan.cpp` without adding those two methods or preserving an explicit omission note.
+Do not treat a ChangeMan source candidate as complete unless it includes both registration methods at `0x0047ed50` and `0x0047ed80`. IDA confirms both as ChangeMan methods and direct callees of application wrapper methods, and [UID:0000ZX][0x0047ed50-0x0047ee18.ChangeManRegistrationMethods](by-memory/0x0047ed50-0x0047ee18.ChangeManRegistrationMethods.md) is the durable inventory for that pair.
 
-Current `class_ChangeMan.meta_wave3` also reports `vtable_count: 0` and carries a misleading active summary about character transformations; IDA evidence supports an application change/message router with primary vtable `0x00614cd0`.
+Any alias or summary that describes character transformations conflicts with the IDA-backed role. The documented owner is an application change/message router with primary vtable `0x00614cd0`, exact vtable-data child [UID:0002M8][0x00614cd0-0x00614cdc.ChangeManVtableData](by-memory/0x00614cd0-0x00614cdc.ChangeManVtableData.md), and process singleton [UID:0000QI][g_pChangeMan](by-global/g_pChangeMan.md).
 
 ## Source-Structure Decision
 
@@ -80,7 +80,7 @@ Use `app/ChangeMan.cpp` as the working file. The class is created by `Applicatio
 ## Changes
 
 - 2026-05-30: Grading changed from `0/0` to `84/88`.
-  - Before: page documented the application change router, singleton, layout/vtable/type anchors, registration/dispatch methods, Application wrappers, and generated-output caveats but remained unevaluated.
+  - Before: page documented the application change router, singleton, layout/vtable/type anchors, registration/dispatch methods, Application wrappers, and omitted-method caveats but remained unevaluated.
   - After: score reflects documented module ownership, constructor/destructor behavior, sorted-list registration model, dispatch filtering, unregister behavior, singleton/global storage, and exact Application wrapper surface.
   - Evidence: IDA notes confirm construction from `Application::Initialize`, vtable stores, omitted registration methods, dispatch wrapper callers, singleton clear helper, and BackPane unregister callers.
 
@@ -88,3 +88,6 @@ Use `app/ChangeMan.cpp` as the working file. The class is created by `Applicatio
   - Before: the page named `app/ChangeMan.cpp` in prose but the validator-managed reconstructed path was blank, and the vtable had no exact by-memory data child.
   - After: the page uses `NexusTK/app/` for staged source placement and links [UID:0002M8][0x00614cd0-0x00614cdc.ChangeManVtableData](by-memory/0x00614cd0-0x00614cdc.ChangeManVtableData.md) as the exact source-declared vtable data.
   - Evidence: `by-project-structure/proposed-source-tree.md` lists `ChangeMan.cpp` under `app`, and IDA MCP `py_eval`/`xrefs_to` on 2026-05-31 reconfirmed the exact vtable-data range and slot xrefs.
+- 2026-06-06 provenance cleanup:
+  - Scores and projected path unchanged.
+  - Summary/evidence: replaced stale recovered-output and active-output wording with the current IDA/by-* evidence basis. The file still records the two required registration methods, vtable-data child, singleton, Application wrapper surface, and character-transformation alias conflict without depending on old output provenance.

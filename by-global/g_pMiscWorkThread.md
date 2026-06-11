@@ -1,8 +1,8 @@
 *** UID:0000RQ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for storage and owner.
+- Confidence: strong for storage, owner, lifecycle writes, and feature consumers.
 - Address: `0x0067ab50`
 - Memory doc: [UID:0001P8][0x0067ab50-0x0067ab54.g_pMiscWorkThread](by-memory/0x0067ab50-0x0067ab54.g_pMiscWorkThread.md)
 - Likely source module: [UID:0000LG][MiscWorkThread](by-file/MiscWorkThread.md)
@@ -41,12 +41,13 @@
 - This global belongs with [UID:00008I][MiscWorkThread](by-class/MiscWorkThread.md), not [UID:00001H][CashShopRequest](by-class/CashShopRequest.md).
 - Request wrappers at `0x00528290`, `0x00528310`, and raw `0x005283b0` should be documented as `MiscWorkThread` submission helpers because callers first read this singleton.
 
-## 2026-05-30 Review Notes
+## Live Evidence
 
-- IDA MCP `py_eval` on 2026-05-30 confirms `0x0067ab50` is `dword_67AB50`, size `4`, in `.data`, with 8 data xrefs.
-- Live IDA xrefs confirm the documented lifecycle writes: `0x005281f1` and `0x005281f8` in `sub_5281B0`, `0x00528262` in `sub_528230`, `0x005283e0` in `sub_5283E0`, and `0x00528429` in `sub_5283F0`.
-- Live IDA xrefs also confirm the documented consumers at `0x00464a88` in `sub_464A60`, `0x00530141` in `sub_530060`, and `0x00549295` in `sub_549220`.
-- [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md) documents why the request wrappers are stale `CashShopRequest` ownership and should remain under `MiscWorkThread`.
+- IDA MCP on 2026-06-06 confirms `0x0067ab50` is a four-byte `.data` slot initialized to `0xffffffff`, with 8 direct data xrefs.
+- Live IDA xrefs confirm the documented lifecycle writes: `0x005281f1` and `0x005281f8` in the constructor, `0x00528262` in the non-deleting destructor, `0x005283e0` in the singleton-clear helper, and `0x00528429` in the scalar deleting destructor.
+- Live IDA xrefs also confirm the documented consumers at `0x00464a88` in Application cleanup, `0x00530141` in the registration/NCA request path, and `0x00549295` in the patch/download path.
+- Live IDA decompilation confirms `0x005281b0` publishes the current object or zero fallback into the singleton slot and installs the `MiscWorkThread` vtable; `0x00528230`, `0x005283e0`, and `0x005283f0` clear the singleton during cleanup/destruction.
+- [UID:0001CK][0x00528290-0x005283d5.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d5.CashShopRequestAuthDirectory.md) documents why the request wrappers are stale `CashShopRequest` ownership and should remain under `MiscWorkThread`.
 - [UID:0001P8][0x0067ab50-0x0067ab54.g_pMiscWorkThread](by-memory/0x0067ab50-0x0067ab54.g_pMiscWorkThread.md) remains the canonical memory page for this slot and matches the live IDA check.
 
 ## Cross-References
@@ -61,5 +62,14 @@
 ## Changes
 
 - Before: completion/confidence were ungraded at `0/0`.
-- Changed to: completion `76`, confidence `82`.
-- Summary/evidence: the page now consolidates exact storage, owner, constructor/destructor writes, consumer reads, and stale `CashShopRequest` correction evidence verified against live IDA MCP xrefs on 2026-05-30. Confidence remains below fully settled because final original source path/wrapper names are still provisional.
+- Changed to: completion `84`, confidence `88`.
+- Summary/evidence: the page now consolidates exact storage, owner, constructor/destructor writes, consumer reads, and stale `CashShopRequest` correction evidence verified against live IDA MCP xrefs. Confidence remains below fully settled because final wrapper names are still provisional.
+
+- 2026-06-05 autogen classification:
+  - What existed before: autogen metadata was blank, so the singleton was reported as unclassified.
+  - Changed to: `RECONSTRUCTABLE:TRUE` with `AUTOGEN_PARENT_UID:0000LG`; `RECONSTRUCTION_CPP CODE` remains empty.
+  - Summary/evidence: live IDA MCP `xrefs_to 0x0067ab50` and decompilation of `0x005281b0`, `0x00528230`, `0x005283e0`, and `0x005283f0` prove NexusTK-owned `MiscWorkThread` singleton storage owned by [UID:0000LG][MiscWorkThread](by-file/MiscWorkThread.md). No final C++ body was added because the page is below the 95/95 reconstruction gate.
+- 2026-06-06 source-facing cleanup:
+  - What existed before: score `76/82`, thin source-facing summary, and raw IDA labels in the evidence.
+  - Changed to: score `84/88`, refreshed live xref/byte evidence, source-facing singleton wording, and synced the manual by-global coverage row.
+  - Summary/evidence: current IDA MCP confirms initialized storage, constructor publish/fallback clear, destructor/helper/deleting-destructor clears, Application cleanup read, registration/NCA and patch/download consumers, and file-parent ownership through [UID:0000LG][MiscWorkThread](by-file/MiscWorkThread.md). C++ remains blank under the final-code gate.

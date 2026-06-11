@@ -1,7 +1,7 @@
 *** UID:0000CC | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -66,6 +66,10 @@ The `ResetSlots` method chooses `slotBankA` or `slotBankB` by reading a config b
 
 ## Changes
 
+- 2026-06-05: Changed autogen reconstructability from blank to `FALSE`.
+  - Before: the page documented this as a recovered PaletteLib-resident facet/helper, but blank metadata left it unclassified in `-ag-class-coverage.md`.
+  - After: no standalone class declaration is emitted from this recovered name; any source representation should stay folded into [UID:0000A1][PaletteLib](by-class/PaletteLib.md), [UID:0000MA][Palette](by-file/Palette.md), or [UID:0000MB][PaletteLib](by-file/PaletteLib.md) until a real original type name is proven.
+  - Evidence: live IDA MCP on 2026-06-05 confirms `sub_543D30` at `0x00543d30` (`0xd` bytes), `sub_543EE0` at `0x00543ee0` (`0x75` bytes), and callers from `sub_556D50`, matching the documented `g_pPaletteLib` reset facet rather than an independently reconstructable class.
 - 2026-05-30: Changed completion/confidence from `0/0` to `76/76`.
   - Before: The page was unevaluated despite documenting the two imported methods, observed layout, PaletteLib ownership, excluded adjacent helpers, and caller evidence.
   - After: Scored as moderate-high completion and confidence because behavior and ownership are strong, while final class/facet naming remains uncertain.

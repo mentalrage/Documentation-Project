@@ -1,7 +1,7 @@
 *** UID:0000IL | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NONE" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # CursorManager
 
@@ -39,7 +39,7 @@ The 2026-05-26 IDA pass makes a standalone source file weaker: `ScreenPane::Scre
 
 ## Autogen Status
 
-`PROPOSED_RECONSTRUCTION_PATH` remains blank and this page should not emit a standalone `CursorManager.cpp` placeholder. The current best reconstruction path is to keep the cursor helper island documented as a `ScreenPane.cpp` companion until a separate original cursor-manager source or initialization path is proven.
+`PROPOSED_RECONSTRUCTION_PATH` is `NONE` and this page should not emit a standalone `CursorManager.cpp` placeholder. The current best reconstruction path is to keep the cursor helper island documented as a `ScreenPane.cpp` companion until a separate original cursor-manager source or initialization path is proven.
 
 ## Score Rationale
 
@@ -73,9 +73,13 @@ The 2026-05-26 IDA pass makes a standalone source file weaker: `ScreenPane::Scre
 
 ## Changes
 
+- 2026-06-05:
+  - Before: the projected path was intentionally blank, which kept this reviewed ScreenPane companion/facet in generated file-coverage errors.
+  - After: set `PROPOSED_RECONSTRUCTION_PATH` to `NONE`; the page remains a non-standalone helper view over [UID:0000NB][ScreenPane](by-file/ScreenPane.md) / [UID:0000S7][g_pScreenPane](by-global/g_pScreenPane.md).
+  - Summary/evidence: live IDA MCP `lookup_funcs` confirms the helper functions at `0x00557380` (`0x21` bytes) and `0x005573f0` (`0x3c` bytes); this preserves the existing ScreenPane ownership decision without emitting a fake source root.
 - 2026-06-02:
   - Before: scored `84/72` with the same evidence, leaving the page in Low_Confidence.
-  - After: scored `86/82`, kept projected path blank, and added explicit no-autogen rationale.
+  - After: scored `86/82` and added explicit no-autogen rationale.
   - Summary/evidence: the documented ScreenPane field-offset and singleton alias evidence is strong enough for the current non-promotion decision, while cursor-resource initialization remains the open follow-up.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.

@@ -1,8 +1,8 @@
 *** UID:0001WP | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000JG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Rebuild handling: `source-authored` project-local tree/template support; reconstruct as local template/helper declarations with `FolderTreePane`, not as standalone generated class files.
 - Owner file: [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md)
 - Owner class: [UID:00005A][FolderTreePane](by-class/FolderTreePane.md)
+- Assignment: attached to [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md) after Batch 110 raised this page to `85/89` and refreshed the direct parent to `89/85`.
 - Related layout: [UID:0001UJ][FolderTreePane__TreeElem](by-type/by-struct/FolderTreePane__TreeElem.md)
 - Related vtables: [UID:0001XL][FolderTreePaneVtables](by-type/by-vtable/FolderTreePaneVtables.md)
 - Related memory: [UID:000157][0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers](by-memory/0x004b3350-0x004b5c3f.FolderTreePaneTreeAndSortHelpers.md)
@@ -71,6 +72,15 @@ TreeItor<FolderTreePane::TreeElem>
 - IDA confirms the concrete `Tree` vtable at `0x0061a500` and `TreeItor` vtable at `0x0061a510`; current generated metadata still omits them from vtable inventory.
 - 2026-05-31 IDA MCP recheck confirmed exact starts/sizes for the split helper pages: `0x004b3d50` size `0x254`, `0x004b55e0` size `0x6d`, `0x004b56e0` size `0x7f`, `0x004b5b00` size `0xae`, `0x004b5bb0` size `0x20`, `0x004b5bd0` size `0x43`, and `0x004b5c20` size `0x1f`.
 - IDA xrefs to `0x0061a500` and `0x0061a510` land in constructor/destructor and helper method vtable stores, supporting concrete project-local virtual helper objects rather than STL/runtime support.
+- 2026-06-08 A005 Batch 110 IDA MCP refresh reconfirmed the same concrete helper starts and sizes, plus the two tiny iterator cleanup helpers at `0x004b57f0-0x004b57f8` and `0x004b5800-0x004b580e`. A compact xref scan reports five refs to the `Tree<FolderTreePane::TreeElem>` vtable at `0x0061a500`, 31 refs to the `TreeItor<FolderTreePane::TreeElem>` vtable at `0x0061a510`, and three constructor/destructor refs for each `FolderTreePane` vtable view at `0x0061a518`, `0x0061a58c`, and `0x0061a5bc`. This ties the template helpers directly to [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md), not to a standalone generated class source file.
+
+## Score And Assignment Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 85 | The concrete template specializations, generated-class aliases, exact child memory pages, vtable refs, helper sizes, owner file, and no-standalone-source decision are now documented. Completion remains capped because the directory-entry sort/vector helper subrange still needs finer child pages and final template header spelling is unresolved. |
+| Confidence | 89 | IDA evidence consistently ties the concrete tree storage, tree wrapper, and iterator helpers to `FolderTreePane` construction, traversal, reset, cleanup, and vtables. Confidence remains below final-source quality because field names and exact original template declarations are still inferred. |
+| Assignment | [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md) | The child is `85/89`, the direct file parent is `89/85`, and the evidence supports `FolderTreePane.cpp` as the direct source owner for the local template support. |
 
 ## Open Questions
 
@@ -98,3 +108,7 @@ TreeItor<FolderTreePane::TreeElem>
 - What existed before: the page had useful template hypotheses but was still scored `0/0`, had blank reconstructability metadata, and only linked the broad aggregate memory page for most helper bodies.
 - What it was changed to: scored `80/88`, marked `RECONSTRUCTABLE:TRUE`, and expanded with exact by-memory pages for storage insert, element copy, storage destruction, reset-to-root, and iterator traversal helpers.
 - Summary and evidence: 2026-05-31 IDA MCP verified helper starts/sizes, callers, representative decompilations, vtable xrefs, 36-byte element behavior, and iterator link offsets. Scores remain below `95` because final template header spelling, field names, and the larger directory-entry sort/helper spans still need more research before final C++ is safe.
+- 2026-06-08 A005 Batch 110:
+  - Before: score `80/88`, `AUTOGEN_PARENT_UID:` blank; direct parent [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md) was `88/80`, below the corrected parent-side `85/85` gate.
+  - Changed to: score `85/89`, `AUTOGEN_PARENT_UID:0000JG`.
+  - Summary/evidence: live IDA MCP reconfirmed concrete tree/template helper starts, `Tree` and `TreeItor` vtable ref counts, three-view `FolderTreePane` vtable refs, and tiny iterator cleanup helper bounds. The refreshed [UID:0000JG][FolderTreePane](by-file/FolderTreePane.md) parent now scores `89/85`, so both child and direct parent satisfy the corrected gate.

@@ -1,8 +1,8 @@
 *** UID:00003U | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,12 +12,13 @@
 
 ## Status
 
-- Confidence: strong for core behavior; medium for final source-folder placement.
+- Confidence: strong for core behavior and direct file-root ownership; medium-high for final source-folder spelling and source-facing helper names.
 - Likely source file: [UID:0000IU][DialogSession](by-file/DialogSession.md)
 - Address range: [UID:000131][0x004a0d80-0x004a15f8.DialogSessionCore](by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md)
 - Current recovered file: `source-3/simroot_v2/class_DialogSession.cpp`
 - Type docs: [UID:0001U5][DialogSessionLayouts](by-type/by-struct/DialogSessionLayouts.md)
 - Vtables: [UID:0001XD][DialogSessionVtables](by-type/by-vtable/DialogSessionVtables.md), exact data [UID:0002NB][0x00618d30-0x00618e50.DialogSessionVtableData](by-memory/0x00618d30-0x00618e50.DialogSessionVtableData.md)
+- Direct autogen parent: [UID:0000IU][DialogSession](by-file/DialogSession.md)
 
 ## Class Purpose
 
@@ -50,6 +51,12 @@ See [UID:0001U5][DialogSessionLayouts](by-type/by-struct/DialogSessionLayouts.md
 
 The constructor stores these vtables at `0x004a0dc1`, `0x004a0dc7`, and `0x004a0dd1`. The non-deleting destructor and scalar deleting destructor reinstall the same three vtables before cleanup.
 
+## Supporting Exact Evidence
+
+- [UID:000131][0x004a0d80-0x004a15f8.DialogSessionCore](by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md) records the exact constructor/destructor/stack-helper island, including `+0xf8/+0xfc` list/index state, stack push/pop/close helpers, resource-release helper, runtime-helper caveat, and ScreenDimmer factory ownership split.
+- [UID:0001U5][DialogSessionLayouts](by-type/by-struct/DialogSessionLayouts.md) records `DialogSession` as a `Pane`-derived session container with tracked-list pointer at `+0xf8` and active stack index byte at `+0xfc`.
+- [UID:0002NB][0x00618d30-0x00618e50.DialogSessionVtableData](by-memory/0x00618d30-0x00618e50.DialogSessionVtableData.md) records the three `DialogSession` vtable bases, constructor/destructor store xrefs, adjustor thunks, and boundary before `DialogInSession` / `DIBitmap` data.
+
 ## Evidence Notes
 
 - IDA MCP confirms all listed function starts.
@@ -58,6 +65,15 @@ The constructor stores these vtables at `0x004a0dc1`, `0x004a0dc7`, and `0x004a0
 - `xrefs_to 0x004a0f40`, `0x004a0fc0`, `0x004a10e0`, and `0x004a1250` shows broad bulletin/session-family callers. `0x004a12b0` also has those callers, but it is a shared [UID:0000NA][ScreenDimmer](by-file/ScreenDimmer.md) factory dependency rather than `DialogSession` implementation.
 - Disabled generated output lists `0x004a1485` as missing code, but IDA confirms it is a real `0xb` thunk forwarding to `0x004a1500` with `this - 0xa0`.
 - Current Wave3 metadata reports `vtable_count: 0` for `DialogSession` despite the IDA-confirmed constructor/destructor stores for all three vtables.
+
+## Assignment Gate
+
+`AUTOGEN_PARENT_UID` is set to [UID:0000IU][DialogSession](by-file/DialogSession.md). This class is scored `85/86`, and the direct file parent is scored `86/86`, so both sides clear the corrected 85/85 gate. The relationship is direct because the file page owns the shared `DialogSession` / `DialogInSession` source root, while this class page covers the `Pane`-derived session container and delegates exact memory island details to [UID:000131][0x004a0d80-0x004a15f8.DialogSessionCore](by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md).
+
+## Score Rationale
+
+- Completion is `85` because the page records the class purpose, `+0xf8/+0xfc` state, constructor/destructor/stack-helper inventory, vtable views, generated-output omissions, support pages, and parent-gate reasoning.
+- Confidence is `86` because the container behavior, layout, vtable stores, and file ownership are corroborated by exact memory/type/file pages. It stays below final confidence because some helper names and final declarations remain source-facing hypotheses.
 
 ## Cross-References
 
@@ -72,6 +88,10 @@ The constructor stores these vtables at `0x004a0dc1`, `0x004a0dc7`, and `0x004a0
 - [UID:0000A2][Pane](by-class/Pane.md)
 
 ## Changes
+
+- 2026-06-07 A003 Batch 084 class parent-gate update:
+  - Changed to: `COMPLETION:85`, `CONFIDENCE:86`, `AUTOGEN_PARENT_UID:0000IU`.
+  - Summary/evidence: added supporting exact evidence, assignment gate, and score rationale. Assignment to [UID:0000IU][DialogSession](by-file/DialogSession.md) is justified because the child is `85/86`, the direct file parent is `86/86`, and [UID:000131][0x004a0d80-0x004a15f8.DialogSessionCore](by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md) documents the exact constructor/destructor/stack-helper island with the ScreenDimmer split preserved.
 
 - 2026-05-30:
   - Before: completion/confidence metadata was left at unevaluated `0/0`.

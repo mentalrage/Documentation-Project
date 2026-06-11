@@ -1,6 +1,6 @@
 *** UID:0000UZ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000K3 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -28,6 +28,8 @@ The third argument is forwarded unchanged to `CreateDIBitmapFromPcxBuffer`, wher
 
 IDA MCP recheck on 2026-06-02 confirms `sub_4A17B0` starts at `0x004a17b0`, has size `0xf8`, and ends half-open at `0x004a18a8`. The next function, [UID:0000U9][CreateDIBitmapFromPcxBuffer_004A18B0](by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md), begins at `0x004a18b0`; the bytes from `0x004a18a8-0x004a18af` are `0xcc` alignment padding.
 
+IDA MCP recheck on 2026-06-06 confirms the same `0xf8`-byte function boundary, confirms `0x004a18a8` is not a function, and confirms `0x004a18b0` starts the PCX-buffer-to-DIB helper. IDA still does not model a function at raw startup notice address `0x005818d0`.
+
 The IDA decompile shows this call flow:
 
 | Address | Operation | Notes |
@@ -45,9 +47,21 @@ The IDA decompile shows this call flow:
 | `0x004a1886` | scalar deleting destructor call | Destroys the temporary file-buffer object. |
 | `0x004a188f` | `sub_582B70(&localWide)` | Destroys the converted wide-string wrapper before returning. |
 
+## Callee Inventory
+
+IDA MCP `callees(0x004a17b0)` on 2026-06-06 reports:
+
+| Callee | Current interpretation |
+| --- | --- |
+| `sub_582730`, `sub_582830`, `sub_582B30`, `sub_582B70`, `sub_584540` | Local string/path-wrapper construction, ANSI-to-wide conversion, and cleanup helpers. |
+| [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) / `0x0049c700` | Resource existence gate before allocating a temporary file/DAT reader. |
+| `sub_4F4AA0`, `sub_49C130`, `sub_49C550` | Allocates/constructs the temporary 0x14-byte DAT/file-buffer object and retrieves its loaded byte pointer. |
+| DAT/file-buffer vtable slots `+0x0c`, `+0x10`, `+0x1c` | Opens the wide path, closes the loaded handle state, and returns the loaded byte count. |
+| [UID:0000U9][CreateDIBitmapFromPcxBuffer_004A18B0](by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md) / `0x004a18b0` | Converts a non-null PCX byte buffer into a `DIBitmap`. |
+
 ## Caller Evidence
 
-IDA MCP confirms twelve direct code references to `0x004a17b0`: six inside the modeled startup update window procedure and six in the raw notice helper body that IDA does not currently assign to a function.
+IDA MCP `xrefs_to(0x004a17b0)` on 2026-06-06 confirms twelve direct code references: six inside the modeled startup update window procedure and six in the raw notice helper body that IDA does not currently assign to a function. `callers(0x004a17b0)` only reports the six modeled `sub_581100` callsites because the raw `0x005818d0` cluster has `fn:null`.
 
 | PCX literal | String address | Modeled caller ref | Raw helper ref |
 | --- | ---: | ---: | ---: |
@@ -61,6 +75,23 @@ IDA MCP confirms twelve direct code references to `0x004a17b0`: six inside the m
 The modeled refs belong to IDA function `sub_581100` with size `0x4aa`, documented as `StartupWindow::UpdateCheckWindowProc`. IDA reports `0x005818d0` and the six raw helper refs as `Not a function`; the raw bytes nevertheless start with a normal frame setup (`55 8b ec 53 8b d9`) and end with `c2 04 00` followed by `0xcc` padding, so this is a real unmodeled helper boundary rather than stray data.
 
 The same six PCX string addresses each have one modeled data xref in `sub_581100` and one raw data xref in the `0x005818d0` helper body. That ties both caller clusters to the same startup notice asset set without requiring a generated-source owner.
+
+## Raw Notice Helper Detail
+
+2026-06-06 IDA `py_eval` disassembly of `0x005818d0-0x005819c9` shows the raw helper is a lazy startup-notice asset initializer, not an alternate loader implementation:
+
+- The helper uses `ecx` as the startup notice/window state pointer, tests byte `state+4`, and exits immediately to `0x005819c7` when assets are already loaded.
+- It takes the `HDC` parameter from `[ebp+8]`, passes that same handle to all six `LoadPcxImage` calls, and always pushes transparent index `-1`.
+- It stores loaded `DIBitmap *` results at `state+0x10`, `+0x14`, `+0x18`, `+0x1c`, `+0x34`, and `+0x3c` for `brm_main`, `brm_st_a`, `brm_st_b`, `brm_st_c`, `brm_ex_a`, and `brm_ex_b` respectively.
+- It builds the first button rectangle at `state+0x20` from `(183, 348)` plus `brm_st_b` width/height accessors `0x004a1780` and `0x004a1790`, and sets the state word at `state+0x30` to `0`.
+- It builds the second rectangle at `state+0x40` from `(474, 0)` plus `brm_ex_a` width/height accessors, stores the final bounds at `state+0x48/+0x4c`, clears `state+0x50`, and returns with `retn 4`.
+
+The modeled `0x00581100` paint path performs the same lazy load into the same state layout during `WM_PAINT`, then draws `state+0x10` and selects button artwork from the `state+0x14/+0x18/+0x1c` and `state+0x34/+0x3c` slots. This confirms `LoadPcxImage` remains an ImageLoaders-owned dependency used by StartupWindow, while the raw helper belongs to StartupWindow state initialization.
+
+## Score Rationale
+
+- Completion is `86` because the page now records exact half-open bounds, adjacent padding/function evidence, detailed path/DAT/decode call flow, callee inventory, modeled and raw caller clusters, PCX literal mapping, raw helper state writes, ownership, and remaining source-name caveats.
+- Confidence is `88` because live IDA evidence confirms the wrapper behavior, resource gate, temporary DAT/file-buffer lifecycle, twelve xrefs, and the raw helper's lazy asset-state contract. Confidence remains below stronger image-loader helpers because IDA still does not model `0x005818d0` as a function and the final string/file-buffer helper names remain unresolved.
 
 ## Ownership
 
@@ -82,6 +113,15 @@ The startup window docs should keep caller evidence for the `brm_*.pcx` assets, 
 - [UID:0001QC][client_dat_specifications](by-meta/client_dat_specifications.md)
 
 ## Changes
+
+- 2026-06-06 A002 live IDA refresh:
+  - Before: the page was `78/84`, with strong call-flow and caller tables but no callee inventory or score rationale.
+  - After: raised to `82/86`, added the 2026-06-06 boundary/xref distinction between modeled callers and raw code refs, and documented the string/path, DAT/file-buffer, and PCX-to-DIB callee families.
+  - Evidence: IDA MCP `lookup_funcs`, `callers`, `xrefs_to`, `callees`, and decompilation confirm the `0x004a17b0-0x004a18a8` wrapper, next function at `0x004a18b0`, no modeled function at `0x005818d0`, six modeled startup update callsites, six raw notice-helper callsites, the `HasDATEntry` gate, temporary file-buffer object lifecycle, and handoff to [UID:0000U9][CreateDIBitmapFromPcxBuffer_004A18B0](by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md).
+- 2026-06-06 A002 raw notice helper pass:
+  - Before: the raw `0x005818d0` caller was only identified as an unmodeled caller cluster.
+  - After: raised to `86/88` and documented the helper's lazy loaded flag, six destination `DIBitmap *` state slots, two button rectangles, width/height accessor use, `HDC`/transparent-index forwarding, and `retn 4` boundary.
+  - Evidence: IDA `py_eval` disassembly of `0x005818d0-0x005819c9`, `lookup_funcs` on the neighboring boundaries, `xrefs_to` for the six PCX literals, and decompilation/callee checks on modeled `StartupWindow::UpdateCheckWindowProc` at `0x00581100`.
 
 - 2026-06-02: Raised from `50/75` to `78/84` and attached to [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md).
   - Added exact IDA boundary/padding evidence, decompile-derived call-flow table, caller/string xref table, and ownership rationale.

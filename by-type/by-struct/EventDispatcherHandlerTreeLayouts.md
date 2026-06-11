@@ -88,9 +88,9 @@ Stack iterator records observed in dispatcher traversal:
 - [UID:0000F8][Tree_near_class_EventHandler___](by-class/Tree_near_class_EventHandler___.md)
 - [UID:0000FA][TreeItor_near_class_EventHandler___](by-class/TreeItor_near_class_EventHandler___.md)
 - [UID:000060][HandlerFindFunc](by-class/HandlerFindFunc.md)
-- [UID:000144][0x004a78f0-0x004a7978.EventDispatcherFindHandlerIterator](by-memory/0x004a78f0-0x004a7978.EventDispatcherFindHandlerIterator.md)
-- [UID:000145][0x004a7b10-0x004a7c29.EventDispatcherHandlerRecordVectorInsert](by-memory/0x004a7b10-0x004a7c29.EventDispatcherHandlerRecordVectorInsert.md)
-- [UID:000147][0x004a7d00-0x004a7d42.EventDispatcherHandlerListDestructor](by-memory/0x004a7d00-0x004a7d42.EventDispatcherHandlerListDestructor.md)
+- [UID:000144][0x004a78f0-0x004a7979.EventDispatcherFindHandlerIterator](by-memory/0x004a78f0-0x004a7979.EventDispatcherFindHandlerIterator.md)
+- [UID:000145][0x004a7b10-0x004a7c2a.EventDispatcherHandlerRecordVectorInsert](by-memory/0x004a7b10-0x004a7c2a.EventDispatcherHandlerRecordVectorInsert.md)
+- [UID:000147][0x004a7d00-0x004a7d43.EventDispatcherHandlerListDestructor](by-memory/0x004a7d00-0x004a7d43.EventDispatcherHandlerListDestructor.md)
 - [UID:000148][0x004a87a0-0x004a8810.EventDispatcherHandlerRecordVectorFree](by-memory/0x004a87a0-0x004a8810.EventDispatcherHandlerRecordVectorFree.md)
 
 ## Changes

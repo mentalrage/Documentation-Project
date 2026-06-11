@@ -21,7 +21,7 @@ Some current helper labels in drawing calls are owner-polluted fitting-room name
 
 [UID:0001PY][0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane](by-memory/0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane.md) and [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md) confirm the active-pane pointer belongs to this local-player HUD feature: constructor write at `0x00538be4`, destructor clear at `0x0053cfe6`, and `UserPane` show/hide/destructor consumers.
 
-[UID:0002SM][0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData](by-memory/0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData.md) ties the mixed object-pane vtable child back to the BowGauge executable anchors, while [UID:0002SO][0x00620b90-0x00620bf8.ObjectPaneResourceStrings](by-memory/0x00620b90-0x00620bf8.ObjectPaneResourceStrings.md) records resource-string consumers including the bow-gauge paint path.
+[UID:000352][0x006206ac-0x00620734.BowGaugeObjectPaneVtableData](by-memory/0x006206ac-0x00620734.BowGaugeObjectPaneVtableData.md) ties the exact BowGauge vtable data back to the executable anchors, while [UID:0002YQ][0x00620b90-0x00620bc0.BowGaugeResourceStrings](by-memory/0x00620b90-0x00620bc0.BowGaugeResourceStrings.md) and parent inventory [UID:0002SO][0x00620b90-0x00620c70.ObjectPaneResourceStringsAndOverlayConstants](by-memory/0x00620b90-0x00620c70.ObjectPaneResourceStringsAndOverlayConstants.md) record resource-string consumers including the bow-gauge paint path.
 
 ## Proposed Contents
 
@@ -45,7 +45,7 @@ Some current helper labels in drawing calls are owner-polluted fitting-room name
 
 - IDA MCP confirms `sub_538BC0` at `0x00538bc0-0x00538c0a`. It calls `sub_544460(this, 1)`, stores `this` to `dword_69BA24` / [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md), and installs three BowGauge vtable views at offsets `+0x00`, `+0xa0`, and `+0xa4`.
 - IDA MCP confirms `sub_538C40` at `0x00538c40-0x00538c4b` as a timer cleanup wrapper around `sub_597600(this+0xa4)`.
-- IDA MCP confirms `sub_538C50` at `0x00538c50-0x00538cfa` as paint: it initializes scratch state, clears pane text state, invalidates `this+0x44`, gates drawing on byte `dword_67A748+0x1d1`, derives a frame from `(timeGetTime() - this+0xf8) / 0x8a` clamped to `36`, looks up `BGAUGE.EPF`, renders with `BGAUGE.pal`, then calls the shared compositor `sub_4BA540`.
+- IDA MCP confirms `sub_538C50` at `0x00538c50-0x00538cfa` as paint: it initializes scratch state, clears pane text state, invalidates `this+0x44`, gates drawing on [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) / historical IDA alias `dword_67A748` byte `+0x1d1`, derives a frame from `(timeGetTime() - this+0xf8) / 0x8a` clamped to `36`, looks up `BGAUGE.EPF`, renders with `BGAUGE.pal`, then calls the shared compositor `sub_4BA540`.
 - Resource refs are direct and unique to paint: `0x00538cbc -> 0x00620b90` (`BGAUGE.EPF`) and `0x00538cc8 -> 0x00620ba8` (`BGAUGE.pal`).
 - `sub_4BA540` at `0x004ba540-0x004ba6ad` has code callers at `0x00538ce5` from BowGauge paint and at `0x00590960`/`0x005917a3` from TextEditPane paths, confirming it remains a shared compositor dependency.
 - IDA MCP confirms `sub_538D10` at `0x00538d10-0x00538d4b` as the show/timer path: it invokes a secondary-base virtual callback through the `this-0xa4` view and schedules timer work through `sub_597910(dword_67AB80, adjustedThis, 1, 1, 0, 0)`.
@@ -57,17 +57,23 @@ Some current helper labels in drawing calls are owner-polluted fitting-room name
 
 - [UID:000011][BowGaugeObjectPane](by-class/BowGaugeObjectPane.md)
 - [UID:0000P1][UserPane](by-file/UserPane.md)
+- [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md)
 - [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md)
 - [UID:0001PY][0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane](by-memory/0x0069ba24-0x0069ba28.g_pBowGaugeObjectPane.md)
 - [UID:0001DC][0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers](by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md)
 - [UID:000169][0x004ba540-0x004ba6ad.CompositePixels16](by-memory/0x004ba540-0x004ba6ad.CompositePixels16.md)
 - [UID:0001DB][0x00538bc0-0x00539bb2.ObjectOverlayPanes](by-memory/0x00538bc0-0x00539bb2.ObjectOverlayPanes.md)
 - [UID:0001DL][0x0053cfa0-0x0053d65b.ObjectPaneCompanionDestructors](by-memory/0x0053cfa0-0x0053d65b.ObjectPaneCompanionDestructors.md)
-- [UID:0002SM][0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData](by-memory/0x006205fc-0x00620894.EffectGaugeDamageInfoObjectPaneVtableData.md)
-- [UID:0002SO][0x00620b90-0x00620bf8.ObjectPaneResourceStrings](by-memory/0x00620b90-0x00620bf8.ObjectPaneResourceStrings.md)
+- [UID:000352][0x006206ac-0x00620734.BowGaugeObjectPaneVtableData](by-memory/0x006206ac-0x00620734.BowGaugeObjectPaneVtableData.md)
+- [UID:0002YQ][0x00620b90-0x00620bc0.BowGaugeResourceStrings](by-memory/0x00620b90-0x00620bc0.BowGaugeResourceStrings.md)
+- [UID:0002SO][0x00620b90-0x00620c70.ObjectPaneResourceStringsAndOverlayConstants](by-memory/0x00620b90-0x00620c70.ObjectPaneResourceStringsAndOverlayConstants.md)
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup:
+  - Before: the live paint evidence used bare `dword_67A748+0x1d1` wording for the player/client-state gate.
+  - Changed to: linked [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) while preserving `dword_67A748` as the historical IDA alias.
+  - Evidence: the `g_pCollectionData` global page documents `0x0067a748` as a broad player/client-state pointer with many non-collection typed views.
 - 2026-06-02:
   - Before: scored `70/82` with blank `PROPOSED_RECONSTRUCTION_PATH`, leaving the source root listed in projected-path errors despite already being represented in the proposed source tree.
   - After: scored `74/84` and set `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/panels/"`.

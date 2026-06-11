@@ -1,8 +1,8 @@
 *** UID:0000UN | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:72 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000K1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,12 +12,20 @@
 
 ## Status
 
-- Confidence: strong for observed loader behavior and in-memory stride/sentinel shape, medium for original type names.
+- Confidence: strong for observed loader/projection behavior and in-memory stride/sentinel shape, medium-high for final original type names.
 - Entity kind: shared EPF/EPD frame metadata structure.
 - Likely source module: [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md) for the shared loader; per-asset table builders remain with their image-library owners.
+- Autogen parent: [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md).
 - Main helper: [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md)
 - Companion helper: [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md)
 - Related registry row: [UID:0000VB][ResourceLayoutEntry](by-item/ResourceLayoutEntry.md)
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 82 | The page now ties the table layout to both current helper sides: loader allocation/merge/sentinel evidence from [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) and projection/boundary-span evidence from [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md). |
+| Confidence | 88 | IDA-backed helper pages confirm the 12-byte table header, 24-byte record stride, one-extra-record sentinel, broad render consumers, and ImageFrameTable parent; confidence stays below final-source level until the final C++ structure and field names are proven. |
 
 ## Observed Layout
 
@@ -57,6 +65,14 @@ The loaders convert raw bounds to the in-memory `left, top, right, bottom` order
 ## Sentinel
 
 Loaders allocate one extra `PackedArchiveRecord` and append a zero-bounds terminator. The terminator's start/end offsets are both set to the payload base plus the record-table offset. This mirrors the DAT entry-table convention of using a final boundary row, but it is an EPF/EPD frame-record sentinel rather than the DAT archive's 17-byte name record.
+
+## Loader And Projection Synchronization
+
+[UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) covers the producer side: it reads one direct EPF/EPD resource or merges numbered shards, allocates a 12-byte header, converts 16-byte raw records into 24-byte in-memory records, and appends the one-extra sentinel row.
+
+[UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) covers the consumer side: it checks the 16-bit count at table `+0x00`, indexes `records + frameIndex * 24` from table `+0x08`, copies bounds into the output draw record, and computes one span as the following record's `+0x10` boundary/start minus the current record's `+0x14` end/baseline field. That resolved `[record + 0x28] - [record + 0x14]` relation is the main proof that the sentinel is source-level table semantics, not incidental cleanup padding.
+
+The adjacent raw helpers after `0x004d165d` are separate frame-record helpers noted by [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md). They should receive their own exact memory pages later and should not be folded into this structure note.
 
 ## IDA Verification
 
@@ -101,6 +117,16 @@ Both families use the same basic raw EPF/EPD record order: top, left, bottom, ri
 
 ## Changes
 
-- What existed before: The page had `0` completion/confidence and described the layout as converging from generated sources.
+- 2026-06-06: Completion/confidence changed from `72/84` to `82/88`.
+  - Before: the page described the table layout and sentinel, but its score and evidence text lagged behind the stronger helper pages.
+  - After: the page has a score rationale and explicitly links the producer-side loader evidence to the consumer-side draw-record projection and sentinel boundary-span proof.
+  - Evidence: [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) documents the IDA-confirmed allocation/merge/sentinel behavior, while [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) and [UID:0002P6][0x004d1600-0x004d165d.LoadFrameDrawRecord](by-memory/0x004d1600-0x004d165d.LoadFrameDrawRecord.md) document the resolved next-record boundary/span calculation and adjacent-helper split caveat.
+
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE` and attached to [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md).
+  - Before: the shared EPF archive metadata layout was documented but unclassified in autogen coverage.
+  - After: it is marked as a source-level table/record declaration needed by the image-frame helper layer; C++ remains blank because final type and field names are not at the 95/95 final-code bar.
+  - Evidence: the page records live IDA allocation/stride/sentinel behavior for `sub_4D0F50`, `sub_4D1600`, `sub_4D1B80`, `sub_4DDA60`, `sub_4DE420`, and `sub_4E19D0`, and [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md) already lists this layout as source content.
+
+- What existed before: The page had `0` completion/confidence and described the layout without enough direct IDA support.
 - What it was changed to: The page now scores the table from live IDA evidence and records the exact allocation, stride, sentinel, projection-helper, and owner-call-site facts.
 - Summary and evidence: IDA confirms `sub_4D0F50` allocates a `0x0c` byte table header and `24 * (count + 1)` records; `sub_4D1600` indexes records as `recordBase + index * 24`; the table builders at `0x004d1b80`, `0x004dda60`, `0x004de420`, and `0x004e19d0` have the expected narrow owner call sites.

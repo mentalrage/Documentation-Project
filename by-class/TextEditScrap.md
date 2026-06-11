@@ -1,8 +1,8 @@
 *** UID:0000EP | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000ON | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -60,6 +60,9 @@ Important recovered state:
 
 ## Changes
 
+- Before: reconstruction autogen metadata was unclassified.
+- Changed to: marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000ON][TextEditPane](by-file/TextEditPane.md).
+- Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the documented scrap constructor, destructor, clear, set, get, multibyte-conversion, and scalar deleting destructor starts at `0x00594f30`, `0x00594f70`, `0x00594ff0`, `0x00595050`, `0x005950e0`, `0x00595250`, and `0x005956b0`; this page and parent [UID:0000ON][TextEditPane](by-file/TextEditPane.md) both meet the 80/80 parent gate. No C++ was emitted because the page is below the 95/95 reconstruction-code bar.
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `86`, confidence `88`.
 - Evidence: the page documents clipboard-scrap role, layout, constructor/destructor/clear/set/get/convert/scalar-destructor methods, and usage from copy/cut/paste paths; remaining completion gap is source-ready C++ detail.

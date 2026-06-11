@@ -1,8 +1,8 @@
 *** UID:00001V | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000I5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -63,3 +63,4 @@
 - Summary and evidence: mouse, paint, config, helper, destructor, and generated-signature caveat are covered; field layout and final header form remain incomplete.
 - 2026-05-31: Updated completion/confidence from `78/86` to `86/90` after splitting the exact handle cluster through `0x004824e0`, including constructor, destructor body, mouse, paint, forwarder, raw rectangle helper, and hit-test helper switch table tail. Evidence: IDA MCP function iteration, decompilation, vtable xrefs, raw head review, and padding audit.
 - 2026-06-03: Reclassified the `0x00482300` secondary forwarder as compiler-generated layout/vtable glue rather than handwritten source. Evidence: [UID:0002FV][0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder](by-memory/0x00482300-0x0048230a.ChattingHandlePaneRefreshForwarder.md) records the IDA boundary, slot dispatch body, Wave2/Wave3 exclusion metadata, and disabled generated overlay.
+- 2026-06-05: Reclassified autogen metadata from unclassified to `RECONSTRUCTABLE:TRUE` and attached the class to [UID:0000I5][Chatting](by-file/Chatting.md). Current IDA MCP `lookup_funcs` reconfirmed constructor/destructor/mouse/paint/hit-test/scalar-destructor starts at `0x00481c10`, `0x00481d30`, `0x00481d60`, `0x00482150`, `0x00482400`, and `0x00483ba0`, and `callers` shows construction from main chat UI initialization. Both class (`86/90`) and file (`83/87`) clear the 80+ attachment gate; reconstruction C++ remains blank pending final class layout and field names.

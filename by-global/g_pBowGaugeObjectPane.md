@@ -1,8 +1,8 @@
 *** UID:0000QA | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -40,3 +40,4 @@
 ## Changes
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `86/84`. Summary/evidence: the page documents address, memory page, owner class/source, singleton role, constructor/destructor xrefs, UserPane consumers, timer cleanup helper, and refs.
+- 2026-06-05: Marked reconstructable under [UID:0000HU][BowGaugeObjectPane](by-file/BowGaugeObjectPane.md). Evidence: live IDA MCP reports constructor/destructor xrefs plus UserPane consumers for `0x0069ba24`; decompilation confirms `0x00538bc0` writes `dword_69BA24` and `0x0053cfe0` clears it.

@@ -11,7 +11,7 @@
 - Proposed source path: `ui/dialogs/PowerDialogPane.cpp`
 - Proposed header path: `ui/dialogs/PowerDialogPane.h`
 - Main address range: [UID:0001F6][0x00549c20-0x0054b5d5.PowerDialogPane](by-memory/0x00549c20-0x0054b5d5.PowerDialogPane.md)
-- Current generated files: `source-3/simroot_v2/class_PowerDialogPane.cpp` and `source-3/simroot_v2/class_PowerListPane.cpp`
+- Generated-output caveat: recovered one-class output currently splits this feature between dialog and list containers; reconstruction should follow the IDA-backed source-module grouping below instead of treating those emitted containers as authoritative.
 
 ## File Role
 
@@ -45,22 +45,22 @@ The original source likely grouped the dialog and its private embedded list cont
 - IDA MCP confirms `0x00549c20` is a single real function of size `0x852`, called from `MapPane` at `0x0050876a`.
 - 2026-05-26 IDA MCP recheck reports a second caller at `0x00513b93` under a stale/misleading `___std_parallel_algorithms_hw_threads@0_2` label; it remains a caller-review note and does not change `PowerDialogPane` ownership.
 - IDA MCP callees for `0x00549c20` include `DialogPane` construction, [UID:00007A][ListPane](by-class/ListPane.md) construction, list append/sort helpers, static/image control creation helpers, and `MultiByteToWideChar`.
-- The generated constructor body writes `PowerDialogPane` vtables and builds controls with ids `6-14`, which fits the dialog class and not the embedded list class.
+- The constructor evidence records `PowerDialogPane` vtable writes and control creation with ids `6-14`, which fits the dialog class and not the embedded list class.
 - IDA MCP xrefs to `0x0069ba34` show the constructor stores the dialog pointer, the dialog cleanup/destructor clears it, and `PowerListPane::OnMouseEvent` only reads it to reach sibling controls through the owner dialog. This resolves the `g_pPowerDialog` / `g_activePowerListPane` conflict in favor of `g_pPowerDialog`.
 - IDA MCP 2026-06-01 recheck of [UID:0001F7][0x0054a480-0x0054a4b6.PowerDialogPaneSingletonHelpers](by-memory/0x0054a480-0x0054a4b6.PowerDialogPaneSingletonHelpers.md) confirms exact helper bounds, `PowerDialogPane` vtable writes, the `g_pPowerDialog` clear/getter, and `0xcc` alignment before/between/after the helpers.
-- The generated `g_powerThresholdConfig` label in `class_PowerListPane.cpp` resolves to broad config storage: IDA decompilation reads `dword_67A7C8` / `g_pConfig` and then config shorts at offsets `0x28de94`, `0x28de96`, `0x28de98`, and `0x28de9a`.
+- The provisional `g_powerThresholdConfig` label resolves to broad config storage: IDA decompilation reads `dword_67A7C8` / `g_pConfig` and then config shorts at offsets `0x28de94`, `0x28de96`, `0x28de98`, and `0x28de9a`.
 - IDA MCP confirms `0x0054aec0` is not a function, while `0x0054b4f0`, `0x0054b4fb`, `0x0054b506`, and `0x0054b511` are real `0xb` thunk functions.
 - The four thunk functions are now documented exactly and entered in [UID:0000VN][-ignored](by-memory/-ignored.md) as compiler-generated adjustor thunks.
 - The neighboring [UID:0000MP][PrettyButtonControlPane](by-file/PrettyButtonControlPane.md) block begins at `0x0054b5e0`, so the power dialog/list block should end at `0x0054b5d5`.
 
 ## Migration Notes
 
-- Proposed Wave3 source migration after review: set both generated class containers to `ui/dialogs/PowerDialogPane.cpp`, or attach `PowerListPane` as a private class in that module.
+- Tool-state follow-up after review: set both emitted class containers to `ui/dialogs/PowerDialogPane.cpp`, or attach `PowerListPane` as a private class in that module.
 - Move method `0x00549c20` from `PowerListPane` ownership to `PowerDialogPane` ownership or rename it as a file-level `PowerDialogPane` packet constructor helper if the tool cannot move constructor ownership directly.
 - Preserve `PowerListPane` as a `ListPane`-derived class; do not move its shared inherited list operations into this file.
 - Normalize the singleton global at `0x0069ba34` to `g_pPowerDialog`; do not create a separate `g_activePowerListPane` storage symbol.
 - Normalize generated `g_powerThresholdConfig` uses in this dialog to `g_pConfig` field offsets until config-field names are recovered.
-- Treat helper labels such as `RankingDialog::SlideClose`, `ChattingColorPane::CloseDialog`, and `ClientItemMenuItemList::~ClientItemMenuItemList` inside generated code as provisional base/helper labels until those owners are reviewed.
+- Treat helper labels such as `RankingDialog::SlideClose`, `ChattingColorPane::CloseDialog`, and `ClientItemMenuItemList::~ClientItemMenuItemList` in generated/decompiled output as provisional base/helper labels until those owners are reviewed.
 
 ## Cross-References
 
@@ -86,3 +86,8 @@ The original source likely grouped the dialog and its private embedded list cont
 - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank despite the page proposing `ui/dialogs/PowerDialogPane.cpp`.
 - Changed to: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/"`.
 - Summary/evidence: this aligns the validator-generated reconstruction root with the page's stated proposed source path and allows attached reconstructable child pages to stage under the intended dialog module.
+
+- 2026-06-06 A006 provenance cleanup:
+  - Before: status/evidence/migration wording cited recovered generated-file paths and framed the source split as generated-file evidence.
+  - Changed to: generated-output caveat wording and tool-state follow-up wording, keeping IDA-backed grouping as the authority.
+  - Summary/evidence: [UID:0001F5][0x00549c20-0x0054a472.PowerDialogPaneConstructor](by-memory/0x00549c20-0x0054a472.PowerDialogPaneConstructor.md), [UID:0001F6][0x00549c20-0x0054b5d5.PowerDialogPane](by-memory/0x00549c20-0x0054b5d5.PowerDialogPane.md), and [UID:0000AQ][PowerListPane](by-class/PowerListPane.md) record the constructor/list split, singleton ownership, and private list-control placement.

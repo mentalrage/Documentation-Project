@@ -14,9 +14,10 @@
 
 - Confidence: strong for role, source-module placement, vtable identity, and `ApplyEffect` behavior; medium-high for the constructor boundary because IDA does not currently model `0x0055b110` as a function object.
 - Proposed source: `render/Effects.cpp`
-- Current recovered source: `source-3/simroot_v2/class_EarthquakeEffecter.cpp`
 - Current memory range: [UID:0001GE][0x0055a260-0x0055c1ff.ScreenEffecterRuntimeCluster](by-memory/0x0055a260-0x0055c1ff.ScreenEffecterRuntimeCluster.md)
 - Read-only data: [UID:0002OR][0x006235a0-0x00623d18.ScreenEffecterVtableData](by-memory/0x006235a0-0x00623d18.ScreenEffecterVtableData.md) records the `EarthquakeEffecter` vtable at `0x00623be4`.
+- Documentation basis: IDA-backed raw constructor bytes, modeled `ApplyEffect` behavior, destructor-strip evidence, vtable/read-only data, runtime-cluster placement, and the shared [UID:0000IZ][Effects](by-file/Effects.md) source-module page.
+- Recovered-output caveat: one-class recovered output is only a lead; sibling docs and the vtable family support shared `render/Effects.cpp` ownership.
 
 ## Responsibility
 
@@ -49,7 +50,7 @@
 
 - Marked reconstructable because this is source-owned runtime effecter code under [UID:0000IZ][Effects](by-file/Effects.md), with an exact vtable anchor and documented constructor/apply/destructor ranges.
 - Do not emit reconstructed C++ yet. The constructor start is raw/non-modeled in IDA, exact source field names are not final, and the relationship between timer baseline, sample cadence, and camera-lock branch still needs a method-level field-layout pass.
-- Do not treat the generated one-class `class_EarthquakeEffecter.cpp` path as original source layout; sibling docs and the vtable family support a shared `render/Effects.cpp` owner.
+- Do not treat recovered one-class output as original source layout; sibling docs and the vtable family support a shared `render/Effects.cpp` owner.
 
 ## Cross-References
 
@@ -72,3 +73,7 @@
   - Before: completion/confidence metadata was left at unevaluated `0/0`.
   - After: scored as `68/74`.
   - Summary/evidence: effect role, raw constructor bytes, apply-effect behavior, destructor, map/timer relationships, and vtable family references are documented; score remains limited because IDA does not currently model the constructor start as a function object.
+- 2026-06-06 provenance cleanup:
+  - Before: the status section still presented a direct recovered-source path as current evidence, and the reconstruction notes named a one-class recovered output path as a layout caveat.
+  - After: replaced the status evidence with the IDA-backed documentation basis and kept the source-layout warning without a direct recovered-source path.
+  - Evidence: constructor bytes, `ApplyEffect` behavior, destructor-strip evidence, vtable data, runtime-cluster placement, and Effects module ownership were already documented. Scores, parent, and blank C++ gate remain unchanged.

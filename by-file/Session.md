@@ -1,7 +1,7 @@
 *** UID:0000NP | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NONE" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Session
 
@@ -9,7 +9,7 @@
 
 - Confidence: medium-high for the current non-promotion boundary; low for existence as a generic network file.
 - Proposed module: `network/Session.cpp` only if a distinct game-session owner is recovered.
-- Projected path status: intentionally blank. Keep this page out of generated source roots until the promotion criteria below are met.
+- Projected path status: `NONE`. Keep this page out of generated source roots until the promotion criteria below are met.
 - Current recovered source: none as a clean source unit; `simroot_v2` has `DialogSession` and `BulletinSession`, not a generic `Session` owner.
 - Primary notes: [UID:0001QH][client_network](by-meta/client_network.md)
 
@@ -64,11 +64,15 @@ Promote this placeholder to a real source module only if later evidence shows a 
 
 ## Changes
 
+- 2026-06-05: Marked the projected reconstruction path as `NONE`.
+  - Before: the path was intentionally blank, which left this planning placeholder in file-coverage error state.
+  - After: the page is explicitly non-standalone; `network/Session.cpp` remains a planning placeholder and should not emit until a generic game-session owner is proven.
+  - Evidence: live IDA MCP `lookup_funcs` confirms the currently proven session-labeled code remains in `DialogSession` at `0x004a0d80` and `BulletinSession` at `0x00471150`, matching the documented non-promotion boundary.
 - 2026-05-30: Scored documentation completeness/confidence.
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `80` and confidence to `72`.
   - Evidence: document clearly records the placeholder status, proven session-labeled ranges, boundary rules, promotion criteria, and network/session cross-references; confidence stays lower because a distinct original generic `Session.cpp` source unit is not yet proven.
 - 2026-06-03: Non-promotion boundary confidence update.
   - Before: the page scored the placeholder as `80/72`, which made the documented negative boundary look less reliable than the supporting network/dialog evidence.
-  - After: set completion to `82` and confidence to `84`, with the projected reconstruction path still intentionally blank.
+  - After: set completion to `82` and confidence to `84`, with the projected reconstruction path still intentionally out of generated roots.
   - Evidence: [UID:0001QH][client_network](by-meta/client_network.md) records stronger current owners for Socket, packet buffers/transforms, FileDownloader, and request/send queue behavior; [UID:0000IU][DialogSession](by-file/DialogSession.md) and [UID:0000HX][BulletinSession](by-file/BulletinSession.md) own the emitted `Session`-named UI/social modules. No C++ is emitted because no generic game-session source root is proven.

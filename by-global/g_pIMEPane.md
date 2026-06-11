@@ -1,8 +1,8 @@
 *** UID:0000R7 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000K5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,7 +15,7 @@
 - Address: [UID:0001PS][0x0069b458-0x0069b45c.g_pIMEPane](by-memory/0x0069b458-0x0069b45c.g_pIMEPane.md)
 - Symbol kind: process-wide singleton pointer.
 - Likely owner file: [UID:0000K5][IMEPanes](by-file/IMEPanes.md)
-- Current generated names: `g_pIMEPane`, `DAT_0069b458`, `dword_69B458`
+- Observed aliases: `g_pIMEPane`, `DAT_0069b458`, `dword_69B458`
 - Confidence: strong.
 
 ## Purpose
@@ -45,4 +45,5 @@
 
 ## Changes
 
-- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `88/86`. Summary/evidence: the page documents memory range, generated names, singleton purpose, IME/text-entry xrefs, storage check, ownership notes, alias normalization guidance, and class/file/memory refs.
+- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `88/86`. Summary/evidence: the page documents memory range, aliases, singleton purpose, IME/text-entry xrefs, storage check, ownership notes, alias normalization guidance, and class/file/memory refs.
+- 2026-06-05: Marked reconstructable under [UID:0000K5][IMEPanes](by-file/IMEPanes.md). Evidence: live IDA MCP reports 17 xrefs to `0x0069b458`; decompilation confirms constructor `0x004e7f20`, clear helper `0x004e85b0`, and destructor path `0x004e8720` write/clear `dword_69B458`.

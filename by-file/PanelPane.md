@@ -1,13 +1,13 @@
 *** UID:0000ME | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/core/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # PanelPane
 
 ## Status
 
-- Confidence: strong for base behavior; medium for whether original source was a standalone file or part of `Pane.cpp`.
+- Confidence: strong for base behavior, vtable/destructor evidence, and UI-core placement; medium-high for whether original source was a standalone file or part of `Pane.cpp`.
 - Proposed module: `ui/core/PanelPane.cpp`
 - Current recovered source: `class_PanelPane.cpp`
 - Main address doc: [UID:0001EC][0x00545090-0x00545165.PanelPane](by-memory/0x00545090-0x00545165.PanelPane.md)
@@ -57,6 +57,8 @@ The generated `PanelPane::~PanelPane` body currently calls `TextButtonExControlP
 
 Disabled generated output lists `0x005450ef` as missing code, but IDA recognizes it as an 0xb-byte adjustor thunk with vtable data xref at `0x00621ac0`. See [UID:0001ED][0x005450ef-0x00545104.PanelPaneAdjustorThunks](by-memory/0x005450ef-0x00545104.PanelPaneAdjustorThunks.md).
 
+The destructor and missing-thunk caveats no longer block parent confidence: [UID:0001YD][PanelPaneVtables](by-type/by-vtable/PanelPaneVtables.md) records the 2026-06-01 IDA-backed vtable-data recheck, constructor/destructor stores, `Pane` teardown target, and tertiary-table boundary; [UID:0001ED][0x005450ef-0x00545104.PanelPaneAdjustorThunks](by-memory/0x005450ef-0x00545104.PanelPaneAdjustorThunks.md) records both adjustor thunks as compiler-generated ABI glue. The remaining uncertainty is source-file split, not ownership or behavior.
+
 ## Cross References
 
 - [UID:0000A4][PanelPane](by-class/PanelPane.md)
@@ -76,6 +78,10 @@ Disabled generated output lists `0x005450ef` as missing code, but IDA recognizes
 
 ## Changes
 
+- 2026-06-05 projected-path assignment:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, so the by-file row remained a generated-root coverage error.
+  - Changed to: `NexusTK/ui/core/`.
+  - Summary/evidence: live IDA MCP lookup confirms the documented `PanelPane` constructor anchor at `0x00545090`; proposed-source-tree treats `PanelPane.cpp` as a reusable UI-core base for multiple panel families, not as a feature-panel child file.
 - Before: the `PanelPane` memory page ended at `0x00545164`.
 - Changed to: the page ends at `0x00545165`.
 - Summary/evidence: 2026-05-28 IDA MCP byte/function review shows `0x00545164` is the final operand byte of the `retn 4` in the scalar deleting destructor; `0x00545165-0x00545170` is alignment padding.
@@ -83,3 +89,5 @@ Disabled generated output lists `0x005450ef` as missing code, but IDA recognizes
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `84`, confidence `78`.
 - Summary/evidence: the page documents base behavior, vtable family, derived constructor callers, boundaries, generated destructor caveat, range correction, and cross-references; confidence remains capped by uncertainty over standalone file versus `Pane.cpp` grouping.
+- 2026-06-06: Raised confidence to `84`.
+  - Summary/evidence: [UID:0001YD][PanelPaneVtables](by-type/by-vtable/PanelPaneVtables.md) now records exact vtable-data dwords, constructor/destructor stores to all three vtable views, the direct `Pane` teardown target, and the `0x00621af8` neighboring RTTI boundary; [UID:0001ED][0x005450ef-0x00545104.PanelPaneAdjustorThunks](by-memory/0x005450ef-0x00545104.PanelPaneAdjustorThunks.md) classifies the missing generated body as compiler-generated adjustor glue. The page remains below final-source confidence because original file split versus `Pane.cpp` grouping is still open.

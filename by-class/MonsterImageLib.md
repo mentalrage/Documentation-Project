@@ -1,6 +1,6 @@
 *** UID:00008N | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000LJ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,7 +12,7 @@
 
 ## Status
 
-- Confidence: strong for method roles, medium for final field/type names.
+- Confidence: strong for method roles, singleton/static-lifetime ownership, and file parent placement; medium for final field/type names.
 - Likely source file: [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md)
 - Autogen parent: [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md); C++ remains blank below the `95+` final-source gate.
 - Address ranges: [UID:00017C][0x004dac40-0x004e685f.MonsterImageLib](by-memory/0x004dac40-0x004e685f.MonsterImageLib.md)
@@ -44,6 +44,8 @@ Singleton/static-lifetime support:
 | Function | Address | Role |
 | --- | --- | --- |
 | `MonsterImageLibSingletonClearHelper` | `0x004e5bd0` | [UID:000181][0x004e5bd0-0x004e5bdb.MonsterImageLibSingletonClearHelper](by-memory/0x004e5bd0-0x004e5bdb.MonsterImageLibSingletonClearHelper.md) that clears `g_pMonsterImageLib` / `dword_69B440`. |
+
+Batch 121 rechecked this helper as file-local static cleanup glue. It has no ordinary callsites and no `this` parameter; IDA reports a single constructor-associated cleanup-table xref at `0x005ffd87`, and `xrefs_to 0x0069b440` reports 22 lifecycle/consumer references around the class singleton. The helper is therefore parented to [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md), while this class page records why it belongs to the `MonsterImageLib` lifetime.
 
 Disabled/excluded but still owner-relevant:
 
@@ -80,6 +82,10 @@ IDA MCP checks on 2026-05-31 reverified the constructor (`0x004daec0`), ordinary
 
 ## Changes
 
+- 2026-06-08 A001 Batch 121 static-helper refresh:
+  - Before: completion/confidence were `84/82`, and the singleton-clear helper row linked the child but did not record the constructor cleanup-table evidence needed for the corrected parent gate.
+  - Changed to: completion `85`, confidence `85`, with the helper described as file-local static cleanup tied to the `MonsterImageLib` constructor/lifetime rather than as a class method.
+  - Summary/evidence: live IDA MCP reconfirmed [UID:000181][0x004e5bd0-0x004e5bdb.MonsterImageLibSingletonClearHelper](by-memory/0x004e5bd0-0x004e5bdb.MonsterImageLibSingletonClearHelper.md), its `dword_69B440 = 0` body, the single cleanup-table xref at `0x005ffd87`, and 22 singleton global xrefs. Final class C++ stays blank below the `95+` gate.
 - Completion/confidence score update: existed before as `0/0`; changed to `84/78`. Summary: the singleton monster image library has detailed method, singleton, vtable, layout, DAT archive, cache, render, bounds, table-helper, DATIndexVector, and LinkedList dependency documentation, but final field/type names remain medium confidence. Evidence: linked `MonsterImageLib` range, destructor/get-bounds/singleton-clear pages, `g_pMonsterImageLib`, vtable/layout/type docs, IDA caller checks, and shared monster/riding table-helper notes.
 - Reconstructability/confidence update: existed before as `RECONSTRUCTABLE` blank and confidence `78`; changed to `RECONSTRUCTABLE:TRUE` and confidence `82`. Summary: 2026-05-31 IDA MCP rechecked constructor/destructor/cache-loader/cleanup evidence and confirms this class is NexusTK-owned source that must be rebuilt. Autogen parent and C++ remain blank because final whole-class source is not at the `95+` evidence gate.
 - Method inventory update: `LoadMonsterTables` existed before as an unlinked method row; changed to link the exact [UID:0002JN][0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables](by-memory/0x004dac40-0x004daebc.MonsterImageLibLoadMonsterTables.md) child page. Evidence: 2026-05-31 IDA MCP verified `0x004dac40` size `0x27d` and the monster table parse/allocation flow.

@@ -9,7 +9,7 @@
 
 - Confidence: strong for class behavior; medium for standalone original file.
 - Proposed module: `ui/controls/CheckBoxControlPane.cpp`, or folded into [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md).
-- Current recovered source: `source-3/simroot_v2/class_CheckBoxControlPane.cpp`
+- Documentation basis: exact core memory, vtable data, type/layout docs, IDA/caller evidence, and recovered-output caveats.
 - Exact core memory: [UID:00011S][0x00499d40-0x00499f0e.CheckBoxControlPaneCore](by-memory/0x00499d40-0x00499f0e.CheckBoxControlPaneCore.md)
 - Type/layout docs: [UID:0001TX][CheckBoxControlPaneLayout](by-type/by-struct/CheckBoxControlPaneLayout.md), [UID:0001X8][CheckBoxControlPaneVtables](by-type/by-vtable/CheckBoxControlPaneVtables.md)
 - Exact vtable data: [UID:0002M9][0x006184d8-0x00618578.CheckBoxControlPaneVtableData](by-memory/0x006184d8-0x00618578.CheckBoxControlPaneVtableData.md)
@@ -22,15 +22,15 @@ Confirmed consumers are cross-feature: [UID:0000LE][MiniMap](by-file/MiniMap.md)
 
 ## Boundary Notes
 
-Current source-structure evidence favors [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md) as the grouped generic button/choice-control module. Keep this page as the explicit split candidate so the proposed tree's `CheckBoxControlPane.cpp` name is not mistaken for an undocumented gap.
+Source-structure evidence still favors [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md) as the grouped generic button/choice-control module. Keep this page as the explicit split candidate so the proposed tree's `CheckBoxControlPane.cpp` name is not mistaken for an undocumented gap.
 
-Current generated source caveats:
+Recovered-output caveats:
 
-- `source-3/simroot_v2/class_CheckBoxControlPane.cpp` names the second copied string `labelName`, but IDA/caller evidence shows it is a palette/resource name such as `BUTTON.PAL`.
-- The primary vtable references `0x00499ec0`, a real virtual state/type helper that active generated output omits from the class file.
+- `class_CheckBoxControlPane.cpp` names the second copied string `labelName`, but IDA/caller evidence shows it is a palette/resource name such as `BUTTON.PAL`.
+- The primary vtable references `0x00499ec0`, a real virtual state/type helper that recovered class-file output omitted.
 - The exact vtable data child [UID:0002M9][0x006184d8-0x00618578.CheckBoxControlPaneVtableData](by-memory/0x006184d8-0x00618578.CheckBoxControlPaneVtableData.md) confirms all three table views, their constructor/destructor stores, and the next-class boundary at `0x00618578`.
-- The disabled companion omits `0x0049af27` and only emits `0x0049af32`, but IDA confirms both as 0xb-byte compiler adjustor thunks into scalar deleting destructor `0x0049b110`. They are documented as [UID:00011Z][0x0049af27-0x0049af3d.CheckBoxControlPaneAdjustorThunks](by-memory/0x0049af27-0x0049af3d.CheckBoxControlPaneAdjustorThunks.md) and should not be migrated as handwritten source.
-- The generated file declares `g_pEPFLib` locally because the paint path consumes it. Global ownership remains with [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / [UID:0000K2][ImageLib](by-file/ImageLib.md).
+- The recovered disabled companion omitted `0x0049af27` and only emitted `0x0049af32`, but IDA confirms both as 0xb-byte compiler adjustor thunks into scalar deleting destructor `0x0049b110`. They are documented as [UID:00011Z][0x0049af27-0x0049af3d.CheckBoxControlPaneAdjustorThunks](by-memory/0x0049af27-0x0049af3d.CheckBoxControlPaneAdjustorThunks.md) and should not be migrated as handwritten source.
+- The recovered file declared `g_pEPFLib` locally because the paint path consumes it. Global ownership remains with [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / [UID:0000K2][ImageLib](by-file/ImageLib.md).
 
 ## Cross-References
 
@@ -55,4 +55,9 @@ Current generated source caveats:
 - 2026-05-31: Grading changed from `82/78` to `84/82`, and `PROPOSED_RECONSTRUCTION_PATH` was set to `NexusTK/ui/controls/`.
   - Before: the page named `ui/controls/CheckBoxControlPane.cpp` in prose but the validator-managed projected path was blank, and exact vtable storage was not split into its own by-memory child.
   - After: the page stages the split-candidate source path under `NexusTK/ui/controls/` and links [UID:0002M9][0x006184d8-0x00618578.CheckBoxControlPaneVtableData](by-memory/0x006184d8-0x00618578.CheckBoxControlPaneVtableData.md).
-  - Evidence: `by-project-structure/proposed-source-tree.md` lists `CheckBoxControlPane.cpp` under `ui/controls`, while noting the possible fold into `ButtonControlPane.cpp`; IDA MCP checks on 2026-05-31 verify the exact vtable data and generated-source omissions.
+  - Evidence: `by-project-structure/proposed-source-tree.md` lists `CheckBoxControlPane.cpp` under `ui/controls`, while noting the possible fold into `ButtonControlPane.cpp`; IDA MCP checks on 2026-05-31 verify the exact vtable data and recovered-output omissions.
+
+- 2026-06-06 provenance cleanup:
+  - Before: the status and boundary notes described the page with direct recovered-source paths and output-provenance wording.
+  - Changed to: IDA/by-* documentation basis plus recovered-output caveat wording, without changing scores, path, ownership, or final C++ status.
+  - Evidence: the exact core memory, vtable data child, type/layout pages, and consumer references already support the split-candidate page.

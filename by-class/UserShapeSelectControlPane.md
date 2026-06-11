@@ -1,8 +1,8 @@
 *** UID:0000FR | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -36,7 +36,7 @@
 | `OnPaint` | `0x004fd230-0x004fd520` | Draws the optional frame and current body sprite. |
 | `SetMaleMode` / `SetFemaleMode` | `0x00501620`, `0x00501640` | Sets selected gender option and refreshes. |
 | `SetActive` | `0x0054b700-0x0054b719` | Stores active state and refreshes; shared by several create-user paths. |
-| destructor/thunks | [UID:0001AF][0x005025a8-0x005025ff.UserCreateAppearanceAdjustorThunks](by-memory/0x005025a8-0x005025ff.UserCreateAppearanceAdjustorThunks.md), `0x00502dd0` | Adjustor thunks excluded through [UID:0000VN][-ignored](by-memory/-ignored.md), plus reconstructable scalar deleting destructor. |
+| destructor/thunks | [UID:0001AF][0x005025a8-0x00502600.UserCreateAppearanceAdjustorThunks](by-memory/0x005025a8-0x00502600.UserCreateAppearanceAdjustorThunks.md), `0x00502dd0` | Adjustor thunks excluded through [UID:0000VN][-ignored](by-memory/-ignored.md), plus reconstructable scalar deleting destructor. |
 
 ## Evidence Notes
 
@@ -52,9 +52,14 @@
 - [UID:0000IK][CreateUserDialogs](by-file/CreateUserDialogs.md)
 - [UID:0001A6][0x00501150-0x00502383.UserCreateAppearanceSelectorControls](by-memory/0x00501150-0x00502383.UserCreateAppearanceSelectorControls.md)
 - [UID:00009G][NewUserShapeSelectControlPane](by-class/NewUserShapeSelectControlPane.md)
-- [UID:0001AF][0x005025a8-0x005025ff.UserCreateAppearanceAdjustorThunks](by-memory/0x005025a8-0x005025ff.UserCreateAppearanceAdjustorThunks.md)
+- [UID:0001AF][0x005025a8-0x00502600.UserCreateAppearanceAdjustorThunks](by-memory/0x005025a8-0x00502600.UserCreateAppearanceAdjustorThunks.md)
 
 ## Changes
+
+- 2026-06-05 autogen metadata classification:
+  - What existed before: reconstruction autogen metadata was unclassified.
+  - Changed to: `RECONSTRUCTABLE:TRUE` with parent [UID:0000OX][UserCreateAppearanceControls](by-file/UserCreateAppearanceControls.md).
+  - Summary/evidence: live IDA MCP against `NexusTK.exe` md5 `4247e04e20b65d6414c7238aa8ff5515` confirmed the selector, constructor, sprite/shape/timer/paint helpers, shared active-state helper, adjustor thunks, and scalar deleting destructor starts from `0x004fcd80` through `0x00502dd0`; the class and parent both pass the 80/80 parent gate. No reconstruction C++ was emitted because the page is below 95/95.
 
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.

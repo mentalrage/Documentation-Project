@@ -11,8 +11,8 @@
 - Proposed module: `NexusTK/cashshop/CashShopRequest.cpp`, with a possible later split of the generic queue/send funnel into a base [UID:0000OR][Thread](by-file/Thread.md) request helper or network sender interface.
 - Projected path status: valid current reconstruction target; source split caveats still block final-source C++.
 - Main class: [UID:00001H][CashShopRequest](by-class/CashShopRequest.md)
-- Main address docs: [UID:0000WH][0x0041a5d0-0x0041b5da.CashShopRequestItemSetup](by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md), [UID:0001HT][0x00574b90-0x00575377.CashShopRequestSendQueue](by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md), [UID:0001HW][0x00574d40-0x00574e44.SendPositionUpdate](by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md), [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md), [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md), and [UID:0001JY][0x00596620-0x005969b0.CashShopRequestWaitDispatch](by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md)
-- Ownership correction: the former `0x00528290-0x005283d4` auth/directory range is now corrected to [UID:0000LG][MiscWorkThread](by-file/MiscWorkThread.md); see [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md).
+- Main address docs: [UID:0000WH][0x0041a5d0-0x0041b5da.CashShopRequestItemSetup](by-memory/0x0041a5d0-0x0041b5da.CashShopRequestItemSetup.md), [UID:0001HT][0x00574b90-0x00575377.CashShopRequestSendQueue](by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md), [UID:0001HW][0x00574d40-0x00574e44.SendPositionUpdate](by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md), [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendFriendNameListSync](by-memory/0x00574e50-0x0057536b.BuildAndSendFriendNameListSync.md), [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md), and [UID:0001JY][0x00596620-0x005969b0.CashShopRequestWaitDispatch](by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md)
+- Ownership correction: the former `0x00528290-0x005283d5` auth/directory range is now corrected to [UID:0000LG][MiscWorkThread](by-file/MiscWorkThread.md); see [UID:0001CK][0x00528290-0x005283d5.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d5.CashShopRequestAuthDirectory.md).
 - Evidence basis: live IDA MCP lookup, raw disassembly, caller/xref, vtable, and global-reference checks through 2026-06-04.
 
 ## Score Rationale
@@ -49,7 +49,7 @@ Likely source-level contents:
 - Cash-shop item, fitting-room, named request, and packet-send request submission.
 - `QueueWindowMessage`, `QueueAndSendPacket`, `SendStringCommand`, and raw/provisional [UID:0001HV][0x00574d00-0x00574d3f.SendRawDataRaw](by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md).
 - Connection/send-disable status helpers.
-- Position/status update, connection-status getter, and opcode `0x77` friend/name-list upload construction. The older `BuildAndSendInventoryData` name should remain suspect because caller evidence and [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) point away from item inventory semantics.
+- Position/status update, connection-status getter, and opcode `0x77` friend/name-list upload construction. The older `BuildAndSendInventoryData` name should remain suspect because caller evidence and [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) / `g_friendNameListSyncEnabled` point away from item inventory semantics.
 - Synchronous submit/wait and result-list handling.
 - Request queue dispatch through a message queue plus semaphore; current source planning treats the core `0x00596960` dispatcher as [UID:0000OR][Thread](by-file/Thread.md) infrastructure until class-layout cleanup proves otherwise.
 
@@ -100,7 +100,7 @@ cashshop/
 - Whether `0x0041b180`, `0x0041b200`, and `0x0041b270` should stay in this file or move with [UID:0000JC][FileDownloader](by-file/FileDownloader.md) / a later downloader-request dispatcher split.
 - Whether [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) should be typed as `Socket*` or a request-queue interface after type cleanup. Its lifetime owner is now Socket, not cash-shop-specific code.
 - Whether `DispatchRequest` should be treated purely as `Thread::DispatchRequest` in final source, with derived classes only exposing thin convenience wrappers.
-- Final source-facing name for `BuildAndSendInventoryData`; current evidence favors a social/account friend-name-list opcode `0x77` upload gated by [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md), rather than cash-shop catalog or item inventory state.
+- Final source-facing owner for `BuildAndSendFriendNameListSync`; current evidence favors a social/account friend-name-list opcode `0x77` upload gated by [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) / `g_friendNameListSyncEnabled`, rather than cash-shop catalog or item inventory state. Keep former `BuildAndSendInventoryData` only as a generated alias for old reports.
 - Whether wait/result list helpers at `0x00596620-0x005969b0` were originally in this class source or a shared threaded-request helper. Current [UID:0000OR][Thread](by-file/Thread.md) docs treat the `0x00596620+` helper names as generic/polluted until final class ownership is cleaned.
 
 ## Cross-References
@@ -113,15 +113,15 @@ cashshop/
 - [UID:0002CK][0x0041b200-0x0041b26d.FileDownloaderSubmitCashShopCatalogRequest](by-memory/0x0041b200-0x0041b26d.FileDownloaderSubmitCashShopCatalogRequest.md)
 - [UID:0002CL][0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest](by-memory/0x0041b270-0x0041b2c9.FileDownloaderSubmitCashShopVersionRequest.md)
 - [UID:0002CM][0x0041b570-0x0041b5db.CashShopRequestScalarDeletingDestructor](by-memory/0x0041b570-0x0041b5db.CashShopRequestScalarDeletingDestructor.md)
-- [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md)
+- [UID:0001CK][0x00528290-0x005283d5.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d5.CashShopRequestAuthDirectory.md)
 - [UID:0001HT][0x00574b90-0x00575377.CashShopRequestSendQueue](by-memory/0x00574b90-0x00575377.CashShopRequestSendQueue.md)
 - [UID:0001HU][0x00574bb0-0x00574c13.QueueAndSendPacket](by-memory/0x00574bb0-0x00574c13.QueueAndSendPacket.md)
 - [UID:0001HV][0x00574d00-0x00574d3f.SendRawDataRaw](by-memory/0x00574d00-0x00574d3f.SendRawDataRaw.md)
 - [UID:0001HW][0x00574d40-0x00574e44.SendPositionUpdate](by-memory/0x00574d40-0x00574e44.SendPositionUpdate.md)
-- [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendInventoryData](by-memory/0x00574e50-0x0057536b.BuildAndSendInventoryData.md)
+- [UID:0001HX][0x00574e50-0x0057536b.BuildAndSendFriendNameListSync](by-memory/0x00574e50-0x0057536b.BuildAndSendFriendNameListSync.md)
 - [UID:0001HY][0x00575370-0x00575377.GetConnectionStatus](by-memory/0x00575370-0x00575377.GetConnectionStatus.md)
 - [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md)
-- [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md)
+- [UID:0000PG][byte_66DEE0](by-global/byte_66DEE0.md) / `g_friendNameListSyncEnabled`
 - [UID:0001JY][0x00596620-0x005969b0.CashShopRequestWaitDispatch](by-memory/0x00596620-0x005969b0.CashShopRequestWaitDispatch.md)
 - [UID:0000OR][Thread](by-file/Thread.md)
 - [UID:0000LG][MiscWorkThread](by-file/MiscWorkThread.md)
@@ -138,6 +138,10 @@ cashshop/
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: source-file split notes referenced the upload flag only as historical `byte_66DEE0`.
+  - After: the page records resolved name `g_friendNameListSyncEnabled` beside the historical label.
+  - Evidence: generated resolved-name report maps `byte_66DEE0` to `g_friendNameListSyncEnabled`; existing IDA-backed evidence already ties the flag to the opcode `0x77` friend-name-list upload gate rather than cash-shop catalog state.
 - 2026-06-04: Raised scores from `72/80` to `82/86` after live IDA MCP revalidated the raw constructor/destructor starts, modeled submit/send/wait function boundaries, CashShopRequest vtable slot and FileDownloader boundary, caller counts for `QueueAndSendPacket` and queue helpers, and current xrefs for `g_packetSender`, `g_pCashShopRequest`, and the friend-list upload flag.
   - Before: the page had useful child links and boundary caveats, but still relied on stale provenance wording and had not recorded the current live IDA xref/function-boundary pass.
   - After: evidence is based on live IDA/disassembly, the stale provenance wording is removed, the manual score aligns with the already attached class page, and C++ remains blank because raw starts, downloader-submit ownership, packet-sender typing, and generic thread-queue placement are still unresolved.

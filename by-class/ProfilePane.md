@@ -1,8 +1,8 @@
 *** UID:0000AV | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000P0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -44,6 +44,11 @@
 - [UID:0001KK][0x0059f260-0x005a2523.UserLookPaneAndProfilePanes](by-memory/0x0059f260-0x005a2523.UserLookPaneAndProfilePanes.md)
 
 ## Changes
+
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and assigned parent `0000P0`.
+  - Before: reconstruction autogen classification and parent were blank despite documented vtable-backed virtual gate methods in the remote user-look/profile pane family.
+  - After: classified as reconstructable source attached to [UID:0000P0][UserLookPane](by-file/UserLookPane.md).
+  - Evidence: live IDA MCP `lookup_funcs` confirms modeled starts at `0x005a23c0` and `0x005a23d0`; existing [UID:0000P0][UserLookPane](by-file/UserLookPane.md) evidence keeps `ProfilePane` as a read-only child pane rather than the editable `ProfileDialog`. The class score is `82/88` and parent file score is `88/80`, satisfying the 80/80 attach gate.
 
 - 2026-05-30: Changed completion/confidence from `0/0` to `82/88`.
   - Before: The page was unevaluated even though it described the pane's narrow purpose and two confirmed virtual gates.

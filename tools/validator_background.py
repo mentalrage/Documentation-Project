@@ -114,12 +114,14 @@ DEFAULT_ROOT = TOOL_DIR.parent
 DEFAULT_INI = TOOL_DIR / "validator.ini"
 DEFAULT_LOCK = TOOL_DIR / "validator.lock"
 DEFAULT_QUEUE_DIR = TOOL_DIR / "validator_queue"
+DEFAULT_QUEUE_LOCK = TOOL_DIR / "validator_queue.lock"
 DEFAULT_WORKER_LOCK = TOOL_DIR / "validator_worker.lock"
 STATS_RELATIVE_PATH = Path("project-level") / "-auto-completion-stats.md"
 TMP_REFERENCE_SECTION = "tmp_references"
 PROJECTED_PATH_SECTION = "projected_paths"
 PROJECTED_PATH_STATUS_SECTION = "projected_path_status"
 PROJECTED_PATH_ERROR_SECTION = "projected_path_errors"
+PROJECTED_PATH_NONE_VALUE = "NONE"
 RECONSTRUCTABLE_SECTION = "reconstructable"
 AUTOGEN_PARENT_SECTION = "autogen_parent"
 AUTOGEN_PARENT_POSITION_SECTION = "autogen_parent_position"
@@ -132,6 +134,13 @@ AUTOGEN_ERROR_SECTION = "autogen_errors"
 AUTO_GENERATED_RELATIVE_PATH = Path("auto-generated")
 LOCK_POLL_SECONDS = 0.5
 WORKER_POLL_SECONDS = 0.25
+DEDUP_COALESCE_SECONDS = 0.5
+DEDUP_CONFIG_SECTION = "queue"
+DEDUP_CONFIG_KEY = "enable_dedup"
+STRONG_DEDUP_CONFIG_KEY = "enable_strong_dedup"
+DEDUP_NONE = "none"
+DEDUP_READ_ONLY = "read_only"
+DEDUP_GLOBAL_REFRESH = "global_refresh"
 IGNORED_SCORE_FOLDERS = {
     "by-external-research",
     "by-meta",
@@ -140,6 +149,7 @@ IGNORED_SCORE_FOLDERS = {
 
 _TEXT_CACHE: dict[Path, tuple[int, int, str]] = {}
 _RESOLVE_CACHE: dict[Path, Path] = {}
+_DEDUP_CONFIG_CACHE: tuple[int | None, bool, bool] = (None, False, False)
 
 
 @dataclass
@@ -682,13 +692,15 @@ def validate_projected_path(value: str) -> tuple[str, str, str]:
     """Return normalized value, status, and error detail."""
     if value == "":
         return "", "blank", ""
+    if value.strip() != value:
+        return value, "invalid", "path must not have leading or trailing whitespace"
+    if value.upper() == PROJECTED_PATH_NONE_VALUE:
+        return PROJECTED_PATH_NONE_VALUE, "none", ""
 
     normalized = normalize_projected_path(value)
     if normalized != value:
         value = normalized
 
-    if value.strip() != value:
-        return value, "invalid", "path must not have leading or trailing whitespace"
     if value.startswith(("/", "\\")) or re.match(r"^[A-Za-z]:", value):
         return value, "invalid", "path must be relative to the reconstructed project root"
     if PROJECTED_PATH_INVALID_CHARS_RE.search(value):
@@ -972,7 +984,7 @@ def update_projected_path_tracking(
     normalized, status, error = validate_projected_path(projected_path_value)
     old_projected = config[PROJECTED_PATH_SECTION].get(uid)
     old_status = config[PROJECTED_PATH_STATUS_SECTION].get(uid)
-    value_to_store = normalized if status == "valid" else projected_path_value
+    value_to_store = normalized if status in {"valid", "none"} else projected_path_value
 
     if old_projected != value_to_store:
         detail = "blank" if value_to_store == "" else value_to_store
@@ -1011,7 +1023,7 @@ def update_projected_path_tracking(
                         "projected_cpp_stale",
                         uid,
                         old_target,
-                        "projected path is blank/invalid; generated file not deleted",
+                        "projected path no longer emits generated source; generated file not deleted",
                     )
                 )
 
@@ -2308,7 +2320,8 @@ def resolve_autogen_root(
             projected_path = config[PROJECTED_PATH_SECTION].get(parent_uid, "")
             _, status, error = validate_projected_path(projected_path)
             if status != "valid":
-                errors.append(f"autogen_root_invalid_projected_path: {error or 'blank projected path'}")
+                detail = "non-standalone projected path" if status == "none" else error or "blank projected path"
+                errors.append(f"autogen_root_invalid_projected_path: {detail}")
                 return None, errors
             return parent_uid, errors
         parent_metadata = metadata_by_uid.get(parent_uid)
@@ -2631,7 +2644,11 @@ def autogen_report_entries(
                 destination = relative_path(root, target)
             status = "coded" if any(root_uid == uid and child_uid in coded_uids for child_uid, root_uid in root_by_uid.items()) else "assigned"
             projected = config[PROJECTED_PATH_STATUS_SECTION].get(uid, "blank")
-            if projected != "valid":
+            detail = "by-file generated root"
+            if projected == "none":
+                status = "not_reconstructable"
+                detail = "reviewed non-standalone by-file page; no generated root"
+            elif projected != "valid":
                 status = "error"
             reports[AUTOGEN_FILE_REPORT].append(
                 AutogenReportEntry(
@@ -2640,7 +2657,7 @@ def autogen_report_entries(
                     folder="by-file",
                     status=status,
                     destination=destination,
-                    detail="by-file generated root",
+                    detail=detail,
                 )
             )
 
@@ -2814,9 +2831,9 @@ def projected_path_entries_from_config(config: configparser.ConfigParser) -> lis
         projected_path = config[PROJECTED_PATH_SECTION].get(uid, "")
         normalized, status, error = validate_projected_path(projected_path)
         stored_status = config[PROJECTED_PATH_STATUS_SECTION].get(uid)
-        if stored_status in {"blank", "valid", "invalid"} and status == "blank" and projected_path:
+        if stored_status in {"blank", "valid", "invalid", "none"} and status == "blank" and projected_path:
             status = stored_status
-        if status == "valid":
+        if status in {"valid", "none"}:
             continue
         detail = error if status == "invalid" else "missing PROPOSED_RECONSTRUCTION_PATH"
         entries.append(
@@ -2854,7 +2871,7 @@ def markdown_stats_table(entries: list[StatsEntry], limit: int = 25) -> str:
 def markdown_projected_path_table(config: configparser.ConfigParser) -> str:
     entries = projected_path_entries_from_config(config)
     if not entries:
-        return "_All by-file documents have valid projected reconstruction paths._\n"
+        return "_All by-file documents have valid projected reconstruction paths or reviewed non-standalone dispositions._\n"
 
     lines = [
         "| UID | Status | Proposed Path | Path | Detail |",
@@ -2948,7 +2965,7 @@ def generate_completion_stats_text(root: Path, config: configparser.ConfigParser
         "",
         "## projected_path_completion",
         "",
-        "By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.",
+        "By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid. `NONE` marks a reviewed non-standalone page and is excluded.",
         "",
         markdown_projected_path_table(config),
         "## Low_Completion",
@@ -2984,7 +3001,7 @@ def projected_path_stats_section(config: configparser.ConfigParser) -> str:
         [
             "## projected_path_completion",
             "",
-            "By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid.",
+            "By-file documents whose `PROPOSED_RECONSTRUCTION_PATH` is blank or invalid. `NONE` marks a reviewed non-standalone page and is excluded.",
             "",
             markdown_projected_path_table(config).rstrip("\n"),
             "",
@@ -3570,6 +3587,157 @@ def write_json_atomic(data: dict, path: Path) -> None:
         raise
 
 
+def queue_dedup_settings(ini: Path = DEFAULT_INI) -> tuple[bool, bool]:
+    global _DEDUP_CONFIG_CACHE
+
+    try:
+        mtime = ini.stat().st_mtime_ns
+    except OSError:
+        _DEDUP_CONFIG_CACHE = (None, False, False)
+        return False, False
+
+    cached_mtime, cached_dedup, cached_strong = _DEDUP_CONFIG_CACHE
+    if cached_mtime == mtime:
+        return cached_dedup, cached_strong
+
+    config = configparser.ConfigParser(interpolation=None)
+    config.optionxform = str
+    try:
+        config.read(ini, encoding="utf-8-sig")
+        dedup_value = config.getboolean(DEDUP_CONFIG_SECTION, DEDUP_CONFIG_KEY, fallback=False)
+        strong_value = config.getboolean(DEDUP_CONFIG_SECTION, STRONG_DEDUP_CONFIG_KEY, fallback=False)
+    except (configparser.Error, OSError, ValueError):
+        dedup_value = False
+        strong_value = False
+
+    _DEDUP_CONFIG_CACHE = (mtime, dedup_value, strong_value)
+    return dedup_value, strong_value
+
+
+def queue_dedup_enabled(ini: Path = DEFAULT_INI) -> bool:
+    return queue_dedup_settings(ini)[0]
+
+
+def queued_arg_value(argv: list[str], flag: str, default: str | None = None) -> str | None:
+    for index, item in enumerate(argv):
+        if item == flag and index + 1 < len(argv):
+            return argv[index + 1]
+        if item.startswith(f"{flag}="):
+            return item.split("=", 1)[1]
+    return default
+
+
+def queued_flag_present(argv: list[str], *flags: str) -> bool:
+    return any(item in flags for item in argv)
+
+
+def queued_command_mode(argv: list[str]) -> str:
+    if queued_flag_present(argv, "--isolated", "-isolated"):
+        return "isolated"
+    return queued_arg_value(argv, "--mode", "full") or "full"
+
+
+def queued_dedup_kind(job: dict) -> str:
+    argv = job.get("argv", [])
+    if not isinstance(argv, list) or not all(isinstance(item, str) for item in argv):
+        return DEDUP_NONE
+
+    mode = queued_command_mode(argv)
+    apply = queued_flag_present(argv, "--apply")
+    remove_missing = queued_flag_present(argv, "--remove-missing")
+    uid_only = queued_flag_present(argv, "--uid-only")
+    reference_only = queued_flag_present(argv, "--reference-only")
+
+    if not apply or mode == "isolated":
+        return DEDUP_READ_ONLY
+
+    if (
+        mode in {"full", "documented", "rescore", "autogen"}
+        and not remove_missing
+        and not uid_only
+        and not reference_only
+    ):
+        return DEDUP_GLOBAL_REFRESH
+
+    return DEDUP_NONE
+
+
+def queued_is_file_apply(job: dict) -> bool:
+    argv = job.get("argv", [])
+    if not isinstance(argv, list) or not all(isinstance(item, str) for item in argv):
+        return False
+
+    return queued_command_mode(argv) == "file" and queued_flag_present(argv, "--apply")
+
+
+def queued_dedup_key(job: dict) -> str | None:
+    argv = job.get("argv", [])
+    cwd = job.get("cwd", "")
+    if not isinstance(argv, list) or not all(isinstance(item, str) for item in argv):
+        return None
+    if not isinstance(cwd, str):
+        return None
+
+    return json.dumps(
+        {
+            "argv": argv,
+            "cwd": cwd,
+        },
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+
+
+def job_result_paths(job: dict, queue_dir: Path, job_stem: str) -> list[Path]:
+    raw_paths: list[str] = []
+
+    result_path = job.get("result_path")
+    if isinstance(result_path, str) and result_path:
+        raw_paths.append(result_path)
+
+    result_paths = job.get("result_paths")
+    if isinstance(result_paths, list):
+        raw_paths.extend(item for item in result_paths if isinstance(item, str) and item)
+
+    if not raw_paths:
+        raw_paths.append(str(queue_dir / "results" / f"{job_stem}.result.json"))
+
+    seen: set[str] = set()
+    paths: list[Path] = []
+    for raw_path in raw_paths:
+        path = Path(raw_path)
+        key = os.path.normcase(str(path.resolve(strict=False)))
+        if key in seen:
+            continue
+        seen.add(key)
+        paths.append(path)
+    return paths
+
+
+def merge_result_paths(target_job: dict, target_path: Path, queue_dir: Path, source_jobs: list[tuple[Path, dict]]) -> None:
+    merged = [str(path) for path in job_result_paths(target_job, queue_dir, target_path.stem)]
+    seen = {os.path.normcase(str(Path(path).resolve(strict=False))) for path in merged}
+
+    for source_path, source_job in source_jobs:
+        for result_path in job_result_paths(source_job, queue_dir, source_path.stem):
+            key = os.path.normcase(str(result_path.resolve(strict=False)))
+            if key in seen:
+                continue
+            seen.add(key)
+            merged.append(str(result_path))
+
+    target_job["result_paths"] = merged
+    write_json_atomic(target_job, target_path)
+
+
+def read_queue_job(path: Path) -> dict | None:
+    try:
+        job = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    return job if isinstance(job, dict) else None
+
+
 def recover_processing_jobs(queue_dir: Path) -> None:
     jobs_dir = queue_dir / "jobs"
     processing_dir = queue_dir / "processing"
@@ -3599,6 +3767,166 @@ def claim_queued_job(queue_dir: Path, path: Path) -> Path | None:
     except FileNotFoundError:
         return None
     return claimed
+
+
+def queue_job_age_seconds(path: Path) -> float:
+    try:
+        return max(0.0, time.time() - path.stat().st_mtime)
+    except OSError:
+        return 0.0
+
+
+def unlink_queue_jobs(paths: list[Path]) -> None:
+    for path in paths:
+        path.unlink(missing_ok=True)
+
+
+def pending_jobs(queue_dir: Path) -> list[tuple[Path, dict | None]]:
+    jobs_dir = queue_dir / "jobs"
+    jobs_dir.mkdir(parents=True, exist_ok=True)
+    return [(path, read_queue_job(path)) for path in sorted(jobs_dir.glob("*.json"))]
+
+
+def job_has_merged_callers(job: dict) -> bool:
+    result_paths = job.get("result_paths")
+    return isinstance(result_paths, list) and bool(result_paths)
+
+
+def strong_dedup_batch(jobs: list[tuple[Path, dict | None]]) -> list[tuple[Path, dict]]:
+    batch: list[tuple[Path, dict]] = []
+    for path, job in jobs:
+        if job is None:
+            break
+
+        if queued_dedup_kind(job) == DEDUP_GLOBAL_REFRESH or queued_is_file_apply(job):
+            batch.append((path, job))
+            continue
+
+        break
+    return batch
+
+
+def claim_strong_dedup_batch(
+    queue_dir: Path,
+    jobs: list[tuple[Path, dict | None]],
+    first_path: Path,
+    first_job: dict,
+) -> Path | None:
+    if queued_dedup_kind(first_job) != DEDUP_GLOBAL_REFRESH:
+        return None
+
+    batch = strong_dedup_batch(jobs)
+    if not batch or batch[0][0] != first_path:
+        return None
+
+    for path, job in batch[1:]:
+        if queued_is_file_apply(job):
+            return claim_queued_job(queue_dir, path)
+
+    if merge_global_refresh_to_latest(queue_dir, batch, first_path, first_job):
+        return None
+
+    return None
+
+
+def merge_global_refresh_to_latest(
+    queue_dir: Path,
+    jobs: list[tuple[Path, dict | None]],
+    first_path: Path,
+    first_job: dict,
+) -> bool:
+    first_key = queued_dedup_key(first_job)
+    if first_key is None or queued_dedup_kind(first_job) != DEDUP_GLOBAL_REFRESH:
+        return False
+
+    if job_has_merged_callers(first_job):
+        return False
+
+    matches: list[tuple[Path, dict]] = []
+    for path, job in jobs:
+        if job is None:
+            continue
+        if queued_dedup_kind(job) != DEDUP_GLOBAL_REFRESH:
+            continue
+        if queued_dedup_key(job) == first_key:
+            matches.append((path, job))
+
+    if len(matches) <= 1 or matches[0][0] != first_path:
+        return False
+
+    latest_path, latest_job = matches[-1]
+    if job_has_merged_callers(latest_job):
+        return False
+
+    older_matches = matches[:-1]
+    merge_result_paths(latest_job, latest_path, queue_dir, older_matches)
+    unlink_queue_jobs([path for path, _ in older_matches])
+    return True
+
+
+def claim_read_only_duplicates(
+    queue_dir: Path,
+    jobs: list[tuple[Path, dict | None]],
+    first_path: Path,
+    first_job: dict,
+) -> Path | None:
+    first_key = queued_dedup_key(first_job)
+    if first_key is None or queued_dedup_kind(first_job) != DEDUP_READ_ONLY:
+        return claim_queued_job(queue_dir, first_path)
+
+    duplicate_jobs: list[tuple[Path, dict]] = []
+    for path, job in jobs[1:]:
+        if job is None:
+            break
+
+        kind = queued_dedup_kind(job)
+        if kind != DEDUP_READ_ONLY:
+            break
+
+        if queued_dedup_key(job) != first_key:
+            break
+
+        duplicate_jobs.append((path, job))
+
+    if duplicate_jobs:
+        merge_result_paths(first_job, first_path, queue_dir, duplicate_jobs)
+
+    claimed = claim_queued_job(queue_dir, first_path)
+    if claimed is not None and duplicate_jobs:
+        unlink_queue_jobs([path for path, _ in duplicate_jobs])
+    return claimed
+
+
+def claim_next_queued_job(
+    queue_dir: Path,
+    queue_lock: Path,
+    dedup_enabled: bool,
+    strong_dedup_enabled: bool,
+) -> Path | None:
+    with ValidatorLock(queue_lock, -1):
+        jobs = pending_jobs(queue_dir)
+        if not jobs:
+            return None
+
+        first_path, first_job = jobs[0]
+        if first_job is None:
+            return claim_queued_job(queue_dir, first_path)
+
+        if not dedup_enabled:
+            return claim_queued_job(queue_dir, first_path)
+
+        if queue_job_age_seconds(first_path) < DEDUP_COALESCE_SECONDS:
+            return None
+
+        if strong_dedup_enabled:
+            strong_claimed = claim_strong_dedup_batch(queue_dir, jobs, first_path, first_job)
+            if strong_claimed is not None:
+                return strong_claimed
+            refreshed_jobs = pending_jobs(queue_dir)
+            if refreshed_jobs != jobs:
+                return None
+
+        return claim_read_only_duplicates(queue_dir, jobs, first_path, first_job)
 
 
 def run_queued_validator_job(job: dict) -> dict:
@@ -3643,6 +3971,7 @@ def run_queued_validator_job(job: dict) -> dict:
 
 def process_queued_job(queue_dir: Path, job_path: Path) -> None:
     result_path: Path | None = None
+    result_paths: list[Path] = []
     try:
         job = json.loads(job_path.read_text(encoding="utf-8"))
         raw_result_path = job.get("result_path")
@@ -3650,23 +3979,30 @@ def process_queued_job(queue_dir: Path, job_path: Path) -> None:
             result_path = Path(raw_result_path)
         else:
             result_path = queue_dir / "results" / f"{job_path.stem}.result.json"
+        result_paths = job_result_paths(job, queue_dir, job_path.stem)
         result = run_queued_validator_job(job)
     except BaseException:
         if result_path is None:
             result_path = queue_dir / "results" / f"{job_path.stem}.result.json"
+        if not result_paths:
+            result_paths = [result_path]
         result = {
             "exit_code": 1,
             "stdout": "",
             "stderr": traceback.format_exc(),
         }
 
-    write_json_atomic(result, result_path)
+    if not result_paths:
+        result_paths = [result_path]
+    for path in result_paths:
+        write_json_atomic(result, path)
     job_path.unlink(missing_ok=True)
 
 
 def worker_main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Run the serialized validator background queue worker.")
     parser.add_argument("--queue-dir", type=Path, default=DEFAULT_QUEUE_DIR)
+    parser.add_argument("--queue-lock", type=Path, default=DEFAULT_QUEUE_LOCK)
     parser.add_argument("--worker-lock", type=Path, default=DEFAULT_WORKER_LOCK)
     parser.add_argument("--poll-seconds", type=float, default=WORKER_POLL_SECONDS)
     parser.add_argument(
@@ -3678,19 +4014,25 @@ def worker_main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     queue_dir = args.queue_dir.resolve()
+    queue_lock = args.queue_lock.resolve()
     worker_lock = args.worker_lock.resolve()
     queue_dir.mkdir(parents=True, exist_ok=True)
     last_activity = time.monotonic()
 
     with ValidatorLock(worker_lock, 0):
-        recover_processing_jobs(queue_dir)
+        with ValidatorLock(queue_lock, -1):
+            recover_processing_jobs(queue_dir)
         while True:
-            job_path = next_queued_job(queue_dir)
+            dedup_enabled, strong_dedup_enabled = queue_dedup_settings()
+            job_path = claim_next_queued_job(
+                queue_dir,
+                queue_lock,
+                dedup_enabled,
+                strong_dedup_enabled,
+            )
             if job_path is not None:
-                claimed = claim_queued_job(queue_dir, job_path)
-                if claimed is not None:
-                    process_queued_job(queue_dir, claimed)
-                    last_activity = time.monotonic()
+                process_queued_job(queue_dir, job_path)
+                last_activity = time.monotonic()
                 continue
 
             if args.idle_timeout > 0 and time.monotonic() - last_activity >= args.idle_timeout:

@@ -1,15 +1,15 @@
 *** UID:0000J3 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NONE" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # EPF Image Resources
 
 ## Status
 
-- Confidence: medium to strong for source-family ownership, medium for exact original filenames.
+- Confidence: strong for source-family ownership and non-emitting umbrella status, medium for exact original filenames.
 - Proposed modules: `render/EPFTileContext.cpp`, `render/ImageLib.cpp`, `render/ResourceLayoutTable.cpp`, `render/ImageFrameTable.cpp`, render support files, and per-asset image-library files.
-- Evidence basis: `simroot_v2` generated source, Wave3 class/global summaries, Wave3 xrefs, and IDA MCP callee checks on 2026-05-22.
+- Evidence basis: existing EPF/render documentation and IDA MCP checks of the shared EPF table-loader/helper addresses.
 
 ## Hypothesis
 
@@ -47,6 +47,7 @@ The concrete file-level pages now split the shared support layer into:
 
 - [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md) for the decoded frame context, buffer lifecycle, and RLE transparency-mask cache.
 - [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md) for `LoadImageFrameTable_4D0F50`, `LoadFrameDrawRecord_4D1600`, and the shared frame-table record model.
+- [UID:0000K2][ImageLib](by-file/ImageLib.md) and [UID:0000N5][ResourceLayoutTable](by-file/ResourceLayoutTable.md) for the process-wide EPF/EPD layout registry and list-backed resource-name store, while asset-specific image libraries keep their own one-caller table builders.
 
 ## Shared Table Format
 
@@ -75,9 +76,9 @@ The loaders allocate `entryCount + 1` records and append a zero-bounds terminal 
 
 ## Resource Layout Registry
 
-2026-05-22 follow-up resolves the earlier registry question but refines the class boundary: [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / `DAT_0067a744` is initialized by `ImageLib::ImageLib`, while the EPF/EPD layout lookup methods are currently recovered as `ResourceLayoutTable`. This belongs with render/resource code, while UI controls and per-asset image-library classes consume it. 2026-05-24 IDA MCP xrefs confirmed the global owner writes are in the `ImageLib` constructor/destructor family, and the broad `g_pEPFLib` xref set is mostly consumer reads.
+2026-05-22 follow-up resolves the earlier registry question but refines the class boundary: [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / historical IDA alias `DAT_0067a744` is initialized by `ImageLib::ImageLib`, while the EPF/EPD layout lookup methods are currently recovered as `ResourceLayoutTable`. This belongs with render/resource code, while UI controls and per-asset image-library classes consume it. 2026-05-24 IDA MCP xrefs confirmed the global owner writes are in the `ImageLib` constructor/destructor family, and the broad `g_pEPFLib` xref set is mostly consumer reads.
 
-`ResourceLayoutTable::LoadResourceIndex` opens a named EPF/EPD entry through `DATFile`, reads the frame table, normalizes offsets with `DATFile::GetDataBase() + 0xc`, appends a sentinel, and appends the result to a [UID:0000KS][List](by-file/List.md)-backed resource-name record table. `ResourceLayoutTable::LookupLayoutEntry` then fills an `EPFTileContext` for callers. Wave3 xrefs show broad use across UI panes, image libraries, item/effect helpers, and `EPFImageControlPane`.
+`ResourceLayoutTable::LoadResourceIndex` opens a named EPF/EPD entry through `DATFile`, reads the frame table, normalizes offsets with `DATFile::GetDataBase() + 0xc`, appends a sentinel, and appends the result to a [UID:0000KS][List](by-file/List.md)-backed resource-name record table. `ResourceLayoutTable::LookupLayoutEntry` then fills an `EPFTileContext` for callers. Existing cross-reference docs show broad use across UI panes, image libraries, item/effect helpers, and `EPFImageControlPane`.
 
 The generated `EPFLibrary::LoadFrame` references in some files should be treated as naming artifacts until proven otherwise; their call target is `ResourceLayoutTable::LookupLayoutEntry`. The original class may have exposed these methods directly from `ImageLib`, or through a base/helper slice now recovered as `ResourceLayoutTable`. The supporting store model is a [UID:0000KS][List](by-file/List.md) of 44-byte [UID:0001VT][ResourceLayoutNameRecord](by-type/by-struct/ResourceLayoutNameRecord.md) rows; [UID:0001VU][ResourceLayoutStore](by-type/by-struct/ResourceLayoutStore.md) and [UID:0001VS][ResourceLayoutBucket](by-type/by-struct/ResourceLayoutBucket.md) are retained as provisional aliases for older generated overlays.
 
@@ -97,7 +98,7 @@ Palette ownership is a parallel render-resource layer. [UID:0000MA][Palette](by-
 | `DrawFrameWithBlendMode` | `DrawFrameWithBlendMode_00462E10.cpp` | Copies/adds/subtracts byte frame masks into `AlphaMaskSurface`; used by light draw modes. See [UID:0000UI][DrawFrameWithBlendMode_00462E10](by-item/DrawFrameWithBlendMode_00462E10.md). |
 | `DrawEncodedAlphaFrame` provisional | currently not emitted as a recovered source | Draws signed-run encoded frame rows into an alpha mask with a vertical alpha ramp; used by several image-library callers. See [UID:0000UH][DrawEncodedAlphaFrame_00462F20](by-item/DrawEncodedAlphaFrame_00462F20.md). |
 
-IDA/Wave3 xrefs show the EPF/EPD table-loading helpers call [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md), `DATFile`, `DATFile::GetDataPointer`, and allocation/rect helpers. They should depend on the DAT archive API but should not be owned by the DAT module. The alpha-mask blitters in the same table are lower-level render helpers rather than DAT consumers.
+IDA MCP checks and existing item docs show the EPF/EPD table-loading helpers call [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md), `DATFile`, `DATFile::GetDataPointer`, and allocation/rect helpers. They should depend on the DAT archive API but should not be owned by the DAT module. The alpha-mask blitters in the same table are lower-level render helpers rather than DAT consumers.
 
 ## Consumer Classes
 
@@ -121,7 +122,9 @@ IDA/Wave3 xrefs show the EPF/EPD table-loading helpers call [UID:0000T0][HasDATE
 
 ## Ownership Decision
 
-The current one-function Wave3 files are staging containers. `ImageLib` should be treated as the broader shared EPF image/cache manager behind `g_pEPFLib`; the `ResourceLayoutTable` method family should be reviewed as either part of `ImageLib` or a close helper/base class before final migration. The other shared table loaders should be grouped into a render/resource metadata module, while asset-specific classes should remain separate enough to preserve feature ownership. A compact original project might have used a broader `ImageLib.cpp`, but the number of asset families argues for multiple source files or a small `render/image/` subfolder.
+The current one-function generated files are staging containers. `ImageLib` should be treated as the broader shared EPF image/cache manager behind `g_pEPFLib`; the `ResourceLayoutTable` method family should be reviewed as either part of `ImageLib` or a close helper/base class before final migration. The other shared table loaders should be grouped into a render/resource metadata module, while asset-specific classes should remain separate enough to preserve feature ownership. A compact original project might have used a broader `ImageLib.cpp`, but the number of asset families argues for multiple source files or a small `render/image/` subfolder.
+
+[UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) now reinforces this as an umbrella/source-family page rather than a source-emitting file: it lists concrete render files such as `EPFTileContext.cpp`, `ImageFrameTable.cpp`, `ImageLib.cpp`, and `ResourceLayoutTable.cpp`, plus asset-specific image-library files, and it explicitly notes that EPF/image-frame helpers are render-resource code rather than archive parsing. Keep `PROPOSED_RECONSTRUCTION_PATH:"NONE"` unless the umbrella is later split into a real source page.
 
 ## Open Questions
 
@@ -221,6 +224,19 @@ The current one-function Wave3 files are staging containers. `ImageLib` should b
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup:
+  - Before: the resource-layout registry note used bare `DAT_0067a744` wording for the `g_pEPFLib` singleton.
+  - Changed to: canonical [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) wording with `DAT_0067a744` retained as the historical IDA alias.
+  - Evidence: the section already records `ImageLib::ImageLib` ownership and `ResourceLayoutTable` consumer/facet behavior.
+- 2026-06-07 A003 umbrella/source-tree confidence refresh:
+  - What existed before: confidence was `78`, with the page correctly marked as a non-emitting render-resource umbrella but still described as only medium-to-strong for source-family ownership.
+  - Changed to: confidence `82`, with explicit source-tree cross-check showing that concrete render files now own the child implementations while this page stays `PROPOSED_RECONSTRUCTION_PATH:"NONE"`.
+  - Summary/evidence: [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) lists the concrete render owners for `EPFTileContext`, `ImageFrameTable`, `ImageLib`, `ResourceLayoutTable`, and asset image libraries; the page already documents shared table format, registry/palette relationship, consumer classes, and archive-boundary separation. Completion stays `88` because exact original filenames and some class/helper boundaries remain open.
+
+- 2026-06-05: Marked the projected reconstruction path as `NONE`.
+  - Before: the blank path made this umbrella/source-family page look like a missing generated source root.
+  - After: the page remains a render-resource ownership map; concrete source roots stay with pages such as [UID:0000J4][EPFTileContext](by-file/EPFTileContext.md), [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md), [UID:0000K2][ImageLib](by-file/ImageLib.md), and asset-specific image-library files.
+  - Evidence: live IDA MCP `lookup_funcs` confirms representative shared loaders/helpers at `0x004d0f50`, `0x004d1b80`, and `0x004de420`; these are already assigned to concrete render/image docs, so `EPFImageResources.md` should not emit `EPFImageResources.cpp`.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:88` and `CONFIDENCE:78`.

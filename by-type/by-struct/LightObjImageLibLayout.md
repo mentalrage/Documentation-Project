@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:000076 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for observed offsets, medium for final field names.
 - Owner class: [UID:000076][LightObjImageLib](by-class/LightObjImageLib.md).
+- Autogen parent: attached to [UID:000076][LightObjImageLib](by-class/LightObjImageLib.md); the class scores `84/80` and this layout scores `84/86`, so both sides satisfy the 80/80 parent gate.
 - Evidence: IDA constructor/destructor/draw decompilation and xrefs on 2026-05-26.
 
 ## Layout
@@ -60,6 +61,7 @@ The fallback record at `+0x14` is `0x1c` bytes, so the observed object state rea
 
 ## Changes
 
+- 2026-06-06: Attached the object layout to [UID:000076][LightObjImageLib](by-class/LightObjImageLib.md). Scores remain `84/86`; this parent metadata update follows the documented class-owned `ProtectedArray<LightInfo>` and fallback row.
 - 2026-05-31 LightObjImageLib split pass:
   - What existed before: metadata scores were `0/0`, and the layout page referenced broad method roles without exact child pages for the constructor, bounds helper, draw modes, or scalar deleting destructor.
   - Changed to: `COMPLETION:84`, `CONFIDENCE:86`, `RECONSTRUCTABLE:TRUE`, with exact by-memory references for the verified method children.

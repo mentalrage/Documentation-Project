@@ -1,8 +1,8 @@
 *** UID:0001VY | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:74 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NA | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Type category: pane-derived overlay class layouts.
 - Likely owner: [UID:0000NA][ScreenDimmer](by-file/ScreenDimmer.md)
 - Related classes: [UID:0000C8][ScreenDimmer](by-class/ScreenDimmer.md), [UID:0000CA][ScreenFadeOut](by-class/ScreenFadeOut.md)
+- Parent attachment: attached to [UID:0000NA][ScreenDimmer](by-file/ScreenDimmer.md), whose `86/80` source-family page owns the generic dim/fade overlay module and satisfies the parent-side `80/80` gate.
 
 ## ScreenDimmer Layout
 
@@ -46,12 +47,27 @@ Total observed size is 252 bytes.
 
 Total observed size is 268 bytes.
 
+## Lifecycle And Owner Evidence
+
+| Layout | Lifecycle evidence | Source-placement consequence |
+| --- | --- | --- |
+| `ScreenDimmer` | [UID:0000PJ][CreateScreenDimmer_4A12B0](by-global/CreateScreenDimmer_4A12B0.md) allocates `0xfc` bytes, calls the `0x00559b90` constructor with dim level `5`, and selects a parent pane from the active UI/map roots. The constructor publishes [UID:0000S5][g_pScreenDimmer](by-global/g_pScreenDimmer.md), and destructor/deleting-destructor paths plus [UID:0001GB][0x0055a030-0x0055a03b.ScreenDimmerSingletonClear](by-memory/0x0055a030-0x0055a03b.ScreenDimmerSingletonClear.md) clear that singleton. | The layout belongs to the generic `ScreenDimmer` overlay source family, not to a caller-local dialog/menu module and not to map-specific [UID:0000L4][MapRefreshDimmer](by-file/MapRefreshDimmer.md). |
+| `ScreenFadeOut` | The `0x00559e50` constructor initializes the same pane/interface vtable pattern plus timer/fade fields at `+0xf8` through `+0x108`; the destructor invalidates the active back pane region, and the scalar deleting destructor owns the same secondary/tertiary adjustor model. | The fade layout is source-adjacent to `ScreenDimmer`; keep it in `ui/core/ScreenDimmer.cpp` or a neighboring `ScreenFadeOut.cpp`, but do not merge it with [UID:0000IZ][Effects](by-file/Effects.md), whose runtime effecter cluster begins after the overlay island. |
+
+The active singleton and factory evidence is layout-relevant because it confirms object allocation sizes (`0xfc` and `0x10c`), constructor arguments, and owner placement. It does not settle the final header spelling for the secondary/tertiary interface pointers.
+
 ## Caveats
 
 - IDA confirms the first derived overlay fields begin at `0x0f8`, but it does not by itself name every inherited `Pane` field between `0x000` and `0x0f7`.
 - The vtable/interface labels are descriptive only. Final names should come from broader `Pane`/event/timer interface reconstruction.
 - Current `ScreenFadeOut` generated data disables real adjustor thunks at `0x0055a051` and `0x0055a05c`; live IDA confirms the offsets, but final interface names still depend on broader `Pane`/timer-interface reconstruction.
 - 2026-05-26 recheck: active `class_ScreenFadeOut.cpp` still does not emit the two adjustor thunks, and IDA MCP still reports the secondary/tertiary forwards from offsets `0x0a0` and `0x0a4`.
+- Keep [UID:0000L4][MapRefreshDimmer](by-file/MapRefreshDimmer.md) separate: it is a map-transition companion that consumes the generic dimmer behavior rather than owning the base overlay layout.
+
+## Score Rationale
+
+- Completion is `80` because the page now records both class layouts, exact derived-field offsets, object sizes, vtable/adjustor evidence, factory/singleton lifecycle evidence, owner placement, caveats for map/effecter exclusions, and parent attachment. It remains capped because inherited `Pane` fields, secondary/tertiary interface names, and final header/source split are not final.
+- Confidence is `88` because the offset/object-size claims are IDA-backed and the lifecycle/owner evidence is corroborated by the ScreenDimmer file, class, global, factory, singleton-clear, and aggregate pages. Confidence remains below final-audit levels because the original interface names and exact `ScreenDimmer.cpp` versus `ScreenFadeOut.cpp` split are still open.
 
 ## IDA MCP Verification
 
@@ -70,6 +86,9 @@ Total observed size is 268 bytes.
 - [UID:0001GA][0x00559b90-0x0055a252.ScreenDimmerAndFadeOut](by-memory/0x00559b90-0x0055a252.ScreenDimmerAndFadeOut.md)
 - [UID:0001GC][0x0055a051-0x0055a05c.ScreenFadeOutVtable2AdjustorThunk](by-memory/0x0055a051-0x0055a05c.ScreenFadeOutVtable2AdjustorThunk.md)
 - [UID:0001GD][0x0055a05c-0x0055a067.ScreenFadeOutVtable3AdjustorThunk](by-memory/0x0055a05c-0x0055a067.ScreenFadeOutVtable3AdjustorThunk.md)
+- [UID:0000S5][g_pScreenDimmer](by-global/g_pScreenDimmer.md)
+- [UID:0000PJ][CreateScreenDimmer_4A12B0](by-global/CreateScreenDimmer_4A12B0.md)
+- [UID:0001GB][0x0055a030-0x0055a03b.ScreenDimmerSingletonClear](by-memory/0x0055a030-0x0055a03b.ScreenDimmerSingletonClear.md)
 
 ## Changes
 
@@ -77,3 +96,7 @@ Total observed size is 268 bytes.
   - Before: The page was ungraded, depended partly on generated metadata for the inherited `Pane` span, and listed `m_dimLevel` as size 4.
   - After: The page records IDA MCP evidence for constructor field writes, vtable table addresses, adjustor thunk bodies, fade fields, and the dim-level byte read/write behavior.
   - Evidence: 2026-05-31 IDA MCP `lookup_funcs`, `decompile`, `disasm`, `.rdata` name enumeration, and vtable xref checks listed in `## IDA MCP Verification`.
+- 2026-06-07 A006 lifecycle/source-placement pass:
+  - Before: `COMPLETION:74`, `CONFIDENCE:86`, with strong field-offset evidence but no source-facing lifecycle matrix or parent attachment.
+  - Changed to: `COMPLETION:80`, `CONFIDENCE:88`, `AUTOGEN_PARENT_UID:0000NA`, with factory/singleton lifecycle evidence, map/effecter keep-out guidance, and score rationale.
+  - Evidence: [UID:0000NA][ScreenDimmer](by-file/ScreenDimmer.md), [UID:0000C8][ScreenDimmer](by-class/ScreenDimmer.md), [UID:0000CA][ScreenFadeOut](by-class/ScreenFadeOut.md), [UID:0000S5][g_pScreenDimmer](by-global/g_pScreenDimmer.md), [UID:0000PJ][CreateScreenDimmer_4A12B0](by-global/CreateScreenDimmer_4A12B0.md), [UID:0001GB][0x0055a030-0x0055a03b.ScreenDimmerSingletonClear](by-memory/0x0055a030-0x0055a03b.ScreenDimmerSingletonClear.md), and [UID:0001GA][0x00559b90-0x0055a252.ScreenDimmerAndFadeOut](by-memory/0x00559b90-0x0055a252.ScreenDimmerAndFadeOut.md) agree on object sizes, singleton/factory lifecycle, generic overlay ownership, and remaining final-name caveats.

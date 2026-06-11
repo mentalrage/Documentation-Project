@@ -1,13 +1,13 @@
 *** UID:0000L9 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MerchantDialogPane
 
 ## Status
 
-- Confidence: strong for shared dialog-base ownership; medium for whether it was a standalone `.cpp` or private code in a broader menu-dialog source.
+- Confidence: strong for shared dialog-base ownership and vtable materialization; medium only for whether it was a standalone `.cpp` or private code in a broader menu-dialog source.
 - Candidate file: `NexusTK/ui/dialogs/MerchantDialogPane.cpp`
 - Alternative compact placement: private base code inside `ui/dialogs/TextMenuDialogs.cpp` or a broader menu-dialog source.
 - Current generated source: `source-3/simroot_v2/class_MerchantDialogPane.cpp` is used only as historical generated-output context; current confidence comes from IDA evidence and local docs.
@@ -25,6 +25,10 @@ The shared helper at `0x00517d80` is referenced from vtables for `MerchantDialog
 The adjacent [UID:000238][0x00517450-0x00517d23.MenuDialogFactoryHelpers](by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md) range is a caller-side menu-dialog factory island, not part of the base class body. Keep it near the merchant/menu dialog family, but do not merge it into `MerchantDialogPane` unless the final source file deliberately groups factory and base helpers together.
 
 IDA confirms `MerchantDialogPane` vtable bases at `0x0061ec10`, `0x0061ec70`, and `0x0061eca0`. Current generated metadata omits these vtables, so use the family page above for reconstruction layout decisions.
+
+## 2026-06-10 B001-008 IDA Refresh
+
+Live IDA MCP `py_eval` against `NexusTK.exe` MD5 `4247e04e20b65d6414c7238aa8ff5515` reconfirms the three `MerchantDialogPane` vtable views: `0x0061ec10`, `0x0061ec70`, and `0x0061eca0`. Their complete-object-locator pointers are at `0x0061ec0c`, `0x0061ec6c`, and `0x0061ec9c`, and constructor-shaped stores occur at `0x00517d53`, `0x00517d59`, and `0x00517d63`. The secondary view still contains `0x00517d80` at `0x0061ec80`, matching the shared action-string virtual documented in [UID:0001BM][0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual](by-memory/0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual.md).
 
 ## Proposed Contents
 
@@ -56,6 +60,7 @@ If final source reconstruction prefers fewer small files, this base can fold int
 
 - [UID:000083][MerchantDialogPane](by-class/MerchantDialogPane.md)
 - [UID:0001Y5][MerchantMenuDialogVtableFamily](by-type/by-vtable/MerchantMenuDialogVtableFamily.md)
+- [MerchantDialogPaneVtables](by-type/by-vtable/MerchantDialogPaneVtables.md)
 - [UID:000238][0x00517450-0x00517d23.MenuDialogFactoryHelpers](by-memory/0x00517450-0x00517d23.MenuDialogFactoryHelpers.md)
 - [UID:0001BL][0x00517d30-0x00517ebf.MerchantDialogPaneBase](by-memory/0x00517d30-0x00517ebf.MerchantDialogPaneBase.md)
 - [UID:0001BM][0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual](by-memory/0x00517d80-0x00517ebf.MerchantDialogPaneActionStringVirtual.md)
@@ -74,3 +79,6 @@ If final source reconstruction prefers fewer small files, this base can fold int
   - What existed before: `COMPLETION:82`, `CONFIDENCE:78`, and blank projected reconstruction path.
   - Changed to: `COMPLETION:84`, `CONFIDENCE:82`, and `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/"`.
   - Summary/evidence: current IDA MCP recheck reconfirms constructor-shaped bytes, vtable stores, shared virtual xrefs across merchant/text/item/spell/argumented menu dialogs, and the `0x00517ec0` text-menu boundary. Confidence now clears the parent-attachment threshold, while final C++ remains gated by raw constructor modeling and exact file split.
+- 2026-06-10 B001-008 ownership-gate refresh:
+  - Changed to: `COMPLETION:85`, `CONFIDENCE:86`.
+  - Summary/evidence: live IDA MCP reconfirmed decorated vtable views, complete-object-locator pointers, raw constructor vtable stores, inherited `0x00517d80`, and the split child [MerchantDialogPaneVtables](by-type/by-vtable/MerchantDialogPaneVtables.md). The exact standalone-vs-folded source file name remains provisional, but this file root now clears the strict `85/85` gate as the direct owner bucket for the merchant dialog base.

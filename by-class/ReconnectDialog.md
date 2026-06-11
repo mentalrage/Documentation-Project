@@ -1,8 +1,8 @@
 *** UID:0000BR | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000N0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -49,6 +49,11 @@
 - [UID:0000NS][Socket](by-file/Socket.md)
 
 ## Changes
+
+- 2026-06-05: Changed `RECONSTRUCTABLE` from blank to `TRUE` and assigned parent `0000N0`.
+  - Before: The reconnect alert class remained unclassified in autogen coverage even though the class and parent file both met the 80/80 attach gate.
+  - After: The class contributes to `ReconnectDialog.cpp` as a reconstructable child without emitting final C++ yet.
+  - Evidence: Live IDA MCP lookup confirms the reconnect constructor/handler/destructor starts at `0x00553f40`, `0x00553ff0`, `0x005540a0`, `0x00554210`, `0x00554410`, `0x00554581`, `0x0055458c`, and `0x005545f0`; parent [UID:0000N0][ReconnectDialog](by-file/ReconnectDialog.md) records the same connection/reconnect ownership.
 
 - 2026-05-30:
   - Before: completion/confidence were `0/0` even though the page contained method roles, memory cross-references, caller/callee notes, and reconnect state evidence.

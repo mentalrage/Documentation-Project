@@ -1,7 +1,7 @@
 *** UID:00006R | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -50,4 +50,5 @@
 
 ## Changes
 
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` after live IDA MCP on `NexusTK.exe` confirmed inventory-pane methods at `0x004ea130`, `0x004ea210`, `0x004ea2a0`, `0x004ea950`, `0x004ea9d0`, `0x004eac90`, `0x004eb050`, `0x004eb2b0`, and `0x004efaa0`. Left `AUTOGEN_PARENT_UID` blank because this class is still below the 80 completion attachment gate.
 - Completion/confidence score update: existed before as `0/0`; changed to `76/86`. Summary: legacy inventory-pane role, constructor/destructor, paint/key/mouse/server-message behavior, button/slot hit-tests, drag opcode, config flag, and module placement are documented with strong confidence; remaining work is deeper layout naming and final C++ reconstruction. Evidence: `InventoryPanes`, `NewInventoryPane`, `InventoryPane2`, and IDA-confirmed method boundaries.

@@ -2,7 +2,7 @@
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MN | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Confidence: strong for shared base offsets and `StringMenuItem` text storage, medium for final flag names.
 - Current entity kind: recovered layout notes for [UID:00007V][MenuItem](by-class/MenuItem.md), [UID:0000E8][StringMenuItem](by-class/StringMenuItem.md), and [UID:0000CY][SeparatorMenuItem](by-class/SeparatorMenuItem.md).
 - Likely owner header/source: `ui/menu/MenuItem.h` / [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md).
+- Autogen parent: attached to [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md); the file scores `84/80` and this multi-class layout scores `84/88`, so both sides satisfy the 80/80 parent gate. File-level attachment is used because the shared base layout spans `MenuItem`, `StringMenuItem`, and `SeparatorMenuItem`.
 - Evidence basis: IDA MCP decompilation/disassembly, function-boundary lookup, vtable xrefs, and [UID:0001Y4][MenuItemVtables](by-type/by-vtable/MenuItemVtables.md). `simroot_v2` remains only a lead source and is not used as authority.
 
 ## Shared MenuItem Base
@@ -56,6 +57,7 @@ These layouts support grouping menu item declarations together in the reusable p
 
 ## Changes
 
+- 2026-06-06: Attached the shared menu item layouts to [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md). Scores remain `84/88`; this multi-class layout is better parented to the source file than to one subclass.
 - Before: layout confidence relied partly on generated `simroot_v2` source and the state word was only summarized broadly.
 - Changed to: IDA MCP is the stated authority; exact child memory pages now support the state bytes, string buffer, and separator behavior slots.
 - Evidence: IDA MCP `lookup_funcs`, raw disassembly, byte review, decompilation, and vtable xrefs confirmed the child ranges and the byte/field accesses recorded above.

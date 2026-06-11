@@ -1,8 +1,8 @@
 *** UID:0001WZ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00000B | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -18,6 +18,7 @@
 - Layout docs: [UID:0001TO][AlertPaneLayout](by-type/by-struct/AlertPaneLayout.md).
 - Exact vtable data range: [UID:0002M5][0x00618b00-0x00618ba0.AlertPaneVtableData](by-memory/0x00618b00-0x00618ba0.AlertPaneVtableData.md).
 - Confidence: strong for vtable bases, constructor stores, and destructor/callback slots.
+- Autogen status: attached to the `AlertPane` class page; final C++ remains blank under the `95/95` reconstruction gate.
 
 ## Vtable Bases
 
@@ -67,6 +68,10 @@ Model `AlertPane` as a `DialogPane`-derived shared alert base with three vtable 
 
 The primary-button and secondary-button callback slots are intentional extension points. The base table contains no-op/guard entries, while derived alert classes such as [UID:0000FU][VersatileAlertPane](by-class/VersatileAlertPane.md), [UID:00004Q][ExchangeAlertPane](by-class/ExchangeAlertPane.md), [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md), [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md), and [UID:0000IH][CopyWindow](by-file/CopyWindow.md) may override one or both slots depending on their feature behavior.
 
+## Parent Rationale
+
+Attach this vtable cluster to [UID:00000B][AlertPane](by-class/AlertPane.md) because the three tables are the base `AlertPane` virtual views installed by `AlertPane::AlertPane` and consumed by `AlertPane::DismissDialog`. The class page is already reconstructable, attached to [UID:0000HE][AlertPanes](by-file/AlertPanes.md), and records the same vtable bases, object offsets, shared destructor, and callback slots. The vtable page remains the narrow evidence home for slot order and `.rdata` boundaries.
+
 ## Cross-References
 
 - [UID:00000B][AlertPane](by-class/AlertPane.md)
@@ -82,6 +87,11 @@ The primary-button and secondary-button callback slots are intentional extension
 - [UID:0001KF][0x00599a40-0x00599cb3.UrlAlertPane](by-memory/0x00599a40-0x00599cb3.UrlAlertPane.md)
 
 ## Changes
+
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable cluster was reconstructable but unassigned in generated type coverage despite the owning class and file pages already clearing the attachment gate.
+  - What changed: attached the vtable cluster to [UID:00000B][AlertPane](by-class/AlertPane.md), raised completion to `86`, and added an explicit parent rationale.
+  - Summary/evidence: constructor stores at `0x0049ff1e`, `0x0049ff24`, and `0x0049ff2e`, exact [UID:0002M5][0x00618b00-0x00618ba0.AlertPaneVtableData](by-memory/0x00618b00-0x00618ba0.AlertPaneVtableData.md), and the class page's `82/90` score support the parent assignment; confidence stays below final-audit level because final callback names and source-quality declarations remain open.
 
 - What existed before: the page had strong vtable content and prior IDA evidence, but validator metadata was still unevaluated `0/0` and reconstructability was blank.
 - What it was changed to: the page is marked `RECONSTRUCTABLE:TRUE`, scored `84/90`, and linked to the exact by-memory vtable-data child range.

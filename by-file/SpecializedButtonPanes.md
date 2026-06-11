@@ -1,6 +1,6 @@
 *** UID:0000NY | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:76 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # Specialized Button Panes
@@ -8,8 +8,8 @@
 ## Status
 
 - Confidence: strong for the evidence-backed control inventory and `NexusTK/ui/controls/` subsystem placement; still provisional for the final source filename/split.
-- Proposed module: `NexusTK/ui/controls/SpecializedButtonPanes.cpp` is now a validated provisional autogen root for `DirectionButtonControlPane`, `GenderButtonControlPane`, and `CheckBoxTextControlPane`. A later final-source pass may still split this into `DirectionButtonControlPane.cpp`, `GenderButtonControlPane.cpp`, and `CheckBoxTextControlPane.cpp`. `ObjectImageButtonPane` is now better placed with [UID:0000M3][ObjectImageControlPane](by-file/ObjectImageControlPane.md).
-- Current recovered sources: `class_DirectionButtonControlPane.cpp`, `class_GenderButtonControlPane.cpp`, `class_ObjectImageButtonPane.cpp`, and `class_CheckBoxTextControlPane.cpp`.
+- Proposed module: `NexusTK/ui/controls/SpecializedButtonPanes.cpp` is now a validated provisional root for `DirectionButtonControlPane`, `GenderButtonControlPane`, and `CheckBoxTextControlPane`. A later final-source pass may still split this into `DirectionButtonControlPane.cpp`, `GenderButtonControlPane.cpp`, and `CheckBoxTextControlPane.cpp`. `ObjectImageButtonPane` is now better placed with [UID:0000M3][ObjectImageControlPane](by-file/ObjectImageControlPane.md).
+- Historical generated source names: `class_DirectionButtonControlPane.cpp`, `class_GenderButtonControlPane.cpp`, `class_ObjectImageButtonPane.cpp`, and `class_CheckBoxTextControlPane.cpp`; use these as search context only.
 - Type docs: [UID:0001W7][SpecializedButtonPaneLayouts](by-type/by-struct/SpecializedButtonPaneLayouts.md), [UID:0001YW][SpecializedButtonPaneVtables](by-type/by-vtable/SpecializedButtonPaneVtables.md)
 - Projected path status: assigned to `NexusTK/ui/controls/` for parent attachment and generated-root tracking. Treat the filename as a provisional source-family bucket, not as final proof that the original project had a literal `SpecializedButtonPanes.cpp`.
 
@@ -22,7 +22,7 @@ These classes are specialized button-like panes that reuse the generic button/co
 - `ObjectImageButtonPane` renders an object or character image centered inside a button pane and derives from the reusable `ObjectImageControlPane`; keep it with the object-image control source family unless later source-file evidence proves otherwise.
 - `CheckBoxTextControlPane` paints a checkbox plus shadowed text label.
 
-They should not be merged into feature dialogs purely because generated helper names mention fitting-room or new-user code. IDA MCP confirmed several generated constructor addresses in this group are not function starts in the current IDB, so the class starts need further verification before source moves.
+They should not be merged into feature dialogs purely because older generated helper names mention fitting-room or new-user code. IDA MCP confirmed several constructor-shaped addresses in this group are not function starts in the current IDB, so the class starts need further verification before source moves.
 
 ## Source Placement Decision
 
@@ -48,7 +48,7 @@ Use this page as a conservative autogen parent for the three class-level control
 
 - IDA MCP reports `ObjectImageButtonPane::ObjectImageButtonPane` at `0x00520820` has one direct code xref from `0x00551479`.
 - `ObjectImageButtonPane` directly calls `ObjectImageControlPane::ObjectImageControlPane` at `0x00520830`; current source-placement preference is to pair it with [UID:0000M3][ObjectImageControlPane](by-file/ObjectImageControlPane.md), with this file retaining only a cross-reference.
-- IDA MCP does not currently recognize `0x00500640`, `0x005007a0`, or `0x0059ded0` as function starts, even though Wave3 imports them as constructors.
+- IDA MCP does not currently recognize `0x00500640`, `0x005007a0`, or `0x0059ded0` as function starts, even though older generated/imported output treated them as constructors.
 - The painting methods at `0x005006d0`, `0x00500700`, and `0x0059df50` are IDA-recognized functions, so the class behavior is real even where constructor boundaries are suspect.
 - 2026-05-24 IDA MCP confirms `0x004fb630-0x004fbfcf` is `NewUserMiscDialogPane::NewUserMiscDialogPane`, not `GenderButtonControlPane`; the generated `class_GenderButtonControlPane.cpp` row at that range came from child-control vtable writes inside the parent dialog constructor.
 - 2026-05-24 IDA MCP recheck confirms no direct callers/xrefs for `0x00500640` or `0x005007a0`, while the real virtual methods and deleting destructors are referenced from `GenderButtonControlPane` and `DirectionButtonControlPane` vtables. `NewUserMiscDialogPane::NewUserMiscDialogPane` inlines both child-control setups.
@@ -67,8 +67,8 @@ Use this page as a conservative autogen parent for the three class-level control
 
 | Field | Value | Rationale |
 | --- | ---: | --- |
-| Completion | 76 | The page records the control inventory, placement decisions, exclusions, key executable ranges, type/vtable support, fresh constructor/vtable recheck evidence, and the limits on using this as a provisional generated root. |
-| Confidence | 82 | The control behavior, reusable UI-control placement, object-image exclusion, and class-level parent relationship are now strongly supported by IDA-backed child pages and the 2026-06-03 MCP recheck. Confidence remains capped because the final source split and raw constructor status are unresolved. |
+| Completion | 82 | The page records the control inventory, placement decisions, exclusions, key executable ranges, type/vtable support, exact vtable-data children, constructor/vtable recheck evidence, and the limits on using this as a provisional source-family root. |
+| Confidence | 86 | The control behavior, reusable UI-control placement, object-image exclusion, and class-level parent relationship are strongly supported by IDA-backed child pages and the 2026-06-03 MCP recheck. Confidence remains capped because the final source split and raw constructor status are unresolved. |
 | Projected path | `NexusTK/ui/controls/` | The subsystem path is verified enough for class-level parent attachment; the `SpecializedButtonPanes.cpp` filename remains a provisional bucket already tracked in the proposed source tree. |
 
 ## Cross-References
@@ -90,9 +90,10 @@ Use this page as a conservative autogen parent for the three class-level control
 
 ## Changes
 
-- 2026-05-30: Existing file doc mentioned `CheckBoxTextControlPane` type helper `0x004214c0` as a raw address. Changed it to the exact by-memory UID page and clarified that it sits in a mixed adjacent island. Evidence: IDA MCP decompilation/data refs for `0x004214c0` and the split of [UID:0000WT][0x00421310-0x004216cb.SimpleUStringSso7](by-memory/0x00421310-0x004216cb.SimpleUStringSso7.md).
+- 2026-05-30: Existing file doc mentioned `CheckBoxTextControlPane` type helper `0x004214c0` as a raw address. Changed it to the exact by-memory UID page and clarified that it sits in a mixed adjacent island. Evidence: IDA MCP decompilation/data refs for `0x004214c0` and the split of [UID:0000WT][0x00421310-0x004216cb.EarlySimpleUStringAndAdjacentHelperIsland](by-memory/0x00421310-0x004216cb.EarlySimpleUStringAndAdjacentHelperIsland.md).
 - 2026-06-02: Raised from `55/70` to `70/78` after adjacent child pages gained stronger IDA-backed vtable, executable-range, field-use, and ownership evidence. Kept `PROPOSED_RECONSTRUCTION_PATH` blank because the page is still a routing/provisional grouping and should not yet generate `SpecializedButtonPanes.cpp`.
 - 2026-06-03:
   - Before: the file page stayed below the parent-attachment threshold with a blank projected path, even though the proposed source tree already tracked `ui/controls/SpecializedButtonPanes.cpp` as a provisional bucket.
   - Changed to: `76/82`, `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/"`, and class-level-only parent handling for `DirectionButtonControlPane`, `GenderButtonControlPane`, and `CheckBoxTextControlPane`.
   - Summary/evidence: IDA MCP rechecked the three raw constructor starts as `NOFUNC`/no-xref/no-pointer-hit, reconfirmed modeled virtual methods and scalar deleting destructors, and read the vtable slots/store xrefs tying all three classes to reusable controls. The broad mixed memory aggregate remains unattached because it contains `BlueAlertPane` and user-create appearance child clusters.
+- 2026-06-06: Raised to `82/86`, changed recovered/generated-source wording to non-authoritative search context, and aligned the score rationale with the exact vtable-data children, type/vtable docs, class parent attachments, reusable-control placement, object-image exclusion, and raw-constructor caveats. C++ remains blank because final source split and constructor/source declaration quality are below the final-source threshold.

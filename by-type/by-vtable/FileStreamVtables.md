@@ -77,7 +77,7 @@ This supports a common `File` base declaration with concrete loose-file and DAT-
 - [UID:0001UG][FileStreamLayouts](by-type/by-struct/FileStreamLayouts.md)
 - [UID:00012I][0x0049d390-0x0049d3cd.FileBaseDestructor](by-memory/0x0049d390-0x0049d3cd.FileBaseDestructor.md)
 - [UID:0001IR][0x00582070-0x005824f6.StdioFile](by-memory/0x00582070-0x005824f6.StdioFile.md)
-- [UID:00012D][0x0049c130-0x0049d2cb.DATFile](by-memory/0x0049c130-0x0049d2cb.DATFile.md)
+- [UID:00012D][0x0049c130-0x0049d2cc.DATFile](by-memory/0x0049c130-0x0049d2cc.DATFile.md)
 
 ## Changes
 

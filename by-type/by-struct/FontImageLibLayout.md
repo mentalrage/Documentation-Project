@@ -38,8 +38,8 @@ The application allocates `524316` bytes (`0x8001c`) before calling the construc
 ## Notes
 
 - [UID:0001UM][FontSlotStorage](by-type/by-struct/FontSlotStorage.md) is `0x40008` bytes: one `DATFile*`, two 16-bit metrics, and a `0x10000`-entry [UID:0001UK][FontGlyphRecord](by-type/by-struct/FontGlyphRecord.md) pointer table.
-- `EnsureFontSlotLoaded` clamps any font id greater than or equal to `2` back to slot `0`, formats the archive name as `BA%d`, and stores the loaded archive pointer in the slot.
-- `DecodeGlyphBitmap` grows `scratchBuffer` only when the decoded glyph rectangle needs more bytes than `scratchBufferBytes`.
+- `EnsureFontSlotLoaded` clamps negative font ids and ids greater than or equal to `2` back to slot `0`, formats the archive name as UTF-16 `BARAM%02d.EFT`, and stores the loaded archive pointer in the slot.
+- `DecodeGlyphBitmap` grows `scratchBuffer` only when the decoded glyph rectangle needs more bytes than `scratchBufferBytes`, then stores that pointer into the caller's EPFTileContext.
 - Both the ordinary and scalar deleting destructors delete each loaded archive slot, free the scratch buffer, and clear [UID:0000QX][g_pFontImageLib](by-global/g_pFontImageLib.md).
 - IDA MCP `lookup_funcs` confirms the exact `FontImageLib` method boundaries used to prove this layout: constructor `0x004b5f00-0x004b5f54`, ordinary destructor `0x004b5f60-0x004b5fe6`, metrics `0x004b5ff0-0x004b6018`, measurement `0x004b6020-0x004b60ae`, loader `0x004b60c0-0x004b61d9`, decoder `0x004b61e0-0x004b6341`, and scalar deleting destructor `0x004b6350-0x004b6409`.
 
@@ -62,3 +62,5 @@ The application allocates `524316` bytes (`0x8001c`) before calling the construc
   - Before: `RECONSTRUCTABLE` was blank and completion/confidence were `0/0`.
   - After: marked `RECONSTRUCTABLE:TRUE` with completion/confidence `76/86`.
   - Summary/evidence: IDA MCP constructor/destructor/loader/decode evidence confirms the two-slot layout, slot stride, scratch pointer/capacity fields, singleton cleanup, and exact method boundaries. Final field names and the exact source declaration shape remain below near-final confidence.
+- 2026-06-06: Corrected the loader resource format from stale `BA%d` shorthand to `BARAM%02d.EFT`, and recorded that the live assembly clamps negative as well as out-of-range font ids before selecting one of the two slots.
+- 2026-06-06: Added decode-helper scratch/context evidence: live IDA for [UID:0002HT][0x004b61e0-0x004b6341.FontImageLibDecodeGlyphBitmap](by-memory/0x004b61e0-0x004b6341.FontImageLibDecodeGlyphBitmap.md) reads/writes `this+0x80014/+0x80018`, writes the scratch pointer into `EPFTileContext+0x04`, and clears the context mask fields at `+0x20/+0x24`.

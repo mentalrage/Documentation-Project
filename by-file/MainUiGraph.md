@@ -1,6 +1,6 @@
 *** UID:0000L1 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # MainUiGraph
@@ -12,6 +12,7 @@
 - Proposed source file: `ui/MainUiGraph.cpp`
 - Current generated source: `simroot_v2/recovered/InitializeMainUiGraph_004F7D10.cpp`
 - Evidence basis: `simroot_v2` generated output, Wave2 notes in `by-memory/-report.md`, and targeted IDA MCP checks on 2026-05-24.
+- Latest evidence basis: targeted IDA MCP checks on 2026-06-07 for the initializer boundary, sole caller, root pointer, layer slots, layout selector, and map tile dimension refs. Earlier generated-output references remain provenance only and are not the scoring basis for this refresh.
 
 ## Hypothesis
 
@@ -26,7 +27,7 @@ Keep this out of [UID:0000KX][LoginDialogPane](by-file/LoginDialogPane.md). The 
 | [UID:0000UV][InitializeMainUiGraph_004F7D10](by-item/InitializeMainUiGraph_004F7D10.md) | `0x004f7d10-0x004f8b2a` | `recovered/InitializeMainUiGraph_004F7D10.cpp` | Builds the post-login main UI pane tree and finalizes ready/input/profile state. |
 | [UID:0000RF][g_pMainUiGraph](by-global/g_pMainUiGraph.md) | `dword_67ABA4` / `0x0067aba4` | caller loads this global into `ecx` before `0x004f7d10` | Global root object used by login dialogs and in-game UI graph attachment. |
 | [UID:0000T6][MainUiLayerSlots](by-global/MainUiLayerSlots.md) | `dword_69B364`, `dword_69B368`, `dword_69B36C`, `dword_69B374`, `dword_69B378`, `dword_69B37C` | startup at `0x004f5fb0`, UI setup at `0x004f7d10`, shutdown at `0x004f6490` | Shared layer/context pointers passed through pane setup. `dword_69B364` is the backing storage for stale generated alias `g_pScreenEffecterList`. |
-| layout selector | [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / `byte_66DA97` | IDA data refs in `0x004f7d10` | Selects newer EPF/current layout versus older/legacy layout. |
+| layout selector | [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97` | IDA data refs in `0x004f7d10` | Selects newer EPF/current layout versus older/legacy layout. |
 | map tile dimensions | [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md) / `word_66DA9C`, `word_66DAA0` | IDA data refs in `0x004f7d10` | `48x48` map tile pixel span used to build current and legacy playfield bounds before `MapPane` construction. |
 | frame resource pointers | `off_61E100`, `off_61E114` | passed into `BackPane::BackPane` | Different root frame resources for the two layout branches; filenames still need decoding. |
 
@@ -43,6 +44,8 @@ The common tail calls [UID:0000MS][ProfileStorage](by-file/ProfileStorage.md) th
 - IDA `lookup_funcs` confirms `sub_4F7D10` size `0xe1b`, ending at `0x004f8b2a`; `0x004f8b30` starts `EnsureLoginDialogPane_4F8B30`.
 - IDA `callers` and `xrefs_to` confirm the sole executable caller at `0x004fac9b` inside `LoginDialogPane::OnServerMessage`.
 - The caller executes `mov ecx, dword_67ABA4` before the call, matching the `g_pMainUiGraph` root-object interpretation.
+- A004 live IDA MCP on 2026-06-07 reconfirmed `0x004f7d10` size `0xe1b`, successor `0x004f8b30` size `0x5d`, and sole call at `0x004fac9b` inside `sub_4FAB10`.
+- A004 live IDA MCP on 2026-06-07 counted [UID:0000RF][g_pMainUiGraph](by-global/g_pMainUiGraph.md) at 31 refs across 26 functions, [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) at 366 refs across 248 functions, [UID:0000T7][MapTilePixelDimensions](by-global/MapTilePixelDimensions.md) at 89 refs across 51 functions with `0x004f7d10` among them, and MainUiLayerSlots refs that include startup `0x004f5fb0`, setup `0x004f7d10`, and cleanup `0x004f6490`.
 - The recovered `CreatePane`, `InitializePane`, `CallOptionalReadyHook`, and `NotifyLoginNameIfNeeded` helpers are generated source conveniences over repeated allocation, virtual slot, and conversion sequences. Do not promote them to original standalone functions without separate IDA evidence.
 - `MainUiGraph` has enough structure evidence for the login-name cache consumed by status panes and user-name helpers, but its full class/struct layout is still provisional.
 
@@ -66,6 +69,10 @@ Use `ui/MainUiGraph.cpp` as the current source-layout hypothesis. `app/Applicati
 
 ## Changes
 
+- 2026-06-07 A008 alias cleanup:
+  - Before: the layout selector row linked [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) but still used a bare `byte_66DA97` alias.
+  - Changed to: preserved `byte_66DA97` only as the historical IDA alias for the canonical global.
+  - Evidence: the documented `0x004f7d10` data refs still select newer EPF/current layout versus older/legacy layout.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:80`.
@@ -74,3 +81,7 @@ Use `ui/MainUiGraph.cpp` as the current source-layout hypothesis. `app/Applicati
   - Before: `PROPOSED_RECONSTRUCTION_PATH` was blank while the page already named `ui/MainUiGraph.cpp` as the working source placement.
   - After: `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/"`.
   - Evidence: this page documents `MainUiGraph.cpp` as the live-game UI bootstrap, and [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) already tracks the UI subsystem layout.
+- 2026-06-07 A004 Batch 036 parent-gate refresh:
+  - Before: `COMPLETION:84`, `CONFIDENCE:80`.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:86`.
+  - Summary/evidence: live IDA MCP reconfirmed the `0x004f7d10` initializer boundary, sole login-success caller, exact [UID:0000RF][g_pMainUiGraph](by-global/g_pMainUiGraph.md) root pointer xrefs, MainUiLayerSlots setup/shutdown refs, `g_useEpfAssets` layout-selector breadth, and map tile dimension use inside the initializer. Confidence rises above the corrected parent gate, but no final reconstruction is emitted because full root object layout and original filename remain unresolved.

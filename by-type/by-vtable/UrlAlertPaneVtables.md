@@ -1,8 +1,8 @@
 *** UID:0001YZ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000FF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Likely source file: [UID:0000HE][AlertPanes](by-file/AlertPanes.md).
 - Confidence: strong for vtable bases, constructor/destructor stores, confirm slot, and thunk identities.
 - Exact memory child: [UID:0002P0][0x0062e580-0x0062e624.UrlAlertPaneVtableData](by-memory/0x0062e580-0x0062e624.UrlAlertPaneVtableData.md).
+- Autogen status: attached to the `UrlAlertPane` class page; final C++ remains blank under the `95/95` reconstruction gate.
 
 ## Vtable Bases
 
@@ -63,6 +64,10 @@ Model `UrlAlertPane` as an `AlertPane` subclass with three vtable views at `+0x0
 
 Keep `0x00599bd0` separate from the vtable thunks. It clears [UID:0000SM][g_pUrlAlertPane](by-global/g_pUrlAlertPane.md) and is reached from constructor exception cleanup, while `0x00599bdb` and `0x00599be6` are the actual adjustor thunks.
 
+## Parent Rationale
+
+Attach this vtable cluster to [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md) because the three tables are installed by the URL alert constructor and destructors, and the primary-table confirm slot is the class-specific `UrlAlertPane::OnConfirm` behavior. The class page is already reconstructable, attached to [UID:0000HE][AlertPanes](by-file/AlertPanes.md), and documents the same exact [UID:0002P0][0x0062e580-0x0062e624.UrlAlertPaneVtableData](by-memory/0x0062e580-0x0062e624.UrlAlertPaneVtableData.md) child range, URL/exit fields, singleton, and constructor xrefs.
+
 ## Cross-References
 
 - [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md)
@@ -74,6 +79,11 @@ Keep `0x00599bd0` separate from the vtable thunks. It clears [UID:0000SM][g_pUrl
 - [UID:0002P0][0x0062e580-0x0062e624.UrlAlertPaneVtableData](by-memory/0x0062e580-0x0062e624.UrlAlertPaneVtableData.md)
 
 ## Changes
+
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable cluster was reconstructable but unassigned in generated type coverage even though the `UrlAlertPane` class and `AlertPanes` file roots were already parent-ready.
+  - What changed: attached the vtable cluster to [UID:0000FF][UrlAlertPane](by-class/UrlAlertPane.md), raised completion to `86`, and added an explicit parent rationale.
+  - Summary/evidence: constructor/destructor stores at the three vtable bases, confirm-handler slot `0x00599ba0`, destructor adjustor-thunk slots, and exact [UID:0002P0][0x0062e580-0x0062e624.UrlAlertPaneVtableData](by-memory/0x0062e580-0x0062e624.UrlAlertPaneVtableData.md) prove class ownership; C++ remains blank because inherited slot naming and final declarations are below the final-source gate.
 
 - What existed before: this page listed the three vtable bases and slot evidence, but kept completion/confidence at `0/0`, cited incomplete Wave3 metadata, and did not have a precise by-memory child range.
 - What changed: completion/confidence is now `84/90`, `RECONSTRUCTABLE` is marked `TRUE`, the stale Wave3 caveat was replaced with IDA MCP boundary evidence, and the exact child range [UID:0002P0][0x0062e580-0x0062e624.UrlAlertPaneVtableData](by-memory/0x0062e580-0x0062e624.UrlAlertPaneVtableData.md) was added.

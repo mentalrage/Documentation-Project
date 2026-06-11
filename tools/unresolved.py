@@ -30,6 +30,107 @@ DEFAULT_MULTIPLE_ALIASES_OUTPUT = Path("project-level") / "-resolved-multple-ali
 RESOLVED_NAMES_SECTION = "resolved_names"
 RESOLVED_ALIASES_SECTION = "resolved_aliases"
 RESOLVED_COVERAGE_SECTION = "resolved_coverage"
+RECONSTRUCTABLE_RE = re.compile(r"^\*\*\*\s*RECONSTRUCTABLE\s*:\s*([^|*]+)", re.IGNORECASE | re.MULTILINE)
+CPP_VARIABLE_NAME_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
+RESOLVED_NAME_ERROR = "Must be valid c++ varaiable name under 40 characters."
+CPP_KEYWORDS = frozenset(
+    {
+        "alignas",
+        "alignof",
+        "and",
+        "and_eq",
+        "asm",
+        "auto",
+        "bitand",
+        "bitor",
+        "bool",
+        "break",
+        "case",
+        "catch",
+        "char",
+        "char8_t",
+        "char16_t",
+        "char32_t",
+        "class",
+        "compl",
+        "concept",
+        "const",
+        "consteval",
+        "constexpr",
+        "constinit",
+        "const_cast",
+        "continue",
+        "co_await",
+        "co_return",
+        "co_yield",
+        "decltype",
+        "default",
+        "delete",
+        "do",
+        "double",
+        "dynamic_cast",
+        "else",
+        "enum",
+        "explicit",
+        "export",
+        "extern",
+        "false",
+        "final",
+        "float",
+        "for",
+        "friend",
+        "goto",
+        "if",
+        "inline",
+        "int",
+        "long",
+        "mutable",
+        "namespace",
+        "new",
+        "noexcept",
+        "not",
+        "not_eq",
+        "nullptr",
+        "operator",
+        "or",
+        "or_eq",
+        "override",
+        "private",
+        "protected",
+        "public",
+        "register",
+        "reinterpret_cast",
+        "requires",
+        "return",
+        "short",
+        "signed",
+        "sizeof",
+        "static",
+        "static_assert",
+        "static_cast",
+        "struct",
+        "switch",
+        "template",
+        "this",
+        "thread_local",
+        "throw",
+        "true",
+        "try",
+        "typedef",
+        "typeid",
+        "typename",
+        "union",
+        "unsigned",
+        "using",
+        "virtual",
+        "void",
+        "volatile",
+        "wchar_t",
+        "while",
+        "xor",
+        "xor_eq",
+    }
+)
 
 
 @dataclass(frozen=True)
@@ -134,8 +235,15 @@ def compile_filters(config: dict) -> list[FilterSpec]:
     return compiled
 
 
+def config_bool(config: dict, key: str, default: bool) -> bool:
+    value = config.get(key, default)
+    if isinstance(value, bool):
+        return value
+    raise SystemExit(f"unresolved JSON field '{key}' must be a boolean")
+
+
 def load_ini(path: Path) -> configparser.ConfigParser:
-    config = configparser.ConfigParser(interpolation=None)
+    config = configparser.ConfigParser(interpolation=None, delimiters=("=",))
     config.optionxform = str
     if path.exists():
         config.read(path, encoding="utf-8-sig")
@@ -170,17 +278,23 @@ def iter_scan_files(root: Path, config: dict) -> list[Path]:
         raise SystemExit("unresolved JSON field 'scan_extensions' must be a non-empty list")
     normalized_extensions = {str(ext).lower() for ext in extensions}
 
+    excluded_by_folders_raw = config.get("exclude_by_folder_names", [])
     excluded_dirs_raw = config.get("exclude_directory_names", [])
     excluded_suffixes_raw = config.get("exclude_file_suffixes", [])
+    if not isinstance(excluded_by_folders_raw, list):
+        raise SystemExit("unresolved JSON field 'exclude_by_folder_names' must be a list")
     if not isinstance(excluded_dirs_raw, list):
         raise SystemExit("unresolved JSON field 'exclude_directory_names' must be a list")
     if not isinstance(excluded_suffixes_raw, list):
         raise SystemExit("unresolved JSON field 'exclude_file_suffixes' must be a list")
+    excluded_by_folders = {str(item) for item in excluded_by_folders_raw}
     excluded_dirs = {str(item) for item in excluded_dirs_raw}
     excluded_suffixes = tuple(str(item) for item in excluded_suffixes_raw)
 
     targets: list[Path] = []
     for by_dir in by_directories(root):
+        if by_dir.name in excluded_by_folders:
+            continue
         for path in by_dir.rglob("*"):
             if not path.is_file():
                 continue
@@ -266,6 +380,13 @@ def read_text(path: Path) -> str:
         return path.read_text(encoding="utf-8-sig")
     except UnicodeDecodeError:
         return path.read_text(encoding="utf-8", errors="replace")
+
+
+def is_explicitly_not_reconstructable(text: str) -> bool:
+    match = RECONSTRUCTABLE_RE.search(text)
+    if not match:
+        return False
+    return match.group(1).strip().casefold() in {"false", "0"}
 
 
 def line_column_for_offset(text: str, offset: int) -> tuple[int, int]:
@@ -408,6 +529,18 @@ def record_for_files(record: MatchRecord, files: set[str]) -> MatchRecord | None
     )
 
 
+def records_for_report(records: list[MatchRecord], hidden_files: set[str]) -> list[MatchRecord]:
+    if not hidden_files:
+        return records
+    visible_records: list[MatchRecord] = []
+    for record in records:
+        visible_files = set(record.files) - hidden_files
+        visible_record = record_for_files(record, visible_files)
+        if visible_record is not None:
+            visible_records.append(visible_record)
+    return visible_records
+
+
 def split_unresolved_records(
     records: list[MatchRecord],
     resolved_names: dict[str, str],
@@ -416,7 +549,7 @@ def split_unresolved_records(
 ) -> list[MatchRecord]:
     unresolved: list[MatchRecord] = []
     for record in records:
-        resolved_name = resolved_names.get(record.name)
+        resolved_name = resolved_names.get(record.name) or aliases.get(record.name)
         if not resolved_name:
             unresolved.append(record)
             continue
@@ -430,7 +563,14 @@ def split_unresolved_records(
     return unresolved
 
 
-def generate_report(root: Path, records: list[MatchRecord], filters: list[FilterSpec], filter_counts: dict[str, int], scanned_count: int) -> str:
+def generate_report(
+    root: Path,
+    records: list[MatchRecord],
+    filters: list[FilterSpec],
+    filter_counts: dict[str, int],
+    scanned_count: int,
+    hidden_file_count: int,
+) -> str:
     generated = datetime.now().isoformat(timespec="seconds")
     total_refs = sum(len(record.files) for record in records)
     total_occurrences = sum(len(record.occurrences) for record in records)
@@ -446,6 +586,7 @@ def generate_report(root: Path, records: list[MatchRecord], filters: list[Filter
         "## Summary",
         "",
         f"- Scanned files: {scanned_count}",
+        f"- Not-reconstructable files hidden from report output: {hidden_file_count}",
         f"- Unique unresolved names: {len(records)}",
         f"- File references: {total_refs}",
         f"- Occurrences: {total_occurrences}",
@@ -555,6 +696,7 @@ def generate_resolved_report(
     aliases: dict[str, str],
     file_texts: dict[str, str],
     scanned_count: int,
+    hidden_file_count: int,
 ) -> str:
     generated = datetime.now().isoformat(timespec="seconds")
     record_by_name = {record.name: record for record in records}
@@ -585,6 +727,7 @@ def generate_resolved_report(
         "## Summary",
         "",
         f"- Scanned files: {scanned_count}",
+        f"- Not-reconstructable files hidden from report output: {hidden_file_count}",
         f"- Resolved name records: {len(resolved_names)}",
         f"- Alias records: {len(aliases)}",
         f"- Resolved tokens currently found: {len(found_records)}",
@@ -843,6 +986,19 @@ def require_resolved_name(args: argparse.Namespace) -> str:
     return args.resolved_name
 
 
+def is_valid_cpp_variable_name(name: str) -> bool:
+    return (
+        len(name) < 40
+        and CPP_VARIABLE_NAME_RE.fullmatch(name) is not None
+        and name not in CPP_KEYWORDS
+    )
+
+
+def require_valid_cpp_variable_name(name: str) -> None:
+    if not is_valid_cpp_variable_name(name):
+        raise SystemExit(RESOLVED_NAME_ERROR)
+
+
 def mutate_resolved_name(args: argparse.Namespace, ini_path: Path) -> int:
     config = load_ini(ini_path)
     section = config[RESOLVED_NAMES_SECTION]
@@ -863,6 +1019,7 @@ def mutate_resolved_name(args: argparse.Namespace, ini_path: Path) -> int:
         return None
 
     def validate_new_resolved_name(name: str, owner_token: str | None = None) -> None:
+        require_valid_cpp_variable_name(name)
         if name in aliases:
             raise SystemExit(f"resolved name is already an alias: {name} -> {aliases[name]}")
         existing_owner = token_for_resolved_name(name)
@@ -871,6 +1028,7 @@ def mutate_resolved_name(args: argparse.Namespace, ini_path: Path) -> int:
 
     if args.command == "resolve":
         resolved_name = require_resolved_name(args)
+        require_valid_cpp_variable_name(resolved_name)
         if token in section:
             raise SystemExit(f"already named: {token} = {section[token]}")
         validate_new_resolved_name(resolved_name)
@@ -881,6 +1039,7 @@ def mutate_resolved_name(args: argparse.Namespace, ini_path: Path) -> int:
 
     if args.command == "rename":
         resolved_name = require_resolved_name(args)
+        require_valid_cpp_variable_name(resolved_name)
         if token not in section:
             raise SystemExit(f"not resolved: {token}")
         validate_new_resolved_name(resolved_name, token)
@@ -911,9 +1070,11 @@ def mutate_resolved_name(args: argparse.Namespace, ini_path: Path) -> int:
 
     if args.command == "alias":
         alias_name = require_resolved_name(args)
+        require_valid_cpp_variable_name(alias_name)
         canonical_name = canonical_for_alias_target(token)
         if canonical_name is None:
             raise SystemExit(f"alias target is not resolved: {token}")
+        require_valid_cpp_variable_name(canonical_name)
         if alias_name in aliases:
             raise SystemExit(f"alias already exists: {alias_name} -> {aliases[alias_name]}")
         existing_owner = token_for_resolved_name(alias_name)
@@ -949,18 +1110,40 @@ def main(argv: list[str] | None = None) -> int:
     if args.command in {"resolve", "rename", "unresolve", "alias", "unalias"}:
         return mutate_resolved_name(args, ini_path)
 
+    if args.apply and args.mode == "file":
+        raise SystemExit(
+            "refusing --mode file --apply: a file-scoped apply would replace the "
+            "global unresolved/resolved indexes with a one-file scan. Use "
+            "--mode file without --apply for inspection, or run --mode full --apply "
+            "to refresh project-level reports."
+        )
+
     json_config = load_json_config(json_path)
     filters = compile_filters(json_config)
+    ignore_not_reconstructable = config_bool(json_config, "Ignore_Not_Reconstructable", True)
     targets = file_targets(args, root, json_config)
     matches, occurrences, filter_counts, file_texts = scan_files(root, targets, filters)
     records = sorted_records(matches, occurrences)
+    hidden_files = {
+        file_path for file_path, text in file_texts.items()
+        if ignore_not_reconstructable and is_explicitly_not_reconstructable(text)
+    }
 
     config = load_ini(ini_path)
     resolved_names = dict(config[RESOLVED_NAMES_SECTION])
     aliases = dict(config[RESOLVED_ALIASES_SECTION])
     unresolved_records = split_unresolved_records(records, resolved_names, aliases, file_texts)
-    report = generate_report(root, unresolved_records, filters, filter_counts, len(targets))
-    resolved_report = generate_resolved_report(records, resolved_names, aliases, file_texts, len(targets))
+    report_records = records_for_report(unresolved_records, hidden_files)
+    resolved_report_records = records_for_report(records, hidden_files)
+    report = generate_report(root, report_records, filters, filter_counts, len(targets), len(hidden_files))
+    resolved_report = generate_resolved_report(
+        resolved_report_records,
+        resolved_names,
+        aliases,
+        file_texts,
+        len(targets),
+        len(hidden_files),
+    )
     multiple_aliases_report = generate_multiple_aliases_report(resolved_names, aliases)
     update_ini(config, records, filters, filter_counts, len(targets), resolved_names, aliases, file_texts)
     output_path = output_path_from_config(root, json_config, args.output)
@@ -979,12 +1162,13 @@ def main(argv: list[str] | None = None) -> int:
     print(f"root: {root}")
     print(f"scanned markdown files: {len(targets)}")
     print(f"unique filtered names: {len(records)}")
-    print(f"unique unresolved report names: {len(unresolved_records)}")
+    print(f"not-reconstructable files hidden from reports: {len(hidden_files)}")
+    print(f"unique unresolved report names: {len(report_records)}")
     print(f"resolved name records: {len(resolved_names)}")
     print(f"alias records: {len(aliases)}")
-    print(f"file references: {sum(len(record.files) for record in unresolved_records)}")
-    print(f"occurrences: {sum(len(record.occurrences) for record in unresolved_records)}")
-    print(f"markdown link/path occurrences: {sum(record.protected_occurrences for record in unresolved_records)}")
+    print(f"file references: {sum(len(record.files) for record in report_records)}")
+    print(f"occurrences: {sum(len(record.occurrences) for record in report_records)}")
+    print(f"markdown link/path occurrences: {sum(record.protected_occurrences for record in report_records)}")
     print(f"output: {output_path}")
     print(f"resolved output: {resolved_output_path}")
     print(f"multiple aliases output: {multiple_aliases_output_path}")

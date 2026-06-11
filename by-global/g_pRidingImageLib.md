@@ -1,8 +1,8 @@
 *** UID:0000S4 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000N6 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -34,7 +34,7 @@ Live IDA MCP on 2026-05-30 confirms `0x0069b444` is `dword_69B444`, a 4-byte `.d
 | `0x004dc6cb` | `RidingImageLib::RidingImageLib` | Constructor fallback/guard path clears the singleton. |
 | `0x004dc7bc` | [UID:00017G][0x004dc730-0x004dc7d8.RidingImageLibDestructor](by-memory/0x004dc730-0x004dc7d8.RidingImageLibDestructor.md) | Clears the singleton during non-deleting cleanup. |
 | `0x004e5bf0` | [UID:000183][0x004e5bf0-0x004e5bfb.RidingImageLibSingletonClearHelper](by-memory/0x004e5bf0-0x004e5bfb.RidingImageLibSingletonClearHelper.md) | Tiny cleanup helper that clears the singleton. |
-| `0x004e6943` | `RidingImageLib::DeletingDestructor` | Clears the singleton during object destruction. |
+| `0x004e6943` | `RidingImageLib::DeletingDestructor` (`0x004e68b0-0x004e6981`) | Clears the singleton during object destruction. |
 
 The constructor also installs the [UID:0001YM][RidingImageLibVtable](by-type/by-vtable/RidingImageLibVtable.md), calls `LoadRidingDefinitions`, and loads `RIDINGS.EPF` through the shared frame-table loader.
 The live constructor/destructor windows include `RidingImageLib` vtable references, which removes the earlier medium-confidence spelling caveat.
@@ -51,13 +51,13 @@ Representative readers include:
 
 `g_pRidingImageLib` is source-owned by `RidingImageLib`, not by `Application`, human-sprite composition callers, or the shared monster/riding animation-table helpers.
 
-When rewriting generated source, preserve this singleton as the canonical global for `0x0069b444` and keep it distinct from the adjacent riding definition table at `0x0069b430`.
+When rebuilding source, preserve this singleton as the canonical global for `0x0069b444` and keep it distinct from the adjacent riding definition table at `0x0069b430`.
 
 ## Cross-References
 
 - [UID:0000N6][RidingImageLib](by-file/RidingImageLib.md)
 - [UID:0000BZ][RidingImageLib](by-class/RidingImageLib.md)
-- [UID:00017F][0x004dc420-0x004e6980.RidingImageLib](by-memory/0x004dc420-0x004e6980.RidingImageLib.md)
+- [UID:00017F][0x004dc420-0x004dca14.RidingImageLibEarlyMethodCluster](by-memory/0x004dc420-0x004dca14.RidingImageLibEarlyMethodCluster.md)
 - [UID:0001PO][0x0069b444-0x0069b448.g_pRidingImageLib](by-memory/0x0069b444-0x0069b448.g_pRidingImageLib.md)
 - [UID:0001YM][RidingImageLibVtable](by-type/by-vtable/RidingImageLibVtable.md)
 - [UID:0001VW][RidingImageLibLayout](by-type/by-struct/RidingImageLibLayout.md)
@@ -65,4 +65,9 @@ When rewriting generated source, preserve this singleton as the canonical global
 
 ## Changes
 
+- 2026-06-06: Synced the scalar deleting destructor writer to the exact `0x004e68b0-0x004e6981` range and updated the RidingImageLib aggregate reference.
+  - Evidence: A002 IDA MCP `lookup_funcs` and `xrefs_to` checks confirmed `0x004e6943` sits inside `sub_4E68B0` and the exclusive function end is `0x004e6981`.
+
+- 2026-06-05: Marked reconstructable and attached to [UID:0000N6][RidingImageLib](by-file/RidingImageLib.md) to resolve the global unclassified coverage row.
+  - Reasoning: live IDA xrefs bind the singleton to `RidingImageLib` constructor/destructor writes and render-library consumers, and the proposed source tree places the owner under `render/RidingImageLib.cpp`. No score change and no reconstruction C++ were added.
 - 2026-05-30: What existed before: the page marked the address and owner as strong but kept final symbol spelling at medium confidence and had no completion/confidence score. What changed: set completion/confidence to `82/88`, removed the spelling caveat, and refreshed evidence against live IDA MCP. Summary/evidence: IDA reports `0x0069b444` as a 4-byte `.data` item with 20 xrefs; constructor/destructor windows show `RidingImageLib` vtable setup/cleanup, the write/clear sites match the documented lifecycle, and representative consumers use the singleton for riding sprite table lookup. The score remains below full because several large rendering-consumer xrefs are still not individually source-named or rewritten.

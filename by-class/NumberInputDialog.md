@@ -1,8 +1,8 @@
 *** UID:00009K | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000M1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -79,6 +79,7 @@ IDA offsets in `OnConfirm` and destructor support the following tail fields afte
 
 ## Changes
 
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000M1][NumberInputDialog](by-file/NumberInputDialog.md) because this class is 86/82 and the parent file is 89/84. Live IDA MCP on `NexusTK.exe` confirmed constructor/action/thunk/deleting-destructor starts at `0x00530640`, `0x00530b40`, `0x00530c78`, `0x00530c83`, and `0x00530c90`; the documented ordinary destructor at `0x00530b00` remains raw bytes rather than an IDA function start and is not used as attachment proof.
 - Before: completion/confidence metadata were `0/0` and the coverage row still said 50% despite detailed layout, behavior, method-family, and unresolved-item documentation.
 - Changed to: `COMPLETION:86` and `CONFIDENCE:82`.
 - Evidence: the page documents field offsets, child controls, constructor/destructor/action-handler ranges, adjustor thunks, scalar deleting destructor, callback behavior, resource caveats, and caller relationships; confidence remains below maximum because the ordinary destructor is raw bytes rather than an IDA function object and callback type naming is still generated.

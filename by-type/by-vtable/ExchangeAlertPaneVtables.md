@@ -1,8 +1,8 @@
 *** UID:0001XJ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00004Q | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Likely source file: [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md).
 - Exact memory child: [UID:0002NF][0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData](by-memory/0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData.md).
 - Confidence: strong for vtable bases, constructor stores, button-dispatch slot, and adjustor thunks.
+- Autogen status: attached to the `ExchangeAlertPane` class page; final C++ remains blank under the `95/95` reconstruction gate.
 
 ## Vtable Bases
 
@@ -65,6 +66,10 @@ Model `ExchangeAlertPane` as an exchange-owned `DialogPane`-derived alert class 
 
 Keep `0x004b08cd` and `0x004b08d8` as compiler-generated adjustor thunks. They should be represented by inheritance/vtable layout, not handwritten source functions.
 
+## Parent Rationale
+
+Attach this vtable cluster to [UID:00004Q][ExchangeAlertPane](by-class/ExchangeAlertPane.md) because the three tables are the class's primary, secondary, and tertiary virtual views installed by `ExchangeAlertPane::ExchangeAlertPane` at `0x004b0490` and consumed by `OnButtonClick`, the scalar deleting destructor, and the compiler-generated adjustor thunks. The class page is already reconstructable, attached to [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md), and records the same constructor stores, singleton ownership, button-dispatch slot, exact vtable-data child, and boundary before `ExchangeMoneyEditControlPane`. The vtable page remains the narrow evidence home for slot order and `.rdata` boundaries.
+
 ## Cross-References
 
 - [UID:00004Q][ExchangeAlertPane](by-class/ExchangeAlertPane.md)
@@ -76,6 +81,11 @@ Keep `0x004b08cd` and `0x004b08d8` as compiler-generated adjustor thunks. They s
 - [UID:0001WZ][AlertPaneVtables](by-type/by-vtable/AlertPaneVtables.md)
 
 ## Changes
+
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable cluster was reconstructable but unassigned in generated type coverage despite the owning class and file pages already clearing the attachment gate.
+  - What changed: attached the vtable cluster to [UID:00004Q][ExchangeAlertPane](by-class/ExchangeAlertPane.md), raised completion to `86`, and added an explicit parent rationale.
+  - Summary/evidence: constructor stores at `0x004b0514`, `0x004b051a`, and `0x004b0524`, exact [UID:0002NF][0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData](by-memory/0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData.md), and the class page's `82/88` score support the parent assignment; confidence stays below final-audit level because source-facing callback naming and exact original filename questions remain open.
 
 - 2026-05-31:
   - Before: metadata was unevaluated and the page relied on a vtable-base inventory without a dedicated exact by-memory child page.

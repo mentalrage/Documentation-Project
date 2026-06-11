@@ -1,8 +1,8 @@
 *** UID:0001Z1 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000FX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Covered class: [UID:0000FX][VoteMenuPane](by-class/VoteMenuPane.md).
 - Likely source file: [UID:0000P6][VoteMenuPane](by-file/VoteMenuPane.md).
 - Confidence: strong for vtable bases, constructor/destructor stores, and class-specific virtual slots.
+- Autogen parent: attach this vtable cluster to [UID:0000FX][VoteMenuPane](by-class/VoteMenuPane.md); reconstruction C++ remains blank because these are compiler-emitted table records and adjustor slots, not standalone source functions.
 
 ## Vtable Bases
 
@@ -56,6 +57,10 @@ Do not read primary `+0x50` as a `VoteMenuPane` virtual: it is RTTI metadata for
 
 Model `VoteMenuPane` as a `Pane`-derived menu popup with three vtable views at `+0x00`, `+0xa0`, and `+0xa4`. The hit-test and packet-submit helpers remain ordinary private helpers in the same source module, not virtual functions and not `BulletinSession` behavior.
 
+## Parent And Slot Rationale
+
+Attach this type page to [UID:0000FX][VoteMenuPane](by-class/VoteMenuPane.md), which is reconstructable at the 80/80+ parent threshold and now attached to [UID:0000P6][VoteMenuPane](by-file/VoteMenuPane.md). The class and file pages already document the same three-view popup layout, singleton lifecycle, constructor/destructor vtable stores, mouse/paint slots, and helper ownership correction away from `BulletinSession`. The remaining gap is source-level declaration polish for inherited pane slots and compiler adjustor thunks, so the page is attached for organization but still below the C++ reconstruction gate.
+
 ## Cross-References
 
 - [UID:0000FX][VoteMenuPane](by-class/VoteMenuPane.md)
@@ -75,3 +80,7 @@ Model `VoteMenuPane` as a `Pane`-derived menu popup with three vtable views at `
   - What existed before: `COMPLETION:0`, `CONFIDENCE:0`, and blank `RECONSTRUCTABLE`.
   - Changed to: `COMPLETION:78`, `CONFIDENCE:88`, and `RECONSTRUCTABLE:TRUE`.
   - Summary/evidence: IDA MCP xrefs confirm the vtable bases are installed by the raw constructor and restored by both destructor forms; lookup/decompile evidence ties the slots to the exact VoteMenuPane methods and compiler-generated adjustor thunks.
+- 2026-06-07 parent attachment update:
+  - Before: the vtable cluster was reconstructable and cross-linked to `VoteMenuPane`, but it remained unassigned in autogen type coverage.
+  - Changed to: `COMPLETION:80` and `AUTOGEN_PARENT_UID:0000FX`; reconstruction C++ remains blank and confidence stays `88`.
+  - Summary/evidence: [UID:0000FX][VoteMenuPane](by-class/VoteMenuPane.md) and [UID:0000P6][VoteMenuPane](by-file/VoteMenuPane.md) now provide the 80/80+ parent chain and document the same vtable stores, slots, singleton lifecycle, and helper ownership correction.

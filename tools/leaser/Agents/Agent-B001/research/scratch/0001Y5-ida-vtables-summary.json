@@ -1,0 +1,658 @@
+{
+  "idb": {
+    "path": "E:\\NTK\\Resources\\NexusTK\\NexusTK.exe.i64",
+    "input": "C:\\Users\\admin\\Desktop\\Clone\\NexusTK\\NexusTK.exe",
+    "md5": "4247e04e20b65d6414c7238aa8ff5515"
+  },
+  "groups": [
+    {
+      "owner": "MerchantDialogPane",
+      "uid": "0000L9",
+      "classes": [
+        {
+          "class": "MerchantDialogPane",
+          "bases": [
+            {
+              "base": "0x0061ec10",
+              "name": "??_7MerchantDialogPane@@6B@",
+              "col": "0x0064b774",
+              "col_name": "??_R4MerchantDialogPane@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00517d53 <raw/no-func>"
+              ]
+            },
+            {
+              "base": "0x0061ec70",
+              "name": "??_7MerchantDialogPane@@6B@_0",
+              "col": "0x0064b7d4",
+              "col_name": "??_R4MerchantDialogPane@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00517d59 <raw/no-func>"
+              ]
+            },
+            {
+              "base": "0x0061eca0",
+              "name": "??_7MerchantDialogPane@@6B@_1",
+              "col": "0x0064b7e8",
+              "col_name": "??_R4MerchantDialogPane@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00517d63 <raw/no-func>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "owner": "TextMenuDialogs",
+      "uid": "0000OP",
+      "classes": [
+        {
+          "class": "TextMenuDialog",
+          "bases": [
+            {
+              "base": "0x0061ecac",
+              "name": "??_7TextMenuDialog@@6B@",
+              "col": "0x0064b7fc",
+              "col_name": "??_R4TextMenuDialog@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00517fa0 sub_517F30"
+              ]
+            },
+            {
+              "base": "0x0061ed0c",
+              "name": "??_7TextMenuDialog@@6B@_0",
+              "col": "0x0064b860",
+              "col_name": "??_R4TextMenuDialog@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00517fa6 sub_517F30"
+              ]
+            },
+            {
+              "base": "0x0061ed3c",
+              "name": "??_7TextMenuDialog@@6B@_1",
+              "col": "0x0064b874",
+              "col_name": "??_R4TextMenuDialog@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00517fb0 sub_517F30"
+              ]
+            }
+          ]
+        },
+        {
+          "class": "TextMenuItemList",
+          "bases": [
+            {
+              "base": "0x0061ed48",
+              "name": "??_7TextMenuItemList@@6B@",
+              "col": "0x0064b888",
+              "col_name": "??_R4TextMenuItemList@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00519560 sub_519520"
+              ]
+            },
+            {
+              "base": "0x0061edd0",
+              "name": "??_7TextMenuItemList@@6B@_0",
+              "col": "0x0064b8ec",
+              "col_name": "??_R4TextMenuItemList@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00519566 sub_519520"
+              ]
+            },
+            {
+              "base": "0x0061ee00",
+              "name": "??_7TextMenuItemList@@6B@_1",
+              "col": "0x0064b900",
+              "col_name": "??_R4TextMenuItemList@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00519570 sub_519520"
+              ]
+            }
+          ]
+        },
+        {
+          "class": "TextInputMenuDialog",
+          "bases": [
+            {
+              "base": "0x0061ee0c",
+              "name": "??_7TextInputMenuDialog@@6B@",
+              "col": "0x0064b914",
+              "col_name": "??_R4TextInputMenuDialog@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00519950 sub_5198E0"
+              ]
+            },
+            {
+              "base": "0x0061ee6c",
+              "name": "??_7TextInputMenuDialog@@6B@_0",
+              "col": "0x0064b978",
+              "col_name": "??_R4TextInputMenuDialog@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00519956 sub_5198E0"
+              ]
+            },
+            {
+              "base": "0x0061ee9c",
+              "name": "??_7TextInputMenuDialog@@6B@_1",
+              "col": "0x0064b98c",
+              "col_name": "??_R4TextInputMenuDialog@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x00519960 sub_5198E0"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "owner": "ItemMenuDialogs",
+      "uid": "0000KF",
+      "classes": [
+        {
+          "class": "ServerItemMenuDialog",
+          "bases": [
+            {
+              "base": "0x0061eea8",
+              "name": "??_7ServerItemMenuDialog@@6B@",
+              "col": "0x0064b9a0",
+              "col_name": "??_R4ServerItemMenuDialog@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051a596 sub_51A520"
+              ]
+            },
+            {
+              "base": "0x0061ef08",
+              "name": "??_7ServerItemMenuDialog@@6B@_0",
+              "col": "0x0064ba04",
+              "col_name": "??_R4ServerItemMenuDialog@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051a59c sub_51A520"
+              ]
+            },
+            {
+              "base": "0x0061ef38",
+              "name": "??_7ServerItemMenuDialog@@6B@_1",
+              "col": "0x0064ba18",
+              "col_name": "??_R4ServerItemMenuDialog@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051a5a6 sub_51A520"
+              ]
+            }
+          ]
+        },
+        {
+          "class": "ServerItemMenuItemList",
+          "bases": [
+            {
+              "base": "0x0061ef44",
+              "name": "??_7ServerItemMenuItemList@@6B@",
+              "col": "0x0064ba2c",
+              "col_name": "??_R4ServerItemMenuItemList@@6B@",
+              "xref_count": 4,
+              "xrefs": [
+                "0x0051a6ff sub_51A520",
+                "0x0051aedb <raw/no-func>",
+                "0x0051af03 <raw/no-func>",
+                "0x00520ce6 sub_520CE0"
+              ]
+            },
+            {
+              "base": "0x0061efcc",
+              "name": "??_7ServerItemMenuItemList@@6B@_0",
+              "col": "0x0064ba90",
+              "col_name": "??_R4ServerItemMenuItemList@@6B@_0",
+              "xref_count": 4,
+              "xrefs": [
+                "0x0051a705 sub_51A520",
+                "0x0051aee1 <raw/no-func>",
+                "0x0051af09 <raw/no-func>",
+                "0x00520cec sub_520CE0"
+              ]
+            },
+            {
+              "base": "0x0061effc",
+              "name": "??_7ServerItemMenuItemList@@6B@_1",
+              "col": "0x0064baa4",
+              "col_name": "??_R4ServerItemMenuItemList@@6B@_1",
+              "xref_count": 4,
+              "xrefs": [
+                "0x0051a70f sub_51A520",
+                "0x0051aeeb <raw/no-func>",
+                "0x0051af13 <raw/no-func>",
+                "0x00520cf6 sub_520CE0"
+              ]
+            }
+          ]
+        },
+        {
+          "class": "ClientItemMenuDialog",
+          "bases": [
+            {
+              "base": "0x0061f008",
+              "name": "??_7ClientItemMenuDialog@@6B@",
+              "col": "0x0064bab8",
+              "col_name": "??_R4ClientItemMenuDialog@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051b8e9 sub_51B880"
+              ]
+            },
+            {
+              "base": "0x0061f068",
+              "name": "??_7ClientItemMenuDialog@@6B@_0",
+              "col": "0x0064bb1c",
+              "col_name": "??_R4ClientItemMenuDialog@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051b8ef sub_51B880"
+              ]
+            },
+            {
+              "base": "0x0061f098",
+              "name": "??_7ClientItemMenuDialog@@6B@_1",
+              "col": "0x0064bb30",
+              "col_name": "??_R4ClientItemMenuDialog@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051b8f9 sub_51B880"
+              ]
+            }
+          ]
+        },
+        {
+          "class": "ClientItemMenuItemList",
+          "bases": [
+            {
+              "base": "0x0061f0a4",
+              "name": "??_7ClientItemMenuItemList@@6B@",
+              "col": "0x0064bb44",
+              "col_name": "??_R4ClientItemMenuItemList@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051c4bb sub_51C470"
+              ]
+            },
+            {
+              "base": "0x0061f12c",
+              "name": "??_7ClientItemMenuItemList@@6B@_0",
+              "col": "0x0064bba8",
+              "col_name": "??_R4ClientItemMenuItemList@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051c4c1 sub_51C470"
+              ]
+            },
+            {
+              "base": "0x0061f15c",
+              "name": "??_7ClientItemMenuItemList@@6B@_1",
+              "col": "0x0064bbbc",
+              "col_name": "??_R4ClientItemMenuItemList@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051c4cb sub_51C470"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "owner": "SpellMenuDialogs",
+      "uid": "0000O2",
+      "classes": [
+        {
+          "class": "ServerSpellMenuDialog",
+          "bases": [
+            {
+              "base": "0x0061f168",
+              "name": "??_7ServerSpellMenuDialog@@6B@",
+              "col": "0x0064bbd0",
+              "col_name": "??_R4ServerSpellMenuDialog@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051caaf sub_51CA40"
+              ]
+            },
+            {
+              "base": "0x0061f1c8",
+              "name": "??_7ServerSpellMenuDialog@@6B@_0",
+              "col": "0x0064bc34",
+              "col_name": "??_R4ServerSpellMenuDialog@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051cab5 sub_51CA40"
+              ]
+            },
+            {
+              "base": "0x0061f1f8",
+              "name": "??_7ServerSpellMenuDialog@@6B@_1",
+              "col": "0x0064bc48",
+              "col_name": "??_R4ServerSpellMenuDialog@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051cabf sub_51CA40"
+              ]
+            }
+          ]
+        },
+        {
+          "class": "ServerSpellMenuItemList",
+          "bases": [
+            {
+              "base": "0x0061f204",
+              "name": "??_7ServerSpellMenuItemList@@6B@",
+              "col": "0x0064bc5c",
+              "col_name": "??_R4ServerSpellMenuItemList@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051d74b sub_51D700"
+              ]
+            },
+            {
+              "base": "0x0061f28c",
+              "name": "??_7ServerSpellMenuItemList@@6B@_0",
+              "col": "0x0064bcc0",
+              "col_name": "??_R4ServerSpellMenuItemList@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051d751 sub_51D700"
+              ]
+            },
+            {
+              "base": "0x0061f2bc",
+              "name": "??_7ServerSpellMenuItemList@@6B@_1",
+              "col": "0x0064bcd4",
+              "col_name": "??_R4ServerSpellMenuItemList@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051d75b sub_51D700"
+              ]
+            }
+          ]
+        },
+        {
+          "class": "ClientSpellMenuDialog",
+          "bases": [
+            {
+              "base": "0x0061f2c8",
+              "name": "??_7ClientSpellMenuDialog@@6B@",
+              "col": "0x0064bce8",
+              "col_name": "??_R4ClientSpellMenuDialog@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051dba9 sub_51DB40"
+              ]
+            },
+            {
+              "base": "0x0061f328",
+              "name": "??_7ClientSpellMenuDialog@@6B@_0",
+              "col": "0x0064bd4c",
+              "col_name": "??_R4ClientSpellMenuDialog@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051dbaf sub_51DB40"
+              ]
+            },
+            {
+              "base": "0x0061f358",
+              "name": "??_7ClientSpellMenuDialog@@6B@_1",
+              "col": "0x0064bd60",
+              "col_name": "??_R4ClientSpellMenuDialog@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051dbb9 sub_51DB40"
+              ]
+            }
+          ]
+        },
+        {
+          "class": "ClientSpellMenuItemList",
+          "bases": [
+            {
+              "base": "0x0061f364",
+              "name": "??_7ClientSpellMenuItemList@@6B@",
+              "col": "0x0064bd74",
+              "col_name": "??_R4ClientSpellMenuItemList@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051e68b sub_51E640"
+              ]
+            },
+            {
+              "base": "0x0061f3ec",
+              "name": "??_7ClientSpellMenuItemList@@6B@_0",
+              "col": "0x0064bdd8",
+              "col_name": "??_R4ClientSpellMenuItemList@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051e691 sub_51E640"
+              ]
+            },
+            {
+              "base": "0x0061f41c",
+              "name": "??_7ClientSpellMenuItemList@@6B@_1",
+              "col": "0x0064bdec",
+              "col_name": "??_R4ClientSpellMenuItemList@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051e69b sub_51E640"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "owner": "ArgumentedMenuDialogs",
+      "uid": "0000HI",
+      "classes": [
+        {
+          "class": "ArgumentedMenuMenuDialog",
+          "bases": [
+            {
+              "base": "0x0061f428",
+              "name": "??_7ArgumentedMenuMenuDialog@@6B@",
+              "col": "0x0064be00",
+              "col_name": "??_R4ArgumentedMenuMenuDialog@@6B@",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051ea16 sub_51E9A0"
+              ]
+            },
+            {
+              "base": "0x0061f488",
+              "name": "??_7ArgumentedMenuMenuDialog@@6B@_0",
+              "col": "0x0064be64",
+              "col_name": "??_R4ArgumentedMenuMenuDialog@@6B@_0",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051ea1c sub_51E9A0"
+              ]
+            },
+            {
+              "base": "0x0061f4b8",
+              "name": "??_7ArgumentedMenuMenuDialog@@6B@_1",
+              "col": "0x0064be78",
+              "col_name": "??_R4ArgumentedMenuMenuDialog@@6B@_1",
+              "xref_count": 1,
+              "xrefs": [
+                "0x0051ea26 sub_51E9A0"
+              ]
+            }
+          ]
+        },
+        {
+          "class": "ArgumentedMenuMenuItemList",
+          "bases": [
+            {
+              "base": "0x0061f4c4",
+              "name": "??_7ArgumentedMenuMenuItemList@@6B@",
+              "col": "0x0064be8c",
+              "col_name": "??_R4ArgumentedMenuMenuItemList@@6B@",
+              "xref_count": 5,
+              "xrefs": [
+                "0x0051eb7f sub_51E9A0",
+                "0x0051f2b6 sub_51F290",
+                "0x0051f35b <raw/no-func>",
+                "0x0051f383 <raw/no-func>",
+                "0x00520bb6 sub_520BB0"
+              ]
+            },
+            {
+              "base": "0x0061f54c",
+              "name": "??_7ArgumentedMenuMenuItemList@@6B@_0",
+              "col": "0x0064bef0",
+              "col_name": "??_R4ArgumentedMenuMenuItemList@@6B@_0",
+              "xref_count": 5,
+              "xrefs": [
+                "0x0051eb85 sub_51E9A0",
+                "0x0051f2bc sub_51F290",
+                "0x0051f361 <raw/no-func>",
+                "0x0051f389 <raw/no-func>",
+                "0x00520bbc sub_520BB0"
+              ]
+            },
+            {
+              "base": "0x0061f57c",
+              "name": "??_7ArgumentedMenuMenuItemList@@6B@_1",
+              "col": "0x0064bf04",
+              "col_name": "??_R4ArgumentedMenuMenuItemList@@6B@_1",
+              "xref_count": 5,
+              "xrefs": [
+                "0x0051eb8f sub_51E9A0",
+                "0x0051f2c6 sub_51F290",
+                "0x0051f36b <raw/no-func>",
+                "0x0051f393 <raw/no-func>",
+                "0x00520bc6 sub_520BB0"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shared_slots": [
+    {
+      "slot_addr": "0x0061ec80",
+      "value": "0x00517d80",
+      "value_name": "sub_517D80",
+      "xrefs_to_value_count": 8
+    },
+    {
+      "slot_addr": "0x0061ed1c",
+      "value": "0x00517d80",
+      "value_name": "sub_517D80",
+      "xrefs_to_value_count": 8
+    },
+    {
+      "slot_addr": "0x0061ee7c",
+      "value": "0x00517d80",
+      "value_name": "sub_517D80",
+      "xrefs_to_value_count": 8
+    },
+    {
+      "slot_addr": "0x0061ef18",
+      "value": "0x00517d80",
+      "value_name": "sub_517D80",
+      "xrefs_to_value_count": 8
+    },
+    {
+      "slot_addr": "0x0061f078",
+      "value": "0x00517d80",
+      "value_name": "sub_517D80",
+      "xrefs_to_value_count": 8
+    },
+    {
+      "slot_addr": "0x0061f1d8",
+      "value": "0x00517d80",
+      "value_name": "sub_517D80",
+      "xrefs_to_value_count": 8
+    },
+    {
+      "slot_addr": "0x0061f338",
+      "value": "0x00517d80",
+      "value_name": "sub_517D80",
+      "xrefs_to_value_count": 8
+    },
+    {
+      "slot_addr": "0x0061f498",
+      "value": "0x00517d80",
+      "value_name": "sub_517D80",
+      "xrefs_to_value_count": 8
+    }
+  ],
+  "boundaries": [
+    {
+      "ea": "0x0061eb08",
+      "name": "??_7MemoryMan@@6B@",
+      "prev_dword": "0x0064b5bc",
+      "dword": "0x00516260",
+      "next_head": "0x0061eb0c",
+      "next_name": ""
+    },
+    {
+      "ea": "0x0061ec10",
+      "name": "??_7MerchantDialogPane@@6B@",
+      "prev_dword": "0x0064b774",
+      "dword": "0x00520b70",
+      "next_head": "0x0061ec14",
+      "next_name": ""
+    },
+    {
+      "ea": "0x0061f57c",
+      "name": "??_7ArgumentedMenuMenuItemList@@6B@_1",
+      "prev_dword": "0x0064bf04",
+      "dword": "0x00520ac6",
+      "next_head": "0x0061f580",
+      "next_name": ""
+    },
+    {
+      "ea": "0x0061f588",
+      "name": "??_7ArgumentedItemQuantityInputDialogPane@@6B@",
+      "prev_dword": "0x0064bf18",
+      "dword": "0x0047eaf0",
+      "next_head": "0x0061f58c",
+      "next_name": ""
+    },
+    {
+      "ea": "0x0061f6c0",
+      "name": "??_7ObjectImageControlPane@@6B@",
+      "prev_dword": "0x0064c028",
+      "dword": "0x00520ca0",
+      "next_head": "0x0061f6c4",
+      "next_name": ""
+    },
+    {
+      "ea": "0x0061f7fc",
+      "name": "??_7ObjectImageButtonPane@@6B@_1",
+      "prev_dword": "0x0064c128",
+      "dword": "0x00520af2",
+      "next_head": "0x0061f800",
+      "next_name": ""
+    },
+    {
+      "ea": "0x0061fa3c",
+      "name": "??_7Message@@6B@",
+      "prev_dword": "0x0064c13c",
+      "dword": "0x00521d40",
+      "next_head": "0x0061fa40",
+      "next_name": ""
+    }
+  ]
+}

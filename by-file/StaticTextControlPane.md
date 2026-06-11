@@ -1,6 +1,6 @@
 *** UID:0000O8 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/controls/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # StaticTextControlPane
@@ -28,8 +28,8 @@ Also keep `StaticTextControlPane2::SimpleHelpTextPartPane` separate from [UID:00
 | Entity | Address | Role |
 | --- | --- | --- |
 | `StaticTextControlPane` | [UID:00011I][0x00498dd0-0x004991ec.StaticTextControlPane](by-memory/0x00498dd0-0x004991ec.StaticTextControlPane.md), [UID:000222][0x0049b920-0x0049b925.StaticTextControlPaneTypeId](by-memory/0x0049b920-0x0049b925.StaticTextControlPaneTypeId.md) | Broad dialog static text control; fixed type code `19`; active/inactive state helpers around an embedded text pane and a vtable-only frame/highlight helper. |
-| `StaticTextControlPane2` | `0x0049a410-0x0049b915` in child ranges | Extended static/help text pane with measurement, alignment, opacity/fade, layer forwarding, show/hide, and paint behavior. |
-| `StaticTextControlPane2::SimpleHelpTextPartPane` | `0x00499fe0-0x0049a402`, `0x0049b560-0x0049b5a7`, `0x004bafa0-0x004bb0da` | Embedded text-part pane that draws normal, outlined, and shadowed text lines. |
+| `StaticTextControlPane2` | [UID:00011V][0x0049a410-0x0049b915.StaticTextControlPane2](by-memory/0x0049a410-0x0049b915.StaticTextControlPane2.md) | Extended static/help text pane with measurement, alignment, opacity/fade, raw local destructor/bounds/style helpers, layer forwarding, show/hide, paint behavior, and fixed type code `24`. |
+| `StaticTextControlPane2::SimpleHelpTextPartPane` | [UID:00011U][0x00499fe0-0x0049a402.SimpleHelpTextPartPaneCore](by-memory/0x00499fe0-0x0049a402.SimpleHelpTextPartPaneCore.md), `0x0049b560-0x0049b5a7`, [UID:00016E][0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects](by-memory/0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects.md) | Embedded text-part pane that draws normal, outlined, and shadowed text lines; the text-effect helpers are shared with HelpPane and chat/color UI callers. |
 | [UID:00005C][FontStyle](by-class/FontStyle.md) | `0x00499f10-0x00499fda`, cleanup at `0x004536e0-0x00453732` | Reusable text-style descriptor passed into `StaticTextControlPane2` constructors by callers such as `MiniMapDialog` and `NewMailDialog`. |
 | `g_dialogLayoutSentinel` | global data | Layer/context sentinel currently emitted with `StaticTextControlPane2`. |
 
@@ -45,15 +45,17 @@ Do not merge this into [UID:0000OK][TextButtonControlPane](by-file/TextButtonCon
 - IDA MCP reports eight direct callers to `StaticTextControlPane2::StaticTextControlPane2` at `0x0049a410`.
 - IDA MCP confirms `FontStyle::FontStyle` and `FontStyle::Configure` callers that build style records for `StaticTextControlPane2` labels.
 - `StaticTextControlPane2::StaticTextControlPane2` constructs `Pane`, initializes an embedded `SimpleHelpTextPartPane`, measures text width/line count, clamps the final rectangle to screen dimensions, and applies optional style opacity/fade state.
+- Live IDA now documents StaticTextControlPane2 raw local helper bodies at `0x0049a8b0`, `0x0049a950`, and `0x0049ab80` for non-deleting teardown, bounds update, and style-state propagation.
 - `StaticTextControlPane2` forwards add/remove layer and show/hide to `m_helpTextPart`.
 - `SimpleHelpTextPartPane::OnPaint` parses line breaks and tab-based formatting commands, then dispatches line drawing.
-- `SimpleHelpTextPartPane::DrawOutlinedText` and `DrawShadowedText` are text effect helpers used by `DrawTextLine`.
+- `SimpleHelpTextPartPane::DrawOutlinedText` and `DrawShadowedText` are text effect helpers used by `DrawTextLine`, but live caller fan-out also includes HelpPane and chat/color UI paths, so their source-owner remains shared.
 
 ## Current Caveats
 
 - Earlier constructor notes for `0x00499030` were incomplete, but live IDA shows a nontrivial constructor that installs three `StaticTextControlPane` vtables, allocates an embedded text pane, initializes its bounds/state, seeds optional text, and finalizes the owner state. Use live IDA and the memory docs as authority until final source reconstruction.
 - The class summary for `StaticTextControlPane` appears overfit to fitting-room user-image state. Treat fitting-room names in active/inactive helpers as provisional until field ownership is verified.
 - `SimpleHelpTextPartPane` destructor support currently references unrelated generated owner names such as `BowGaugeObjectPane` and `TextButtonExControlPane`. Treat those as owner-name pollution.
+- The broad StaticTextControlPane2 memory filename range includes sibling rows that should not be merged into this file's StaticText2 class body: SliderControlPane destructor `0x0049b5b0`, TextEditControlPane destructor [UID:000127][0x0049b6c0-0x0049b731.TextEditControlPaneDestructor](by-memory/0x0049b6c0-0x0049b731.TextEditControlPaneDestructor.md), TargetOptionEditControlPane destructor `0x0049b740`, TextButtonControlPane destructor `0x0049b7a0`, RectangleControlPane type id [UID:000128][0x0049b8f0-0x0049b8f5.RectangleControlPaneTypeId](by-memory/0x0049b8f0-0x0049b8f5.RectangleControlPaneTypeId.md), and ScrollableControlPane type id [UID:0002PE][0x0049b900-0x0049b905.ScrollableControlPaneTypeId](by-memory/0x0049b900-0x0049b905.ScrollableControlPaneTypeId.md).
 
 ## Cross-References
 
@@ -65,12 +67,13 @@ Do not merge this into [UID:0000OK][TextButtonControlPane](by-file/TextButtonCon
 - [UID:00011V][0x0049a410-0x0049b915.StaticTextControlPane2](by-memory/0x0049a410-0x0049b915.StaticTextControlPane2.md)
 - [UID:000222][0x0049b920-0x0049b925.StaticTextControlPaneTypeId](by-memory/0x0049b920-0x0049b925.StaticTextControlPaneTypeId.md)
 - [UID:00011U][0x00499fe0-0x0049a402.SimpleHelpTextPartPaneCore](by-memory/0x00499fe0-0x0049a402.SimpleHelpTextPartPaneCore.md)
-- [UID:00016E][0x004bafa0-0x004bb0da.SimpleHelpTextPartPaneTextEffects](by-memory/0x004bafa0-0x004bb0da.SimpleHelpTextPartPaneTextEffects.md)
+- [UID:00016E][0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects](by-memory/0x004bafa0-0x004bb0db.SimpleHelpTextPartPaneTextEffects.md)
 - [UID:0000ON][TextEditPane](by-file/TextEditPane.md)
 - [UID:0000JU][HelpPanes](by-file/HelpPanes.md)
 
 ## Changes
 
+- 2026-06-05: A004 raised the file page to `88/86`, added live StaticText2 raw helper coverage, documented text-effect shared fan-out, and recorded sibling rows inside the broad StaticText2 filename range that remain owned by other controls.
 - Before: `StaticTextControlPane2` was listed through `0x0049b914`, and `StaticTextControlPane::GetPaneTypeCode` was listed as `0x0049b920-0x0049b924`.
 - Changed to: `StaticTextControlPane2` through `0x0049b915`; `StaticTextControlPane::GetPaneTypeCode` through `0x0049b925`, with a dedicated by-memory page.
 - Summary/evidence: IDA MCP reports both fixed-return helpers at `0x0049b910` and `0x0049b920` as size `0x5`, so both previous end-exclusive ranges were one byte short.

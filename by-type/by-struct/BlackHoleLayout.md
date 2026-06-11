@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00000W | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -56,3 +56,9 @@ IDA reports the [UID:0001X2][BlackHoleVtable](by-type/by-vtable/BlackHoleVtable.
 - [UID:0001X2][BlackHoleVtable](by-type/by-vtable/BlackHoleVtable.md)
 - [UID:000079][List](by-class/List.md)
 - [UID:0000Q8][g_pApplicationCleanupQueue](by-global/g_pApplicationCleanupQueue.md)
+
+## Changes
+
+- 2026-06-06: Attached the layout to [UID:00000W][BlackHole](by-class/BlackHole.md) without changing scores.
+  - Reasoning: the class is `84/92`, this layout is `82/92`, and the page already documents the `List(4, 1024)` base layout, vtable, singleton, constructor/destructor behavior, and final-source caveats, so it meets the parent gate.
+  - Summary and evidence: the BlackHole class, file, aggregate memory, vtable, and singleton pages all agree that this 0x14-byte layout is the source-level layout evidence for the deferred deletion queue.

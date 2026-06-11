@@ -1,8 +1,8 @@
 *** UID:0001YE | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,7 +17,7 @@
 - Covered classes: [UID:0000A5][ParcelIconPane](by-class/ParcelIconPane.md), [UID:0000A6][ParcelPane](by-class/ParcelPane.md), and [UID:000058][FlyingParcelPane](by-class/FlyingParcelPane.md)
 - Layout docs: [UID:0001VI][ParcelNotificationPaneLayouts](by-type/by-struct/ParcelNotificationPaneLayouts.md)
 - Exact vtable-data range: [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md)
-- Confidence: strong for table bases, slot extents, destructor slots, and secondary/tertiary adjustor thunks.
+- Confidence: strong for table bases, slot extents, destructor slots, secondary/tertiary adjustor thunks, lifecycle vtable-store xrefs, and the `ALERTBTN.EPF` successor boundary.
 - Verification: IDA MCP `list_globals`, `lookup_funcs`, `xrefs_to`, `disasm`, and `py_eval` checks on 2026-05-26; IDA MCP `py_eval` recheck of exact vtable-data dwords, string boundaries, data xrefs, and function extents on 2026-06-01. Generated `simroot_v2` was used only as provisional comparison.
 
 ## Table Bases
@@ -78,6 +78,20 @@ IDA `xrefs_to` reports the vtable stores below:
 - `ParcelPane` constructor `0x00546290`, non-deleting destructor `0x00546440`, and scalar deleting destructor `0x00547000` write `0x00621c3c`, `0x00621c90`, and `0x00621cc0`.
 - `FlyingParcelPane` constructor `0x00546ac0`, raw cleanup body `0x00546b80`, and scalar deleting destructor `0x00546ed0` write `0x00621ccc`, `0x00621d18`, and `0x00621d48`. Current IDA does not wrap `0x00546b80` as a function, but raw disassembly confirms the same vtable-write cleanup pattern.
 
+## 2026-06-07 Live IDA Refresh
+
+- IDA MCP `py_eval` reconfirms the exact low-to-high `.rdata` sequence for the exact child [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md): `ParcelIconPane` RTTI/vtable bases at `0x00621bb0`, `0x00621bb4`, `0x00621bfc`, `0x00621c00`, `0x00621c2c`, and `0x00621c30`; `ParcelPane` at `0x00621c38`, `0x00621c3c`, `0x00621c8c`, `0x00621c90`, `0x00621cbc`, and `0x00621cc0`; and `FlyingParcelPane` at `0x00621cc8`, `0x00621ccc`, `0x00621d14`, `0x00621d18`, `0x00621d44`, and `0x00621d48`.
+- The same live refresh reconfirms the lifecycle store refs for every table base: `ParcelIconPane` constructor/destructor/scalar destructor write `0x00621bb4`, `0x00621c00`, and `0x00621c30`; `ParcelPane` constructor/destructor/scalar destructor write `0x00621c3c`, `0x00621c90`, and `0x00621cc0`; `FlyingParcelPane` construction, raw cleanup, and scalar destructor write `0x00621ccc`, `0x00621d18`, and `0x00621d48`.
+- The successor boundary is not a virtual slot: `0x00621d50` decodes as UTF-16 `ALERTBTN.EPF`, with xrefs from `0x00546890` and `0x00546df0`; the following parcel resources are `ALERTBTN.PAL` at `0x00621d6c`, `LETTER.EPF` at `0x00621d88`, and `LETTER.PAL` at `0x00621da0`.
+
+## Assignment Gate
+
+- Current parent score after this pass: `COMPLETION:86`, `CONFIDENCE:92`.
+- Direct source parent: [UID:0000MF][ParcelPane](by-file/ParcelPane.md), now `86/85`.
+- Exact memory evidence child: [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md), now `86/92`.
+- Assignment basis: this page is the vtable-family/slot-layout evidence for the exact `.rdata` child, and the `ParcelPane` file page is the direct source root for the three classes that cause MSVC to generate these vtables. Both this type page and the file parent clear the corrected 85/85 gate, so `AUTOGEN_PARENT_UID:0000MF` is justified. Final C++ remains blank under the 95/95 reconstruction-code gate.
+- Batch061 coverage-error repair note: generated memory coverage still reported `0001YE` as an unknown parent when the memory child pointed directly to this nested vtable page. The memory child now routes to the validator-recognized `ParcelPane` file root, while this page remains linked as canonical slot-layout evidence.
+
 ## Wave3 Data Issue
 
 Active `simroot_v2` omits several real parcel-family bodies or misreads adjacent data:
@@ -101,6 +115,14 @@ These are tracked in [wave3 data issues](../../wave3_data_issues.md).
 
 ## Changes
 
+- 2026-06-07 A010 Batch013 parent-gate update:
+  - Before: `COMPLETION:84`, `CONFIDENCE:90`, `AUTOGEN_PARENT_UID` blank.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:92`, parent still blank, plus live refresh evidence and a corrected assignment-gate note for child [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md).
+  - Summary/evidence: live IDA MCP reconfirmed all parcel notification RTTI/vtable bases, lifecycle vtable-store xrefs, raw FlyingParcelPane cleanup refs, and `0x00621d50` as `ALERTBTN.EPF` string data rather than a virtual slot. The exact memory child now has a direct parent that clears the corrected 85/85 gate, while this page remains unattached because [UID:0000MF][ParcelPane](by-file/ParcelPane.md) is `86/80`.
+- 2026-06-07 A001 Batch061 parent reroute:
+  - Before: `COMPLETION:86`, `CONFIDENCE:92`, `AUTOGEN_PARENT_UID` blank; the exact memory child used this nested vtable UID as autogen parent, but generated memory coverage reported that parent as unknown.
+  - After: `COMPLETION:86`, `CONFIDENCE:92`, `AUTOGEN_PARENT_UID:0000MF`.
+  - Summary/evidence: [UID:0000MF][ParcelPane](by-file/ParcelPane.md) was refreshed to `86/85`, giving this vtable-layout page and the exact memory child a validator-recognized source-file parent while preserving this page as the canonical slot-layout evidence.
 - 2026-06-01:
   - What existed before: this vtable-family page had strong table/slot evidence, but the validator-tracked completion/confidence header remained `0/0` and there was no exact `by-memory` child for the `0x00621bb0-0x00621d50` parcel notification vtable island.
   - Changed to: scored the page as a strong but non-final vtable inventory, marked it reconstructable, and linked [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md) as the exact address-range evidence page.

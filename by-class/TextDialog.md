@@ -1,8 +1,8 @@
 *** UID:0000EL | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OL | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -51,6 +51,9 @@ The opcode `0x3a` previous/next/current helpers at `0x0054cc30`, `0x0054ccd0`, a
 
 ## Changes
 
+- Before: reconstruction autogen metadata was unclassified.
+- Changed to: marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000OL][TextDialog](by-file/TextDialog.md).
+- Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the documented shared navigation helpers and main dialog methods at `0x0054cc30`, `0x0054ccd0`, `0x0054cd70`, `0x00552110`, `0x00553180`, and `0x005534a0`; this page and parent [UID:0000OL][TextDialog](by-file/TextDialog.md) both meet the 80/80 parent gate. No C++ was emitted because the page is below the 95/95 reconstruction-code bar.
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `86`, confidence `86`.
 - Evidence: the page documents dialog purpose, constructor/action/region packet ranges, shared navigation helper ownership, key child-control relationships, neighboring dialog callback relationship, and corrected endpoints; remaining completion gap is source-ready C++ detail and exhaustive field naming.

@@ -10,9 +10,9 @@
 - Confidence: strong for behavior and shared geometry ownership; medium-strong for final folder.
 - Proposed module: `ui/core/RectBounds.cpp`
 - Proposed header: `ui/core/RectBounds.h` or shared geometry header.
-- Current recovered sources: `source-3/simroot_v2/class_RectBounds.cpp` plus one-function recovered globals in `source-3/simroot_v2/recovered`.
+- Current source-owner state: IDA-backed RectBounds pages cover the compact class-style method cluster plus adjacent raw geometry helpers; final split between class methods and file-local helpers remains under review.
 - Main class: [UID:0000BU][RectBounds](by-class/RectBounds.md)
-- Main address docs: [UID:00022G][0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods](by-memory/0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods.md) RectBounds predicate/combination methods, [UID:00015Q][0x004b78d0-0x004b7ae8.RectBoundsMethods](by-memory/0x004b78d0-0x004b7ae8.RectBoundsMethods.md), [UID:00022H][0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md) RectBounds quarter-scale helpers, and [UID:00015S][0x004b7c30-0x004b7f87.RectGeometryHelpers](by-memory/0x004b7c30-0x004b7f87.RectGeometryHelpers.md)
+- Main address docs: [UID:00022G][0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods](by-memory/0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods.md) RectBounds predicate/combination methods, [UID:00015Q][0x004b78d0-0x004b7ae8.RectBoundsMethods](by-memory/0x004b78d0-0x004b7ae8.RectBoundsMethods.md), [UID:00022H][0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers.md) RectBounds quarter-scale helpers, and [UID:00015S][0x004b7c30-0x004b7f87.RectGeometryHelpers](by-memory/0x004b7c30-0x004b7f87.RectGeometryHelpers.md)
 
 ## File Role
 
@@ -25,12 +25,12 @@ Keep this separate from [UID:0000N3][Region](by-file/Region.md). `Region.cpp` ow
 | Entity | Address evidence | Role |
 | --- | --- | --- |
 | [UID:0000BU][RectBounds](by-class/RectBounds.md) | `0x004b7670-0x004b78c8`, `0x004b78d0`, `0x004b78f0`, [UID:00015R][0x004b7910-0x004b795e.RectBoundsInset](by-memory/0x004b7910-0x004b795e.RectBoundsInset.md), `0x004b7a00`, `0x004b7a80` | Member-style predicate, containment, intersection, union, setter, translation, inset, and clamp helpers over the four-int bounds record. |
-| [UID:00022H][0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md) RectBoundsQuarterScaleHelpers | `0x004b7af0-0x004b7c1f` | Raw helper pair that writes quarter-inset and quarter-outset rectangles into caller-provided outputs. |
+| [UID:00022H][0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers.md) RectBoundsQuarterScaleHelpers | `0x004b7af0-0x004b7c21` | Raw helper pair that writes quarter-inset and quarter-outset rectangles into caller-provided outputs. |
 | [UID:00022I][0x004b7f90-0x004b8198.RectAnchorTransformHelpers](by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md) RectAnchorTransformHelpers / [UID:00022L][0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper](by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md) RectAnchorAxisAdjustHelper | `0x004b7f90-0x004b8198`, `0x004b8290-0x004b83c5` | Raw 3x3 anchor remap and axis-adjust helpers; likely geometry/layout support, though final source ownership is still open. |
 | [UID:0001VP][RectBoundsLayout](by-type/by-struct/RectBoundsLayout.md) | four `int` fields | Shared `left, top, right, bottom` memory layout used by class and free helpers. |
 | `InitPointPair` | `0x004b7c30-0x004b7c43` | Two-int point initializer; likely same small geometry support file. |
 | `InitRectBounds` / `InitRect_4B7C70` | `0x004b7c50-0x004b7c95` | Set exact edges or set from left/top/width/height. |
-| [UID:00015T][0x004b7ca0-0x004b7cb6.RectArea](by-memory/0x004b7ca0-0x004b7cb6.RectArea.md) | `0x004b7ca0-0x004b7cb6` | Computes signed width-times-height; IDA-confirmed but not active in `simroot_v2` output. |
+| [UID:00015T][0x004b7ca0-0x004b7cb6.RectArea](by-memory/0x004b7ca0-0x004b7cb6.RectArea.md) | `0x004b7ca0-0x004b7cb6` | Computes signed width-times-height; IDA-confirmed, with final declaration owner still open. |
 | `IntersectRects`, `UnionRect_4B7D70` | `0x004b7cc0-0x004b7e03` | Free intersection/union helpers for raw rect records. |
 | `OffsetRect`, `InflateRect_4B7E30` | `0x004b7e10-0x004b7e7f` | Free translate and inset/inflate helpers. |
 | `PointInRect_4B7E80` | `0x004b7e80-0x004b7ea7` | Half-open point hit-test with arguments ordered `y, x, rect`. |
@@ -42,12 +42,12 @@ Keep this separate from [UID:0000N3][Region](by-file/Region.md). `Region.cpp` ow
 - Active metadata imports `RectBounds` from `RectBounds.cpp` and describes it as a small four-edge value object used throughout UI and rendering.
 - IDA MCP confirms class method starts and sizes: `0x004b78d0` size `0x1e`, `0x004b78f0` size `0x18`, `0x004b7a00` size `0x77`, and `0x004b7a80` size `0x68`.
 - 2026-05-28 IDA MCP resolves the earlier gap before `SetLTRB` as [UID:00022G][0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods](by-memory/0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods.md) RectBounds predicate/combination methods: modeled functions at `0x004b7670` and `0x004b76d0` plus raw function-shaped starts at `0x004b7690`, `0x004b7700`, `0x004b7780`, and `0x004b7830`.
-- 2026-05-28 IDA MCP/raw disassembly resolves the gap before free geometry helpers as [UID:00022H][0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md) RectBounds quarter-scale helpers at `0x004b7af0-0x004b7c1f`; no direct code or pointer xrefs were found.
+- 2026-05-28 IDA MCP/raw disassembly resolves the gap before free geometry helpers as [UID:00022H][0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers.md) RectBounds quarter-scale helpers; 2026-06-06 IDA MCP corrected the end to `0x004b7c21` so both `retn 4` operands remain inside the helper bodies. No direct code or pointer xrefs were found.
 - 2026-05-28 IDA MCP/raw disassembly resolves raw rect-anchor transform helpers at [UID:00022I][0x004b7f90-0x004b8198.RectAnchorTransformHelpers](by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md) and [UID:00022L][0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper](by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md). They use 3x3 anchor index remapping and direct calls from the transform cluster to the axis-adjust helper.
 - IDA MCP also confirms an omitted class-shaped helper at `0x004b7910` size `0x4e`; the body insets/shrinks the rectangle and clamps inverted axes to their midpoint.
 - IDA caller output shows broad fan-in: `SetLTRB` is truncated after 10 entries with 184 more callers, `Offset` with 157 more, `InitRectBounds` with 1560 more, and `PointInRect` with 227 more.
 - 2026-05-26 IDA MCP recheck confirms the same helper family and still reports `0x004b7f90` as not a function, keeping the geometry helper island bounded at `0x004b7f87`.
-- Current `simroot_v2` still omits both `0x004b7910` and [UID:00015T][0x004b7ca0-0x004b7cb6.RectArea](by-memory/0x004b7ca0-0x004b7cb6.RectArea.md); no `recovered/*4B7910*.cpp` or `recovered/*4B7CA0*.cpp` file is present.
+- IDA-backed memory docs keep both `0x004b7910` and [UID:00015T][0x004b7ca0-0x004b7cb6.RectArea](by-memory/0x004b7ca0-0x004b7cb6.RectArea.md) visible as separate exact helper pages while final declaration ownership is unresolved.
 - `UnionWith` caller evidence includes transfer-server/layout accumulation paths; `ClampWithin` caller evidence is narrow and currently tied to world-map visible-rectangle clamping.
 - 2026-05-25 IDA MCP confirms the related [UID:00016H][0x004bb2e0-0x004bb5a5.LineClipHelpers](by-memory/0x004bb2e0-0x004bb5a5.LineClipHelpers.md) island calls `PointInRect_4B7E80` and is called only by the compatibility/RGB565 software line callbacks.
 
@@ -76,7 +76,7 @@ Keep [UID:00016H][0x004bb2e0-0x004bb5a5.LineClipHelpers](by-memory/0x004bb2e0-0x
 - [UID:0000BU][RectBounds](by-class/RectBounds.md)
 - [UID:00022G][0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods](by-memory/0x004b7670-0x004b78c8.RectBoundsPredicateAndCombinationMethods.md) RectBoundsPredicateAndCombinationMethods
 - [UID:00015Q][0x004b78d0-0x004b7ae8.RectBoundsMethods](by-memory/0x004b78d0-0x004b7ae8.RectBoundsMethods.md)
-- [UID:00022H][0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c1f.RectBoundsQuarterScaleHelpers.md) RectBoundsQuarterScaleHelpers
+- [UID:00022H][0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers](by-memory/0x004b7af0-0x004b7c21.RectBoundsQuarterScaleHelpers.md) RectBoundsQuarterScaleHelpers
 - [UID:00022I][0x004b7f90-0x004b8198.RectAnchorTransformHelpers](by-memory/0x004b7f90-0x004b8198.RectAnchorTransformHelpers.md) RectAnchorTransformHelpers
 - [UID:00022L][0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper](by-memory/0x004b8290-0x004b83c5.RectAnchorAxisAdjustHelper.md) RectAnchorAxisAdjustHelper
 - [UID:00015S][0x004b7c30-0x004b7f87.RectGeometryHelpers](by-memory/0x004b7c30-0x004b7f87.RectGeometryHelpers.md)

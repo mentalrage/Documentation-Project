@@ -2,7 +2,7 @@
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000MN | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -42,6 +42,11 @@ IDA confirms the inline label buffer begins at byte offset `+0x18` and is copied
 - Constructor xrefs come from several dialog/menu creation paths, making this reusable infrastructure rather than one feature's private item class.
 - 2026-05-26 IDA MCP resolves the decorated `StringMenuItem` vtable symbol to `0x0061ebb4`; generated metadata still reports `vtable_count: 0`.
 - Vtable data xrefs place `GetItemSize`, `GetText`, and `DrawItem` at slots `+0x0c`, `+0x10`, and `+0x14`.
+- 2026-06-07 A010 Batch096 parent-gate review confirms this class already clears the corrected child gate at `88/90`. Associated parent work raised [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md) to `86/85` by synchronizing the newer menu aggregate/type evidence and proposed-source-tree ownership.
+
+## Assignment Gate
+
+`AUTOGEN_PARENT_UID` is set to [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md). The child remains `88/90`, the direct source-file parent is now `86/85`, and by-structure ownership is direct: `StringMenuItem` is a reusable concrete menu item in the popup-menu/menu-item source family.
 
 ## Cross-References
 
@@ -53,6 +58,10 @@ IDA confirms the inline label buffer begins at byte offset `+0x18` and is copied
 
 ## Changes
 
+- 2026-06-07 A010 Batch096 class coverage toss-up:
+  - Before: score `88/90`, `AUTOGEN_PARENT_UID` blank because the likely direct parent was below the corrected gate.
+  - After: score remains `88/90`, `AUTOGEN_PARENT_UID:0000MN`.
+  - Evidence: exact constructor/copy/measure/get-text/draw/destructor child pages, inline label-layout evidence, and vtable slot refs already cleared the child gate; associated parent work raised [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md) to `86/85`, satisfying the strict child-and-parent gate.
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `88`, confidence `90`.
 - Evidence: the page documents the menu-item role, buffer offset/capacity, exact method map, reusable caller evidence, vtable symbol, and slot refs; remaining completion gap is source-ready C++ detail.

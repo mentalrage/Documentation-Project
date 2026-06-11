@@ -1,8 +1,8 @@
 *** UID:0000UH | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -13,8 +13,9 @@
 ## Status
 
 - Confidence: strong for boundary, behavior, and shared alpha-mask owner family; medium for final source-facing name.
-- Entity kind: free render helper, not currently emitted by Wave3 as a recovered source file.
+- Entity kind: free render helper.
 - Likely source module: [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md)
+- Autogen parent: [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md)
 - Exact range: [UID:0000YO][0x00462f20-0x00463252.DrawEncodedAlphaFrame](by-memory/0x00462f20-0x00463252.DrawEncodedAlphaFrame.md)
 
 ## Behavior
@@ -68,5 +69,10 @@ The source form should keep the three blend modes visible: replace/fill, add, an
 - [UID:0000LR][NewHumanImageLib](by-file/NewHumanImageLib.md)
 
 ## Changes
+
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE`, attached to [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md), and stale generated-emission wording was removed.
+  - Before: the encoded alpha-frame blitter was documented but unclassified in autogen coverage.
+  - After: it is marked as NexusTK-owned alpha-mask blitter source under the validated AlphaMaskSurface file root; C++ remains blank because final frame-source type names and mode naming are not at the 95/95 final-code bar.
+  - Evidence: live IDA MCP confirms `sub_462F20` at `0x00462f20`, size `0x332`, with alpha-surface/rectangle callees and the already documented image-library caller spread.
 
 - 2026-05-30: Raised completion/confidence from `0/0` to `84/88` and replaced the stale raw range text with the canonical by-memory UID link. Added current IDA MCP boundary/caller/xref/decompilation evidence and preserved the open frame-source type/raw-xref caveats.

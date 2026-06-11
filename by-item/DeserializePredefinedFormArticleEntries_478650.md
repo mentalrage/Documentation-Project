@@ -1,8 +1,8 @@
 *** UID:0000UE | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,9 +14,8 @@
 
 - Confidence: strong
 - Entity kind: global/file-local helper
-- Current Wave3 form: recovered global function
-- Current recovered file: `source-3/simroot_v2/recovered/DeserializePredefinedFormArticleEntries_00478650.cpp`
 - Likely source module: [UID:0000LT][NewPredefinedFormArticleDialog](by-file/NewPredefinedFormArticleDialog.md)
+- Autogen parent: [UID:0000LT][NewPredefinedFormArticleDialog](by-file/NewPredefinedFormArticleDialog.md)
 - Exact range: `0x00478650-0x00478932`
 
 ## Behavior
@@ -55,6 +54,11 @@ This caller set strongly supports treating the helper as file-local to the prede
 - [UID:0000ZL][0x004777a0-0x00478f8e.NewPredefinedFormArticleDialog](by-memory/0x004777a0-0x00478f8e.NewPredefinedFormArticleDialog.md)
 
 ## Changes
+
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE`, attached to [UID:0000LT][NewPredefinedFormArticleDialog](by-file/NewPredefinedFormArticleDialog.md), and stale generated-source wording was removed.
+  - Before: the predefined-form parser helper was documented but unclassified in autogen coverage.
+  - After: it is marked as NexusTK-owned file-local dialog source under the validated NewPredefinedFormArticleDialog file root; C++ remains blank because final entry type names and string conversion details are not at the 95/95 final-code bar.
+  - Evidence: live IDA MCP confirms `sub_478650` at `0x00478650`, size `0x2e3`, with exactly two direct caller sites inside `sub_4777A0`, matching the documented constructor-only parser role.
 
 - 2026-05-30: Grading changed from `0/0` to `84/88`.
   - Before: page documented predefined article payload parsing behavior, input/output model, algorithm summary, and xref evidence but remained unevaluated.

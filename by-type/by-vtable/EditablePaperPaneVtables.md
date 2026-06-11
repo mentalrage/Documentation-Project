@@ -1,8 +1,8 @@
 *** UID:0001XF | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:000048 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Covered source owner: [UID:0000IX][EditablePaperPane](by-file/EditablePaperPane.md)
 - Covered class: [UID:000048][EditablePaperPane](by-class/EditablePaperPane.md)
 - Exact memory data: [UID:0002NC][0x00621afc-0x00621b98.EditablePaperPaneVtableData](by-memory/0x00621afc-0x00621b98.EditablePaperPaneVtableData.md)
+- Autogen status: attached under [UID:000048][EditablePaperPane](by-class/EditablePaperPane.md); final C++ remains blank under the `95/95` gate.
 - Confidence: strong for table bases, constructor stores, callback slots, adjustor thunks, and short tertiary-table extent.
 - Verification: IDA MCP `list_globals`, `lookup_funcs`, `xrefs_to`, `strings`, and `py_eval` checks on 2026-05-31.
 
@@ -63,6 +64,10 @@ Unlike [UID:0001YD][PanelPaneVtables](by-type/by-vtable/PanelPaneVtables.md), ID
 
 Disabled `class_EditablePaperPane.cpp` marks `0x00545ddd` as missing code and emits `0x00545de8` with a nonsensical adjusted-this expression. IDA recognizes both as ordinary 11-byte adjustor thunks. The same disabled file also emits an `EditablePaperPane` row at `0x0045004e`, but IDA places that address inside [UID:0000XJ][0x00450030-0x0045007b.LodePngLowerBoundHelper](by-memory/0x00450030-0x0045007b.LodePngLowerBoundHelper.md); the vtable dump shows how `0x0045004e` appears immediately after the short tertiary table as adjacent string/data, not as a real paper-pane slot.
 
+## Parent Rationale
+
+Attach this vtable cluster to [UID:000048][EditablePaperPane](by-class/EditablePaperPane.md). The three table bases all belong to the single `EditablePaperPane` class, the class page already clears the `80/80` attachment gate and is attached to [UID:0000IX][EditablePaperPane](by-file/EditablePaperPane.md), and the adjacent `LINE001.EPD` bytes are documented as boundary data rather than additional virtual slots.
+
 ## Cross References
 
 - [UID:0002NC][0x00621afc-0x00621b98.EditablePaperPaneVtableData](by-memory/0x00621afc-0x00621b98.EditablePaperPaneVtableData.md)
@@ -75,6 +80,10 @@ Disabled `class_EditablePaperPane.cpp` marks `0x00545ddd` as missing code and em
 
 ## Changes
 
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable page had strong single-class evidence and an exact memory child, but no autogen parent.
+  - Changed to: `COMPLETION:86` and `AUTOGEN_PARENT_UID:000048`, with an explicit class-parent rationale.
+  - Summary/evidence: all three vtable views are `EditablePaperPane` views, [UID:000048][EditablePaperPane](by-class/EditablePaperPane.md) clears the attachment gate, and the documented `0x00621b98` boundary prevents adjacent `LINE001.EPD` data from being mistaken for extra class ownership.
 - 2026-05-31:
   - What existed before: metadata was unevaluated at `0/0`, and the vtable inventory did not have an exact by-memory child page.
   - Changed to: `COMPLETION:84`, `CONFIDENCE:90`, `RECONSTRUCTABLE:TRUE`, and exact memory child [UID:0002NC][0x00621afc-0x00621b98.EditablePaperPaneVtableData](by-memory/0x00621afc-0x00621b98.EditablePaperPaneVtableData.md).

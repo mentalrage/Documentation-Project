@@ -3,24 +3,47 @@
 # ag-item-coverage
 
 Total_Type: 64
-Total_Reconstructable: 32
-Total_Not_Reconstructable: 3
-Total_Reconstructed_Assigned: 30
+Total_Reconstructable: 57
+Total_Not_Reconstructable: 7
+Total_Reconstructed_Assigned: 53
 Total_Reconstructed_Coded: 0
-Total_Reconstructable_Unassigned: 2
-Total_Unclassified: 29
+Total_Reconstructable_Unassigned: 4
+Total_Unclassified: 0
 Total_Error: 0
 
 | UID | Status | Parent | Position | Code | Destination | Path | Detail |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
+| [UID:0000TU][AILFileOpenCallback_0057B630](by-item/AILFileOpenCallback_0057B630.md) | assigned | `0000NV` |  | no | `auto-generated/NexusTK/audio/SoundManager.cpp` | `by-item/AILFileOpenCallback_0057B630.md` |  |
 | [UID:0000TW][AlphaBlendSpan16Blocks_00460B00](by-item/AlphaBlendSpan16Blocks_00460B00.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-item/AlphaBlendSpan16Blocks_00460B00.md` |  |
+| [UID:0000TV][AlphaBlendSpan16_00460500](by-item/AlphaBlendSpan16_00460500.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-item/AlphaBlendSpan16_00460500.md` |  |
+| [UID:0000TX][AlphaSurfaceReleaseOwnedPixels_00462260](by-item/AlphaSurfaceReleaseOwnedPixels_00462260.md) | assigned | `0000K8` |  | no | `auto-generated/NexusTK/render/IntAlphaSurface.cpp` | `by-item/AlphaSurfaceReleaseOwnedPixels_00462260.md` |  |
 | [UID:0000TY][ArgumentedItemPurchaseHelpers_51f450_51f640](by-item/ArgumentedItemPurchaseHelpers_51f450_51f640.md) | assigned | `0000HH` | 5 | no | `auto-generated/NexusTK/ui/dialogs/ArgumentedItemInputDialogs.cpp` | `by-item/ArgumentedItemPurchaseHelpers_51f450_51f640.md` |  |
+| [UID:0000TZ][BlendRgb555_004C0710](by-item/BlendRgb555_004C0710.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-item/BlendRgb555_004C0710.md` |  |
+| [UID:0000U0][BlendRgb565Pair_004C60D0](by-item/BlendRgb565Pair_004C60D0.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-item/BlendRgb565Pair_004C60D0.md` |  |
+| [UID:0000U1][BlendRgb565Pixel_004C6050](by-item/BlendRgb565Pixel_004C6050.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-item/BlendRgb565Pixel_004C6050.md` |  |
+| [UID:0000U3][BuildClippedAlphaSurfaceView_00462320](by-item/BuildClippedAlphaSurfaceView_00462320.md) | assigned | `0000HF` |  | no | `auto-generated/NexusTK/render/AlphaMaskSurface.cpp` | `by-item/BuildClippedAlphaSurfaceView_00462320.md` |  |
+| [UID:0000U4][BuildEffectArchiveTable_004DE420](by-item/BuildEffectArchiveTable_004DE420.md) | assigned | `0000IY` |  | no | `auto-generated/NexusTK/render/EffectObjImageLib.cpp` | `by-item/BuildEffectArchiveTable_004DE420.md` |  |
+| [UID:0000U6][BuildTilecArchiveTable_004DDA60](by-item/BuildTilecArchiveTable_004DDA60.md) | assigned | `0000O7` |  | no | `auto-generated/NexusTK/render/StaticObjImageLib.cpp` | `by-item/BuildTilecArchiveTable_004DDA60.md` |  |
+| [UID:0000U7][CheckBoxControlPaneStateTypeHelper_00499EC0](by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md) | assigned | `0000I7` |  | no | `auto-generated/NexusTK/ui/controls/CheckBoxControlPane.cpp` | `by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md` |  |
+| [UID:0000U8][CheckTimerSkewAndSendHeartbeat_466CA0](by-item/CheckTimerSkewAndSendHeartbeat_466CA0.md) | assigned | `0000HG` |  | no | `auto-generated/NexusTK/app/Application.cpp` | `by-item/CheckTimerSkewAndSendHeartbeat_466CA0.md` |  |
+| [UID:0000U9][CreateDIBitmapFromPcxBuffer_004A18B0](by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md) | assigned | `0000K3` |  | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md` |  |
+| [UID:0000UA][CurlWriteCallback_00581B80](by-item/CurlWriteCallback_00581B80.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-item/CurlWriteCallback_00581B80.md` |  |
+| [UID:0000UC][DATEntryRecord](by-item/DATEntryRecord.md) | assigned | `0000IN` |  | no | `auto-generated/NexusTK/archive/DATFile.cpp` | `by-item/DATEntryRecord.md` |  |
+| [UID:0000UD][DecodePcxToRgb565Buffer_00549410](by-item/DecodePcxToRgb565Buffer_00549410.md) | assigned | `0000K3` |  | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-item/DecodePcxToRgb565Buffer_00549410.md` |  |
+| [UID:0000UE][DeserializePredefinedFormArticleEntries_478650](by-item/DeserializePredefinedFormArticleEntries_478650.md) | assigned | `0000LT` |  | no | `auto-generated/NexusTK/ui/dialogs/NewPredefinedFormArticleDialog.cpp` | `by-item/DeserializePredefinedFormArticleEntries_478650.md` |  |
+| [UID:0000UH][DrawEncodedAlphaFrame_00462F20](by-item/DrawEncodedAlphaFrame_00462F20.md) | assigned | `0000HF` |  | no | `auto-generated/NexusTK/render/AlphaMaskSurface.cpp` | `by-item/DrawEncodedAlphaFrame_00462F20.md` |  |
+| [UID:0000UI][DrawFrameWithBlendMode_00462E10](by-item/DrawFrameWithBlendMode_00462E10.md) | assigned | `0000HF` |  | no | `auto-generated/NexusTK/render/AlphaMaskSurface.cpp` | `by-item/DrawFrameWithBlendMode_00462E10.md` |  |
 | [UID:0000UK][DrawTextRunCallback_00593DB0](by-item/DrawTextRunCallback_00593DB0.md) | assigned | `0000ON` |  | no | `auto-generated/NexusTK/ui/controls/TextEditPane.cpp` | `by-item/DrawTextRunCallback_00593DB0.md` |  |
+| [UID:0000UN][EPFArchiveMetadataTable](by-item/EPFArchiveMetadataTable.md) | assigned | `0000K1` |  | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-item/EPFArchiveMetadataTable.md` |  |
 | [UID:0000UL][EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0](by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md) | assigned | `0000J0` |  | no | `auto-generated/NexusTK/ui/dialogs/EmployeeDialogPane.cpp` | `by-item/EmployeeDialogPacketAndRecordHelpers_4a2450_4a3be0.md` |  |
+| [UID:0000UM][EncodeTextEditState_0058E490](by-item/EncodeTextEditState_0058E490.md) | assigned | `0000ON` |  | no | `auto-generated/NexusTK/ui/controls/TextEditPane.cpp` | `by-item/EncodeTextEditState_0058E490.md` |  |
+| [UID:0000UQ][GetItemGlyphBounds_004DF460](by-item/GetItemGlyphBounds_004DF460.md) | assigned | `0000KH` |  | no | `auto-generated/NexusTK/render/ItemObjImageLib.cpp` | `by-item/GetItemGlyphBounds_004DF460.md` |  |
+| [UID:0000UR][GetSpriteBounds_004DE2A0](by-item/GetSpriteBounds_004DE2A0.md) | assigned | `0000IY` |  | no | `auto-generated/NexusTK/render/EffectObjImageLib.cpp` | `by-item/GetSpriteBounds_004DE2A0.md` |  |
 | [UID:0000US][HalfBlendSpan16Blocks_00460C10](by-item/HalfBlendSpan16Blocks_00460C10.md) | assigned | `0000NT` |  | no | `auto-generated/NexusTK/render/SoftwareBlend16.cpp` | `by-item/HalfBlendSpan16Blocks_00460C10.md` |  |
 | [UID:0000UT][HasDATEntry_0049C700](by-item/HasDATEntry_0049C700.md) | assigned | `0000IO` |  | no | `auto-generated/NexusTK/archive/DATFileMgr.cpp` | `by-item/HasDATEntry_0049C700.md` |  |
 | [UID:0000UV][InitializeMainUiGraph_004F7D10](by-item/InitializeMainUiGraph_004F7D10.md) | assigned | `0000L1` |  | no | `auto-generated/NexusTK/ui/MainUiGraph.cpp` | `by-item/InitializeMainUiGraph_004F7D10.md` |  |
 | [UID:0000UW][LoadDatFileBuffer_004BB120](by-item/LoadDatFileBuffer_004BB120.md) | assigned | `0000IN` |  | no | `auto-generated/NexusTK/archive/DATFile.cpp` | `by-item/LoadDatFileBuffer_004BB120.md` |  |
+| [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) | assigned | `0000K1` |  | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-item/LoadFrameDrawRecord_004D1600.md` |  |
 | [UID:0000UY][LoadImageFrameTable_004D0F50](by-item/LoadImageFrameTable_004D0F50.md) | assigned | `0000K1` |  | no | `auto-generated/NexusTK/render/ImageFrameTable.cpp` | `by-item/LoadImageFrameTable_004D0F50.md` |  |
 | [UID:0000UZ][LoadPcxImage_004A17B0](by-item/LoadPcxImage_004A17B0.md) | assigned | `0000K3` |  | no | `auto-generated/NexusTK/render/ImageLoaders.cpp` | `by-item/LoadPcxImage_004A17B0.md` |  |
 | [UID:0000V0][LoadTileEpfMetadata_004D1B80](by-item/LoadTileEpfMetadata_004D1B80.md) | assigned | `0000L5` |  | no | `auto-generated/NexusTK/render/MapTileImageLib.cpp` | `by-item/LoadTileEpfMetadata_004D1B80.md` |  |
@@ -43,37 +66,14 @@ Total_Error: 0
 | [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md) | assigned | `0000O5` |  | no | `auto-generated/NexusTK/app/StartupWindow.cpp` | `by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md` |  |
 | [UID:0000VJ][TransferServerDialogPaneThunks_599220_5993e0](by-item/TransferServerDialogPaneThunks_599220_5993e0.md) | assigned | `0000OW` |  | no | `auto-generated/NexusTK/ui/dialogs/TransferServerDialogPane.cpp` | `by-item/TransferServerDialogPaneThunks_599220_5993e0.md` |  |
 | [UID:0000VK][VectorGrowArchiveIndex_004E5990](by-item/VectorGrowArchiveIndex_004E5990.md) | assigned | `0000LJ` |  | no | `auto-generated/NexusTK/render/MonsterImageLib.cpp` | `by-item/VectorGrowArchiveIndex_004E5990.md` |  |
+| [UID:0000TT][AddEmployeeItemDialogInlineConstruction_004A339F](by-item/AddEmployeeItemDialogInlineConstruction_004A339F.md) | not_reconstructable |  |  | no |  | `by-item/AddEmployeeItemDialogInlineConstruction_004A339F.md` |  |
 | [UID:0000U5][BuildFramePartPanes_004B7120](by-item/BuildFramePartPanes_004B7120.md) | not_reconstructable |  |  | no |  | `by-item/BuildFramePartPanes_004B7120.md` |  |
+| [UID:0000UB][DATAudioResources](by-item/DATAudioResources.md) | not_reconstructable |  |  | no |  | `by-item/DATAudioResources.md` |  |
+| [UID:0000UO][FolderTreePaneOwnerPollution_47f280_58a8e0](by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md) | not_reconstructable |  |  | no |  | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |  |
+| [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md) | not_reconstructable |  |  | no |  | `by-item/FriendNameListSyncOpcodes.md` |  |
 | [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md) | not_reconstructable |  |  | no |  | `by-item/InitAlphaSurfaceView_004623C0.md` |  |
 | [UID:0000VD][ScopedMarkerMissingMethodBodies](by-item/ScopedMarkerMissingMethodBodies.md) | not_reconstructable |  |  | no |  | `by-item/ScopedMarkerMissingMethodBodies.md` |  |
+| [UID:0000U2][BuildAboveFrameBorder_00461310](by-item/BuildAboveFrameBorder_00461310.md) | unassigned |  |  | no |  | `by-item/BuildAboveFrameBorder_00461310.md` |  |
+| [UID:0000UF][DestroyDATFileMgr_467380](by-item/DestroyDATFileMgr_467380.md) | unassigned |  |  | no |  | `by-item/DestroyDATFileMgr_467380.md` |  |
+| [UID:0000UG][DestroyExceptionHandler_4673A0](by-item/DestroyExceptionHandler_4673A0.md) | unassigned |  |  | no |  | `by-item/DestroyExceptionHandler_4673A0.md` |  |
 | [UID:0000UJ][DrawTextInRect_004BAD70](by-item/DrawTextInRect_004BAD70.md) | unassigned |  |  | no |  | `by-item/DrawTextInRect_004BAD70.md` |  |
-| [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md) | unassigned |  |  | no |  | `by-item/LoadFrameDrawRecord_004D1600.md` |  |
-| [UID:0000TU][AILFileOpenCallback_0057B630](by-item/AILFileOpenCallback_0057B630.md) | unclassified |  |  | no |  | `by-item/AILFileOpenCallback_0057B630.md` |  |
-| [UID:0000TT][AddEmployeeItemDialogInlineConstruction_004A339F](by-item/AddEmployeeItemDialogInlineConstruction_004A339F.md) | unclassified |  |  | no |  | `by-item/AddEmployeeItemDialogInlineConstruction_004A339F.md` |  |
-| [UID:0000TV][AlphaBlendSpan16_00460500](by-item/AlphaBlendSpan16_00460500.md) | unclassified |  |  | no |  | `by-item/AlphaBlendSpan16_00460500.md` |  |
-| [UID:0000TX][AlphaSurfaceReleaseOwnedPixels_00462260](by-item/AlphaSurfaceReleaseOwnedPixels_00462260.md) | unclassified |  |  | no |  | `by-item/AlphaSurfaceReleaseOwnedPixels_00462260.md` |  |
-| [UID:0000TZ][BlendRgb555_004C0710](by-item/BlendRgb555_004C0710.md) | unclassified |  |  | no |  | `by-item/BlendRgb555_004C0710.md` |  |
-| [UID:0000U0][BlendRgb565Pair_004C60D0](by-item/BlendRgb565Pair_004C60D0.md) | unclassified |  |  | no |  | `by-item/BlendRgb565Pair_004C60D0.md` |  |
-| [UID:0000U1][BlendRgb565Pixel_004C6050](by-item/BlendRgb565Pixel_004C6050.md) | unclassified |  |  | no |  | `by-item/BlendRgb565Pixel_004C6050.md` |  |
-| [UID:0000U2][BuildAboveFrameBorder_00461310](by-item/BuildAboveFrameBorder_00461310.md) | unclassified |  |  | no |  | `by-item/BuildAboveFrameBorder_00461310.md` |  |
-| [UID:0000U3][BuildClippedAlphaSurfaceView_00462320](by-item/BuildClippedAlphaSurfaceView_00462320.md) | unclassified |  |  | no |  | `by-item/BuildClippedAlphaSurfaceView_00462320.md` |  |
-| [UID:0000U4][BuildEffectArchiveTable_004DE420](by-item/BuildEffectArchiveTable_004DE420.md) | unclassified |  |  | no |  | `by-item/BuildEffectArchiveTable_004DE420.md` |  |
-| [UID:0000U6][BuildTilecArchiveTable_004DDA60](by-item/BuildTilecArchiveTable_004DDA60.md) | unclassified |  |  | no |  | `by-item/BuildTilecArchiveTable_004DDA60.md` |  |
-| [UID:0000U7][CheckBoxControlPaneStateTypeHelper_00499EC0](by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md) | unclassified |  |  | no |  | `by-item/CheckBoxControlPaneStateTypeHelper_00499EC0.md` |  |
-| [UID:0000U8][CheckTimerSkewAndSendHeartbeat_466CA0](by-item/CheckTimerSkewAndSendHeartbeat_466CA0.md) | unclassified |  |  | no |  | `by-item/CheckTimerSkewAndSendHeartbeat_466CA0.md` |  |
-| [UID:0000U9][CreateDIBitmapFromPcxBuffer_004A18B0](by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md) | unclassified |  |  | no |  | `by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md` |  |
-| [UID:0000UA][CurlWriteCallback_00581B80](by-item/CurlWriteCallback_00581B80.md) | unclassified |  |  | no |  | `by-item/CurlWriteCallback_00581B80.md` |  |
-| [UID:0000UB][DATAudioResources](by-item/DATAudioResources.md) | unclassified |  |  | no |  | `by-item/DATAudioResources.md` |  |
-| [UID:0000UC][DATEntryRecord](by-item/DATEntryRecord.md) | unclassified |  |  | no |  | `by-item/DATEntryRecord.md` |  |
-| [UID:0000UD][DecodePcxToRgb565Buffer_00549410](by-item/DecodePcxToRgb565Buffer_00549410.md) | unclassified |  |  | no |  | `by-item/DecodePcxToRgb565Buffer_00549410.md` |  |
-| [UID:0000UE][DeserializePredefinedFormArticleEntries_478650](by-item/DeserializePredefinedFormArticleEntries_478650.md) | unclassified |  |  | no |  | `by-item/DeserializePredefinedFormArticleEntries_478650.md` |  |
-| [UID:0000UF][DestroyDATFileMgr_467380](by-item/DestroyDATFileMgr_467380.md) | unclassified |  |  | no |  | `by-item/DestroyDATFileMgr_467380.md` |  |
-| [UID:0000UG][DestroyExceptionHandler_4673A0](by-item/DestroyExceptionHandler_4673A0.md) | unclassified |  |  | no |  | `by-item/DestroyExceptionHandler_4673A0.md` |  |
-| [UID:0000UH][DrawEncodedAlphaFrame_00462F20](by-item/DrawEncodedAlphaFrame_00462F20.md) | unclassified |  |  | no |  | `by-item/DrawEncodedAlphaFrame_00462F20.md` |  |
-| [UID:0000UI][DrawFrameWithBlendMode_00462E10](by-item/DrawFrameWithBlendMode_00462E10.md) | unclassified |  |  | no |  | `by-item/DrawFrameWithBlendMode_00462E10.md` |  |
-| [UID:0000UN][EPFArchiveMetadataTable](by-item/EPFArchiveMetadataTable.md) | unclassified |  |  | no |  | `by-item/EPFArchiveMetadataTable.md` |  |
-| [UID:0000UM][EncodeTextEditState_0058E490](by-item/EncodeTextEditState_0058E490.md) | unclassified |  |  | no |  | `by-item/EncodeTextEditState_0058E490.md` |  |
-| [UID:0000UO][FolderTreePaneOwnerPollution_47f280_58a8e0](by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md) | unclassified |  |  | no |  | `by-item/FolderTreePaneOwnerPollution_47f280_58a8e0.md` |  |
-| [UID:0000UP][FriendNameListSyncOpcodes](by-item/FriendNameListSyncOpcodes.md) | unclassified |  |  | no |  | `by-item/FriendNameListSyncOpcodes.md` |  |
-| [UID:0000UQ][GetItemGlyphBounds_004DF460](by-item/GetItemGlyphBounds_004DF460.md) | unclassified |  |  | no |  | `by-item/GetItemGlyphBounds_004DF460.md` |  |
-| [UID:0000UR][GetSpriteBounds_004DE2A0](by-item/GetSpriteBounds_004DE2A0.md) | unclassified |  |  | no |  | `by-item/GetSpriteBounds_004DE2A0.md` |  |

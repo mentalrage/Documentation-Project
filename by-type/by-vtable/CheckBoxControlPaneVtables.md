@@ -1,8 +1,8 @@
 *** UID:0001X8 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:000021 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,8 +15,10 @@
 - Entity kind: vtable layout
 - Addresses: `0x006184d8`, `0x00618540`, `0x00618570`
 - Exact vtable-data range: [UID:0002M9][0x006184d8-0x00618578.CheckBoxControlPaneVtableData](by-memory/0x006184d8-0x00618578.CheckBoxControlPaneVtableData.md)
-- Proposed owner: [UID:0001TX][CheckBoxControlPaneLayout](by-type/by-struct/CheckBoxControlPaneLayout.md)
+- Covered class: [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md)
+- Related layout owner: [UID:0001TX][CheckBoxControlPaneLayout](by-type/by-struct/CheckBoxControlPaneLayout.md)
 - Confidence: strong for installed vtable pointers, adjustor thunks, and the omitted `0x00499ec0` virtual slot; medium for inherited slot names.
+- Autogen status: attached to the `CheckBoxControlPane` class page; final C++ remains blank under the `95/95` reconstruction gate.
 - Evidence basis: IDA MCP disassembly/xref/decompile checks on 2026-05-25 plus active `simroot_v2` metadata.
 
 ## Constructor Writes
@@ -65,6 +67,10 @@ The IDA disassembly continues into adjacent class vtables after these RTTI recor
 - Current active `class_CheckBoxControlPane.cpp` omits the primary virtual helper at `0x00499ec0`.
 - Current disabled output omits the `0x0049af27` body and emits only the `0x0049af32` thunk body. Both are exact [UID:00011Z][0x0049af27-0x0049af3d.CheckBoxControlPaneAdjustorThunks](by-memory/0x0049af27-0x0049af3d.CheckBoxControlPaneAdjustorThunks.md) and should remain ignored compiler glue.
 
+## Parent Rationale
+
+Attach this vtable cluster to [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md) because the three tables are the class's primary, secondary, and tertiary virtual views installed by the checkbox constructor and restored by the scalar deleting destructor. The class page is already reconstructable, attached to [UID:0000I7][CheckBoxControlPane](by-file/CheckBoxControlPane.md), and records the same exact core memory, vtable-data child, omitted `0x00499ec0` helper, caller/resource evidence, and final source-split caveat. Keep [UID:0001TX][CheckBoxControlPaneLayout](by-type/by-struct/CheckBoxControlPaneLayout.md) as the layout/type companion rather than the autogen parent because the vtable cluster belongs to the concrete class virtual surface.
+
 ## Cross-References
 
 - [UID:0001TX][CheckBoxControlPaneLayout](by-type/by-struct/CheckBoxControlPaneLayout.md)
@@ -77,6 +83,11 @@ The IDA disassembly continues into adjacent class vtables after these RTTI recor
 - [UID:00011Y][0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors](by-memory/0x0049af11-0x0049b8d5.ButtonChoiceControlDestructors.md)
 
 ## Changes
+
+- 2026-06-07 parent attachment update:
+  - What existed before: the vtable cluster was reconstructable but unassigned in generated type coverage, and the status used the layout page as the proposed owner.
+  - What changed: attached the vtable cluster to [UID:000021][CheckBoxControlPane](by-class/CheckBoxControlPane.md), raised completion to `86`, and clarified that [UID:0001TX][CheckBoxControlPaneLayout](by-type/by-struct/CheckBoxControlPaneLayout.md) is the related layout companion rather than the autogen parent.
+  - Summary/evidence: constructor stores at `0x00499d5d`, `0x00499d66`, and `0x00499d70`, destructor restores at `0x0049b116`, `0x0049b11c`, and `0x0049b126`, exact [UID:0002M9][0x006184d8-0x00618578.CheckBoxControlPaneVtableData](by-memory/0x006184d8-0x00618578.CheckBoxControlPaneVtableData.md), and the class page's `86/91` score support the parent assignment; final source-file grouping remains open between the split candidate and broader button-control family.
 
 - 2026-05-31: Grading changed from `0/0` to `84/91`, and `RECONSTRUCTABLE` was set to `TRUE`.
   - Before: the vtable page had useful slot notes but remained unevaluated and did not point to an exact by-memory data slice.

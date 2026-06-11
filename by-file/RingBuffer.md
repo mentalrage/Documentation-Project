@@ -1,6 +1,6 @@
 *** UID:0000N8 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/util/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # RingBuffer
@@ -9,7 +9,7 @@
 
 - Proposed module: `util/RingBuffer.cpp`
 - Proposed header: `util/RingBuffer.h`
-- Confidence: strong for utility ownership and current `util/` grouping, medium for whether the original project kept `RingBufferIterator` as a public companion class or a private local helper.
+- Confidence: strong for utility ownership, current `util/` grouping, and ownership of the compiler-emitted RingBuffer/RingBufferIterator vtable data; medium for whether the original project exposed `RingBufferIterator` publicly or kept it as a private local helper.
 - Current recovered source: `source-3/simroot_v2/util/RingBuffer.cpp`
 
 ## File Role
@@ -17,6 +17,10 @@
 `RingBuffer.cpp` owns the blocking fixed-size ring buffer used by [UID:0000OR][Thread](by-file/Thread.md) for message queues. It combines raw element storage with [UID:0000LI][Monitor](by-file/Monitor.md) and [UID:00008M][MonitorCondition](by-class/MonitorCondition.md) to provide producer/consumer enqueue and dequeue operations.
 
 It is a synchronization-aware container and is tracked with the other reusable storage helpers in [UID:0001QA][client_containers](by-meta/client_containers.md).
+
+## Batch 065 Vtable-Data Parent Gate
+
+This file now clears the corrected `85/85` gate for exact RingBuffer vtable-data children. Completion remains `86`, and confidence rises from `82` to `85` because the file-level ownership of the vtable data is stronger than the still-open public/private iterator exposure question: IDA-backed file evidence ties both [UID:0000C1][RingBuffer](by-class/RingBuffer.md) and [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md) to the same `util/RingBuffer.cpp` source island, [UID:0001YN][RingBufferVtables](by-type/by-vtable/RingBufferVtables.md) records the exact COL/vtable layout, and the [UID:0002OQ][0x006230c8-0x006230e8.RingBufferVtableData](by-memory/0x006230c8-0x006230e8.RingBufferVtableData.md) child is compiler-emitted from declarations owned by this source module. Final C++ emission is still blocked by raw helper names and iterator exposure, but those caveats do not undermine this file as the direct autogen parent for the exact vtable-data range.
 
 ## Likely Contents
 
@@ -89,3 +93,4 @@ Use `util/RingBuffer.cpp`. Keep it separate from [UID:0000OR][Thread](by-file/Th
   - Before: the file listed [UID:0000C1][RingBuffer](by-class/RingBuffer.md) and [UID:0000C2][RingBufferIterator](by-class/RingBufferIterator.md), but both class pages were still unassigned in autogen metadata.
   - After: attached `RingBuffer` at position `10` and `RingBufferIterator` at position `20`; C++ remains blank for both.
   - Evidence: IDA MCP reconfirmed the shared code island, `RingBufferIterator` RTTI/COL and vtable, the raw constructor vptr store, and the unresolved direct-caller gap for iterator helper starts.
+- 2026-06-07 A003 Batch 065: Raised confidence from `82` to `85` with a focused vtable-data parent-gate audit. Evidence is the already documented Thread caller set, shared ring-buffer code island, attached RingBuffer/RingBufferIterator classes, [UID:0001YN][RingBufferVtables](by-type/by-vtable/RingBufferVtables.md), and exact [UID:0002OQ][0x006230c8-0x006230e8.RingBufferVtableData](by-memory/0x006230c8-0x006230e8.RingBufferVtableData.md) child. Completion remains `86`, and C++ remains blank because raw helper names and iterator source exposure are not final-code quality.

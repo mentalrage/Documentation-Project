@@ -38,7 +38,7 @@
 - Live IDA reports the same vtable stores from command/spell factory paths `0x005a5bd0-0x005a7422` and `0x005a9e10-0x005a9ef3`, plus the constructor stores at `0x005b6167`, `0x005b616d`, and `0x005b6177`.
 - Live vtable cells tie primary accept slot `0x00630464` to `0x005b6260`, secondary key slot `0x00630474` to `0x005b61f0`, and secondary/tertiary deleting slots to shared adjustor thunks `0x005b77c8` / `0x005b77d3`.
 - Live key handler evidence confirms spell help-panel behavior: `do_narrow`, tab switch helper `0x004b8650`, sound/helper call `0x0057a5c0`, and fallback through base key handler `0x004f2920`.
-- Live accept-handler evidence confirms spell selection behavior: input decode helpers `0x004f2310` / `0x004f2300`, player/spell data read through `dword_67A748`, range checks, and final selection call `0x005a4530`.
+- Live accept-handler evidence confirms spell selection behavior: input decode helpers `0x004f2310` / `0x004f2300`, player/spell data read through [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) / `dword_67A748`, range checks, and final selection call `0x005a4530`.
 - Live boundary checks confirm padding at `0x005b61e7-0x005b61f0`, `0x005b625c-0x005b6260`, and `0x005b62c8-0x005b62d0` before the next function.
 
 ## Score Rationale
@@ -56,9 +56,14 @@
 - [UID:0000O0][SpellInputPanes](by-file/SpellInputPanes.md)
 - [UID:0001MO][0x005b6120-0x005b62c8.SpellSpellInputPane](by-memory/0x005b6120-0x005b62c8.SpellSpellInputPane.md)
 - [UID:0002N7][0x0063041c-0x006304a4.SpellSpellInputPaneVtableData](by-memory/0x0063041c-0x006304a4.SpellSpellInputPaneVtableData.md)
+- [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md)
 
 ## Changes
 
+- 2026-06-07 A005 resolved-name cleanup:
+  - Before: spell-data selection evidence used only historical `dword_67A748`.
+  - After: the page records canonical `g_pCollectionData` beside the historical label and cross-links the global page.
+  - Evidence: generated resolved-name report maps `dword_67A748` to `g_pCollectionData`; existing IDA-backed evidence already ties the reference to player/spell data reads used by spell selection.
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `80`, confidence `76`.
 - Evidence: the page documents spell-selection prompt behavior, constructor/key/accept memory docs, vtable family, IDA-confirmed vtable views, and spell-domain placement rationale; confidence remains capped by final spell-input versus command-input source placement.

@@ -1,8 +1,8 @@
 *** UID:0000CI | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NI | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -48,6 +48,11 @@ Its picture-resource sibling is [UID:0000CH][ScrolledPictureControlPane](by-clas
 - [UID:0000EO][TextEditPane](by-class/TextEditPane.md)
 
 ## Changes
+
+- 2026-06-05: Changed `RECONSTRUCTABLE` from blank to `TRUE` and assigned parent `0000NI`.
+  - Before: The DAT-text scroller remained unclassified in autogen coverage even though the class and parent file both met the 80/80 attach gate.
+  - After: The class contributes to `ScrolledTextControlPane.cpp` as a reconstructable child without emitting final C++ yet.
+  - Evidence: Live IDA MCP lookup confirms the constructor/destructor/timer/draw/deleting-destructor starts at `0x004ff040`, `0x004ff290`, `0x004ff300`, `0x004ff360`, and `0x00502b60`; parent [UID:0000NI][ScrolledTextControlPane](by-file/ScrolledTextControlPane.md) records the same DAT-text scroller ownership.
 
 - 2026-05-30: Changed completion/confidence from `0/0` to `80/84`.
   - Before: The page was unevaluated despite documenting DAT text loading, temporary `TextEditPane` rendering, timer wrapping, paint behavior, and destructor range.

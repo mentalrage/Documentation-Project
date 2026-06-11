@@ -1,8 +1,8 @@
 *** UID:00000W | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000HR | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -18,7 +18,6 @@
 - Exact pane queue helper: [UID:0000Z1][0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion](by-memory/0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion.md)
 - Layout: [UID:0001TT][BlackHoleLayout](by-type/by-struct/BlackHoleLayout.md)
 - Vtable: [UID:0001X2][BlackHoleVtable](by-type/by-vtable/BlackHoleVtable.md)
-- Current recovered file: `source-3/simroot_v2/class_BlackHole.cpp`
 
 ## Class Purpose
 
@@ -54,13 +53,13 @@ For panes, `BlackHole` has a specialized queueing helper that first removes the 
 | [UID:0002M4][0x00469200-0x00469233.BlackHoleReleaseQueuedOwnedObjects](by-memory/0x00469200-0x00469233.BlackHoleReleaseQueuedOwnedObjects.md) | `ReleaseQueuedOwnedObjects` | Scalar-delete every queued object and clear the list. |
 | [UID:0002M2][0x00469240-0x00469288.BlackHoleScalarDeletingDestructor](by-memory/0x00469240-0x00469288.BlackHoleScalarDeletingDestructor.md) | `ScalarDeletingDestructor` | Deleting destructor wrapper. |
 
-## Data Caveats
+## Remaining Caveats
 
-- Current `class_BlackHole.cpp` now emits the real non-deleting destructor wrapper at `0x00469100`; older docs that said it was omitted are stale.
-- Current active source emits `0x00469180` as `BlackHole::QueuePaneForDeferredDeletion`, but `class_BlackHole.meta_wave3` still carries stale `class_PaneChildRegistry.cpp` owner context for the method. IDA shows this is a `BlackHole` pane-deletion queue helper.
-- Current sidecar metadata still carries `0x004f30e0` as a BlackHole destructor candidate in historical/generated fields; caller fan-in and body behavior show it is the shared [UID:000192][0x004f30e0-0x004f3139.ListNonDeletingDestructor](by-memory/0x004f30e0-0x004f3139.ListNonDeletingDestructor.md) called by `BlackHole` and other `List`-derived/embedded objects.
-- Current `class_BlackHole.meta_wave3` still reports `vtable_count: 0`, but IDA confirms [UID:0001X2][BlackHoleVtable](by-type/by-vtable/BlackHoleVtable.md) at `0x00613118`.
-- Current metadata summaries still include wording about clearing a global manager pointer, but IDA decompilation writes `dword_67A74C = 0`, the [UID:0000Q8][g_pApplicationCleanupQueue](by-global/g_pApplicationCleanupQueue.md) singleton pointer.
+- Older recovery notes that said the non-deleting destructor wrapper was omitted are stale; live IDA has a real `0x00469100-0x00469115` body.
+- Older owner-context notes routed `0x00469180` through `PaneChildRegistry`, but live IDA shows this is a `BlackHole` pane-deletion queue helper.
+- The shared body at `0x004f30e0` is a [UID:000192][0x004f30e0-0x004f3139.ListNonDeletingDestructor](by-memory/0x004f30e0-0x004f3139.ListNonDeletingDestructor.md), not a unique BlackHole destructor candidate.
+- Live IDA confirms [UID:0001X2][BlackHoleVtable](by-type/by-vtable/BlackHoleVtable.md) at `0x00613118`.
+- Cleanup writes clear [UID:0000Q8][g_pApplicationCleanupQueue](by-global/g_pApplicationCleanupQueue.md), the singleton pointer, not an unrelated global manager pointer.
 
 ## Cross-References
 
@@ -80,6 +79,11 @@ For panes, `BlackHole` has a specialized queueing helper that first removes the 
 - [UID:00000E][ApplicationHelper_4A6C40](by-class/ApplicationHelper_4A6C40.md)
 
 ## Changes
+
+- 2026-06-05 live IDA refresh:
+  - What existed before: the page carried stale recovered-source and owner-metadata caveats, a blank parent, and direct raw global/function labels in the caveats.
+  - What changed: raised completion to `84`, attached the class to [UID:0000HR][BlackHole](by-file/BlackHole.md), and rewrote caveats around live IDA evidence.
+  - Summary/evidence: live IDA reconfirms the six function ranges, vtable and singleton pointer references, queue-drain callers, and pane-deletion queue behavior; final C++ remains blank under the `95/95` gate.
 
 - What existed before: the page had strong method, vtable, and caveat evidence but remained scored as unevaluated.
 - What it was changed to: scores were set to `82/92`, and class-shape notes were added for singleton state, queue policy, pane-specialized cleanup, and source placement.

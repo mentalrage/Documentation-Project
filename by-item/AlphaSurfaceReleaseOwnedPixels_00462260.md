@@ -1,8 +1,8 @@
 *** UID:0000TX | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000K8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Entity kind: virtual helper / buffer release method.
 - Exact range: `0x00462260-0x00462281`.
 - Likely source module: [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md), with provisional [UID:0000K8][IntAlphaSurface](by-file/IntAlphaSurface.md) ownership.
+- Autogen parent: [UID:0000K8][IntAlphaSurface](by-file/IntAlphaSurface.md).
 - Related vtable: [UID:0001XT][IntAlphaSurfaceVtable](by-type/by-vtable/IntAlphaSurfaceVtable.md).
 
 ## Behavior
@@ -53,5 +54,10 @@ Treat this as a virtual or file-local helper generated from the alpha-surface cl
 - [UID:0001XT][IntAlphaSurfaceVtable](by-type/by-vtable/IntAlphaSurfaceVtable.md)
 
 ## Changes
+
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE` and attached to [UID:0000K8][IntAlphaSurface](by-file/IntAlphaSurface.md).
+  - Before: the vtable-slot release helper was documented but unclassified in autogen coverage.
+  - After: it is marked as source-level virtual/helper behavior that must be reproduced under the provisional IntAlphaSurface file root; C++ remains blank because the final class split and method declaration are not at the 95/95 final-code bar.
+  - Evidence: live IDA MCP `lookup_funcs 0x00462260` reports `sub_462260` size `0x22`; `callees` reports only the CRT free wrapper; prior page evidence records the vtable-only xref and owned-pixel offset behavior.
 
 - 2026-05-30: Raised completion/confidence from `0/0` to `86/90`. Previously this page had detailed behavior but no score; it now records the current IDA MCP offset recheck and explicitly distinguishes this release slot from the scalar deleting destructor.

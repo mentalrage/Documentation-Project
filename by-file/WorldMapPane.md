@@ -1,7 +1,7 @@
 *** UID:0000PB | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/map/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # WorldMapPane
 
@@ -51,7 +51,7 @@ with private helper storage classes either declared in the same file or in a sma
 Targeted checks on 2026-05-23 confirmed:
 
 - `0x005c2ac0-0x005c32aa` constructor has callers from `0x0050f270` and `0x00511db0`, matching MapPane-driven world-map creation.
-- `0x005c3950-0x005c3e41` draw method is a real function and calls common sprite/rectangle render helpers. A 2026-05-25 recheck shows calls at `0x005c3b60` and `0x005c3db0` into [UID:000166][0x004b99f0-0x004b9a62.ForwardToTileFrameBlitHelper](by-memory/0x004b99f0-0x004b9a62.ForwardToTileFrameBlitHelper.md), which should stay under [UID:0000OC][Surface](by-file/Surface.md).
+- `0x005c3950-0x005c3e41` draw method is a real function and calls common sprite/rectangle render helpers. A 2026-05-25 recheck shows calls at `0x005c3b60` and `0x005c3db0` into [UID:000166][0x004b99f0-0x004b9a63.ForwardToTileFrameBlitHelper](by-memory/0x004b99f0-0x004b9a63.ForwardToTileFrameBlitHelper.md), which should stay under [UID:0000OC][Surface](by-file/Surface.md).
 - `0x005c4bd0-0x005c5075` reachability builder calls `0x005c5b20` and `0x005c56a0`, tying the helper bitset to WorldMapPane.
 - The reachability builder also calls [UID:0000FD][UInt32Vector](by-class/UInt32Vector.md) fill construction at `0x00514a10` for temporary dword-vector state; the vector implementation belongs with [UID:0000P3][VectorHelpers](by-file/VectorHelpers.md).
 - `0x005c5510-0x005c557a` vector destructor is called by `WorldMapPane::~WorldMapPane`.
@@ -81,5 +81,10 @@ IDA also confirmed that Wave3's `WorldMapPane` method at `0x00590053` is not an 
 - [UID:0000JM][FrameMgr](by-file/FrameMgr.md)
 
 ## Changes
+
+- 2026-06-05 projected-path assignment:
+  - What existed before: `PROPOSED_RECONSTRUCTION_PATH` was blank, so the by-file row remained a generated-root coverage error.
+  - Changed to: `NexusTK/map/`.
+  - Summary/evidence: live IDA MCP lookup confirms the documented world-map constructor anchor at `0x005c2ac0`; proposed-source-tree keeps the travel/world-map UI under `map/`, separate from generic `MapPane.cpp` and frame-registry infrastructure.
 
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `90/86`. Summary/evidence: the page gives a detailed source-structure hypothesis, helper-class ownership, behavior summary, targeted IDA MCP evidence, cross-module boundaries, and open questions, supporting a high but not complete grade.

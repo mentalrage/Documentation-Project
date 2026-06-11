@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,6 +15,7 @@
 - Entity kind: class layout notes for session dialog infrastructure.
 - Covered classes: [UID:00003U][DialogSession](by-class/DialogSession.md) and [UID:00003S][DialogInSession](by-class/DialogInSession.md).
 - Likely owner header/source: [UID:0000IU][DialogSession](by-file/DialogSession.md).
+- Parent attachment: attached to [UID:0000IU][DialogSession](by-file/DialogSession.md), which is scored `84/80`; this multi-class layout page is scored `82/88`, so both sides clear the `80/80` child attachment gate.
 - Confidence: strong for listed offsets; medium for final source-facing names.
 
 ## DialogSession Layout
@@ -82,3 +83,7 @@ Checked on 2026-05-26 and spot-rechecked on 2026-05-31:
   - What existed before: completion/confidence metadata was unevaluated at `0/0`, and `RECONSTRUCTABLE` was blank.
   - Changed to: `COMPLETION:82`, `CONFIDENCE:88`, and `RECONSTRUCTABLE:TRUE`.
   - Summary/evidence: IDA MCP reconfirms the session and in-session dialog constructors/destructors, tracked-list/index fields, session-dialog tail fields, and vtable stores. The page remains below `95+` because exact source-facing names for the stack/list helper methods and session tail fields are not final.
+- 2026-06-06 parent attachment:
+  - What existed before: the layout had strong IDA-backed offsets and was scored above `80/80`, but `AUTOGEN_PARENT_UID` was blank.
+  - Changed to: attached to [UID:0000IU][DialogSession](by-file/DialogSession.md) without changing scores.
+  - Summary/evidence: this page covers both `DialogSession` and `DialogInSession`, so file-level ownership is clearer than choosing one class; the file page is scored `84/80` and documents the same shared session-dialog infrastructure.

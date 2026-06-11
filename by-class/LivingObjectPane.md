@@ -1,8 +1,8 @@
 *** UID:00007B | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -12,11 +12,10 @@
 
 ## Status
 
-- Confidence: strong for purpose and primary method families; medium for exact method boundaries in the local-player packet tail.
+- Confidence: strong for purpose, primary method families, and scattered accessor ownership; medium for exact method boundaries in the local-player packet tail.
 - Likely source file: [UID:0000KU][LivingObjectPane](by-file/LivingObjectPane.md)
-- Current recovered file: `source-3/simroot_v2/class_LivingObjectPane.cpp`
-- Current Wave3 grade: `94.8`
-- Current Wave3 coverage: 78 modeled methods, zero missing target refs.
+- Historical generated projection notes remain useful only as prior naming/search context, not as evidence for the 2026-06-05 score update.
+- Autogen status: reconstructable class attached to [UID:0000KU][LivingObjectPane](by-file/LivingObjectPane.md); C++ is intentionally blank until the class declaration, field names, and local-player packet-tail boundaries are final-source quality.
 
 ## Class Purpose
 
@@ -28,7 +27,7 @@ It is a gameplay map object class, not a generic UI panel. It derives through th
 
 | Family | Address evidence | Role |
 | --- | --- | --- |
-| Scattered accessors | [UID:000233][0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck](by-memory/0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck.md), `0x005374d0`, `0x005376c0`, `0x005376d0`, `0x00537bc0`, [UID:00023H][0x00538bb0-0x00538bb7.LivingObjectPaneGetEntityId](by-memory/0x00538bb0-0x00538bb7.LivingObjectPaneGetEntityId.md) | GM suffix check, position/type/id accessors, animation-state setter, and linked nameplate ownership. |
+| Scattered accessors | [UID:000233][0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck](by-memory/0x00514ea0-0x00514edd.LivingObjectPaneGmNameSuffixCheck.md), `0x005374d0`, `0x005376c0`, `0x005376d0`, `0x00537bc0`, [UID:00023H][0x00538bb0-0x00538bb7.LivingObjectPaneGetEntityId](by-memory/0x00538bb0-0x00538bb7.LivingObjectPaneGetEntityId.md) | GM suffix check, position/type/id accessors, animation-state setter, and linked nameplate ownership. The GM suffix helper now has live IDA confirmation for exact name-buffer offset math and caller. |
 | Core construction/destruction | [UID:0002R0][0x0053a110-0x0053a6a6.LivingObjectPaneConstructionAndCleanup](by-memory/0x0053a110-0x0053a6a6.LivingObjectPaneConstructionAndCleanup.md), [UID:0002R3][0x0053d430-0x0053d589.LivingObjectPaneScalarDeletingDestructor](by-memory/0x0053d430-0x0053d589.LivingObjectPaneScalarDeletingDestructor.md) | Constructor variants, full cleanup, and scalar deleting destructor. |
 | Render/sprite state | `0x0053a700-0x0053a9ed`, `0x0053b3d0-0x0053b830`, [UID:0002R1][0x0053b700-0x0053baa8.LivingObjectPaneAnimationTimer](by-memory/0x0053b700-0x0053baa8.LivingObjectPaneAnimationTimer.md), [UID:0002R2][0x0053bb20-0x0053beb6.LivingObjectPaneRenderFrameMethods](by-memory/0x0053bb20-0x0053beb6.LivingObjectPaneRenderFrameMethods.md) | Render bounds, sprite config, facing, animation playback, death animation, timer callbacks, nameplate spawn, draw, sprite draw, and bounds methods. |
 | Linked object/effect ownership | `0x0053ab40`, `0x0053ada0`, `0x0053ae70`, `0x0053ae80`, `0x0053b130`, `0x0053bad0` | Destroys and replaces linked objects and clears/removes active effects. |
@@ -43,14 +42,14 @@ It is a gameplay map object class, not a generic UI panel. It derives through th
 - [UID:0000FQ][UserPane](by-class/UserPane.md) owns the local user UI surface. Its constructor/destructor wraps a `LivingObjectPane` subobject, but world movement and command packet functions stay with `LivingObjectPane`.
 - [UID:0000CU][SelfLookPane](by-class/SelfLookPane.md), inventory panes, and spell input panes call into `LivingObjectPane` for current slot data or command execution.
 - [UID:0000I5][Chatting](by-file/Chatting.md) and [UID:0000N9][SayInputPanes](by-file/SayInputPanes.md) consume some packet outcomes, but chat pane/source ownership should not be inferred from `LivingObjectPane::HandleChatMessagePacket` alone.
-- [UID:0000F0][TimerHandler](by-class/TimerHandler.md) / [UID:0000F1][TimerMgr](by-class/TimerMgr.md) provide the generic callback scheduler used by `LivingObjectPane` sprite, facing, movement, and animation state. Active generated `SoundManager::CancelTimer` names inside `class_LivingObjectPane.cpp` are stale labels for the generic timer-wrapper functions at `0x00597610` and `0x00597630`, not an audio-module dependency.
+- [UID:0000F0][TimerHandler](by-class/TimerHandler.md) / [UID:0000F1][TimerMgr](by-class/TimerMgr.md) provide the generic callback scheduler used by `LivingObjectPane` sprite, facing, movement, and animation state. Older generated `SoundManager::CancelTimer` labels for the generic timer-wrapper functions at `0x00597610` and `0x00597630` are stale and should not be treated as audio-module dependency evidence.
 
 ## Boundary Caveats
 
-- IDA confirms the main function starts for the core and movement clusters, but several Wave3-projected helpers in the local-player tail are not IDA function starts yet: `0x005a3a20`, `0x005a9250`, `0x005aaff0`, `0x005ac1b0`, `0x005ac7e0`, and `0x005ac9a0`.
-- `0x0053d030` is modeled by Wave3 as a separate `LivingObjectPane__BoxRotator` class. The vtable name and constructor state support treating it as `LivingObjectPane::BoxRotator`, likely nested or source-local.
-- The emitted `class_LivingObjectPane.cpp` contains repeated local struct/class redeclarations. Those are generated-source artifacts and should not be used as original header-layout evidence.
-- The emitted `class_LivingObjectPane.cpp` also contains timer calls under `SoundManager::*` names. IDA rechecks on 2026-05-24 show the underlying bodies forward through `g_pTimerMgr`, so source migration should name the dependency through `TimerHandler`/`TimerMgr` instead.
+- IDA confirms the main function starts for the core and movement clusters, but several older projected helper starts in the local-player tail are not IDA function starts yet: `0x005a3a20`, `0x005a9250`, `0x005aaff0`, `0x005ac1b0`, `0x005ac7e0`, and `0x005ac9a0`.
+- `0x0053d030` has been projected as a separate `LivingObjectPane__BoxRotator` class. The vtable name and constructor state support treating it as `LivingObjectPane::BoxRotator`, likely nested or source-local.
+- Older generated output contains repeated local struct/class redeclarations. Treat those as generated artifacts, not original header-layout evidence.
+- Older generated output also contains timer calls under `SoundManager::*` names. IDA rechecks on 2026-05-24 show the underlying bodies forward through `g_pTimerMgr`, so source migration should name the dependency through `TimerHandler`/`TimerMgr` instead.
 - The paired hotkey dispatch helper names are still source-name candidates. Current docs resolve [UID:0001V1][MacroHotkeyRecord](by-type/by-struct/MacroHotkeyRecord.md) state `2` / `.usr` `S` from the spell-inventory tab and state `3` / `.usr` `I` from the inventory tab; those records currently route through `0x005a4530` and [UID:0001KN][0x005a3e30-0x005a3ff3.UseInventorySlotDispatch](by-memory/0x005a3e30-0x005a3ff3.UseInventorySlotDispatch.md) respectively. The latter is now documented as `UseInventorySlotDispatch` because `UseInputPane` calls it for item-slot use and it can open `ItemWhoInputPane`.
 
 ## Cross-References
@@ -67,6 +66,14 @@ It is a gameplay map object class, not a generic UI panel. It derives through th
 - [UID:0000FQ][UserPane](by-class/UserPane.md)
 - [UID:0001K9][0x00597610-0x00597645.TimerHandlerWrappers](by-memory/0x00597610-0x00597645.TimerHandlerWrappers.md)
 
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `84` | Purpose, method families, key relationships, boundary caveats, timer-name corrections, exact core/local-player links, and scattered accessor pages are documented. Completion remains capped by unresolved local-player tail starts and missing final class declaration/field names. |
+| Confidence `80` | Primary ownership and source placement are supported by the file page, core/local-player memory pages, timer evidence, and the refreshed GM suffix accessor. Confidence remains at the attachment threshold because several local-player tail starts and final source names still need broader audit. |
+
 ## Changes
 
-- Completion/confidence score update: existed before as `0/0`; changed to `82/78`. Summary: the gameplay actor page has broad, detailed coverage of purpose, method families, dependencies, nested helper, timer misnames, and packet/movement caveats, but confidence is capped by unresolved local-player tail boundaries and source-level naming. Evidence: documented core/local-player memory ranges, accessor pages, `BoxRotator` nesting, `MapPane`/`UserPane`/`TimerMgr` relationships, and explicit Wave3 artifact exclusions.
+- 2026-06-05: Raised completion/confidence from `82/78` to `84/80`, marked the class reconstructable, and attached it to [UID:0000KU][LivingObjectPane](by-file/LivingObjectPane.md). Reframed generated-output references as historical caveats and added live IDA evidence for the GM suffix scattered accessor. C++ remains blank because the class declaration, field names, and local-player packet-tail boundaries are not final-source quality.
+- Completion/confidence score update: existed before as `0/0`; changed to `82/78`. Summary: the gameplay actor page has broad, detailed coverage of purpose, method families, dependencies, nested helper, timer misnames, and packet/movement caveats, but confidence is capped by unresolved local-player tail boundaries and source-level naming. Evidence: documented core/local-player memory ranges, accessor pages, `BoxRotator` nesting, `MapPane`/`UserPane`/`TimerMgr` relationships, and explicit generated-artifact exclusions.

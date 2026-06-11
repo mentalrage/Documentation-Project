@@ -1,8 +1,8 @@
 *** UID:0000DR | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000O0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -52,3 +52,5 @@
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `86`, confidence `88`.
 - Evidence: the page documents role, constructor/submit/destructor/thunk memory docs, packet behavior, generated ownership exclusions, CRT wrapper exclusion, and ignored thunk handling; remaining completion gap is source-ready C++ detail.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000O0][SpellInputPanes](by-file/SpellInputPanes.md).
+- Evidence: live IDA MCP `lookup_funcs` confirms the constructor, submit handler, scalar deleting destructor, and adjustor thunk anchors at `0x005b1030`, `0x005b1150`, `0x005b7cf0`, `0x005b7878`, and `0x005b7899`; both class (`86/88`) and parent file (`88/80`) meet the 80/80 gate.

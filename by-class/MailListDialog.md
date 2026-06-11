@@ -1,8 +1,8 @@
 *** UID:00007L | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000KZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -47,4 +47,5 @@
 
 ## Changes
 
+- 2026-06-05: Marked reconstructable and attached to [UID:0000KZ][MailDialogs](by-file/MailDialogs.md) because the class is `80/84` and the parent is `86/82`, satisfying the 80/80 parent gate. Live IDA MCP evidence: `lookup_funcs` confirms exact starts at `0x00479110`, `0x00479d30`, `0x0047a060`, `0x0047a320`, `0x0047a3b0`, and `0x0047a520`; `callers` confirms the constructor is reached from `0x0047173f` and `0x00471e51` in the mail/bulletin dialog flow.
 - Completion/confidence score update: existed before as `0/0`; changed to `80/84`. Summary: the received-mail listing dialog has constructor, packet parsing, read request, actions, button state, server packet, update flow, and module ownership documented. Evidence: linked mail-dialog range, IDA-confirmed method boundaries, mail-list pane relationship, and packet dispatch notes.

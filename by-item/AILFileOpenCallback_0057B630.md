@@ -1,8 +1,8 @@
 *** UID:0000TU | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Address range: `0x0057b630-0x0057b72a`
 - Current IDA name: `sub_57B630`
 - Proposed source owner: [UID:0000NV][SoundManager](by-file/SoundManager.md)
+- Autogen parent: [UID:0000NV][SoundManager](by-file/SoundManager.md)
 - Related file layer: [UID:0000JD][FileIO](by-file/FileIO.md)
 
 ## Function Role
@@ -49,6 +50,11 @@ Keep these callbacks in `audio/SoundManager.cpp`, not in `util/File.cpp`. They a
 - [UID:0000V6][PathExistsViaStat_00582460](by-item/PathExistsViaStat_00582460.md)
 
 ## Changes
+
+- 2026-06-05: Reconstructable metadata changed from blank to `TRUE` and attached to [UID:0000NV][SoundManager](by-file/SoundManager.md).
+  - Before: the page had IDA-backed callback behavior and SoundManager ownership but remained unclassified in autogen coverage.
+  - After: the Miles file-open callback is marked as NexusTK-owned source under the validated SoundManager file root; C++ remains blank because the final callback signature and surrounding declarations are not at the 95/95 final-code bar.
+  - Evidence: live IDA MCP `lookup_funcs 0x0057b630` reports `sub_57B630` size `0xfb`; callees include the DAT probe at `0x0049c700`, allocation helpers, string/path helpers, and local-file fallback at `0x00582460`, matching the documented SoundManager callback role.
 
 - 2026-05-30: Grading changed from `0/0` to `80/84`.
   - Before: page documented the Miles file-open callback, DAT/loose-file selection, callback family, and SoundManager ownership but remained unevaluated.

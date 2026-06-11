@@ -2,7 +2,7 @@
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OU | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -17,6 +17,7 @@
 - Address range: [UID:0001KB][0x005986e0-0x00598cbe.TimerPane](by-memory/0x005986e0-0x00598cbe.TimerPane.md)
 - Current recovered file: `source-3/simroot_v2/class_TimerPane.cpp`
 - Singleton: [UID:0000SJ][g_pTimerPane](by-global/g_pTimerPane.md) at `0x0069b4d8`
+- Autogen parent: [UID:0000OU][TimerPane](by-file/TimerPane.md). The class remains `88/90`, and the direct file parent is `87/86` after the Batch 058 parent-chain repair.
 
 ## Class Purpose
 
@@ -66,7 +67,7 @@ See [UID:0001WE][TimerPaneLayout](by-type/by-struct/TimerPaneLayout.md). The cur
 
 - IDA MCP confirms all listed starts as real functions.
 - Constructor callers are from `MapPane::HandlePacket` case `0x67` and the related helper at `0x005140a0`.
-- `DrawDigit` branches on `byte_66DA97`: EPF mode uses `NUMBER.EPF`, legacy mode uses `NUMBER.EPD`.
+- `DrawDigit` branches on [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97`: EPF mode uses `NUMBER.EPF`, legacy mode uses `NUMBER.EPD`.
 - `0x00598cc0` is the next class (`TotemFrame`), not part of `TimerPane`.
 
 ## Cross-References
@@ -74,11 +75,17 @@ See [UID:0001WE][TimerPaneLayout](by-type/by-struct/TimerPaneLayout.md). The cur
 - [UID:0000OU][TimerPane](by-file/TimerPane.md)
 - [UID:0001KB][0x005986e0-0x00598cbe.TimerPane](by-memory/0x005986e0-0x00598cbe.TimerPane.md)
 - [UID:0000SJ][g_pTimerPane](by-global/g_pTimerPane.md)
+- [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md)
 - [UID:0001RQ][timerpane-number-resources](by-resource/timerpane-number-resources.md)
 - [UID:0000L3][MapPane](by-file/MapPane.md)
 
 ## Changes
 
+- 2026-06-07 Batch 058 parent-chain repair:
+  - Before: `AUTOGEN_PARENT_UID:` blank, so [UID:0001KB][0x005986e0-0x00598cbe.TimerPane](by-memory/0x005986e0-0x00598cbe.TimerPane.md) reported `autogen_parent_unknown` for direct parent `0000F3`.
+  - After: `AUTOGEN_PARENT_UID:0000OU`.
+  - Evidence: [UID:0000OU][TimerPane](by-file/TimerPane.md) was refreshed to `87/86` with exact TimerPane memory, singleton, resource, packet, and boundary evidence, satisfying the corrected 85/85 child-and-parent gate for this class route.
+- 2026-06-07 A008 alias cleanup: normalized the `DrawDigit` `byte_66DA97` branch to canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md), preserving `byte_66DA97` as the IDA lookup alias.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:88` and `CONFIDENCE:90`.

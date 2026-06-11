@@ -1,13 +1,13 @@
 *** UID:0000O5 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/app/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # StartupWindow
 
 ## Status
 
-- Confidence: strong for class responsibility; medium for helper boundary cleanup.
+- Confidence: strong for class responsibility, startup global ownership, and update-notice entry points; medium-high for helper boundary cleanup.
 - Proposed module: `app/StartupWindow.cpp`
 - Current recovered source: `class_StartupWindow.cpp`
 - Main class: [UID:0000DZ][StartupWindow](by-class/StartupWindow.md)
@@ -30,7 +30,7 @@ This file is app/startup code. It depends on [UID:0000HV][Browser](by-file/Brows
 | notice asset loader helper | `0x005818d0-0x005819c9` | Raw helper that loads `brm_*.pcx` resources and initializes button bounds. IDA has code bytes but no function object. |
 | alternate notice registration helper | `0x005819d0` onward | Raw helper that registers a class using `StartupWindow::UpdateCheckWindowProc`; exact end still needs boundary review. |
 | curl/string helpers | `0x00581b80-0x0058206e` | [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md) and narrow/wide string parse helpers used by update JSON and minimap hash-list parsing. |
-| globals | `g_pStartupWindow`, `g_startupWindowClassAtom`, `g_startupUpdateNoticeState`, `g_szBaramNoticeWndClass`, `g_szNoticeTitle`, [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) | Startup-window singleton, window-class, notice state, and asset-mode state. |
+| globals | [UID:0002ZS][g_pStartupWindow](by-global/g_pStartupWindow.md), [UID:0002ZQ][g_startupWindowClassAtom](by-global/g_startupWindowClassAtom.md), `g_startupUpdateNoticeState`, `g_szBaramNoticeWndClass`, `g_szNoticeTitle`, [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) | Startup-window singleton, window-class atom, notice state, notice strings, and asset-mode state. |
 
 ## Evidence Notes
 
@@ -41,9 +41,10 @@ This file is app/startup code. It depends on [UID:0000HV][Browser](by-file/Brows
 - `UpdateCheckWindowProc` handles keyboard accept/cancel, first-paint asset loading, PCX drawing, button hit testing, cursor changes, the top web-link rectangle, and update/close `WM_USER + 11` posts.
 - IDA `xrefs_to 0x00581b80` reports callback-pointer data refs at `0x00580c6f` and `0x00580efb` inside `RunUpdateCheck`, while normal caller lookup reports no direct callers. This matches libcurl write callback use.
 - IDA caller checks for helpers `0x00581cf0`, `0x00581e40`, and `0x00581f50` currently tie the ANSI parse helpers only to `RunUpdateCheck`.
-- IDA decompilation of the constructor at `0x005807d0` writes [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / `byte_66DA97 = 1`, forcing the current startup path into EPF/current-layout mode.
+- IDA decompilation of the constructor at `0x005807d0` writes [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) / historical IDA alias `byte_66DA97 = 1`, forcing the current startup path into EPF/current-layout mode.
 - 2026-05-25 IDA MCP recheck reconfirmed the callback setup sites as `curl_easy_setopt` calls that push `offset sub_581B80` with option `0x4e2b`.
 - 2026-05-26 IDA MCP recheck reconfirmed `0x00581b80` as a real `0x166`-byte function, still with only the two `RunUpdateCheck` callback-pointer refs and no formal callers. The adjacent parse/string helpers still call only from `RunUpdateCheck`.
+- 2026-06-07 A003 Batch 055 documentation split records the writable startup global cluster [UID:0002AM][0x0069bac4-0x0069bacc.StartupWindowUpdateStateGlobals](by-memory/0x0069bac4-0x0069bacc.StartupWindowUpdateStateGlobals.md) as three exact child ranges: [UID:0002ZR][0x0069bac4-0x0069bac6.g_startupWindowClassAtom](by-memory/0x0069bac4-0x0069bac6.g_startupWindowClassAtom.md), [UID:0002ZU][0x0069bac6-0x0069bac8.StartupWindowUpdateStateReservedWord](by-memory/0x0069bac6-0x0069bac8.StartupWindowUpdateStateReservedWord.md), and [UID:0002ZT][0x0069bac8-0x0069bacc.g_pStartupWindow](by-memory/0x0069bac8-0x0069bacc.g_pStartupWindow.md). The live word/dword children match the `RunUpdateCheck`, raw setup, constructor, WndProc, and destructor refs already documented by [UID:0001IO][0x005807d0-0x0058206e.StartupWindowUpdateCheck](by-memory/0x005807d0-0x0058206e.StartupWindowUpdateCheck.md) and [UID:0000DZ][StartupWindow](by-class/StartupWindow.md).
 
 ## Ownership Notes
 
@@ -69,9 +70,20 @@ Keep [UID:0000UA][CurlWriteCallback_00581B80](by-item/CurlWriteCallback_00581B80
 - [UID:0000VI][StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f](by-item/StartupWindowUnmodeledNoticeHelpers_5815b0_581b7f.md)
 - [UID:0000UA][CurlWriteCallback_00581B80](by-item/CurlWriteCallback_00581B80.md)
 - [UID:0001IP][0x00581b80-0x00581ce6.CurlWriteCallback](by-memory/0x00581b80-0x00581ce6.CurlWriteCallback.md)
+- [UID:0002AM][0x0069bac4-0x0069bacc.StartupWindowUpdateStateGlobals](by-memory/0x0069bac4-0x0069bacc.StartupWindowUpdateStateGlobals.md)
+- [UID:0002ZS][g_pStartupWindow](by-global/g_pStartupWindow.md)
+- [UID:0002ZQ][g_startupWindowClassAtom](by-global/g_startupWindowClassAtom.md)
 
 ## Changes
 
+- 2026-06-07 A003 Batch 055 parent-gate refresh:
+  - Before: file score was `86/80`, below the corrected `85/85` direct-parent gate for startup global-data assignment.
+  - Changed to: `COMPLETION:87`, `CONFIDENCE:85`.
+  - Evidence: added the exact writable startup global split and linked the atom/singleton storage back to already documented `RunUpdateCheck`, raw setup, constructor, WndProc, and destructor refs. Confidence remains capped below 90 because the raw notice-helper island still needs exact child function promotion, but file-level ownership of the startup globals is now directly documented well enough for the corrected gate.
+- 2026-06-07 A008 alias cleanup:
+  - Before: the constructor evidence line used a bare `byte_66DA97 = 1` alias for the startup asset-mode write.
+  - Changed to: canonical [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) wording with `byte_66DA97` retained as the historical IDA alias.
+  - Evidence: constructor decompilation still forces the current startup path into EPF/current-layout mode.
 - 2026-05-30: Scored documentation completeness/confidence.
   - Before: completion/confidence metadata was ungraded at `0/0`.
   - After: set completion to `86` and confidence to `80`.

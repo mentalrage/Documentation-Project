@@ -1,8 +1,8 @@
 *** UID:00008I | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000LG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -70,10 +70,11 @@ See [UID:0001SP][MiscWorkThreadMessageId](by-type/by-enum/MiscWorkThreadMessageI
 - [UID:0001P8][0x0067ab50-0x0067ab54.g_pMiscWorkThread](by-memory/0x0067ab50-0x0067ab54.g_pMiscWorkThread.md)
 - [UID:0000EV][Thread](by-class/Thread.md)
 - [UID:00000D][Application](by-class/Application.md)
-- [UID:0001CK][0x00528290-0x005283d4.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d4.CashShopRequestAuthDirectory.md)
+- [UID:0001CK][0x00528290-0x005283d5.CashShopRequestAuthDirectory](by-memory/0x00528290-0x005283d5.CashShopRequestAuthDirectory.md)
 
 ## Changes
 
+- 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000LG][MiscWorkThread](by-file/MiscWorkThread.md) because this class is 84/82 and the parent file is 86/84. Live IDA MCP on `NexusTK.exe` confirmed worker, constructor, destructor, request-wrapper, singleton-clear, and scalar-deleting starts at `0x00527fe0`, `0x005281b0`, `0x00528230`, `0x00528290`, `0x00528310`, `0x005283e0`, and `0x005283f0`; `0x005283b0` remains raw aligned code rather than an IDA function start and is not used as attachment proof.
 - Before: the current relevant range was listed as `0x005277c0-0x005285dc`.
 - Changed to: the range is `0x005277c0-0x005285dd`.
 - Summary/evidence: 2026-05-28 IDA MCP shows the `PostNCAStatus` helper's final `retn` byte is at `0x005285dc`; the next padding starts at `0x005285dd`.

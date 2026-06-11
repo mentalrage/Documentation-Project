@@ -1,8 +1,8 @@
 *** UID:0001U3 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00003Q | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -14,6 +14,7 @@
 
 - Confidence: strong for class-local tail offsets and vtable/global anchors; medium for final source-facing provider interface names.
 - Evidence basis: IDA disassembly/decompilation, [UID:0001XC][DescPaneVtables](by-type/by-vtable/DescPaneVtables.md) checks, and generated data only as a lead.
+- Autogen status: attached under [UID:00003Q][DescPane](by-class/DescPane.md) as a class-local layout declaration; final C++ remains blank under the `95/95` gate.
 
 ## Layout Summary
 
@@ -57,6 +58,10 @@ The earlier slots are not named from current evidence. Keep this as a forward-de
 - The `+0x44` and `+0x70` rows are inherited `Pane` state, included here because the `DescPane` methods use them directly.
 - [UID:0001XC][DescPaneVtables](by-type/by-vtable/DescPaneVtables.md) records the primary table at `0x006189dc`; current `class_DescPane.meta_wave3` still reports `vtable_count: 0`.
 
+## Parent Rationale
+
+Attach this layout declaration to [UID:00003Q][DescPane](by-class/DescPane.md). The page documents only the `DescPane` object layout, including inherited `Pane` offsets that `DescPane` methods touch and the class-local `+0xf8/+0xfc` tail; the owner class clears the `80/80` attachment gate and is already attached to [UID:0000IS][DescPane](by-file/DescPane.md). Keeping the parent at class scope avoids treating the provisional provider interface as a separate file-level type until its consumers and source-facing name are recovered.
+
 ## IDA Evidence
 
 - 2026-05-31 IDA MCP `lookup_funcs` confirms modeled functions at `0x0049d740`, `0x0049d770`, `0x0049d7c0`, `0x0049d81e`, `0x0049d829`, and `0x0049d840`; constructor `0x0049d6f0` and setter/update helper `0x0049d780` remain raw starts.
@@ -74,6 +79,10 @@ The earlier slots are not named from current evidence. Keep this as a forward-de
 
 ## Changes
 
+- 2026-06-07 parent attachment update:
+  - What existed before: the layout page was reconstructable with strong field-offset evidence, but it had no autogen parent.
+  - Changed to: `COMPLETION:80` and `AUTOGEN_PARENT_UID:00003Q`, with an explicit class-parent rationale.
+  - Summary/evidence: [UID:00003Q][DescPane](by-class/DescPane.md) owns the documented `+0xf8/+0xfc` fields, clears the attachment gate, and links the same vtable/global/memory evidence; final C++ remains blank because provider-interface naming and raw helper semantics are not final.
 - 2026-05-31 scoring and reconstructability:
   - What existed before: completion/confidence metadata was unevaluated at `0/0`, and `RECONSTRUCTABLE` was blank.
   - Changed to: `COMPLETION:78`, `CONFIDENCE:86`, and `RECONSTRUCTABLE:TRUE`.

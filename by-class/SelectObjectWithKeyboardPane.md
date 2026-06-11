@@ -1,8 +1,8 @@
 *** UID:0000CT | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000OH | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -55,6 +55,11 @@ The pane also supports vi-style movement keys, arrow keys, home/self selection, 
 - [UID:000077][LineInputPane](by-class/LineInputPane.md)
 
 ## Changes
+
+- 2026-06-05: Changed `RECONSTRUCTABLE` from blank to `TRUE` and assigned parent `0000OH`.
+  - Before: The keyboard/mouse target selector remained unclassified in autogen coverage even though the class and parent file both met the 80/80 attach gate.
+  - After: The class contributes to `TargetSelectionInputPanes.cpp` as a reconstructable child without emitting final C++ yet.
+  - Evidence: Live IDA MCP lookup confirms constructor/destructor/key/mouse/object-list/helper starts from `0x005af5f0` through `0x005afe70`, destructor thunks at `0x005b7862` and `0x005b786d`, and scalar deleting destructor `0x005b7bc0`; parent [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md) owns the target-selection input family.
 
 - Before: completion/confidence were unevaluated at `0/0`.
 - Changed to: completion `84`, confidence `80`.

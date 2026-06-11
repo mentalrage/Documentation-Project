@@ -14,7 +14,7 @@
 
 - Confidence: strong for address, RTTI locator, slot targets, adjacent boundaries, and vptr-store xrefs.
 - Owner class: [UID:00006A][HumanImageLib](by-class/HumanImageLib.md).
-- Backing memory page: [UID:00025I][0x0061b664-0x0061c364.ImageLibraryReadOnlyData](by-memory/0x0061b664-0x0061c364.ImageLibraryReadOnlyData.md).
+- Backing memory page: [UID:00025I][0x0061b664-0x0061c360.ImageLibraryReadOnlyData](by-memory/0x0061b664-0x0061c360.ImageLibraryReadOnlyData.md).
 - RTTI pointer: `0x0061b6d0` -> `0x00648814` (`??_R4HumanImageLib@@6B@`).
 - Primary vtable: `0x0061b6d4` (`??_7HumanImageLib@@6B@`).
 - Rebuild handling: `source-declared/generated-binary`.

@@ -1,8 +1,8 @@
 *** UID:0000QS | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000IW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,14 +16,13 @@
 - IDA address: `0x0067ab20` (`dword_67AB20`).
 - Proposed type: `DirectX*`.
 - Proposed owner module: [UID:0000IW][DirectX](by-file/DirectX.md).
-- Current recovered declaration: `DirectX* g_pDirectX` in `source-3/simroot_v2/class_DirectX.cpp`.
 - Confidence: strong for storage, type, and owner module.
 
 ## Role
 
 `g_pDirectX` exposes the client DirectDraw bootstrap object after application startup constructs [UID:00003Y][DirectX](by-class/DirectX.md). Render and presentation code load this pointer when they need the stored DirectDraw interface, especially while creating or managing DirectDraw surfaces.
 
-This is not a font or text-layout singleton. Some generated UI text call sites currently name `g_pDirectX`, but IDA shows those specific sites load adjacent [UID:0000QX][g_pFontImageLib](by-global/g_pFontImageLib.md) at `0x0067ab24`. Keep that alias issue separate from this global.
+This is not a font or text-layout singleton. Some UI text call sites currently use the `g_pDirectX` name, but IDA shows those specific sites load adjacent [UID:0000QX][g_pFontImageLib](by-global/g_pFontImageLib.md) at `0x0067ab24`. Keep that alias issue separate from this global.
 
 ## Lifetime Evidence
 
@@ -50,4 +49,5 @@ Keep this global with `render/DirectX.cpp`. It is installed and cleared by `Dire
 
 ## Changes
 
-- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `88/86`. Summary/evidence: the page documents address, proposed type/owner, generated declaration, DirectDraw role, lifetime writes/clears, render/surface consumers, alias warning, and file/class/memory refs.
+- Completion/confidence scoring: existed before as ungraded `0/0`; changed to `88/86`. Summary/evidence: the page documents address, proposed type/owner, DirectDraw role, lifetime writes/clears, render/surface consumers, alias warning, and file/class/memory refs.
+- 2026-06-05: Marked reconstructable under [UID:0000IW][DirectX](by-file/DirectX.md). Evidence: live IDA MCP reports 19 xrefs to `0x0067ab20`; decompilation confirms `0x004a1b60` writes `dword_67AB20`, `0x004a1c60` and `0x004a1cc0` clear it, and `0x004a1cd0` clears it in the deleting destructor path.

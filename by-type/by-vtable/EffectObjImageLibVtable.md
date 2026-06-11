@@ -1,8 +1,8 @@
 *** UID:0001XG | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00004A | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -15,7 +15,8 @@
 - Confidence: strong for address, RTTI locator, slot targets, adjacent boundaries, and vptr-store xrefs.
 - Owner class: [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md).
 - Exact memory page: [UID:0002MK][0x0061b720-0x0061b730.EffectObjImageLibVtableData](by-memory/0x0061b720-0x0061b730.EffectObjImageLibVtableData.md).
-- Backing aggregate page: [UID:00025I][0x0061b664-0x0061c364.ImageLibraryReadOnlyData](by-memory/0x0061b664-0x0061c364.ImageLibraryReadOnlyData.md).
+- Backing aggregate page: [UID:00025I][0x0061b664-0x0061c360.ImageLibraryReadOnlyData](by-memory/0x0061b664-0x0061c360.ImageLibraryReadOnlyData.md).
+- Autogen status: attached under [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md); final C++ remains blank under the `95/95` gate.
 - RTTI pointer: `0x0061b720` -> `0x00648df4` (`??_R4EffectObjImageLib@@6B@`).
 - Primary vtable: `0x0061b724` (`??_7EffectObjImageLib@@6B@`).
 - Rebuild handling: `source-declared/generated-binary`.
@@ -62,6 +63,10 @@ This is source-declared/generated-binary data. Recreate it by preserving the `Ef
 
 No `RECONSTRUCTION_CPP CODE` is emitted here. Source declarations and method bodies should be attached through the owning class/file and exact `by-memory` method pages only after the final-source confidence gate is satisfied.
 
+## Parent Rationale
+
+Attach this generated-binary vtable page to [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md). The page describes only the `EffectObjImageLib` primary vtable and RTTI locator, the owner class already clears the `80/80` attachment gate and is attached to [UID:0000IY][EffectObjImageLib](by-file/EffectObjImageLib.md), and the neighboring template vtables are documented as boundaries rather than part of this class.
+
 ## Cross-References
 
 - [UID:0000IY][EffectObjImageLib](by-file/EffectObjImageLib.md)
@@ -71,6 +76,10 @@ No `RECONSTRUCTION_CPP CODE` is emitted here. Source declarations and method bod
 
 ## Changes
 
+- 2026-06-07 parent attachment update:
+  - What existed before: the page had strong RTTI/vtable evidence and an exact memory child, but no autogen parent.
+  - Changed to: `COMPLETION:84` and `AUTOGEN_PARENT_UID:00004A`, with an explicit class-parent rationale.
+  - Summary/evidence: the vtable page covers only the `EffectObjImageLib` primary vtable at `0x0061b724`; [UID:00004A][EffectObjImageLib](by-class/EffectObjImageLib.md) clears the attachment gate, and the adjacent `ProtectedArray` vtables remain documented as non-owner boundaries.
 - 2026-05-31 completion/confidence and reconstructable update:
   - What existed before: page had useful vtable notes but metadata was still `COMPLETION:0`, `CONFIDENCE:0`, and `RECONSTRUCTABLE:` blank.
   - Changed to: `COMPLETION:82`, `CONFIDENCE:90`, and `RECONSTRUCTABLE:TRUE`.

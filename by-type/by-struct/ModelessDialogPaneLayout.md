@@ -2,7 +2,7 @@
 *** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:00008K | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -16,6 +16,7 @@
 - Covered class: [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md).
 - Likely owner header/source: [UID:0000LH][ModelessDialogPane](by-file/ModelessDialogPane.md).
 - Confidence: strong for vtable offsets and mouse-event offset mapping; medium for final field names.
+- Autogen parent: attached to [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md); the class scores `86/84` and this layout scores `82/88`, so both sides satisfy the 80/80 parent gate.
 
 ## Layout Summary
 
@@ -89,6 +90,7 @@ Rechecked on 2026-05-31:
 
 ## Changes
 
+- 2026-06-06: Attached the layout to [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md). Scores remain `82/88`; the update only syncs parent metadata for the already documented three-view dialog layout.
 - Before: completion/confidence were `0/0`, and `RECONSTRUCTABLE` was blank despite the page containing IDA-backed layout research.
 - Changed to: completion `82`, confidence `88`, and `RECONSTRUCTABLE:TRUE`.
 - Summary/evidence: 2026-05-31 IDA MCP rechecked function boundaries, constructor vtable stores, secondary vtable references for `IsModal` and `HandleMouseEvent`, and the `this + 0xa0` secondary-view offset translation. Scores remain below `95` because final inherited field names and live allocation sites are still not fully resolved.

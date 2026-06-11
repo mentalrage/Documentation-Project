@@ -1,8 +1,8 @@
 *** UID:0000C8 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** AUTOGEN_PARENT_UID:0000NA | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
@@ -55,6 +55,10 @@ Dim-level palette mapping in `OnPaint`: `0=143`, `1=142`, `2=140`, `3=132`, `4=1
 
 2026-05-26 recheck: current generated output still leaves [UID:0000PJ][CreateScreenDimmer_4A12B0](by-global/CreateScreenDimmer_4A12B0.md) as a recovered global and still omits `ScreenDimmerSingletonClear` from `class_ScreenDimmer.cpp`. IDA MCP still resolves the clear helper as `0x0055a030-0x0055a03b` and decompiles it to a direct `dword_69AE08 = 0`.
 
+## Assignment Decision
+
+Assigned to [UID:0000NA][ScreenDimmer](by-file/ScreenDimmer.md). The child page now clears the corrected `85/85` gate at `87/86`, and the direct file parent clears the parent-side gate at `87/86`. The ownership relationship is direct for `ScreenDimmer`: the constructor publishes [UID:0000S5][g_pScreenDimmer](by-global/g_pScreenDimmer.md), the destructor and deleting-destructor paths clear it, [UID:0001GB][0x0055a030-0x0055a03b.ScreenDimmerSingletonClear](by-memory/0x0055a030-0x0055a03b.ScreenDimmerSingletonClear.md) is a local clear helper, [UID:00029D][0x0069ae08-0x0069ae0c.g_pScreenDimmer](by-memory/0x0069ae08-0x0069ae0c.g_pScreenDimmer.md) records the exact singleton storage, and [UID:0000PJ][CreateScreenDimmer_4A12B0](by-global/CreateScreenDimmer_4A12B0.md) is a factory wrapper that allocates and constructs this class. Final C++ remains blank because interface names, inherited `Pane` tail names, and full final-source shape have not passed the `95/95` gate.
+
 ## Open Questions
 
 - Whether the original project kept `ScreenFadeOut` in the same `ScreenDimmer.cpp` source file or in a neighboring `ScreenFadeOut.cpp`.
@@ -73,6 +77,11 @@ Dim-level palette mapping in `OnPaint`: `0=143`, `1=142`, `2=140`, `3=132`, `4=1
 - [UID:00007S][MapRefreshDimmer](by-class/MapRefreshDimmer.md)
 
 ## Changes
+
+- 2026-06-07: Batch 095 raised score from `86/82` to `87/86` and assigned the class to [UID:0000NA][ScreenDimmer](by-file/ScreenDimmer.md).
+  - Before: The page documented the constructor/destructor/paint behavior and layout but remained below the corrected confidence gate, mainly because the direct file parent was also below confidence gate.
+  - After: The page records direct parent ownership through singleton lifecycle, exact storage, factory, clear helper, and the refreshed `ScreenDimmer` source-file page; `AUTOGEN_PARENT_UID` is set to `0000NA`.
+  - Evidence: [UID:00029D][0x0069ae08-0x0069ae0c.g_pScreenDimmer](by-memory/0x0069ae08-0x0069ae0c.g_pScreenDimmer.md) documents the exact singleton slot at `88/90`, [UID:0000S5][g_pScreenDimmer](by-global/g_pScreenDimmer.md) records lifecycle writes/clears, [UID:0000PJ][CreateScreenDimmer_4A12B0](by-global/CreateScreenDimmer_4A12B0.md) and [UID:000133][0x004a12b0-0x004a1360.CreateScreenDimmerFactory](by-memory/0x004a12b0-0x004a1360.CreateScreenDimmerFactory.md) prove the factory construction path, [UID:0001VY][ScreenOverlayPaneLayouts](by-type/by-struct/ScreenOverlayPaneLayouts.md) supports layout/vtable offsets, and [UID:0000NA][ScreenDimmer](by-file/ScreenDimmer.md) now clears the parent-side gate at `87/86`.
 
 - 2026-05-30: Changed completion/confidence from `0/0` to `86/82`.
   - Before: The page was unevaluated despite detailed constructor/destructor/paint coverage, singleton handling, layout offsets, palette mapping, and helper/factory evidence.

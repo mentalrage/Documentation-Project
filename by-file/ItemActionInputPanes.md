@@ -1,17 +1,17 @@
 *** UID:0000KC | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # ItemActionInputPanes
 
 ## Status
 
-- Confidence: strong for grouping the direct item command input panes; medium for whether `ItemWhoInputPane` lived here or in [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md).
+- Confidence: strong for grouping the direct item command input panes, including Batch 085 live IDA confirmation of the DropAll/Drop/Eat class boundaries, vtables, factory/dispatcher xrefs, prompt ids, slot conversion, packet bytes, and confirmation/gold branches. Confidence remains capped by raw helper splits and final source-level helper names.
 - Proposed module folder: `ui/dialogs/`
 - Proposed source file: `ui/dialogs/ItemActionInputPanes.cpp`
 - Possible split files: `ui/dialogs/ItemActionInputPanes.cpp`, `ui/dialogs/TargetSelectionInputPanes.cpp`
-- Evidence basis: Wave3 class inspection, generated `simroot_v2` sources, and IDA MCP function-boundary/vtable checks on 2026-05-23 and 2026-05-26. Use [UID:0001XU][ItemActionInputPaneVtableFamily](by-type/by-vtable/ItemActionInputPaneVtableFamily.md) as the current IDA-backed layout anchor.
+- Evidence basis: IDA MCP function-boundary/vtable checks on 2026-05-23, 2026-05-26, and 2026-06-07 plus existing by-memory/by-class/by-global documentation. Use [UID:0001XU][ItemActionInputPaneVtableFamily](by-type/by-vtable/ItemActionInputPaneVtableFamily.md) as the current IDA-backed layout anchor.
 
 ## Hypothesis
 
@@ -60,6 +60,7 @@ ui/dialogs/ItemTargetInputPane.cpp
 - IDA decompiles the command factory at `0x005a93b0` as an inline allocation/construction path for the same class: allocate `0x108` bytes, load string id `46`, call `0x004f2a60`, then store the same three vtables. There are still no direct xrefs to the raw constructor start.
 - 2026-05-27 IDA raw-disassembly follow-up also confirms [UID:0001MH][0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor](by-memory/0x005b4b70-0x005b4bb0.DropGoldInputPaneRawConstructor.md) and [UID:0001MI][0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor](by-memory/0x005b52b0-0x005b52f0.GiveGoldInputPaneRawConstructor.md) raw constructors. Both are `NumberInputPane` derivatives; the direct `DropInputPane`/`GiveInputPane` submit handlers inline equivalent allocation/construction branches for the gold prompt.
 - 2026-06-02 IDA MCP refresh of [UID:0001MG][0x005b44b0-0x005b538a.DropGiveInputPanes](by-memory/0x005b44b0-0x005b538a.DropGiveInputPanes.md) confirms the modeled function map and shows several non-empty raw helper bodies inside prior gap spans. These remain item-action input-pane evidence but should be split into exact children before any final C++ reconstruction.
+- 2026-06-07 A004 Batch 085 live IDA MCP recheck confirms [UID:000042][DropAllInputPane](by-class/DropAllInputPane.md), [UID:000044][DropInputPane](by-class/DropInputPane.md), and [UID:000047][EatInputPane](by-class/EatInputPane.md) as direct item-action prompt classes in this module. The recheck confirmed exact constructor/key/submit function ranges, three-view vtable stores and xrefs from constructors plus the command factory/dispatcher, localized prompt ids `8`, `6`, and `12`, the shared help-key path, slot-letter conversion, inventory-limit checks against [UID:0000PS][g_activeUserStatusPane](by-global/g_activeUserStatusPane.md) offset `+0x284`, Drop/DropAll opcode `0x08` packet modes, Eat opcode `0x1a`, the DropGold shortcut branch, and the confirmation branches.
 - 2026-05-27 IDA raw-disassembly follow-up confirms [UID:0001M0][0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor](by-memory/0x005b26e0-0x005b2720.TakeOffInputPaneRawConstructor.md) as constructor-shaped bytes. It uses prompt id `0x22`, calls `CharInputPane::CharInputPane`, and installs vtables `0x0062f92c`, `0x0062f97c`, and `0x0062f9ac`.
 - IDA confirms [UID:0001M2][0x005b27c0-0x005b2827.SendTakeOffPacket](by-memory/0x005b27c0-0x005b2827.SendTakeOffPacket.md) as a real helper that sends opcode `0x1f` plus a selector byte through [UID:0000Q5][g_packetSender](by-global/g_packetSender.md). It is called by both `TakeOffInputPane` and `SelfLookPane`, so final helper source placement remains open.
 - IDA confirms [UID:0000PX][g_equipmentSlotKeys](by-global/g_equipmentSlotKeys.md) at `0x00630bd8` as the fixed 23-entry table used by `TakeOffInputPane::ProcessUnequipCommand`: `wash#nlr####fm#c###[]12`.
@@ -68,8 +69,8 @@ ui/dialogs/ItemTargetInputPane.cpp
 - 2026-05-27 IDA raw-disassembly follow-up confirms [UID:0001MM][0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor](by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md) as constructor-shaped bytes. It uses prompt id `0xa5`, calls `CharInputPane::CharInputPane`, installs vtables `0x00630278`, `0x006302c8`, and `0x006302f8`, and stores the confirmed item slot byte at `+0x108`.
 - 2026-06-02 IDA MCP refresh of [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md) confirms the Throw/Use/Eat modeled function map, pure padding spans, and non-empty raw helper bodies around [UID:0001MM][0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor](by-memory/0x005b5b30-0x005b5b80.ThrowReallyInputPaneRawConstructor.md). Keep those helper bodies in the item-action module, but split them into exact children before final C++ reconstruction.
 - The small functions at `0x005b77c8` and `0x005b77d3` are shared input-pane destructor adjustor thunks, not handwritten `TakeOffInputPane` logic. They are documented and ignored in [UID:0001N6][0x005b77c8-0x005b77de.SharedInputPaneAdjustorThunks](by-memory/0x005b77c8-0x005b77de.SharedInputPaneAdjustorThunks.md).
-- 2026-05-27 IDA decompilation confirms [UID:0001MR][0x005b62d0-0x005b64fa.WieldInputPane](by-memory/0x005b62d0-0x005b64fa.WieldInputPane.md) and [UID:0001MT][0x005b6560-0x005b6760.WearInputPane](by-memory/0x005b6560-0x005b6760.WearInputPane.md) are clean IDA-modeled constructors/methods, not raw constructor cases. Wield uses prompt id `0x0d`, Wear uses prompt id `0x21`, both derive from `CharInputPane`, both format prompts with the local player name from `dword_67A748`, and both validate typed slot letters against `dword_69AE0C + 0x284`.
-- 2026-05-27 IDA decompilation confirms [UID:0000EY][ThrowInputPane](by-class/ThrowInputPane.md), [UID:0000FG][UseInputPane](by-class/UseInputPane.md), and [UID:000047][EatInputPane](by-class/EatInputPane.md) follow the same constructor/key-handler pattern. Throw uses prompt id `0x23`, Use uses `0x09`, and Eat uses `0x0c`; all three validate slot letters against `dword_69AE0C + 0x284`. Throw sends opcode `0x17` mode `0` after checking `dword_67A748 + 0x3ec0`, Use dispatches through [UID:0001KN][0x005a3e30-0x005a3ff3.UseInventorySlotDispatch](by-memory/0x005a3e30-0x005a3ff3.UseInventorySlotDispatch.md), and Eat sends opcode `0x1a`.
+- 2026-05-27 IDA decompilation confirms [UID:0001MR][0x005b62d0-0x005b64fa.WieldInputPane](by-memory/0x005b62d0-0x005b64fa.WieldInputPane.md) and [UID:0001MT][0x005b6560-0x005b6760.WearInputPane](by-memory/0x005b6560-0x005b6760.WearInputPane.md) are clean IDA-modeled constructors/methods, not raw constructor cases. Wield uses prompt id `0x0d`, Wear uses prompt id `0x21`, both derive from `CharInputPane`, both format prompts with the local player name from [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) / historical IDA alias `dword_67A748`, and both validate typed slot letters against `dword_69AE0C + 0x284`.
+- 2026-05-27 IDA decompilation confirms [UID:0000EY][ThrowInputPane](by-class/ThrowInputPane.md), [UID:0000FG][UseInputPane](by-class/UseInputPane.md), and [UID:000047][EatInputPane](by-class/EatInputPane.md) follow the same constructor/key-handler pattern. Throw uses prompt id `0x23`, Use uses `0x09`, and Eat uses `0x0c`; all three validate slot letters against `dword_69AE0C + 0x284`. Throw sends opcode `0x17` mode `0` after checking [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) / historical IDA alias `dword_67A748` byte `+0x3ec0`, Use dispatches through [UID:0001KN][0x005a3e30-0x005a3ff3.UseInventorySlotDispatch](by-memory/0x005a3e30-0x005a3ff3.UseInventorySlotDispatch.md), and Eat sends opcode `0x1a`.
 - The broader `0x005b29c0-0x005b6760` neighborhood also contains `EmotionInputPane`, `GroupInputPane`, `PostInputPane`, and `SpellSpellInputPane`; see [UID:0000ID][CommandInputPanes](by-file/CommandInputPanes.md). That supports an original "command input panes" source neighborhood, but those classes should not be claimed as item-action ownership without their own pass.
 - IDA recheck on 2026-05-26 resolves `0x005b6500-0x005b6560` as [UID:0001MS][0x005b6500-0x005b6560.SendWieldPacket](by-memory/0x005b6500-0x005b6560.SendWieldPacket.md), called only from `WieldInputPane::OnSubmitInput`. It should attach to the wield side of the item-action module, not to `WearInputPane`.
 - `ItemWhoInputPane` is earlier in memory than the direct item command cluster and interacts with `MapPane`, `LivingObjectPane`, selected target state, and auto-use configuration. The 2026-05-24 target-selection pass now documents a likely split module in [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md).
@@ -144,6 +145,15 @@ Do not run these migrations until the non-IDA constructor starts and uncovered n
 
 ## Changes
 
+- 2026-06-07 A004 Batch 085 parent-gate refresh:
+  - Before: `90/80`; confidence was below the strict direct-parent gate for [UID:000042][DropAllInputPane](by-class/DropAllInputPane.md), [UID:000044][DropInputPane](by-class/DropInputPane.md), and [UID:000047][EatInputPane](by-class/EatInputPane.md).
+  - After: `90/85`.
+  - Evidence: live IDA MCP against `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the modeled DropAll/Drop/Eat ranges, vtable triples, command factory/dispatcher xrefs, prompt ids, help-key path, slot conversion, packet opcodes, DropGold branch, and confirmation branches.
+  - Remaining cap: raw helper bodies, non-IDA constructor starts, and final source-level helper names still need exact child docs before final C++ reconstruction.
+- 2026-06-07 A008 alias cleanup:
+  - Before: Wield/Wear/Throw/Use/Eat evidence used bare `dword_67A748` wording for local-player/client-state reads.
+  - Changed to: canonical [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) wording while preserving `dword_67A748` as the historical IDA alias.
+  - Evidence: the `g_pCollectionData` global page documents `0x0067a748` as a broad player/client-state pointer with item, spell, gold, and collection typed views.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:90` and `CONFIDENCE:80`.

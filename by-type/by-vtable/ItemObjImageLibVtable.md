@@ -15,7 +15,7 @@
 - Confidence: strong for address, RTTI locator, slot targets, adjacent boundaries, and vptr-store xrefs.
 - Owner class: [UID:00006W][ItemObjImageLib](by-class/ItemObjImageLib.md).
 - Exact memory page: [UID:0002ML][0x0061b738-0x0061b748.ItemObjImageLibVtableData](by-memory/0x0061b738-0x0061b748.ItemObjImageLibVtableData.md).
-- Backing aggregate page: [UID:00025I][0x0061b664-0x0061c364.ImageLibraryReadOnlyData](by-memory/0x0061b664-0x0061c364.ImageLibraryReadOnlyData.md).
+- Backing aggregate page: [UID:00025I][0x0061b664-0x0061c360.ImageLibraryReadOnlyData](by-memory/0x0061b664-0x0061c360.ImageLibraryReadOnlyData.md).
 - RTTI pointer: `0x0061b738` -> `0x00648f24` (`??_R4ItemObjImageLib@@6B@`).
 - Primary vtable: `0x0061b73c` (`??_7ItemObjImageLib@@6B@`).
 - Rebuild handling: `source-declared/generated-binary`.

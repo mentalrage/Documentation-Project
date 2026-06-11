@@ -1,6 +1,6 @@
 *** UID:0000AW | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID:0000MT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -12,9 +12,9 @@
 
 ## Status
 
-- Confidence: strong for constructor, draw virtual, vtable-backed ownership, and source placement; medium for private helper names.
+- Confidence: strong for constructor, draw virtual, vtable-backed ownership, source placement, and current helper boundary status; medium for private helper names.
 - Likely source file: [UID:0000MT][ProgressBarControlPane](by-file/ProgressBarControlPane.md)
-- Current recovered file: `source-3/simroot_v2/class_ProgressBarControlPane.cpp`
+- Final C++ status: withheld until the projected private helper names and progress-field names are source-quality.
 - Vtables: [UID:0001YH][ProgressBarControlPaneVtables](by-type/by-vtable/ProgressBarControlPaneVtables.md) at `0x00617b34`, `0x00617b9c`, and `0x00617bcc`
 
 ## Class Purpose
@@ -33,7 +33,7 @@
 
 ## Evidence Notes
 
-- `source-3/simroot_v2/class_ProgressBarControlPane.cpp` emits the constructor and draw virtual.
+- Live IDA currently models the constructor and draw virtual as functions while leaving the three private helpers as projected function-shaped bytes.
 - IDA confirms `0x00494c80` has one direct caller, `PatchPane::PatchPane` at `0x005472d7`.
 - IDA confirms the draw routine is a vtable target at `0x00617b78`.
 - 2026-05-26 IDA MCP vtable pass confirms primary/secondary/tertiary vtables at `0x00617b34`, `0x00617b9c`, and `0x00617bcc`, installed by constructor stores at `0x00494cc5`, `0x00494ccb`, and `0x00494cd5`.
@@ -42,6 +42,11 @@
 - 2026-05-26 recheck: IDA MCP still reports `0x00494a90`, `0x00494af0`, and `0x00494db0` as `Not a function`, with no direct xrefs. Keep them as projected private helper bytes under this class, not ignored/runtime code.
 - 2026-06-01 byte recheck confirms the two range-setter helper bodies end at `0x00494ae7` and `0x00494b4b`, with only `0xcc` alignment between/after them.
 - 2026-06-03 cross-documentation review ties the class attachment tree together: [UID:0000MT][ProgressBarControlPane](by-file/ProgressBarControlPane.md) is at the parent-confidence threshold, the exact helper children are assigned here with blank C++ bodies, [UID:0002OL][0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData](by-memory/0x00617b30-0x00617bd4.ProgressBarControlPaneVtableData.md) proves the vtable data range, and the constructor/draw pages prove the modeled class core.
+- 2026-06-05 live IDA refresh confirms the constructor is modeled at `0x00494c80` with size `0x12a`, the draw virtual is modeled at `0x00494de0` with size `0xd0`, and helper starts `0x00494a90`, `0x00494af0`, and `0x00494db0` remain unmodeled function-shaped code.
+- 2026-06-05 `callers` reports the constructor call at `0x005472d7` in the PatchPane constructor and no ordinary direct callers for the draw virtual; `xrefs_to` reports no references to the three helper starts and the expected draw vtable data reference at `0x00617b78`.
+- 2026-06-05 byte reads reconfirm `0x00494ae7-0x00494af0`, `0x00494b4b-0x00494b50`, and `0x00494dde-0x00494de0` are alignment gaps, and `0x00617b78` stores the draw virtual pointer `0x00494de0`.
+- 2026-06-08 Batch 113 IDA MCP recheck reconfirms the parent-gate evidence: `lookup_funcs` reports raw helper starts `0x00494a90`, `0x00494af0`, and `0x00494db0` are still not IDA functions; `0x00494c80-0x00494daa` remains the constructor with the `PatchPane` constructor caller at `0x005472d7`; `0x00494de0-0x00494eb0` remains the draw virtual with vtable data xref `0x00617b78`; and the helper/draw byte windows still show only `0xcc` alignment at `0x00494ae7-0x00494af0`, `0x00494b4b-0x00494b50`, and `0x00494dde-0x00494de0`.
+- 2026-06-10 B001-018 IDA MCP audit reconfirms the update/draw grouping: [UID:00011A][0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder](by-memory/0x00494db0-0x00494dde.ProgressBarControlPaneCurrentValueAdder.md) is an unmodeled/no-xref 46-byte current-value helper, [UID:00011C][0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar](by-memory/0x00494de0-0x00494eb0.ProgressBarControlPaneDrawProgressBar.md) is the modeled draw virtual with vtable data xref `0x00617b78`, and aggregate [UID:00011B][0x00494db0-0x00494eb0.ProgressBarControlPaneUpdateAndDraw](by-memory/0x00494db0-0x00494eb0.ProgressBarControlPaneUpdateAndDraw.md) is a non-emitting duplicate inventory, not a separate source owner.
 
 ## Cross-References
 
@@ -67,4 +72,11 @@
 - 2026-06-03 parent-threshold consistency pass:
   - Before: confidence remained `78` while exact helper children were already attached under this class.
   - After: completion/confidence are `84/80`, with confidence raised only to the attachment threshold and final C++ still withheld.
-  - Evidence: the file page, constructor, draw virtual, vtable data, range-setter aggregate, update/draw aggregate, exact helper pages, and autogen reports agree on this class as the progress-bar control owner. Live IDA MCP was unavailable during this pass, so projected helper names remain a cap.
+  - Evidence: the file page, constructor, draw virtual, vtable data, range-setter aggregate, update/draw aggregate, exact helper pages, and autogen reports agree on this class as the progress-bar control owner.
+- 2026-06-05 live IDA refresh:
+  - Changed from `84/80` to `86/84`.
+  - Removed stale recovered-file wording and the old unavailable-IDA caveat.
+  - Evidence: live `lookup_funcs`, `callers`, `xrefs_to`, and byte reads confirm the modeled constructor/draw functions, PatchPane constructor caller, vtable-only draw reachability, unmodeled/no-xref private helpers, alignment gaps, and draw vtable pointer.
+- 2026-06-08 Batch 113 parent-gate refresh:
+  - Changed from `86/84` to `86/85`.
+  - Evidence: fresh IDA MCP read-only checks reconfirm the constructor/draw modeled boundaries, PatchPane constructor caller, draw vtable reference, no-xref raw helper starts, helper byte bodies, and alignment gaps. The confidence increase is limited to the corrected `85/85` parent gate; final C++ remains blank because private helper and field names are still provisional.

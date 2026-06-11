@@ -1,13 +1,13 @@
 *** UID:0000KX | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/login/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
 
 # LoginDialogPane
 
 ## Status
 
-- Confidence: strong for `LoginDialogPane`, `NewUserDialogPane`, and `ChangePasswordDialogPane` ownership; medium for whether the smaller account dialogs were separate `.cpp` files or one login-account module.
+- Confidence: strong for `LoginDialogPane` core ownership, `SendLoginRequest` file-local ownership, `NewUserDialogPane`, and `ChangePasswordDialogPane` account-dialog placement; medium-high for whether the smaller account dialogs were separate `.cpp` files or one login-account module.
 - Proposed module folder: `login/`
 - Proposed source files: `login/LoginDialogPane.cpp`, `login/NewUserDialogPane.cpp`, and `login/ChangePasswordDialogPane.cpp`
 - Current generated sources: `class_LoginDialogPane.cpp`, `class_NewUserDialogPane.cpp`, `class_ChangePasswordDialogPane.cpp`, plus recovered login request helpers.
@@ -33,6 +33,8 @@ The login/account dialogs were probably part of a small `login/` source family. 
 ## Boundary Notes
 
 - IDA confirms `LoginDialogPane` starts at `0x004fa7a0`, `0x004fab10`, `0x004fad00`, `0x004fae30`, and `0x004fae90`.
+- 2026-06-07 live IDA MCP reconfirms the exact LoginDialogPane core functions at `0x004fa7a0-0x004faacd`, `0x004fab10-0x004face9`, `0x004fad00-0x004fae22`, `0x004fae30-0x004fae88`, and `0x004fae90-0x004fb2a6`, with the raw cleanup fragment at `0x004faad0-0x004fab0f`, local switch/table bytes at `0x004face9-0x004fad00` and `0x004fb2a6-0x004fb2d0`, and `0x004fb2d0` as the next function start.
+- The same pass reconfirms `SendLoginRequest` at `0x004fb2d0-0x004fb62a`, one direct caller from `LoginDialogPane` command handling at `0x004fadbd`, and six bytes of `0xcc` padding before the next constructor at `0x004fb630`.
 - IDA confirms `NewUserDialogPane` starts at `0x004f9d30`, `0x004fa120`, `0x004fa150`, and `0x004fa1d0`.
 - 2026-06-01 IDA MCP corrects the active new-user/login core boundaries: `NewUserDialogPane` account-flow code continues through functions at `0x004fa3a0` and `0x004fa5b0` before padding to `0x004fa7a0`; `LoginDialogPane` core continues through switch-table/padding bytes to `0x004fb2d0`; `SendLoginRequest` ends at exclusive `0x004fb62a`.
 - IDA confirms `ChangePasswordDialogPane` starts at `0x004fdd40`, `0x004fe460`, `0x004fe490`, and `0x004fe560`.
@@ -40,6 +42,17 @@ The login/account dialogs were probably part of a small `login/` source family. 
 - 2026-05-24 IDA confirms the helper at `0x004f9060` is not runtime/library code; it allocates `620` bytes and calls `ChangePasswordDialogPane::ChangePasswordDialogPane`.
 - IDA confirms [UID:0000PL][EnsureLoginDialogPane_4F8B30](by-global/EnsureLoginDialogPane_4F8B30.md) is called by [UID:0000JJ][ForcedInformMessageDialog](by-file/ForcedInformMessageDialog.md) destructor paths at `0x005880db` and `0x0058ac52`.
 - Generated `NewUserDialogPane` currently contains escaped `\!=` text in emitted C++ and must not be treated as compile-ready source until the materialization bug is fixed.
+
+## Corrected Assignment Gate
+
+This file page now clears the corrected direct-parent gate for the `LoginDialogPane` class and the file-local [UID:0002Q5][0x004fb2d0-0x004fb62a.SendLoginRequest](by-memory/0x004fb2d0-0x004fb62a.SendLoginRequest.md) helper: this page is `88/86`, has validated `NexusTK/login/` placement, and has live IDA evidence tying the constructor, virtual handlers, request helper, resources, singleton slot, and main-menu/ensure callers to the login/account source family. This does not close the broader account-dialog split question; smaller dialogs may still stay in adjacent `login/*.cpp` files, so final C++ remains blank on child pages.
+
+## Score Rationale
+
+| Metric | Value | Rationale |
+| --- | --- | --- |
+| Completion | `88` | The page records the proposed login folder, account-dialog family split, exact LoginDialogPane core child, exact `SendLoginRequest` helper, constructor/handler/request boundaries, related new-user and password-change children, generated-source caveat, and assignment-gate scope. |
+| Confidence | `86` | Live IDA confirms the LoginDialogPane core, request helper caller, vtable/data/resource/global evidence, and proposed-source-tree placement. Confidence remains below final audit because the original split among small account dialog files is still partly unresolved. |
 
 ## Cross-References
 
@@ -58,6 +71,8 @@ The login/account dialogs were probably part of a small `login/` source family. 
 
 ## Changes
 
+- 2026-06-05: Filled `PROPOSED_RECONSTRUCTION_PATH` with `NexusTK/login/`.
+  - Reason: `by-project-structure/proposed-source-tree.md` already places `LoginDialogPane.cpp` under login, and the linked IDA-backed login/account dialog boundaries plus `EnsureLoginDialogPane_4F8B30` constructor evidence support this source owner. This also makes the file root valid for child autogen attachment; completion/confidence scores were not changed.
 - Before: the proposed contents represented `ChangePasswordDialogPane` with only `0x004fdd40-0x004fe781`.
 - After: the proposed contents include [UID:00022W][0x004fe790-0x004ff03f.ChangePasswordDialogPacketHelpers](by-memory/0x004fe790-0x004ff03f.ChangePasswordDialogPacketHelpers.md) as the adjacent packet send/reply helper cluster for the same dialog family.
 - Why: IDA MCP ties `0x004fe9e0` to `SubmitPasswordChange` and `0x004febf0` to the local password-change reply dispatcher.
@@ -66,3 +81,7 @@ The login/account dialogs were probably part of a small `login/` source family. 
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:86` and `CONFIDENCE:82`.
   - Summary/evidence: login/new-user/change-password ownership, helper functions, packet helpers, boundary notes, generated source caveat, and account-flow cross-references are documented; confidence is capped by exact split among smaller account dialog `.cpp` files.
+- 2026-06-07 A006 Batch006 parent-gate pass:
+  - Changed completion/confidence from `86/82` to `88/86`.
+  - Evidence: live IDA MCP reconfirmed the exact LoginDialogPane core functions and raw cleanup/table islands, `SendLoginRequest`'s single caller from the login command handler, request-helper bounds/padding, constructor resource/global/vtable refs, and proposed-source-tree `login/LoginDialogPane.cpp` placement.
+  - Assignment scope: this page is now a valid direct parent for [UID:00007F][LoginDialogPane](by-class/LoginDialogPane.md) and the file-local request helper, but the broader account-dialog source split remains open and no final C++ is emitted.

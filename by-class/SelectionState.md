@@ -1,7 +1,7 @@
 *** UID:0000CS | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
@@ -44,6 +44,11 @@ The behavior is better named `ListPane::GetSelectionCount` and should be folded 
 - [Wave3 data issues](../wave3_data_issues.md)
 
 ## Changes
+
+- 2026-06-05: Changed `RECONSTRUCTABLE` from blank to `FALSE` and left `AUTOGEN_PARENT_UID` blank.
+  - Before: The generated `SelectionState` alias still appeared unclassified in autogen coverage.
+  - After: The standalone class record is classified as not reconstructable; the source behavior belongs to `ListPane`, not a separate original class.
+  - Evidence: Live IDA MCP lookup confirms the only active helper at `0x004f3e20`; existing ownership notes document it as `ListPane` selection-count behavior with no constructor, destructor, vtable, or independent layout evidence.
 
 - 2026-05-30: Changed completion/confidence from `0/0` to `-1/-1`.
   - Before: The page was still appearing in generated low-score stats even though its status and coverage row already mark it ignored as a standalone class.
