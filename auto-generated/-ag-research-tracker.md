@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED FROM project-documentation validator autogen. DO NOT EDIT BY HAND. -->
-<!-- validator-command-id: 000000028269 -->
-<!-- validator-refreshed-at: 2026-08-25T19:04:46-04:00 -->
-<!-- validator-refresh-source: deferred-generated-refresh -->
+<!-- validator-command-id: 000000028271 -->
+<!-- validator-refreshed-at: 2026-08-25T19:07:41-04:00 -->
+<!-- validator-refresh-source: foreground-generated-refresh -->
 
 # ag-research-tracker
 
