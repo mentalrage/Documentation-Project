@@ -1,54 +1,68 @@
 *** UID:0000K0 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:93 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/app/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:FILE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # IdleWatcher
 
 ## Status
 
-- Confidence: strong for behavior, anchors, app helper placement, startup construction, singleton lifecycle, vtable identity, and timer-handler scheduling; medium-high for private-in-`Application.cpp` still being unproven.
+- Confidence: very strong for standalone placement, complete source order, class/global/method routes, layout, singleton lifecycle, TimerHandler behavior, and compiler exclusions. Exact private spelling/header organization remains inferred.
 - Proposed module: `NexusTK/app/IdleWatcher.cpp`.
-- Current materialization: documentation-only; final C++ remains intentionally blank until field and callback names are final-source quality.
+- Current materialization: source-ready through class/global/exact method emitters. This by-file page owns ordering/routing and does not itself carry a C++ block.
 - Primary class doc: [UID:00006C][IdleWatcher](by-class/IdleWatcher.md)
 - Main address doc: [UID:000171][0x004cfe60-0x004cffaf.IdleWatcher](by-memory/0x004cfe60-0x004cffaf.IdleWatcher.md)
 
 ## File Role
 
-`IdleWatcher` is a small `Pane`-derived singleton created from `Application::Startup`. It stores `g_pIdleWatcher`, schedules idle/timer callbacks, and tears itself down through pane/base destruction.
+`IdleWatcher` is a `0x100`-byte `Pane`/`Singleton<IdleWatcher>` helper created from `Application::Startup`. It owns zero-initialized `g_pIdleWatcher`, resets idle state on pointer/key activity, handles periodic TimerHandler expiry, and relies on normal base/compiler destruction for Singleton clear, Pane teardown, adjustors, and scalar deletion.
 
-The class is startup-owned, but it should not be absorbed into [UID:0000HG][Application](by-file/Application.md) unless the original source is proven to have kept singleton helper classes in the application file. Its behavior is a separate timer/idle pane helper.
+The standalone placement is accepted rather than provisional. [UID:0000HG][Application](by-file/Application.md) owns allocation/construction and shutdown deletion callsites, but its current documentation explicitly excludes `IdleWatcher` absorption; dedicated class, global, RTTI/vtables, fields, and timer behavior form this narrow file.
 
 [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) places this module under `NexusTK/app/` with `ChangeMan`, `MiscWorkThread`, and `MSGHandler`: small helpers with direct application lifecycle/dispatch relationships that are not the broad application shell itself.
 
-## Proposed Contents
+## Exact Generated Source Order
 
-| Entity | Address evidence | Role |
-| --- | --- | --- |
-| `IdleWatcher` | `0x004cfe60-0x004cffaf` | Startup-created idle/timer watcher singleton. |
-| timer reset/schedule helper | `0x004cfef0-0x004cff1f` | Called by the application idle-work scheduler; clears active state and reschedules the timer-handler subobject. |
-| adjustor thunks | `0x004cff37-0x004cff4d` | Compiler/vtable thunks forwarding to the scalar deleting destructor. |
-| vtable/read-only data | inside [UID:00025H][0x0061b344-0x0061b664.HourIconsIdleReadOnlyData](by-memory/0x0061b344-0x0061b664.HourIconsIdleReadOnlyData.md) | Mixed UI `.rdata` range containing the `IdleWatcher` vtable island, followed later by `ImageLib` RTTI/vtable data. |
+| Position | Entity | Source role |
+| ---: | --- | --- |
+| `10` | [UID:00006C][IdleWatcher](by-class/IdleWatcher.md) | Complete `Pane, Singleton<IdleWatcher>` declaration, inline `IsIdle`, fields, virtuals, and `[[CHILDREN]]`. |
+| `20` | [UID:0002VY][0x0069af1c-0x0069af20.g_pIdleWatcher](by-memory/0x0069af1c-0x0069af20.g_pIdleWatcher.md) | `IdleWatcher *g_pIdleWatcher = 0;`. |
+| `30` | [UID:0004LE][0x004cfe60-0x004cfeba.IdleWatcherConstructor](by-memory/0x004cfe60-0x004cfeba.IdleWatcherConstructor.md) | `Pane(4)`, Singleton base, initial idle true, interval member. |
+| `40` | [UID:0004LF][0x004cfec0-0x004cfee9.IdleWatcherDestructor](by-memory/0x004cfec0-0x004cfee9.IdleWatcherDestructor.md) | Empty authored body; implicit base teardown. |
+| `50` | [UID:0004LG][0x004cfef0-0x004cff20.IdleWatcherResetIdleTimer](by-memory/0x004cfef0-0x004cff20.IdleWatcherResetIdleTimer.md) | User-activity state clear/remove/restart. |
+| `60` | [UID:0004LH][0x004cff20-0x004cff37.IdleWatcherOnTimer](by-memory/0x004cff20-0x004cff37.IdleWatcherOnTimer.md) | Timer expiry state set/rearm/true return. |
+
+Compiler-generated and deliberately excluded from source emission: [UID:0004LI][0x004cff37-0x004cff4d.IdleWatcherDestructorAdjustorThunks](by-memory/0x004cff37-0x004cff4d.IdleWatcherDestructorAdjustorThunks.md), [UID:0004LJ][0x004cff50-0x004cffaf.IdleWatcherScalarDeletingDestructor](by-memory/0x004cff50-0x004cffaf.IdleWatcherScalarDeletingDestructor.md), and [UID:0003BP][0x0061b568-0x0061b640.IdleWatcherVtableData](by-memory/0x0061b568-0x0061b640.IdleWatcherVtableData.md). UID000171 is only the non-emitting split index.
 
 ## Method Families
 
 | Area | Representative anchors | Notes |
 | --- | --- | --- |
-| Construction | `0x004cfe60` | Constructs pane base, installs vtables, and sets `g_pIdleWatcher`. |
-| Timer reset/schedule | `0x004cfef0` | Clears the active flag, removes timer state for `this + 0xa4`, and schedules the next idle timer with the stored interval at `+0xfc`. |
-| Activation/timer callback | `0x004cff20` | Marks the watcher active and schedules timer callback work. |
-| Destruction | `0x004cfec0`, `0x004cff37`, `0x004cff42`, `0x004cff50` | Non-deleting destructor plus two adjustor thunks and scalar deleting destructor. |
+| Construction | `0x004cfe60` | Allocated as `0x100`, receives initial interval 20000, builds Pane kind 4 and Singleton, starts idle. |
+| Activity reset | `0x004cfef0` | Clears `m_isIdle`, removes pending timers for inherited TimerHandler `+0xa4`, schedules ID 0/interval/zero/zero. |
+| Timer callback | `0x004cff20` | TimerHandler `OnTimer`: sets idle, rearms ID 0/interval/zero/zero, returns true. |
+| State read | inline class source | `IsIdle() const` explains MainMenu's direct `+0xf8` load without an out-of-line body. |
+| Destruction | `0x004cfec0` source plus compiler children | Empty ordinary destructor; Singleton clear, Pane teardown, adjustors, flags, guarded size, and delete are implicit/compiler-generated. |
+
+## Layout, Lifecycle, And Ownership
+
+- Complete layout: Pane primary `+0`, EventHandler `+0xa0`, TimerHandler `+0xa4`, empty Singleton base plus private bool `m_isIdle` `+0xf8`, natural alignment `+0xf9-+0xfb`, unsigned interval `+0xfc`, total `0x100`.
+- `g_pIdleWatcher` has exactly seven meaningful refs: constructor publication, ordinary/scalar clears, two EventDispatcher activity reads, Application shutdown read, and MainMenu state read.
+- Consumer refs do not move ownership: EventDispatcher invokes reset, MainMenu reads inline state, TimerMgr implements generic wrappers, and Application owns lifecycle callsites.
+- No duplicate by-global page, `Application.cpp` fold, manual vtable/RTTI table, manual singleton assignment/clear, explicit padding field, or compiler-wrapper source is accepted.
 
 ## Boundary Notes
 
-- 2026-06-05 live IDA confirms exact starts at `0x004cfe60`, `0x004cfec0`, `0x004cfef0`, `0x004cff20`, `0x004cff37`, `0x004cff42`, and `0x004cff50`.
+- 2026-07-13 live session `c81909be` reconfirmed exact starts/ranges, all internal `0xcc` pads, layout/RTTI, three vtable views, callers, global refs, and source/compiler dispositions.
 - [UID:00019H][0x004f5f20-0x004f66fb.BaramAppAndApplicationStartup](by-memory/0x004f5f20-0x004f66fb.BaramAppAndApplicationStartup.md) records `Application::Startup` calling the `IdleWatcher` constructor at `0x004f5ffe`.
-- Live IDA confirms `0x004cfef0` is called from application idle-work scheduler sites `0x004a72f6` and `0x004a7490`.
+- Live IDA confirms `0x004cfef0` is called from EventDispatcher route sites `0x004a72f6` after pointer activity and `0x004a7490` after key/text activity.
 - Live IDA confirms decorated `IdleWatcher` vtables at `0x0061b56c`, `0x0061b5b8`, and `0x0061b5e8`, with callback slot `0x0061b5ec -> 0x004cff20` and destructor/thunk slots at `0x0061b56c`, `0x0061b5b8`, and `0x0061b5e8`.
 - `xrefs_to 0x0069af1c` confirms singleton assignment/clears and application idle/shutdown readers.
 - [UID:0001K8][0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers](by-memory/0x005975e0-0x0059760d.TimerHandlerScheduleRemoveWrappers.md) documents the schedule wrapper used by many timer clients; this supports `IdleWatcher` as a timer-handler consumer, not as generic timer-manager ownership.
-- [UID:00025H][0x0061b344-0x0061b664.HourIconsIdleReadOnlyData](by-memory/0x0061b344-0x0061b664.HourIconsIdleReadOnlyData.md) records the mixed UI read-only span that includes `IdleWatcher` vtable data and nearby `ImageLib` vtable tail.
+- [UID:00025H][0x0061b340-0x0061b660.HourIconsIdleReadOnlyData](by-memory/0x0061b340-0x0061b660.HourIconsIdleReadOnlyData.md) records the mixed UI read-only span that includes `IdleWatcher` vtable data and nearby `ImageLib` vtable tail.
 - `list missing-ref --class IdleWatcher` returns zero entries.
+- Internal padding is exact at `0x004cfeba-0x004cfec0`, `0x004cfee9-0x004cfef0`, and `0x004cff4d-0x004cff50`; outer predecessor/successor pads remain unchanged.
 
 ## Cross-References
 
@@ -60,6 +74,11 @@ The class is startup-owned, but it should not be absorbed into [UID:0000HG][Appl
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md)
 
 ## Changes
+
+- 2026-07-13 B001 Gate-1-accepted source-file implementation:
+  - Changed from `86/88`, documentation-only/provisional placement, aggregate method inventory, `Activate`/active-state wording, and unresolved field/callback/source shape.
+  - Changed to `91/93`, source-ready standalone `NexusTK/app/IdleWatcher.cpp`, exact positions 10/20/30/40/50/60, six real source routes, full layout/lifecycle, and explicit aggregate/compiler/vtable exclusions.
+  - Preserved startup/shutdown caller evidence while superseding private-in-Application, manual-global, active-polarity, and handwritten compiler-glue assumptions.
 
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.

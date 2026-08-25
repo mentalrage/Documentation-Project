@@ -1,15 +1,16 @@
 *** UID:0001R6 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # Application Startup DAT Archives
 
 ## Status
 
-- Confidence: strong for resource names and startup call sites; medium for exact original comments or helper names.
+- Confidence: very strong for resource names, startup call sites, and current-package archive presence; medium for exact original comments or helper names.
 - Owner flow: [UID:0000HG][Application](by-file/Application.md) constructor and `Application::Initialize`.
 - Archive API owner: [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md).
-- Evidence basis: `simroot_v2` generated Application source, IDA MCP disassembly/string reads on 2026-05-25, a focused IDA MCP recheck on 2026-05-30, and existing DAT manager wrapper docs.
+- Evidence basis: IDA MCP disassembly/string reads on 2026-05-25, a focused IDA MCP recheck on 2026-05-30, current read-only client package inventory on 2026-06-14, documented DAT entry-table parsing, and existing DAT manager wrapper docs.
 
 ## Summary
 
@@ -20,6 +21,30 @@ The startup path uses three patterns:
 - fixed required archives loaded directly through [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md);
 - numbered archive families loaded through [UID:0000T5][LoadIndexedDATSeries](by-global/LoadIndexedDATSeries.md);
 - hand-written loops for music archive families and the required BINT archives.
+
+## Current Package Inventory
+
+2026-06-14 read-only package audit of `E:\2026\Resources\Read_Only\NexusTK\Data` confirms the current client distribution contains every fixed startup archive named by the constructor/initializer path:
+
+| Startup archive | Current package file | Size |
+| --- | --- | ---: |
+| `DATA/BARAMST.DAT` | `baramst.dat` | 301,540 |
+| `DATA/MISC.DAT` | `misc.dat` | 23,097,985 |
+| `DATA/CHAR.DAT` | `char.dat` | 8,311,319 |
+| `DATA/TILE.DAT` | `tile.dat` | 1,549,757 |
+| `DATA/MON.DAT` | `mon.dat` | 6,852,191 |
+| `DATA/EFX.DAT` | `efx.dat` | 3,755,268 |
+| `DATA/MNM.DAT` | `mnm.dat` | 12,909 |
+| `DATA/SND.DAT` | `snd.dat` | 12,240,866 |
+| `DATA/BARAM.DAT` | `baram.dat` | 11,276,050 |
+| `DATA/BINT0.DAT` | `bint0.dat` | 10,318,248 |
+| `DATA/BINT1.DAT` | `bint1.dat` | 8,743,542 |
+| `DATA/BINT2.DAT` | `bint2.dat` | 17,326,190 |
+| `DATA/WM.DAT` | `wm.dat` | 10,951,551 |
+
+The same audit confirms gapless numbered families for the startup scan prefixes: `FaceDec0`, `Emotion0`, `HairDec0-6`, `Neck0-1`, `body0-14`, `sword0-3`, `spear0-1`, `fan0`, `shield0`, `tile0-23`, `tilec0-26`, `efx0-38`, `bow0-1`, `hair0-3`, `face0`, `helmet0-3`, `mantle0-4`, `shoes0-1`, `coat0-13`, and `mon0-67`. The mixed case on disk does not affect the source policy because the observed startup strings are uppercase DOS-style paths and the client runs on a case-insensitive filesystem.
+
+Music package evidence matches the fallback loop: the package contains `mus000.dat` through `mus006.dat` and no `muh###.dat` files. That supports documenting the `MUH` attempt as a preferred variant probe and `MUS` as the available current-package fallback, without assigning a stronger product meaning to either prefix.
 
 ## Constructor Preload
 
@@ -100,7 +125,7 @@ Keep this resource policy in `app/Application.cpp` documentation. Do not move it
 
 - [UID:0000HG][Application](by-file/Application.md)
 - [UID:00000D][Application](by-class/Application.md)
-- [UID:0000YR][0x00463310-0x004679be.ApplicationLifecycle](by-memory/0x00463310-0x004679be.ApplicationLifecycle.md)
+- [UID:0000YR][0x00463310-0x004674ed.ApplicationLifecycle](by-memory/0x00463310-0x004674ed.ApplicationLifecycle.md)
 - [UID:0000T5][LoadIndexedDATSeries](by-global/LoadIndexedDATSeries.md)
 - [UID:0000YX][0x00467410-0x004674ed.LoadIndexedDATSeries](by-memory/0x00467410-0x004674ed.LoadIndexedDATSeries.md)
 - [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md)
@@ -116,3 +141,7 @@ Keep this resource policy in `app/Application.cpp` documentation. Do not move it
   - Before: page contained the startup DAT archive inventory but had no completion/confidence score.
   - After: score reflects detailed fixed archive, numbered archive family, music/BINT/world-map archive, owner-flow, and source-layout documentation.
   - Evidence: current IDA MCP recheck confirmed the 19 numbered-family call sites to `LoadIndexedDATSeries`, all from `Application::Initialize`, and matched the helper callee pattern documented in [UID:0000T5][LoadIndexedDATSeries](by-global/LoadIndexedDATSeries.md).
+- 2026-06-14 A002 Goal2 package provenance:
+  - What existed before: `COMPLETION:88` / `CONFIDENCE:90`, `CANONICAL_OWNER:NONE`, and startup archive evidence based on IDA call sites without a current distribution inventory.
+  - Changed to: `COMPLETION:90` / `CONFIDENCE:92` and `CANONICAL_OWNER:0000HG`.
+  - Evidence: read-only package audit of `E:\2026\Resources\Read_Only\NexusTK\Data` confirms all fixed startup archives, gapless numbered families for the 19 `LoadIndexedDATSeries` prefixes, current `MUS000`-`MUS006` fallback archives, no current `MUH###` archives, and the required `BINT0`/`BINT1`/`BINT2` and `WM` files. [UID:0000HG][Application](by-file/Application.md) clears the strict owner gate and remains the semantic owner of startup load order.

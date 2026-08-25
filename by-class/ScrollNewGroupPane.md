@@ -1,79 +1,241 @@
 *** UID:0000CL | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000JS | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000JS | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000JS | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+#include "../ui/core/ScrollBar.h"
+
+// [UID:0000CL] no class-level C++ body.
+// ScrollNewGroupPane method bodies are emitted by exact child by-memory pages where source-ready;
+// this class page remains the ownership/declaration audit until the full class layout is ready.
+[[CHILDREN]]
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # ScrollNewGroupPane
 
 ## Status
 
-- Confidence: strong for the class identity, `NewGroupPane` caller path, vtable layout, and method-family behavior; medium for final original source split because the helper family is generated under `TextEditPane` in current simroot data.
-- Current parent: [UID:0000JS][Group](by-file/Group.md). A later shared-scrollbar review could still split some helper implementation with [UID:0000NG][ScrollCollectionPane](by-file/ScrollCollectionPane.md), but the documented parent-chain gate is now satisfied by the Group file and this class page.
-- Address ranges: [UID:0001GP][0x00560900-0x0056141f.ScrollNewGroupPaneCore](by-memory/0x00560900-0x0056141f.ScrollNewGroupPaneCore.md), [UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md), [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md), and [UID:0001GS][0x005619d0-0x00561db0.ScrollNewGroupPaneRawAndInteractionHelpers](by-memory/0x005619d0-0x00561db0.ScrollNewGroupPaneRawAndInteractionHelpers.md)
+- Confidence: strong for the class identity, `NewGroupPane` caller path, vtable layout, virtual slot binding, and method-family behavior; medium-high for final whole-class declaration emission because the executable child methods now carry first-draft C++ but the class declaration/layout has not been fully audited as a single emitted header.
+- Current parent: [UID:0000JS][Group](by-file/Group.md). A later shared-scrollbar review can still use sibling scrollbar patterns for naming, but the documented parent-chain gate is satisfied by the Group file and this class page.
+- Address ranges: [UID:0001GP][0x00560900-0x0056141f.ScrollNewGroupPaneCore](by-memory/0x00560900-0x0056141f.ScrollNewGroupPaneCore.md) is now a non-emitting split index whose twelve exact core children are listed below; [UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md), [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md), [UID:0001GS][0x005619d0-0x00561db0.ScrollNewGroupPaneRawAndInteractionHelpers](by-memory/0x005619d0-0x00561db0.ScrollNewGroupPaneRawAndInteractionHelpers.md), and the exact interaction child pages continue the method family.
 - Current recovered file: `source-3/simroot_v2/class_ScrollNewGroupPane.cpp`
+- Reconstruction C++: formal no class-level body marker plus `[[CHILDREN]]`; source-ready method bodies emit from exact child by-memory pages.
 
 ## Class Purpose
 
-`ScrollNewGroupPane` is the custom EPF-backed scrollbar used by `NewGroupPane`. It tracks range, position, active part, mouse capture/drag state, and draws slide background/thumb art from `SLIDEBG.EPF` and `SCRBUTT.EPF`.
+`ScrollNewGroupPane` is the custom EPF-backed scrollbar used by `NewGroupPane`. It tracks range, position, active part, highlighted part, mouse capture/drag state, and draws slide background/thumb art from `SLIDEBG.EPF` and `SCRBUTT.EPF`.
 
 ## Method Notes
 
 | Method | Address | Role |
 | --- | --- | --- |
-| `ScrollNewGroupPane` | `0x00560900-0x005609a0` | Constructs pane state and installs scrollbar vtables. |
-| `SetMaxRange` | `0x00560a10-0x00560a6a` | Clamps range and invalidates when changed. |
-| `SetScrollPosition` | `0x00560a70-0x00560a96` | Updates position and invalidates. |
-| `Show` | `0x00560aa0-0x00560ab9` | Enables display and invalidates. |
-| `OnMouseEvent` | `0x00560b00-0x00560ce0` | Handles mouse move/down/up, capture, drag state, and part invalidation. |
-| `CanResize` | `0x00560cf0-0x00560cf4` | Returns false. |
-| `OnSelectionChanged` | `0x00560d00-0x00560d32` | Schedules scroll update callbacks. |
-| `OnPaint` | `0x00560d40-0x0056141f` | Draws track and thumb EPF assets. |
-| `HitTestPart` | `0x00561420-0x0056173d` | Tests point/cursor position against scrollbar parts `0..4`. |
-| `GetPartRect` | `0x00561740-0x005619c7` | Computes endcap, track, and thumb rectangles. |
-| `SetHighlightedPart` | `0x005619d0-0x00561a3d` | Raw/manual method boundary; IDA does not create a function object. |
-| `BeginPartInteraction` | `0x00561a40-0x00561aff` | Raw/manual method boundary; sets highlight/drag point, active part, and schedules repeated updates. |
-| `UpdateActiveInteraction` | `0x00561b00-0x00561bbf` | Updates drag/click interaction from current cursor state. |
-| `UpdateScrollPositionFromCursor` | `0x00561bc0-0x00561d4c` | Converts cursor position to scroll position and calls `NewGroupPane::SetScrollPosition`. |
-| `Deactivate` | `0x00561d50-0x00561dab` | Raw/manual method boundary; cancels effect scheduling and clears highlight state. |
+| `ScrollNewGroupPane` | `0x00560900-0x005609a1` | Child [UID:00044X][0x00560900-0x005609a1.ScrollNewGroupPaneConstructor](by-memory/0x00560900-0x005609a1.ScrollNewGroupPaneConstructor.md) constructs pane state, installs scrollbar vtables, initializes scroll-tail fields, and carries first-draft C++ at emitter position `40`. |
+| `SetSkinIndex` raw setter | `0x005609b0-0x005609d7` | Child [UID:00044Y][0x005609b0-0x005609d7.ScrollNewGroupPaneSkinIndexSetterRaw](by-memory/0x005609b0-0x005609d7.ScrollNewGroupPaneSkinIndexSetterRaw.md) updates `m_scrollSkinIndex` and invalidates; historical `m_scrollStyle` was an earlier alias for the same word and must not be confused with the separate `m_scrollStyleByte`; formal no-standalone marker remains because no function object, xref, pointer route, or original method name proves a callable source API. |
+| `SetStyleByte` raw setter | `0x005609e0-0x00560a04` | Child [UID:00044Z][0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw](by-memory/0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw.md) updates inferred `m_scrollStyleByte` and invalidates; formal no-standalone marker because no current read/caller/API route proves a formal method. |
+| `SetMaxRange` | `0x00560a10-0x00560a6b` | Child [UID:000450][0x00560a10-0x00560a6b.ScrollNewGroupPaneSetMaxRange](by-memory/0x00560a10-0x00560a6b.ScrollNewGroupPaneSetMaxRange.md) signed-clamps range to `0..30000`, exits before all state changes when the range is unchanged, directly clamps `m_scrollPosition` when needed, then stores `m_scrollRange`; it invalidates inherited `m_visibleBounds` once for a range-only change or twice when position also clamps and carries source-ready C++ at emitter position `43`. Supervisor catalog entry0366 now binds `0x00560a10` to current IDA name `ScrollNewGroupPane__SetMaxRange`, exact `void __thiscall ScrollNewGroupPane__SetMaxRange(ScrollNewGroupPane *this, __int16 maxRange)` prototype, and the exact function-repeatable behavior comment. |
+| `SetScrollPosition` | `0x00560a70-0x00560a97` | Child [UID:000451][0x00560a70-0x00560a97.ScrollNewGroupPaneSetScrollPosition](by-memory/0x00560a70-0x00560a97.ScrollNewGroupPaneSetScrollPosition.md) is the exact 39-byte `void SetScrollPosition(short position)` method at emitter position `44`: equality is a complete no-op, the changed path performs one signed `m_scrollPosition` store at `+0xfe`, and the method then invalidates inherited `m_visibleBounds` once. It performs no local clamp. Three NewGroupPane callers and byte-identical typed UID0004X8/UID0004XS homologs resolve the source contract and supersede the old `m_bounds` spelling. |
+| `Show` | `0x00560aa0-0x00560aba` | Child [UID:000452][0x00560aa0-0x00560aba.ScrollNewGroupPaneShow](by-memory/0x00560aa0-0x00560aba.ScrollNewGroupPaneShow.md) enables display and invalidates on transition, with first-draft C++ at emitter position `45`. |
+| `Hide` raw helper | `0x00560ac0-0x00560ada` | Child [UID:0004I3][0x00560ac0-0x00560ada.ScrollNewGroupPaneHideRaw](by-memory/0x00560ac0-0x00560ada.ScrollNewGroupPaneHideRaw.md) clears `m_scrollEnabled` and invalidates on transition, with first-draft C++ and no static route; it is left without an emitter position to avoid renumbering existing core children. |
+| `CanAdjust` raw predicate | `0x00560ae0-0x00560afa` | Child [UID:0004I5][0x00560ae0-0x00560afa.ScrollNewGroupPaneCanAdjustRaw](by-memory/0x00560ae0-0x00560afa.ScrollNewGroupPaneCanAdjustRaw.md) returns `m_scrollEnabled && m_scrollRange > 0`, with first-draft C++ and no static route; it is left without an emitter position to avoid renumbering existing core children. |
+| `HandleMouseEvent` | `0x00560b00-0x00560ce1` | Child [UID:000453][0x00560b00-0x00560ce1.ScrollNewGroupPaneHandleMouseEvent](by-memory/0x00560b00-0x00560ce1.ScrollNewGroupPaneHandleMouseEvent.md) handles mouse move/down/up, capture, drag state, part hit testing, interaction setup, and repeated-update dispatch; now carries formal first-draft C++ with inferred `PaneMouseEvent` and capture/timer helper names. |
+| `CanScroll` | `0x00560cf0-0x00560cf5` | Child [UID:000454][0x00560cf0-0x00560cf5.ScrollNewGroupPaneCanScroll](by-memory/0x00560cf0-0x00560cf5.ScrollNewGroupPaneCanScroll.md) is the secondary-vtable default false virtual; this supersedes stale `CanResize` wording and carries first-draft C++ at emitter position `47`. |
+| `OnScrollTimer` | `0x00560d00-0x00560d33` | Child [UID:000455][0x00560d00-0x00560d33.ScrollNewGroupPaneOnScrollTimer](by-memory/0x00560d00-0x00560d33.ScrollNewGroupPaneOnScrollTimer.md) checks timer id zero, calls `UpdateActiveInteraction`, reschedules a 30 ms repeat while an active part remains, and carries first-draft C++ at emitter position `48`; this supersedes stale `OnSelectionChanged` wording. |
+| `OnPaint` | `0x00560d40-0x00561420` | Child [UID:000456][0x00560d40-0x00561420.ScrollNewGroupPaneOnPaint](by-memory/0x00560d40-0x00561420.ScrollNewGroupPaneOnPaint.md) draws track and thumb EPF assets; now carries formal first-draft C++ using accepted EPF/render helper aliases and `GetPartRect` for track/thumb geometry. |
+| `HitTestPart` | `0x00561420-0x0056173d` | Tests point/cursor position against scrollbar parts `0..4`; child [UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md) carries first-draft C++ at emitter position `50` and documents the inline geometry separately from `GetPartRect`. |
+| `GetPartRect` | `0x00561740-0x005619c7` | Computes leading/trailing edge, page-track, and thumb rectangles; child [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md) carries first-draft C++ at emitter position `60`. Catalog0369 applies exact IDA name `ScrollNewGroupPane__GetPartRect`, typed class/enum/output ABI, normalized `part`/`outRect` arguments, and the accepted function-repeatable geometry comment while preserving all thirteen incoming code xrefs. |
+| `SetHighlightedPart` | `0x005619d0-0x00561a40` | Retained out-of-line source method; child [UID:00042L][0x005619d0-0x00561a40.ScrollNewGroupPaneSetHighlightedPartRaw](by-memory/0x005619d0-0x00561a40.ScrollNewGroupPaneSetHighlightedPartRaw.md) carries exact first-draft C++ at emitter position `70`. Catalog0369 defines the exact IDA function/name/class-enum ABI/comment and physical `RectBounds rect` frame. Its general body has no static entry route, while `HandleMouseEvent` contains active constant-thumb and constant-none lowerings; the `0x00561a3e-0x00561a40` bytes are the `retn 4` immediate inside this child. |
+| `BeginPartInteraction` | `0x00561a40-0x00561b00` | Raw/manual method boundary; child [UID:00042M][0x00561a40-0x00561b00.ScrollNewGroupPaneBeginPartInteractionRaw](by-memory/0x00561a40-0x00561b00.ScrollNewGroupPaneBeginPartInteractionRaw.md) carries first-draft C++ at emitter position `71`; it sets highlight/drag point, active part, immediate update, and repeated-update timer state. |
+| `UpdateActiveInteraction` | `0x00561b00-0x00561bc0` | Child [UID:00042N][0x00561b00-0x00561bc0.ScrollNewGroupPaneUpdateActiveInteraction](by-memory/0x00561b00-0x00561bc0.ScrollNewGroupPaneUpdateActiveInteraction.md) carries first-draft C++ at emitter position `72`; it updates drag/click interaction from current cursor state and clears stale highlight. |
+| `UpdateScrollPositionFromCursor` | `0x00561bc0-0x00561d4d` | Child [UID:00042O][0x00561bc0-0x00561d4d.ScrollNewGroupPaneUpdateScrollPositionFromCursor](by-memory/0x00561bc0-0x00561d4d.ScrollNewGroupPaneUpdateScrollPositionFromCursor.md) carries first-draft C++ at emitter position `73`; it converts cursor/thumb position to scroll position and calls `NewGroupPane::SetScrollPosition`. |
+| `ResetInteractionState` | `0x00561d50-0x00561dac` | Raw/manual method boundary; child [UID:00042P][0x00561d50-0x00561dac.ScrollNewGroupPaneResetInteractionStateRaw](by-memory/0x00561d50-0x00561dac.ScrollNewGroupPaneResetInteractionStateRaw.md) carries first-draft C++ at emitter position `74`; it cancels repeated updates, clears active state, invalidates highlight if present, and clears highlight state. |
+
+## Scrollbar Part And Field Alias Notes
+
+[UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md), [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md), and the five interaction children share the same five-part model. Use `ScrollNewGroupPart` with source-facing values `kScrollNewGroupPartLeading = 0`, `kScrollNewGroupPartPageBeforeThumb = 1`, `kScrollNewGroupPartThumb = 2`, `kScrollNewGroupPartPageAfterThumb = 3`, and `kScrollNewGroupPartTrailing = 4`. The `kScrollNewGroupPartNone = -1` value is the highlighted/active sentinel stored as `0xff`, not a sixth rectangle part.
+
+The current shared scroll-tail field aliases are:
+
+| Offset | Alias | Role |
+| --- | --- | --- |
+| inherited `+0x44` | `m_visibleBounds` | Current [UID:0001VH][PaneLayout](by-type/by-struct/PaneLayout.md) / [UID:00005V][GrafPort](by-class/GrafPort.md) name for the inherited visible/client bounds used by invalidation, `HitTestPart`, `GetPartRect`, and cursor-to-scroll math. Historical `m_bounds` and `m_localBounds` spellings are superseded but retained in change history. |
+| `+0xf8` | `m_scrollSkinIndex` | Unsigned word index into shared `kScrollPanePartExtentBySkin` at `0x00624144`. [UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md) and [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md) now use this same field/table spelling. Historical `m_scrollStyle` referred to this word before the class-wide field reconciliation; it remains search history only and is distinct from `m_scrollStyleByte` at `+0xfa`. |
+| `+0xfa` | `m_scrollStyleByte` | Inferred/descriptive style/state byte initialized to `1` by [UID:00044X][0x00560900-0x005609a1.ScrollNewGroupPaneConstructor](by-memory/0x00560900-0x005609a1.ScrollNewGroupPaneConstructor.md) and changed by raw setter [UID:00044Z][0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw](by-memory/0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw.md). Current core/paint evidence did not find reads of this byte, so do not promote a stronger semantic name or formal setter API yet. |
+| `+0xfb` | `m_thumbDragActive` | Drag override flag used by vertical thumb geometry in the accepted hit-test/part-rect children. |
+| `+0xfc` | `m_orientation` | Nonzero selects horizontal geometry; zero selects vertical geometry. |
+| `+0xfe` | `m_scrollPosition` | Current scroll position used by proportional thumb math and by `UpdateScrollPositionFromCursor`. |
+| `+0x100` | `m_scrollRange` | Maximum/range denominator used by part geometry and cursor-to-scroll math. |
+| `+0x102` | `m_scrollEnabled` | Enables proportional/page/thumb geometry. |
+| `+0x103` | `m_highlightPart` | Highlighted/invalidated part byte, `0xff` when none. |
+| `+0x104` | `m_activePart` | Active pressed/interacting part byte, `0xff` when none. |
+| `+0x108/+0x10c` | `m_thumbDragOffset` | Stored thumb drag point/offset captured from mouse location minus the current thumb rect. Project point order is `y, x`: vertical math uses `+0x108` / `.y`, horizontal math uses `+0x10c` / `.x`. |
+
+Supervisor catalog entry0366 applied and read back the exact primary-object UDT at size `0x110`: `Pane _paneBase` at `+0x00` (size `0xf8`); `unsigned __int16 m_scrollSkinIndex` at `+0xf8`; `unsigned __int8 m_scrollStyleByte` at `+0xfa`; `bool m_thumbDragActive` at `+0xfb`; `unsigned __int8 m_orientation` at `+0xfc`; `unsigned __int8 _alignmentFD` at `+0xfd`; `__int16 m_scrollPosition` at `+0xfe`; `__int16 m_scrollRange` at `+0x100`; `bool m_scrollEnabled` at `+0x102`; `signed __int8 m_highlightPart` at `+0x103`; `signed __int8 m_activePart` at `+0x104`; `unsigned __int8 _alignment105[3]` at `+0x105`; and `Point m_thumbDragOffset` at `+0x108`. The applied layout has 13 members and 272 bytes. Shared `Pane` remains size `0xf8`, `Point` remains size 8 with `y, x` order, and no secondary-facet fields were invented inside the primary object.
+
+`ScrollNewGroupPart` remains a four-byte source enum even though highlight and active state are signed one-byte members. Catalog entry0369 creates it as ordinal `956` with exact values none `-1`, leading `0`, page-before-thumb `1`, thumb `2`, page-after-thumb `3`, and trailing `4`. Callee cleanup (`retn 4`) and modeled homolog frames prove the explicit enum-parameter width; byte loads/stores and the adjacent `+0x104` member prove the field width.
+
+`RectBounds` fields remain `left, top, right, bottom`. Project point and hit-test helper conventions use `y, x` ordering; `HitTestPart`, `GetPartRect`, and the interaction helpers should keep that distinction when naming cursor and drag-offset axes.
+
+UID000451 tightens two aliases in that table. The position setter's 16-bit compare/store proves `+0xfe` is a signed `short m_scrollPosition`, while its explicit `this+0x44` argument and the PaneLayout/Pane/GrafPort contract prove inherited `+0x44` is `m_visibleBounds`. Historical target source that called the latter `m_bounds` is preserved in change history but must not be used as current source truth.
+
+UID000450 clone proof tightens the common range-setter contract. The 91-byte bodies at `0x00560a10` (`ScrollNewGroupPane`), `0x00561ec0` (`ScrollCollectionPane`), and `0x00564820` (`ScrollVolumePane`) are byte-identical with SHA256 `C504A31BD1577B41537AE91425C5D2575483ED073207193C545B615792BE1F23`. All three use the outer unchanged-range gate, direct current-position/value store rather than a sibling setter call, and ordered one/two invalidations through inherited `m_visibleBounds`. This evidence supersedes support drafts that made the store unconditional or placed the equality test only around the final range write.
+
+UID000451 has a separate position-setter clone proof. The 39-byte bodies at `0x00560a70` (`ScrollNewGroupPane`), `0x00561f20` (`ScrollCollectionPane`), and `0x00564880` (`ScrollVolumePane`) are byte-identical with SHA256 `C823BE0B3A17B1411AAC7D79C9052DA8122A7E32F5B2A7C23FCBFB6C1AEEE940`. The typed sibling methods prove `void` return, signed-short parameter, unchanged-value no-op, one changed-path store, and one inherited invalidation. This rejects the decompiler short return, an unconditional store, a local clamp, and old `m_bounds` source blocks. Exact method C++ remains in the three child pages rather than this class aggregate.
+
+[UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md) duplicates the part-rectangle geometry inline for hit testing. [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md) remains the separate `GetPartRect` helper used by paint, raw/manual helper, update, and cursor-to-scroll paths. Do not merge those children: the hit-test function ends at `0x0056173d`, three `0xcc` bytes pad to `0x00561740`, and `GetPartRect` starts as its own modeled function at `0x00561740`.
+
+The overlapping child reports are now reconciled on one source contract: [UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md) and [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md) both use `kScrollPanePartExtentBySkin[m_scrollSkinIndex]`. Historical `kScrollNewGroupPartExtentByStyle[m_scrollStyle]` describes the same `+0xf8` index and `0x00624144` object but is superseded rather than retained as a second table or field.
+
+## Shared ScrollBar Constant Dependency
+
+- Group-source emission includes `../ui/core/ScrollBar.h` before `[[CHILDREN]]`, making the shared declaration visible to specialized paint, hit-test, and part-rectangle methods without a local declaration or duplicate definition.
+- [UID:0003CQ][0x00624138-0x00624168.ScrollPaneScrollbarConstantData](by-memory/0x00624138-0x00624168.ScrollPaneScrollbarConstantData.md) owns `const int kScrollPanePartExtentBySkin[3] = {38,38,38}` through UID0000NF. This class consumes that one object at `0x00560e47`, `0x00561146`, `0x005615ac`, and `0x0056189b`.
+- The index is `m_scrollSkinIndex` at `+0xf8`, confirmed as `unsigned __int16` in the current primary-object UDT. `m_scrollStyleByte` at `+0xfa` remains separate, so retaining the older `m_scrollStyle` alias in active source would obscure two different fields.
+- No `ScrollNewGroupPane`-local constant exists in the binary. The old class-local name is retained only as superseded report/search provenance; the shared address and cross-family 22-xref graph reject duplicate storage.
+- This normalization does not alter method boundaries, behavior, owner/emitter UID0000JS, class score, or the separate unresolved callable route for the raw skin-index setter.
+
+## Helper Alias And Callback Notes
+
+- `ScrollNewGroupPane::HitTestPart(int mouseY, int mouseX)` names `0x00561420` and uses the class-local `ScrollNewGroupPart` values.
+- `ScrollNewGroupPane::GetPartRect(ScrollNewGroupPart part, RectBounds *outRect)` names `0x00561740` and is the rectangle resolver used by paint, highlight invalidation, active-interaction update, and cursor-to-scroll math.
+- `EventMan::GetCursorPosition(Point *out)` is reached through `g_pEventMan` / `dword_67A754` and appears in the modeled interaction helpers.
+- `ScrollNewGroupPane::GetScreenOffset(Point *out)` is the source-facing pane screen-origin helper for `0x005447c0`; `origin.x == -1000 && origin.y == -1000` is the invalid-origin sentinel used by the active-interaction path.
+- `InitPointPair(Point *out, int y, int x)` names `0x004b7c30` for the helper that stores the thumb drag offset pair.
+- `InvalidateRect(RectBounds *rect)` names the inherited repaint callback reached through vtable slot `+0x20`.
+- `NewGroupPane *ScrollNewGroupPane::GetOwnerPane()` names the vtable slot `+0x1c` route used by `UpdateScrollPositionFromCursor`; that owner then receives `SetScrollPosition(m_orientation, oldPosition, newPosition)` at `0x0056df00`.
+- The `this + 0xa4` member is the timer/update-handler view used by interaction repeat logic. `BeginPartInteraction` schedules `ScheduleTimer(0, 200, 0, 0)`, and `ResetInteractionState` calls `RemovePendingTimers()`.
+
+These helper names are inferred source-facing aliases, not recovered original symbols. They are strong enough for the accepted interaction child C++ because they are backed by receiver fields, caller/callee relationships, sibling scrollbar source shape, and accepted [UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md) / [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md) support aliases.
 
 ## Evidence Notes
 
-- IDA MCP confirms real starts at `0x00560900`, `0x00560a10`, `0x00560a70`, `0x00560aa0`, `0x00560b00`, `0x00560cf0`, `0x00560d00`, `0x00560d40`, `0x00561420`, `0x00561740`, `0x00561b00`, and `0x00561bc0`.
-- IDA reports no function objects at `0x005619d0`, `0x00561a40`, or `0x00561d50`, but raw disassembly shows complete method bodies at those addresses.
-- Current simroot data owns `0x00561420`, `0x00561a40`, `0x00561b00`, and `0x00561bc0` under `TextEditPane`; IDA xrefs tie them to this scrollbar path, and `0x00561bc0` calls the `NewGroupPane::SetScrollPosition` callback at `0x0056df00`.
+- Current target-family reconciliation is catalog entry0369 in MCP session `1da2b2ae`, saved SHA256 `A4A6BC82D18D9BA7E1B0FDFCD87CED2B9FD4551E9AFEF3CE0175237B6DAC02C4`, 143,191,991 bytes, saved `2026-07-30T06:48:02.4013060-04:00`. It preserves catalog0366's ordinal955 receiver UDT, creates ordinal956 `ScrollNewGroupPart`, applies the exact target/helper names, prototypes, comments, and frames, and protects `sub_560B00` plus vtable cell `0x00623f6c`. Earlier EEF0/412D and catalog0368 `64704F...E54642` identities are historical checkpoints; the latter is also the byte-identical prestate backup for catalog0369.
+- IDA MCP evidence confirms real starts at `0x00560900`, `0x00560a10`, `0x00560a70`, `0x00560aa0`, `0x00560b00`, `0x00560cf0`, `0x00560d00`, `0x00560d40`, `0x00561420`, `0x00561740`, `0x005619d0`, `0x00561b00`, and `0x00561bc0`; current names include `ScrollNewGroupPane__SetMaxRange`, `ScrollNewGroupPane__GetPartRect`, and `ScrollNewGroupPane__SetHighlightedPart`.
+- 2026-07-29 B007 UID000451 live evidence fixes the target at `[0x00560a70,0x00560a97)`, 39 bytes, 13 instructions, three blocks, with five `0xcc` bytes before and nine after. It has exactly three NewGroupPane code callers: `0x0056ce39` current-position reconciliation, `0x0056dbbd` signed/clamped mouse-wheel application, and `0x0056df1c` owner-callback synchronization. There is no target data/vtable xref, so this is an ordinary nonvirtual method.
+- The same target pass confirms ScrollNewGroupPane allocation size `0x110`, inherited Pane size `0xf8`, and matching 13-member sibling scrollbar layouts. The target's class owner and Group.cpp route remain unchanged; clone evidence determines source shape without merging ownership across classes.
+- 2026-07-06 B007 live MCP evidence confirms raw no-function bodies at `0x00560ac0` and `0x00560ae0` inside the former `0x00560aba-0x00560b00` padding gap; both have no xrefs or VA/RVA pointer-byte routes, and padding remains at `0x00560aba-0x00560ac0`, `0x00560ada-0x00560ae0`, and `0x00560afa-0x00560b00`.
+- Historical IDA prestate reported no function objects at `0x005619d0`, `0x00561a40`, or `0x00561d50`, although raw disassembly showed complete method bodies. Catalog0369 now defines only `0x005619d0` as the exact SetHighlightedPart function; `0x00561a40` and `0x00561d50` retain their raw/manual status.
+- Current simroot data historically placed `0x00561420`, `0x00561a40`, `0x00561b00`, and `0x00561bc0` under `TextEditPane`. That route is stale generated-output pollution, not class ownership: class RTTI/vtables, receiver offsets, `NewGroupPane` constructor/callback routes, and the `ScrollNewGroupPane` helper family bind these methods here.
 - Vtables are documented at [UID:0001YR][ScrollNewGroupPaneVtables](by-type/by-vtable/ScrollNewGroupPaneVtables.md): primary `0x00623f1c`, secondary `0x00623f68`, and tertiary `0x00623f98`.
+- Exact compiler-emitted vtable data remains covered by [UID:0002OS][0x00623f18-0x00623fa0.ScrollNewGroupPaneVtableData](by-memory/0x00623f18-0x00623fa0.ScrollNewGroupPaneVtableData.md), currently `87/92`; it supports the class route but is not duplicated into the applied primary-object UDT.
 - IDA confirms `0x00561db0` as a [UID:0000CG][ScrollCollectionPane](by-class/ScrollCollectionPane.md)-style constructor, called from [UID:00002X][CollectionPane](by-class/CollectionPane.md) at `0x0056e940`.
-- Parent-chain gate: [UID:0000JS][Group](by-file/Group.md) is `88/80`; this class is now `82/80`; the executable child pages are strong on boundaries/behavior (`0001GP` at `78/86`, `0001GQ` at `76/86`, `0001GR` at `76/86`, and `0001GS` at `76/86`), and [UID:0002OS][0x00623f18-0x00623fa0.ScrollNewGroupPaneVtableData](by-memory/0x00623f18-0x00623fa0.ScrollNewGroupPaneVtableData.md) is `84/90`.
+- Parent-chain gate: [UID:0000JS][Group](by-file/Group.md) is `90/86`; this class is `88/90` after UID00042L closed the highlighted-part liveness/type/layout blocker. The executable child pages remain strong on boundaries and behavior, including UID0001GQ `88/90`, UID0001GR `89/91`, UID0001GS as a non-emitting `88/90` split index, UID00042L at `92/94`, and UID000453/UID000456 with formal first-draft C++. The score remains below final-source range because a complete whole-class declaration/header audit and sibling alias normalization are still broader work.
+- 2026-06-26 B008 implementation recheck used MCP session `80de0a67`: `lookup_funcs` still reports no function objects at raw starts `0x005619d0`, `0x00561a40`, or `0x00561d50`; reports `sub_561B00` at `0x00561b00` with size `0xc0`; reports `sub_561BC0` at `0x00561bc0` with size `0x18d`; and reports successor `sub_561DB0` at `0x00561db0`.
+- 2026-06-26 B008 `xrefs_to` recheck reports zero incoming xrefs to raw starts `0x005619d0`, `0x00561a40`, and `0x00561d50`; reports `0x00561b00` xrefs from `0x00560c73`, `0x00560d18`, and raw callsite `0x00561ad2`; and reports `0x00561bc0` xrefs from `0x00561b5b` and `0x00561b84`.
+- 2026-06-26 B008 `callees` recheck reports `0x00561b00` calling `0x004a9090`, `0x005447c0`, `0x00561bc0`, `0x005c772f`, `0x00561420`, and `0x00561740`; and `0x00561bc0` calling `0x00561740`, `0x004a9090`, `0x005447c0`, `0x0056df00`, and `0x005c772f`.
+- 2026-07-29 B004 UID00042L reanalysis finds the exact 112-byte highlighted-part setter shape at eight starts: `0x0041e780`, `0x0045a990`, `0x0055dea0`, `0x00560520`, `0x005619d0`, `0x00562e80`, `0x00564330`, and `0x00565170`. Modeled zero-xref homologs at `0x00562e80` and `0x00565170` show that no incoming start xrefs do not imply glue or dead code.
+- The same reanalysis identifies active constant specializations inside [UID:000453][0x00560b00-0x00560ce1.ScrollNewGroupPaneHandleMouseEvent](by-memory/0x00560b00-0x00560ce1.ScrollNewGroupPaneHandleMouseEvent.md): thumb-part lowering `[0x00560bfd,0x00560c3a)` and none-clearing lowering `[0x00560b5f,0x00560b87)`. They preserve the target's compare, old/new rectangle invalidation, and signed-byte state update and positively resolve UID00042L as retained source.
+- 2026-06-11 A002 live IDA recheck reconfirmed the modeled method starts from constructor `0x00560900-0x005609a1` through paint `0x00560d40-0x00561420`, hit-test `0x00561420-0x0056173d`, part-rect `0x00561740-0x005619c7`, interaction update `0x00561b00-0x00561bc0`, cursor-to-scroll callback `0x00561bc0-0x00561d4d`, and the next `ScrollCollectionPane` constructor at `0x00561db0`.
+- The same pass reconfirmed the raw/manual helper starts at `0x005619d0`, `0x00561a40`, and `0x00561d50`: each has a normal prologue/security-cookie body, reads or clears highlight/active fields around `+0x103/+0x104`, and calls the confirmed part-rect/update helpers.
+- 2026-06-11 vtable xrefs tie constructor stores to `0x00623f1c`, `0x00623f68`, and `0x00623f98`; B005's 2026-06-26 correction names the slot references as `OnPaint` at `0x00623f60`, `HandleMouseEvent` at `0x00623f6c`, `CanScroll` at `0x00623f70`, and `OnScrollTimer` at `0x00623f9c`.
+- `NewGroupPane` ownership is direct: `NewGroupPane::NewGroupPane` calls the scrollbar constructor at `0x0056caae` and `Show` at `0x0056cac3`, while `0x00561bc0` calls `NewGroupPane::SetScrollPosition` at `0x00561d35 -> 0x0056df00`.
+- 2026-06-26 B005 implementation: [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md) now has first-draft C++ at child position `60`. The method keeps owner/emitter route through this class, uses the shared scroll-tail aliases above, uses `kScrollPanePartExtentBySkin[m_scrollSkinIndex]` for the vertical fixed extent, and documents the target-specific edge-line endcap behavior instead of importing the FittingRoom fixed-width endcap model.
+- 2026-06-26 B005 core split implementation: [UID:0001GP][0x00560900-0x0056141f.ScrollNewGroupPaneCore](by-memory/0x00560900-0x0056141f.ScrollNewGroupPaneCore.md) is now a non-emitting split index. Exact children [UID:00044X][0x00560900-0x005609a1.ScrollNewGroupPaneConstructor](by-memory/0x00560900-0x005609a1.ScrollNewGroupPaneConstructor.md), [UID:00044Y][0x005609b0-0x005609d7.ScrollNewGroupPaneSkinIndexSetterRaw](by-memory/0x005609b0-0x005609d7.ScrollNewGroupPaneSkinIndexSetterRaw.md), [UID:00044Z][0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw](by-memory/0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw.md), [UID:000450][0x00560a10-0x00560a6b.ScrollNewGroupPaneSetMaxRange](by-memory/0x00560a10-0x00560a6b.ScrollNewGroupPaneSetMaxRange.md), [UID:000451][0x00560a70-0x00560a97.ScrollNewGroupPaneSetScrollPosition](by-memory/0x00560a70-0x00560a97.ScrollNewGroupPaneSetScrollPosition.md), [UID:000452][0x00560aa0-0x00560aba.ScrollNewGroupPaneShow](by-memory/0x00560aa0-0x00560aba.ScrollNewGroupPaneShow.md), [UID:000453][0x00560b00-0x00560ce1.ScrollNewGroupPaneHandleMouseEvent](by-memory/0x00560b00-0x00560ce1.ScrollNewGroupPaneHandleMouseEvent.md), [UID:000454][0x00560cf0-0x00560cf5.ScrollNewGroupPaneCanScroll](by-memory/0x00560cf0-0x00560cf5.ScrollNewGroupPaneCanScroll.md), [UID:000455][0x00560d00-0x00560d33.ScrollNewGroupPaneOnScrollTimer](by-memory/0x00560d00-0x00560d33.ScrollNewGroupPaneOnScrollTimer.md), and [UID:000456][0x00560d40-0x00561420.ScrollNewGroupPaneOnPaint](by-memory/0x00560d40-0x00561420.ScrollNewGroupPaneOnPaint.md) carry the constructor, raw setters, range/position/show helpers, mouse handler, default false virtual, timer callback, and paint method at emitter positions `40` through `49`. This pass also adds inferred `m_scrollStyleByte` at `+0xfa`, supersedes stale `CanResize` with `CanScroll`, and supersedes stale `OnSelectionChanged` with `OnScrollTimer`.
+- 2026-06-26 B002 implementation: [UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md) now has first-draft C++ at child position `50`. The method keeps owner/emitter route through this class, rejects the generated `TextEditPane` route, preserves the exact `0x00561420-0x0056173d` boundary and three `0xcc` bytes before [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md), and documents that `HitTestPart` computes candidate rectangles inline rather than calling `GetPartRect`.
 
 ## Cross-References
 
 - [UID:0000JS][Group](by-file/Group.md)
 - [UID:0000NG][ScrollCollectionPane](by-file/ScrollCollectionPane.md)
 - [UID:0001GP][0x00560900-0x0056141f.ScrollNewGroupPaneCore](by-memory/0x00560900-0x0056141f.ScrollNewGroupPaneCore.md)
+- [UID:00044X][0x00560900-0x005609a1.ScrollNewGroupPaneConstructor](by-memory/0x00560900-0x005609a1.ScrollNewGroupPaneConstructor.md)
+- [UID:00044Y][0x005609b0-0x005609d7.ScrollNewGroupPaneSkinIndexSetterRaw](by-memory/0x005609b0-0x005609d7.ScrollNewGroupPaneSkinIndexSetterRaw.md)
+- [UID:00044Z][0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw](by-memory/0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw.md)
+- [UID:000450][0x00560a10-0x00560a6b.ScrollNewGroupPaneSetMaxRange](by-memory/0x00560a10-0x00560a6b.ScrollNewGroupPaneSetMaxRange.md)
+- [UID:000451][0x00560a70-0x00560a97.ScrollNewGroupPaneSetScrollPosition](by-memory/0x00560a70-0x00560a97.ScrollNewGroupPaneSetScrollPosition.md)
+- [UID:000452][0x00560aa0-0x00560aba.ScrollNewGroupPaneShow](by-memory/0x00560aa0-0x00560aba.ScrollNewGroupPaneShow.md)
+- [UID:0004I3][0x00560ac0-0x00560ada.ScrollNewGroupPaneHideRaw](by-memory/0x00560ac0-0x00560ada.ScrollNewGroupPaneHideRaw.md)
+- [UID:0004I5][0x00560ae0-0x00560afa.ScrollNewGroupPaneCanAdjustRaw](by-memory/0x00560ae0-0x00560afa.ScrollNewGroupPaneCanAdjustRaw.md)
+- [UID:000453][0x00560b00-0x00560ce1.ScrollNewGroupPaneHandleMouseEvent](by-memory/0x00560b00-0x00560ce1.ScrollNewGroupPaneHandleMouseEvent.md)
+- [UID:000454][0x00560cf0-0x00560cf5.ScrollNewGroupPaneCanScroll](by-memory/0x00560cf0-0x00560cf5.ScrollNewGroupPaneCanScroll.md)
+- [UID:000455][0x00560d00-0x00560d33.ScrollNewGroupPaneOnScrollTimer](by-memory/0x00560d00-0x00560d33.ScrollNewGroupPaneOnScrollTimer.md)
+- [UID:000456][0x00560d40-0x00561420.ScrollNewGroupPaneOnPaint](by-memory/0x00560d40-0x00561420.ScrollNewGroupPaneOnPaint.md)
 - [UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md)
 - [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md)
 - [UID:0001GS][0x005619d0-0x00561db0.ScrollNewGroupPaneRawAndInteractionHelpers](by-memory/0x005619d0-0x00561db0.ScrollNewGroupPaneRawAndInteractionHelpers.md)
+- [UID:00042L][0x005619d0-0x00561a40.ScrollNewGroupPaneSetHighlightedPartRaw](by-memory/0x005619d0-0x00561a40.ScrollNewGroupPaneSetHighlightedPartRaw.md)
+- [UID:00042M][0x00561a40-0x00561b00.ScrollNewGroupPaneBeginPartInteractionRaw](by-memory/0x00561a40-0x00561b00.ScrollNewGroupPaneBeginPartInteractionRaw.md)
+- [UID:00042N][0x00561b00-0x00561bc0.ScrollNewGroupPaneUpdateActiveInteraction](by-memory/0x00561b00-0x00561bc0.ScrollNewGroupPaneUpdateActiveInteraction.md)
+- [UID:00042O][0x00561bc0-0x00561d4d.ScrollNewGroupPaneUpdateScrollPositionFromCursor](by-memory/0x00561bc0-0x00561d4d.ScrollNewGroupPaneUpdateScrollPositionFromCursor.md)
+- [UID:00042P][0x00561d50-0x00561dac.ScrollNewGroupPaneResetInteractionStateRaw](by-memory/0x00561d50-0x00561dac.ScrollNewGroupPaneResetInteractionStateRaw.md)
 - [UID:0001YR][ScrollNewGroupPaneVtables](by-type/by-vtable/ScrollNewGroupPaneVtables.md)
 - [UID:000090][NewGroupPane](by-class/NewGroupPane.md)
 
 ## Changes
 
+- 2026-07-30 B002 accepted UID0003CQ support synchronization:
+  - Added the formal `../ui/core/ScrollBar.h` dependency before child emission and normalized both overlapping geometry children to `m_scrollSkinIndex` with shared `kScrollPanePartExtentBySkin`.
+  - Historicalized `m_scrollStyle`/`kScrollNewGroupPartExtentByStyle` as superseded aliases for the same field/address, while keeping the separate `m_scrollStyleByte`, all B004 post-IDA evidence, owner/emitter route, and score unchanged.
+
+- 2026-07-30 B004 UID00042L post-IDA class reconciliation:
+  - Recorded catalog entry0369's ordinal956 four-byte enum, exact applied SetHighlightedPart/GetPartRect identities, prototypes, comments, durable frames, thirteen helper xrefs, and protected handler/vtable state.
+  - Advanced the target-family current IDB checkpoint to `A4A6BC82...AC02C4` while retaining catalog0366 and raw/no-function observations as dated history; class score, owner/emitter route, CPP children shell, and blank H are unchanged.
+- 2026-07-29 B002 UID000450 post-IDA support reconciliation:
+  - Converted the exact size-`0x110` / 13-member `ScrollNewGroupPane` layout from a proposal into catalog entry0366's applied/read-back UDT at authoritative saved IDB `EEF0C80D...A7997B`; shared `Pane` and `Point` remain unchanged.
+  - Added UID000450's applied `ScrollNewGroupPane__SetMaxRange` IDA name, exact `void __thiscall` prototype, exact function-repeatable behavior comment, and protected no-drift result without duplicating the child CPP in this class page.
+  - Retained class metadata `88/90`, owner/emitter UID0000JS, formal class CPP/H disposition, all method/source evidence, and the historical `412DA7E8...519CD` prestate.
+- 2026-07-29 B004 UID00042L support callback:
+  - Raised the class from `85/86` to `88/90`; owner/emitter UID0000JS, class CPP children shell, and blank H remain unchanged.
+  - Added the exact eight-copy setter family, active thumb/none inline lowerings, four-byte enum versus signed-byte field distinction, and complete size-`0x110` primary-object UDT proposal.
+  - Rejected historical generated `TextEditPane` ownership as stale pollution and retained the Group source route. The broader full-class declaration audit remains the reason this class is below final-source scores.
+- 2026-07-29 B007 UID000451 accepted support callback:
+  - Metadata remains `85/86`, owner/emitter UID0000JS; no class-level C++ or H was added.
+  - Expanded the `SetScrollPosition` method row with exact signed equality/store/invalidation/no-clamp behavior, three NewGroupPane caller roles, child position 44, and source-ready child status.
+  - Added the byte-identical UID000451/UID0004X8/UID0004XS position-setter proof and synchronized current inherited `m_visibleBounds`; historical `m_bounds` remains dated provenance rather than current source truth.
+- 2026-07-29 B002 UID000450 accepted implementation callback:
+  - Score and owner/emitter metadata remain `85/86`, UID0000JS.
+  - Expanded the `SetMaxRange` row with the exact outer equality gate, direct position store, and one/two-invalidation behavior; synchronized inherited `+0x44` to current `m_visibleBounds` while retaining old `m_bounds`/`m_localBounds` spellings as historical assumptions.
+  - Added direct byte-identical clone proof across UID000450, UID0004X7, and UID0004XR and documented which stale support-code shapes that proof rejects.
+- 2026-07-06 B007 implementation:
+  - Added raw `Hide` [UID:0004I3][0x00560ac0-0x00560ada.ScrollNewGroupPaneHideRaw](by-memory/0x00560ac0-0x00560ada.ScrollNewGroupPaneHideRaw.md) and raw `CanAdjust` [UID:0004I5][0x00560ae0-0x00560afa.ScrollNewGroupPaneCanAdjustRaw](by-memory/0x00560ae0-0x00560afa.ScrollNewGroupPaneCanAdjustRaw.md) method rows after [UID:000452][0x00560aa0-0x00560aba.ScrollNewGroupPaneShow](by-memory/0x00560aa0-0x00560aba.ScrollNewGroupPaneShow.md).
+  - Recorded that the old `0x00560aba-0x00560b00` padding gap now splits into three padding islands plus two raw source-ready helper children; class metadata remains `85/86` because this callback did not perform a whole-class declaration audit.
+- 2026-06-30 B002 Group empty-emitter implementation:
+  - Inserted the formal no class-level C++ body marker plus `[[CHILDREN]]` so exact child methods/data still assemble under the class route.
+  - Updated raw setter rows [UID:00044Y][0x005609b0-0x005609d7.ScrollNewGroupPaneSkinIndexSetterRaw](by-memory/0x005609b0-0x005609d7.ScrollNewGroupPaneSkinIndexSetterRaw.md)/[UID:00044Z][0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw](by-memory/0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw.md) to formal no-standalone marker disposition.
+  - Updated [UID:000453][0x00560b00-0x00560ce1.ScrollNewGroupPaneHandleMouseEvent](by-memory/0x00560b00-0x00560ce1.ScrollNewGroupPaneHandleMouseEvent.md) `HandleMouseEvent` and [UID:000456][0x00560d40-0x00561420.ScrollNewGroupPaneOnPaint](by-memory/0x00560d40-0x00561420.ScrollNewGroupPaneOnPaint.md) `OnPaint` rows to formal first-draft C++ disposition with inferred event/render helper caveats.
+- 2026-06-26 B005 core split implementation:
+  - Score unchanged at `85/86`.
+  - Updated this class page after [UID:0001GP][0x00560900-0x0056141f.ScrollNewGroupPaneCore](by-memory/0x00560900-0x0056141f.ScrollNewGroupPaneCore.md) was converted to a non-emitting split index and the initial ten exact core children were created at positions `40` through `49`.
+  - Added [UID:00044Z][0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw](by-memory/0x005609e0-0x00560a04.ScrollNewGroupPaneStyleByteSetterRaw.md)'s inferred `+0xfa` `m_scrollStyleByte` alias; current evidence proves the raw setter and constructor initialization but not a stronger semantic name or formal setter API.
+  - Replaced stale `CanResize` wording with `CanScroll` for [UID:000454][0x00560cf0-0x00560cf5.ScrollNewGroupPaneCanScroll](by-memory/0x00560cf0-0x00560cf5.ScrollNewGroupPaneCanScroll.md) and stale `OnSelectionChanged` wording with `OnScrollTimer` for [UID:000455][0x00560d00-0x00560d33.ScrollNewGroupPaneOnScrollTimer](by-memory/0x00560d00-0x00560d33.ScrollNewGroupPaneOnScrollTimer.md).
+  - Evidence: accepted B005 report with MCP session `80de0a67` confirmed child function starts/sizes, raw-start not-a-function status, zero raw-start xrefs/pointer-byte routes, raw setter disassembly, vtable slot refs, timer repeat behavior, and paint resource/helper dependencies. Class metadata remains `85/86` because the callback did not perform a whole-class declaration/header audit.
+- 2026-06-26 B008 support sync:
+  - Before: the raw/modeled interaction helper cluster remained a single emitting aggregate page, the method inventory used old inclusive-style ranges and the misleading final raw-helper name, and helper aliases for owner callback/timer state were not fully synchronized with the accepted interaction-child C++.
+  - Historical after-state: [UID:0001GS][0x005619d0-0x00561db0.ScrollNewGroupPaneRawAndInteractionHelpers](by-memory/0x005619d0-0x00561db0.ScrollNewGroupPaneRawAndInteractionHelpers.md) became a non-emitting split index; five exact child pages were listed at emitter positions `70` through `74`; method ranges used half-open boundaries; `ResetInteractionState` replaced the old final-helper wording; and this page recorded the then-current `m_bounds` spelling, `m_thumbDragOffset` `y, x`, `GetOwnerPane`, timer/update-handler, cursor/origin, invalidation, and helper aliases. UID000450's 2026-07-29 pass supersedes `m_bounds` with `m_visibleBounds` without discarding that provenance.
+  - Evidence: accepted B008 report plus live MCP session `80de0a67` rechecked function starts/sizes, raw-start no-xref status, modeled xrefs/callees, and the distinct `0x00561db0` successor boundary. Class metadata remains `85/86` because the callback intentionally synchronized support aliases and method inventory without performing a whole-class declaration audit.
+- 2026-06-26 B002 support sync:
+  - Before: [UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md) still had blank formal C++ and this class page only carried B005's `GetPartRect` support sync for the shared scrollbar aliases.
+  - After: method inventory records [UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md) as first-draft C++ at emitter position `50`; this page carries the explicit `ScrollNewGroupPart` value mapping, the required `+0xf8` through `+0x108/+0x10c` field-alias table, and the distinction between inline `HitTestPart` geometry and the separate [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md) helper.
+  - Evidence: accepted B002 report and live MCP-backed [UID:0001GQ][0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart](by-memory/0x00561420-0x0056173d.ScrollNewGroupPaneHitTestPart.md) implementation evidence for the exact boundary, two code xrefs, callee set, `dword_624144` extent-table bytes, field/helper aliases, orientation geometry, and generated `TextEditPane` route rejection. Metadata remains unchanged at `85/86` because this support update does not re-audit every raw helper/source-split caveat on the class page.
+- 2026-06-26 B005 support sync:
+  - Before: `GetPartRect` was listed only as a rectangle helper, and the class page did not record the now-accepted first-draft C++ status or the shared field/part alias names used by `HitTestPart`, `GetPartRect`, and the raw interaction helpers.
+  - After: method inventory records [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md) as first-draft C++ at emitter position `60`; this page records the shared `ScrollNewGroupPart` part names, scroll-tail field aliases, and the project `Point` `y, x` versus `RectBounds` `left, top, right, bottom` convention.
+  - Evidence: accepted B005 report and live MCP-backed [UID:0001GR][0x00561740-0x005619c7.ScrollNewGroupPanePartRect](by-memory/0x00561740-0x005619c7.ScrollNewGroupPanePartRect.md) implementation evidence for the exact `0x00561740-0x005619c7` boundary, thirteen xrefs, three callees, shared extent table, and `ScrollNewGroupPane -> Group` source route.
+- 2026-06-11 A002 parent-gate refresh:
+  - Before: the page was `82/80`, already attached to [UID:0000JS][Group](by-file/Group.md), but below the corrected `85/85` child-side gate needed by exact class-owned vtable/type children.
+  - After: raised to `85/86` without adding C++.
+  - Evidence: live IDA reconfirmed modeled method bounds, raw/manual helper prologues, constructor/show calls from `NewGroupPane`, vtable store/slot xrefs, the cursor-to-scroll callback into `NewGroupPane::SetScrollPosition`, and the adjacent `ScrollCollectionPane` boundary. Remaining whole-class declaration/source-split caveats keep the class below final-source range.
 - 2026-06-07: Raised confidence from `78` to `80` and attached parent `0000JS`.
   - Before: The page stayed just below the parent-attach gate because current simroot ownership polluted some helpers under `TextEditPane`.
   - After: The class remains below final C++ quality but now satisfies the class-to-file parent gate with [UID:0000JS][Group](by-file/Group.md); source-split and raw-helper naming caveats remain explicit.
   - Evidence: `Group.md` is `88/80`; the `ScrollNewGroupPane` constructor/show calls come from `NewGroupPane`; the four executable child pages document strong boundary/caller/helper behavior; and the exact vtable-data child documents constructor-installed primary, secondary, and tertiary table views.
-
 - 2026-06-05: Changed `RECONSTRUCTABLE` from blank to `TRUE` and left `AUTOGEN_PARENT_UID` blank.
   - Before: The custom new-group scrollbar remained unclassified in autogen coverage despite documented EPF-backed scrollbar behavior, vtables, and raw helper ownership caveats.
   - After: The class is reconstructable but unassigned because the class confidence score remains below the 80/80 parent-attach gate.
   - Evidence: Live IDA MCP lookup confirms modeled starts from `0x00560900` through `0x00561bc0`; `0x005619d0`, `0x00561a40`, and `0x00561d50` remain raw not-a-function starts, matching the existing caveat.
-
 - 2026-05-30: Changed completion/confidence from `0/0` to `82/78`.
   - Before: The page was unevaluated despite detailed method ranges, raw helper boundaries, vtable mapping, and generated owner pollution notes.
   - After: Scored as high completion with medium-high confidence because confirmed scrollbar behavior is strong, while final source split and raw helper modeling remain unresolved.
   - Evidence: Existing method notes, IDA evidence notes, vtable/type references, and exact by-memory child pages support the score.
+
+## 2026-07-31 B002 Owner Callback Signature Reconciliation
+
+- The owner callback is exactly NewGroupPane::SetScrollPosition(unsigned char orientation, short oldPosition, short newPosition).
+- UID000451 stores signed child position only when changed and invalidates inherited visible bounds; NewGroupPane owns range/current-position policy and receives the callback at  x56df00.
+- The owner applies the changed first-visible member, reconciles range through UID000450/UID000451, and refreshes rendering. Historical vague or reduced-argument callback descriptions are superseded.
+- This support correction changes no ScrollNewGroupPane score, ownership, emitter route, or formal source disposition.

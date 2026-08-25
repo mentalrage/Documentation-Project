@@ -1,0 +1,85 @@
+<!-- REMOVED-MATERIAL-ARCHIVE -->
+# Removed Material Archive
+
+- Status: Non-authoritative archival material only.
+- Source report: `E:\NTK\GhidraBridge\source-3\project-documentation\executed-b-agent-research\B006\0002NW-ClanExpelNameInputDialogSubmitName-source-quality.md`
+- Safety: This file must never be executed, replayed, or used as an operational runbook.
+- Credit: This archive provides no gate, score, coverage, IDA, validator, or lifecycle credit.
+
+# Removed operational material for 0002NW-ClanExpelNameInputDialogSubmitName-source-quality.md
+
+Source: [0002NW-ClanExpelNameInputDialogSubmitName-source-quality.md](./0002NW-ClanExpelNameInputDialogSubmitName-source-quality.md)
+
+This companion is non-authoritative archival evidence. It must never be executed, adapted, or treated as a current request, procedure, mutation authority, or lifecycle instruction.
+
+## Removed operational snapshot from 0D8B7B3A583E025B7E14453FAB7D8D45733D3E417834ABDF2E99C7E2A6027F2C
+
+> Source: [0002NW-ClanExpelNameInputDialogSubmitName-source-quality.md](./0002NW-ClanExpelNameInputDialogSubmitName-source-quality.md)
+> NON-AUTHORITATIVE ARCHIVE. Retained only for evidentiary no-loss review.
+> NEVER EXECUTE, ADAPT, OR TREAT THE CONTENT BELOW AS A CURRENT REQUEST, PROCEDURE, MUTATION AUTHORITY, OR LIFECYCLE INSTRUCTION.
+
+`````text
+## IDA Rename / Type / Comment Recommendations
+
+B006 performed read-only research only. The supervisor owns every Gate 2B mutation, backup, sole save, persistence readback, and rollback decision. Before any row, the supervisor must fresh-read its literal prestate and current endpoint schema, bind every request to the exact `database` returned by the current open, and stop on any mismatch. If a new session is required, use `idb_open {input_path:"E:\\NTK\\Resources\\NexusTK\\NexusTK.exe.i64",mode:"force_headless",run_auto_analysis:false,build_caches:false,init_hexrays:false,idle_ttl_sec:3600,preferred_session_id:"<fresh-unique-supervisor-UID0002NW-role>"}`; no open may omit `run_auto_analysis:false`.
+
+Current literal endpoint binding:
+
+- A01 function rename uses a dry/actual pair of `rename {batch:{func:{addr:"0x00489180",name:"ClanExpelNameInputDialog__OnSubmitText"},stop_on_error:true,dry_run:<true-then-false>,allow_overwrite:false,pure:true},database:"<exact-returned-session>"}`. `pure:true` is mandatory.
+- A02-A08 physical frame renames use one dry/actual pair per row through `rename.batch.stack`, never `batch.local`: `rename {batch:{stack:{func_addr:"0x00489180",old:"<literal-old>",new:"<literal-new>"},stop_on_error:true,dry_run:<true-then-false>,allow_overwrite:false,pure:false},database:"<exact-returned-session>"}`.
+- A09 uses `set_type {edits:{addr:"0x00489180",kind:"function",signature:"void __thiscall ClanExpelNameInputDialog__OnSubmitText(ClanExpelNameInputDialog *this, const wchar_t *text)"},database:"<exact-returned-session>"}`.
+- A09 is a function-prototype action only. It must not be followed by or expanded into a stack-row `set_type`: the expected physical F10 readback is `text@+0x194`, size 4, type `LPCWCH`, which is IDA's stable typedef rendering equivalent to the prototype parameter `const wchar_t *text`.
+- A10 uses `set_function_comments {items:{addr:"0x00489180",comment:"ClanExpelNameInputDialog::OnSubmitText converts the submitted name with CP_ACP, builds {0x4b,7,1,length,name...}, and queues convertedLength+4 bytes; the observed 0x100 and post-copy 0x80 failures are compiler range instrumentation around indexed terminator writes."},database:"<exact-returned-session>"}`.
+- A11 uses `set_address_comments {items:{addr:"0x00615b34",comment:"ClanExpelNameInputDialog::OnSubmitText virtual slot -> 0x00489180."},database:"<exact-returned-session>"}`. Do not substitute broad `set_comments`.
+- A00 uses only `declare_type {decls:"struct ClanExpelNameInputDialog;",database:"<exact-returned-session>"}` after a fresh absence readback.
+- Every dry/actual response and direct post-readback must be one-row, no-error, collision-free, and limited to that row's authorized delta. The supervisor's current collision-safe backup/save/readback procedure remains external to this non-executable report.
+
+| ID | Actor | Exact entity/address | Literal current prestate | Exact action or no-change disposition | Evidence | Confidence | Atomic safety constraints | Expected direct readback |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A00 | Supervisor Gate 2B | Local type catalog | `type_query('*ClanExpelNameInputDialog*')` returns zero rows; no UDT, typedef, or forward tag exists | Apply the exact `declare_type` request above only while absent | Vtable ownership and A09 require only an incomplete receiver type | high | Create one incomplete struct tag only; no size, members, inheritance, ordinal assumption, or layout | Exactly one incomplete `ClanExpelNameInputDialog` struct/tag with zero members |
+| A01 | Supervisor Gate 2B | Function `0x00489180`, modeled `[0x00489180,0x0048926e)` | Name `sub_489180`; type `int __stdcall(LPCWCH lpWideCharStr)`; size `0xee`; code item head `0x489180`; address regular absent; address repeatable absent; function regular absent; function repeatable absent; sole inbound data xref `0x00615b34 -> 0x00489180`; zero code callers | Pure-rename only to `ClanExpelNameInputDialog__OnSubmitText` through the exact A01 request | Sole vtable slot, base declaration, sibling ABI, subtype-7 behavior, Clan route | high | No overwrite or collision; preserve current `int __stdcall` type until A09, frame, body, range, code head, all four comment channels, sole xref, and zero callers | New physical function name at the same range; old exact physical name absent; type remains `int __stdcall(LPCWCH lpWideCharStr)` until A09; every other literal prestate remains unchanged |
+| A02 | Supervisor Gate 2B | Stack argument `0x00489180:+0x194` | Function `sub_489180`, range `0xee`, type `int __stdcall(LPCWCH lpWideCharStr)`; row `lpWideCharStr@+0x194`, width 4, type `LPCWCH` | Rename only `lpWideCharStr` to `text` through `rename.batch.stack` | Wide-text callback use and class declaration | high | Preserve offset, width, current `int __stdcall` function type until A09, and every other frame row | `text@+0x194`, width 4, type `LPCWCH`; function type remains `int __stdcall(LPCWCH text)` before A09 |
+| A03 | Supervisor Gate 2B | Stack local `0x00489180:+0x8` | Function `sub_489180`, range `0xee`; row `MultiByteStr@+0x8`, width `0x100`, type `CHAR[256]` | Rename only to `convertedName` through `rename.batch.stack` | Exact CP_ACP destination role | high | Preserve offset, width, type, and all neighboring rows | `convertedName@+0x8`, width `0x100`, type `CHAR[256]` |
+| A04 | Supervisor Gate 2B | Stack local `0x00489180:+0x108` | Function `sub_489180`, range `0xee`; row `Src@+0x108`, width 1, type `_BYTE` | Rename only to `packetOpcode` through `rename.batch.stack` | Exact packet offset-0 role | high | Preserve offset, width, type; do not coalesce packet fragments | `packetOpcode@+0x108`, width 1, type `_BYTE` |
+| A05 | Supervisor Gate 2B | Stack local `0x00489180:+0x109` | Function `sub_489180`, range `0xee`; row `destination@+0x109`, width 1, type `unsigned __int8` | Rename only to `packetSubtype` through `rename.batch.stack` | Exact packet offset-1 role | high | Preserve offset, width, type; do not coalesce packet fragments | `packetSubtype@+0x109`, width 1, type `unsigned __int8` |
+| A06 | Supervisor Gate 2B | Stack local `0x00489180:+0x10a` | Function `sub_489180`, range `0xee`; row `var_82@+0x10a`, width 1, type `unsigned __int8` | Rename only to `packetAction` through `rename.batch.stack` | Exact packet offset-2 role | high | Preserve offset, width, type; do not coalesce packet fragments | `packetAction@+0x10a`, width 1, type `unsigned __int8` |
+| A07 | Supervisor Gate 2B | Stack local `0x00489180:+0x10b` | Function `sub_489180`, range `0xee`; row `var_81@+0x10b`, width 1, type `unsigned __int8` | Rename only to `packetNameLength` through `rename.batch.stack` | Exact packet offset-3 role | high | Preserve offset, width, type; do not coalesce packet fragments | `packetNameLength@+0x10b`, width 1, type `unsigned __int8` |
+| A08 | Supervisor Gate 2B | Stack local `0x00489180:+0x10c` | Function `sub_489180`, range `0xee`; row `var_80@+0x10c`, width `0x7c`, type `_BYTE[124]` | Rename only to `packetNameBytes` through `rename.batch.stack` | Exact packet payload role | high | Preserve offset, width, type; do not manufacture or reshape a 128-byte physical array item | `packetNameBytes@+0x10c`, width `0x7c`, type `_BYTE[124]` |
+| A09 | Supervisor Gate 2B | Function type `0x00489180` | Name `sub_489180` before A01; range `[0x00489180,0x0048926e)`; type `int __stdcall(LPCWCH lpWideCharStr)`; code item head `0x489180`; address regular absent; address repeatable absent; function regular absent; function repeatable absent; frame: `MultiByteStr@+0x8` width `0x100` `CHAR[256]`, `Src@+0x108` width 1 `_BYTE`, `destination@+0x109` width 1 `unsigned __int8`, `var_82@+0x10a` width 1 `unsigned __int8`, `var_81@+0x10b` width 1 `unsigned __int8`, `var_80@+0x10c` width `0x7c` `_BYTE[124]`, `var_4@+0x188` width 4 `_DWORD`, `__saved_registers@+0x18c` width 4 `_DWORD`, `__return_address@+0x190` width 4 `_UNKNOWN *`, `lpWideCharStr@+0x194` width 4 `LPCWCH` | Apply exact void-thiscall `set_type` request after A00-A02; this intentionally corrects the stale inferred `int` return and lowered `__stdcall` presentation | No-return body, base caller consumes no result, six sibling leaves are void, vtable ownership, source member ABI, return cleanup, complete frame, and failed-closed A09 readback | high | Preserve body/range/code head/xrefs/comments and all calling behavior; permit only the intentional `int`-to-`void` return correction, `__stdcall`-to-member-`__thiscall` type correction, A02's F10 name change, and hidden register `this`; preserve every physical frame offset/width/type and F01-F09 names after A03-A08 renames; do not add a stack-row `set_type` action | Exact type `void __thiscall ClanExpelNameInputDialog__OnSubmitText(ClanExpelNameInputDialog *this, const wchar_t *text)`; stale `int __stdcall` type absent; frame: `convertedName@+0x8` width `0x100` `CHAR[256]`, `packetOpcode@+0x108` width 1 `_BYTE`, `packetSubtype@+0x109` width 1 `unsigned __int8`, `packetAction@+0x10a` width 1 `unsigned __int8`, `packetNameLength@+0x10b` width 1 `unsigned __int8`, `packetNameBytes@+0x10c` width `0x7c` `_BYTE[124]`, `var_4@+0x188` width 4 `_DWORD`, `__saved_registers@+0x18c` width 4 `_DWORD`, `__return_address@+0x190` width 4 `_UNKNOWN *`, `text@+0x194` width 4 `LPCWCH`; the physical typedef rendering is equivalent to prototype `const wchar_t *text`; all four comment channels still absent |
+| A10 | Supervisor Gate 2B | Function regular-comment channel `0x00489180` | Initial canonical prestate: name `sub_489180`, range `0xee`, type `int __stdcall(LPCWCH lpWideCharStr)`, code item head `0x489180`, address regular absent, address repeatable absent, function regular absent, function repeatable absent; after authorized A01/A02/A09, name/type are expected to be the exact final function name and void-thiscall signature | Set only the exact function-regular text in the A10 request after rechecking the authorized A01/A02/A09 poststate | Closed conversion, packet, compiler-instrumentation, and send behavior | high | Do not alter address channels, function-repeatable channel, body, frame, xrefs, code head, internal comments, or function type beyond the already-authorized A09 correction | Function regular equals exact text; final void-thiscall type remains unchanged from A09; other three entry channels remain absent |
+| A11 | Supervisor Gate 2B | Vtable slot `0x00615b34` | Four-byte data item; physical name absent; physical type absent; value `0x00489180`; bytes `80 91 48 00`; address regular absent; address repeatable absent | Set only the exact regular-address text in the A11 request | Sole virtual route to target | high | No rename/type/value/bytes/item-boundary/repeatable-comment change | Exact regular text; repeatable absent; pointer value/bytes and sole xref unchanged |
+| P01 | Supervisor Gate 2B | Target body and function range `[0x00489180,0x0048926e)` | Range size 238; body SHA256 `F9B98A095B139B15F5190B630B2C9E93E4F681B55CA3F369E6AA5136B43DDDDE`; first/last receipts in Section 10 | No change | Exact live bytes and modeled function | very high | Abort before save on any byte, head, tail, range, or hash mismatch | Exact same 238-byte range and SHA |
+| P02 | Supervisor Gate 2B | Inbound xref set for `0x00489180` | Exactly one inbound data xref `0x00615b34 -> 0x00489180` | No change | Live xref query | very high | No added, removed, retyped, or moved xref | Exact same one-entry data-xref set |
+| P03 | Supervisor Gate 2B | Ordinary caller set for `0x00489180` | Zero ordinary code callers | No change | Live callers query | very high | No new function/code caller | Zero ordinary code callers |
+| P04 | Supervisor Gate 2B | Complete physical frame for `0x00489180` | Exact F01-F10 current rows below | Preserve all offsets, widths, and physical types; permit only A02-A08 literal physical-name deltas, while A09 changes only the function prototype | Live stack-frame readback and failed-closed A09 attempt | very high | Abort on row addition/removal, offset/width movement, local overlap, any physical type delta, or unlisted name delta; do not add a stack-row `set_type` action | Exact F01-F10 poststate rows below, including F10 `text@+0x194`, size 4, type `LPCWCH` |
+| P05 | Supervisor Gate 2B | Vtable window `0x00615b2c-0x00615b40` | Bytes `E0 F2 49 00 00 FC 49 00 80 91 48 00 6C 4E 64 00 7B C2 48 00`; slot `0x00615b34` value `0x00489180` | No change except A11 regular comment channel | Live bytes/items | very high | Preserve all bytes, item heads, neighboring values, target value, name/type, and repeatable channel | Byte-identical window and same target value; only A11 regular comment differs |
+| P06 | Supervisor Gate 2B | Alignment item `[0x0048926e,0x00489270)` | One two-byte data item with bytes `cc cc` | No change | Live bytes/items | very high | Do not absorb into function, create code/function, or alter bytes/type/head | Same two-byte data item and bytes |
+| P07 | Supervisor Gate 2B | Successor item head `0x00489270` | Code item, not a modeled function; next modeled sibling starts `0x004892b0` | No change | Live item/function query | very high | Do not create a function, merge ranges, or move item heads | Same raw code item and same next modeled sibling |
+
+Complete physical frame contract:
+
+| Frame row | Current name | Offset | Width | Current type | Expected poststate |
+| --- | --- | --- | --- | --- | --- |
+| F01 | `MultiByteStr` | `+0x8` | `0x100` | `CHAR[256]` | `convertedName`, same offset/width/type |
+| F02 | `Src` | `+0x108` | 1 | `_BYTE` | `packetOpcode`, same offset/width/type |
+| F03 | `destination` | `+0x109` | 1 | `unsigned __int8` | `packetSubtype`, same offset/width/type |
+| F04 | `var_82` | `+0x10a` | 1 | `unsigned __int8` | `packetAction`, same offset/width/type |
+| F05 | `var_81` | `+0x10b` | 1 | `unsigned __int8` | `packetNameLength`, same offset/width/type |
+| F06 | `var_80` | `+0x10c` | `0x7c` | `_BYTE[124]` | `packetNameBytes`, same offset/width/type |
+| F07 | `var_4` | `+0x188` | 4 | `_DWORD` | unchanged |
+| F08 | `__saved_registers` | `+0x18c` | 4 | `_DWORD` | unchanged |
+| F09 | `__return_address` | `+0x190` | 4 | `_UNKNOWN *` | unchanged |
+| F10 | `lpWideCharStr` | `+0x194` | 4 | `LPCWCH` | `text`, same offset/width/type `LPCWCH`; this physical typedef rendering is equivalent to the final function prototype's `const wchar_t *text` |
+
+Evidence-only dependencies are deliberately outside the mutation/protected-action ledger because no Gate 2B write targets them: calls to `GetMemoryMan 0x00516030`, `PacketBufferWriteUInt8 0x00575380`, `MemoryMan_MemmoveWrapper 0x00516220`, `Socket_QueueAndSendPacket 0x00574bb0`, WinAPI conversion, range runtime, security-cookie support, and the packet-sender global load. The 24 existing internal regular comments remain observational evidence rather than proposed comment actions; they occur at `0x4891a5`, `0x4891a6`, `0x4891b3`, `0x4891b4`, `0x4891c1`, `0x4891c2`, `0x4891dc`, `0x4891de`, `0x4891e0`, `0x4891ed`, `0x4891f0`, `0x4891f1`, `0x4891f2`, `0x4891f4`, `0x489214`, `0x489215`, `0x489224`, `0x489226`, `0x489227`, `0x48922b`, `0x48923c`, `0x489248`, `0x489249`, and `0x48925b`. Any collateral change outside A00-A11, including to these evidence-only entities, is an unexpected side effect and requires stop/rollback under the supervisor procedure; it is not an additional report action.
+
+`````
+
+## Additional removed operational lines: B006 UID0002NW residual orchestration cleanup
+
+> NON-AUTHORITATIVE ARCHIVE. The exact lines below were removed from the source and must never be executed.
+
+`````text
+3. Supervisor performs atomic C2NW-052 through C2NW-070 Gate 2B actions/readbacks with guarded backup/save/rollback authority.
+`````
+

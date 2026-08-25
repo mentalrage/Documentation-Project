@@ -1,12 +1,15 @@
 *** UID:000018 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # BrowserDialogOld
 
@@ -25,11 +28,15 @@
 
 - `0x00469290-0x00469426` constructor.
 - `0x00469430-0x0046949c` destructor.
+- `0x004694a0-0x004694be` private helper candidate `NavigateLegacyBrowserControl`.
+- `0x004694c0-0x004694d8` private helper candidate `PostBrowserThreadCloseMessage`.
+- `0x004694e0-0x00469501` private helper candidate `HideLegacyBrowserWindow`.
+- `0x00469510-0x00469527` private helper candidate `ScheduleDeferredBrowserRedraw`.
 - `0x00469530-0x004695a9` `OnKeyEvent`.
 - `0x004695b0-0x0046961c` `OnMouseEvent`.
 - `0x00469620-0x0046963c` `OnNavigateAction`.
 - `0x0046b4b0-0x0046b51d` `GetChildRect`.
-- [UID:00033B][0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor](by-memory/0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor.md) scalar deleting destructor.
+- [UID:00033B][0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor](by-memory/0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor.md) compiler-generated scalar deleting destructor wrapper; source cleanup belongs to ordinary destructor `0x00469430-0x0046949c`.
 - `0x0049dae0-0x0049db14` `SetDialogBounds`.
 
 ## Evidence
@@ -51,11 +58,14 @@
 - [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md) is scored `84/90` and records the corrected constructor/destructor/key/mouse/navigate boundaries, raw helper bodies, constructor call into `BrowserControlPaneOld`, singleton global, and browser-module ownership.
 - [UID:0000QB][g_pBrowserDialogOld](by-global/g_pBrowserDialogOld.md) documents the legacy browser dialog singleton role and ownership hypothesis with this dialog/control path.
 - [UID:00033B][0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor](by-memory/0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor.md) records the exact B001-024 scalar deleting destructor, vtable ref `0x00613154`, adjustor callers at `0x004702aa`/`0x004702b5`, legacy cleanup calls, singleton clear, base teardown, and delete flag behavior.
+- 2026-07-02 B010 source-quality callback reclassifies [UID:00033B][0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor](by-memory/0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor.md) as non-reconstructable MSVC scalar deleting destructor glue, not a source-emitting `BrowserDialogOld` method. The wrapper repeats ordinary destructor cleanup from `0x00469430-0x0046949c`, clears [UID:0000QB][g_pBrowserDialogOld](by-global/g_pBrowserDialogOld.md) as duplicated lowering of the ordinary destructor clear, applies delete flags/optional free/object-size `0x270`, and is reached through primary vtable data plus the `0xa0`/`0xa4` adjustor thunks.
+- 2026-06-19 B013 source-quality reanalysis raises [UID:0000Z3][0x00469290-0x0046963c.BrowserDialogOldCore](by-memory/0x00469290-0x0046963c.BrowserDialogOldCore.md) to `86/91` and routes it directly through this class. The four no-direct-xref raw helpers are source-shaped private BrowserDialogOld helpers: one navigates through the old browser child to [UID:00033K][0x00470dd0-0x00470f10.BrowserNavigate](by-memory/0x00470dd0-0x00470f10.BrowserNavigate.md), one posts private close message `0x500` through `g_pBrowserThread->m_threadId`, one hides the legacy browser HWND through `ShowWindow(hwnd, SW_HIDE)`, and one schedules the `this+0xa4` timer callback after `0x2bc` / 700 ms before the redraw callback posts `0x501`.
+- 2026-07-04 B014 UID0002WH implementation callback confirms the exact singleton storage child [UID:0002WH][0x0067ab90-0x0067ab94.g_pBrowserDialogOld](by-memory/0x0067ab90-0x0067ab94.g_pBrowserDialogOld.md) now emits `BrowserDialogOld *g_pBrowserDialogOld;`. Current MCP session `ddf5b602` proves zero-filled storage, active IDB label `unk_67AB90`, no recovered global/name row or local `BrowserDialogOld` UDT, and exactly eight writer/consumer refs. This resolves singleton-declaration readiness; the class page remains blank for broader constructor/destructor/helper source-shape and source/header split reasons.
 
 ## Open Questions
 
-- Decide whether "Old" browser classes were retained source files or dead legacy paths still linked into the client.
-- Confirm non-dialog callers of [UID:0000QB][g_pBrowserDialogOld](by-global/g_pBrowserDialogOld.md), if any, before final header placement.
+- Decide whether "Old" browser classes were retained source files or dead legacy paths still linked into the client. B013 proved the four raw helpers are BrowserDialogOld source-shaped behavior, but not their exact original source spellings or ordinary caller route.
+- Non-dialog consumers of [UID:0000QB][g_pBrowserDialogOld](by-global/g_pBrowserDialogOld.md) were rechecked for UID0002WH: `0x00508da9`, `0x005145f3`, and `0x00556fbe` read or compare the slot. Exact header/export placement remains open, but the external consumers now support the non-`static` storage declaration rather than block it.
 
 ## Score Rationale
 
@@ -89,3 +99,10 @@ Completion is raised to `85` because live IDA now verifies method ranges, vtable
   - What existed before: the class remained `72/82`, with live evidence mostly delegated to the memory page and final-source blockers listed at a high level.
   - Changed to: completion `82`, confidence `86`, exact method ranges in the method list, and refreshed class-scope evidence for vtable xrefs, singleton lifecycle, child construction, bounds setup, event message posting, and shared helper calls.
   - Summary/evidence: live IDA confirms constructor/destructor have no direct xrefs, virtual handlers are vtable-referenced, constructor `0x0046936e` calls `sub_46FF50`, constructor/destructor set and clear `dword_67AB90`, `GetChildRect` remains called by `sub_46AA40`, and `SetDialogBounds` is shared beyond this class. Scores stay below final because old-path reachability and exact source/header split remain unresolved.
+- 2026-06-19 B013 source-quality sync:
+  - Added the four BrowserDialogOld private helper candidates and support link to corrected [UID:00033K][0x00470dd0-0x00470f10.BrowserNavigate](by-memory/0x00470dd0-0x00470f10.BrowserNavigate.md).
+  - Summary/evidence: B013 local PE disassembly/import/xref scanning resolves helper roles, rejects BrowserControlPaneOld/BrowserThread/BrowserWindow ownership, and keeps exact spellings/open reachability as final-source blockers rather than ownership blockers.
+- 2026-07-02 B010 scalar-deleting wrapper sync:
+  - Summary/evidence: [UID:00033B][0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor](by-memory/0x004705e0-0x0047068d.BrowserDialogOldScalarDeletingDestructor.md) is now documented as no-code compiler glue with no source owner/emitter. The class still owns the ordinary destructor semantics at `0x00469430-0x0046949c`; direct wrapper ownership, Browser file-level ownership, and standalone wrapper-helper ownership are rejected for this exact range.
+- 2026-07-04 B014 UID0002WH support sync:
+  - Summary/evidence: recorded that the exact storage child [UID:0002WH][0x0067ab90-0x0067ab94.g_pBrowserDialogOld](by-memory/0x0067ab90-0x0067ab94.g_pBrowserDialogOld.md) now emits the singleton source declaration. This updates the class-level singleton evidence without changing class score or adding class C++; broader BrowserDialogOld method/source split caveats remain.

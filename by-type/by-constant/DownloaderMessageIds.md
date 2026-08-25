@@ -1,18 +1,26 @@
 *** UID:0001SF | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000JC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000JC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000JC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+enum FileDownloaderMessageId {
+    kDownloadMinimapFileMessage = 10000,
+    kDownloadCashShopCatalogMessage = 10001,
+    kDownloadCashShopVersionMessage = 10002
+};
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # DownloaderMessageIds
 
 ## Status
 
-- Confidence: strong for observed values and direct `FileDownloader` ownership, medium for final enum/type name.
+- Confidence: very strong for observed values, direct `FileDownloader` ownership, dispatcher/submit-helper routes, and first-draft file-local enum names; medium only for exact original enum-vs-define spelling.
 - Kind: recovered constants/message IDs.
 - Assigned owner: [UID:0000JC][FileDownloader](by-file/FileDownloader.md)
 - Reconstructable: yes, as source-level downloader message constants. Do not emit final C++ enum code until the final declaration spelling is decided.
@@ -27,9 +35,9 @@
 
 | Value | Current meaning | Dispatch point |
 | --- | --- | --- |
-| `10000` | Minimap file download request for `DownloadMinimapFile_41A750`. | `FileDownloader::OnMessage` at `0x0041b110`. |
-| `10001` | Cash-shop/fitting-room catalog download request for `DownloadCashShopCatalog_41AE20`. | `FileDownloader::OnMessage` at `0x0041b110`. |
-| `10002` | Cash-shop/fitting-room version download request for `DownloadCashShopVersion_41AA00`. | `FileDownloader::OnMessage` at `0x0041b110`. |
+| `10000` | `kDownloadMinimapFileMessage`, minimap file download request for `DownloadMinimapFile`. | `FileDownloader::OnMessage` at `0x0041b110`. |
+| `10001` | `kDownloadCashShopCatalogMessage`, cash-shop/fitting-room catalog download request for `DownloadCashShopCatalog`. | `FileDownloader::OnMessage` at `0x0041b110`. |
+| `10002` | `kDownloadCashShopVersionMessage`, cash-shop/fitting-room version download request for `DownloadCashShopVersion`. | `FileDownloader::OnMessage` at `0x0041b110`. |
 
 ## Dispatch And Submission Evidence
 
@@ -64,8 +72,8 @@ These are worker-thread/download message IDs, not game socket opcodes. The defau
 
 ## Open Questions
 
-- Final source name is still provisional. `DownloaderMessageIds` is accurate as documentation vocabulary, but the original source may have used `#define`s, an unnamed enum, or file-local constants.
-- Exact source spelling and declaration location inside the FileDownloader module are not final because the original source may have used local constants instead of a named enum.
+- Exact original spelling remains unproven (`enum`, unnamed enum, or `#define`s), but the source meaning and FileDownloader-local placement are now high-probability. Use `FileDownloaderMessageId`/`kDownload...Message` as first-draft source names; do not keep the values as socket opcodes or generic numeric constants.
+- The enum is emitted as first-draft FileDownloader support context. Do not raise this page to a final-audit score until original declaration style is recovered or the whole FileDownloader header is assembled.
 
 ## Cross-References
 
@@ -87,3 +95,7 @@ These are worker-thread/download message IDs, not game socket opcodes. The defau
   - Changed to: `COMPLETION:86`, `CONFIDENCE:88`, `AUTOGEN_PARENT_UID:0000JC`.
   - Summary/evidence: live IDA rechecked the dispatcher and submit-helper boundaries, the `10000-10002` switch, the queue-post helper family, the download target helpers, and the inherited thread fallback. The strict assignment gate is satisfied because the direct FileDownloader parent is now `85/88`; C++ remains blank because final enum/constant spelling is still provisional.
 - 2026-06-06: Raised completion from `72` to `78` after adding submission-side evidence for all three message IDs, exact submit-helper/dispatcher-target links, and the `dword_67A738` downloader singleton boundary. Confidence stays `88` because the values and switch behavior are strong, while final source form (`enum`, `#define`, or file-local constants) and owner header remain provisional.
+- 2026-06-18 B001 FileDownloader download-helper source-quality pass:
+  - Changed from `86/88` to `88/90`.
+  - Populated first-draft file-local `FileDownloaderMessageId` enum.
+  - Summary/evidence: B001 reconfirmed dispatcher and submit-helper routes for all three values, rejected socket-opcode and generic numeric-constant treatment, tied each value to the FileDownloader worker helper and request lifetime behavior, and left only original enum-vs-define spelling as a final-source caveat.

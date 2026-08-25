@@ -14,7 +14,7 @@
 
 ## Covered Items To Replicate
 
-- [UID:0001SV][SelectionControlPaneSelectedValue_0x10c](by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md) : reconstructable : 76% : strong : Exact `SelectionControlPane` selected-value field offset `+0x10c`, known music-dialog caller values, redraw tail-call relationship, parent attachment, and naming caveat documented.
+- [UID:0001SV][SelectionControlPaneSelectedValue_0x10c](by-type/by-field/SelectionControlPaneSelectedValue_0x10c.md) : reconstructable : 86% : very strong : Exact `SelectionControlPane` selected-value/frame-id field offset `+0x10c`, live IDA-confirmed setter body, known MusicControlDialog pause/play caller values `37`/`48`, redraw tail-call relationship, direct parent gate, offset-reuse caveat, and final-name blocker documented.
 
 ## Covered Items To Ignore
 

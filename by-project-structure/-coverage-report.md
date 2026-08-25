@@ -14,7 +14,7 @@
 
 ## Covered Items To Replicate
 
-- [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) : reconstructable : 50% : medium : - Confidence: medium for initial source-layout hypothesis and indexed by-file coverage; still open for final migration readiness.
+- [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md) : reconstructable : 50% : medium : Confidence remains medium for the initial source-layout hypothesis, indexed by-file coverage, and final migration readiness; the established `NexusTK/security/CheatDetector.cpp` entry now explicitly contains the sole g_pCheatDetector definition, direct Singleton<CheatDetector>/TimerHandler class, constructor/CaptureTimeSnapshot/OnTimer source, inline empty destructor carrier, and compiler-only clear/scalar/vtable exclusions with no duplicate backing-storage emission.
 
 ## Covered Items To Ignore
 

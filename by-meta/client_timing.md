@@ -12,8 +12,8 @@ This page tracks client-level timing and scheduler behavior. Source ownership de
 
 - [UID:0000OT][TimerMgr](by-file/TimerMgr.md) is the high-level callback scheduler. It uses multimedia timer resolution setup and `timeGetTime`, stores scheduled callback records, and dispatches due events from the application helper/message-loop path.
 - [UID:0000F0][TimerHandler](by-class/TimerHandler.md) is the base class for objects that register timer callbacks. Destruction unregisters pending events.
-- [UID:0000F2][TimerMgrTimerQueue](by-class/TimerMgrTimerQueue.md) is an embedded sorted ring queue of [UID:0001VX][ScheduledTimerEvent](by-type/by-struct/ScheduledTimerEvent.md) records.
-- [UID:0000P7][WaitableTimer](by-file/WaitableTimer.md) is a lower-level multimedia/waitable timer wrapper and should remain separate from `TimerMgr` until direct caller evidence proves a merge.
+- [UID:0000F2][TimerMgrScheduledEventDequeCompilerSupport](by-class/TimerMgrScheduledEventDequeCompilerSupport.md) is an embedded sorted ring queue of [UID:0001VX][ScheduledTimerEvent](by-type/by-struct/ScheduledTimerEvent.md) records.
+- [UID:0000P7][WaitableTimer](by-file/WaitableTimer.md) is the lower-level `NexusTK/util/WaitableTimer.cpp` source root for [UID:0000FY][WaitableTimer](by-class/WaitableTimer.md), a multimedia timer/event wrapper. B005 MCP session `ff68e691` confirmed this wrapper uses `CreateEventW` dispatch, `timeSetEvent`, `timeKillEvent`, a critical section, a completion event, and a callback-gate event. It should remain separate from `TimerMgr` until direct caller/lifetime evidence proves a merge.
 - [UID:0000YT][0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat](by-memory/0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md) compares several system time sources, sends a heartbeat/status packet, and calls the crash-diagnostic text sender after repeated timer skew. IDA caller evidence now leans ownership toward [UID:0000HG][Application](by-file/Application.md) message-loop timing, with network/session and diagnostics as dependencies.
 - [UID:0000OU][TimerPane](by-file/TimerPane.md) is a map UI countdown/count-up overlay that consumes timer callbacks but should not be merged into the scheduler. Its exact range is [UID:0001KB][0x005986e0-0x00598cbe.TimerPane](by-memory/0x005986e0-0x00598cbe.TimerPane.md), immediately after the `TimerMgr` cluster.
 - [UID:0000JM][FrameMgr](by-file/FrameMgr.md) is the frame-tick callback scheduler exposed through [UID:0000Q0][g_frameRegistry](by-global/g_frameRegistry.md). It is separate from `TimerMgr`: `TimerMgr` dispatches time-based callbacks, while `FrameMgr` schedules `FrameHandler` callbacks by frame count and is pumped from application idle work.
@@ -23,6 +23,8 @@ This page tracks client-level timing and scheduler behavior. Source ownership de
 
 - Active generated `TimerMgr` output omits several IDA-confirmed queue helper functions, especially `0x00597dc0`, `0x00597eb0`, `0x00597f20`, and `0x005980f0`.
 - Active `TimerHandler` output omits the non-deleting destructor, default callback, and wrapper helpers.
+- `WaitableTimer` has no direct constructor/caller route in the current B005 MCP evidence. That absence does not justify merging it into `TimerMgr`; current ownership remains class [UID:0000FY][WaitableTimer](by-class/WaitableTimer.md) with source root [UID:0000P7][WaitableTimer](by-file/WaitableTimer.md).
+- `WaitableTimer +0x28` is a callback-gate event, not a worker-thread handle. The raw start helper creates it through `g_pfnCreateEventW`, signals it after successful `timeSetEvent`, and the callback waits/closes it before signaling the persistent completion event.
 - [UID:0000YT][0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat](by-memory/0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md) uses crash-diagnostic reporting but should not be assigned to [UID:0000J8][ExceptionHandler](by-file/ExceptionHandler.md), [UID:0000I6][CheatDetector](by-file/CheatDetector.md), [UID:0000NS][Socket](by-file/Socket.md), or [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md). Its only direct caller is `Application::RunMessageLoop`.
 - Older docs/generated ownership assigned `0x00597580` to `EventDispatcher` and `0x00597600` to `InterfaceEfx`. IDA decompilation resolves both as generic `TimerHandler` cleanup/wrapper code through `g_pTimerMgr`.
 - `0x00597610-0x00597645` is resolved as generic `TimerHandler` wrapper ownership. Active generated SoundManager output still emits these wrappers as audio methods, but IDA body/caller evidence points to the scheduler cluster.
@@ -44,3 +46,10 @@ This page tracks client-level timing and scheduler behavior. Source ownership de
 - [UID:0000SI][g_pTimerMgr](by-global/g_pTimerMgr.md)
 - [UID:0001WD][TimerMgrLayout](by-type/by-struct/TimerMgrLayout.md)
 - [UID:0000P7][WaitableTimer](by-file/WaitableTimer.md)
+- [UID:0000FY][WaitableTimer](by-class/WaitableTimer.md)
+- [UID:0001NX][0x005c0ff0-0x005c129a.WaitableTimer](by-memory/0x005c0ff0-0x005c129a.WaitableTimer.md)
+
+## Changes
+
+- 2026-06-23 B005 implementation:
+  - Added MCP-backed WaitableTimer separation notes, source root/class route, and callback-gate event correction.

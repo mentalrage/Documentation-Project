@@ -1,22 +1,25 @@
 *** UID:0001XB | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000IO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000IO | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # DAT Manager Vtables
 
 ## Status
 
-- Disposition: reconstructable project vtable data
+- Disposition: non-emitting broad vtable evidence/index page
 - Covered classes: [UID:00003I][DATFileMgr](by-class/DATFileMgr.md) and [UID:000004][_DATFileMgr](by-class/_DATFileMgr.md)
 - Likely source module: [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md)
 - Confidence: strong for table bases, short extents, and exact child ranges.
-- Autogen status: attached to the `DATFileMgr` file page because this page covers the public/private manager pair; final C++ remains blank under the `95/95` reconstruction gate.
+- Autogen status: non-emitting evidence/index. Exact vtable data pages and class declarations carry source-declared/generated-binary handling; this broad inventory must not emit a duplicate vtable array.
 
 ## Vtable Inventory
 
@@ -46,7 +49,11 @@ Do not read past either single-slot vtable. `DATFileMgr` is immediately followed
 
 ## Parent Rationale
 
-Attach this vtable inventory to [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), not to one individual class, because it covers both the public wrapper [UID:00003I][DATFileMgr](by-class/DATFileMgr.md) and private implementation [UID:000004][_DATFileMgr](by-class/_DATFileMgr.md). The file page is already reconstructable as the archive manager source root, owns both classes, and records the same exact vtable-data child ranges and non-slot boundary warnings. This page remains the narrow evidence home for the two one-slot vtables and their adjacent `.rdata` boundaries.
+Keep this vtable inventory associated with [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), not with one individual class, because it covers both the public wrapper [UID:00003I][DATFileMgr](by-class/DATFileMgr.md) and private implementation [UID:000004][_DATFileMgr](by-class/_DATFileMgr.md). The file page is already reconstructable as the archive manager source root, owns both classes, and records the same exact vtable-data child ranges and non-slot boundary warnings. This page is now non-emitting evidence only; exact vtable data children [UID:0002MA][0x00618910-0x00618918.DATFileMgrVtableData](by-memory/0x00618910-0x00618918.DATFileMgrVtableData.md) and [UID:0002MB][0x006189c8-0x006189d0._DATFileMgrVtableData](by-memory/0x006189c8-0x006189d0._DATFileMgrVtableData.md) emit no-array proof comments, while class declarations drive compiler vtable emission.
+
+## 2026-07-01 B008 Non-Emitting Inventory Disposition
+
+This broad inventory is reclassified to `RECONSTRUCTABLE:FALSE` with a blank emitter list. It preserves public/private manager vtable boundaries, xrefs, and non-slot warnings, but it must not hand-author a combined vtable array or duplicate scalar deleting destructor bodies.
 
 ## Cross-References
 
@@ -60,6 +67,10 @@ Attach this vtable inventory to [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md),
 
 ## Changes
 
+- 2026-07-01 B008 DATFileMgr empty-emitter family implementation:
+  - Raised score from `86/91` to `88/92`, set `RECONSTRUCTABLE:FALSE`, and blanked `EMITTER_UIDS`.
+  - Preserved public/private vtable inventory evidence as non-emitting documentation.
+  - Clarified that exact vtable data children emit no-array proof comments and class declarations drive compiler-generated vtables; this page emits no hand-authored arrays.
 - 2026-06-07 parent attachment update:
   - What existed before: the vtable inventory was reconstructable but unassigned in generated type coverage.
   - What changed: attached the inventory to [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), raised completion to `86`, and added an explicit file-level parent rationale.

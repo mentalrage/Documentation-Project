@@ -1,22 +1,26 @@
 *** UID:0000UJ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:NONE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # DrawTextInRect 0x004BAD70
 
 ## Status
 
-- Confidence: strong for behavior and shared text-drawing ownership boundary, medium-strong for final source split.
-- Entity kind: shared UI text helper.
-- Likely source module: [UID:0000JR][GrafPort](by-file/GrafPort.md) / generic text-render helper. The earlier [UID:0000OK][TextButtonControlPane](by-file/TextButtonControlPane.md) assignment is now documented as a historical/generated lead rather than final ownership.
-- Exact range: `0x004bad70-0x004baf92`
-- Autogen handling: parent and C++ stay blank because behavior is strong, but final source ownership is still explicitly open between `GrafPort`/shared text infrastructure and older caller-biased generated owners.
+- Promotion status: retained by-item index only.
+- Canonical code-bearing documentation: [UID:00016D][0x004bad70-0x004baf92.DrawTextInRect](by-memory/0x004bad70-0x004baf92.DrawTextInRect.md).
+- Canonical source route: [UID:00016D][0x004bad70-0x004baf92.DrawTextInRect](by-memory/0x004bad70-0x004baf92.DrawTextInRect.md) -> [UID:00005V][GrafPort](by-class/GrafPort.md) -> [UID:0000JR][GrafPort](by-file/GrafPort.md).
+- Previous by-item state: `COMPLETION:80`, `CONFIDENCE:86`, `RECONSTRUCTABLE:TRUE`, parent blank.
+- Current by-item state: `COMPLETION:-1`, `CONFIDENCE:-1`, `RECONSTRUCTABLE:FALSE`, parent blank, because this page no longer owns reconstruction output.
+- Strict gate status: the source-owning exact child is `86/90`, the actual direct class parent is `85/87`, and the file parent is `88/85`; the gate is already satisfied on the canonical by-memory route.
 
 ## Behavior
 
@@ -24,9 +28,11 @@
 
 ## Ownership Boundary
 
-The strongest current placement is the GrafPort/shared text-drawing family, not a text-button-private method. [UID:0000JR][GrafPort](by-file/GrafPort.md) explicitly groups [UID:00016B][0x004ba820-0x004ba991.TextFitAndSuffixHelpers](by-memory/0x004ba820-0x004ba991.TextFitAndSuffixHelpers.md), [UID:00016C][0x004ba9a0-0x004bad66.GrafPortTextRunHelpers](by-memory/0x004ba9a0-0x004bad66.GrafPortTextRunHelpers.md), and this helper under GrafPort text-drawing review. [UID:0000OK][TextButtonControlPane](by-file/TextButtonControlPane.md) now keeps this page only as a historical/generated-output lead because `TextButtonControlPane::OnPaint` is one caller among many.
+This by-item page is not the owner. It remains only as the historical item-coverage entry for `DrawTextInRect_004BAD70`.
 
-Final parent metadata remains blank because the helper has strong behavior evidence but not a settled reconstruction source split. The next lift is signature/field-name recovery for the draw-context receiver, rectangle argument, alignment selector, and wide-text length handling.
+The source-owning page is the exact by-memory child [UID:00016D][0x004bad70-0x004baf92.DrawTextInRect](by-memory/0x004bad70-0x004baf92.DrawTextInRect.md). That page is already attached to the actual direct parent [UID:00005V][GrafPort](by-class/GrafPort.md), with [UID:0000JR][GrafPort](by-file/GrafPort.md) as the file root. Routing this by-item page too would create duplicate reconstruction ownership for the same function.
+
+The earlier [UID:0000OK][TextButtonControlPane](by-file/TextButtonControlPane.md) association is retained only as a historical/generated-output lead. `TextButtonControlPane::OnPaint` is one caller among a broad UI/render caller set, not the source owner.
 
 ## Evidence
 
@@ -48,6 +54,11 @@ Final parent metadata remains blank because the helper has strong behavior evide
 - [UID:0000JH][FontImageLib](by-file/FontImageLib.md)
 
 ## Changes
+
+- 2026-06-12 A003 Batch 305 promotion cleanup:
+  - Before: `COMPLETION:80`, `CONFIDENCE:86`, `RECONSTRUCTABLE:TRUE`, `AUTOGEN_PARENT_UID:` blank.
+  - After: `COMPLETION:-1`, `CONFIDENCE:-1`, `RECONSTRUCTABLE:FALSE`, `AUTOGEN_PARENT_UID:` blank.
+  - Summary/evidence: by-item guidance says to promote temporary item pages into a more specific `by-*` folder once ownership is clear. The exact code-bearing page [UID:00016D][0x004bad70-0x004baf92.DrawTextInRect](by-memory/0x004bad70-0x004baf92.DrawTextInRect.md) is already the canonical reconstruction document and is assigned to [UID:00005V][GrafPort](by-class/GrafPort.md) after A004 Batch 119. The canonical child is `86/90`, direct class parent [UID:00005V][GrafPort](by-class/GrafPort.md) is `85/87`, and file parent [UID:0000JR][GrafPort](by-file/GrafPort.md) is `88/85`, so the strict gate is satisfied there. This by-item page is retained only as a non-emitting index to avoid duplicate source output.
 
 - 2026-06-07 A009 ownership-boundary sync:
   - Changed to: `COMPLETION:80`, `CONFIDENCE:86`.

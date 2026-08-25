@@ -1,21 +1,26 @@
 *** UID:0001VW | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000BZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000BZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000BZ | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// RidingImageLib object layout is emitted by the [UID:0000BZ][RidingImageLib](by-class/RidingImageLib.md) class shell:
+// +0x04 ridingDefinitions, +0x08 ridingDefinitionCount, +0x0c ridingEpfPackage.
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # RidingImageLib Layout
 
 ## Status
 
-- Confidence: strong for observed offsets, medium for final field names.
+- Confidence: strong for observed offsets, vector allocation shape, vtable/singleton anchors, and constructor/parser/destructor agreement; medium for final field names.
 - Owner class: [UID:0000BZ][RidingImageLib](by-class/RidingImageLib.md).
-- Autogen parent: attached to [UID:0000BZ][RidingImageLib](by-class/RidingImageLib.md); the class scores `82/80` and this layout scores `82/86`, so both sides satisfy the 80/80 parent gate.
-- Evidence: IDA constructor/destructor/definition-loader decompilation and xrefs on 2026-05-26.
+- Owner/emitter route: attached to [UID:0000BZ][RidingImageLib](by-class/RidingImageLib.md), currently `89/90`, which emits through [UID:0000N6][RidingImageLib](by-file/RidingImageLib.md), currently `90/90`.
+- Evidence: IDA constructor/destructor/definition-loader decompilation and xrefs, refreshed on 2026-06-14.
 
 ## Layout
 
@@ -35,13 +40,24 @@ The riding definition allocation is MSVC vector-shaped: the object field points 
 - [UID:0002LA][0x004dc420-0x004dc68d.RidingImageLibLoadRidingDefinitions](by-memory/0x004dc420-0x004dc68d.RidingImageLibLoadRidingDefinitions.md) reads the first dword of `RIDINGS.DNA` as the riding definition count, allocates `count * 0x0c + 4`, constructs `0x0c`-byte [UID:0001VV][RidingDefinition](by-type/by-struct/RidingDefinition.md) rows, then stores the element pointer at `+0x04` and count at `+0x08`.
 - The ordinary and scalar deleting destructors free the `+0x0c` frame-table package, destroy/free the `+0x04` vector block, call `LObject` cleanup, and clear [UID:0000S4][g_pRidingImageLib](by-global/g_pRidingImageLib.md).
 
+## 2026-06-30 B008 Covered-By Disposition
+
+B008's accepted report keeps this support page reconstructable for generated documentation but prevents duplicate class layout emission. The formal block is a proof comment: the actual source fields are emitted by [UID:0000BZ][RidingImageLib](by-class/RidingImageLib.md). Preserve the offset evidence here for audit: `+0x04` is `ridingDefinitions`, `+0x08` is `ridingDefinitionCount`, and `+0x0c` is the `RIDINGS.EPF` package/frame-table handle.
+
 ## IDA MCP Verification Notes
 
+- 2026-06-14 live IDA MCP in session `a001_goal2_class_batch` reports `0x004dc420` size `0x26d`, constructor `0x004dc690` size `0x92`, ordinary destructor `0x004dc730` size `0xa8`, singleton clear helper `0x004e5bf0` size `0xb`, and scalar deleting destructor `0x004e68b0` size `0xd1`. `lookup_funcs 0x004dc7e0` still reports "Not a function", so draw-frame helper evidence remains outside this layout page.
+- 2026-06-14 live `xrefs_to 0x0061b6f4` returns the lifecycle vtable stores at `0x004dc6e9`, `0x004dc75a`, and `0x004e68e1`; `xrefs_to 0x0069b444` includes constructor writes `0x004dc6c4/0x004dc6cb`, ordinary destructor clear `0x004dc7bc`, singleton clear helper `0x004e5bf0`, scalar destructor clear `0x004e6943`, and other consumers.
 - 2026-05-31 `lookup_funcs` reports the constructor at `0x004dc690` size `0x92`, ordinary destructor at `0x004dc730` size `0xa8`, and scalar deleting destructor at `0x004e68b0` size `0xd1`; A002's 2026-06-06 recheck confirms the scalar deleting destructor's half-open range is `0x004e68b0-0x004e6981`.
 - 2026-05-31 constructor decompilation writes `g_pRidingImageLib` at `0x0069b444`, calls the `LObject` base constructor, stores vtable `0x0061b6f4` at `this+0x00`, clears `this+0x04`, calls the definition parser, and stores the `RIDINGS.EPF` package pointer at `this+0x0c`.
 - 2026-05-31 parser decompilation stores the riding definition vector pointer/count at `this+0x04` and `this+0x08`.
 - 2026-05-31 ordinary and scalar deleting destructor decompilations both read `this+0x0c` as the frame-table package handle and `this+0x04` as the vector element pointer, then use 12-byte element destruction through `0x00528950`.
 - 2026-05-31 xrefs to vtable `0x0061b6f4` land in the constructor, ordinary destructor, and scalar deleting destructor, matching the class lifecycle writes.
+
+## Score Rationale
+
+- Completion is `86` because the page now records a current IDA refresh for all layout-bearing lifecycle functions, the definition parser, singleton clear helper, vtable xrefs, singleton global xrefs, the parent/file routing scores that make this a class-owned layout declaration, and a formal covered-by proof comment.
+- Confidence is `91` because constructor, parser, ordinary destructor, scalar deleting destructor, vtable, singleton, and vector-allocation evidence all agree in live IDA. Confidence remains below final-audit levels because original member names and the exact header declaration spelling are still inferred, and `0x004dc7e0` remains a raw/unmodeled helper outside this layout page.
 
 ## Cross-References
 
@@ -65,3 +81,7 @@ The riding definition allocation is MSVC vector-shaped: the object field points 
   - Before: the page had useful observed offsets but was still scored unevaluated and had blank `RECONSTRUCTABLE`.
   - After: the page records fresh IDA MCP constructor/parser/destructor/vtable evidence, is marked `RECONSTRUCTABLE:TRUE`, and remains below 95+ because final source-facing member names and inherited helper names still need a broader audit.
   - Evidence: IDA MCP `lookup_funcs`, `decompile`, and `xrefs_to` checks for `0x004dc690`, `0x004dc730`, `0x004e68b0`, `0x004dc420`, `0x0061b6f4`, and `0x0069b444`.
+- 2026-06-14 A002 Goal2 score pass:
+  - What existed before: `COMPLETION:82`, `CONFIDENCE:86`, stale class-score text, and no current-session IDA evidence in the page.
+  - Changed to: `COMPLETION:85`, `CONFIDENCE:90`, current owner/emitter wording, current class/file parent scores, and live IDA evidence for parser/lifecycle sizes, vtable stores, singleton writes/clears, and the still-unmodeled `0x004dc7e0` helper.
+  - Summary/evidence: IDA MCP session `a001_goal2_class_batch` on 2026-06-14 confirmed `0x004dc420`, `0x004dc690`, `0x004dc730`, `0x004e5bf0`, and `0x004e68b0`; live xrefs to `0x0061b6f4` and `0x0069b444` agree with the four-field layout. Final C++ remains blank because field names/header spelling are not final-source quality.

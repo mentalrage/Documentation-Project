@@ -1,6 +1,10 @@
-﻿## Agent A001 Specific Instructions ##
+## Agent A001 Specific Instructions ##
 - Assigned Agent ID: A001
 - Use the target-selection guidance below. Do not rely on only one queue or report.
+
+## Required Status Reporting ##
+- Follow `tools\leaser\status\README.md`. The supervisor owns registration and online/offline state; use only `python .\tools\leaser\status\status.py -report STATUS A001 "actionable details"` from `source-3\project-documentation`.
+- Report `working` when useful work begins/resumes and every 15 minutes during uninterrupted progress; this means no help is needed. Report `complete` before returning a finished task or checkpoint. Report `needs-supervisor`, `blocked`, `error`, `issue`, `waiting`, or `idle` immediately when that state applies. Do not report every small action.
 
 ## General Goal ##
 Continue improving `E:\NTK\GhidraBridge\source-3\project-documentation\by-*\*.md` documentation and coverage
@@ -12,16 +16,17 @@ Use a mix of these sources when choosing work, rather than always starting from 
 - `E:\NTK\GhidraBridge\source-3\project-documentation\project-level\-unresolved.md`
 - `E:\NTK\GhidraBridge\source-3\project-documentation\project-level\-resolved.md`
 - `E:\NTK\GhidraBridge\source-3\project-documentation\project-level\-resolved-multple-aliases.md`
-- `E:\NTK\GhidraBridge\source-3\project-documentation\by-memory\-coverage-report.md`
+- `E:\NTK\GhidraBridge\source-3\project-documentation\auto-generated\-ag-coverage-report-by-memory.md`
+- `E:\NTK\GhidraBridge\source-3\project-documentation\by-memory\-coverage-report.md` legacy/manual context only
 
 Generated project-state files are read-only inputs. `E:\NTK\GhidraBridge\source-3\project-documentation\project-level\-auto-completion-stats.md`, `E:\NTK\GhidraBridge\source-3\project-documentation\project-level\-resolved-multiple-aliases.md`, `E:\NTK\GhidraBridge\source-3\project-documentation\project-level\-resolved-multple-aliases.md`, `E:\NTK\GhidraBridge\source-3\project-documentation\project-level\-resolved.md`, `E:\NTK\GhidraBridge\source-3\project-documentation\project-level\-unresolved.md`, and all files under `E:\NTK\GhidraBridge\source-3\project-documentation\auto-generated` are automatically generated files. Use them only to review project state and choose targets. Do not modify them directly.
 
-Prioritize items that are unclassified, reconstructable but unassigned, low completion, low confidence, or still use compiler-generated/generated names or aliases. Improve the selected documentation with real analysis and justification so completion/confidence changes are supported by the file's evidence and change log.
+Prioritize items that are unclassified, reconstructable but no-owner or non-emitting, low completion, low confidence, or still use compiler-generated/generated names or aliases. Improve the selected documentation with real analysis and justification so completion/confidence changes are supported by the file's evidence and change log.
 
 ## Supervisor Overrides And Existing Rules ##
 You do not need direct supervisor permission to improve related documentation required by your assigned target. If accurate work on the target depends on associated by-class, by-file, by-type, by-global, nearby by-memory, or plausible parent/source documents, read them and improve them under normal lease rules. This is especially required when the target itself reaches the score gate but cannot be assigned because the actual direct source/owner is unresolved: investigate and improve the plausible parent/source candidates enough to prove or reject direct ownership. If no single direct owner can be proven, report which related documents were checked or improved, their before/after scores, and why assignment still fails.
 
-Supervisor or batch directives override only the specific instructions they directly conflict with, usually target selection. All non-conflicting instructions in this goal, `by-structure.md`, validator rules, lease rules, naming/renaming rules, coverage-report rules, and documentation quality requirements remain active. An assigned target is an entry point, not a hard boundary on scope. If you discover existing problems while working, you are expected to repair them when possible, including mixed ownership, bad memory ranges, overbroad files, missing nested memory items, missing by-structure splits, stale filenames, bad parent links, stale coverage rows, unjustified scores, and incomplete or inaccurate evidence. If a memory item needs to be split into nested children under `by-structure.md`, do the split instead of ignoring the existing problem. If the repair is blocked by leases or missing evidence, record the exact blocker in `notes.md` and continue useful work. The goal is accurate documentation, not merely reducing unassigned counts.
+Supervisor or batch directives override only the specific instructions they directly conflict with, usually target selection. All non-conflicting instructions in this goal, `by-structure.md`, validator rules, lease rules, naming/renaming rules, coverage-report rules, and documentation quality requirements remain active. An assigned target is an entry point, not a hard boundary on scope. If you discover existing problems while working, you are expected to repair them when possible, including mixed ownership, bad memory ranges, overbroad files, missing nested memory items, missing by-structure splits, stale filenames, bad owner/emitter links, stale coverage rows, unjustified scores, and incomplete or inaccurate evidence. If a memory item needs to be split into nested children under `by-structure.md`, do the split instead of ignoring the existing problem. If the repair is blocked by leases or missing evidence, record the exact blocker in `notes.md` and continue useful work. The goal is accurate documentation, not merely reducing no-owner/non-emitting counts.
 
 ## Required General Instructions and Documented Information Sources ##
 1. `E:\NTK\GhidraBridge\source-3\project-documentation\by-structure.md` *Required Reading*
@@ -29,6 +34,7 @@ Supervisor or batch directives override only the specific instructions they dire
 3. `E:\NTK\GhidraBridge\source-3\project-documentation\auto-generated` Contains the auto-generated final project and also coverage reports. These can be used to find and work on sources missing reconstructable marks, or other leads into what needs work
 4. `E:\NTK\GhidraBridge\source-3\project-documentation\project-level\-auto-completion-stats.md` Shows general completion for documents, files missing paths, etc. 
 5. `E:\NTK\GhidraBridge\source-3\project-documentation\project-level\` `-resolved-multple-aliases.md`, `-resolved.md`, `-unresolved.md` for tracking compiler generated names and aliases
+6. `E:\NTK\GhidraBridge\source-3\project-documentation\tools\leaser\Agents\Agent-B001\inference_research.md` For information on how to properly infer things while reverse engineering
 
 ## Tools ##
 - Tool concurrency note: There may be many agents running at the same time. Any tool call may occasionally time out or return transient errors because too many calls are happening at once. If this happens, wait briefly and try the same command again a few times before treating it as a real blocker.
@@ -46,7 +52,7 @@ Supervisor or batch directives override only the specific instructions they dire
 - You do not need a lease to read a file. You may read files leased to yourself or leased to other agents, but remember those files may be actively changing and the data you read may already be out of date.
 - If the specific target document you want to edit is leased by another agent and it is not a `-coverage-report.md` file, assume that document is already being actively worked on. Do not wait on it or edit it; pick another target instead.
 - Do not try to lease files that do not exist. If a by-structure split requires new child files, lease the existing parent item being split and any other existing files you will edit, create the new child file(s), then lease the newly created child file(s) before further edits if needed. A `File not found` result for a non-existent child path means you attempted the lease too early; it is not a blocker by itself.
-- Always update `E:\NTK\GhidraBridge\source-3\project-documentation\by-memory\-coverage-report.md` when you change by-memory docs. If this coverage report is leased, keep working on any target docs you can lease, record the exact needed coverage rows/changes in your `notes.md`, and apply those report updates later when the report is free.
+- Do not directly edit generated reports or the legacy manual `E:\NTK\GhidraBridge\source-3\project-documentation\by-memory\-coverage-report.md`. For by-memory auto coverage, update accepted source `Item Summary`/`Nested` metadata in the by-memory page and rely on validator refresh. Record exact manual coverage row text in `notes.md` only when a current supervisor task explicitly asks for a legacy manual report update.
 - If any other shared report, generated coverage file, validator state file, or large master file is unavailable, do not stop. Record the exact tool command or by-* documentation/report change needed in `notes.md`, then continue with other useful work. Do not directly edit generated/project-level/tool state files to finish these follow-ups; call the appropriate tool when that tool-owned update is needed.
 - AGAIN DO NOT STOP WORKING IF A ITEM YOU NEED TO MODIFY IS LEASED. For locked target docs, move to another target. For locked shared/report files needed to finish work you already completed, create a temporary note at `E:\NTK\GhidraBridge\source-3\project-documentation\tools\leaser\Agents\Agent-*ID  NUMBER*\notes.md` and move onto working on something else. DO NOT WASTE TIME. Remember you can still read leased files, you just cant edit them.
 - Remember to RELEASE your lease after you are done editing.
@@ -71,9 +77,9 @@ Supervisor or batch directives override only the specific instructions they dire
 is correctly built in by-memory
 3. Remember that items should be marked reconstructable if they contain custom game code that needs to be recreated in the new binary. CRT/Built In code is not reconstructable. For Static Embeded Third Party librarys please review by-structure.md for specific rules.
 4. For reconstructable items, do not attach children to parent items unless both have 80%+ confidence/completion
-5. Do not write final reconstruction C++ in reconstructable documents unless it reaches the 95/95 bar.
+5. Do not write final reconstruction C++ in reconstructable documents unless the item is `RECONSTRUCTABLE:TRUE`, has one or more confirmed nonblank `EMITTER_UIDS` that surface to valid generated source output without a dead-end, and `(COMPLETION + CONFIDENCE) / 2 > 85`. This is minimum eligibility; the emitter route, dependencies, names, boundaries, and source placement must still be sufficiently verified under by-structure.md.
 6. Do not blindly improve confidence/completion scores without doing full analysis and justifying it with improved research/docmentation in the targeted document. Ensure the change/modification log in each file also justifys each change with good reasoning.
-7. Update manual coverage reports when by-memory docs change. If `by-memory\-coverage-report.md` is leased, record the exact needed row changes in `notes.md` and apply them later.
+7. Do not edit generated reports or the legacy manual `by-memory\-coverage-report.md`. For by-memory auto coverage, update accepted source `Item Summary`/`Nested` metadata and run the validator; record exact manual row text only if explicitly requested.
 8. Rename files when the documented identity changes. For example, if a by-memory range changes, rename the file to the corrected range; if a by-class class name changes, rename the class file to match. Validator can handle these filename changes automatically.
 9. Remember to cross reference between files, and keeping data updated and accurate between them.
 10. Remember to update by-meta files, and create new meta documents when needed for uncovered topics. Remember you can use these as additional information.

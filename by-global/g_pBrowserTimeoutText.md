@@ -1,12 +1,15 @@
 *** UID:0000QF | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:NONE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # g_pBrowserTimeoutText
 
@@ -27,7 +30,7 @@ Generated `BrowserPane::OnCommand` uses `g_pBrowserTimeoutText` for command id `
 
 A 2026-05-25 current-state recheck found the active generated reference in `simroot_v2/browser/Browser.cpp`. `rg` finds no active `global-data` declaration for this name in current `simroot_v2`, so treat this page as an alias note over the literal storage, not proof of writable pointer storage.
 
-[UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) now records the exact string range at `82/88`, marks it reconstructable, and attaches it to [UID:0000HV][Browser](by-file/Browser.md). That page includes the 2026-06-02 IDA MCP `BrowserPane::OnCommand` decompile/xref evidence and the exact `0x00613a54-0x00613a7a` UTF-16 literal boundary for `Navigation Timeout`.
+[UID:0001OD][0x00613a20-0x00613ab0.BrowserAlertStrings](by-memory/0x00613a20-0x00613ab0.BrowserAlertStrings.md) now records the exact string range at `88/92`, marks it reconstructable, attaches it to [UID:0000HV][Browser](by-file/Browser.md), and formally emits this literal as `kBrowserNavigationTimeoutAlertText`. That page includes the 2026-06-02 IDA MCP `BrowserPane::OnCommand` decompile/xref evidence and the exact `0x00613a54-0x00613a7a` UTF-16 literal boundary for `Navigation Timeout`.
 
 The duplicate-alias conclusion is strong because current evidence has a direct string literal address, not a separate storage slot, pointer initializer, or global-data row for `g_pBrowserTimeoutText`.
 
@@ -44,7 +47,7 @@ Keep this alias in [UID:0000PF][-ignored](by-global/-ignored.md) so future passe
 Likely source-level declaration:
 
 ```cpp
-static const wchar_t kBrowserNavigationTimeoutText[] = L"Navigation Timeout";
+static const wchar_t kBrowserNavigationTimeoutAlertText[] = L"Navigation Timeout";
 ```
 
 If the original source used a pointer alias, no separate storage for that alias has been recovered yet.

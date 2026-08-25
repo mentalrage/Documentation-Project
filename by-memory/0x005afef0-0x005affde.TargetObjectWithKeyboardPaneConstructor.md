@@ -1,12 +1,39 @@
 *** UID:0001LI | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000ED | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000ED | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000ED | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+TargetObjectWithKeyboardPane::TargetObjectWithKeyboardPane()
+    : LineInputPane(NULL)
+{
+    s_activeTargetObjectWithKeyboardPane = this;
+
+    SetPromptText(L"Use arrow key to select target then press 'v'.");
+
+    LivingObjectPane *target =
+        g_activeMapPane->FindObjectPaneById(s_targetObjectTargetId);
+    if (target == NULL ||
+        target->ObjectType() != kLivingObjectType ||
+        target->IsTargetingDisabled()) {
+        target = g_pUserPane->GetLocalPlayerObject();
+    }
+
+    target->SetTargetHighlight(true);
+    s_targetObjectTargetId = target->ObjectId();
+
+    SetPaneOrder(NULL, g_pBackPane);
+    s_targetObjectTargetModeActive = false;
+}
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
+
+*** Item Summary: IDA-confirmed constructor attached to `TargetObjectWithKeyboardPane`, with exact `0xee` boundary, neighboring padding, LineInputPane base setup, singleton publish/guard clear, three vtable stores, prompt setup, saved-target validation/fallback, highlight and saved-id updates, capture-pane registration, mode-byte clear, callee/global refs, and parent attachment documented. | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** Nested:0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # 0x005afef0-0x005affde - TargetObjectWithKeyboardPane Constructor
 
@@ -16,7 +43,7 @@
 - Related class: [UID:0000ED][TargetObjectWithKeyboardPane](by-class/TargetObjectWithKeyboardPane.md)
 - Related file: [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md)
 - IDA function: `sub_5AFEF0`, contiguous body `0x005afef0-0x005affde`, size `0xee`.
-- Reconstructable: true; this is source-authored game UI constructor logic. Final C++ remains blank because this page is below the 95/95 final-code gate.
+- Reconstructable: true; this is source-authored game UI constructor logic and now has formal first-draft C++.
 - Autogen parent: [UID:0000ED][TargetObjectWithKeyboardPane](by-class/TargetObjectWithKeyboardPane.md). The class parent is `86/80`, and its file parent [UID:0000OH][TargetSelectionInputPanes](by-file/TargetSelectionInputPanes.md) is `88/80`, so the parent-attachment gate is satisfied.
 
 ## Covered Range
@@ -65,7 +92,7 @@
 
 - This range should rebuild as the `TargetObjectWithKeyboardPane` constructor in the target-selection input pane source family, not as a free helper.
 - The constructor relies on module-scope target-selection globals for the active singleton and saved target id. Those globals should rebuild as source-level static/module globals, not fixed-address storage.
-- The body is well understood, but final C++ is withheld because the exact original identifiers, surrounding owner split, and all related target-flow helpers are not yet at the 95/95 final-source threshold.
+- The body is well understood and now emits first-draft C++. Exact original identifiers and the final original `.cpp` split remain confidence caps only; the accepted source shape mirrors the sibling SelectObject constructor and the binary data flow.
 
 ## Cross-References
 
@@ -83,6 +110,9 @@
 
 ## Changes
 
+- 2026-06-29 B005 UID0000OH direct empty-emitter callback:
+  - Score unchanged at `88/92`; formal first-draft C++ now emits `TargetObjectWithKeyboardPane::TargetObjectWithKeyboardPane()`.
+  - Summary/evidence: current MCP confirms the constructor range `0x005afef0-0x005affde`, LineInputPane base setup, active singleton publish to `s_activeTargetObjectWithKeyboardPane`, exact prompt literal, saved target lookup/validation/fallback, target highlight, saved-id store, pane-order registration, and `s_targetObjectTargetModeActive=false`. Vtable stores, SEH cleanup, and raw global names remain documentation evidence, not source statements.
 - Before: the page was a short `70/85` summary with blank reconstructable and parent metadata.
 - Changed to: `COMPLETION:88`, `CONFIDENCE:92`, `RECONSTRUCTABLE:TRUE`, and `AUTOGEN_PARENT_UID:0000ED`.
 - Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the constructor boundary, neighboring `0xcc` padding, no direct function xrefs, exact vtable stores, singleton writes, saved-target read/write, mode-byte clear, callees, and sibling destructor/handler relationships. Existing class/file docs meet the 80/80 parent gate. No final C++ was emitted because the page remains below the 95/95 final-code bar.

@@ -1,27 +1,30 @@
 *** UID:0000EX | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:NONE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # ThreadSafeNodeList
 
 ## Summary
 
-`ThreadSafeNodeList` is a generated class-name alias for an intrusive singly linked push-front operation protected by an embedded `CRITICAL_SECTION`. The recovered method pushes a node at the front of the list if the node pointer is non-null.
+`ThreadSafeNodeList` is a historical generated class-name alias for an intrusive singly linked push-front operation protected by an embedded `CRITICAL_SECTION`. The body pushes a node at the front of the list if the node pointer is non-null.
 
-The same machine-code behavior is strongly valid as [UID:0000AM][PoolAllocator](by-class/PoolAllocator.md) free-list return because `PoolAllocator` stores `freeList` at `+0x0c` and its lock at `+0x10`. Current evidence does not prove a standalone original `ThreadSafeNodeList` class.
+The same machine-code behavior is exact public [UID:0000AM][PoolAllocator](by-class/PoolAllocator.md) free-list return because `PoolAllocator` stores `m_freeList` at `+0x0c` and `m_lock` at `+0x10`. The standalone class identity is rejected for reconstruction; this UID remains an ignored alias only.
 
 ## Likely Original Placement
 
-- Source: [UID:0000OS][ThreadSafeNodeList](by-file/ThreadSafeNodeList.md)
-- Proposed path: alias only unless later evidence proves `util/ThreadSafeNodeList.cpp` or a broader utility-list source.
-- Disposition: ignored as a standalone class; reconstruct the code through [UID:0000AM][PoolAllocator](by-class/PoolAllocator.md) unless later non-allocator evidence proves a real class owner.
-- Confidence: strong that `0x004b14c0` is real project code, strong for allocator ownership at proven call sites, weak for standalone `ThreadSafeNodeList` class identity.
+- Historical alias index: [UID:0000OS][ThreadSafeNodeList](by-file/ThreadSafeNodeList.md), path `NONE`.
+- Physical source path: none; do not create `util/ThreadSafeNodeList.cpp` or a corresponding header.
+- Disposition: ignored as a standalone class; exact source is `PoolAllocator::Free` through UID000153 -> UID000152 -> UID0000AM -> [UID:0000MM][PoolAllocator](by-file/PoolAllocator.md).
+- Confidence: strong for exact allocator ownership and behavior; the standalone class identity is rejected.
 
 ## Methods
 
@@ -37,11 +40,11 @@ The same machine-code behavior is strongly valid as [UID:0000AM][PoolAllocator](
 - String release helpers call the same function at `0x00583322`, `0x0058333d`, `0x00583358`, `0x00583373`, `0x005833d2`, `0x005833ed`, `0x00583408`, and `0x00583423`, matching `PoolAllocator::Free` for the eight string-buffer pools.
 - The standalone class record is now listed in [UID:000003][-ignored](by-class/-ignored.md); this ignores only the generated class identity, not the reconstructable function at `0x004b14c0`.
 
-## Open Questions
+## Closed Questions
 
-- Whether any non-allocator object embeds the same layout and calls this function as a true list helper.
-- Whether generated metadata lifted a helper method into a standalone class because the machine code is shape-compatible with a list push.
-- Constructor/destructor ownership if a real standalone list class is later found.
+- No current non-allocator object proves this layout as a true standalone list helper; all confirmed callers are PoolAllocator returns.
+- Generated metadata lifted a shape-compatible list push into a standalone class alias; that alias is historical search vocabulary, not source identity.
+- No separate constructor, destructor, declaration, CPP, H, or source-tree path is assigned.
 
 ## Cross-References
 
@@ -51,6 +54,10 @@ The same machine-code behavior is strongly valid as [UID:0000AM][PoolAllocator](
 
 ## Changes
 
+- 2026-08-22 B001 UID0000MM Gate 2A ordinary repair:
+  - Closed the standalone placement and open-question language, linked the exact UID000153 Free body and PoolAllocator source route, and retained `-1/-1`, owner `NONE`, `RECONSTRUCTABLE:FALSE`, and blank formal channels.
+  - Preserved the class name only as a historical generated alias.
+
 - 2026-06-05: Changed autogen reconstructability from blank to `FALSE`.
   - Before: the page was already excluded from score queues as a generated class identity, but class autogen still reported it as unclassified.
   - After: the standalone `ThreadSafeNodeList` class identity is explicitly non-reconstructable; the underlying function remains tracked through [UID:0000AM][PoolAllocator](by-class/PoolAllocator.md) and [UID:000153][0x004b14c0-0x004b14ef.ThreadSafeNodeListPushFront](by-memory/0x004b14c0-0x004b14ef.ThreadSafeNodeListPushFront.md).
@@ -58,4 +65,4 @@ The same machine-code behavior is strongly valid as [UID:0000AM][PoolAllocator](
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:-1` and `CONFIDENCE:-1`.
-  - Summary/evidence: this page documents an ignored standalone generated class identity; the reconstructable code remains tracked through `PoolAllocator`/by-memory, so this alias page should not stay in the low-score work queue.
+- Summary/evidence: this page documents an ignored standalone generated class identity; the reconstructable code remains tracked through `PoolAllocator`/by-memory, so this alias page should not stay in the low-score work queue.

@@ -1,4 +1,5 @@
 lease.json
 lease.lock
+status/status.lock
 __pycache__/
 *.pyc

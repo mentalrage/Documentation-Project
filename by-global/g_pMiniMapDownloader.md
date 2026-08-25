@@ -1,12 +1,16 @@
 *** UID:0000RO | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000LE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000LE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000LE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+MiniMapDownloader *g_pMiniMapDownloader = NULL;
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # g_pMiniMapDownloader
 
@@ -31,16 +35,18 @@
 - Live IDA MCP on 2026-06-06 reconfirms the same 5 direct xrefs and shows the adjacent 16 bytes beginning at `0x0067a7d8` are zero-initialized in the loaded image.
 - Decompilation shows `0x00453910` installing the `MiniMapDownloader` vtable and publishing the current object to the singleton slot, with `0x00453990`, `0x00453d50`, and `0x00453d60` clearing the slot during teardown.
 - Application startup constructs a `MiniMapDownloader` during the minimap setup path, and minimap UI/dialog code uses the singleton to request updates; those consumers do not override class/file ownership.
+- 2026-06-16 C001 live IDA refresh reconfirmed the exact five direct data xrefs to `0x0067a7d8`: constructor publish/guard clear at `0x00453951`/`0x00453958`, destructor clear at `0x004539c2`, clear-helper write at `0x00453d50`, and scalar-deleting-destructor clear at `0x00453d99`. `get_bytes 0x0067a7d0` again showed the surrounding singleton window is zeroed.
+- C001 applied and saved the IDA names `g_pMiniMapDownloader`, `MiniMapDownloader_Constructor`, `MiniMapDownloader_Destructor`, `MiniMapDownloader_ClearSingletonHelper`, and `MiniMapDownloader_ScalarDeletingDestructor` after a successful dry run.
 
 ## Ownership Hypothesis
 
-This is the active minimap downloader singleton. It should migrate with [UID:00008D][MiniMapDownloader](by-class/MiniMapDownloader.md), not with generic network downloader code. It is attached to the broader [UID:0000LE][MiniMap](by-file/MiniMap.md) file root for autogen staging; a later focused `MiniMapDownloader.cpp` source split can move the global after that file root is created and documented.
+This is the active minimap downloader singleton. It should migrate with [UID:00008D][MiniMapDownloader](by-class/MiniMapDownloader.md), not with generic network downloader code. The accepted formal block emits `MiniMapDownloader *g_pMiniMapDownloader = NULL;` here, while exact storage child [UID:00028S][0x0067a7d8-0x0067a7dc.g_pMiniMapDownloader](by-memory/0x0067a7d8-0x0067a7dc.g_pMiniMapDownloader.md) now emits a covered-by marker. It is attached to the broader [UID:0000LE][MiniMap](by-file/MiniMap.md) file root for autogen staging; a later focused `MiniMapDownloader.cpp` source split can move the global after that file root is created and documented.
 
-## Follow-Up
+## Current-Pass Exclusions
 
-- Review all data/code xrefs to confirm whether UI code posts work directly through this global or through a wrapper.
-- Decide whether the final type should be `MiniMapDownloader*` or a base worker-thread pointer.
-- If a `MiniMapDownloadTask` struct is recovered, cross-link its queue/post callers here.
+- Do not move the definition to generic `FileDownloader` or worker-thread support docs; the singleton xrefs and vtable route are MiniMapDownloader-specific.
+- Do not emit a duplicate definition from [UID:00028S][0x0067a7d8-0x0067a7dc.g_pMiniMapDownloader](by-memory/0x0067a7d8-0x0067a7dc.g_pMiniMapDownloader.md); that page is covered storage.
+- Task-post wrapper and `MiniMapDownloadTask` field recovery are exact child/split work for [UID:0000XN][0x00453910-0x00453def.MiniMapDownloader](by-memory/0x00453910-0x00453def.MiniMapDownloader.md), not blockers for this singleton definition.
 
 ## Cross-References
 
@@ -51,6 +57,8 @@ This is the active minimap downloader singleton. It should migrate with [UID:000
 
 ## Changes
 
+- 2026-06-30 B010 empty-emitter implementation callback:
+  - Raised `85/90` to `87/91`, inserted the accepted singleton definition, and converted generic follow-up wording into current-pass exclusions tied to [UID:00028S][0x0067a7d8-0x0067a7dc.g_pMiniMapDownloader](by-memory/0x0067a7d8-0x0067a7dc.g_pMiniMapDownloader.md) covered storage and [UID:0000XN][0x00453910-0x00453def.MiniMapDownloader](by-memory/0x00453910-0x00453def.MiniMapDownloader.md) child-split work.
 - 2026-05-30: Previously this page had stale `0/0` completion/confidence metadata and only summarized constructor/destructor behavior. It now links the exact storage page, records the constructor/destructor/scalar-deleting-destructor lifecycle, and notes application startup and minimap UI/dialog consumer evidence. Score changed to `78/82` because identity, storage, and lifecycle are strong, while task layout and exact source split remain incomplete.
 
 - 2026-06-05 autogen classification:
@@ -65,3 +73,7 @@ This is the active minimap downloader singleton. It should migrate with [UID:000
   - What existed before: the global remained unassigned even though its exact storage child pointed at this global, leaving the memory autogen parent chain without a valid file root.
   - Changed to: parent [UID:0000LE][MiniMap](by-file/MiniMap.md).
   - Summary/evidence: [UID:0000LE][MiniMap](by-file/MiniMap.md) now records the downloader singleton, method/storage evidence, and final split caveat at `82/84`, while this global remains `84/88`. This satisfies the attachment gate without adding final C++.
+- 2026-06-16 C001 global/source-quality refresh:
+  - What existed before: score `84/88`, exact singleton storage and minimap-worker ownership were documented, but IDA still used generated names for the singleton slot and lifecycle helpers.
+  - Changed to: score `85/90`; IDA names were saved for the global and four lifecycle helpers.
+  - Summary/evidence: live IDA reconfirmed the 5-xref singleton lifecycle, zeroed singleton-cluster bytes, `MiniMapDownloader` vtable-backed constructor/destructor paths, and [UID:0000LE][MiniMap](by-file/MiniMap.md) owner/emitter route. Final C++ remains blank because the task-block layout, `Thread` base API names, and `MiniMapDownloader.cpp` versus compact `MiniMap.cpp` source split remain provisional.

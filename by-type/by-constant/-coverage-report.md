@@ -14,7 +14,7 @@
 
 ## Covered Items To Replicate
 
-- [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md) : reconstructable : 86% : strong : A004 Batch 097 assigned to [UID:0000JC][FileDownloader](by-file/FileDownloader.md) after live IDA confirmed the `0x0041b110` dispatcher switch, submit-helper boundaries, `0x0041b180` message `10000` queue post, `0x0041b200`/`0x0041b270` queue helper callees, download target helpers, default Thread fallback, and worker-thread-not-socket ownership boundary; final enum-vs-constant spelling remains provisional.
+- [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md) : reconstructable : 88% : very-strong : FileDownloader worker-thread message constants `10000`/`10001`/`10002` for minimap file, cash-shop catalog, and cash-shop version downloads; dispatcher/submit-helper routes and first-draft file-local enum names are resolved, with only exact original enum-vs-define spelling still caveated.
 
 ## Covered Items To Ignore
 

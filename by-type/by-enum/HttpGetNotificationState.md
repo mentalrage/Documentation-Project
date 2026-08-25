@@ -1,12 +1,22 @@
 *** UID:0001SN | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:000069 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:000069 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:000069 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+enum NotificationState {
+    Started = 0,
+    DataChunk = 1,
+    Completed = 2,
+    ReadOrOpenUrlFailed = 3,
+    InternetOpenFailed = 4
+};
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # HttpGetNotificationState
 
@@ -15,7 +25,7 @@
 - Confidence: strong for observed state values, medium for final names.
 - Assigned owner: [UID:000069][httpget__Notification](by-class/httpget__Notification.md)
 - Evidence basis: `FetchHTTPContent` at `0x005277c0` and destructor `0x005284c0` checked through IDA MCP on 2026-05-24 and rechecked on 2026-05-31.
-- Reconstructable: yes, as source-level notification state constants. Leave final enum code blank until the original declaration name is proven.
+- Reconstructable: yes, as source-level notification state constants. Formal first-draft enum C++ now emits from this page; final original names remain inferred, but the values and state-owned payload behavior are proven.
 
 ## Assignment Gate
 
@@ -55,6 +65,10 @@
 - Final source names are still provisional because no original enum declaration has been found.
 - UI consumers of these notification states still need review before the names are considered final.
 
+## Formal Source Enum
+
+2026-07-01 B008 empty-emitter family implementation makes this page the formal source enum emitted under [UID:000069][httpget__Notification](by-class/httpget__Notification.md). The names are descriptive first-draft source names, but live IDA evidence proves all five values, producer states, channel `0x68747470`, and payload ownership. The aggregate [UID:0001CJ][0x005277c0-0x005285dd.MiscWorkThreadAndNotifications](by-memory/0x005277c0-0x005285dd.MiscWorkThreadAndNotifications.md) should use this enum rather than duplicate it.
+
 ## Cross-References
 
 - [UID:000069][httpget__Notification](by-class/httpget__Notification.md)
@@ -67,3 +81,7 @@
   - Before: `COMPLETION:76`, `CONFIDENCE:89`, parent blank.
   - Changed to: `COMPLETION:86`, `CONFIDENCE:89`, `AUTOGEN_PARENT_UID:000069`.
   - Summary/evidence: live IDA rechecked the producer helper, worker dispatch, notification channel, state-specific payload ownership, and destructor release states. The strict assignment gate is satisfied after refreshing [UID:000069][httpget__Notification](by-class/httpget__Notification.md) to `85/86` and [UID:0000LG][MiscWorkThread](by-file/MiscWorkThread.md) to `86/85`; C++ remains blank because final enum/member names are still provisional.
+- 2026-07-01 B008 empty-emitter family implementation:
+  - Changed from `COMPLETION:86`, `CONFIDENCE:89`, blank formal C++.
+  - Changed to `COMPLETION:88`, `CONFIDENCE:90`, with formal five-value `NotificationState` enum C++.
+  - Summary/evidence: B008 live IDA MCP reconfirmed `FetchHTTPContent` state postings and destructor-owned payload states. Original symbol spelling remains inferred but no longer blocks source-ready first-draft enum emission.

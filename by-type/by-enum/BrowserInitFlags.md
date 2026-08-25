@@ -1,12 +1,15 @@
 *** UID:0001SK | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # BrowserInitFlags
 
@@ -32,10 +35,16 @@
 - The same scoped scan found nearby Browser-state references at `+0x222`, `+0x224`, `+0x228`, and `+0x230`: `0x0046f232` reads `+0x222`, `0x00470d45` sets `+0x222`, `0x00470d4f` sets `+0x224`, several paths use `+0x228` as a pointer/string argument, and `+0x230` is constructed/destructed as a member object. This separates the `+0x22c` word from the adjacent byte flag and pointer/string members.
 - A broad text scan for `22Ch` across the executable produced 37 hits, including unrelated stack-frame offsets, other object layouts, immediates such as `push 22Ch`, and the Browser constructor write. Those broad hits are not evidence of the same Browser field and are why this page remains below final confidence.
 - The same numeric value overlaps Win32 message handling in `sub_46F310`: the dispatch window around `0x0046f310` uses switch cases including `256`, `257`, `260`, and `261` from the event packet. That message-id use is separate from the Browser object initializer.
+- 2026-06-14 live IDA MCP `analyze_function 0x0046ff50` reconfirmed `sub_46FF50` as size `0x209`, caller `sub_469290`. The decompile allocates the legacy Browser object with `operator new(0x234)`, installs five Browser vtable slices at offsets `+0x00` through `+0x10`, clears the nearby Browser members at `+0x14`, `+0x18`, and `+0x228`, writes `*((_WORD *)v4 + 278) = 257` at offset `+0x22c`, constructs the member at `+0x230`, and stores the Browser pointer into the old control pane at `this[68]`.
+- 2026-06-16 live IDA MCP session `b001_mappane_0001AW_20260616` reconfirmed the current function object as `sub_46FF50`, size `0x209`, with one caller from `sub_469290` at `0x0046936e`.
+- 2026-06-16 disassembly of the constructor window `0x00470009-0x00470056` shows the five Browser vtable stores at `[esi]`, `[esi+4]`, `[esi+8]`, `[esi+0xc]`, and `[esi+0x10]`, clears at `[esi+0x14]`, `[esi+0x18]`, and `[esi+0x228]`, takes the `+0x230` member address before `sub_582B20`, and writes `mov word ptr [esi+22Ch], 101h` at `0x0047004d`.
+- 2026-06-16 `type_query`/`search_structs` for `Browser` and `BrowserInit` found no local IDA UDT or enum declaration. That keeps this as a source-level constant/bitmask candidate, not a proven recovered enum.
 
 ## Classification Decision
 
 The current best classification is "source-level Browser initial state constant or bitmask value", not a final enum. Keep it reconstructable because the initializer likely existed in source, but do not emit a C++ enum or attach code until the Browser layout around `+0x220-+0x233` is recovered and the field name is known with higher confidence.
+
+The 2026-06-20 Browser class layout pass names the `+0x22c` field `m_stateFlags` for documentation and first-draft declaration purposes. Keep `0x0101` as a state/initialization flag word written to `Browser::m_stateFlags`; do not promote it to a final enum or split it into named bits until bit-level evidence exists.
 
 ## Autogen Status
 
@@ -45,7 +54,7 @@ The current best classification is "source-level Browser initial state constant 
 
 ## Score Rationale
 
-Completion is raised to `82` because live IDA now documents the constructor-window context, the Browser vtable/subobject placement, the exact `+0x22c` write, the scoped cluster-only `0x0101` hit, and the adjacent `+0x222/+0x224/+0x228/+0x230` field separation. Confidence is raised to `84` because the evidence is stronger for a Browser-owned state initializer, but remains below final because the original field name and declaration form are still unknown and this may not be a real enum.
+Completion is `86` because live IDA now documents the constructor-window context, Browser object allocation size, vtable/subobject placement, exact `+0x22c` write, scoped cluster-only `0x0101` hit, adjacent `+0x222/+0x224/+0x228/+0x230` field separation, Browser source ownership, and the current absence of IDA local type evidence for a Browser enum/UDT. Confidence is `88` because the evidence is strong for a Browser-owned state initializer, but remains below final because the original field name and declaration form are still unknown and this may be a bitmask/state word rather than a real enum.
 
 ## Open Questions
 
@@ -62,6 +71,16 @@ Completion is raised to `82` because live IDA now documents the constructor-wind
 
 ## Changes
 
+- 2026-06-16 A002 Goal 2 source-quality refresh:
+  - Before: `COMPLETION:85`, `CONFIDENCE:87`.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:88`.
+  - Summary/evidence: live IDA MCP reconfirmed `sub_46FF50` size `0x209`, caller `sub_469290`, the exact constructor disassembly that installs five Browser vtables, clears adjacent members, writes `0x0101` at Browser offset `+0x22c`, and constructs the member at `+0x230`. `type_query`/`search_structs` found no Browser-specific local enum/UDT, so the enum-vs-bitmask blocker remains real and C++ stays blank.
+- 2026-06-20 B007 Browser class sync:
+  - Added `m_stateFlags` as the source-facing documentation name for Browser offset `+0x22c`, while preserving the current classification as a state/initialization flag word rather than a proven enum.
+- 2026-06-14 A002 Goal 2 score refresh:
+  - What existed before: `82/84`, with strong constructor evidence but not enough current allocation/subobject detail for the strict score target.
+  - Changed to: `85/87`.
+  - Summary/evidence: live IDA MCP reconfirmed `sub_46FF50` size `0x209`, Browser object allocation `0x234`, five Browser vtable stores, nearby member clears at `+0x14/+0x18/+0x228`, the `257` write to `+0x22c`, member construction at `+0x230`, and caller `sub_469290`. C++ remains blank because the final declaration may be a bitmask or state-word constant rather than an enum.
 - What existed before: the page treated `257` primarily as `kBrowserDefaultActiveFlags` with medium confidence, and it only referenced the constructor decompile at a summary level.
 - What it was changed to: the page now treats `0x0101` as a provisional Browser state-word/bitmask initializer, records the exact constructor memory page, separates it from Browser offset `+0x222` and Win32 `WM_KEYUP`, and keeps C++ emission deferred.
 - Summary and evidence: IDA MCP decompilation/disassembly proves the `0x0047004d` write to Browser offset `+0x22c`; local IDA scanning found no other `+0x22c` access in the browser/OLE cluster, while `+0x222` is a separate browser-host flag used by overlay/initialization paths.

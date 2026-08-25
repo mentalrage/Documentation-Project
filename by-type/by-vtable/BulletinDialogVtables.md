@@ -1,12 +1,16 @@
 *** UID:0001X5 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:00001C | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:00001C | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:00001C | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// UID0001X5 BulletinDialogVtables is vtable-layout support for UID00001C BulletinDialog and exact data child UID0002MI. It emits no raw table source because the primary, secondary, and tertiary vtables should be regenerated from class declarations.
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # BulletinDialog Vtables
 
@@ -17,7 +21,7 @@
 - Likely source file: [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md).
 - Exact vtable data: [UID:0002MI][0x00613ba4-0x00613c44.BulletinDialogVtableData](by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md).
 - Confidence: strong for vtable bases and raw-constructor stores; medium for final source-level names of shared virtual slots.
-- Autogen status: attached to the `BulletinDialog` class page; final C++ remains blank under the `95/95` reconstruction gate.
+- Autogen status: attached to the `BulletinDialog` class page. This vtable page remains no-code/generated-binary support, while constructor child [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md) may emit source C++ under the current score/emitter gate.
 
 ## Vtable Bases
 
@@ -27,7 +31,7 @@
 | secondary | `0x00613c0c` | `0x0047201f` | `+0xa0` | Secondary command/action view. |
 | tertiary | `0x00613c3c` | `0x00472029` | `+0xa4` | Small event/update-handler view. |
 
-The raw constructor at [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md) is the only direct code xref to these three table bases in the current IDA database. IDA still does not model that constructor start as a function.
+The raw constructor at [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md) is the only direct code xref to these three table bases in the current IDA database. IDA still does not model that constructor start as a function, and B014 PE scans found no rel32, absolute VA, or RVA route to `0x00472000`.
 
 ## Notable Slots
 
@@ -42,7 +46,7 @@ The raw constructor at [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConst
 | primary `0x00613ba8` | `+0x58` | `0x0049fc00` | Inherited dialog hover/update virtual. |
 | primary `0x00613ba8` | `+0x5c` | `0x0041d6b0` | Shared default false/handled stub. |
 | secondary `0x00613c0c` | `+0x00` | `0x0047e897` | Compiler adjustor thunk into `0x0047ea10` with `this - 0xa0`. |
-| secondary `0x00613c0c` | `+0x10` | `0x00472040` | [UID:0000ZJ][0x00472040-0x00472069.BoardDialogCommandOneVirtual](by-memory/0x00472040-0x00472069.BoardDialogCommandOneVirtual.md). |
+| secondary `0x00613c0c` | `+0x10` | `0x00472040` | [UID:0000ZJ][0x00472040-0x00472069.BoardDialogCommandOneVirtual](by-memory/0x00472040-0x00472069.BoardDialogCommandOneVirtual.md); B006 session `80de0a67` verifies this is one of nine shared command-`'1'` bridge slots and not a pure adjustor thunk. |
 | tertiary `0x00613c3c` | `+0x00` | `0x0047e8a2` | Compiler adjustor thunk into `0x0047ea10` with `this - 0xa4`. |
 | tertiary `0x00613c3c` | `+0x04` | `0x00544e90` | Base/default event-update slot. |
 
@@ -60,6 +64,10 @@ Do not read primary `+0x60` as a `BulletinDialog` virtual: it is RTTI metadata f
 ## Reconstruction Notes
 
 Model `BulletinDialog` as a `DialogInSession`-derived board dialog base with three vtable views at `+0x00`, `+0xa0`, and `+0xa4`. Keep the secondary and tertiary destructor adjustor thunks out of handwritten source; the reconstructed class layout should let the compiler regenerate equivalent thunks. Keep `0x00472040` as shared board-dialog virtual behavior rather than duplicating it into every subclass whose vtable points at the same target.
+
+B006's 2026-06-27 current MCP session `80de0a67` refines that shared-slot note: `0x00472040` reads the event/action object, checks the command string at `event+0x0c` for ASCII `'1'`, adjusts the secondary `this` by `-0xa0`, replaces the stack argument with the command string, and tail-jumps through primary slot `+0x5c`. It is source-authored bridge behavior, not compiler-only destructor adjustor glue, but the by-memory target now emits only a marker comment because the shared secondary interface, event field, and primary slot declaration are still source-descriptive.
+
+The vtable data itself should still be generated by compiler layout and remains blank/no-code in this page. The current source-emission policy only changes the constructor child: [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md) is now a first-draft source constructor, not static vtable emission.
 
 ## Parent Rationale
 
@@ -83,3 +91,8 @@ Attach this vtable cluster to [UID:00001C][BulletinDialog](by-class/BulletinDial
   - Summary/evidence: constructor stores at `0x00472017`, `0x0047201f`, and `0x00472029`, exact [UID:0002MI][0x00613ba4-0x00613c44.BulletinDialogVtableData](by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md), and the class page's `82/86` score support the parent assignment; confidence stays below final-audit level because `0x00472000` is still not modeled as a function and final virtual names remain provisional.
 
 - 2026-05-31: Changed completion/confidence from `0/0` to `84/88` and marked the page reconstructable. Evidence: IDA MCP rechecked `list_globals`, `lookup_funcs`, vtable xrefs, raw constructor stores, and an exact dword scan; the exact vtable data child [UID:0002MI][0x00613ba4-0x00613c44.BulletinDialogVtableData](by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md) now records the range boundary and slot values.
+- 2026-06-19 B014 constructor-policy sync:
+  - Score unchanged.
+  - Summary/evidence: replaced stale old-gate wording. This vtable page remains no-code/generated-binary support, while the raw constructor child now emits first-draft source C++ under the current score/emitter policy.
+- 2026-06-27 B006 command-bridge support sync:
+  - Score unchanged. Added current-session proof for the secondary `+0x10` slot `0x00613c1c -> 0x00472040` and clarified that [UID:0000ZJ][0x00472040-0x00472069.BoardDialogCommandOneVirtual](by-memory/0x00472040-0x00472069.BoardDialogCommandOneVirtual.md) is shared source behavior with a no-code by-memory disposition, not a duplicate class-local vtable method.

@@ -1,14 +1,21 @@
 *** UID:0001YE | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000MF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:94 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000MF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # Parcel Notification Vtable Family
+
+## B001 UID0002ZO Accepted Callback State - 2026-07-21
+
+This exact three-class vtable/slot inventory is complete at `92/94`, semantically routed to UID0000MF but intentionally non-reconstructable, non-emitting, positionless, and formally blank. Complete class declarations, virtual destructors, callbacks, and overrides regenerate every table and adjustor; this page retains slot identities, lifecycle stores, RTTI boundaries, and the `ALERTBTN.EPF` successor without emitting handwritten table bytes.
 
 ## Status
 
@@ -50,7 +57,7 @@
 | `ParcelPane` primary | `+0x4c` | `0x005469e0` | Parcel frame-index helper. |
 | `ParcelPane` secondary | `+0x00` | `0x00546eb7` | Adjustor thunk subtracting `0xa0`, then jumping to `0x00547000`. |
 | `ParcelPane` secondary | `+0x04` | `0x00546610` | Mouse-event virtual. |
-| `ParcelPane` secondary | `+0x08` | `0x005465e0` | Key-event virtual. |
+| `ParcelPane` secondary | `+0x08` | `0x005465e0` | `ParcelPane::OnKeyDown(const PaneKeyEvent *)`; source-ready key-down virtual that calls `g_pEventMan->TranslateEventKey` and returns false/no-consume. |
 | `ParcelPane` tertiary | `+0x00` | `0x00546ec2` | Adjustor thunk subtracting `0xa4`, then jumping to `0x00547000`. |
 | `ParcelPane` tertiary | `+0x04` | `0x00546810` | Timer/animation virtual. |
 | `FlyingParcelPane` primary | `+0x00` | `0x00546ed0` | Scalar deleting destructor. |
@@ -58,6 +65,8 @@
 | `FlyingParcelPane` secondary | `+0x00` | `0x00546e8b` | Adjustor thunk subtracting `0xa0`, then jumping to `0x00546ed0`. |
 | `FlyingParcelPane` tertiary | `+0x00` | `0x00546e96` | Adjustor thunk subtracting `0xa4`, then jumping to `0x00546ed0`. |
 | `FlyingParcelPane` tertiary | `+0x04` | `0x00546d70` | Animation-step virtual. |
+
+The `FlyingParcelPane` destructor dispatch route is intentionally wrapper-based. Primary table slot `0x00621ccc` points to scalar deleting destructor [UID:0001EN][0x00546ed0-0x00546f37.FlyingParcelPaneScalarDeletingDestructor](by-memory/0x00546ed0-0x00546f37.FlyingParcelPaneScalarDeletingDestructor.md), while secondary and tertiary destructor slots point to adjustor thunks [UID:0001EM][0x00546e8b-0x00546ecd.ParcelNotificationAdjustorThunks](by-memory/0x00546e8b-0x00546ecd.ParcelNotificationAdjustorThunks.md). The ordinary source destructor body is [UID:0002R5][0x00546b80-0x00546bb5.FlyingParcelPaneCleanupDestructorBody](by-memory/0x00546b80-0x00546bb5.FlyingParcelPaneCleanupDestructorBody.md), which now emits the `m_animationLayer` release; vtable slots regenerate the scalar-wrapper/thunk route rather than directly naming that raw source body.
 
 ## Extent Notes
 
@@ -86,11 +95,15 @@ IDA `xrefs_to` reports the vtable stores below:
 
 ## Assignment Gate
 
-- Current parent score after this pass: `COMPLETION:86`, `CONFIDENCE:92`.
+- Current support score after the accepted callback: `COMPLETION:92`, `CONFIDENCE:94`.
 - Direct source parent: [UID:0000MF][ParcelPane](by-file/ParcelPane.md), now `86/85`.
 - Exact memory evidence child: [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md), now `86/92`.
-- Assignment basis: this page is the vtable-family/slot-layout evidence for the exact `.rdata` child, and the `ParcelPane` file page is the direct source root for the three classes that cause MSVC to generate these vtables. Both this type page and the file parent clear the corrected 85/85 gate, so `AUTOGEN_PARENT_UID:0000MF` is justified. Final C++ remains blank under the 95/95 reconstruction-code gate.
+- Assignment basis: this page is the vtable-family/slot-layout evidence for the exact `.rdata` child, and the `ParcelPane` file page is the direct source root for the three classes that cause MSVC to generate these vtables. Both this type page and the file parent clear the corrected gate, so `EMITTER_UIDS:0000MF` is justified. B005 resolves the empty-emitter state with a formal comment-only no-code marker because this vtable family is regenerated from class declarations, virtual destructors, callbacks, and method overrides rather than handwritten source.
 - Batch061 coverage-error repair note: generated memory coverage still reported `0001YE` as an unknown parent when the memory child pointed directly to this nested vtable page. The memory child now routes to the validator-recognized `ParcelPane` file root, while this page remains linked as canonical slot-layout evidence.
+
+## 2026-06-30 B005 Empty-Emitter Implementation
+
+B005 resolves this vtable-family empty emitter with a formal comment-only no-code marker. The page remains reconstructable vtable-layout evidence for the parcel notification class family, but the compiler regenerates the vtable family from class declarations, virtual destructors, callbacks, and method overrides. Do not hand-author source for the family table or duplicate the exact `.rdata` bytes documented by [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md).
 
 ## Wave3 Data Issue
 
@@ -106,15 +119,23 @@ These are tracked in [wave3 data issues](../../wave3_data_issues.md).
 ## Cross References
 
 - [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md)
-- [UID:0001EH][0x00545e40-0x005470ac.ParcelNotificationPanes](by-memory/0x00545e40-0x005470ac.ParcelNotificationPanes.md)
+- [UID:0001EH][0x00545e40-0x005470ad.ParcelNotificationPanes](by-memory/0x00545e40-0x005470ad.ParcelNotificationPanes.md)
 - [UID:0001VI][ParcelNotificationPaneLayouts](by-type/by-struct/ParcelNotificationPaneLayouts.md)
 - [UID:0001EM][0x00546e8b-0x00546ecd.ParcelNotificationAdjustorThunks](by-memory/0x00546e8b-0x00546ecd.ParcelNotificationAdjustorThunks.md)
 - [UID:0001EL][0x00546b80-0x00546d64.FlyingParcelPaneRawLifecycleAndStart](by-memory/0x00546b80-0x00546d64.FlyingParcelPaneRawLifecycleAndStart.md)
-- [UID:0001EN][0x00546ed0-0x00546f36.FlyingParcelPaneScalarDeletingDestructor](by-memory/0x00546ed0-0x00546f36.FlyingParcelPaneScalarDeletingDestructor.md)
+- [UID:0001EN][0x00546ed0-0x00546f37.FlyingParcelPaneScalarDeletingDestructor](by-memory/0x00546ed0-0x00546f37.FlyingParcelPaneScalarDeletingDestructor.md)
 - [UID:0001YC][PaneCoreVtableFamily](by-type/by-vtable/PaneCoreVtableFamily.md)
 
 ## Changes
 
+- 2026-06-27 B011 ParcelPane key-slot clarification:
+  - No score change.
+  - Updated the ParcelPane secondary `+0x08` slot from generic key-event virtual to source-ready `ParcelPane::OnKeyDown(const PaneKeyEvent *)`, matching [UID:0002KD][0x005465e0-0x0054660a.ParcelPaneOnKeyDown](by-memory/0x005465e0-0x0054660a.ParcelPaneOnKeyDown.md).
+  - Evidence: B011 MCP session `398b87c1` confirms exact target size `0x2a`, vtable-only xref `0x00621c98`, EventMan key-down producer offsets `+0x04/+0x08/+0x10a`, accepted `g_pEventMan` / `EventMan::TranslateEventKey` naming, ignored helper return, and always-false/no-consume behavior.
+- 2026-06-26 B004 cleanup destructor route clarification:
+  - No score change.
+  - Added explicit `FlyingParcelPane` destructor dispatch wording: [UID:0002R5][0x00546b80-0x00546bb5.FlyingParcelPaneCleanupDestructorBody](by-memory/0x00546b80-0x00546bb5.FlyingParcelPaneCleanupDestructorBody.md) owns the ordinary source destructor body, while primary/secondary/tertiary vtable destructor slots route through [UID:0001EN][0x00546ed0-0x00546f37.FlyingParcelPaneScalarDeletingDestructor](by-memory/0x00546ed0-0x00546f37.FlyingParcelPaneScalarDeletingDestructor.md) scalar wrapper and [UID:0001EM][0x00546e8b-0x00546ecd.ParcelNotificationAdjustorThunks](by-memory/0x00546e8b-0x00546ecd.ParcelNotificationAdjustorThunks.md) adjustor thunks.
+  - Evidence: B004 MCP session `80de0a67` read the slot dwords `0x00621ccc -> 0x00546ed0`, `0x00621d18 -> 0x00546e8b`, and `0x00621d48 -> 0x00546e96`.
 - 2026-06-07 A010 Batch013 parent-gate update:
   - Before: `COMPLETION:84`, `CONFIDENCE:90`, `AUTOGEN_PARENT_UID` blank.
   - Changed to: `COMPLETION:86`, `CONFIDENCE:92`, parent still blank, plus live refresh evidence and a corrected assignment-gate note for child [UID:0002OH][0x00621bb0-0x00621d50.ParcelNotificationVtableData](by-memory/0x00621bb0-0x00621d50.ParcelNotificationVtableData.md).

@@ -11,7 +11,7 @@ This page tracks the live game-world map system: map files, map packet dispatch,
 ## Source Modules
 
 - [UID:0000L3][MapPane](by-file/MapPane.md) is the central live-world pane and likely original `map/MapPane.cpp`. It owns map tile buffers, map file load/save, coordinate conversion, object lookup, input, rendering, weather state, and the main map packet dispatcher.
-- [UID:0000M4][ObjectList](by-file/ObjectList.md) is the map-specific object index used by `MapPane`. It is not a generic utility container even though it internally uses [UID:0000KS][List](by-file/List.md); its complete method surface includes [UID:00023D][0x00530d00-0x00530ed9.ObjectListRemoveByObjectIdHelper](by-memory/0x00530d00-0x00530ed9.ObjectListRemoveByObjectIdHelper.md), [UID:0001D1][0x00530ee0-0x00531473.ObjectListLifecycle](by-memory/0x00530ee0-0x00531473.ObjectListLifecycle.md), [UID:00023E][0x00531480-0x00532530.ObjectListCategorizeLookupHelpers](by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md), [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md), and [UID:00023F][0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers](by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md).
+- [UID:0000M4][ObjectList](by-file/ObjectList.md) is the map-specific object index used by `MapPane`. It is not a generic utility container even though it internally uses [UID:0000KS][List](by-file/List.md); its complete method surface includes [UID:00023D][0x00530d00-0x00530ed9.ObjectListStaticObjectLightingSyncHelper](by-memory/0x00530d00-0x00530ed9.ObjectListStaticObjectLightingSyncHelper.md), [UID:0001D1][0x00530ee0-0x00531473.ObjectListLifecycle](by-memory/0x00530ee0-0x00531473.ObjectListLifecycle.md), [UID:00023E][0x00531480-0x00532530.ObjectListCategorizeLookupHelpers](by-memory/0x00531480-0x00532530.ObjectListCategorizeLookupHelpers.md), [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md), and [UID:00023F][0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers](by-memory/0x00532f70-0x0053728e.ObjectListExtendedTypeLookupHelpers.md).
 - [UID:0000M5][ObjectPane](by-file/ObjectPane.md), [UID:0000KU][LivingObjectPane](by-file/LivingObjectPane.md), [UID:0000KG][ItemObjectPane](by-file/ItemObjectPane.md), [UID:0000O6][StaticObjectPane](by-file/StaticObjectPane.md), [UID:0000KO][LightingObjectPane](by-file/LightingObjectPane.md), [UID:0000NW][SoundObjectPane](by-file/SoundObjectPane.md), and [UID:0000HJ][AttachedObjectPane](by-file/AttachedObjectPane.md) are companion modules for world objects and overlays.
 - [UID:0000M6][ObjectStatusBlob](by-file/ObjectStatusBlob.md) parses packed object status/appearance data consumed by map object creation/update handlers.
 - [UID:0000L2][MapNamePane](by-file/MapNamePane.md), [UID:0000L4][MapRefreshDimmer](by-file/MapRefreshDimmer.md), [UID:0000OU][TimerPane](by-file/TimerPane.md), [UID:0000MK][PhotoPane](by-file/PhotoPane.md), [UID:0000JA][FieldMapPane](by-file/FieldMapPane.md), and [UID:0000PB][WorldMapPane](by-file/WorldMapPane.md) are map UI companions rather than generic UI controls.
@@ -36,7 +36,8 @@ The current dispatcher table is tracked as [UID:0001SO][MapServerPacketOpcode](b
 
 Known high-confidence routes include:
 
-- opcode `0x03` / `0x33`: map transition path through `0x0050feb0`;
+- opcode `0x03`: map transition path through `0x0050feb0`;
+- opcode `0x33`: object-info/map-object packet path through `0x0050fb00`;
 - opcode `0x04`: tile-region update path through `0x005059d0` and object-list refresh;
 - opcode `0x06`: map info path through `0x00510960`;
 - opcode `0x07`: spawn path through `0x00511440`;
@@ -63,6 +64,7 @@ Known high-confidence routes include:
 
 - IDA MCP confirms `MapPane::HandlePacket` at `0x00507c90` as a real `0x1176` byte function with callees into packet readers, map handlers, dialog constructors, `TimerPane`, and object/living-object methods.
 - IDA MCP confirms downstream packet handler starts such as `0x0050fb00`, `0x00510960`, `0x00511440`, `0x00511db0`, `0x00512960`, `0x00512d60`, `0x00513da0`, and `0x005986e0`.
+- 2026-06-16 B001 MapPane packet split corrected the stale `0x03`/`0x33` alias: [UID:0003TY][0x0050feb0-0x00510230.MapPaneHandleMapTransitionPacket](by-memory/0x0050feb0-0x00510230.MapPaneHandleMapTransitionPacket.md) handles opcode `0x03`, while [UID:0003TX][0x0050fb00-0x0050feab.MapPaneHandleObjectInfoPacket](by-memory/0x0050fb00-0x0050feab.MapPaneHandleObjectInfoPacket.md) handles opcode `0x33`.
 - IDA currently does not model `0x00510400` as a function, but disassembly shows real function-shaped bytes beginning there. Treat the current `HandleWeatherPacket` boundary as a Wave3/IDA boundary caveat.
 - 2026-05-24 recheck still has `0x00510400` unmodeled, with neighboring `0x005104d0` and `0x0050db50` modeled. Current generated `MapPane::HandlePacket` includes the day/night blend body inline under opcode/case `0x20`, so the standalone generated `HandleWeatherPacket` row is not a final source boundary.
 - 2026-05-25 recheck confirms the raw body covers `0x00510400-0x005104c7`, has no direct IDA callers/xrefs, and duplicates the dispatcher case `0x20` body at `0x00507e45-0x00507f04`. See [UID:0001AX][0x00510400-0x005104c7.MapPaneDayNightPacketRawBody](by-memory/0x00510400-0x005104c7.MapPaneDayNightPacketRawBody.md).
@@ -85,7 +87,7 @@ Known high-confidence routes include:
 - [UID:0001AP][0x00503ef0-0x0050637a.MapPaneWeatherCoordinateObjectCore](by-memory/0x00503ef0-0x0050637a.MapPaneWeatherCoordinateObjectCore.md)
 - [UID:0001AT][0x00506970-0x0050e320.MapPaneInputPacketRenderCore](by-memory/0x00506970-0x0050e320.MapPaneInputPacketRenderCore.md)
 - [UID:0001AX][0x00510400-0x005104c7.MapPaneDayNightPacketRawBody](by-memory/0x00510400-0x005104c7.MapPaneDayNightPacketRawBody.md)
-- [UID:0001AW][0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete](by-memory/0x0050e4c0-0x00514e1b.MapPanePacketHandlersAndDelete.md)
+- [UID:0001AW][0x0050e4c0-0x00514920.MapPanePacketHandlers](by-memory/0x0050e4c0-0x00514920.MapPanePacketHandlers.md)
 - [UID:0000M4][ObjectList](by-file/ObjectList.md)
 - [UID:0001D3][0x00532530-0x00532f67.ObjectListAccessorsAndSweeps](by-memory/0x00532530-0x00532f67.ObjectListAccessorsAndSweeps.md)
 - [UID:0001SO][MapServerPacketOpcode](by-type/by-enum/MapServerPacketOpcode.md)

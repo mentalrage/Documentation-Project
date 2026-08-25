@@ -1,12 +1,23 @@
 *** UID:0001VA | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:00008N | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:00008N | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:00008N | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+struct MonsterArchiveBoundsBucket
+{
+    unsigned short entryCount;
+    unsigned short maxExtent02;
+    unsigned short maxExtent04;
+    unsigned short header06;
+    MonsterArchiveBoundsEntry *entries;
+};
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # MonsterArchiveBoundsBucket
 
@@ -17,6 +28,7 @@
 - Size: 0x0c bytes.
 - Evidence: IDA decompilation of `MonsterImageLib::GetArchiveBoundsBucket` at `0x004dbe60`, the unreferenced aggregate builder at `0x004db8b0`, the cache resolver at `0x004dc180`, the render-bounds consumer at `0x004db5c0`, and cleanup at `0x004dc2e0`.
 - Assignment status: assigned to [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md). B001-032 repaired the child to `86/90`; the direct owner class is now `85/85` and its file parent [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md) is `86/86`.
+- Formal C++: emits the 12-byte source-facing bucket declaration through the MonsterImageLib class route.
 
 ## Layout
 
@@ -48,6 +60,7 @@ MonsterArchiveBoundsBucket
 - The unreferenced builder at `0x004db8b0` scans `MON%d.EPF` inputs, reads the same 8-byte per-file header, sums `entryCount`, keeps maxima for the `+0x02` and `+0x04` halfwords, zeroes the `+0x06` halfword in its aggregate header, builds a combined `(entryCount + 1)` entry array, and emits the same sentinel pattern.
 - [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md) and [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md) are the actual owner chain for this struct. The class and file pages now clear the strict `85/85` parent gate; [UID:0001VD][MonsterImageLibLayout](by-type/by-struct/MonsterImageLibLayout.md) remains supporting layout evidence rather than the direct parent.
 - Current generated disabled output names the middle header fields `reserved` and `reserved04`; B001-032 keeps neutral field names but no longer treats `+0x02` and low `+0x04` as mere reserved bytes.
+- 2026-06-27 B003 live MCP session `80de0a67` reconfirmed the same bucket construction in [UID:00017E][0x004dbe60-0x004dc174.MonsterImageLibGetArchiveBoundsBucket](by-memory/0x004dbe60-0x004dc174.MonsterImageLibGetArchiveBoundsBucket.md): allocate 0x0c bytes, insert the bucket pointer into `m_boundsBucketIndex` at `+0x3c`, read exactly 8 header bytes, allocate `(entryCount + 1)` 0x18-byte entries, store the entry pointer at `+0x08`, and leave cleanup to `ClearLoadedData`.
 
 ## IDA Verification Notes
 
@@ -58,6 +71,7 @@ MonsterArchiveBoundsBucket
 - IDA MCP decompilation of `0x004db8b0` shows the aggregate EPF builder reading 8-byte bucket headers, adding `+0x00` counts, taking maxima over the `+0x02` and `+0x04` halfwords, leaving the `+0x06` halfword zero in the generated aggregate header, and then filling 0x18-byte entry rows.
 - IDA MCP decompilation of `0x004dc180` and `0x004db5c0` shows runtime consumers using `entryCount` and `entries` only. No observed consumer reads the middle header metrics directly after the bucket is loaded.
 - IDA MCP decompilation of `0x004dc2e0` shows `ClearLoadedData` freeing `bucket->entries` first and then freeing the 0x0c bucket itself while clearing the `+0x3c` cache.
+- 2026-06-27 B003 live MCP reconfirmed consumers use the count and entry pointer fields, while no live render consumer proves final original names for `+0x02`, `+0x04`, or `+0x06`. Keep `maxExtent02`, `maxExtent04`, and `header06` as neutral reconstruction vocabulary.
 - IDA has no named local struct for this record; the field names remain recovered documentation vocabulary.
 - Scores stay below `95` because the exact original names for the two max metrics, the role of `+0x06`, and the surrounding `DATA/MON%d.DAT` payload contract are not fully decoded.
 
@@ -65,8 +79,8 @@ MonsterArchiveBoundsBucket
 
 This struct is assigned under the strict supervisor gate.
 
-- Child side: B001-032 improves the child from `82/88` to `86/90` by resolving the active max/extent behavior of `+0x02` and low `+0x04`, confirming cleanup ownership, and recording the runtime non-use of the middle header metrics.
-- Direct owner side: [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md) is the narrow direct class owner and now scores `85/85`; [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md) scores `86/86`.
+- Child side: B011 improves the child to `88/91` by adding formal C++ declaration output while preserving B001-032's active max/extent behavior of `+0x02` and low `+0x04`, cleanup ownership, and runtime non-use of the middle header metrics.
+- Direct owner side: [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md) is the narrow direct class owner and now scores `89/90`; [UID:0000LJ][MonsterImageLib](by-file/MonsterImageLib.md) scores `89/89`.
 - Supporting docs: [UID:0001VD][MonsterImageLibLayout](by-type/by-struct/MonsterImageLibLayout.md) remains `78/86` and unassigned, but it is layout evidence rather than the direct semantic parent for this bucket struct. [UID:00003K][DATIndexVector](by-class/DATIndexVector.md) is a reusable cache helper, not the owner.
 - Classification: source-owned MonsterImageLib private/archive bucket record, assigned to [UID:00008N][MonsterImageLib](by-class/MonsterImageLib.md).
 
@@ -80,6 +94,12 @@ This struct is assigned under the strict supervisor gate.
 
 ## Changes
 
+- 2026-06-30 B011 empty-emitter family implementation callback:
+  - Score changed from `86/90` to `88/91`.
+  - Evidence: inserted the formal `MonsterArchiveBoundsBucket` struct declaration with `entryCount`, neutral `maxExtent02`/`maxExtent04`/`header06`, and `MonsterArchiveBoundsEntry *entries`. Preserved 0x0c size, 8-byte header read, 0x18 entry allocation, `m_boundsBucketIndex` cache insertion, cleanup ownership, neutral naming caveats, and class/file route.
+- 2026-06-27 B003 GetArchiveBoundsBucket support sync:
+  - Score unchanged at `86/90`.
+  - Evidence: added live MCP session `80de0a67` confirmation that [UID:00017E][0x004dbe60-0x004dc174.MonsterImageLibGetArchiveBoundsBucket](by-memory/0x004dbe60-0x004dc174.MonsterImageLibGetArchiveBoundsBucket.md) allocates the 0x0c bucket, inserts it into `m_boundsBucketIndex`, reads exactly 8 header bytes, writes the `+0x08` entry pointer, and leaves neutral middle-header names in place because original names remain unproven.
 - 2026-06-10 B001-032 owner/structure repair:
   - Before: `COMPLETION:82`, `CONFIDENCE:88`, `AUTOGEN_PARENT_UID` blank, status `reviewed-no-85`.
   - After: `COMPLETION:86`, `CONFIDENCE:90`, `AUTOGEN_PARENT_UID:00008N`.

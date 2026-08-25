@@ -1,12 +1,19 @@
 *** UID:000322 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+/*
+[UID:000322] No standalone source is emitted for the MailAlertCompanionVtables binary vtable layout.
+These vtable bytes are compiler-generated from the alert class declarations and method definitions; this page remains an evidence map for table addresses, slots, and ownership, not a C++ emitter.
+*/
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # Mail Alert Companion Vtables
 
@@ -35,6 +42,12 @@ Boundary facts:
 - The shared `ConfirmDeleteAlert` and `DeleteReplyAlert` tables occupy the gap `0x00614580-0x006146c4` and are intentionally excluded from this mail-specific child.
 - `ConfirmDeleteMailAlert` resumes at `0x006146c8`; `MailDeleteReplyAlert` ends at `0x0061480c`.
 - `0x0061480c` begins UTF-16 resource/string data (`dword_61480C`, `aGbbs01Pal` at `0x00614818`), not another vtable.
+
+B009 2026-06-19 MailDeleteReplyAlert slot-level refinement:
+
+- Primary vtable base `0x0061476c` points at the compiler-generated scalar deleting destructor [UID:0002TA][0x0047eb90-0x0047ebef.MailDeleteReplyAlertScalarDeletingDestructor](by-memory/0x0047eb90-0x0047ebef.MailDeleteReplyAlertScalarDeletingDestructor.md).
+- Action/confirm slot `0x006147c8` points at [UID:0002T9][0x0047e730-0x0047e836.MailDeleteReplyAlertOnConfirmDelete](by-memory/0x0047e730-0x0047e836.MailDeleteReplyAlertOnConfirmDelete.md).
+- Constructor table-store evidence includes four inline construction mirrors (`0x0047a4bf`, `0x0047a84d`, `0x0047caf7`, `0x0047cc2d`) plus raw constructor stores at `0x0047e6c7/0x0047e6cd/0x0047e6d7`; the raw constructor has no recovered direct entry route, so source should model the ordinary class/constructor and not hand-write a vtable/glue body.
 
 ## Ownership Inference
 
@@ -71,6 +84,11 @@ Therefore this child is assigned to `BulletinReplyAlerts` as the best current di
 - [UID:0002TA][0x0047eb90-0x0047ebef.MailDeleteReplyAlertScalarDeletingDestructor](by-memory/0x0047eb90-0x0047ebef.MailDeleteReplyAlertScalarDeletingDestructor.md)
 - [UID:00024W][0x00613ab0-0x00614cd0.BoardMailReadOnlyData](by-memory/0x00613ab0-0x00614cd0.BoardMailReadOnlyData.md)
 
+## B006 2026-06-29 Implementation Callback
+
+- Accepted C23: this vtable layout row is non-emitting compiler-generated support. It remains an evidence map for vtable addresses, slots, owner classes, and xrefs; source output comes from class/method declarations and child method bodies, not this binary layout page.
+
 ## Changes
 
+- 2026-06-21 supervisor-worker Rule 26 incorporation of B009 `00007J-MailDeleteReplyAlert-class-source-quality.md`: no score change. Added MailDeleteReplyAlert action slot `0x006147c8 -> 0x0047e730`, scalar deleting destructor slot `0x0061476c -> 0x0047eb90`, inline construction mirror context, and no-code policy for raw constructor/vtable glue.
 - 2026-06-10 B001-009: Created as an exact owner-specific vtable child for the mail-specific alert companion tables after live IDA MCP reconfirmed the decorated bases, COL pointers, store xrefs, the gap occupied by shared `ConfirmDeleteAlert`/`DeleteReplyAlert` vtables, and the `0x0061480c` resource-string boundary.

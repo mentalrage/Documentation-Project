@@ -1,14 +1,25 @@
 *** UID:0000ST | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:93 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000HG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+short g_screenHeight = 768;
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+extern short g_screenHeight;
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # g_screenHeight
+
+## 2026-08-14 B003 Signed Declaration Closure
+
+- Final source definition/declaration are `short g_screenHeight = 768;` and `extern short g_screenHeight;`. Target center arithmetic at `0x004fe0d1` uses `movsx`, and the Application constructor at `0x004633be` sign-extends this global; those uses and the literal existing definition support signed `short`.
+- A separate zero-extending consumer is use-site behavior, not a definition-type override. The dated IDA `unsigned __int16` display remains documentary; UID0000ST/UID0000HG stay `90/93`.
+- Emitter position `10` places this declaration after UID0000SU. The complete Application class emitter now closes the shared guard after the class/global declaration package; the historical height-owned early `#endif` is superseded because it left the class outside the guard.
 
 ## Status
 
@@ -19,15 +30,15 @@
 - Initial value in IDA data: `0x0300` / `768`.
 - Confidence: strong for storage and display-height role; strong for `Application.cpp` as the best source-owner inference; medium for final source-level variable name and signedness.
 - Rebuild handling: source-declared global data. The rebuilt source should declare the display-height word or compatible typed global; exact address placement is linker output.
-- Autogen status: reconstructable and attached upward to [UID:0000HG][Application](by-file/Application.md) as a file-level default display-dimension global; final C++ remains blank because the source-facing type/name are still below the final-code gate.
+- Autogen status: reconstructable and attached upward to [UID:0000HG][Application](by-file/Application.md) as a file-level default display-dimension global; first-draft C++ now emits signed `short g_screenHeight = 768` based on current bytes and signed `movsx` use.
 
 ## Score Rationale
 
 | Field | Value | Reason |
 | --- | ---: | --- |
-| Completion | 88 | The page records exact storage, item size, initial value, role, paired width global, neighboring byte/word boundaries, live xref count/function spread, representative use families, adjacent-global identities, map-tile boundary, source-declared rebuild handling, direct memory-child evidence, corrected coverage-error behavior, and the B001-007 source-owner decision. It is not higher because exact declaration type, original source-facing name, and emitted declaration remain open. |
-| Confidence | 91 | Live IDA passes strongly support the address, size, initial value, paired-display-height interpretation, no-write compile-time initializer behavior, and usage categories across application startup, config defaults, event/dialog layout, logo/media sizing, and screenshot paths. B001-007 raises source-owner confidence because `Application::Application` copies the pair into Application base-dimension fields and `Application::Initialize` uses it to create the fallback main window and `ScreenPane`; confidence stays below final-audit level because IDA still labels the storage `word_66DA98` and no final source declaration is emitted. |
-| Reconstructable | TRUE | This is source-declared rebuild data, parallel to [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md), but C++ is withheld until the owner file and type naming are settled. |
+| Completion | 90 | The page records exact storage, item size, initial value, role, paired width global, neighboring byte/word boundaries, live xref count/function spread, representative use families, adjacent-global identities, map-tile boundary, source-declared rebuild handling, direct memory-child evidence, corrected coverage-error behavior, the Application source-owner decision, and first-draft signed-short declaration. It is not higher because exact original source-facing name remains inferred. |
+| Confidence | 93 | Current IDA evidence strongly supports the address, size, initial value, paired-display-height interpretation, no-write compile-time initializer behavior, and usage categories across application startup, config defaults, event/dialog layout, logo/media sizing, and screenshot paths. Confidence stays below final-audit level because IDA still labels the storage `word_66DA98` and the original declaration spelling is not recovered. |
+| Reconstructable | TRUE | This is source-declared rebuild data, parallel to [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md), and now emits first-draft C++ through Application. |
 
 ## Role
 
@@ -46,7 +57,7 @@ The current documentation name is a source-level role label derived from the pai
 - The 2026-06-06 initialized-data neighborhood audit records bytes `01 00 00 00 00 04 01 01 00 03 00 00 30 00 00 00 30 00` for `0x0066da90-0x0066daa2`; interpreted at documented boundaries, `word_66DA98` remains `0x0300` / `768`, preceded by separate [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md), [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md), and [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md) slots.
 - The 2026-06-07 A005 Batch 028 live IDA MCP audit reconfirmed `word_66DA98` in `.data` with item head `0x0066da98`, item size `2`, word value `0x0300` / `768`, dword view `768`, and local bytes `00 03 00 00 30 00 00 00`. The same pass counted 96 xrefs to `0x0066da98`; representative consumers include `Application__Constructor` at `0x004633b7`, application initialization at `0x0046440a` and `0x004645d6`, layout helpers around `0x00465d30`/`0x00465f20`, UI/render paths such as `0x004f7d10`, screenshot/proof paths around `0x00557aa0`, and late UI helpers near `0x005c2ac0`.
 - Related capture/output code such as [UID:0001G9][0x00557aa0-0x00558391.ScreenshotCaptureAndProof](by-memory/0x00557aa0-0x00558391.ScreenshotCaptureAndProof.md) consumes the same width/height pair for active screen dimensions.
-- 2026-06-07 A005 Batch 071 revalidated this parent and the exact storage child after generated memory coverage reported `0001OI -> 0000ST` as `autogen_parent_unknown`. The by-global relationship remains documented as direct evidence, but the child now leaves `AUTOGEN_PARENT_UID` blank because generated memory coverage currently rejects by-global parents. B001-007 later assigned this by-global page upward to [UID:0000HG][Application](by-file/Application.md) as the best source-file owner inference.
+- 2026-06-07 A005 Batch 071 revalidated this parent and the exact storage child after generated memory coverage reported `0001OI -> 0000ST` as `autogen_parent_unknown`. The by-global relationship remained documented as direct evidence, but the child left `AUTOGEN_PARENT_UID` blank at that time because generated memory coverage rejected by-global parents. B001-007 later assigned this by-global page upward to [UID:0000HG][Application](by-file/Application.md), and A005 Batch230 later restored the memory-child route after the rooted by-global path cleared.
 - 2026-06-08 A009 Batch 125 IDA MCP recheck reconfirmed the paired display words in place: `word_66DA94 = 1024` has 98 xrefs, `word_66DA98 = 768` has 96 xrefs, and local bytes at `0x0066da94` are `00 04 01 01 00 03 00 00 30 00 00 00 30 00 00 00`. The first height consumers remain `Application__Constructor` at `0x004633b7`, application initialization at `0x0046440a`/`0x004645d6`, and broad UI/layout/render helpers. This strengthens the width/height interpretation but still proves consumers, not a declaration owner.
 - 2026-06-10 B001-007 IDA MCP owner audit found `word_66DA98` is a `.data` two-byte item with value `768`, `96` xrefs across `47` functions, and no write xrefs; the paired [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md) has value `1024`, `98` xrefs across `48` functions, and no write xrefs. `Application::Application` at `0x004633b7`/`0x004633be` reads height/width and stores them into Application fields `+0x0a60/+0x0a64`; `Application::Initialize` at `0x0046440a`/`0x00464421` uses the globals for fallback window creation and at `0x004645d6`/`0x004645dd` passes height/width into `ScreenPane::ScreenPane`. The same pass rejects `ScreenPane` as the declaration owner because its constructor receives the dimensions as parameters and stores instance fields, while `RegistryConfig::InitializeDefaults` uses the pair only to derive centered default rectangles.
 
@@ -69,11 +80,11 @@ Keep this global paired with [UID:0000SU][g_screenWidth](by-global/g_screenWidth
 
 The inference is source-owner evidence, not recovered source spelling: `Application::Application` copies the initialized pair into its base-dimension fields, `Application::Initialize` uses the pair for fallback main-window creation and ScreenPane construction, and the Application coordinate helpers use the same pair as the base logical display size. `ScreenPane`, `RegistryConfig`, render setup, screenshot, and UI layout paths are important consumers, but IDA shows no write or declaration-side evidence making those files better owners.
 
-Do not emit final C++ yet. The final declaration should likely be a small paired `std::uint16_t` or `short` display-size declaration in or near `Application.cpp`/`Application.h`, but signedness and exact source spelling remain below the final-code gate.
+First-draft C++ now emits as signed `short` in or near `Application.cpp` because the bytes and signed `movsx` consumers support that declaration. Exact original source spelling remains below the final-code gate.
 
 ## Assignment Gate
 
-This page is the direct by-global evidence anchor for the exact storage child [UID:0001OI][0x0066da98-0x0066da9a.g_screenHeight](by-memory/0x0066da98-0x0066da9a.g_screenHeight.md), because it owns the source-level display-height global and is scored above `85/85`. The memory child does not currently use this page as `AUTOGEN_PARENT_UID`, because generated memory coverage rejects by-global parents as `autogen_parent_unknown`.
+This page is the direct by-global parent for the exact storage child [UID:0001OI][0x0066da98-0x0066da9a.g_screenHeight](by-memory/0x0066da98-0x0066da9a.g_screenHeight.md), because it owns the source-level display-height global and is scored above `85/85`. Batch230 routes the memory child here after this page was rooted upward to [UID:0000HG][Application](by-file/Application.md), preserving the narrow semantic parent instead of assigning the storage directly to the broad file owner.
 
 B001-007 assignment decision: attach this by-global page upward to [UID:0000HG][Application](by-file/Application.md). The child/global side is `88/91`, the file parent is `86/90`, and the IDA evidence supports `Application.cpp` as the narrowest existing source-owner reconstruction for the paired default display-size declarations.
 
@@ -89,8 +100,20 @@ B001-007 assignment decision: attach this by-global page upward to [UID:0000HG][
 - [UID:0001QI][client_new_rendering_mode](by-meta/client_new_rendering_mode.md)
 - [UID:0001G9][0x00557aa0-0x00558391.ScreenshotCaptureAndProof](by-memory/0x00557aa0-0x00558391.ScreenshotCaptureAndProof.md)
 
+## 2026-06-29 B013 Application Empty-Emitter Implementation
+
+- Formal C++ now emits FD-0000ST from the accepted B013 report.
+- Current MCP bytes at `0x0066da98` begin `00 03`, and coordinate/window code uses sign-extending reads, supporting a signed `short` declaration rather than a 32-bit `int`.
+- UID0001OI remains the exact by-memory storage child and should not duplicate this definition.
+- Score becomes `90/93`; confidence remains below 95 only for exact original global spelling/linkage.
+
+Implementation validator: run `python .\tools\validator.py --mode file --file by-global/g_screenHeight.md --apply --queue-timeout 240` from `source-3/project-documentation`.
+
 ## Changes
 
+- 2026-06-11 A005 Batch230 memory-child routing refresh:
+  - Kept score `88/91` and parent [UID:0000HG][Application](by-file/Application.md).
+  - Updated the exact storage-child wording because [UID:0001OI][0x0066da98-0x0066da9a.g_screenHeight](by-memory/0x0066da98-0x0066da9a.g_screenHeight.md) now routes to this by-global page after the rooted parent path cleared.
 - Before: this page described `byte_66DA96` as a separate unresolved byte between the width and height words.
 - After: the byte is identified as [UID:0002CF][g_movementSubstepScale](by-global/g_movementSubstepScale.md), a movement interpolation/timer scale separate from `g_screenHeight`.
 - Evidence: IDA MCP xrefs show `byte_66DA96` used in movement/vector division and timer-delay scaling, not display-height storage.
@@ -112,7 +135,7 @@ B001-007 assignment decision: attach this by-global page upward to [UID:0000HG][
   - Clarified that this by-global page directly parents [UID:0001OI][0x0066da98-0x0066da9a.g_screenHeight](by-memory/0x0066da98-0x0066da9a.g_screenHeight.md), while the by-global page itself remained unattached to a file-level owner at that time.
 - 2026-06-07 A005 Batch 071 coverage-error repair:
   - Kept score `85/90` and changed the parent-gate wording from active autogen parent to direct by-global evidence anchor.
-  - Validation rechecks still reported generated memory coverage error `autogen_parent_unknown` for `0001OI -> 0000ST`; matching the paired [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md) repair, the exact memory child now leaves `AUTOGEN_PARENT_UID` blank. B001-007 later assigned this by-global page upward to Application while preserving the memory-child blank parent.
+  - Validation rechecks still reported generated memory coverage error `autogen_parent_unknown` for `0001OI -> 0000ST`; matching the paired [UID:0000SU][g_screenWidth](by-global/g_screenWidth.md) repair, the exact memory child left `AUTOGEN_PARENT_UID` blank at that time. B001-007 later assigned this by-global page upward to Application, and A005 Batch230 later restored the memory-child route.
 - 2026-06-08 A009 Batch 125 source-owner audit:
   - Changed score from `85/90` to `86/90`.
   - Added current IDA MCP paired-width/height bytes and xref counts, and documented the direct-owner check against [UID:0000HG][Application](by-file/Application.md) and [UID:0000NB][ScreenPane](by-file/ScreenPane.md).

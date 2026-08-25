@@ -1,28 +1,38 @@
 *** UID:0001XT | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:00006K | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:95 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:95 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:00006K | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # IntAlphaSurface Vtable
 
+## Accepted Current Compiler Disposition
+
+- The exact RTTI-backed class identity is [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md), physically implemented in [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md).
+- Slots `+0x00` and `+0x04` resolve to the scalar-deleting destructor entry and `ReleaseOwnedPixels`; the following two dwords are null. The concrete class shell declares the virtual destructor and release helper in that exact order.
+- This vtable is compiler-generated from those declarations. It therefore remains fully documented but is `RECONSTRUCTABLE:FALSE`, has no emitter, and keeps both formal source channels blank; manual vtable arrays, address literals, or scalar-delete wrappers are forbidden.
+- The prior proposed `render/IntAlphaSurface.h` physical split is historical. The accepted one-file route is `AlphaMaskSurface.cpp/.h`, with `IntAlphaSurface` as the concrete source class.
+
 ## Status
 
-- Confidence: strong for slot values, vtable xrefs, function boundaries, and RTTI-backed direct class ownership; medium for final physical source-file colocation.
+- Confidence: very strong for slot values, vtable xrefs, function boundaries, RTTI-backed direct class ownership, compiler-generated disposition, and accepted physical source route.
 - Concrete vtable address: `0x006112ec` (`off_6112EC`)
-- Likely owner header: `render/IntAlphaSurface.h`, with physical source colocation beside `AlphaMaskSurface` still possible.
+- Accepted owner header: `render/AlphaMaskSurface.h`, where the concrete `IntAlphaSurface` declaration generates this vtable; there is no separate current `IntAlphaSurface.h` route.
 - Related layout: [UID:0001TP][AlphaMaskSurfaceLayout](by-type/by-struct/AlphaMaskSurfaceLayout.md)
 
 ## Slot Map
 
 | Offset | Target | Current interpretation |
 | --- | --- | --- |
-| `+0x00` | `0x00463270` | `IntAlphaSurface::ScalarDeletingDestructor` provisional; frees owned pixels and optionally deletes object storage. |
-| `+0x04` | `0x00462260` | `ReleaseOwnedPixels` provisional; frees owned pixels without deleting object storage. |
+| `+0x00` | `0x00463270` | [UID:0000YP][0x00463270-0x004632b1.IntAlphaSurface](by-memory/0x00463270-0x004632b1.IntAlphaSurface.md); source body frees owned pixels, while object deletion is compiler scalar-delete wrapper behavior. |
+| `+0x04` | `0x00462260` | [UID:0004FR][0x00462260-0x00462282.IntAlphaSurfaceReleaseOwnedPixels](by-memory/0x00462260-0x00462282.IntAlphaSurfaceReleaseOwnedPixels.md); frees owned pixels without deleting object storage. |
 | `+0x08` | `0x00000000` | No recovered slot. |
 | `+0x0c` | `0x00000000` | No recovered slot. |
 
@@ -37,16 +47,18 @@
 - 2026-05-31 IDA MCP `lookup_funcs` and `decompile` confirm `0x00463270-0x004632b1` is the scalar deleting destructor, `0x00462260-0x00462282` is the release slot body, and neighboring `0x004632c0` is a separate function reached through vtable `0x00612574`.
 - 2026-06-08 Batch124 live IDA MCP recheck against `NexusTK.exe` (`sha256 9aec210bbc5ce592176a21dd8e9d9fd8f250b8d9ea78237915a99ba8cfa9a632`) reconfirmed the slot bytes and references: `0x006112ec -> 0x00463270`, `0x006112f0 -> 0x00462260`, and `0x006112f4/0x006112f8` remain zero. `xrefs_to 0x006112ec` still reports the raw no-function store at `0x0046212c`, active constructor/helper store `0x0046217b`, `sub_4623C0` stores at `0x00462237` and `0x00462415`, and destructor reset `0x0046327a`.
 - The same 2026-06-08 recheck confirms `0x00462120` is still not an IDA function, while `0x00462170`, `0x00462260`, `0x004623c0`, `0x00463270`, and the excluded `0x004632c0` remain stable modeled functions with sizes `0xb7`, `0x22`, `0x154`, `0x41`, and `0x4b`. The virtual targets `0x00463270` and `0x00462260` still have only vtable-data references, not direct callers.
+- 2026-06-28 B009 evidence at `0x00462415` records placement initialization of a caller-supplied `IntAlphaSurface` destination. Its then-current AlphaMaskSurface-helper ownership interpretation is superseded by the accepted [UID:0002NM][0x004623c0-0x00462514.InitAlphaSurfaceView](by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md) `IntAlphaSurface::InitSurfaceView` member route; the store remains valid construction/use-site evidence for this RTTI-backed vtable.
+- 2026-07-03 B006 current MCP session `b010_00032w_20260703` reconfirmed the first vtable bytes at `0x006112e8` as locator pointer `9c 1e 64 00`, slot 0 pointer `70 32 46 00`, slot 1 pointer `60 22 46 00`, and two zero slots. `find_bytes` command id `24` found the destructor pointer only at `0x006112ec`, the release-helper pointer only at `0x006112f0`, and the separate `0x004632c0` pointer only at `0x00612574`. UID0000YP and UID0004FR are now source-ready class methods; [UID:0000TX][AlphaSurfaceReleaseOwnedPixels_00462260](by-item/AlphaSurfaceReleaseOwnedPixels_00462260.md) is alias/support.
 
 ## Naming Notes
 
-`IntAlphaSurface` is now the direct class/type owner for this vtable because the RTTI locator, type descriptor, class hierarchy descriptor, and live virtual slots all name or route through the `IntAlphaSurface` class. The same vtable is still written by `AlphaMaskSurface` constructor/helper code, so physical source-file colocation remains open, but those stores are construction/use sites rather than stronger ownership evidence than the vtable's own RTTI.
+`IntAlphaSurface` is the direct class/type owner because the RTTI locator, type descriptor, class hierarchy descriptor, and live virtual slots all name or route through that class. Constructor/view stores are construction/use sites. Physical source placement is resolved to `AlphaMaskSurface.cpp/.h` through [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md), not a competing class identity or separate-file route.
 
 ## Assignment Gate
 
-`AUTOGEN_PARENT_UID` is set to [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md). This page clears the child score gate at `85/88`, the class parent clears `85/89`, and the vtable's own RTTI is stronger direct ownership evidence than constructor/view stores in the neighboring `AlphaMaskSurface` region. [UID:00000C][AlphaMaskSurface](by-class/AlphaMaskSurface.md) and [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md) remain plausible physical source-file colocation candidates, but they are not the direct type owner for this RTTI-backed vtable artifact.
+`CANONICAL_OWNER` is [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md), and this page is `95/95`. As compiler-generated evidence it is `RECONSTRUCTABLE:FALSE`, has no emitter, and keeps formal CPP/H blank. The vtable's RTTI proves direct type ownership; [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md) is the accepted physical compilation unit rather than another type owner.
 
-B001/supervisor decision: attach this vtable page to [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md). Keep the file-level caveat that the original source may have colocated the declaration with `AlphaMaskSurface`, but do not leave the type page unassigned when the RTTI names `IntAlphaSurface`.
+B001/supervisor decision: attach this vtable page to [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md), preserve it as non-emitting compiler evidence, and route the declaration that regenerates it through UID0000HF `AlphaMaskSurface.h`.
 
 ## Cross-References
 
@@ -55,12 +67,24 @@ B001/supervisor decision: attach this vtable page to [UID:00006K][IntAlphaSurfac
 - [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md)
 - [UID:0000YK][0x00462120-0x00462161.AlphaMaskSurfaceRawDefaultConstructor](by-memory/0x00462120-0x00462161.AlphaMaskSurfaceRawDefaultConstructor.md)
 - [UID:0000YM][0x00462230-0x00462258.IntAlphaSurfaceUnwindCleanup](by-memory/0x00462230-0x00462258.IntAlphaSurfaceUnwindCleanup.md)
+- [UID:0004FR][0x00462260-0x00462282.IntAlphaSurfaceReleaseOwnedPixels](by-memory/0x00462260-0x00462282.IntAlphaSurfaceReleaseOwnedPixels.md)
 - [UID:0000TX][AlphaSurfaceReleaseOwnedPixels_00462260](by-item/AlphaSurfaceReleaseOwnedPixels_00462260.md)
 - [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md)
 - [UID:0000YP][0x00463270-0x004632b1.IntAlphaSurface](by-memory/0x00463270-0x004632b1.IntAlphaSurface.md)
 - [UID:0000YL][0x00462170-0x00462e03.AlphaMaskSurface](by-memory/0x00462170-0x00462e03.AlphaMaskSurface.md)
 
 ## Changes
+
+- 2026-08-17 B005 UID0000HF Gate 2A reconciliation:
+  - Replaced active `85/88`, `IntAlphaSurface.h`, and unresolved-colocation statements with the accepted `95/95`, owner UID00006K, compiler-generated/no-emitter/blank-source disposition, and physical UID0000HF route.
+  - Retained all exact RTTI, slot, vptr-store, function-boundary, and pointer-uniqueness evidence; historical source-placement interpretations remain dated below.
+
+- 2026-07-03 B006 Gate 1 implementation:
+  - Score and owner/emitter metadata unchanged.
+  - Summary/evidence: refreshed slot wording so slot `+0x00` points to source-ready destructor [UID:0000YP][0x00463270-0x004632b1.IntAlphaSurface](by-memory/0x00463270-0x004632b1.IntAlphaSurface.md) and slot `+0x04` points to source-ready release helper [UID:0004FR][0x00462260-0x00462282.IntAlphaSurfaceReleaseOwnedPixels](by-memory/0x00462260-0x00462282.IntAlphaSurfaceReleaseOwnedPixels.md). Current MCP session `b010_00032w_20260703` reconfirmed exact slot bytes, pointer-pattern uniqueness, vtable-store refs, and `0x004632c0` exclusion.
+- 2026-06-28 B009 [UID:0002NM][0x004623c0-0x00462514.InitAlphaSurfaceView](by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md) construction/use-site clarification:
+  - Score and owner/emitter metadata unchanged.
+  - Summary/evidence: added that the `0x00462415` vtable store comes from an AlphaMaskSurface-owned helper with an explicit `IntAlphaSurface *` destination parameter, not from a direct `IntAlphaSurface` method body. RTTI still makes this vtable artifact class-owned by [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md).
 
 ### 2026-05-31 - Scored IDA-verified alpha-surface vtable
 

@@ -1,120 +1,201 @@
 *** UID:00001D | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:94 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000HX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+class Event;
+class ScreenDimmer;
+class BulletinSession;
+
+extern BulletinSession *g_pBulletinSession;
+
+class BulletinSession : public DialogSession,
+                        public Singleton<BulletinSession>
+{
+public:
+    BulletinSession(unsigned char initializationMode,
+                    const unsigned char *initialPacket,
+                    bool requestPredefinedForms);
+    virtual ~BulletinSession();
+
+    virtual bool HandlePacketEvent(Event *event);
+
+    void OpenNewArticleDialog(const wchar_t *title);
+    void OpenReplyDialog(const wchar_t *recipientText,
+                         const wchar_t *quoteText,
+                         short quoteLength);
+
+private:
+    ScreenDimmer *ActivateScreenDimmer();
+    void OpenBoardListDialog(const unsigned char *packetData);
+    void HandlePredefinedFormAction(const unsigned char *packet);
+    bool DispatchPacket(const unsigned char *packet);
+
+    bool m_pendingListResponse;
+    unsigned short m_activeListId;
+};
+
+[[CHILDREN]]
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # BulletinSession
 
 ## Status
 
-- Likely source file: [UID:0000HX][BulletinSession](by-file/BulletinSession.md)
-- Core address range: [UID:0000ZH][0x00471150-0x00471ff1.BulletinSessionCore](by-memory/0x00471150-0x00471ff1.BulletinSessionCore.md); uses shared [UID:000132][0x004a0f40-0x004a14a7.BulletinSessionDialogStack](by-memory/0x004a0f40-0x004a14a7.BulletinSessionDialogStack.md)
-- Singleton global: [UID:0000QG][g_pBulletinSession](by-global/g_pBulletinSession.md) at `0x0067adc0`
-- Current recovered file: `source-3/simroot_v2/class_BulletinSession.cpp`
-- Confidence: strong for dialog-flow/session methods, singleton lifecycle, vtable views, exact core bounds, and helper exclusion; medium for final field names and exact original method names.
+- Likely source file: [UID:0000HX][BulletinSession](by-file/BulletinSession.md) `BulletinSession.cpp`.
+- Core split/index: [UID:0000ZH][0x00471150-0x00471ff1.BulletinSessionCore](by-memory/0x00471150-0x00471ff1.BulletinSessionCore.md) `0x00471150-0x00471ff1.BulletinSessionCore`.
+- Singleton global: [UID:0000QG][g_pBulletinSession](by-global/g_pBulletinSession.md) `g_pBulletinSession` at `0x0067adc0`; exact storage [UID:0001PA][0x0067adc0-0x0067adc4.g_pBulletinSession](by-memory/0x0067adc0-0x0067adc4.g_pBulletinSession.md).
+- Current recovered file lead: `source-3/simroot_v2/class_BulletinSession.cpp`, treated as lead only.
+- Current disposition: complete source declaration and owner for the source-bearing UID0000ZH children. It directly inherits `DialogSession` and `Singleton<BulletinSession>`, declares the Event packet override and accepted methods/fields, closes the class before `[[CHILDREN]]`, and excludes compiler-only unwind/scalar/vtable/adjustor artifacts.
+- Exact vtable-data child: [UID:0004UT][0x00613b1c-0x00613ba4.BulletinSessionVtableData](by-memory/0x00613b1c-0x00613ba4.BulletinSessionVtableData.md), false/non-emitting compiler data.
+- Confidence: very strong for hierarchy, layout, dialog-flow/session methods, singleton lifecycle, vtable views, exact core split, Event override, and compiler/raw exclusions.
 
 ## Class Purpose
 
-`BulletinSession` is the board/mail session manager behind the nested bulletin dialog flow. It owns the global session pointer, creates board/article/mail dialogs from server packets or UI commands, and calls shared `DialogSession` stack helpers to manage close/back/previous-dialog behavior for article and mail reply/delete flows.
+`BulletinSession` is the board/mail session manager behind the nested bulletin dialog flow. It owns the active bulletin session pointer, creates board/article/mail dialogs from server packets or UI commands, and coordinates shared `DialogSession` stack helpers for close/back/previous-dialog behavior.
 
-The concrete board and mail dialog classes belong in [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md), [UID:0000KZ][MailDialogs](by-file/MailDialogs.md), and [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md). `BulletinSession` is the coordinator above those dialog modules.
+Concrete board and mail dialog classes remain with [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md) `BoardDialogs`, [UID:0000KZ][MailDialogs](by-file/MailDialogs.md) `MailDialogs`, and [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md) `BulletinReplyAlerts`. `BulletinSession` is the coordinator above those dialog modules, not the owner of their concrete dialog bodies.
 
 ## Observed State
 
 ```text
-BulletinSession
-  DialogSession base/subobject
-  board/mail mode flags
-  current article/list/search dialog ids
-  selected article/mail identifiers
-  inherited DialogSession stack/list
+BulletinSession : DialogSession, Singleton<BulletinSession>
+  DialogSession/inherited Pane storage through +0xff
+  empty Singleton<BulletinSession> PMD at +0x100 (EBO overlap)
+  bool m_pendingListResponse at +0x100
+  natural alignment byte at +0x101
+  unsigned short m_activeListId at +0x102
+  sizeof(BulletinSession) == 0x104
 ```
 
-Generated fields such as `m_searchDialogId`, `m_isGuildBoard`, and article-id members are useful orientation, but the final layout still needs a struct pass.
+`m_pendingListResponse` is the strongest source-facing name, not a proven original symbol. Constructor mode 0, constructor mode 1/subcommand 9, `ActivateScreenDimmer`, and dispatcher cases 2/4 establish one request/list-response state byte. The dispatcher clears it after pushing article/mail list dialogs and writes each returned dialog id to the exact 16-bit `m_activeListId` slot. Natural C++ member order closes the `0x104` object without a synthetic padding member.
+
+Historical generated constructor output used `m_requestState`; current cross-method evidence resolves it to `m_pendingListResponse`. UID0004G1's dispatcher parameter is `const unsigned char *` and its body remains a separate child/formal decision; this class declaration closes the field and packet-type blocker without fabricating a new dispatcher body.
+
+## Direct Singleton RTTI, PMD, And Vtable Evidence
+
+- Complete-object locator `0x006433bc`, hierarchy descriptor `0x006433d0`, and base array `0x006433e0` prove eight entries: BulletinSession, DialogSession, Pane, GrafPort, LObject, inherited EventHandler, inherited TimerHandler, and direct Singleton<BulletinSession>.
+- Singleton BCD `0x00643468` has PMD `mdisp=0x100`, `pdisp=-1`, `vdisp=0`, attributes `0x40`. The empty direct base overlaps `m_pendingListResponse` at `+0x100` through MSVC EBO.
+- Secondary and tertiary COLs `0x006434b8/0x006434cc` carry complete-object offsets `+0xa0/+0xa4`. EventHandler and TimerHandler are inherited Pane facets, not additional direct BulletinSession bases.
+- UID0004UT records exact 18/11/2 primary/EventHandler/TimerHandler slots over `0x00613b1c-0x00613ba4`, SHA256 `A1B77ACF81E70E3D7E0178D68A4209EB2FEF38108A7CF3150FED3F91835DF3AA`.
+- Constructor publication, ordinary reverse clear, constructor-unwind clear, and scalar-wrapper clear are direct Singleton base lifetime lowering. The authored constructor/destructor must not hand-write `g_pBulletinSession` assignments.
 
 ## Method Notes
 
-| Method | Address | Role |
+| Method / child | Range | Role and callback disposition |
 | --- | --- | --- |
-| constructor | `0x00471150-0x0047126c` | Initializes `DialogSession`, sets `g_pBulletinSession`, writes three BulletinSession vtable views, sends initial board/guild-board request or opens an article view immediately. |
-| singleton clear helper | `0x00471270-0x00471299` | Restores BulletinSession vtables, clears `g_pBulletinSession`, and chains to `DialogSession` base cleanup. |
-| active-state screen-dimmer helper | `0x004712a0-0x004712ac` | Sets the active-state byte at `this + 0x100` and calls the screen-dimmer factory path. |
-| `OpenNewArticleDialog` | `0x004712f0-0x004713a6` | Creates/registers `NewArticleDialog` with the active board/session context. |
-| `OpenArticleReplyDialog` | `0x004713b0-0x00471476` | Opens reply/compose dialog for an existing article/mail context. |
-| packet forwarder thunk | `0x00471480-0x004714a3` | Vtable slot that accepts bulletin payload byte `49` and dispatches to the main packet handler with the adjusted `BulletinSession` pointer. |
-| `OpenArticleViewDialog` | `0x00471550-0x00471872` | Dispatches server packet submodes to board list, article list, mail list, article view, mail view, or internal handlers. |
-| `OpenArticleEditDialog` provisional | `0x004718a0-0x00471956` | Creates a board-list style dialog for edit/navigation flow. |
-| `OpenArticleDeleteDialog` provisional | `0x00471960-0x00471a26` | Creates article-list/delete dialog and stores the active article id. |
-| `HandleArticleAction` | `0x00471a30-0x00471bfd` | Handles article read/action packets, including no-article alerts and `ArticleDialog` creation. |
-| `HandleListAction` | `0x00471c00-0x00471dcd` | Handles list action packets and opens `NewPredefinedFormArticleDialog` when needed. |
-| `OpenSearchDialog` | `0x00471dd0-0x00471e96` | Opens a `MailListDialog`-style search result dialog and stores its dialog id. |
-| `HandleSearchResult` | `0x00471ea0-0x00471ff1` | Handles search/read result packets, including mail dialog creation and not-found messages. |
-| adjustor thunks | [UID:0000ZP][0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks](by-memory/0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks.md) | Compiler-generated this-adjustor thunks; keep excluded from source-facing docs. |
-| scalar deleting destructor | `0x0047ea90-0x0047eaef` | Clears `g_pBulletinSession`, destroys `DialogSession`, and optionally deletes `this`. |
-| shared `DialogSession` stack helpers | `0x004a0f40-0x004a1390` | Close/push/pop/previous/get helpers now documented under [UID:00003U][DialogSession](by-class/DialogSession.md); BulletinSession and board/mail dialogs call them. |
+| [UID:0004FS][0x00471150-0x0047126c.BulletinSessionConstructor](by-memory/0x00471150-0x0047126c.BulletinSessionConstructor.md) | `0x00471150-0x0047126c` | Source-ready `BulletinSession::BulletinSession(unsigned char mode, PacketBuffer *initialPacket, bool requestPredefinedForms)` child; emits through [UID:00001D]. B003 MCP session `d3e83820` confirms exact function range `0x00471150-0x0047126c`, size `0x11c` / 284, no function at `0x0047126c`, `0xcc` padding before and after, successor cleanup at `0x00471270`, `DialogSession` base construction, `g_pBulletinSession` publish/null-fallback at `0x004711a2`/`0x004711a9`, vtable stores to `0x00613b20`, `0x00613b6c`, and `0x00613b9c`, `+0x100/+0x102` initialization, mode `1` opcode `0x3b` subcommands `1`/`9` send length `2`, mode `0` dispatcher handoff to `0x00471550`, six lazy-create callers, and confidence caps for exact parameter, packet helper, dispatcher helper, and member spellings. |
+| [UID:0004FT][0x00471270-0x00471299.BulletinSessionCleanup](by-memory/0x00471270-0x00471299.BulletinSessionCleanup.md) | `0x00471270-0x00471299` | Source-ready ordinary/non-deleting `BulletinSession::~BulletinSession()`; formal body clears `g_pBulletinSession = NULL;`. B004 MCP session `d3e83820` confirms a modeled `0x29` body with compiler vtable stores at `0x00471270`, `0x00471276`, and `0x00471280`, singleton clear at `0x0047128a`, tail base cleanup through `DialogSession::~DialogSession()` at `0x00471294`, no direct xrefs or pointer-pattern hits to the ordinary body, and [UID:0003Q4][0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor](by-memory/0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor.md) as scalar deleting destructor/delete support. Emits through [UID:00001D]. |
+| [UID:0004FU][0x004712a0-0x004712ac.BulletinSessionActivateScreenDimmer](by-memory/0x004712a0-0x004712ac.BulletinSessionActivateScreenDimmer.md) | `0x004712a0-0x004712ac` | Source-ready `ScreenDimmer *ActivateScreenDimmer()`; MCP session `d3e83820` confirms a modeled `0x0c` function whose exact body writes inferred `m_pendingListResponse` at `+0x100` and tail-jumps to ScreenDimmer-owned `CreateScreenDimmer()`. The target has no inbound xrefs or raw pointer matches, so method/field names remain inferred and confidence-capped, but it now emits through [UID:00001D]. |
+| [UID:0004FW][0x004712f0-0x004713a6.BulletinSessionOpenNewArticleDialog](by-memory/0x004712f0-0x004713a6.BulletinSessionOpenNewArticleDialog.md) | `0x004712f0-0x004713a6` | Source-ready `void OpenNewArticleDialog(const wchar_t *title)`; B006 MCP session `d3e83820` confirms modeled size `0xb6` / 182 bytes, clean padding, direct callers `0x004740ad` and `0x00476800`, EPF/legacy bounds selection, `NewArticleDialog` constructor `0x00476c10`, `PushDialog` helper `0x004a0fc0`, no data xrefs or pointer route, and UID0004FV raw-helper non-merge. Emits through [UID:00001D] with support-backed/inferred source names. |
+| [UID:0004FX][0x004713b0-0x00471476.BulletinSessionOpenReplyDialog](by-memory/0x004713b0-0x00471476.BulletinSessionOpenReplyDialog.md) | `0x004713b0-0x00471476` | Source-ready `void OpenReplyDialog(const wchar_t *recipientText, const wchar_t *quoteText, short quoteLength)`; Agent-B007 MCP session `d3e83820` confirms modeled range `0x004713b0-0x00471476` / `0xc6`, clean padding, seven direct xrefs from callers `0x0047a060`, `0x0047c500`, and `0x0047c8d0`, EPF/legacy bounds `(10,10,461,430)` or `(10,10,456,376)`, `0x274` `NewMailDialog` allocation, constructor call `0x0047d050` with `(session, bounds, recipient, quoteText, quoteLength)`, and `PushDialog` helper `0x004a0fc0`. Emits through [UID:00001D] with support-backed/inferred source names and parameter spellings. |
+| [UID:0004FY][0x00471480-0x004714a3.BulletinSessionPacketForwarder](by-memory/0x00471480-0x004714a3.BulletinSessionPacketForwarder.md) | `0x00471480-0x004714a3` | Secondary-interface packet forwarder now documented at `88/93`; Agent-B004 MCP session `ef57d27f` confirms sole vtable/data slot `0x00613b7c -> 0x00471480`, modeled size `0x23`, unique body, packet payload byte `0x31` filter, zero return on mismatch, payload pointer stack rewrite, secondary-interface `ecx - 0xa0` adjustment to the primary `BulletinSession` view, and tail route `0x0047149e -> 0x00471550`. Owner [UID:00001D], reconstructable `TRUE`, blank emitter/C++ remains correct because the packet-interface type, secondary-base slot declaration, dispatcher signature, and header/field names are not synchronized. |
+| [UID:0004G1][0x00471550-0x00471872.BulletinSessionPacketDispatcher](by-memory/0x00471550-0x00471872.BulletinSessionPacketDispatcher.md) | `0x00471550-0x00471872` | Main packet dispatcher now documented at `88/92`; Agent-B002 MCP session `ba171fe4` confirms `sub_471550` size `0x322`, inbound callers `0x00471247` from the constructor and `0x0047149e` from the packet forwarder, switch cases `1`/`2`/`3`/`4`/`5`/`9`/default, alignment at `0x00471872` and jump table at `0x00471874`, board/article/mail dialog constructor and `PushDialog` paths, direct delegate calls to UID0004G5 and UID0004G6, `+0x100` case-2/case-4 gate/clear, `+0x102` active list/dialog id store from `dialog+0x274`, and case-5 full-packet offsets `+4` validation / `+2` `MailDialog` construction. Owner [UID:00001D], reconstructable `TRUE`, blank emitter/C++ until the dispatcher-family source-shape policy is resolved. |
+| [UID:0004G3][0x004718a0-0x00471956.BulletinSessionOpenBoardListDialog](by-memory/0x004718a0-0x00471956.BulletinSessionOpenBoardListDialog.md) | `0x004718a0-0x00471956` | Source-ready `void OpenBoardListDialog(const unsigned char *packetData)` child; B008 MCP session `d3e83820` confirms modeled size `0xb6`, exact body bytes/padding, EPF/legacy `Rect` selection, `0x274` `BoardListDialog` allocation, constructor call `0x00471921`, `DialogSession::PushDialog` call `0x00471934`, and zero direct xrefs to `0x004718a0`. Dispatcher case `1` duplicates/inlines the equivalent board-list path at `0x004715af-0x00471618` with constructor `0x00471604` and push `0x00471613`; it does not call UID0004G3. Emits through [UID:00001D]. |
+| [UID:0004G4][0x00471960-0x00471a26.BulletinSessionOpenArticleListDialog](by-memory/0x00471960-0x00471a26.BulletinSessionOpenArticleListDialog.md) | `0x00471960-0x00471a26` | Route-unproven article-list dialog opener. B009 MCP session `d3e83820` models `0x00471960` as a `0xc6` function with clean padding and zero entry xrefs; it selects rectangle bounds from `byte_66DA97`, allocates `0x478` bytes, calls `ArticleListDialog` constructor `0x00472ca0`, pushes through `DialogSession` helper `0x004a0fc0`, copies dialog `+0x274` id to session `+0x102`, and duplicates the live dispatcher case-2 construction path at `0x00471550`. Owner [UID:00001D], reconstructable `TRUE`, blank emitter/C++ because emitting it would invent an unobserved helper callsite or duplicate dispatcher source. |
+| [UID:0004G5][0x00471a30-0x00471bfd.BulletinSessionHandleArticleAction](by-memory/0x00471a30-0x00471bfd.BulletinSessionHandleArticleAction.md) | `0x00471a30-0x00471bfd` | Handles dispatcher submode `3` article action/read packets. B010 MCP session `d3e83820` confirms modeled function `0x00471a30` size `0x1cd`, one caller at `0x004716cf`, `PacketBufferReadUInt16BE(payload+2)` gating, ScreenDimmer active/release helpers, `DialogSession::GetDialogAtIndex`/`PopCurrentDialog`/`PushDialog`, inherited `m_activeDialogIndex`, current `DialogInSession::m_dialogType` tests, descriptive current-dialog title/context text at `+0x276`, `ArticleDialog` constructor call `0x00471b7a`, and localized string id `65` generic `AlertPane` fallback. Owner [UID:00001D], reconstructable `TRUE`, blank emitter/C++ because emitter routing and `DialogInSession`/`ArticleDialog`/`AlertPane`/packet declarations are not synchronized. |
+| [UID:0004G6][0x00471c00-0x00471dcd.BulletinSessionHandlePredefinedFormAction](by-memory/0x00471c00-0x00471dcd.BulletinSessionHandlePredefinedFormAction.md) | `0x00471c00-0x00471dcd` | Source-ready `void BulletinSession::HandlePredefinedFormAction(const unsigned char *packet)` for dispatcher submode `9`; emits through [UID:00001D]. B011 MCP session `supervisor_20260703_reopen` confirms modeled size `0x1cd`, one caller at dispatcher `0x0047184e`, dispatcher passes `a3+2`, this child validates `packet+2` through `PacketBufferReadUInt16BE`, clears/release-checks ScreenDimmer state, uses inherited `m_activeDialogIndex` at `+0xfc`, current-dialog type/state at `+0x26c`, title text at `+0x276`, rectangle choices `(10,10,461,430)` or `(10,10,456,376)`, `0x5368` `NewPredefinedFormArticleDialog` allocation/constructor `0x004777a0`, parser support, `DialogSession::PushDialog`, and `0x270` `AlertPane` fallback using localized string id `65` and shared OK string. Exact enum/member spellings remain confidence caps, not C++ blockers. |
+| [UID:0004G7][0x00471dd0-0x00471e96.BulletinSessionOpenMailListDialog](by-memory/0x00471dd0-0x00471e96.BulletinSessionOpenMailListDialog.md) | `0x00471dd0-0x00471e96` | Route-unproven mail-list dialog opener. B012 MCP session `supervisor_20260703_reopen` confirms modeled size `0xc6`, clean padding from the prior split evidence, zero entry xrefs, EPF/current bounds `(10,10,461,430)` or legacy bounds `(10,10,456,376)`, `0x278` `MailListDialog` allocation, constructor call `0x00479110`, `DialogSession::PushDialog` call `0x004a0fc0`, and `MailListDialog +0x274` returned dialog/list id copied to inferred `m_activeListId` / `BulletinSession +0x102`. Dispatcher case `4` already contains the live routed equivalent with the `+0x100` gate and clear, so UID0004G7 remains blank emitter/C++ because emitting it would invent an unobserved helper route or duplicate dispatcher source. |
+| [UID:0004G8][0x00471ea0-0x00471ff1.BulletinSessionHandleMailReadResult](by-memory/0x00471ea0-0x00471ff1.BulletinSessionHandleMailReadResult.md) | `0x00471ea0-0x00471ff1` | Route-unproven mail/search read result handler, documented at `86/91` with no emitter/C++. B013 MCP session `d3e83820` confirms modeled size `0x151`, tight padding, zero entry xrefs, `PacketBufferReadUInt16BE(payload+2)`, active dialog id `7` pop through `DialogSession::GetDialogAtIndex`/`PopCurrentDialog`, EPF/current or legacy bounds, `0x1071c` `MailDialog` allocation and constructor `0x0047b220`, `DialogSession::PushDialog`, and `0x270` `AlertPane` fallback with localized string `66` and shared OK string. Dispatcher case `5` already contains the live inline equivalent using full-packet offsets `+4` for validation and `+2` for construction, so formal C++ remains blank because emitting this child would invent an unobserved helper route or duplicate dispatcher source. |
+| [UID:0003Q4][0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor](by-memory/0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor.md) scalar deleting destructor | `0x0047ea90-0x0047eaef` | Class-specific compiler scalar deleting destructor/delete support; repeats UID0004FT ordinary destructor cleanup and adds delete-flag handling. Formal C++ remains blank because source behavior is [UID:0004FT][0x00471270-0x00471299.BulletinSessionCleanup](by-memory/0x00471270-0x00471299.BulletinSessionCleanup.md) `BulletinSession::~BulletinSession()`. |
+| shared `DialogSession` stack helpers | `0x004a0f40-0x004a1390` | Shared close/push/pop/previous/get helpers stay with [UID:00003U][DialogSession](by-class/DialogSession.md) / [UID:0000IU][DialogSession](by-file/DialogSession.md) `DialogSession`. |
 | `EnsureBulletinSession_5A50A0` | `0x005a50a0-0x005a5103` | Shared lazy-initializer global/helper; allocates a normal bulletin session if the singleton is absent. |
-| `GetMenuIndexFromPoint` generated artifact | `0x005bd9b0-0x005bda3b` | Resolved away from BulletinSession; this is [UID:0001NQ][0x005bd9b0-0x005bda3b.MenuVarietySelectPaneHitTest](by-memory/0x005bd9b0-0x005bda3b.MenuVarietySelectPaneHitTest.md) ten-row hit-test support. |
+
+## Raw Helper And Table Dispositions
+
+| Child | Range | Disposition |
+| --- | --- | --- |
+| [UID:0004FV][0x004712b0-0x004712e5.BulletinSessionDialogRectRawNoRoute](by-memory/0x004712b0-0x004712e5.BulletinSessionDialogRectRawNoRoute.md) | `0x004712b0-0x004712e5` | `CANONICAL_OWNER:NONE`, `RECONSTRUCTABLE:FALSE`, blank emitter/C++; no IDA function object and zero xrefs to the start. Documents mode-dependent dialog rectangle bytes using `byte_66DA97` and `sub_4B7C50`. |
+| [UID:0004FZ][0x004714b0-0x004714fc.BulletinSessionSendBoardListRequestRawNoRoute](by-memory/0x004714b0-0x004714fc.BulletinSessionSendBoardListRequestRawNoRoute.md) | `0x004714b0-0x004714fc` | `CANONICAL_OWNER:NONE`, `RECONSTRUCTABLE:FALSE`, blank emitter/C++; no IDA function object and zero xrefs to the start. Documents no-route outbound packet bytes `0x3b,1`. |
+| [UID:0004G0][0x00471500-0x0047154c.BulletinSessionSendPredefinedFormRequestRawNoRoute](by-memory/0x00471500-0x0047154c.BulletinSessionSendPredefinedFormRequestRawNoRoute.md) | `0x00471500-0x0047154c` | `CANONICAL_OWNER:NONE`, `RECONSTRUCTABLE:FALSE`, blank emitter/C++; no IDA function object and zero xrefs to the start. Documents no-route outbound packet bytes `0x3b,9`. |
+| [UID:0004G2][0x00471872-0x00471898.BulletinSessionDispatcherJumpTable](by-memory/0x00471872-0x00471898.BulletinSessionDispatcherJumpTable.md) | `0x00471872-0x00471898` | `CANONICAL_OWNER:NONE`, `RECONSTRUCTABLE:FALSE`, blank emitter/C++; switch jump-table data, not callable source code. |
 
 ## Generated Ownership Caveats
 
-`class_BulletinSession.cpp` currently attaches several methods that should not be migrated as BulletinSession-specific without another owner pass:
+`class_BulletinSession.cpp` still attaches several methods that should not be migrated as BulletinSession-specific without another owner pass:
 
 - `0x00544690` is a broad pane/dialog `MarkForDeletion` helper with very wide caller fanout.
-- `0x00538c40` is now resolved as [UID:0001DC][0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers](by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md), called from `UserPane` cleanup/hide paths through [UID:0000QA][g_pBowGaugeObjectPane](by-global/g_pBowGaugeObjectPane.md).
-- `0x00481ad0` is now resolved as [UID:000106][0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest](by-memory/0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest.md).
-- `0x004ffd40` is now resolved as [UID:0001A0][0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage](by-memory/0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage.md).
-- `0x005bd9b0` is now resolved as [UID:0001NQ][0x005bd9b0-0x005bda3b.MenuVarietySelectPaneHitTest](by-memory/0x005bd9b0-0x005bda3b.MenuVarietySelectPaneHitTest.md).
-- `0x005556f0` is now resolved as a [UID:0000C0][RightButtonMenuPane](by-class/RightButtonMenuPane.md) five-row hit-test helper.
-- `0x00556070` and `0x00556100` are now resolved as [UID:0000FX][VoteMenuPane](by-class/VoteMenuPane.md) hit-test/submit helpers.
+- `0x00538c40` is [UID:0001DC][0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers](by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md) `BowGaugeObjectPaneRemovePendingTimers`, not BulletinSession.
+- `0x00481ad0` is [UID:000106][0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest](by-memory/0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest.md) `ChattingVarietySelectPaneHitTest`.
+- `0x004ffd40` is [UID:0001A0][0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage](by-memory/0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage.md) `HistoryViewingPaneAdvancePage`.
+- `0x005bd9b0` is [UID:0001NQ][0x005bd9b0-0x005bda3b.MenuVarietySelectPaneHitTest](by-memory/0x005bd9b0-0x005bda3b.MenuVarietySelectPaneHitTest.md) `MenuVarietySelectPaneHitTest`.
+- `0x005556f0` is [UID:0000C0][RightButtonMenuPane](by-class/RightButtonMenuPane.md) `RightButtonMenuPane` hit-test support.
+- `0x00556070` and `0x00556100` are [UID:0000FX][VoteMenuPane](by-class/VoteMenuPane.md) `VoteMenuPane` hit-test/submit helpers.
 
 ## Evidence Notes
 
-- `source-3/simroot_v2/class_BulletinSession.meta_wave3` identifies the imported source file as `BulletinSession.cpp` and records the session summary.
-- IDA MCP on 2026-05-24 confirms the major function starts and sizes from `0x00471150` through `0x00471ea0`, the destructor at `0x0047ea90`, and the shared `DialogSession` stack helpers at `0x004a0f40-0x004a1390`.
-- IDA MCP callers show the stack helpers are called directly from BulletinSession methods and board/mail/article dialog flows, but the helpers operate on `DialogSession` fields and should stay with [UID:00003U][DialogSession](by-class/DialogSession.md).
-- IDA MCP xrefs to `0x0067adc0` show singleton writes in constructor/destructor/clear paths and reads from lazy-initializer and UI packet/input paths.
-- IDA MCP on 2026-05-26 resolves the prior scattered follow-up helpers: `0x00538c40` to BowGauge/UserPane cleanup, `0x00481ad0` to chat-mode selector hit-test, `0x004ffd40` to history viewer page advance, and `0x005bd9b0` to menu-variety selector hit-test.
-- 2026-06-07 Batch080 live IDA MCP `py_eval` rechecked the current class method inventory: thirteen cleanly bounded functions in `0x00471150-0x00471ff1`, scalar deleting destructor `0x0047ea90-0x0047eaef`, and lazy initializer `0x005a50a0-0x005a5103`. The bytes immediately before `0x00471150` and after `0x00471ff1` are `0xcc` padding, confirming the core island bounds.
-- The same pass confirmed BulletinSession vtable views at `0x00613b20`, `0x00613b6c`, and `0x00613b9c`; each has constructor, non-deleting cleanup, and scalar-deleting destructor refs at `0x004711c5/0x004711cb/0x004711d5`, `0x00471270/0x00471276/0x00471280`, and `0x0047ea96/0x0047ea9c/0x0047eaa6`.
-- The live singleton xref audit for `0x0067adc0` confirmed constructor writes at `0x004711a2/0x004711a9`, cleanup writes at `0x0047128a`, `0x0047e840`, and `0x0047eab0`, plus six guard/consumer families at `0x00508776`, `0x00513bd3`, `0x005466e8`, `0x005a50c3`, `0x005a60c8`, and `0x005bd0f4`.
+- MCP session `b010_00032w_20260703` backs the current method inventory: thirteen modeled functions in `0x00471150-0x00471ff1`, raw no-function starts at `0x004712b0`, `0x004714b0`, and `0x00471500`, and dispatcher jump-table data at `0x00471872`.
+- The same session confirmed clean `0xcc` padding before `0x00471150` and after `0x00471ff1`.
+- B003 UID0004FS implementation callback in MCP session `d3e83820` promotes the constructor to source-ready: `0x00471150` is modeled at size `0x11c` / 284, `0x0047126c` is not a function, `0x0047126c-0x00471270` is `cc cc cc cc` padding before successor cleanup `0x00471270`, six callers allocate/enter the constructor at `0x005087b6`, `0x00513c07`, `0x00546718`, `0x005a50ef`, `0x005a60ff`, and `0x005bd120`, and the body performs `DialogSession` construction, singleton publication, compiler vtable stores, `+0x100/+0x102` initialization, `0x3b` request sends for subcommands `1`/`9`, and mode `0` dispatcher handoff. Raw request helper siblings UID0004FZ/UID0004G0 remain no-route support and are not synthesized constructor calls.
+- B004 UID0004FT implementation callback in MCP session `d3e83820` resolves the destructor split: `0x00471270-0x00471299` is the ordinary/non-deleting `BulletinSession::~BulletinSession()` body, modeled size `0x29`, with vtable stores at `0x00471270`, `0x00471276`, and `0x00471280` treated as compiler lowering, `g_pBulletinSession = 0` at `0x0047128a` emitted as source `g_pBulletinSession = NULL;`, and tail base cleanup through `DialogSession::~DialogSession()` at `0x00471294`. No direct xrefs or PE pointer-pattern hits to the ordinary body cap confidence; [UID:0003Q4][0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor](by-memory/0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor.md) stays blank scalar deleting destructor/delete support.
+- B005 UID0004FU source-quality callback in MCP session `d3e83820` confirms `0x004712a0-0x004712ac` is a two-instruction wrapper: `mov byte ptr [ecx+100h], 1` followed by `jmp sub_4A12B0`. The body signature is unique, with clean `0xcc` padding before/after, no inbound code/data xrefs, and no raw pointer matches. It supports source-ready `ScreenDimmer *BulletinSession::ActivateScreenDimmer()` with inferred `m_pendingListResponse`; [UID:000133][0x004a12b0-0x004a1360.CreateScreenDimmerFactory](by-memory/0x004a12b0-0x004a1360.CreateScreenDimmerFactory.md) / [UID:0000PJ][CreateScreenDimmer_4A12B0](by-global/CreateScreenDimmer_4A12B0.md) already identify the dependency as ScreenDimmer-owned `ScreenDimmer *CreateScreenDimmer(void)`.
+- B006 UID0004FW source-quality callback in MCP session `d3e83820` confirms `0x004712f0-0x004713a6` is a source-ready open-new-article dialog method: modeled size `0xb6` / 182 bytes, clean padding, direct callers `0x004740ad` and `0x00476800`, EPF/legacy bounds selection, direct `NewArticleDialog` constructor `0x00476c10`, `PushDialog` helper `0x004a0fc0`, no data xrefs or pointer route, and no merge with raw no-route UID0004FV. Exact original spellings remain inferred/support-backed and confidence-capping.
+- B007 UID0004FX implementation callback in MCP session `d3e83820` promotes the reply/compose dialog opener to source-ready: `sub_4713B0` is a modeled `0xc6` function ending at `0x00471476`, bounded by padding before successor `0x00471480`, reached by seven direct code xrefs from callers `0x0047a060`, `0x0047c500`, and `0x0047c8d0`, and calls `InitRectBounds`, operator-new wrapper, `NewMailDialog` constructor `0x0047d050`, and `DialogSession::PushDialog` `0x004a0fc0`. Caller and constructor profiling support the source-facing arguments `recipientText`, `quoteText`, and `quoteLength`; exact original names and final `NewMailDialog` declaration spelling remain confidence caps.
+- B008 UID0004G3 implementation callback in MCP session `d3e83820` promotes the board-list dialog opener to source-ready: `sub_4718A0` is a modeled `0xb6` function ending at `0x00471956`, bounded by `0xcc` padding, and emits `void BulletinSession::OpenBoardListDialog(const unsigned char *packetData)`. The body selects EPF/legacy `Rect` bounds, allocates `0x274` bytes for `BoardListDialog`, calls constructor `0x00471921`, and pushes through `DialogSession::PushDialog` at `0x00471934`. Current xrefs to `0x004718a0` are empty; dispatcher case `1` contains the live equivalent construction/push sequence inline at `0x00471604`/`0x00471613`, so the helper must not be documented as directly called by the dispatcher.
+- B009 UID0004G4 recheck in MCP session `d3e83820` confirms the article-list helper `0x00471960` is modeled at size `0xc6` with clean padding but zero entry xrefs. Its body allocates an `ArticleListDialog` through `0x00472ca0`, pushes via `0x004a0fc0`, and stores the dialog id from `+0x274` into the inherited/session active-list slot at `+0x102`; dispatcher `0x00471550` case `2` already contains the equivalent live construction route.
+- B012 UID0004G7 source-quality callback in MCP session `supervisor_20260703_reopen` confirms the mail-list helper `0x00471dd0` is modeled at size `0xc6` with zero entry xrefs. Its body initializes EPF/current or legacy bounds through `0x004b7c50`, allocates `0x278` bytes through the MemoryMan-backed allocator wrapper, calls `MailListDialog` constructor `0x00479110`, pushes through `DialogSession::PushDialog` at `0x004a0fc0`, copies `MailListDialog +0x274` into inferred `m_activeListId` / `BulletinSession +0x102`, and returns that 16-bit id. Dispatcher `0x00471550` case `4` is the live routed path and adds the `+0x100` gate/clear, so UID0004G7 remains a blank-emitter documentation child despite resolved helper/API names.
+- B013 UID0004G8 source-quality callback in MCP session `d3e83820` confirms the mail-read result helper `0x00471ea0` is modeled at size `0x151`, `0x00471ff1` is not a function, padding surrounds the body, and `xrefs_to(0x00471ea0)` returns zero entry xrefs. Its shifted-payload body reads `PacketBufferReadUInt16BE(payload+2)`, pops active dialog id `7`, selects `(10,10,461,430)` or `(10,10,456,376)` bounds, allocates `0x1071c` for `MailDialog`, calls constructor `0x0047b220`, pushes through `DialogSession::PushDialog`, or allocates `0x270` for an `AlertPane` using localized string `66` and shared OK string `off_613A18`. Dispatcher case `5` is the live routed implementation and already contains the equivalent behavior inline with full-packet offsets `+4` and `+2`, so UID0004G8 remains a blank-emitter/no-C++ documentation child with MailDialog, DialogSession, PacketBuffer, and AlertPane rejected as direct owners.
+- Constructor decompilation shows `DialogSession` base initialization, singleton publication to `0x0067adc0`, vtable writes, `+0x100/+0x102` initialization, initial request sends, and immediate dispatcher mode.
+- Packet forwarder decompilation shows the top-level byte `49` filter and dispatcher call with `this-0xa0`.
+- Agent-B004 UID0004FY MCP session `ef57d27f` supersedes the older packet-forwarder shorthand with current secondary-interface proof: `server_health` ok for `NexusTK.exe`, `lookup_funcs` size `0x23`, exact unique body bytes, vtable/data slot `0x00613b7c` as the only direct xref/pointer to `0x00471480`, zero xrefs to the slot address, no RVA/pointer-to-slot/pointer-to-tail pattern matches, `0x31` top-level payload-byte filter, zero return on mismatch, payload stack rewrite, `this-0xa0` primary-view adjustment, and tail jump to the UID0004G1 dispatcher.
+- Dispatcher decompilation shows submode routing for `1`, `2`, `3`, `4`, `5`, and `9`.
+- B002 UID0004G1 implementation callback in MCP session `ba171fe4` updates the dispatcher facts without changing class metadata: the live dispatcher `sub_471550` is reached by constructor mode-0 call `0x00471247` and packet-forwarder call `0x0047149e`; case `1` constructs/pushes `BoardListDialog`, case `2` gates on `+0x100` and constructs/pushes `ArticleListDialog` while storing `dialog+0x274` to `+0x102`, case `3` calls UID0004G5, case `4` gates on `+0x100` and constructs/pushes `MailListDialog` while storing `dialog+0x274` to `+0x102`, case `5` validates full packet `+4` and opens `MailDialog` from full packet `+2` or localized alert `66`, and case `9` calls UID0004G6. The jump-table facts are `0x00471872` alignment, actual table at `0x00471874`, and `0x00471898` padding. Formal C++ remains blank because UID0004G4/UID0004G5/UID0004G7/UID0004G8 routing, field names, packet type, and constructor/body route are not yet a single source policy.
+- Raw helper checks show no IDA function objects and zero xrefs for `0x004712b0`, `0x004714b0`, and `0x00471500`; the packet helpers build `0x3b,1` and `0x3b,9` request bytes.
+- [UID:0000QG][g_pBulletinSession](by-global/g_pBulletinSession.md) and [UID:0001PA][0x0067adc0-0x0067adc4.g_pBulletinSession](by-memory/0x0067adc0-0x0067adc4.g_pBulletinSession.md) document the singleton storage and xrefs; [UID:000132][0x004a0f40-0x004a14a7.BulletinSessionDialogStack](by-memory/0x004a0f40-0x004a14a7.BulletinSessionDialogStack.md) documents inherited stack/list fields used by this class.
+- B010 2026-07-03 UID0004G5 source-quality callback resolves the article-action child’s former broad blockers at documentation level: `sub_575480(payload+2)` is `PacketBufferReadUInt16BE(payload+2)`, `0x004a1380`/`0x004a1360` are ScreenDimmer/modal active and release helpers, `+0xfc` is inherited `DialogSession::m_activeDialogIndex`, current-dialog `+0x26c` is `DialogInSession::m_dialogType`, current-dialog `+0x276` is a descriptive wide title/context field, `0x004753e0` is the ArticleDialog constructor/setup dependency called at `0x00471b7a`, and the no-payload fallback uses localized string id `65` with generic `AlertPane::AlertPane`. These facts improve UID0004G5’s documentation without changing class metadata; formal C++ remains blocked by blank child emitter routing and unsynchronized `DialogInSession`, `ArticleDialog`, `AlertPane`, packet wrapper, and `BulletinSession` child output declarations.
+- 2026-06-16 B001 MailDialogs split execution created [UID:0003Q1][0x0047e840-0x0047e84b.BulletinSessionConstructorUnwindSingletonClear](by-memory/0x0047e840-0x0047e84b.BulletinSessionConstructorUnwindSingletonClear.md) constructor-unwind singleton clear and [UID:0003Q4][0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor](by-memory/0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor.md) scalar deleting destructor pages.
 
 ## Assignment Decision
 
-`AUTOGEN_PARENT_UID` is [UID:0000HX][BulletinSession](by-file/BulletinSession.md). The class is now `85/87`, and the direct file parent is now `85/87`, so both sides clear the corrected `85/85` gate. The assignment is direct because `BulletinSession.cpp` owns the session coordinator class, singleton lifecycle, lazy initializer relationship, and BulletinSession vtable declarations; concrete board/mail/article dialog bodies and shared `DialogSession` stack helpers remain routed to their own source files.
+`BulletinSession` remains owned by [UID:0000HX][BulletinSession](by-file/BulletinSession.md) `BulletinSession.cpp`. The class page itself keeps its existing `85/87` score and emitter route with a marker-only `[[CHILDREN]]` block instead of a partial class declaration. UID0004FS, UID0004FT, UID0004FU, UID0004FW, UID0004FX, UID0004G3, and UID0004G6 now emit through this class; the remaining split method children stay blank-emitter documentation children until their own child-specific formal C++ is supplied.
 
 ## Score Rationale
 
-- Completion `85`: the page now records the full class method inventory, singleton storage and lifecycle, vtable views, scalar destructor and lazy initializer, clean core bounds, direct file parent, and explicit exclusions for shared stack helpers and caller-biased generated helpers.
-- Confidence `87`: ownership and behavior are backed by live IDA MCP and exact by-memory/global pages. Confidence remains below higher levels because final field names, exact original method names, and some generated helper cleanup outside the core still need a layout pass.
+- Completion `92`: complete R2 declaration, direct bases, exact `0x104` member layout, eight-entry RTTI, PMD/EBO, Event override, accepted method/access declarations, one extern, class closure, child route, and compiler/raw exclusions are all documented.
+- Confidence `94`: hierarchy, widths, offsets, vtable facets, lifecycle, method signatures, and source route are mutually corroborated. The cap preserves only inferred original lexical spellings and broader blank child debt, not any declaration needed by the accepted emitted children.
 
 ## Cross-References
 
-- [UID:0000HX][BulletinSession](by-file/BulletinSession.md)
-- [UID:0000ZH][0x00471150-0x00471ff1.BulletinSessionCore](by-memory/0x00471150-0x00471ff1.BulletinSessionCore.md)
-- [UID:00003U][DialogSession](by-class/DialogSession.md)
-- [UID:000131][0x004a0d80-0x004a15f8.DialogSessionCore](by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md)
-- [UID:000132][0x004a0f40-0x004a14a7.BulletinSessionDialogStack](by-memory/0x004a0f40-0x004a14a7.BulletinSessionDialogStack.md)
-- [UID:0000QG][g_pBulletinSession](by-global/g_pBulletinSession.md)
-- [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md)
-- [UID:0000KZ][MailDialogs](by-file/MailDialogs.md)
-- [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md)
-- [UID:0001DC][0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers](by-memory/0x00538c40-0x00538c4b.BowGaugeObjectPaneRemovePendingTimers.md)
-- [UID:000106][0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest](by-memory/0x00481ad0-0x00481b5b.ChattingVarietySelectPaneHitTest.md)
-- [UID:0001A0][0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage](by-memory/0x004ffd40-0x004ffd79.HistoryViewingPaneAdvancePage.md)
-- [UID:0001NQ][0x005bd9b0-0x005bda3b.MenuVarietySelectPaneHitTest](by-memory/0x005bd9b0-0x005bda3b.MenuVarietySelectPaneHitTest.md)
+- [UID:0000HX][BulletinSession](by-file/BulletinSession.md) source file route.
+- [UID:0000ZH][0x00471150-0x00471ff1.BulletinSessionCore](by-memory/0x00471150-0x00471ff1.BulletinSessionCore.md) non-emitting split/index parent.
+- [UID:00003U][DialogSession](by-class/DialogSession.md) `DialogSession`.
+- [UID:000131][0x004a0d80-0x004a15f8.DialogSessionCore](by-memory/0x004a0d80-0x004a15f8.DialogSessionCore.md) `DialogSessionCore`.
+- [UID:000132][0x004a0f40-0x004a14a7.BulletinSessionDialogStack](by-memory/0x004a0f40-0x004a14a7.BulletinSessionDialogStack.md) `BulletinSessionDialogStack`.
+- [UID:0000QG][g_pBulletinSession](by-global/g_pBulletinSession.md) `g_pBulletinSession`.
+- [UID:0001PA][0x0067adc0-0x0067adc4.g_pBulletinSession](by-memory/0x0067adc0-0x0067adc4.g_pBulletinSession.md) exact singleton storage.
+- [UID:0003Q1][0x0047e840-0x0047e84b.BulletinSessionConstructorUnwindSingletonClear](by-memory/0x0047e840-0x0047e84b.BulletinSessionConstructorUnwindSingletonClear.md) constructor-unwind singleton clear.
+- [UID:0003Q4][0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor](by-memory/0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor.md) scalar deleting destructor.
+- [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md) `BoardDialogs`.
+- [UID:0000KZ][MailDialogs](by-file/MailDialogs.md) `MailDialogs`.
+- [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md) `BulletinReplyAlerts`.
 
 ## Changes
 
-- What existed before: the page had detailed method, singleton, generated-ownership, and evidence notes, but completion/confidence metadata was still `0/0`.
-- What it was changed to: scores were set to `80/86`.
-- Summary and evidence: core session flow, dialog stack helper separation, singleton global, and several wrong-owner helper resolutions are documented; final struct layout and some generated scattered helpers still need cleanup before this can approach complete.
-- 2026-06-05: Reclassified autogen metadata from unclassified to `RECONSTRUCTABLE:TRUE`. Current IDA MCP `lookup_funcs` reconfirmed the constructor/dialog-open/action/list/destructor starts at `0x00471150`, `0x004712f0`, `0x00471550`, `0x00471a30`, `0x00471c00`, and `0x0047ea90`, and `callers` shows the constructor reached from board/mail/session setup paths. `AUTOGEN_PARENT_UID` remains blank because [UID:0000HX][BulletinSession](by-file/BulletinSession.md) is still below the 80+ completion attachment gate.
-- 2026-06-07 Batch080 class coverage pass:
-  - Changed score from `80/86` to `85/87`.
-  - Set `AUTOGEN_PARENT_UID:0000HX` after also raising the direct [UID:0000HX][BulletinSession](by-file/BulletinSession.md) parent to `85/87`.
-  - Evidence: live IDA MCP rechecked the thirteen-function core island, clean `0xcc` boundaries, scalar deleting destructor, lazy initializer, three BulletinSession vtable-view refs, and singleton xrefs. Final C++ remains blank because field/method names and source declarations remain below the final-code gate.
+- 2026-07-21 B003 UID0001PA accepted implementation callback:
+  - Raised `85/87 -> 92/94`; retained owner/emitter UID0000HX, reconstructable true, and blank position.
+  - Replaced the marker-only class block with exact R2: one extern, direct DialogSession/Singleton bases, constructor/destructor/Event override, accepted public/private methods, two exact fields, class closure, then `[[CHILDREN]]`.
+  - Added eight-entry RTTI, PMD `+0x100/-1/0`, EBO, exact `0x104` layout, UID0004UT 18/11/2 vtable child, implicit Singleton lifecycle, source/compiler distinctions, and historicalized stale `m_requestState`/explicit-global/partial-class blockers.
+
+- 2026-06-05: Reclassified autogen metadata to `RECONSTRUCTABLE:TRUE`; kept parent blank while file parent was below gate.
+- 2026-06-07 Batch080 class coverage pass: raised to `85/87`, set direct file route [UID:0000HX][BulletinSession](by-file/BulletinSession.md), and recorded the thirteen-function core island, clean boundaries, destructor, lazy initializer, vtable views, and singleton xrefs.
+- 2026-06-16 supervisor execution of B001 MailDialogs split report: linked [UID:0003Q1][0x0047e840-0x0047e84b.BulletinSessionConstructorUnwindSingletonClear](by-memory/0x0047e840-0x0047e84b.BulletinSessionConstructorUnwindSingletonClear.md) and [UID:0003Q4][0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor](by-memory/0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor.md).
+- 2026-07-03 Agent-B012 implementation callback: updated method inventory to the 17 exact UID0000ZH child pages, recorded raw helper/jump-table no-code dispositions, and kept source-bearing child methods as blank-emitter documentation children pending formal C++ declarations.
+- 2026-07-03 Agent-B004 UID0004FT implementation callback: updated destructor/source-output notes so UID0004FT is source-ready `BulletinSession::~BulletinSession()` with `g_pBulletinSession = NULL;`, while [UID:0003Q4][0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor](by-memory/0x0047ea90-0x0047eaef.BulletinSessionScalarDeletingDestructor.md) remains blank compiler scalar deleting destructor support; class metadata unchanged.
+- 2026-07-03 Agent-B010 UID0004G5 implementation callback: refined the article-action method row and evidence notes with MCP session `d3e83820` helper/field/dialog/alert facts, preserving class metadata and the blank-emitter family policy.
+- 2026-07-03 Agent-B009 UID0004G4 implementation callback: refined the article-list method row and evidence notes with MCP session `d3e83820` zero-entry-xref, duplicate dispatcher case-2, `ArticleListDialog`, `DialogSession`, and `+0x102` active-list id facts; class metadata remains unchanged.
+- 2026-07-03 Agent-B005 UID0004FU implementation callback: updated the screen-dimmer helper from blank-emitter/no-code to source-ready `ScreenDimmer *ActivateScreenDimmer()`, narrowed `+0x100` to inferred `m_pendingListResponse`, recorded dispatcher cases `2`/`4` read-clear behavior and `+0x102` active-list id storage, and preserved no-route/inferred-name confidence caps without changing class metadata.
+- 2026-07-03 Agent-B006 UID0004FW implementation callback: added marker-only `[[CHILDREN]]`, updated the open-new-article dialog method from blank-emitter/no-code to source-ready `void OpenNewArticleDialog(const wchar_t *title)`, recorded MCP session `d3e83820` caller/callee/no-route proof and UID0004FV non-merge, and preserved inferred-name confidence caps without changing class metadata.
+- 2026-07-03 Agent-B007 UID0004FX implementation callback: updated the reply/compose dialog method from blank-emitter/no-code to source-ready `void OpenReplyDialog(const wchar_t *recipientText, const wchar_t *quoteText, short quoteLength)`, recorded MCP session `d3e83820` caller/callee/constructor-order/padding evidence, and preserved `NewMailDialog`/DialogSession dependency ownership and inferred-name confidence caps without changing class metadata.
+- 2026-07-03 Agent-B008 UID0004G3 implementation callback: updated the board-list dialog opener from blank-emitter/no-code to source-ready `void OpenBoardListDialog(const unsigned char *packetData)`, recorded MCP session `d3e83820` exact range/body/padding, zero-direct-xref evidence, dispatcher case-1 inline duplicate proof at `0x00471604`/`0x00471613`, and preserved `BoardListDialog`/`DialogSession` dependency ownership without changing class metadata.
+- 2026-07-03 Agent-B012 UID0004G7 implementation callback: refined the mail-list method row and evidence notes with MCP session `supervisor_20260703_reopen` zero-entry-xref, dispatcher case-4 duplicate/live route, `MailListDialog` constructor, `DialogSession::PushDialog`, `MailListDialog +0x274 -> BulletinSession +0x102` active-list id flow, documentation-ready helper/API names, and route-based no-code proof; class metadata remains unchanged.
+- 2026-07-03 Agent-B013 UID0004G8 implementation callback: refined the mail-read result method row and evidence notes with MCP session `d3e83820`, zero-entry-xref proof, dispatcher case-5 duplicate/live route, shifted-payload offsets, helper-name resolution, `MailDialog` construction, alert fallback, and route-based no-code proof; class metadata remains unchanged.
+- 2026-07-03 Agent-B011 UID0004G6 implementation callback: updated predefined-form action handler from blank-emitter/no-code to source-ready `void BulletinSession::HandlePredefinedFormAction(const unsigned char *packet)`, recorded MCP session `supervisor_20260703_reopen` caller/range/payload/stack-helper/dialog/alert evidence, and preserved exact enum/member spelling uncertainty as a confidence cap rather than a C++ blocker; class metadata remains unchanged.
+- 2026-07-03 Agent-B003 UID0004FS implementation callback: updated constructor method row and evidence notes so UID0004FS emits through [UID:00001D] as `BulletinSession::BulletinSession(...)`, preserving `d3e83820` range/padding/caller/callee/singleton/vtable/mode evidence, raw-helper and caller-owner rejections, and exact parameter/helper/member spelling confidence caps without changing class metadata.
+- 2026-07-05 Agent-B002 UID0004G1 implementation callback: updated the dispatcher method row, field-name caveat, and evidence notes with MCP session `ba171fe4`, current caller/table/case behavior, `+0x100/+0x102` data flow, and the no-code proof; class metadata and marker-only `[[CHILDREN]]` output remain unchanged.
+- 2026-07-07 Agent-B004 UID0004FY implementation callback: updated the packet-forwarder method row and evidence notes with `88/93`, MCP session `ef57d27f`, `0x00613b7c` secondary-interface vtable slot, `0x31` filter, `this-0xa0` dispatcher route, pointer-pattern negative evidence, and the blank-emitter/no-code reason; class metadata and marker-only `[[CHILDREN]]` output remain unchanged.

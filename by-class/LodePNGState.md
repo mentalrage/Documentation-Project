@@ -1,22 +1,25 @@
 *** UID:00007E | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:94 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000KW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000KW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000KW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_CPP CODE:[[[<import-from-start>"third_party_embeds/lodepng/lodepng.cpp","third_party_embeds/lodepng/lodepng.h"</import-from-end>]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # LodePNGState
 
 ## Status
 
-- Confidence: strong for library identity, owner, lifecycle anchors, and public encode-front-end relationship; medium for complete field layout and exact lower-helper source names.
+- Confidence: very strong for library identity, aggregate source route, owner, lifecycle anchors, public encode-front-end relationship, and exact staged upstream source; complete field-layout and optimizer-level helper-name uncertainty does not weaken the exact import-based reconstruction.
 - Proposed owner: [UID:0000KW][LodePNG](by-file/LodePNG.md)
-- Autogen status: attached to the LodePNG by-file parent; final C++ remains blank because the rebuild should vendor the upstream LodePNG source rather than hand-author decompiler-shaped class code.
-- Address docs: [UID:0000XH][0x004460f0-0x004461f6.LodePngStateInit](by-memory/0x004460f0-0x004461f6.LodePngStateInit.md), [UID:0000XI][0x00448520-0x00448557.LodePNGStateDestructors](by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md), and [UID:0000XF][0x00443c80-0x00443e5d.LodePngEncodeFrontEnd](by-memory/0x00443c80-0x00443e5d.LodePngEncodeFrontEnd.md)
-- Evidence basis: existing IDA-backed documentation pages for the public encode wrapper, state initializer, destructor glue, helper-island inventory, the [UID:0000KW][LodePNG](by-file/LodePNG.md) source-module page, and local comparison already recorded in those docs against the obtained LodePNG `20160501` source archive. This pass did not use Wave3/Wave2 source data.
+- Autogen status: attached to the LodePNG by-file parent; this page mechanically hosts the one aggregate compilation-unit import directive for staged `third_party_embeds/lodepng/lodepng.cpp` and `third_party_embeds/lodepng/lodepng.h`, with the multiline block blank. It is not a class-only or per-child import: the single pair supplies the entire UID0000KW file inventory, while this class page documents only the LodePNGState semantic slice and compiler-generated support.
+- Address docs: [UID:0000XH][0x004460f0-0x004461f6.LodePngStateInit](by-memory/0x004460f0-0x004461f6.LodePngStateInit.md), [UID:0000XI][0x00448520-0x00448557.LodePNGStateDestructors](by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md), [UID:0000XF][0x00443c80-0x00443e5d.LodePngEncodeFrontEnd](by-memory/0x00443c80-0x00443e5d.LodePngEncodeFrontEnd.md), [UID:00057D][0x0064170c-0x006417a0.LodePngStateRttiDescriptors](by-memory/0x0064170c-0x006417a0.LodePngStateRttiDescriptors.md), and [UID:00057E][0x00674240-0x00674278.LodePngStateTypeDescriptors](by-memory/0x00674240-0x00674278.LodePngStateTypeDescriptors.md)
+- Evidence basis: existing IDA-backed documentation pages for the public encode wrapper, state initializer, destructor glue, helper-island inventory, the [UID:0000KW][LodePNG](by-file/LodePNG.md) source-module page, live IDA MCP refresh on 2026-06-15, accepted B001 `0000XI` live MCP session/database `80de0a67`, and local comparison against the staged LodePNG `20160501` source archive. This pass did not use Wave3/Wave2 source data.
 
 ## Class Role
 
@@ -31,13 +34,13 @@ The currently observed use is encoder-side: `0x00443c80` constructs a stack stat
 | Stack construction | [UID:0000XF][0x00443c80-0x00443e5d.LodePngEncodeFrontEnd](by-memory/0x00443c80-0x00443e5d.LodePngEncodeFrontEnd.md) records `lodepng_encode_memory` storing the `LodePNGState` vtable before initialization. | The state is a C++-compiled third-party library object, not a NexusTK-local screenshot struct. |
 | Default initialization | [UID:0000XH][0x004460f0-0x004461f6.LodePngStateInit](by-memory/0x004460f0-0x004461f6.LodePngStateInit.md) maps the initializer to upstream `lodepng_state_init`. | Raw mode, PNG info, decoder/encoder settings, and error state are initialized through vendored LodePNG logic. |
 | Encode customization | The encode front-end writes caller-supplied color type/bit depth into both raw and PNG color-mode records before calling `0x004466b0`. | Screenshot-facing RGBA8 output is a public LodePNG API use, not a custom product wrapper. |
-| Cleanup/destruction | [UID:0000XI][0x00448520-0x00448557.LodePNGStateDestructors](by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md) records the ordinary and scalar deleting destructor glue. | Source reconstruction should come from the C++ LodePNG class declaration/destructor support, with compiler-generated glue regenerated by the toolchain. |
+| Cleanup/destruction | [UID:0000XI][0x00448520-0x00448557.LodePNGStateDestructors](by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md) records the ordinary base destructor at `0x00448520`, scalar deleting destructor at `0x00448530`, `0xcc` padding at `0x00448527-0x00448530` and `0x00448557-0x00448560`, EH cleanup/vtable xrefs, and the neighboring `lodepng::State` cleanup/deleting destructor at `0x00448560` as a separate source concept. | Source reconstruction should come from the C++ LodePNG class declarations in staged `lodepng.h`, with compiler-generated glue regenerated by the toolchain. |
 
 ## Ownership And Rebuild Notes
 
 - Attach this class to [UID:0000KW][LodePNG](by-file/LodePNG.md), which is already placed under `NexusTK/third_party/` and records the `20160501` source-snapshot candidate.
 - Keep the class out of [UID:0000K4][ImageWriters](by-file/ImageWriters.md), [UID:0000ND][ScreenshotCapture](by-file/ScreenshotCapture.md), DAT/resource code, and render-surface modules. Those modules call or depend on the codec; they do not own the codec state type.
-- Treat `LodePNGState` as reconstructable because the statically embedded LodePNG library must be rebuilt or vendored, but leave final C++ blank. The supported implementation path is vendoring `lodepng.cpp`/`lodepng.h` from the matching upstream snapshot, not writing a partial class from recovered offsets.
+- Treat `LodePNGState` as reconstructable because the statically embedded LodePNG library must be rebuilt or vendored. This class page is the mechanical host for the single aggregate directive importing `third_party_embeds/lodepng/lodepng.cpp` and `third_party_embeds/lodepng/lodepng.h`; no class child or function/data/type row gets another import or partial recovered-offset implementation.
 - The destructor memory page is reconstructable and parented to the LodePNG file, while the public encode front-end/helper island pages are marked not reconstructable as NexusTK product code. This class-level page records the source-level type that causes the vtable/destructor bytes to exist.
 
 ## Layout Notes
@@ -56,12 +59,26 @@ The field map is intentionally partial. The exact upstream structure includes ne
 
 | Method | Range | Notes |
 | --- | --- | --- |
-| `~LodePNGState` | `0x00448520-0x00448527` | Trivial destructor that restores the `LodePNGState` vtable pointer. Wave3 keeps this in the disabled companion file. |
-| `LodePNGState::ScalarDeletingDestructor` | `0x00448530-0x00448557` | Restores the vtable pointer and optionally calls operator delete when the low deletion flag bit is set. |
+| `~LodePNGState` | `0x00448520-0x00448527` | Trivial base destructor generated from the inline `virtual ~LodePNGState(){}` declaration in staged `lodepng.h`; it writes `??_7LodePNGState@@6B@` at `0x0060f4d0` to `this` and returns. |
+| `LodePNGState::ScalarDeletingDestructor` | `0x00448530-0x00448557` | Restores the vtable pointer, tests deletion flag bit `1`, optionally calls `sub_5C7526` with delete size `0x128` / 296 (Verified with int_convert.py), returns `this`, and ends with `retn 4`. |
+| `lodepng::State` cleanup/deleting destructor | `0x00448560-0x004485ba` | Separate neighboring derived-state destructor, not part of [UID:0000XI][0x00448520-0x00448557.LodePNGStateDestructors](by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md). It writes `lodepng::State::vftable`, frees `Block[27]`, zeroes `Block[27]` and `Block[28]`, calls `sub_444F50(Block + 33)`, resets the base vtable, and optionally deletes. |
 | `lodepng_state_init` | `0x004460f0-0x004461f6` | Third-party initializer for this state object; parented to the LodePNG file and documented as vendored LodePNG source. |
+
+## Static Embed And Destructor Evidence
+
+- B001 `0000XI` source-quality recheck used live IDA MCP session/database `80de0a67`. `lookup_funcs` reported `0x00448520` -> `sub_448520`, size `0x7` / 7 (Verified with int_convert.py), `0x00448530` -> `sub_448530`, size `0x27` / 39 (Verified with int_convert.py), and neighboring `0x00448560` -> `sub_448560`, size `0x5a` / 90 (Verified with int_convert.py).
+- The ordinary base destructor at `0x00448520` only writes `LodePNGState::vftable` / `??_7LodePNGState@@6B@` at `0x0060f4d0` to `this`, then returns. The scalar deleting destructor at `0x00448530` writes the same vtable pointer, checks `(a2 & 1)`, conditionally deletes with `sub_5C7526`, and returns `this`.
+- Byte evidence records `0x00448527-0x00448530` and `0x00448557-0x00448560` as nine-byte `0xcc` padding ranges, separating the base destructors from each other and from the next function.
+- `xrefs_to 0x00448520` reports EH cleanup code xrefs at `0x005f99f6` and `0x005f9a29`. Disassembly at `0x005f99f0` shows a function-tail chunk for `sub_443A60` that loads the stack `LodePNGState` object and jumps to `sub_448520` before `SEH_443A60`, stack-cookie checks, and `___CxxFrameHandler3`.
+- `xrefs_to 0x00448530` reports the vtable data xref from `0x0060f4d0`. `xrefs_to 0x0060f4d0` reports construction/destruction/reset refs at `0x00443aa0`, `0x00443cb7`, `0x00447cf6`, `0x00448520`, `0x0044853a`, and `0x00448599`.
+- The staged `source-3/third_party_embeds/lodepng/lodepng.h` hash is SHA256 `9B330CA0224E85EB8937DC83627BDFA0285C6CC6691223D3FD51D8987A2D284B`, matching the obtained `lodepng-20160501` static-embed copy. It declares `LodePNGState` with decoder settings, encoder settings, `info_raw`, `info_png`, `error`, and inline `virtual ~LodePNGState(){}` under `LODEPNG_COMPILE_CPP`.
+- The staged `source-3/third_party_embeds/lodepng/lodepng.cpp` hash is SHA256 `71F9A45829F9AF7A6675200153DAAB5D791846A7EC4C5385241AC6F1E35B629A`, matching the same obtained source copy. It defines `lodepng_state_init`, `lodepng_state_cleanup`, `lodepng_encode_memory`, and `lodepng::State::~State()`, which maps to the neighboring cleanup destructor rather than [UID:0000XI][0x00448520-0x00448557.LodePNGStateDestructors](by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md).
 
 ## Evidence
 
+- 2026-06-15 live IDA MCP session `a003_objectlist_dispatch_20260615` rechecked `NexusTK.exe.i64`: `lookup_funcs` confirms `sub_4460F0` at `0x004460f0`, size `0x106` / 262 bytes, the ordinary base destructor at `0x00448520`, size `0x7` / 7 bytes, the scalar deleting destructor at `0x00448530`, size `0x27` / 39 bytes, and the public encode front end at `0x00443c80`, size `0xe1` / 225 bytes. Decimal conversions were verified with `tools/int_convert.py`.
+- The same live pass reconfirms `0x004460f0` is reached from seven LodePNG-local initialization paths, including `0x00443c80`; destructor glue uses the `??_7LodePNGState@@6B@` vtable pointer at `0x0060f4d0`; and the lower-bound helper correction places [UID:0000XJ][0x00450030-0x0045007c.LodePngLowerBoundHelper](by-memory/0x00450030-0x0045007c.LodePngLowerBoundHelper.md) wholly inside the LodePNG helper island.
+- Local staged source `source-3/third_party_embeds/lodepng/lodepng.h` defines `LodePNGState` with decoder settings, encoder settings, `info_raw`, `info_png`, `error`, and an inline virtual destructor under `LODEPNG_COMPILE_CPP`. The matching `lodepng.cpp` defines `lodepng_state_init`, `lodepng_state_cleanup`, `lodepng_encode_memory`, and `lodepng::State` constructors/destructor in the expected source region for version `20160501`.
 - IDA strings include `.?AULodePNGState@@` and `.?AVState@lodepng@@`, matching the third-party LodePNG state naming.
 - IDA decompilation of `0x00443c80` writes `LodePNGState::vftable` into the stack object before initialization.
 - IDA decompilation of `0x004460f0` initializes many state/settings dwords, including RGBA8 defaults.
@@ -73,14 +90,14 @@ The field map is intentionally partial. The exact upstream structure includes ne
 
 Keep `LodePNGState` inside the bundled [UID:0000KW][LodePNG](by-file/LodePNG.md) source candidate. Do not migrate it into `ImageWriters.cpp`, `ScreenshotCapture.cpp`, or DAT/resource code just because the current public caller writes screenshot PNGs.
 
-The class now meets the parent-attachment gate: this page is above `80/80`, the LodePNG file page is `88/84`, and the linked state initializer/destructor pages are already parented to the same LodePNG file. The blank reconstruction block is intentional because third-party source vendoring is the correct rebuild mechanism.
+The class meets the parent-attachment gate: this page is `92/94`, the LodePNG file page is `94/94`, and the linked state initializer/destructor pages remain parented to the same LodePNG file. The formal directive is intentionally attached here as the one aggregate translation-unit route; it does not assign separate imports to those children.
 
 ## Score Rationale
 
 | Field | Value | Rationale |
 | --- | ---: | --- |
-| Completion | 84 | The page now documents class role, owner, lifecycle, partial layout, init/destructor method anchors, public encode-front-end use, third-party rebuild strategy, and parent attachment. It remains below final-audit level because the complete nested field layout and lower-helper source names are not exhaustively mapped here. |
-| Confidence | 84 | Existing IDA-backed pages agree on library identity, `20160501` source snapshot, vtable/destructor glue, state initialization, encode-front-end use, helper-island bounds, and third-party ownership. Confidence stays below 95 because this pass did not perform a fresh live IDA audit and the full field layout remains partial. |
+| Completion | 92 | The page documents class role, UID0000KW owner, lifecycle, partial layout, init/destructor anchors, public encode-front-end use, aggregate import mechanics, compiler-covered children, parent attachment, exact staged source identity, and complete accepted LodePNGState/lodepng::State vtable/RTTI/type-descriptor inventories. The remaining nested field/per-address optimizer mapping is documented uncertainty rather than missing source. |
+| Confidence | 94 | Dated IDA-backed lifecycle evidence and the exact staged source hashes agree on library identity, `20160501` source snapshot, vtable/destructor glue, state initialization, encode-front-end use, helper-island bounds, and third-party ownership. The exact source pair controls reconstruction; each later gate dynamically rereads generated output rather than treating an old command/session as permanent authority. |
 
 ## Cross-References
 
@@ -92,12 +109,45 @@ The class now meets the parent-attachment gate: this page is above `80/80`, the 
 - [UID:0000XH][0x004460f0-0x004461f6.LodePngStateInit](by-memory/0x004460f0-0x004461f6.LodePngStateInit.md)
 - [UID:0000XF][0x00443c80-0x00443e5d.LodePngEncodeFrontEnd](by-memory/0x00443c80-0x00443e5d.LodePngEncodeFrontEnd.md)
 - [UID:0000XI][0x00448520-0x00448557.LodePNGStateDestructors](by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md)
+- [UID:00057D][0x0064170c-0x006417a0.LodePngStateRttiDescriptors](by-memory/0x0064170c-0x006417a0.LodePngStateRttiDescriptors.md)
+- [UID:00057E][0x00674240-0x00674278.LodePngStateTypeDescriptors](by-memory/0x00674240-0x00674278.LodePngStateTypeDescriptors.md)
 
 ## Changes
 
+- 2026-08-25 B010 allocated-support callback: linked exact `92/94` compiler-covered state RTTI authority [UID:00057D][0x0064170c-0x006417a0.LodePngStateRttiDescriptors](by-memory/0x0064170c-0x006417a0.LodePngStateRttiDescriptors.md) and type-descriptor authority [UID:00057E][0x00674240-0x00674278.LodePngStateTypeDescriptors](by-memory/0x00674240-0x00674278.LodePngStateTypeDescriptors.md). UID00007E remains the sole aggregate import anchor; the new pages add no duplicate class body or H declaration.
+- 2026-08-24: Accepted UID0000KW whole-file callback retained this page as the sole mechanical host for one aggregate compilation-unit directive importing `third_party_embeds/lodepng/lodepng.cpp` plus `third_party_embeds/lodepng/lodepng.h`, kept both multiline CPP/H blocks blank, and raised the page to `92/94`. This is not a class-only/per-child import: semantic compilation-unit ownership remains [UID:0000KW][LodePNG](by-file/LodePNG.md), while the imported pair collectively supplies all file-owned definitions and types; compiler output supplies both state vtables, destructor glue, eight RTTI hierarchy objects, and four type-descriptor/decorated-name objects without handwritten duplicates.
+- 2026-08-24 Gate 2A current-policy repair: removed the stale per-child interpretation from active prose, synchronized active scores to `92/94`, and made generated identity authority-neutral. Exact validator command/hash receipts are dated evidence only; every later gate must reread the then-current aggregate import, contributor comments, absence of duplicate/empty sections, and absent generated H.
+
+- 2026-06-27 B001 `0000XI` source-quality implementation:
+  - Before: the page was `87/88` and still said final C++ should remain blank for vendored LodePNG source.
+  - After at that historical checkpoint: raised to `89/90`, replaced the legacy marker with the formal validator inline import directive for `third_party_embeds/lodepng/lodepng.cpp` and `third_party_embeds/lodepng/lodepng.h`, and left the multiline C++ block blank. The later 2026-08-24 aggregate-route repair supersedes any per-child reading of that old policy.
+  - Evidence: accepted B001 report with live MCP session/database `80de0a67` reconfirmed the base destructor at `0x00448520`, scalar deleting destructor at `0x00448530`, `0xcc` padding before and after the target range, EH cleanup/vtable xrefs, and the neighboring `lodepng::State` cleanup/deleting destructor at `0x00448560` as separate from [UID:0000XI][0x00448520-0x00448557.LodePNGStateDestructors](by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md)(by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md). Staged `lodepng.h` hash `9B330CA0224E85EB8937DC83627BDFA0285C6CC6691223D3FD51D8987A2D284B` matches the obtained `lodepng-20160501` static embed and contains the inline `virtual ~LodePNGState(){}` declaration.
 - 2026-06-05: Marked reconstructable because the class is part of the statically embedded LodePNG library that must be rebuilt or vendored for a faithful executable. Kept `AUTOGEN_PARENT_UID` blank because this class is `78/80`, below the 80/80 parent-attachment gate, even though [UID:0000KW][LodePNG](by-file/LodePNG.md) is the likely owner. Live IDA MCP evidence: `lookup_funcs` confirms starts at `0x00448520` (`sub_448520`, size `0x7`), `0x00448530` (`sub_448530`, size `0x27`), `0x004460f0` (`sub_4460F0`, size `0x106`), and `0x00443c80` (`sub_443C80`, size `0xe1`); `callers` shows `0x004460f0` used by the LodePNG helper/front-end cluster including `0x00443c80`; `strings` finds `.?AULodePNGState@@` at `0x00674248`.
 - Completion/confidence score update: existed before as `0/0`; changed to `78/80`. Summary: the embedded third-party LodePNG state object is well tied to upstream `20160501` source, encoder frontend behavior, init/destructor ranges, and ownership, but the complete field layout is still only partially recovered. Evidence: IDA strings/vtable writes, stack-state initialization writes, obtained upstream header/source comparison, and linked LodePNG memory pages.
 - 2026-06-07 A001 lifecycle/parent refresh:
   - Before: the page was `78/80` and left `AUTOGEN_PARENT_UID` blank because it narrowly missed the attachment gate, despite the LodePNG file and exact state memory pages already documenting the owner.
-  - After: raised to `84/84`, attached to [UID:0000KW][LodePNG](by-file/LodePNG.md), added lifecycle, rebuild, score-rationale, and helper-island/library cross-evidence sections, and retained blank final C++.
+  - After: raised to `84/84`, attached to [UID:0000KW][LodePNG](by-file/LodePNG.md), added lifecycle, rebuild, score-rationale, and helper-island/library cross-evidence sections, and retained blank final C++ under the older policy; the 2026-06-27 B001 implementation supersedes that with the staged-source validator inline import directive.
   - Evidence: [UID:0000XF][0x00443c80-0x00443e5d.LodePngEncodeFrontEnd](by-memory/0x00443c80-0x00443e5d.LodePngEncodeFrontEnd.md) documents stack construction and public encode use; [UID:0000XH][0x004460f0-0x004461f6.LodePngStateInit](by-memory/0x004460f0-0x004461f6.LodePngStateInit.md) documents upstream-style state initialization; [UID:0000XI][0x00448520-0x00448557.LodePNGStateDestructors](by-memory/0x00448520-0x00448557.LodePNGStateDestructors.md) documents destructor glue; [UID:0000KW][LodePNG](by-file/LodePNG.md) and [UID:0001QE][client_libraries](by-meta/client_libraries.md) document static LodePNG `20160501` vendoring. This pass used existing project-documentation evidence and did not use Wave3/Wave2 source data.
+- 2026-06-15 A001 Goal 2 LodePNG state refresh:
+  - Before: the page was `84/84`, with strong existing provenance but no current live IDA audit.
+  - After: raised to `87/88`, added live IDA MCP evidence for the state initializer, destructors, encode-front-end relationship, and lower-bound helper correction, and linked the staged `third_party_embeds/lodepng` declarations as source-quality provenance.
+  - Evidence: live IDA confirms the key state lifecycle function sizes and xrefs; local staged LodePNG `20160501` source defines `LodePNGState`, `lodepng_state_init`, `lodepng_state_cleanup`, and `lodepng_encode_memory`. Routing remains [UID:0000KW][LodePNG](by-file/LodePNG.md). The class C++ block remained blank during that historical refresh; the 2026-06-27 B001 implementation supersedes that blank-emitter state with the staged-source validator inline import directive rather than hand-authored decompiler-shaped class code.
+
+## Accepted State Type, Vtable, And RTTI Inventory
+
+The imported header is source authority for `LodePNGState` and `lodepng::State`; the compiler regenerates the following hierarchy/type/vtable support without handwritten duplicates. The exact hierarchy rows below are physically covered by [UID:00057D][0x0064170c-0x006417a0.LodePngStateRttiDescriptors](by-memory/0x0064170c-0x006417a0.LodePngStateRttiDescriptors.md), and the exact type/name rows are physically covered by [UID:00057E][0x00674240-0x00674278.LodePngStateTypeDescriptors](by-memory/0x00674240-0x00674278.LodePngStateTypeDescriptors.md).
+
+| Claim | Exact accepted identity and disposition |
+| --- | --- |
+| C594 | Binary data `0x64170C-0x641720`: LodePNGState COL; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |
+| C595 | Binary data `0x641720-0x641730`: LodePNGState class hierarchy descriptor; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |
+| C596 | Binary data `0x641730-0x641738`: LodePNGState base-class array; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |
+| C597 | Binary data `0x641738-0x641754`: LodePNGState base-class descriptor; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |
+| C598 | Binary data `0x641754-0x641768`: lodepng::State COL; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |
+| C599 | Binary data `0x641768-0x641778`: lodepng::State class hierarchy descriptor; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |
+| C600 | Binary data `0x641778-0x641784`: lodepng::State base-class array; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |
+| C601 | Binary data `0x641784-0x6417A0`: lodepng::State base-class descriptor; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |
+| C605 | Binary data `0x674240-0x674248`: LodePNGState type-descriptor header; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |
+| C606 | Binary data `0x674248-0x67425C`: LodePNGState decorated name; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |
+| C607 | Binary data `0x67425C-0x674264`: lodepng::State type-descriptor header; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |
+| C608 | Binary data `0x674264-0x674278`: lodepng::State decorated name; UID0000KW owner; compiler-generated/no standalone source; compiler-covered/no duplicate H or CPP; supports exact split and 94/94 metadata. |

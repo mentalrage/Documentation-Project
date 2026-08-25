@@ -1,45 +1,78 @@
 *** UID:0000SE | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000OF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000OF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000OF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// Emitted definition for this global storage is covered by [UID:00029C][0x0069adfc-0x0069ae00.g_pTabPane](by-memory/0x0069adfc-0x0069ae00.g_pTabPane.md).
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # g_pTabPane
 
 ## Status
 
-- Confidence: strong for address, lifecycle, and class owner; medium-high for final declaration owner.
+- Confidence: very strong for address, zero-filled storage, exact lifecycle/users, class/file owner, and one-definition output route.
 - Address: `0x0069adfc`
-- Current aliases: `dword_69ADFC`, `DAT_0069adfc`
+- Source-facing name/type: `TabPane *g_pTabPane`.
+- Historical/raw aliases: `unk_69ADFC`, `dword_69ADFC`, and `DAT_0069adfc`; recovered database `6b2e78f3` has no explicit names/globals row in the singleton window.
 - Kind: process-wide singleton pointer to [UID:0000EB][TabPane](by-class/TabPane.md)
-- Proposed owner module: [UID:0000OF][TabPane](by-file/TabPane.md)
-- Exact storage page: [UID:00029C][0x0069adfc-0x0069ae00.g_pTabPane](by-memory/0x0069adfc-0x0069ae00.g_pTabPane.md)
-- Evidence basis: live IDA MCP xrefs and instruction windows, rechecked on 2026-05-30.
+- Owner/emitter module: [UID:0000OF][TabPane](by-file/TabPane.md), `NexusTK/ui/panels/TabPane.cpp`.
+- Exact definition carrier: [UID:00029C][0x0069adfc-0x0069ae00.g_pTabPane](by-memory/0x0069adfc-0x0069ae00.g_pTabPane.md), which emits `TabPane *g_pTabPane;`.
+- Declaration carrier: [UID:0000EB][TabPane](by-class/TabPane.md), which retains the sole `extern TabPane *g_pTabPane;`.
+- Formal disposition: covered-by marker only, preventing a duplicate storage definition while keeping this alias/lifecycle page non-empty.
+- Evidence basis: live IDA MCP bytes/xrefs/instruction contexts, exact PE virtual-tail analysis, current class/file routes, and generated output.
+
+## Storage And Initialization
+
+- Exact storage is one dword at `0x0069adfc-0x0069ae00` in the writable `.data` virtual tail.
+- PE imagebase is `0x00400000`; target RVA is `0x0029adfc`. `.data` starts at RVA `0x0026d000`, raw bytes end at `0x0027a800`, and virtual extent ends at `0x0029ce24`; the target is `0x205fc` bytes beyond the raw end.
+- Recovered MCP database `6b2e78f3` returned a zero-filled 32-byte singleton window at `0x0069adf0`, matching the earlier healthy `9df6e9a0` evidence. There is no file-backed `0xffffffff` initializer.
+- Static-storage zero initialization is naturally reconstructed by the exact storage definition `TabPane *g_pTabPane;`. `= NULL` or `= 0` would be behaviorally equivalent but are weaker lexical alternatives; `nullptr` is rejected as era-inconsistent.
+- The old 2026-05-28 `py_eval` `0xffffffff` observation is historical/superseded provenance. Its evaluated expression/result details were not preserved and it does not represent current PE or IDB bytes.
 
 ## Lifecycle
 
-- `0x0069adfc` is a 4-byte `.data` item named `dword_69ADFC`; live IDA MCP reports 5 data xrefs.
-- Set in `TabPane::TabPane` at `0x004cf9a4`.
-- Cleared by the non-deleting cleanup helper at `0x004cf9ea`.
-- Cleared by the scalar deleting destructor at `0x004cfe20`.
-- Read during main UI shutdown at `0x00504936`.
-- Also read by application/message handling at `0x0049e5e6`.
+Live `xref_query` on recovered database `6b2e78f3` reconfirmed exactly five refs:
+
+| Site | Function | Role |
+| --- | --- | --- |
+| `0x0049e5e6` | `sub_49E240`, size `0x476` | `DialogPane::OnInputEvent` consumer: loads TabPane, obtains bounds, translates coordinates, hit-tests, and forwards to the pane facet. |
+| `0x004cf9a4` | `sub_4CF980`, size `0x4a` | [UID:00034L][0x004cf980-0x004cf9ca.TabPaneConstructor](by-memory/0x004cf980-0x004cf9ca.TabPaneConstructor.md) publishes `g_pTabPane = this;`. |
+| `0x004cf9ea` | `sub_4CF9D0`, size `0x29` | [UID:00034M][0x004cf9d0-0x004cf9f9.TabPaneCleanupHelper](by-memory/0x004cf9d0-0x004cf9f9.TabPaneCleanupHelper.md) is the single source-visible ordinary destructor clear. |
+| `0x004cfe20` | `sub_4CFE00`, size `0x5f` | [UID:00034W][0x004cfe00-0x004cfe5f.TabPaneScalarDeletingDestructor](by-memory/0x004cfe00-0x004cfe5f.TabPaneScalarDeletingDestructor.md) repeats the clear as compiler scalar-wrapper glue and emits no duplicate destructor/global source. |
+| `0x00504936` | `sub_5047F0`, size `0x37b` | [UID:0002QH][0x005047f0-0x00504b6b.MapPaneExitToMenuTeardown](by-memory/0x005047f0-0x00504b6b.MapPaneExitToMenuTeardown.md) checks and removes the pane from the layer. |
+
+Exact target VA pattern `FC AD 69 00` occurs only at these five instruction operands; target RVA pattern `FC AD 29 00` has zero hits. There is no sixth xref, hidden pointer table, dynamic initializer, or alternate storage route.
+
+The ordinary/scalar decomposition is deliberate: source C++ contains one `TabPane::~TabPane()` singleton clear, while the compiler regenerates scalar wrapper behavior. Consumers read/remove the object but do not own its storage.
 
 ## Ownership Notes
 
-This global tracks the active `TabPane` instance. It is adjacent to [UID:0000R6][g_pIconsPane](by-global/g_pIconsPane.md), but `0x0069adfc` is consistently written by `TabPane` lifecycle paths and should not be folded into `IconsPane` ownership.
+This global tracks the active `TabPane` instance. The exact by-memory page directly emits the definition through the existing TabPane file root; this by-global page owns symbol meaning, lifetime, users, and source placement only. The class page supplies the extern, so all three documentation layers have non-overlapping source responsibilities.
+
+The direct lifecycle rejects DialogPane, MapPane, generic UI-global, and [UID:0000JZ][IconsPane](by-file/IconsPane.md) ownership. Those modules are consumers or physical neighbors. `IconsPane` has its own distinct singleton/vtable lifecycle.
+
+Adjacent boundaries are exact: predecessor [UID:0001PB][0x0069adf8-0x0069adfc.g_pDescPane](by-memory/0x0069adf8-0x0069adfc.g_pDescPane.md) has four refs, this slot has five, and successor [UID:0001PC][0x0069ae00-0x0069ae04.g_pSimpleHelpPane](by-memory/0x0069ae00-0x0069ae04.g_pSimpleHelpPane.md) has 23. No merge, split, array, or padding interpretation is supported.
 
 ## Assignment Gate
 
-The global remains attached to [UID:0000OF][TabPane](by-file/TabPane.md). The direct file parent is now `86/85`, and this page is now `86/89`, so the corrected `85/85` gate is satisfied. The exact memory storage child [UID:00029C][0x0069adfc-0x0069ae00.g_pTabPane](by-memory/0x0069adfc-0x0069ae00.g_pTabPane.md) is the concrete four-byte `.data` slot for this global and can attach here without pulling in the neighboring `g_pSimpleHelpPane` slot.
+The global remains owner/emitter-qualified under [UID:0000OF][TabPane](by-file/TabPane.md), now `92/93`; this page is `90/92`. Exact storage page UID00029C is independently source-ready at `92/93` and directly emits through the same file root. This removes the obsolete transitive `86/85` gate narrative.
+
+Blank optional position remains correct. The class declaration and sole extern already precede generated methods; UID00029C may define the symbol later at namespace scope without a new forward declaration.
 
 ## Data Caveats
 
-Recovered class-output views can omit the cleanup helper and some compiler glue that also clear this global. Use the IDA-confirmed lifecycle above when migrating global ownership.
+Generated/recovered views can expose compiler scalar cleanup as a second binary clear. Preserve it as lifecycle evidence, not authored source. Do not handwrite vptr stores, wrapper flags, base-destructor calls, vtable/RTTI arrays, raw addresses, or a second global definition.
+
+## Score Rationale
+
+- Completion `90`: exact storage/definition carrier, PE zero fill, all five refs and roles, source/compiler destructor split, event/teardown consumers, type/name/linkage, one-definition marker route, boundaries, negatives, and historical correction are present.
+- Confidence `92`: exact binary and accepted source routes agree. The remaining cap is absence of an original IDA/debug symbol and token-level uncertainty over omitted versus explicit zero initializer.
 
 ## Cross-References
 
@@ -47,9 +80,16 @@ Recovered class-output views can omit the cleanup helper and some compiler glue 
 - [UID:0000OF][TabPane](by-file/TabPane.md)
 - [UID:000170][0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail](by-memory/0x004cf980-0x004cfe5f.TabPaneAndIconsPaneDestructorTail.md)
 - [UID:0000JZ][IconsPane](by-file/IconsPane.md)
+- [UID:00029C][0x0069adfc-0x0069ae00.g_pTabPane](by-memory/0x0069adfc-0x0069ae00.g_pTabPane.md)
+- [UID:0001PB][0x0069adf8-0x0069adfc.g_pDescPane](by-memory/0x0069adf8-0x0069adfc.g_pDescPane.md)
+- [UID:0001PC][0x0069ae00-0x0069ae04.g_pSimpleHelpPane](by-memory/0x0069ae00-0x0069ae04.g_pSimpleHelpPane.md)
 
 ## Changes
 
+- 2026-07-14 B003 UID00029C implementation callback:
+  - Before: `86/89`, owner/emitter UID0000OF, true, blank formal, stale raw-name/current-gate claims, and an Empty Emitter Marker beside UID00029C's marker.
+  - Changed to: `90/92`, owner/emitter preserved, exact covered-by R2 marker, zero-fill/PE storage, recovered MCP database `6b2e78f3`, all five lifecycle/consumer refs, source/compiler destructor split, exact storage-definition/class-extern factorization, `4/5/23` boundaries, negative routes, and score rationale.
+  - Historical preservation: old `dword_69ADFC` and `0xffffffff` statements remain search provenance only; current source name and storage value are evidence-backed.
 - 2026-06-05: Marked reconstructable and attached to [UID:0000OF][TabPane](by-file/TabPane.md) to resolve the global unclassified coverage row.
   - Reasoning: live IDA xrefs bind the singleton to the `TabPane` constructor, cleanup helper, scalar deleting destructor, application/message read, and main UI shutdown read. No score change and no reconstruction C++ were added.
 - What existed before: this page had the correct lifecycle outline but unevaluated completion/confidence metadata and an evidence-basis line that mixed source output with IDA checks.

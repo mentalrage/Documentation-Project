@@ -1,33 +1,39 @@
 *** UID:0000R4 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:94 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000JX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000JX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000JX | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL:30 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+HourPane *g_pHourPane = NULL;
+[[CHILDREN]]
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # g_pHourPane
 
 ## Status
 
-- Confidence: strong for address, lifecycle, and owner; medium-high for final source declaration spelling.
+- Confidence: very strong for address, exact `HourPane *` type, source definition, implicit Singleton lifecycle, external consumer, and file ownership.
 - Address: `0x0069b418`
 - Exact storage doc: [UID:00029I][0x0069b418-0x0069b41c.g_pHourPane](by-memory/0x0069b418-0x0069b41c.g_pHourPane.md)
-- Current aliases: `dword_69B418`, `DAT_0069b418`, noncanonical `g_pItemShopPane`
+- Current IDA name: `g_pHourPane`
+- Historical aliases: `dword_69B418`, `DAT_0069b418`, noncanonical `g_pItemShopPane`
 - Kind: process-wide singleton pointer to [UID:000068][HourPane](by-class/HourPane.md)
-- Likely type: `HourPane*`
+- Exact source type: `HourPane *`.
 - Proposed owner module: [UID:0000JX][HourPane](by-file/HourPane.md)
 - Rebuild handling: source-declared module/global singleton pointer; exact address and binary initializer are rebuilt by the linker.
-- Autogen parent: [UID:0000JX][HourPane](by-file/HourPane.md); final C++ remains blank because the exact static declaration/header placement is below the `95+` source gate.
+- Emitter parent: [UID:0000JX][HourPane](by-file/HourPane.md), source position 30; exact storage UID00029I is inserted through `[[CHILDREN]]` at child position 10.
 - Evidence basis: IDA MCP xrefs/decompilation.
 
 ## Lifecycle
 
-- Set in `HourPane::HourPane` at `0x004cee85`, with a null/sentinel branch when the adjusted owner pointer would be null.
-- Cleared by the non-deleting cleanup helper at `0x004ceeb0`.
-- Cleared by the scalar deleting destructor at `0x004cf190`.
+- Published at `0x004cee85` as the compiler-inlined `Singleton<HourPane>` base-construction consequence; no explicit assignment belongs in the human constructor body.
+- Cleared at `0x004ceeca` as the compiler-inlined Singleton base-destruction consequence of the ordinary virtual destructor.
+- Cleared at `0x004cf1b0` inside the compiler scalar deleting wrapper's inlined destruction path; this is the same source-level destructor lifecycle, not a second handwritten clear.
 - Read during main UI shutdown at `0x00504a18`; if non-null, the client passes it to the pane-child removal helper at `0x00504a24`.
 
 ## Evidence Table
@@ -35,9 +41,11 @@
 | Site | Use | Evidence owner |
 | --- | --- | --- |
 | `0x004cee85` | Constructor stores the active `HourPane` singleton. | [UID:00016Y][0x004cee60-0x004cf1ef.HourPane](by-memory/0x004cee60-0x004cf1ef.HourPane.md) and [UID:0000JX][HourPane](by-file/HourPane.md). |
-| `0x004ceeb0` | Non-deleting cleanup helper clears the singleton while restoring HourPane vtables. | Same HourPane range and file owner. |
-| `0x004cf190` | Scalar deleting destructor clears the singleton before base cleanup/delete handling. | Same HourPane range and file owner. |
+| `0x004ceeca` | Ordinary destructor path clears Singleton storage through implicit base teardown while restoring HourPane vtables. | UID0004NK ordinary destructor and class inheritance. |
+| `0x004cf1b0` | Scalar wrapper inlines the same Singleton clear before Pane teardown/delete handling. | UID0004NQ compiler-only wrapper. |
 | `0x00504a18` / `0x00504a24` | Main UI shutdown reads the pointer and removes the pane from the child graph if present. | [UID:0000JX][HourPane](by-file/HourPane.md) records creation/shutdown ownership through the main UI graph. |
+
+2026-06-16 C001 live IDA refresh on session `b001_mappane_0001AW_20260616` reconfirmed current zeroed storage bytes, the four direct data xrefs, constructor store, cleanup/destructor clears, and the broad UI shutdown read. C001 saved `g_pHourPane`, `HourPaneConstructor`, `HourPaneCleanupHelper`, and `HourPaneScalarDeletingDestructor` in the IDB.
 
 ## Ownership Notes
 
@@ -45,9 +53,13 @@ The alias `g_pItemShopPane` is not consistent with the xrefs. The global is writ
 
 Keep this global with `HourPane.cpp` rather than a broader main-UI singleton bucket. Main UI shutdown is a consumer of the pointer; the lifecycle owner is the clock/hour HUD panel source.
 
+The source definition is exactly `HourPane *g_pHourPane = NULL;`. The `Singleton<HourPane>` base explains publication and clearing, while the standalone definition supplies storage. `[[CHILDREN]]` inserts the exact UID00029I storage marker without duplicating the definition.
+
 ## Data Caveats
 
 Do not migrate the `g_pItemShopPane` alias directly into source ownership; the storage xrefs prove this address is the `HourPane` singleton.
+
+Do not write explicit constructor assignment, destructor clear, scalar-wrapper clear, vptr mechanics, base teardown, or delete flags. Those binary effects are generated by inheritance and destruction. Do not move the definition into a generic singleton registry or main-UI shutdown source.
 
 ## Cross-References
 
@@ -60,6 +72,7 @@ Do not migrate the `g_pItemShopPane` alias directly into source ownership; the s
 
 ## Changes
 
+- 2026-07-14 B005 callback: raised `88/89 -> 92/94`, set source position 30, applied the exact `HourPane *g_pHourPane = NULL;` definition and child insertion, distinguished source storage from implicit Singleton lifecycle, preserved all four xrefs and shutdown ordering, and rejected the ItemShop alias and explicit lifecycle source.
 - 2026-06-06 A010 singleton evidence consolidation:
   - Before: `COMPLETION:82`, `CONFIDENCE:78`, with lifecycle bullets but no explicit rebuild handling, likely pointer type, source-gate note, or evidence table.
   - Changed to: `COMPLETION:86`, `CONFIDENCE:86`, source-declared singleton handling, likely `HourPane*` type, final declaration caveat, lifecycle evidence table, and clearer separation from the adjacent `IconsPane` singleton.
@@ -67,3 +80,4 @@ Do not migrate the `g_pItemShopPane` alias directly into source ownership; the s
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `82/78`. Summary/evidence: the page documents address, aliases, HourPane singleton role, lifecycle set/clear/read sites, ownership notes, alias caveat, and refs; final declaration owner remains medium-confidence.
 - 2026-06-05: Marked reconstructable under [UID:0000JX][HourPane](by-file/HourPane.md). Evidence: live IDA MCP reports four xrefs to `0x0069b418`; decompilation confirms constructor `0x004cee60`, cleanup helper `0x004ceeb0`, and scalar deleting destructor `0x004cf190` write/clear `dword_69B418`, with main UI shutdown reading it at `0x00504a18`.
 - 2026-06-07 A007 Batch 041 split-link update: added the exact by-memory storage doc [UID:00029I][0x0069b418-0x0069b41c.g_pHourPane](by-memory/0x0069b418-0x0069b41c.g_pHourPane.md) after the mixed Hour/Icons singleton range was split into separate `HourPane` and `IconsPane` slots.
+- 2026-06-16 C001 Goal 2 global/IDA refresh: raised `86/86` to `88/89` after live IDA reconfirmed storage bytes, xrefs, lifecycle writers/clears, adjacent singleton separation, and saved the singleton plus lifecycle function names in the IDB. No final C++ was added because inherited-base/member names and exact declaration/header placement remain unresolved.

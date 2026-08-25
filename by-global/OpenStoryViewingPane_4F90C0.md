@@ -1,27 +1,34 @@
 *** UID:0000TE | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// OpenStoryViewingPane is emitted by exact helper [UID:0003H6][0x004f90c0-0x004f913f.OpenStoryViewingPane](by-memory/0x004f90c0-0x004f913f.OpenStoryViewingPane.md); this address-suffixed global page remains a search/support alias and does not duplicate the retained launcher body.
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # OpenStoryViewingPane_4F90C0
 
 ## Status
 
-- Confidence: strong for behavior, source owner, and current unreferenced status; medium for why the wrapper was retained.
-- Address range: [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md)
+- Confidence: very strong for behavior, exact child range, source owner, and current unreferenced status; medium for why the wrapper was retained.
+- Address range: [UID:0003H6][0x004f90c0-0x004f913f.OpenStoryViewingPane](by-memory/0x004f90c0-0x004f913f.OpenStoryViewingPane.md)
 - Likely owner source: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
-- Parent status: unassigned under the strict `85/85` child/direct-parent gate. This helper now has `84/88`, and likely direct parent [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) is `88/82`.
+- Parent status: assigned to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) after this helper's exact by-memory child reached `86/90` and the direct parent remains `89/86`.
+- Support role: address-suffixed search/symbol alias only. The exact by-memory child [UID:0003H6][0x004f90c0-0x004f913f.OpenStoryViewingPane](by-memory/0x004f90c0-0x004f913f.OpenStoryViewingPane.md) owns the emitted `static void OpenStoryViewingPane()` body; this alias keeps blank formal C++ and exact score `86/90`.
 
 ## Function Role
 
-`OpenStoryViewingPane_4F90C0` is a small helper that allocates a `0x108`-byte, 264 decimal byte (Verified with `int_convert.py`), [UID:000066][HistoryViewingPane](by-class/HistoryViewingPane.md) and passes the story resource selected by [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md): `STORY.EPF` in EPF/high-layout mode or `STORY.EPD` in legacy mode.
+`OpenStoryViewingPane_4F90C0` is a small helper that allocates a `0x108`-byte / 264 decimal byte (Verified with `int_convert.py`) [UID:000066][HistoryViewingPane](by-class/HistoryViewingPane.md) and passes the story resource selected by [UID:0000SW][g_useEpfAssets](by-global/g_useEpfAssets.md): `STORY.EPF` in EPF/high-layout mode or `STORY.EPD` in legacy mode.
 
 This duplicates the story branch inside `MainMenuPane::ActivateMenuItem`. Current IDA reports no callers or xrefs to the helper start, and 2026-05-28 raw pointer/immediate searches also found no hidden references. Treat it as a real retained duplicate helper unless later evidence proves a callback path.
+
+The final emitted helper name omits the address suffix. Use this page for symbol/search history and source-placement evidence only; do not duplicate the body emitted by [UID:0003H6][0x004f90c0-0x004f913f.OpenStoryViewingPane](by-memory/0x004f90c0-0x004f913f.OpenStoryViewingPane.md).
 
 ## Evidence Notes
 
@@ -44,6 +51,11 @@ This duplicates the story branch inside `MainMenuPane::ActivateMenuItem`. Curren
 - 2026-06-10 `xrefs_to` confirms the story resource operands are referenced by this helper at `0x004f9107` for `STORY.EPF` (`0x0061e128`) and `0x004f9124` for `STORY.EPD` (`0x0061e13c`), matching the active menu-handler sites at `0x004f7b86` and `0x004f7bbc`.
 - 2026-06-10 decompilation of `0x004f90c0` still reduces to the `g_useEpfAssets` branch, `0x108` allocation, null check, and constructor call; disassembly shows the SEH/security-cookie frame, `cmp byte_66DA97, 1`, `push 108h`, resource pointer push, and constructor dispatch at `0x004f912b`.
 - 2026-06-10 decompilation of `0x004f7a10` confirms active menu cases `3` and `4` inline the same story/history allocation and constructor behavior instead of calling these retained wrappers.
+- 2026-06-12 A002 split/route pass created exact child [UID:0003H6][0x004f90c0-0x004f913f.OpenStoryViewingPane](by-memory/0x004f90c0-0x004f913f.OpenStoryViewingPane.md) from the former pair aggregate [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md).
+- 2026-06-12 A002 live IDA MCP session `b001_nexustk` reconfirmed `sub_4F90C0` at `0x004f90c0` with size `0x7f` / 127 bytes (Verified with `int_convert.py`), non-function end boundary `0x004f913f`, successor `sub_4F9140` at `0x004f9140`, `0x108` / 264-byte allocation (Verified with `int_convert.py`), resource pushes at `0x004f9107` and `0x004f9124`, and constructor call at `0x004f912b`.
+- 2026-06-12 A002 `xrefs_to` reconfirmed zero helper-entry xrefs to `0x004f90c0`; `xrefs_to 0x004ffd80` showed active story call sites at `0x004f7b8d`/`0x004f7bc3` and the retained helper call at `0x004f912b`.
+- 2026-06-12 A002 `xrefs_to` reconfirmed `STORY.EPF` at `0x0061e128` is used by active menu site `0x004f7b86`, this helper at `0x004f9107`, and `BackStoryDialogPane` sites; `STORY.EPD` at `0x0061e13c` is used by active menu site `0x004f7bbc`, this helper at `0x004f9124`, and `BackStoryDialogPane` sites.
+- 2026-06-29 B004 MCP session `992d23de` reconfirmed the exact `0x7f` / 127-byte child body, `0x108` / 264-byte allocation, `g_useEpfAssets == 1` branch, constructor/resource xrefs, zero helper-entry xrefs/callers, and zero VA/RVA pointer-byte routes. The exact child now carries first-draft `static void OpenStoryViewingPane()` C++; this by-global page remains a blank-C++ alias at exact `86/90`.
 
 ## Source Layout Decision
 
@@ -52,18 +64,19 @@ Keep this with `login/MainMenuPane.cpp` as a menu action helper for address-matc
 ## Autogen Status
 
 - Reconstructable: true, as a retained project helper with exact behavior and boundary evidence.
-- Parent: blank until [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) reaches at least `85/85`; it is the likely direct owner, but currently sits at `88/82`.
-- C++: intentionally blank; this is a small retained wrapper, but final source shape and retention reason are not final-audit quality.
+- Parent: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md). The child and actual direct parent now clear the strict `85/85` route gate.
+- C++: intentionally blank because this is a support/search alias. Emitted source belongs to exact child [UID:0003H6][0x004f90c0-0x004f913f.OpenStoryViewingPane](by-memory/0x004f90c0-0x004f913f.OpenStoryViewingPane.md); duplicating it here would double-emit the same function body.
 
 ## Score Rationale
 
 | Score | Rationale |
 | --- | --- |
-| Completion `84` | Exact boundary, function size, padding relationship, resource operands, allocator/constructor behavior, direct no-caller status, constructor caller matrix, matching active menu cases, source-placement caveat, and strict parent-gate status are documented. Completion remains capped because the retained duplicate wrapper's source reason is unresolved and final C++ is intentionally blank. |
-| Confidence `88` | Live IDA strongly confirms the helper body, decoded resource operands, constructor path, direct lack of callers, and duplicated active menu behavior. Confidence remains below higher scores because no live caller or callback table has been recovered, and the likely parent page still lacks `85` confidence. |
+| Completion `86` | Exact boundary, exact child by-memory page, function size, padding relationship, resource operands, allocator/constructor behavior, direct no-caller status, constructor caller matrix, matching active menu cases, source-placement caveat, strict parent-gate clearance, and support-only alias disposition are documented. Completion stays unchanged because the source body is now emitted by [UID:0003H6][0x004f90c0-0x004f913f.OpenStoryViewingPane](by-memory/0x004f90c0-0x004f913f.OpenStoryViewingPane.md), not this alias. |
+| Confidence `90` | Live IDA strongly confirms the helper body, decoded resource operands, constructor path, direct lack of callers, duplicated active menu behavior, and direct parent assignment to a `89/86` source file. Confidence remains below final-audit levels because no live caller or callback table has been recovered. |
 
 ## Cross-References
 
+- [UID:0003H6][0x004f90c0-0x004f913f.OpenStoryViewingPane](by-memory/0x004f90c0-0x004f913f.OpenStoryViewingPane.md)
 - [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md)
 - [UID:0000JW][HistoryViewingPane](by-file/HistoryViewingPane.md)
 - [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md)
@@ -71,6 +84,14 @@ Keep this with `login/MainMenuPane.cpp` as a menu action helper for address-matc
 
 ## Changes
 
+- 2026-06-12 Agent-A002 Batch 301:
+  - Before: `84/88`, parent blank, address evidence linked only to aggregate [UID:00019R][0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers](by-memory/0x004f90c0-0x004f91bf.HistoryViewingPaneLaunchHelpers.md).
+  - After: `86/90`, parent [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md), exact child range [UID:0003H6][0x004f90c0-0x004f913f.OpenStoryViewingPane](by-memory/0x004f90c0-0x004f913f.OpenStoryViewingPane.md).
+  - Why: the exact child and direct parent now both clear the strict `85/85` gate; the old by-memory pair page was repaired into a non-emitting split index with exact child pages.
+  - Evidence: live IDA MCP `b001_nexustk` reconfirmed the `0x7f` / 127-byte helper size, `0x108` / 264-byte allocation, exact end/successor boundary, allocator/constructor callees, story-resource xrefs, empty helper-entry xrefs, and active `MainMenuPane::ActivateMenuItem` duplicate story case.
+- 2026-06-29 B004 accepted implementation:
+  - Kept exact `86/90`, owner/emitter [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md), reconstructable state, and blank formal C++.
+  - Clarified support/search alias disposition: exact child [UID:0003H6][0x004f90c0-0x004f913f.OpenStoryViewingPane](by-memory/0x004f90c0-0x004f913f.OpenStoryViewingPane.md) owns the first-draft `static void OpenStoryViewingPane()` body; this address-suffixed by-global page preserves symbol/source-placement evidence and must not duplicate the body.
 - 2026-06-04: Raised completion/confidence from `72/80` to `80/86` after live IDA verified the exact helper boundary, internal padding relationship, no entry xrefs, zero loaded dword hits, decoded `STORY.EPF`/`STORY.EPD` operands, raw instruction shape, and matching active `MainMenuPane` story case.
 - Before: the page recorded older behavior/no-reference checks but lacked current padding, resource operand, and instruction-level evidence.
 - After: the symbol summary now mirrors the stronger by-memory evidence while keeping final C++ blank and source retention unresolved.

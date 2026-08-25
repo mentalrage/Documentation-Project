@@ -25,8 +25,8 @@
 - `MainMenuPane::ActivateMenuItem` opens login/account/password/story/history/terminal/exit flows from the menu selection state.
 - `MainMenuPane::ActivateMenuItem` directly constructs `HistoryViewingPane` for both story and history frame-sequence actions. IDA reports four direct constructor call sites in that function plus two helper-wrapper call sites.
 - [UID:0000PH][CloseMainMenuDialogSingletons_4F69A0](by-global/CloseMainMenuDialogSingletons_4F69A0.md) closes or marks for deletion the pre-login singleton dialogs, including `g_pBackStoryDialogPane` and `g_pHistoryViewingPane`.
-- [UID:0000PI][ComputeMenuItemRect_4F8B90](by-global/ComputeMenuItemRect_4F8B90.md) owns the main-menu item rectangles used by mouse/key hit testing and paint.
-- [UID:0000T1][HitTestMenuItem_4F8C10](by-global/HitTestMenuItem_4F8C10.md) owns main-menu mouse-coordinate hit testing and is called only from `MainMenuPane::OnMouseEvent`.
+- [UID:00019M][0x004f8b90-0x004f8c07.ComputeMenuItemRect](by-memory/0x004f8b90-0x004f8c07.ComputeMenuItemRect.md) documents the private/static `MainMenuPane.cpp` helper that computes main-menu item rectangles for mouse/key invalidation and paint; [UID:0000PI][ComputeMenuItemRect_4F8B90](by-global/ComputeMenuItemRect_4F8B90.md) remains the address-suffixed alias page.
+- [UID:0000T1][HitTestMenuItem_4F8C10](by-global/HitTestMenuItem_4F8C10.md) documents the sibling private/static helper that maps mouse coordinates to a menu item index and is called only from `MainMenuPane::OnMouseEvent`.
 - [UID:0000SZ][HandleLegacyMainMenuPacket_4F8D00](by-global/HandleLegacyMainMenuPacket_4F8D00.md) is the only helper currently proven for pre-login server-message opcode `3`.
 - [UID:0000TB][OpenCreateUserDialog_4F8FA0](by-global/OpenCreateUserDialog_4F8FA0.md), [UID:0000TE][OpenStoryViewingPane_4F90C0](by-global/OpenStoryViewingPane_4F90C0.md), [UID:0000TC][OpenHistoryViewingPane_4F9140](by-global/OpenHistoryViewingPane_4F9140.md), and [UID:0000TF][OpenTerminalPane_4F91C0](by-global/OpenTerminalPane_4F91C0.md) are retained launch helpers with no direct xrefs in the current IDA database.
 - `BackStoryDialogPane` is still present as a concrete dialog class at `0x00500090-0x0050040d`, but IDA did not show a direct constructor xref during the 2026-05-24 pass. Treat it as an older or indirectly reached menu dialog until the caller path is resolved.
@@ -40,7 +40,9 @@
 - [UID:00007O][MainMenuPane](by-class/MainMenuPane.md)
 - [UID:0000PH][CloseMainMenuDialogSingletons_4F69A0](by-global/CloseMainMenuDialogSingletons_4F69A0.md)
 - [UID:0000PI][ComputeMenuItemRect_4F8B90](by-global/ComputeMenuItemRect_4F8B90.md)
+- [UID:00019M][0x004f8b90-0x004f8c07.ComputeMenuItemRect](by-memory/0x004f8b90-0x004f8c07.ComputeMenuItemRect.md)
 - [UID:0000T1][HitTestMenuItem_4F8C10](by-global/HitTestMenuItem_4F8C10.md)
+- [UID:00019N][0x004f8c10-0x004f8cfa.MainMenuHitTest](by-memory/0x004f8c10-0x004f8cfa.MainMenuHitTest.md)
 - [UID:0000SZ][HandleLegacyMainMenuPacket_4F8D00](by-global/HandleLegacyMainMenuPacket_4F8D00.md)
 - [UID:0000TB][OpenCreateUserDialog_4F8FA0](by-global/OpenCreateUserDialog_4F8FA0.md)
 - [UID:0000TF][OpenTerminalPane_4F91C0](by-global/OpenTerminalPane_4F91C0.md)

@@ -1,12 +1,20 @@
 *** UID:0000F5 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL:10 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000HW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+/*
+[UID:0000F5] No standalone class-level C++ is emitted from this class page.
+TransferReplyAlert owns exact child pages: [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md) emits the constructor and [UID:0002EL][0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm](by-memory/0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm.md) emits the confirm action. The class page remains an index/support page and must not duplicate child bodies.
+*/
+[[CHILDREN]]
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # TransferReplyAlert
 
@@ -70,6 +78,10 @@ Assignment decision: retain this class under [UID:0000HW][BulletinReplyAlerts](b
 - [UID:0002EL][0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm](by-memory/0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm.md)
 - [UID:0000ZN][0x004790a0-0x0047910f.TransferReplyPredefinedAlertOnAlertAction](by-memory/0x004790a0-0x0047910f.TransferReplyPredefinedAlertOnAlertAction.md)
 
+## B006 2026-06-29 Implementation Callback
+
+- Accepted C13: this class page is an index/no-code row with `[[CHILDREN]]` as the insertion point for exact child output. [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md) and [UID:0002EL][0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm](by-memory/0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm.md) now own the emitted constructor and confirm-action source, so class-level C++ would duplicate child bodies.
+
 ## Changes
 
 - 2026-06-06 A008:
@@ -78,7 +90,7 @@ Assignment decision: retain this class under [UID:0000HW][BulletinReplyAlerts](b
   - Evidence: [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md) and [UID:0002EL][0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm](by-memory/0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm.md) are both exact `82/90` children, [UID:0001X4][BoardArticleDialogVtableFamily](by-type/by-vtable/BoardArticleDialogVtableFamily.md) carries the matching vtable bases, and [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md) remains below the parent-attachment gate at `78/86`.
 - 2026-06-07 A004:
   - Changed to: attached to [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md) with parent position `10`; score remains `84/82`.
-  - Summary/evidence: the file parent was refreshed to `82/86` with exact transfer/delete child-family evidence, so the 80/80 parent gate now passes. C++ remains blank because final field names, constructor helper names, destructor representation, and the possible [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md) private-source split remain below the 95/95 reconstruction-code gate.
+  - Summary/evidence: the file parent was refreshed to `82/86` with exact transfer/delete child-family evidence, so the 80/80 parent gate passed. Historical note: this older entry left C++ blank under a `95/95` gate; B006 now leaves only the class page no-code while child pages [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md) and [UID:0002EL][0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm](by-memory/0x00478fe0-0x0047904f.TransferReplyAlertOnConfirm.md) emit source.
 - 2026-06-08 A009 Batch108 parent-gate repair:
   - Before: scores were `84/82`, so exact child pages could not attach under the corrected `85/85` gate even though the file parent had already reached `85/86`.
   - After: raised to `85/86`; retained [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md) as direct file parent.
@@ -86,7 +98,7 @@ Assignment decision: retain this class under [UID:0000HW][BulletinReplyAlerts](b
 
 - Before: reconstruction autogen metadata was unclassified.
 - Changed to: marked `RECONSTRUCTABLE:TRUE` while leaving `AUTOGEN_PARENT_UID` blank.
-- Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the alert action, adjustor thunks, and scalar deleting destructor starts at `0x00478fe0`, `0x0047e855`, `0x0047e860`, and `0x0047eaf0`; the constructor at `0x00478f90` remains a raw non-function constructor-shaped start documented by [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md). The page is only `82/78`, and likely parent [UID:0000HW][BulletinReplyAlerts](by-file/BulletinReplyAlerts.md) is `76/84`, so the parent gate does not pass. No C++ was emitted because the page is below the 95/95 reconstruction-code bar.
+- Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the alert action, adjustor thunks, and scalar deleting destructor starts at `0x00478fe0`, `0x0047e855`, `0x0047e860`, and `0x0047eaf0`; the constructor at `0x00478f90` remains a raw non-function constructor-shaped start documented by [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md). Historical note: this old pass predated the B006 source-quality promotion of child method bodies.
 - 2026-05-27: The constructor was previously recorded only as Wave3-projected `0x00478f90`. Updated it to raw IDA-confirmed range [UID:00021A][0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor](by-memory/0x00478f90-0x00478fd8.TransferReplyAlertRawConstructor.md). Evidence: IDA raw disassembly shows constructor-shaped code, `0x0049feb0` helper call, optional-pop flag store at `this+0x270`, and `TransferReplyAlert` vtable stores at `0x00478fb7`, `0x00478fbd`, and `0x00478fc7`.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.

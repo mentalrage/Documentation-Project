@@ -1,12 +1,16 @@
 *** UID:0000UZ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000K3 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000K3 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000K3 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// Emitted code for LoadPcxImage is covered by [UID:000314][0x004a17b0-0x004a18a8.LoadPcxImage](by-memory/0x004a17b0-0x004a18a8.LoadPcxImage.md).
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # LoadPcxImage 0x004A17B0
 
@@ -16,7 +20,7 @@
 - Entity kind: free image-loader helper.
 - Likely source module: [UID:0000K3][ImageLoaders](by-file/ImageLoaders.md)
 - Exact range: `0x004a17b0-0x004a18a8`
-- Signature evidence: `_DWORD *__cdecl sub_4A17B0(HDC hdc, const char *Src, int a3)` in IDA, matching historical `DIBitmap* __cdecl LoadPcxImage(HDC hdc, const char *fileName, int transparentIndex)`.
+- Signature evidence: current IDA decompiles `LoadPcxImage(HDC hdc, const char *Src, int a3)`, matching historical `DIBitmap* __cdecl LoadPcxImage(HDC hdc, const char *fileName, int transparentIndex)`.
 
 ## Behavior
 
@@ -29,6 +33,8 @@ The third argument is forwarded unchanged to `CreateDIBitmapFromPcxBuffer`, wher
 IDA MCP recheck on 2026-06-02 confirms `sub_4A17B0` starts at `0x004a17b0`, has size `0xf8`, and ends half-open at `0x004a18a8`. The next function, [UID:0000U9][CreateDIBitmapFromPcxBuffer_004A18B0](by-item/CreateDIBitmapFromPcxBuffer_004A18B0.md), begins at `0x004a18b0`; the bytes from `0x004a18a8-0x004a18af` are `0xcc` alignment padding.
 
 IDA MCP recheck on 2026-06-06 confirms the same `0xf8`-byte function boundary, confirms `0x004a18a8` is not a function, and confirms `0x004a18b0` starts the PCX-buffer-to-DIB helper. IDA still does not model a function at raw startup notice address `0x005818d0`.
+
+2026-06-16 C001 live IDA MCP refresh in session `b001_mappane_0001AW_20260616` reconfirmed `0x004a17b0-0x004a18a8` as a 248-byte function, reconfirmed the twelve xrefs split between modeled `0x00581100` startup-window code and raw `0x005818d0` notice-helper code, and saved the low-risk function label `LoadPcxImage` after dry-run rename validation. No prototype, local, type, or raw-function edit was made.
 
 The IDA decompile shows this call flow:
 
@@ -90,8 +96,8 @@ The modeled `0x00581100` paint path performs the same lazy load into the same st
 
 ## Score Rationale
 
-- Completion is `86` because the page now records exact half-open bounds, adjacent padding/function evidence, detailed path/DAT/decode call flow, callee inventory, modeled and raw caller clusters, PCX literal mapping, raw helper state writes, ownership, and remaining source-name caveats.
-- Confidence is `88` because live IDA evidence confirms the wrapper behavior, resource gate, temporary DAT/file-buffer lifecycle, twelve xrefs, and the raw helper's lazy asset-state contract. Confidence remains below stronger image-loader helpers because IDA still does not model `0x005818d0` as a function and the final string/file-buffer helper names remain unresolved.
+- Completion is `87` because the page records exact half-open bounds, adjacent padding/function evidence, detailed path/DAT/decode call flow, callee inventory, modeled and raw caller clusters, PCX literal mapping, raw helper state writes, ownership, and a saved IDA label for the wrapper.
+- Confidence is `90` because live IDA evidence confirms the wrapper behavior, resource gate, temporary DAT/file-buffer lifecycle, twelve xrefs, and the raw helper's lazy asset-state contract. Confidence remains capped below final-source quality because IDA still does not model `0x005818d0` as a function and the final string/file-buffer helper names remain unresolved.
 
 ## Ownership
 
@@ -114,6 +120,14 @@ The startup window docs should keep caller evidence for the `brm_*.pcx` assets, 
 
 ## Changes
 
+- 2026-07-01 B009 ImageLoaders empty-emitter implementation:
+  - Formal C++ changed from blank to a covered-by comment pointing to exact by-memory child [UID:000314][0x004a17b0-0x004a18a8.LoadPcxImage](by-memory/0x004a17b0-0x004a18a8.LoadPcxImage.md).
+  - Summary/evidence: this item page is a name-centric alias for the exact function body. The accepted report preserves the item-level DAT/string/caller evidence here while routing the first-draft `LoadPcxImage` implementation through the exact by-memory page to avoid duplicate generated bodies.
+
+- 2026-06-16 C001 Goal 2 item/IDA refresh:
+  - Before: score was `86/88`, IDA still used `sub_4A17B0`, and the page had not recorded the current post-rename evidence pass.
+  - After: raised to `87/90`, saved the IDA function label `LoadPcxImage`, and documented the current live evidence for the exact 248-byte range, twelve startup PCX xrefs, modeled/raw caller split, and remaining source-quality blockers.
+  - Evidence: live IDA MCP `lookup_funcs`, `xrefs_to`, `analyze_component`, `decompile`, raw disassembly of `0x005818d0`, dry-run rename validation, applied rename, `idb_save ok:true`, and post-save lookup. Final C++ remains blank because DAT/file-buffer type names, string helper names, and the raw startup notice helper's original source placement are not source-quality.
 - 2026-06-06 A002 live IDA refresh:
   - Before: the page was `78/84`, with strong call-flow and caller tables but no callee inventory or score rationale.
   - After: raised to `82/86`, added the 2026-06-06 boundary/xref distinction between modeled callers and raw code refs, and documented the string/path, DAT/file-buffer, and PCX-to-DIB callee families.

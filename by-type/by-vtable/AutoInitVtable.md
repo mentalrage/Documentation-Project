@@ -1,12 +1,15 @@
 *** UID:0001X0 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:00000Q | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:94 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:97 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:00000Q | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # AutoInit Vtable
 
@@ -16,12 +19,11 @@
 - Vtable address: `0x0061373c`
 - RTTI pointer: `0x00613738 -> 0x0064314c`
 - Current IDA name: `??_7AutoInit@?A0xbc51848c@@6B@`
-- Likely owner: [UID:00000Q][AutoInit](by-class/AutoInit.md)
-- Likely source module: [UID:0000HN][AutoInit](by-file/AutoInit.md) / [UID:0000ML][PlatformApi](by-file/PlatformApi.md)
-- Current Wave3 issue: `class_AutoInit.meta_wave3` reports `vtable_count: 0`
-- Rebuild handling: `source-declared/generated-binary`; represent this through the `AutoInit` class declaration/static object, not by hand-porting the `.rdata` bytes.
-- Autogen parent: attach this compiler-emitted one-slot vtable record to [UID:00000Q][AutoInit](by-class/AutoInit.md); reconstruction C++ stays blank because source shape belongs to the class/file/static-object chain.
-- Confidence: confirmed
+- Owner: [UID:00000Q][AutoInit](by-class/AutoInit.md)
+- Source module: [UID:0000HV][Browser](by-file/Browser.md), proven by the shared anonymous-namespace discriminator
+- Rebuild handling: compiler-generated/non-emitting. The exact virtual destructor declaration in UID00000Q causes this table; do not hand-port `.rdata` bytes.
+- Formal CPP/H: blank by design.
+- Confidence: near-final for layout, RTTI, ownership, placement, and no-code disposition
 
 ## Layout
 
@@ -48,13 +50,23 @@
 
 ## Reconstruction Notes
 
-- Treat this as an anonymous-namespace one-slot helper vtable. The class is likely a tiny RAII OLE initializer with only virtual destruction visible in the binary.
-- The vtable does not prove browser-instance ownership by itself. It is physically adjacent to browser/OLE vtables, but startup evidence still shows the process-wide OLE initialization path.
-- Regenerated Wave3 metadata should eventually record this vtable instead of leaving `AutoInit` with `vtable_count: 0`.
+- Treat this as an anonymous-namespace one-slot helper vtable generated from the source declaration `virtual ~AutoInit();`.
+- The vtable does not make AutoInit Browser instance state. Exact RTTI names establish Browser translation-unit placement while startup evidence establishes process-wide OLE lifetime behavior.
+- Keep the exact mangled vtable/RTTI identities in IDA; they are original compiler evidence and should not be replaced by a hand-authored source global.
 
 ## Parent Rationale
 
-Attach this vtable page to [UID:00000Q][AutoInit](by-class/AutoInit.md), which is reconstructable at `82/88` and already attached to [UID:0000HN][AutoInit](by-file/AutoInit.md). The class and file pages document the same process-wide OLE startup/shutdown helper, one-slot vtable, static object slot, ordinary/scalar/static teardown paths, and remaining `AutoInit.cpp` versus `PlatformApi.cpp` placement caveat. This page is source-declared/generated-binary evidence for that class, not a standalone source unit.
+Attach this vtable evidence to [UID:00000Q][AutoInit](by-class/AutoInit.md), now emitted through [UID:0000HV][Browser](by-file/Browser.md). The class, authored ordinary destructor, and static object declaration carry the source. This page records the exact compiler artifact and is intentionally nonreconstructable/non-emitting.
+
+## UID000277 RTTI And No-Code Closure - 2026-07-26
+
+- `0x00613738` points to complete-object locator `0x0064314c`; the COL points to type descriptor `0x00674b84` and class hierarchy `0x00643160`. Type text `.?AVAutoInit@?A0xbc51848c@@` proves the original class name.
+- The hierarchy contains one self base with PMD `0,-1,0`, attributes `0x40`, no inherited base, and no secondary vptr. The sole vtable slot at `0x0061373c` points to generated scalar deleting destructor `0x00470300`.
+- Exact vtable refs are ordinary destructor `0x0046efe0`, scalar-wrapper store `0x00470306`, static shutdown `0x0060c0f0`, and static object `0x0066d42c`. Adjacent BrowserThread RTTI begins at `0x00613740`, so no second AutoInit slot exists.
+- AutoInit, BrowserThread, BrowserControlPaneOld, Browser, and `Singleton<BrowserThread>` carry the same `?A0xbc51848c@` discriminator. That resolves the old standalone AutoInit/PlatformApi placement caveat in favor of Browser's translation unit.
+- No source UDT currently exists in IDA, but the class page's CPP-only `AutoInit` declaration provides the source shape. This page must remain blank CPP/H so generated vtable bytes and scalar wrapper are not duplicated.
+- Negative evidence: no second slot, extra base, data member, alternate vtable pointer occurrence, or external header consumer was found. Ignore stale Wave2/Wave3 metadata rather than using its `vtable_count` as current evidence.
+- Score `94/97` reflects complete generated-artifact coverage and high-confidence no-emitter routing; it stays below perfect because original build metadata/file names are stripped.
 
 ## Cross-References
 
@@ -72,3 +84,7 @@ Attach this vtable page to [UID:00000Q][AutoInit](by-class/AutoInit.md), which i
   - Before: the page was reconstructable and IDA-verified, but unassigned in autogen type coverage.
   - After: completion is now `86` and `AUTOGEN_PARENT_UID:00000Q`; confidence stays `90`, and C++ remains blank.
   - Evidence: [UID:00000Q][AutoInit](by-class/AutoInit.md) and [UID:0000HN][AutoInit](by-file/AutoInit.md) already document the same vtable/static-slot relationship, OLE initializer/shutdown chain, scalar deleting destructor slot, and final standalone-vs-PlatformApi placement caveat.
+- 2026-07-26 B004 UID000277 callback:
+  - Before: `86/90`, reconstructable/emitting through UID00000Q but blank C++, with stale source-placement and Wave3 caveats.
+  - After: `94/97`, owner UID00000Q, nonreconstructable/non-emitting, blank CPP/H, and exact Browser-TU RTTI/no-code proof.
+  - Historical correction: the prior empty-emitter route is superseded; the virtual destructor declaration generates this table, so emitting a raw vtable would be duplicate ABI source.

@@ -1,12 +1,16 @@
 *** UID:00006P | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000J5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000J5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000J5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// InternetConnectionError class-level source is covered by [UID:0000J5][Error](by-file/Error.md); current IDA shows constructor 0x004a6690 and stored-message helper 0x004a6780 as real vtable-routed methods, but those exact bodies are not finalized here, so this class page emits no standalone partial declaration/body.
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # InternetConnectionError
 
@@ -42,6 +46,8 @@ IDA MCP recheck on 2026-06-07 reports:
 - `CopyErrorMessage` calls `0x00584540` before `_wcscpy_s`, matching the stored wide-message copy-out behavior.
 - The broader `Error.cpp` raw-constructor caveats remain: `0x004a61b0`, `0x004a6330`, and `0x004a63e0` still have no IDA function objects. They do not block this class assignment because the direct parent page now records the caveat and still clears the strict gate.
 
+2026-06-19 B013 keeps local `CopyErrorMessage` as a behavior label but warns that the vtable `+0x0c` slot should be standardized across the hierarchy before final source. If the project chooses a single virtual spelling, this helper can be modeled as the `InternetConnectionError` implementation of `FormatErrorMessage(wchar_t *destination, size_t destinationChars) const`, copying from the `SimpleUString` member at `+0x04`.
+
 ## Ownership Notes
 
 This is a specialization of the internet error family. Keep it in the shared error module and let HTTP/download code reference it.
@@ -67,3 +73,6 @@ This is a specialization of the internet error family. Keep it in the shared err
   - Before: `74/86`, reconstructable but unassigned, with only a short constructor/copy summary.
   - Changed to: `85/88` and `AUTOGEN_PARENT_UID:0000J5`.
   - Summary/evidence: live IDA MCP reconfirmed exact constructor/copy bounds, the vtable store at `0x004a66da`, WinINet response-info call, string-helper call family, copy-out through `_wcscpy_s`, and the `SimpleUString` storage/destructor family. Direct parent [UID:0000J5][Error](by-file/Error.md) now clears `87/85`; final C++ remains blank until the broader error hierarchy declarations and helper names are final.
+- 2026-06-19 B013 virtual-name policy sync:
+  - Score unchanged at `85/88`.
+  - Summary/evidence: B013 keeps this method as a stored-message output helper and records that final source should standardize its `+0x0c` virtual spelling with the rest of the Error hierarchy before emitting class C++.

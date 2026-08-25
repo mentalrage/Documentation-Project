@@ -6,10 +6,10 @@
 
 ## Status
 
-- Confidence: medium for archive ownership, public APIs, mapped entry-table layout, and consumer/source split; weak for exact original on-disk field names and sentinel-row semantics.
+- Confidence: very strong for archive ownership, public APIs, mapped entry-table layout, current-package row semantics, exact two-unit source split, and consumer/compiler boundaries; exact original lexical field/type names remain inferred.
 - Scope: DAT archives, DAT-backed resource lookup, PCX/DIB loading, EPF/EPD image metadata, palette/image-library ownership, DAT-backed audio resource use, and adjacent loose resource/cache formats that must not be confused with packed DAT archives.
-- Primary source modules: [UID:0000IN][DATFile](by-file/DATFile.md), [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), and [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md), with [UID:0000IM][DATArchive](by-file/DATArchive.md) as the umbrella resource note
-- Core class docs: [UID:00003G][DATFile](by-class/DATFile.md), [UID:00003I][DATFileMgr](by-class/DATFileMgr.md), [UID:00003K][DATIndexVector](by-class/DATIndexVector.md)
+- Primary source modules: exactly [UID:0000IN][DATFile](by-file/DATFile.md) and [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md). [UID:0000IM][DATArchive](by-file/DATArchive.md) is a non-emitting documentation index; [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md) is a path-NONE compiler-family index.
+- Core authored classes: [UID:00003G][DATFile](by-class/DATFile.md), [UID:00003H][DATFileContainer](by-class/DATFileContainer.md), [UID:000004][_DATFileMgr](by-class/_DATFileMgr.md), and [UID:00003I][DATFileMgr](by-class/DATFileMgr.md). Historical DATFileResolver/DATIndex types are non-emitting overlays.
 - Core address docs: [UID:00012D][0x0049c130-0x0049d2cc.DATFile](by-memory/0x0049c130-0x0049d2cc.DATFile.md), [UID:00012B][0x0049bd30-0x0049d6ed.DATManagers](by-memory/0x0049bd30-0x0049d6ed.DATManagers.md), [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md), [UID:0000YV][0x00467380-0x00467391.DestroyDATFileMgr](by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md), exact [UID:00003K][DATIndexVector](by-class/DATIndexVector.md), and the DATIndexVector [UID:0000XT][0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper](by-memory/0x00457310-0x004573b3.DATIndexVectorRemoveNodeHelper.md)
 
 ## Observed Archive Model
@@ -20,31 +20,44 @@ Observed layout and behavior:
 
 - `DATFile` is a 20-byte object: embedded `File` object at `0x0`, entry pointer at `0x8`, read position at `0xc`, and entry size at `0x10`.
 - DAT entry records are 0x11-byte records: 4-byte payload start offset followed by a 13-byte ANSI name. The end offset is read from the next record's 4-byte payload start offset, not from a second field inside the same record.
-- `DATFileContainer::DATFileContainer` caches the first dword of the final 17-byte row at container offset `0x10`. Because `_DATFileMgr::LoadDATFileIndex` skips empty names, the current best interpretation is that the final row is a sentinel/final-payload-offset row.
+- `DATFileContainer::DATFileContainer` caches the first dword of the final 17-byte row at container offset `0x10`. Current package evidence shows the final row is a final-payload-boundary row; its 13-byte name area is usually empty but not reliably zeroed.
 - `DATFile::Open` resolves an entry name through `_DATFileMgr::FindEntryByName`; `DATFile::OpenByIndex` opens by archive/index location.
 - [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md) is the public wrapper that forwards archive-file loading/indexing to `_DATFileMgr::LoadDATFileIndex`.
-- `DATFile::Read`, `Seek`, `Tell`, `GetSize`, `ReadLine`, `ReadAllEntries`, and `ReadAllLines` expose normal file-like reads over the entry payload.
-- [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md) decodes an eight-byte DAT entry header using a shared 27-step seed table and is called only by `DATFile::ReadAllEntries` and `DATFile::ReadAllEntriesAlt`; the 2026-05-25 IDA MCP recheck resolves it as `archive/DATFile.cpp` private/static-style support.
+- `DATFile::Read`, `Seek`, `Tell`, `GetSize`, `ReadLine`, [UID:0004IY][0x0049c4a0-0x0049c4ef.DATFileReadEncodedTableInt](by-memory/0x0049c4a0-0x0049c4ef.DATFileReadEncodedTableInt.md), [UID:0004IZ][0x0049c4f0-0x0049c53f.DATFileReadEncodedTableFloat](by-memory/0x0049c4f0-0x0049c53f.DATFileReadEncodedTableFloat.md), and `ReadAllLines` expose file-like reads over the entry payload.
+- [UID:00013W][0x004a5e60-0x004a609f.ParseEntries](by-memory/0x004a5e60-0x004a609f.ParseEntries.md) decodes one eight-byte table scalar using a local 27-dword initializer and is called only by UID0004IY/UID0004IZ. Historical `ParseEntries`, `ReadAllEntries`, and `ReadAllEntriesAlt` names are search provenance, not collection behavior.
 - [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md) constructs a `DATFile`, opens a DAT-backed path, gets its size, allocates a buffer with optional zeroed prefix bytes, reads the entry, and closes the file.
 
-IDA MCP caller/callee checks support this model: [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md) calls `DATFile` constructor, `Open`, `GetSize`, `Read`, `Close`, and destructor; `_DATFileMgr::LoadDATFileIndex` calls `DATFileContainer`, index insertion helpers, and name lookup helpers; [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md) is a tiny public wrapper over that internal loader; [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) has callers across PCX/image frame/tile/effect/sprite/audio loaders. Follow-up checks on 2026-05-24 show `DATIndexVector` is a standalone helper used by DAT-manager, minimap, fitting-room, and monster-image state. A 2026-05-25 check shows [UID:0000T5][LoadIndexedDATSeries](by-global/LoadIndexedDATSeries.md) is application startup policy over numbered DAT archive families, not DAT parser ownership.
+IDA MCP caller/callee checks support this model: [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md) exercises the complete DATFile lifecycle; `_DATFileMgr::LoadDATFileIndex` constructs `DATFileContainer` and performs typed `EntryMap` operations; [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md) is the tiny public wrapper; and [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) has broad resource consumers. The cross-consumer DATIndex helper bodies are standard-container lowering, not a standalone helper module. [UID:0000T5][LoadIndexedDATSeries](by-global/LoadIndexedDATSeries.md) remains Application startup policy.
 
-2026-05-27 documentation audit: the core DAT archive surface now has exact file, class, memory, item, global, resource, and startup-archive cross-references. The remaining weak portion is not the archive ownership model; it is the exact original naming/semantics of the physical header, final sentinel row, and table-field declarations.
+2026-05-27 documentation audit: the core DAT archive surface now has exact file, class, memory, item, global, resource, and startup-archive cross-references. The remaining weak portion is not the archive ownership model; it is the exact original naming/semantics of the physical header and table-field declarations.
+
+2026-06-16 A002 package audit: a read-only scan of 250 current DAT files under `E:\2026\Resources\Read_Only\NexusTK\Data` found all archives parseable with the observed `entryCount` plus 17-byte row table, all offsets monotonic and within file bounds, and no zero-length intervals. The audit found 1,038 non-empty exposed row names, all null-terminated within 13 bytes. It also found that 247 final boundary rows have an empty name area, while `baramst.dat`, `head0.dat`, and `mus004.dat` contain nonzero bytes in that final name area. Therefore the final row should be modeled as a boundary row whose first dword supplies the last payload offset; the name bytes are unused/unreliable padding, not a guaranteed empty sentinel name.
+
+2026-07-12 B001 encoded-scalar clarification:
+
+- UID0004IY has 87 integer/count/ID/flag call sites. UID0004IZ has six float-field calls in four Effect/Item/Light functions; neither wrapper nor decoder performs numeric float conversion.
+- Each wrapper computes unsigned `GetSize() >> 1`, reads exactly eight local bytes, calls UID00013W, and returns its full-register `1`/`0` result.
+- UID00013W mutates all eight bytes, reads two big-endian words, validates `second ^ ((first ^ second) & 0x55555555u)` against the key, and writes `first ^ ((first ^ second) & 0x55555555u)` only on success. Failure leaves output untouched but does not roll back the local bytes.
+- This eight-byte payload scalar is not the outer 17-byte [UID:0000UC][DATEntryRecord](by-item/DATEntryRecord.md). It has no directory name, record stride, next-record offset, sentinel, allocation, container, or ownership transfer.
+- [UID:0003IC][0x006192e0-0x00619340.ParseEntriesConstantTable](by-memory/0x006192e0-0x00619340.ParseEntriesConstantTable.md) is compiler pooling for the first 24 values of UID00013W's local 27-dword initializer; final values `3,5,9` are immediate stack stores. It emits no standalone declaration.
+- A direct current-package test of `LIGHT.TBL` produced 0 validating scalar units out of 385. This is package/version/path mismatch negative evidence; no payload values are inferred from it.
 
 ## Core Classes And Helpers
 
 | Entity | Address/range | Role |
 | --- | --- | --- |
 | `DATFile` | `0x0049c130-0x0049d2cb` | Per-entry reader with file-like read/seek/line helpers. |
-| `DATFileMgr` | `0x0049bd30-0x0049d38b` | Thin public wrapper; singleton [UID:0000QQ][g_pDATFileMgr](by-global/g_pDATFileMgr.md) at `0x0067ab40`; fatal-load cleanup helper [UID:0000UF][DestroyDATFileMgr_467380](by-item/DestroyDATFileMgr_467380.md) at `0x00467380`. |
+| `DATFileMgr` | `0x0049bd30-0x0049d38b` | Thin public wrapper; singleton [UID:0000QQ][g_pDATFileMgr](by-global/g_pDATFileMgr.md) at `0x0067ab40`; [UID:0000UF][DestroyDATFileMgr_467380](by-item/DestroyDATFileMgr_467380.md) at `0x00467380` deletes this object but B001-012 assigns that helper body to [UID:0000HG][Application](by-file/Application.md) fatal-load cleanup, not to `DATFileMgr.cpp`. |
 | [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md) | `0x0049be70-0x0049be7c` | Public wrapper forwarding to `_DATFileMgr::LoadDATFileIndex`. |
 | `_DATFileMgr` | `0x0049c800-0x0049d6ed` | Internal archive index builder and name lookup engine. |
 | `DATFileContainer` | `0x0049be80-0x0049d349` | Mapped archive container and Win32 file mapping lifecycle owner. |
-| `DATFileResolver` | `0x0049d190-0x0049d26c` | Small resolver/destruction helper; exact relationship still open. |
-| [UID:00003K][DATIndexVector](by-class/DATIndexVector.md) | discontiguous; see class page | FNV-1a keyed index/list and value-table helper used by archive, minimap, fitting-room, and monster-image state. |
+| [UID:00003J][DATFileResolver](by-class/DATFileResolver.md) | physical state at `_DATFileMgr +0x04` | Historical semantic overlay for compiler-generated `EntryMap` state; no authored class/source. |
+| [UID:00003K][DATIndexVector](by-class/DATIndexVector.md) | discontiguous; see class page | Non-emitting standard-container semantic/compiler overlay shared by typed consumer modules. |
 | [UID:00012E][0x0049c700-0x0049c71d.HasDATEntry](by-memory/0x0049c700-0x0049c71d.HasDATEntry.md) | `0x0049c700-0x0049c71d` | Boolean entry-existence probe through global DAT manager. |
 | [UID:0000YX][0x00467410-0x004674ed.LoadIndexedDATSeries](by-memory/0x00467410-0x004674ed.LoadIndexedDATSeries.md) | `0x00467410-0x004674ed` | `Application::Initialize` helper for numbered DAT archive families. |
-| [UID:00013W][0x004a5e60-0x004a609f.ParseEntries](by-memory/0x004a5e60-0x004a609f.ParseEntries.md) | `0x004a5e60-0x004a609f` | Decodes/validates DAT entry headers for bulk entry readers. |
+| [UID:0004IY][0x0049c4a0-0x0049c4ef.DATFileReadEncodedTableInt](by-memory/0x0049c4a0-0x0049c4ef.DATFileReadEncodedTableInt.md) | `0x0049c4a0-0x0049c4ef` | Reads one encoded scalar into integer storage; historical `ReadAllEntries`. |
+| [UID:0004IZ][0x0049c4f0-0x0049c53f.DATFileReadEncodedTableFloat](by-memory/0x0049c4f0-0x0049c53f.DATFileReadEncodedTableFloat.md) | `0x0049c4f0-0x0049c53f` | Reads one encoded scalar into float storage without numeric conversion; historical `ReadAllEntriesAlt`. |
+| [UID:00013W][0x004a5e60-0x004a609f.ParseEntries](by-memory/0x004a5e60-0x004a609f.ParseEntries.md) | `0x004a5e60-0x004a609f` | File-local `DecodeTableValue` for one eight-byte table scalar; historical `ParseEntries`. |
 | [UID:00016G][0x004bb120-0x004bb1d2.LoadDatFileBuffer](by-memory/0x004bb120-0x004bb1d2.LoadDatFileBuffer.md) | `0x004bb120-0x004bb1d2` | Loads a DAT-backed file into memory, optionally with a zeroed prefix. |
 
 ## Resource Format Areas
@@ -80,7 +93,7 @@ DATFileContainer
 
 `_DATFileMgr::LoadDATFileIndex` reads names from `entryTable + entryIndex * 17 + 4`, converts each ANSI name to uppercase wide text, skips empty names, and inserts unique names into an internal hash/list index.
 
-`DATFileContainer::DATFileContainer` computes `last entry offset` from `*(uint32*)(entryTable + (entryCount - 1) * 17)`. This is strong evidence that the final row supplies the archive's last payload boundary, probably as an empty-name sentinel row.
+`DATFileContainer::DATFileContainer` computes `last entry offset` from `*(uint32*)(entryTable + (entryCount - 1) * 17)`. This is strong evidence that the final row supplies the archive's last payload boundary. The current package mostly zeroes that row's name bytes but has three nonzero examples, so the final row should not be described as an always-empty sentinel.
 
 `Application::Initialize` loads fixed DAT archives directly through [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md), and loads numbered DAT archive families through [UID:0000T5][LoadIndexedDATSeries](by-global/LoadIndexedDATSeries.md). That startup helper probes loose `*.DAT` files to decide where each numbered family ends, then uses the same manager wrapper to index existing archives. The full fixed and looped startup inventory is tracked in [UID:0001R6][application-startup-dat-archives](by-resource/application-startup-dat-archives.md).
 
@@ -221,7 +234,6 @@ archive/DATFile.h
 archive/DATFile.cpp
 archive/DATFileMgr.h
 archive/DATFileMgr.cpp
-archive/DATIndexVector.cpp
 app/Application.cpp        # LoadIndexedDATSeries startup helper only
 localization/LanguageMan.cpp
 metadata/MetaMan.cpp
@@ -242,9 +254,9 @@ render/Surface.cpp
 ui/controls/EPFImageControlPane.cpp
 ```
 
-The DAT classes should be grouped before the EPF/image helpers are migrated. `DATIndexVector` should remain standalone rather than being merged into `DATFileMgr.cpp`; its final folder may be `archive/` or a common helper folder, but its imported source name and DAT-manager callers currently justify `archive/DATIndexVector.cpp` as the working source-tree node. The archive layer is a dependency of rendering/resource loaders, but `ImageLib`, `ResourceLayoutTable`, `EPFTileContext`, `DIBitmap`, `FontImageLib`, `AlphaMaskSurface`, provisional `IntAlphaSurface`, `Surface`, `PaletteLib`, `DLPalette`, and EPF/EPD frame-table helpers should not be merged into the same source file as DAT parsing.
+The archive layer has exactly two authored source pairs. `DATIndexVector` is not merged into DATFileMgr and is not standalone source: its old-MSVC/Dinkumware bodies are generated separately in each typed consumer context. Rendering/resource modules depend on archive APIs but retain their own ownership.
 
-The DATIndexVector helper at `0x00457310` is real code, but the only IDA-observed call is from `InsertNode`'s EH/unwind cleanup block. Treat it as `DATIndexVector.cpp` internal cleanup support until a reviewed generated-ownership pass decides whether to expose it as `RemoveNode` or keep it file-local.
+The historical `0x00457310` DATIndexVector helper is real executable compiler/EH cleanup, but it is not an authored `RemoveNode` API or file-local DAT project helper. Preserve its exact page as non-emitting evidence.
 
 The same applies to audio: `SoundManager` should keep sound/music policy in `audio/SoundManager.cpp` while depending on `DATFile` and [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) for archive-backed resources.
 
@@ -256,12 +268,12 @@ Application startup is a DAT consumer too. [UID:0001R6][application-startup-dat-
 
 ## Open Questions
 
-- Exact DAT physical header layout beyond the observed mapped `entryCount` and 17-byte record table, and whether entry names are ever encoded/compressed.
-- Whether the final entry-table row is always an empty-name sentinel or can sometimes be a named entry.
+- Exact DAT physical header layout beyond the observed mapped `entryCount` and 17-byte record table, and exact original field/type names.
+- Whether older or alternate DAT package distributions follow the same current-package convention: null-terminated exposed names and a final boundary row whose name bytes are unused/unreliable.
 - Exact `Meta.dat` header record layout and per-table decoded value semantics. The structural decoded payload format now has [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md), but table-specific columns remain unnamed.
 - Final names and field types for `DATFileContainer` offsets `0x4` through `0x18`.
 - Final names and field types for `_DATFileMgr` index/tree/list fields.
-- Whether `DATIndexVector`'s final folder is `archive/` or a common/helper folder; current evidence rules out making it private to `DATFileMgr.cpp`.
+- Historical DATIndex folder/private-helper uncertainty is resolved: no source folder or authored DATIndex unit exists; typed consumer declarations generate the observed helper families.
 - Final class boundary and field names for `ImageLib`, `ResourceLayoutTable`, the [UID:000079][List](by-class/List.md)-backed [UID:0001VT][ResourceLayoutNameRecord](by-type/by-struct/ResourceLayoutNameRecord.md) registry, and the [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) type model.
 - Exact WAV payload handoff into Miles AIL and whether DAT-backed MP3 streaming maps directly from the DAT payload or copies into another buffer/file abstraction.
 - Whether `str.res` is language-specific per distribution and whether byte `0x11` is consistently an authoring-time line-break escape.
@@ -271,7 +283,7 @@ Application startup is a DAT consumer too. [UID:0001R6][application-startup-dat-
 1. Deep-review `SoundManager::LoadTrackListFromFile`, the WAV sample creation path, and the MP3 stream open path to document exact audio payload ownership.
 2. Confirm whether the final DAT table row is always an empty-name sentinel across multiple archives.
 3. Continue per-asset image-library refinement now that the `ResourceLayoutStore` constructor/vtable question resolves to generic `List::List(44, 10)`.
-4. Decide final Wave3 dry-run ownership moves for [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md), [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md), [UID:0000T5][LoadIndexedDATSeries](by-global/LoadIndexedDATSeries.md), and standalone `DATIndexVector.cpp` source placement. [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md) is already resolved as `archive/DATFile.cpp` private/static-style support.
+4. Historical Wave3 dry-run wording is stale and not evidence. Current ownership docs resolve [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md) as the covered alias for UID00013W `DecodeTableValue` in `archive/DATFile.cpp`; unrelated HasDATEntry/LoadDatFileBuffer/LoadIndexedDATSeries/DATIndexVector ownership remains governed by their current pages.
 
 ## Cross-References
 
@@ -287,7 +299,7 @@ Application startup is a DAT consumer too. [UID:0001R6][application-startup-dat-
 - [UID:0001RP][str-res-localized-strings](by-resource/str-res-localized-strings.md)
 - [UID:0000UB][DATAudioResources](by-item/DATAudioResources.md)
 - [UID:0001R6][application-startup-dat-archives](by-resource/application-startup-dat-archives.md)
-- [UID:0001I8][0x005797b0-0x0057bc58.SoundManager](by-memory/0x005797b0-0x0057bc58.SoundManager.md)
+- [UID:0001I8][0x005797b0-0x0057bf6e.SoundManagerAudioHelperCluster](by-memory/0x005797b0-0x0057bf6e.SoundManagerAudioHelperCluster.md)
 - [UID:0000J3][EPFImageResources](by-file/EPFImageResources.md)
 - [UID:00006E][ImageLib](by-class/ImageLib.md)
 - [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md)
@@ -301,7 +313,7 @@ Application startup is a DAT consumer too. [UID:0001R6][application-startup-dat-
 - [UID:0000LK][MonsterImageLibTables](by-file/MonsterImageLibTables.md)
 - [UID:0000N6][RidingImageLib](by-file/RidingImageLib.md)
 - [UID:0000KP][LightObjImageLib](by-file/LightObjImageLib.md)
-- [UID:0000UQ][GetItemGlyphBounds_004DF460](by-item/GetItemGlyphBounds_004DF460.md)
+- [UID:0000UQ][0x004df460-0x004df4f9.GetItemGlyphBounds](by-memory/0x004df460-0x004df4f9.GetItemGlyphBounds.md)
 - [UID:0000VA][ResolveSpritePartPath_004E19D0](by-item/ResolveSpritePartPath_004E19D0.md)
 - [UID:0000MB][PaletteLib](by-file/PaletteLib.md)
 - [UID:0000MA][Palette](by-file/Palette.md)
@@ -331,6 +343,9 @@ Application startup is a DAT consumer too. [UID:0001R6][application-startup-dat-
 - [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md)
 - [UID:00013W][0x004a5e60-0x004a609f.ParseEntries](by-memory/0x004a5e60-0x004a609f.ParseEntries.md)
 - [UID:0000V5][ParseEntries_004A5E60](by-item/ParseEntries_004A5E60.md)
+- [UID:0004IY][0x0049c4a0-0x0049c4ef.DATFileReadEncodedTableInt](by-memory/0x0049c4a0-0x0049c4ef.DATFileReadEncodedTableInt.md)
+- [UID:0004IZ][0x0049c4f0-0x0049c53f.DATFileReadEncodedTableFloat](by-memory/0x0049c4f0-0x0049c53f.DATFileReadEncodedTableFloat.md)
+- [UID:0003IC][0x006192e0-0x00619340.ParseEntriesConstantTable](by-memory/0x006192e0-0x00619340.ParseEntriesConstantTable.md)
 - [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md)
 - [UID:00016G][0x004bb120-0x004bb1d2.LoadDatFileBuffer](by-memory/0x004bb120-0x004bb1d2.LoadDatFileBuffer.md)
 - [UID:0000UW][LoadDatFileBuffer_004BB120](by-item/LoadDatFileBuffer_004BB120.md)

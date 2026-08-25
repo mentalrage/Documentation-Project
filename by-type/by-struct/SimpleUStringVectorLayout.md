@@ -1,12 +1,18 @@
 *** UID:0001W6 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000DA | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000DA | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000DA | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// SimpleUStringVector layout is emitted by the SimpleUStringVector class
+// declaration; this page records the begin/end/capacity offsets and 4-byte
+// string-handle slot proof only and should not emit a duplicate struct.
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # SimpleUStringVectorLayout
 
@@ -50,6 +56,10 @@ Each element slot contains the data pointer for a pointer-backed UTF-16 string. 
 
 `AUTOGEN_PARENT_UID` is set to [UID:0000DA][SimpleUStringVector](by-class/SimpleUStringVector.md). The child layout is now `86/90`; the direct class parent was refreshed to `85/88`, and the source file parent [UID:0000OB][StringUtil](by-file/StringUtil.md) already clears `86/88`. This is the object layout for the class itself, so the class is the direct parent and the file remains source-module context.
 
+## 2026-07-01 B007 No-Duplicate Source Disposition
+
+The accepted implementation callback keeps this layout page non-emitting because [UID:0000DA][SimpleUStringVector](by-class/SimpleUStringVector.md) now emits the class declaration with the same begin/end/capacity fields. This page remains the offset and 4-byte slot proof, including the rejection of inline 24-byte `SimpleUString` array elements.
+
 ## Cross-References
 
 - [UID:0000OB][StringUtil](by-file/StringUtil.md)
@@ -60,6 +70,7 @@ Each element slot contains the data pointer for a pointer-backed UTF-16 string. 
 
 ## Changes
 
+- 2026-07-01 B007 [UID:0000OB][StringUtil](by-file/StringUtil.md) implementation callback: raised completion to `87` and inserted the accepted formal no-duplicate layout comment pointing to the `SimpleUStringVector` class declaration.
 - Before: the page was ungraded and described the vector as containing `SimpleUString` elements without stating the recovered slot size.
 - Changed to: marked the layout reconstructable, documented the 4-byte pointer-backed string-handle element stride, and tied each field/stride claim to IDA-confirmed destructor, grow/insert, and push-back behavior.
 - Evidence: IDA MCP `lookup_funcs`, `decompile`, `callers`, `callees`, and byte checks on 2026-05-31 for `0x00493f10`, `0x0049cc40`, and `0x00584910`.

@@ -1,23 +1,58 @@
 *** UID:00004V | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:93 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000JB | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000JB | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000JB | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL:0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+#include "File.h"
+
+[[CHILDREN]]
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+#ifndef NEXUSTK_UTIL_FILE_H
+#define NEXUSTK_UTIL_FILE_H
+
+#include "LObject.h"
+#include "StringBase.h"
+#include <stddef.h>
+
+typedef mystr::StringBase<char, mystr::mychar_traits<char> > StringBaseA;
+typedef mystr::StringBase<wchar_t, mystr::mychar_traits<wchar_t> > StringBaseW;
+
+class File : public LObject
+{
+public:
+    virtual ~File() {}
+
+    virtual void Open(const wchar_t *path) = 0;
+    virtual bool Close() = 0;
+    virtual int GetPosition() = 0;
+    virtual bool Seek(int offset, int origin) = 0;
+    virtual int GetSize() = 0;
+    virtual size_t Read(void *buffer, int count) = 0;
+    virtual bool ReadLine(StringBaseA &line) = 0;
+    virtual int ReadLineChars(char *buffer, int limit) = 0;
+
+    StringBaseA ReadString(int count);
+    bool ReadLine(StringBaseW &line);
+};
+
+#endif
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # File
 
 ## Status
 
-- Confidence: strong for abstract base role, vtable contract, and direct source-root attachment.
-- Assigned source root: [UID:0000JB][File](by-file/File.md), under the [UID:0000JD][FileIO](by-file/FileIO.md) utility layer
-- Current recovered source lead: `class_File.cpp` only; class ownership here is based on existing docs plus IDA/MCP evidence.
+- Confidence: very strong for abstract base role, direct LObject inheritance, four-byte no-field layout, vtable contract, and direct source-root attachment; exact helper spelling/access remains an inference cap.
+- Assigned source root: [UID:0000JB][File](by-file/File.md), with the declaration in `NexusTK/util/File.h` and source-authored convenience helpers in `NexusTK/util/File.cpp`. [UID:0000JD][FileIO](by-file/FileIO.md) is a non-emitting coordination umbrella.
+- Recovered source leads remain naming evidence only; current class ownership and declaration shape are based on PE/IDA/MCP evidence and concrete DAT/Stdio override parity.
 - Address evidence: [UID:00012I][0x0049d390-0x0049d3cd.FileBaseDestructor](by-memory/0x0049d390-0x0049d3cd.FileBaseDestructor.md)
-- Size/layout: 8 bytes; see [UID:0001UG][FileStreamLayouts](by-type/by-struct/FileStreamLayouts.md).
-- Vtable/type evidence: [UID:0001XK][FileStreamVtables](by-type/by-vtable/FileStreamVtables.md), [UID:0002UV][0x006188e0-0x00618910.FileVtableData](by-memory/0x006188e0-0x00618910.FileVtableData.md)
+- Size/layout: 4 bytes and data-member-free; see [UID:0003H1][FileBaseLayout](by-type/by-struct/FileBaseLayout.md) and the shared index [UID:0001UG][FileStreamLayouts](by-type/by-struct/FileStreamLayouts.md).
+- Vtable/type evidence: [UID:0003HZ][FileVtable](by-type/by-vtable/FileVtable.md), split from shared index [UID:0001XK][FileStreamVtables](by-type/by-vtable/FileStreamVtables.md), with exact backing data [UID:0002UV][0x006188e0-0x00618910.FileVtableData](by-memory/0x006188e0-0x00618910.FileVtableData.md)
 
 ## Role
 
@@ -36,11 +71,11 @@ IDA vtable inspection shows `File` has pure virtual entries after the inherited/
 
 ## Interface Slots
 
-The primary vtable at `0x006188e4` has destructor/base slots at `+0x00` through `+0x08`; slots `+0x0c` through `+0x28` are pure virtual in `File` and concrete in `DATFile`/`StdioFile`. The current names are `Open`, `Close`, `Tell`/`GetPosition`, `Seek`, `GetSize`, `Read`, `ReadLine`, and raw line read. See [UID:0001XK][FileStreamVtables](by-type/by-vtable/FileStreamVtables.md) for the exact slot map.
+The primary vtable at `0x006188e4` has destructor/base slots at `+0x00` through `+0x08`; slots `+0x0c` through `+0x28` are pure virtual in `File` and concrete in `DATFile`/`StdioFile`. The source-facing order is `Open`, `Close`, `GetPosition`, `Seek`, `GetSize`, `Read`, ANSI `ReadLine`, and `ReadLineChars`. `Tell` is preserved only as historical naming vocabulary. See [UID:0003HZ][FileVtable](by-type/by-vtable/FileVtable.md) for the exact source-local vtable child and [UID:0001XK][FileStreamVtables](by-type/by-vtable/FileStreamVtables.md) for the shared slot map.
 
-The adjacent read-only data page records the exact vtable dwords: RTTI at `0x006188e0`, destructor `0x0049d390` at `0x006188e4`, base/runtime slot `0x004f4b10`, no-op slot `0x0041b6c0`, and `__purecall` entries through `0x0061890c`. Vptr-store xrefs at `0x0049c16e`, `0x0049d294`, `0x0049d396`, `0x005820b9`, and `0x005824be` tie the abstract base to constructor/destructor paths for the concrete stream family.
+The adjacent read-only data page records the exact vtable dwords: RTTI at `0x006188e0`, destructor `0x0049d390` at `0x006188e4`, base/runtime slot `0x004f4b10`, no-op slot `0x0041b6c0`, and `__purecall` entries through `0x0061890c`. The five refs at `0x0049c16e`, `0x0049d294`, `0x0049d396`, `0x005820b9`, and `0x005824be` are destructor/restoration paths. No constructor writes the abstract File vptr; DATFile and StdioFile constructors install their concrete tables directly.
 
-Layout note: the 8-byte base footprint includes the vtable pointer at `+0x00` and an implementation-handle word at `+0x04`. `StdioFile` uses that word as `FILE*`; `DATFile` uses it as an archive/container handle.
+Layout note: File is exactly four bytes, consisting only of the inherited LObject/vptr head. The scalar deleting wrappers use object sizes `4` for File, `0x14` for DATFile, and `0x0c` for StdioFile. Concrete fields at `+0x04` therefore belong to the derived classes; the former shared implementation-handle claim is rejected and retained only as superseded history.
 
 ## 2026-06-10 B001-021 File-Stream Helper Assignment
 
@@ -51,7 +86,7 @@ B001-021 rechecked [UID:00022C][0x004b12a0-0x004b13ce.VirtualReadableStringHelpe
 - Direct IDA vtable reads show the abstract File vtable keeps those slots as `__purecall`, DATFile implements them at `0x0049c2d0`, `0x0049c2f0`, `0x0049c310`, and `0x0049c3e0`, and StdioFile implements them at `0x00582200`, `0x004f5ad0`, `0x00582230`, and `0x005822d0`.
 - The string helper callees allocate/assign the output buffers; they do not make `StringUtil` or `StringBase` the direct owner.
 
-The helper pair has no direct callers or address-taken refs in current IDA, so final method names remain open. The direct class parent still clears the strict gate: this class is now `86/89`, and [UID:0000JB][File](by-file/File.md) is now `86/88`.
+The helper pair has no direct callers or address-taken refs in current IDA, so exact original spelling and public access remain confidence caps. ABI and behavior nevertheless resolve implementation-ready declarations as `StringBaseA ReadString(int count)` and `bool ReadLine(StringBaseW &line)`.
 
 ## Ownership Notes
 
@@ -59,16 +94,28 @@ Keep this with the generic file I/O layer, not with DAT parsing. The base class 
 
 ## Assignment Decision
 
-Assigned to [UID:0000JB][File](by-file/File.md) under the corrected Batch088 gate. This class now has `86/89` documentation, and the direct parent is now `86/88` after the B001-021 helper sync. The broader [UID:0000JD][FileIO](by-file/FileIO.md) umbrella is not the direct parent for this class.
+Assigned to [UID:0000JB][File](by-file/File.md). This class is now `92/93`, emits first at position `0`, and the direct source page is `91/92`. The broader [UID:0000JD][FileIO](by-file/FileIO.md) umbrella is not the direct parent or emitter.
 
-Final C++ remains blank because the declaration is useful but not yet at the `95/95` source-emission gate; exact original method names, header split, and integration with `StdioFile` still need final reconstruction review.
+The formal H now carries the complete strongest human-written class surface behind one guard. The inline empty virtual destructor regenerates compiler wrapper/vtable behavior; all eight common virtual signatures match DAT/Stdio behavior. Formal CPP includes `File.h` and expands `[[CHILDREN]]`, so exact helper definitions emit after the declaration without embedding a duplicate class in File.cpp. The former CPP-resident class shell and absent File.h are historical pre-callback states.
 
 ## Score Rationale
 
 | Score | Rationale |
 | --- | --- |
-| Completion `86` | The class page now records the abstract stream role, destructor range, vtable dwords/xrefs, 8-byte layout, concrete subclass relationship, direct file parent, B001-021 file-stream string helper pair, and assignment rationale. It remains below final because the final C++ declaration, exact field names, method names, and source/header split are not yet fully reconstructed. |
-| Confidence `89` | Confidence is strong because the class identity and parent relationship are backed by IDA-verified destructor/vtable evidence, concrete DAT/Stdio slot matching, and the B001-021 helper's direct use of File stream slots. Confidence remains below final audit because some source-level names and the original file split remain inferred. |
+| Completion `92` | The class page records the complete abstract declaration, direct LObject inheritance, four-byte no-field layout, inline destructor, all eight virtual signatures, two source helpers, exact vtable/RTTI/xref/size evidence, direct file parent, source placement, and compiler-generated child policy. |
+| Confidence `93` | Binary facts prove class identity, inheritance, method order, parameter/return contracts, and object size. Confidence remains below final only because exact historical helper spelling/access and original header filename are inferred rather than symbol-recovered. |
+
+## UID0002UV Source-Quality Callback
+
+- RTTI proves `File : public LObject` at displacement zero with no virtual or multiple inheritance.
+- The File complete-object locator, two-entry base hierarchy, exact 48-byte vtable record, all-dword xrefs, and unique signature are documented by UID0002UV.
+- The File/DAT/Stdio scalar-wrapper size immediates `4`, `0x14`, and `0x0c` prove the complete object-size relationship and reject the former shared base handle.
+- `Open(const wchar_t *)` is source-void because concrete callers ignore inconsistent incidental EAX values.
+- `Close` returns bool; `GetPosition` and `GetSize` return int; `Seek` takes signed offset/origin and returns bool.
+- `Read` returns `size_t` but takes signed `int count`; DATFile's `count < 0` full-payload branch makes an unsigned common declaration impossible.
+- ANSI `ReadLine` returns bool by reference and `ReadLineChars` returns int for a caller-provided char buffer/limit.
+- No separate ordinary File destructor or constructor body is required. The strongest source is an inline empty virtual destructor and implicit trivial File construction between LObject construction and concrete vptr installation.
+- The historical 8-byte/shared-handle and unresolved FileIO-owner claims are preserved as rejected/superseded assumptions, not current truth.
 
 ## Cross-References
 
@@ -76,6 +123,7 @@ Final C++ remains blank because the declaration is useful but not yet at the `95
 - [UID:0000JD][FileIO](by-file/FileIO.md)
 - [UID:0000E6][StdioFile](by-class/StdioFile.md)
 - [UID:00003G][DATFile](by-class/DATFile.md)
+- [UID:0003HZ][FileVtable](by-type/by-vtable/FileVtable.md)
 - [UID:0001XK][FileStreamVtables](by-type/by-vtable/FileStreamVtables.md)
 - [UID:0001UG][FileStreamLayouts](by-type/by-struct/FileStreamLayouts.md)
 - [UID:00012I][0x0049d390-0x0049d3cd.FileBaseDestructor](by-memory/0x0049d390-0x0049d3cd.FileBaseDestructor.md)
@@ -83,6 +131,8 @@ Final C++ remains blank because the declaration is useful but not yet at the `95
 - [UID:00022C][0x004b12a0-0x004b13ce.VirtualReadableStringHelpers](by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md)
 
 ## Changes
+
+- 2026-08-17 B001 UID0000MG support implementation: score unchanged; moved the complete File declaration/typedefs from formal CPP to guarded formal H, changed formal CPP to `#include "File.h"` plus `[[CHILDREN]]`, preserved all eight virtual slots, signed `Read` count, helper declarations, four-byte no-field layout, and compiler-generated destructor/vtable dispositions.
 
 - 2026-05-31:
   - Before: `RECONSTRUCTABLE` metadata was blank.
@@ -98,3 +148,7 @@ Final C++ remains blank because the declaration is useful but not yet at the `95
   - Before: `00022C` remained unassigned as a possible string utility helper even though it dispatched through virtual slots.
   - After: raised this class to `86/89` and accepted [UID:00022C][0x004b12a0-0x004b13ce.VirtualReadableStringHelpers](by-memory/0x004b12a0-0x004b13ce.VirtualReadableStringHelpers.md) as a File-class helper pair.
   - Summary/evidence: live IDA MCP maps the helper virtual slots to the File stream contract and confirms StringUtil/StringBase are output-buffer dependencies rather than direct owners.
+- 2026-06-12 A004 Batch 319 vtable split sync:
+  - Scores remain `86/89`.
+  - Added [UID:0003HZ][FileVtable](by-type/by-vtable/FileVtable.md) as the exact source-local vtable child for this class; [UID:0001XK][FileStreamVtables](by-type/by-vtable/FileStreamVtables.md) is now only the non-emitting shared File/DATFile/StdioFile slot-layout index.
+  - Evidence: live IDA MCP reconfirmed `??_7File@@6B@`, purecall stream slots, restore/store xrefs, and the unique `0x006188e0-0x00618910` signature.

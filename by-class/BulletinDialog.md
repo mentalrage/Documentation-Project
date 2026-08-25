@@ -1,32 +1,37 @@
 *** UID:00001C | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000HT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// UID00001C BulletinDialog class-level source is covered by UID0000HT BoardDialogs, exact constructor child UID0000ZI, shared command bridge UID0000ZJ, and vtable layout support. This page emits no standalone partial declaration until secondary-interface and virtual declaration policy is source-quality.
+[[CHILDREN]]
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # BulletinDialog
 
 ## Status
 
-- Confidence: strong for raw constructor bytes and vtable bases, medium for live reachability and final virtual names.
-- Assigned source file: [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md). C++ is intentionally blank because the raw constructor is still not an IDA function object and live construction reachability is unresolved.
+- Confidence: strong for raw constructor bytes, vtable bases, corrected constructor argument roles, and the negative direct-route result; medium for final virtual names and exact source partitioning.
+- Assigned source file: [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md). Class-level output is marker-only because final virtual names/source partitioning are provisional, but the raw constructor child now emits first-draft C++.
 - Address range: raw constructor [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md), shared virtual [UID:0000ZJ][0x00472040-0x00472069.BoardDialogCommandOneVirtual](by-memory/0x00472040-0x00472069.BoardDialogCommandOneVirtual.md), board/article split inventory [UID:0000ZK][0x00472070-0x00477790.BoardArticleDialogs](by-memory/0x00472070-0x00477790.BoardArticleDialogs.md), with non-emitting shared destructor companion [UID:00033P][0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor](by-memory/0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor.md)
 - Exact vtable data: [UID:0002MI][0x00613ba4-0x00613c44.BulletinDialogVtableData](by-memory/0x00613ba4-0x00613c44.BulletinDialogVtableData.md)
 
 ## Class Purpose
 
-`BulletinDialog` is the common bulletin-board dialog base over `DialogInSession`. IDA confirms the raw constructor bytes, three vtable views, one shared secondary-interface command bridge, and the active scalar deleting destructor. The constructor remains unmodeled as an IDA function, so this page should distinguish raw/projected constructor evidence from normal function-boundary evidence.
+`BulletinDialog` is the common bulletin-board dialog base over `DialogInSession`. IDA confirms the raw constructor bytes, three vtable views, one shared secondary-interface command bridge, and the active scalar deleting destructor. The constructor remains unmodeled as an IDA function and has no direct shipped-binary construction route found, but that direct-route question is resolved negatively rather than left passively open.
 
 ## Method Notes
 
 | Method | Address | Role |
 | --- | --- | --- |
-| `BulletinDialog` | [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md) | Raw constructor-shaped body. Calls [UID:00003S][DialogInSession](by-class/DialogInSession.md) constructor `0x004a1400`, installs vtables, and returns `this`; IDA MCP still reports no function object at `0x00472000`. |
-| shared command-one virtual | [UID:0000ZJ][0x00472040-0x00472069.BoardDialogCommandOneVirtual](by-memory/0x00472040-0x00472069.BoardDialogCommandOneVirtual.md) | Secondary-vtable callback shared by board/article dialog subclasses. Checks command string `'1'`, then forwards through the primary vtable slot at `+0x5c`. |
+| `BulletinDialog(DialogSession *session, unsigned char dialogType)` | [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md) | Raw retained out-of-line constructor body. Calls [UID:00003S][DialogInSession](by-class/DialogInSession.md) as `DialogInSession(session, 2, dialogType)`, installs vtables, and returns `this`; IDA MCP still reports no function object at `0x00472000`, while the child emits first-draft C++. |
+| shared command-one virtual | [UID:0000ZJ][0x00472040-0x00472069.BoardDialogCommandOneVirtual](by-memory/0x00472040-0x00472069.BoardDialogCommandOneVirtual.md) | Secondary-vtable callback shared by Bulletin, board/article, predefined-form article, and mail dialog secondary views. Checks command string `'1'`, then forwards through the primary vtable slot at `+0x5c`; no formal class-level C++ is safe until the shared secondary interface/event/slot declarations are source-quality. |
 | adjustor thunks | [UID:0000ZP][0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks](by-memory/0x0047e855-0x0047e947.DialogAndAlertDestructorAdjustorThunks.md) | Compiler-synthesized secondary/tertiary deleting-destructor thunks that subtract `0xa0` or `0xa4` and tail-call `0x0047ea10`; do not write as handwritten methods. |
 | `ScalarDeletingDestructor` | [UID:00033P][0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor](by-memory/0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor.md) | Active non-emitting deleting-destructor wrapper shared by bulletin/board/article dialog vtables. Calls [UID:00003S][DialogInSession](by-class/DialogInSession.md) base cleanup at `0x004a1450` and optionally frees storage. |
 
@@ -37,10 +42,14 @@
 - 2026-06-05 live raw disassembly confirms the constructor-shaped body from `0x00472000` through `0x00472037 retn 8`, followed by alignment at `0x0047203a` before `sub_472040`.
 - 2026-06-05 live raw constructor disassembly shows pushes of `[ebp+0x0c]`, constant `2`, and `[ebp+0x08]`, call to `sub_4A1400`, then vtable stores at `0x00472017`, `0x0047201f`, and `0x00472029`.
 - 2026-06-05 live function lookup confirms `sub_4A1400` at `0x004a1400-0x004a144e` and `sub_4A1450` at `0x004a1450-0x004a146f` as the [UID:00003S][DialogInSession](by-class/DialogInSession.md) constructor/destructor helpers used by this class family.
-- 2026-06-05 live `xrefs_to 0x00472000` is empty, so constructor reachability remains unresolved.
+- 2026-06-05 live `xrefs_to 0x00472000` is empty.
+- 2026-06-19 B014 PE scan resolves the direct-route question negatively: zero rel32 call/jump refs to `0x00472000`, zero absolute VA dword hits for `0x00472000`, and zero RVA dword hits for `0x00072000`.
+- The constructor argument roles are now corrected: the first source argument is the owning `DialogSession` pointer stored by `DialogInSession` at `+0x270`; constant `2` is the common `DialogPane` config/id/style value; the second source argument is the caller-supplied `dialogType` byte stored at `+0x26c`.
+- Sibling board/article/mail constructors pass common second argument `2` to `DialogInSession` and use distinct subtype bytes `0,1,2,4,5,6,7,8`, which rejects the older interpretation of `2` as the stored `BulletinDialog` dialog type.
 - 2026-06-05 live vtable-base xrefs confirm `0x00613ba8`, `0x00613c0c`, and `0x00613c3c` are referenced only by the raw constructor stores at `0x00472017`, `0x0047201f`, and `0x00472029`.
 - 2026-06-05 live vtable slot scan confirms `0x00613ba4` is `??_R4BulletinDialog@@6B@`, primary slot `0x00613ba8` targets `sub_47EA10`, secondary slot `0x00613c0c` targets adjustor thunk `sub_47E897`, secondary slot `0x00613c1c` targets command bridge `sub_472040`, tertiary slot `0x00613c3c` targets adjustor thunk `sub_47E8A2`, and `0x00613c40` is the final slot before the following `BoardListDialog` data at `0x00613c44`.
 - 2026-06-05 live command bridge disassembly confirms `sub_472040` checks command byte `'1'` at `[arg+0x0c]`, returns false for other commands, adjusts `this` by `-0xa0`, and forwards through primary vtable slot `+0x5c`.
+- 2026-06-27 B006 live IDA MCP session `80de0a67` reconfirms [UID:0000ZJ][0x00472040-0x00472069.BoardDialogCommandOneVirtual](by-memory/0x00472040-0x00472069.BoardDialogCommandOneVirtual.md) as a 41-byte shared command-`'1'` bridge with exact body bytes and padding, no external code xrefs, no direct callees, and nine secondary `+0x10` consumer slots. `BulletinDialog` owns one consumer slot at `0x00613c1c`; this does not make the body class-owned formal C++ because the same function is also installed in board/article/predefined/mail secondary views.
 - 2026-06-05 live destructor disassembly confirms `sub_47EA10` calls `sub_4A1450`, tests deleting flags, optionally calls `sub_4F4AC0`, and returns `this`; the secondary and tertiary adjustor thunks at `0x0047e897` and `0x0047e8a2` subtract `0xa0` or `0xa4` and tail-call `sub_47EA10`.
 - 2026-06-10 B001-025 created exact non-emitting companion [UID:00033P][0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor](by-memory/0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor.md); IDA reports adjustor-thunk refs and shared vtable/data refs at `0x00613ba8`, `0x00613c48`, `0x00613fb0`, and `0x0061443c`.
 - 2026-05-26 IDA raw disassembly confirms `0x00472000-0x0047203a` is constructor-shaped code that calls `0x004a1400` and stores vtables at `this + 0x00`, `this + 0xa0`, and `this + 0xa4`.
@@ -54,7 +63,7 @@
 
 ## Assignment Decision
 
-`AUTOGEN_PARENT_UID` remains [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md). The class is now `85/87`, and the direct file parent is now `85/86`, so both sides clear the corrected `85/85` gate. The assignment is direct because `BoardDialogs` owns the common `BulletinDialog` base, the shared command virtual, the scalar deleting destructor, and the board/article vtable family. Final C++ stays blank because the raw constructor has no IDA function object or direct construction xrefs.
+`AUTOGEN_PARENT_UID` remains [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md). The class is now `86/88`, and the direct file parent is `86/87`, so both sides clear the corrected `85/85` gate. The assignment is direct because `BoardDialogs` owns the common `BulletinDialog` base, the shared command virtual, the scalar deleting destructor, and the board/article vtable family. Class-level output is marker-only because final virtual names and source partitioning are provisional; the constructor child [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md) now carries the first-draft constructor C++.
 
 ## Cross-References
 
@@ -73,7 +82,7 @@
 
 ## Score Rationale
 
-Completion is raised to `85` because the page now records the raw constructor bytes, function-boundary gap, vtable base xrefs, vtable slot ownership, command bridge behavior, destructor body, adjustor thunks, exact vtable-data child, direct file parent, and child raw-constructor attachment. Confidence is raised to `87` because the class layout and source ownership are strongly supported by live disassembly and the `BoardDialogs` parent now clears the corrected gate, but the score remains below final because `0x00472000` is still not modeled as a function and constructor reachability/final virtual names are unresolved.
+Completion is raised to `86` because the page now records the raw constructor bytes, function-boundary gap, vtable base xrefs, vtable slot ownership, command bridge behavior, destructor body, adjustor thunks, exact vtable-data child, direct file parent, corrected constructor signature, and child first-draft C++ readiness. Confidence is raised to `88` because the class layout and source ownership are strongly supported by live disassembly, the `BoardDialogs` parent clears the corrected gate, and B014 PE scans resolve direct constructor reachability negatively. The score remains below final because `0x00472000` is still not modeled as a function and final virtual names/source partitioning are provisional.
 
 ## Changes
 
@@ -84,11 +93,16 @@ Completion is raised to `85` because the page now records the raw constructor by
 - 2026-06-05 live IDA refresh:
   - What existed before: the class was `72/82`, reconstructable, and unassigned, with stale source references and a raw-constructor summary delegated to child pages.
   - Changed to: completion `82`, confidence `86`, parent [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md), stale source references removed, and class-scope evidence added for the raw constructor, vtable xrefs, command bridge, destructor, and adjustor thunks.
-  - Summary/evidence: live IDA confirms no function object and no direct xrefs at `0x00472000`, constructor-shaped code ending at `0x00472037`, vtable stores at `0x00472017/0x0047201f/0x00472029`, command bridge `sub_472040`, destructor `sub_47EA10`, and adjustors `sub_47E897`/`sub_47E8A2`. C++ remains blank because the raw constructor boundary and live reachability are still below the final reconstruction gate.
+  - Summary/evidence: live IDA confirms no function object and no direct xrefs at `0x00472000`, constructor-shaped code ending at `0x00472037`, vtable stores at `0x00472017/0x0047201f/0x00472029`, command bridge `sub_472040`, destructor `sub_47EA10`, and adjustors `sub_47E897`/`sub_47E8A2`. Class-level output is marker-only because the raw constructor boundary and live reachability are still below the final reconstruction gate for a class declaration.
 - 2026-06-08 A008 Batch 107:
   - Before: `COMPLETION:82`, `CONFIDENCE:86`; the class was assigned to a file parent that was still below the corrected `85/85` gate.
   - Changed to: `COMPLETION:85`, `CONFIDENCE:87`; assignment to [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md) is now gate-valid because that file reached `85/86`.
-  - Summary/evidence: Batch 107 reconfirmed the raw constructor's exact range/no-function status through [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md), synced the direct file parent, and attached the raw constructor child to this class. C++ remains blank because constructor reachability and final virtual names are unresolved.
+  - Summary/evidence: Batch 107 reconfirmed the raw constructor's exact range/no-function status through [UID:0000ZI][0x00472000-0x0047203a.BulletinDialogRawConstructor](by-memory/0x00472000-0x0047203a.BulletinDialogRawConstructor.md), synced the direct file parent, and attached the raw constructor child to this class. Class-level output is marker-only because constructor reachability and final virtual names are unresolved.
 - 2026-06-10 B001-025:
   - Changed: replaced the raw destructor range note with exact shared non-emitting companion [UID:00033P][0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor](by-memory/0x0047ea10-0x0047ea4b.BulletinDialogSharedScalarDeletingDestructor.md).
   - Summary/evidence: IDA MCP confirms the wrapper's bounds, `DialogInSession` destructor call, scalar-delete free logic, adjustor refs, and shared vtable/data refs spanning bulletin/board/article dialog classes.
+- 2026-06-19 B014 accepted source-quality implementation:
+  - Changed: raised score to `86/88`, updated the constructor signature to `BulletinDialog(DialogSession *session, unsigned char dialogType)`, and replaced the stale unresolved-reachability/no-code wording.
+  - Summary/evidence: B014 PE scans found no direct rel32, absolute VA, or RVA route to `0x00472000`; the three `BulletinDialog` vtable-base immediates occur only inside the raw constructor body. The constructor child now emits first-draft C++ as `DialogInSession(session, 2, dialogType)`, while the class page keeps final class C++ blank until virtual names and source partitioning are settled.
+- 2026-06-27 B006 command-bridge support sync:
+  - Score unchanged. Added current-session evidence for [UID:0000ZJ][0x00472040-0x00472069.BoardDialogCommandOneVirtual](by-memory/0x00472040-0x00472069.BoardDialogCommandOneVirtual.md): `BulletinDialog` consumes the secondary `0x00613c1c -> 0x00472040` slot, but the body is shared across nine secondary views and remains file-routed through [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md) with blank formal C++.

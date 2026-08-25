@@ -1,12 +1,18 @@
 *** UID:0001X7 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:00001K | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:00001K | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:00001K | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// ChangeMan vtable bytes are generated from the ChangeMan virtual declaration
+// and ordinary destructor. Exact slot data is documented by [UID:0002M8][0x00614cd0-0x00614cdc.ChangeManVtableData](by-memory/0x00614cd0-0x00614cdc.ChangeManVtableData.md);
+// no handwritten vtable object should be emitted here.
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # ChangeMan Vtable
 
@@ -19,7 +25,7 @@
 - Confidence: strong for table base, slot boundary, and inherited `LObject` slot meanings.
 - Owning class: [UID:00001K][ChangeMan](by-class/ChangeMan.md).
 - Source owner: [UID:0000I2][ChangeMan](by-file/ChangeMan.md).
-- Autogen status: attached to the `ChangeMan` class page; final C++ remains blank under the `95/95` reconstruction gate.
+- Autogen status: attached to the `ChangeMan` class page; formal C++ now contains only a generated-binary marker under the current combined-score/source-quality gate. The vtable bytes should be regenerated from the class declaration and ordinary destructor rather than hand-emitted.
 
 ## Slots
 
@@ -30,6 +36,10 @@
 | `+0x08` | `0x0041b6c0` | inherited/default no-op virtual | Shared two-argument no-op body, currently `nullsub_18`. |
 
 The table stops after `+0x08`. The next dword at `0x00614cdc` is RTTI data for `ChattingPane` (`??_R4ChattingPane@@6B@`), and the next vtable begins at `0x00614ce0`.
+
+## 2026-07-01 B009 Empty-Emitter Implementation
+
+B009's accepted empty-emitter report added the formal generated-binary marker above. The vtable page remains the canonical type/slot evidence for the three-slot primary table, but generated source should come from the `ChangeMan` virtual declaration, the ordinary destructor emitted on [UID:00001K][ChangeMan](by-class/ChangeMan.md), and compiler/linker vtable generation. Handwritten vtable objects are rejected because [UID:0002M8][0x00614cd0-0x00614cdc.ChangeManVtableData](by-memory/0x00614cd0-0x00614cdc.ChangeManVtableData.md) is exact binary evidence, not a source table.
 
 ## Evidence
 
@@ -61,6 +71,9 @@ Attach this vtable type to [UID:00001K][ChangeMan](by-class/ChangeMan.md) becaus
   - What existed before: the vtable page was reconstructable but unassigned in generated type coverage despite established class/file ownership.
   - What changed: attached the vtable to [UID:00001K][ChangeMan](by-class/ChangeMan.md), raised completion to `86`, and added a parent rationale.
   - Summary/evidence: IDA-confirmed constructor/destructor vptr stores, the scalar-deleting-destructor slot at `0x0047ef50`, and exact [UID:0002M8][0x00614cd0-0x00614cdc.ChangeManVtableData](by-memory/0x00614cd0-0x00614cdc.ChangeManVtableData.md) boundary evidence tie the vtable directly to the reconstructable class; confidence stays below final-audit level because final public API and source C++ remain open.
+- 2026-07-01 B009 empty-emitter implementation:
+  - Scores unchanged at `86/91`.
+  - Evidence: added formal generated-binary marker and corrected stale final-code-gate wording from the old `95/95` rule to the current combined-score/source-quality rule.
 
 - 2026-05-31: Grading changed from `0/0` to `84/91`, and `RECONSTRUCTABLE` was set to `TRUE`.
   - Before: the vtable page had strong slot notes but remained unevaluated and did not point to an exact by-memory data slice.

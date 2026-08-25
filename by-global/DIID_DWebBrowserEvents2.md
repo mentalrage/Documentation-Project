@@ -1,12 +1,15 @@
 *** UID:0000T2 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000HV | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # DIID_DWebBrowserEvents2
 
@@ -16,7 +19,7 @@
 - IDA storage: `0x00631610` (`unk_631610` in IDA decompilation)
 - Previous working name: `IID_BrowserEventSink`
 - Proposed owner: [UID:0000HV][Browser](by-file/Browser.md)
-- Containing data range: [UID:000272][0x00631570-0x00632560.BrowserComGuidReadOnlyData](by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md)
+- Containing data range: exact Browser GUID child [UID:0003OH][0x00631580-0x00631660.BrowserComGuidConstants](by-memory/0x00631580-0x00631660.BrowserComGuidConstants.md), inside mixed non-emitting map [UID:000272][0x00631570-0x00632560.BrowserComGuidReadOnlyData](by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md)
 
 ## Observed Evidence
 
@@ -44,11 +47,12 @@ Neighboring COM id constants in the same browser/OLE data range now decode to st
 ## Reconstruction Evidence
 
 - [UID:0000HV][Browser](by-file/Browser.md) is scored `86/88`, has the valid proposed path `NexusTK/browser/`, and explicitly classifies this symbol as browser COM data.
-- [UID:000272][0x00631570-0x00632560.BrowserComGuidReadOnlyData](by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md) covers the surrounding browser/OLE GUID and COM interface-map data, is reconstructable, and is attached to [UID:0000HV][Browser](by-file/Browser.md).
+- [UID:0003OH][0x00631580-0x00631660.BrowserComGuidConstants](by-memory/0x00631580-0x00631660.BrowserComGuidConstants.md) is the exact reconstructable Browser-owned GUID band. The broader [UID:000272][0x00631570-0x00632560.BrowserComGuidReadOnlyData](by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md) is now a non-emitting mixed map that also covers DirectDraw, libjpeg, zlib, and runtime-adjacent data.
 - [UID:0001OB][0x006131b4-0x006139df.BrowserVtablesAndStrings](by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md) records browser COM GUID inspection around `0x00631580-0x00631640` and links this global to the broader browser `.rdata` island.
-- [UID:000218][0x004710e0-0x0047110e.BrowserGuidCompareHelper](by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md) documents the 16-byte GUID/IID comparison helper used by BrowserWindow, BrowserControlPane, and Browser `QueryInterface` paths.
+- [UID:000218][0x004710e0-0x0047110e.InlineIsEqualGUID](by-memory/0x004710e0-0x0047110e.InlineIsEqualGUID.md) documents the SDK/header-inline GUID/IID comparison helper used by BrowserWindow, BrowserControlPane, and Browser `QueryInterface` paths.
 - [UID:00001A][BrowserThread](by-class/BrowserThread.md) records host initialization references to browser COM GUID data at `0x006315a0`, `0x006315d0`, `0x00631600`, `0x00631610`, and `0x00631620`, followed by connection-point advise/unadvise calls in the same setup/cleanup flow.
 - [UID:00001B][BrowserWindow](by-class/BrowserWindow.md) links this IID global with the BrowserWindow `QueryInterface` path and the browser COM helper memory pages.
+- [UID:000013][Browser](by-class/Browser.md) returns the `IDispatch` view (`this + 8`) for `DIID_DWebBrowserEvents2` in `Browser::QueryInterface`; its ordinary/scalar destructor cleanup uses the same DIID with `m_webBrowser` and `m_adviseCookie` for connection-point unadvise.
 - The old `IID_BrowserEventSink` working name is retired in favor of `DIID_DWebBrowserEvents2`; source reconstruction should still decide whether to reference the SDK declaration or provide a local static GUID declaration.
 
 ## Autogen Status
@@ -70,7 +74,7 @@ The browser COM IIDs should be referenced or declared near the browser host/cont
 ## Follow-Up
 
 - Decide whether final reconstructed source should include a local `DIID_DWebBrowserEvents2` definition or rely on the platform/SDK declaration.
-- Continue naming interface-map records after the primary GUID band in [UID:000272][0x00631570-0x00632560.BrowserComGuidReadOnlyData](by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md).
+- Continue final COM declaration policy against exact Browser GUID child [UID:0003OH][0x00631580-0x00631660.BrowserComGuidConstants](by-memory/0x00631580-0x00631660.BrowserComGuidConstants.md) and caller/source pages; do not treat the broad [UID:000272][0x00631570-0x00632560.BrowserComGuidReadOnlyData](by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md) mixed map as a Browser-owned declaration block.
 
 ## Cross-References
 
@@ -79,8 +83,9 @@ The browser COM IIDs should be referenced or declared near the browser host/cont
 - [UID:00001B][BrowserWindow](by-class/BrowserWindow.md)
 - [UID:00001A][BrowserThread](by-class/BrowserThread.md)
 - [UID:0001OB][0x006131b4-0x006139df.BrowserVtablesAndStrings](by-memory/0x006131b4-0x006139df.BrowserVtablesAndStrings.md)
+- [UID:0003OH][0x00631580-0x00631660.BrowserComGuidConstants](by-memory/0x00631580-0x00631660.BrowserComGuidConstants.md)
 - [UID:000272][0x00631570-0x00632560.BrowserComGuidReadOnlyData](by-memory/0x00631570-0x00632560.BrowserComGuidReadOnlyData.md)
-- [UID:000218][0x004710e0-0x0047110e.BrowserGuidCompareHelper](by-memory/0x004710e0-0x0047110e.BrowserGuidCompareHelper.md)
+- [UID:000218][0x004710e0-0x0047110e.InlineIsEqualGUID](by-memory/0x004710e0-0x0047110e.InlineIsEqualGUID.md)
 
 ## Changes
 
@@ -94,3 +99,5 @@ The browser COM IIDs should be referenced or declared near the browser host/cont
   - Renamed page from `IID_BrowserEventSink` to `DIID_DWebBrowserEvents2`.
   - Raised score from `80/84` to `88/92`.
   - Evidence: read-only IDA MCP decoded `0x00631610` as bytes `a0 15 a7 34 87 65 d0 11 92 4a 00 20 af c7 ac 4d`, GUID `34a715a0-6587-11d0-924a-0020afc7ac4d`, and reconfirmed 13 browser setup/shutdown/query/advise/cleanup xrefs. The neighboring GUID band was also identified as standard COM/OLE/WebBrowser IDs, so the old provisional event-sink name is no longer needed.
+- 2026-06-20 B007 Browser class sync:
+  - Added [UID:000013][Browser](by-class/Browser.md) evidence that `Browser::QueryInterface` returns the `IDispatch` view (`this + 8`) for this DIID and that destructor/scalar cleanup uses the same DIID for connection-point unadvise.

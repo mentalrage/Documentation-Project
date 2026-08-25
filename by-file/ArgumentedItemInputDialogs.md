@@ -1,18 +1,21 @@
 *** UID:0000HH | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:93 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:94 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:FILE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # ArgumentedItemInputDialogs
 
 ## Status
 
-- Confidence: strong for the confirm/quantity dialog behavior, exact function boundaries, vtable anchors, caller set, and packet-send helper format.
-- Remaining caveat: medium-high for whether the original source file was standalone or folded into `ArgumentedMenuDialogs.cpp`/`TextMenuDialogs.cpp`; the preferred reconstruction folder is `NexusTK/ui/dialogs/`.
+- Confidence: very strong for the confirm/quantity dialog behavior, exact function boundaries, vtable/RTTI anchors, caller set, packet-send helper format, layouts, resources, and complete source/header route.
+- Accepted source placement: standalone `NexusTK/ui/dialogs/ArgumentedItemInputDialogs.cpp` with sibling `ArgumentedItemInputDialogs.h`. The former folded-file possibility is retained below only as a historical alternative superseded by the complete two-class code/data boundary.
 - Proposed module folder: `ui/dialogs/`
 - Candidate file: `NexusTK/ui/dialogs/ArgumentedItemInputDialogs.cpp`
-- Possible folded owner: `NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp`
-- Evidence basis: live IDA MCP function/disassembly/decompilation checks on 2026-06-04, including direct xrefs, tail instructions, vtable/RTTI data, resource/string refs, and packet constants.
+- Historical folded candidate: `NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp` (superseded; its list-context helpers remain a dependency).
+- Evidence basis: live IDA MCP function/disassembly/decompilation checks on 2026-06-04 and 2026-06-14, including direct xrefs, tail instructions, vtable/RTTI data, resource/string refs, packet constants, and generated-output route confirmation.
+- Boundary correction: B001 2026-06-16 routes `0x0051f450`, `0x0051f510`, and `0x0051f640` through [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md). This file owns the input pane constructors/actions that call or construct from those list-context helpers.
+- Historical B008 2026-07-04 limited callback: [UID:0001BT][0x0051fc90-0x00520539.ArgumentedItemInputDialogs](by-memory/0x0051fc90-0x00520539.ArgumentedItemInputDialogs.md) established the four-way split but could not create children under that callback. B010 created and routed all four exact method pages; the old deferral is no longer current.
 
 ## Hypothesis
 
@@ -35,13 +38,13 @@ NexusTK/ui/dialogs/ArgumentedMenuDialogs.cpp
 
 | Entity | Exact range | Role |
 | --- | --- | --- |
-| `ShowBuyConfirmDialog` / `OpenArgumentedItemConfirmDialog` | `0x0051f450-0x0051f4fe` | Reads the selected argumented menu entry, formats the buy/price-confirm prompt, allocates `ArgumentedItemConfirmInputDialogPane`, and passes item/argument/price context. |
-| `OpenQuantityDialogOrSendSingle` | `0x0051f510-0x0051f5a5` | Sends quantity `1` directly when count is `0` or `1`; otherwise allocates `ArgumentedItemQuantityInputDialogPane` with prompt resource id `246`. |
-| `SendArgumentedItemQuantityPacket` | `0x0051f640-0x0051f706` | Serializes the final 14-byte opcode `0x39` argumented item quantity packet and sends it through the client packet sender. |
-| `ArgumentedItemQuantityInputDialogPane` constructor | `0x0051fc90-0x0051ff6c` | Builds the `ArgumentQuantity` dialog and copies menu/list context. |
-| `ArgumentedItemQuantityInputDialogPane` action handler | `0x0051ff70-0x005200c4` | Parses quantity text, validates `1..100`, shows validation alerts, sends the packet, and closes the dialog. |
-| `ArgumentedItemConfirmInputDialogPane` constructor | `0x005200d0-0x005203be` | Builds the price-confirm dialog and stores copied menu context, available quantity, expected price, and selected argument id. |
-| `ArgumentedItemConfirmInputDialogPane` action handler | `0x005203c0-0x00520539` | Validates typed price, alerts on mismatch, sends quantity `1`, or opens the quantity dialog. |
+| external list-context helper | [UID:0003VI][0x0051f450-0x0051f4fe.ArgumentedMenuOpenBuyConfirmDialog](by-memory/0x0051f450-0x0051f4fe.ArgumentedMenuOpenBuyConfirmDialog.md) | Reads the selected argumented menu entry and allocates `ArgumentedItemConfirmInputDialogPane`; owned by [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md). |
+| external list-context helper | [UID:0003VJ][0x0051f510-0x0051f5a5.ArgumentedMenuOpenQuantityDialogOrSendSingle](by-memory/0x0051f510-0x0051f5a5.ArgumentedMenuOpenQuantityDialogOrSendSingle.md) | Sends quantity `1` directly or allocates `ArgumentedItemQuantityInputDialogPane`; owned by [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md). |
+| external list-context helper | [UID:0003VL][0x0051f640-0x0051f706.ArgumentedMenuSendItemQuantityPacket](by-memory/0x0051f640-0x0051f706.ArgumentedMenuSendItemQuantityPacket.md) | Serializes the final 14-byte opcode `0x39` argumented item quantity packet from list context; owned by [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md). |
+| [UID:000554][0x0051fc90-0x0051ff6c.ArgumentedItemQuantityInputDialogPaneConstructor](by-memory/0x0051fc90-0x0051ff6c.ArgumentedItemQuantityInputDialogPaneConstructor.md) | `[0x0051fc90,0x0051ff6c)` | Builds the `ArgumentQuantity` dialog and copies menu/list context; exact source body emits through UID00000G at position 10. |
+| [UID:000555][0x0051ff70-0x005200c4.ArgumentedItemQuantityInputDialogPaneOnControlCommand](by-memory/0x0051ff70-0x005200c4.ArgumentedItemQuantityInputDialogPaneOnControlCommand.md) | `[0x0051ff70,0x005200c4)` | Preserves unsigned validation, both alerts, packet send, and always-close control-1 behavior; emits through UID00000G at position 20. |
+| [UID:000557][0x005200d0-0x005203be.ArgumentedItemConfirmInputDialogPaneConstructor](by-memory/0x005200d0-0x005203be.ArgumentedItemConfirmInputDialogPaneConstructor.md) | `[0x005200d0,0x005203be)` | Builds the price-confirm dialog and stores copied context, max quantity, expected price, and argument id; emits through UID00000F at position 10. |
+| [UID:000558][0x005203c0-0x00520539.ArgumentedItemConfirmInputDialogPaneOnControlCommand](by-memory/0x005203c0-0x00520539.ArgumentedItemConfirmInputDialogPaneOnControlCommand.md) | `[0x005203c0,0x00520539)` | Preserves mismatch no-close behavior, direct one-item send, quantity-dialog branch, and close ordering; emits through UID00000F at position 20. |
 
 ## Live IDA Evidence
 
@@ -72,10 +75,36 @@ Behavior evidence from live decompilation/disassembly:
 - `0x0051ff70` parses decimal input, rejects values above `100` with the `You can't buy more than 100.` alert string, rejects zero with the `How much?` alert string, and calls `0x0051f640` for valid nonzero quantities.
 - `0x005203c0` parses the typed price, compares it with the expected price stored in the confirm dialog, uses the `Price is different.` alert string on mismatch, and otherwise dispatches to `0x0051f640` or `0x0051fc90`.
 
+## 2026-06-14 C001 IDA MCP Refresh
+
+Current IDA MCP health reports `NexusTK.exe.i64`, image base `0x400000`, auto-analysis ready, Hex-Rays ready, and strings cache ready. The refreshed checks support raising completion above the old floor without changing the file route.
+
+- `lookup_funcs` reconfirms the helper/dialog inventory: `0x0051f450` size `0xae`, `0x0051f510` size `0x95`, `0x0051f640` size `0xc6`, `0x0051fc90` size `0x2dc`, `0x0051ff70` size `0x154`, `0x005200d0` size `0x2ee`, `0x005203c0` size `0x179`, and unrelated successor `0x00520540` size `0x75`.
+- `analyze_component` shows the internal purchase-flow edges: `0x0051f450 -> 0x005200d0`, `0x0051f510 -> 0x0051fc90/0x0051f640`, `0x0051ff70 -> 0x0051f640`, and `0x005203c0 -> 0x0051fc90/0x0051f640`.
+- Fresh `xrefs_to` reconfirms four packet-send helper refs at `0x0051f504`, `0x0051f58d`, `0x0052008e`, and `0x00520501`; quantity-constructor refs at `0x0051f570` and `0x005204ec`; confirm-constructor refs at `0x0051f22a` and `0x0051f4de`; and no direct xrefs to `0x0051f510`.
+- `analyze_function 0x0051f640` decompiles the final packet as opcode `0x39` / decimal `57` (Verified with `int_convert.py`), copies context fields from `this+0x14c`, `this+0x150`, and `this+0x154`, writes a fixed subcommand byte `1`, appends argument id and quantity, and sends decimal `14` / hex `0xe` bytes (Verified with `int_convert.py`) through `0x00574bb0`.
+- `analyze_function 0x0051f510` reconfirms the quantity branch: count `<= 1` sends quantity `1` directly, otherwise allocates class id decimal `628` / hex `0x274` and reads prompt id decimal `246` / hex `0xf6` (both Verified with `int_convert.py`) before constructing the quantity dialog.
+
+## 2026-07-04 B008 UID0001BT Limited Callback
+
+Current B008 MCP session `eb7ce28b` keeps this file as the owner/emitter route for UID0001BT while correcting the source shape. `server_health` was OK for `E:\NTK\Resources\NexusTK\NexusTK.exe.i64`, and current `lookup_funcs` reports raw IDB names `sub_51FC90`, `sub_51FF70`, `sub_5200D0`, and `sub_5203C0`; the C001 method names remain documentation/source-facing names rather than current live IDB names.
+
+UID0001BT now emits only an aggregate child-route marker through this file. The four source-bearing input-pane method bodies remain planned exact child pages:
+
+- `0x0051fc90-0x0051ff6c` quantity constructor: constructor refs at `0x0051f570` and `0x005204ec`; vtable stores to `0x0061f588`, `0x0061f5e8`, and `0x0061f618`.
+- `0x0051ff70-0x005200c4` quantity action: vtable data slot `0x0061f5d0`, quantity limit `0x64` / decimal `100` (Verified with `int_convert.py`), UTF-16LE validation strings `You can't buy more than 100.` and `How much?`, and packet-helper call at `0x0052008e`.
+- `0x005200d0-0x005203be` confirm constructor: constructor refs at `0x0051f22a` and `0x0051f4de`; vtable stores to `0x0061f624`, `0x0061f684`, and `0x0061f6b4`.
+- `0x005203c0-0x00520539` confirm action: vtable data slot `0x0061f66c`, UTF-16LE `Price is different.`, quantity-dialog dispatch at `0x005204ec`, and packet-helper call at `0x00520501`.
+
+Boundary proof: `0x00520046` resolves inside `sub_51FF70`, not a separate function; `0x00520539` is not a function; successor `0x00520540` is a separate `ObjectImageControlPane`-family function. Current byte checks show `0xcc` padding between the four functions and before the successor.
+
+Do not create one broad function body here. UID0001BT's current role is to assemble exact future children and to remove the previous bare empty marker from generated output. Child page creation was explicitly deferred by the B008 limited callback scope.
+
 ## Ownership Notes
 
 - These helpers and panes belong to the argumented merchant/menu purchase flow, not chat-color, generic item-dialog, or frame-chrome code.
-- `SendArgumentedItemQuantityPacket` consumes the `ArgumentedMenuMenuItemList` context layout: command type at `+0x14c`, owner id at `+0x150`, list parameter at `+0x154`, and owner dialog pointer at `+0x158`.
+- [UID:0003VL][0x0051f640-0x0051f706.ArgumentedMenuSendItemQuantityPacket](by-memory/0x0051f640-0x0051f706.ArgumentedMenuSendItemQuantityPacket.md) consumes the `ArgumentedMenuMenuItemList` context layout: command type at `+0x14c`, owner id at `+0x150`, list parameter at `+0x154`, and owner dialog pointer at `+0x158`.
+- Quantity/confirm input dialog constructors call [UID:0003VF][0x0051f290-0x0051f30b.ArgumentedMenuMenuItemListCopyConstructor](by-memory/0x0051f290-0x0051f30b.ArgumentedMenuMenuItemListCopyConstructor.md), and their action handlers call [UID:0003VL][0x0051f640-0x0051f706.ArgumentedMenuSendItemQuantityPacket](by-memory/0x0051f640-0x0051f706.ArgumentedMenuSendItemQuantityPacket.md).
 - The no-direct-xref status of `0x0051f450` and `0x0051f510` remains the main reachability caveat. Their bodies still match the argumented item purchase flow and are adjacent to the argumented menu/input dialog island.
 - The final standalone-vs-folded file decision should be made with the neighboring [UID:0000HI][ArgumentedMenuDialogs](by-file/ArgumentedMenuDialogs.md) and [UID:0000OP][TextMenuDialogs](by-file/TextMenuDialogs.md) pages.
 
@@ -92,7 +121,26 @@ NexusTK/ui/dialogs/ArgumentedItemInputDialogs.cpp
   SendArgumentedItemQuantityPacket
 ```
 
-Do not write final reconstruction C++ yet. The behavior and boundaries are strong, but final source-facing names, signatures, and the standalone-vs-folded source decision are still below the 95/95 final-code bar.
+Do not write one broad reconstruction body for UID0001BT. The behavior and boundaries are strong and the emitter route surfaces, but source output should be child-first: UID0001BT supplies the aggregate `[[CHILDREN]]` insertion point, and the future exact method pages should carry any first-draft method C++ only after source-facing names, signatures, member fields, and the standalone-vs-folded source decision are settled. The limited B008 callback did not authorize creating those child pages.
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 93 | The file now has an exhaustive four-method source inventory, two complete class/header routes, exact layouts, six vtable views, two seven-base RTTI graphs, four owned literals, compiler-artifact dispositions, dependency closure, and ten exact child/type/resource pages. |
+| Confidence | 94 | Exact ranges, behavior, packet path, class tables, fields, resources, callers, and standalone code/data boundaries are strongly constrained. The remaining cap is original lexical filename/access/identifier spelling and absent rebuilt-binary comparison, not a source-code blocker. |
+
+## 2026-08-17 B010 Whole-File Source Closure
+
+- Accepted module pair: `NexusTK/ui/dialogs/ArgumentedItemInputDialogs.cpp` and `ArgumentedItemInputDialogs.h`.
+- Exact source order: quantity class declaration then confirm class declaration in H; quantity constructor, quantity `OnControlCommand`, confirm constructor, and confirm `OnControlCommand` in CPP. UID0001BT is a no-duplicate index, not a broad method emitter.
+- Exact code children: UID000554, UID000555, UID000557, and UID000558. Exact layouts: UID000556 and UID000559. Compiler/data coverage: UID00055A and UID00055C. Literal/resource ownership: UID00055B and UID00055D.
+- Runtime fidelity includes pointer-based full control constructors, 239x283 DLGEXC3/PAL01 layout, focus/pending/hover order, copied 0x15c list context, unsigned quantity comparison, zero alert, mismatch no-close path, one-item versus quantity branch, packet widths, close ordering, and the observed no-cleanup lifetime of `m_menuContext`.
+- External helper bodies remain in `ArgumentedMenuDialogs.cpp` under UID00000I. Its complete sibling header supplies the copy constructor, selected-entry type, private helpers, packet method, and friend coupling used by this module.
+- Five alignment spans and the `ObjectImageControlPane` successor remain excluded. Six vtables, six COL cells, two CHDs/seven-base RTTI graphs, deleting wrappers, and adjustor thunks are compiler-covered and never emitted as raw arrays or handwritten wrappers.
+- The four owned wide literals remain in exact method source. Shared DLGEXC3, PAL01, `%d`, `OK`, localization, BackPane, MainUiGraph, and control APIs remain dependencies rather than reowned data.
+- Third-party import does not apply: this is first-party reconstructed NexusTK UI source. Wave2/Wave3 material is rejected as stale and was not used as evidence.
+- Weak direct-start reachability for `0x0051f450` and `0x0051f510` caps only those private helper spellings. Exact bodies, adjacency, selected-row fields, constructor/send calls, and UID00000I ownership make them source-eligible dependencies rather than blockers to this file.
 
 ## Cross-References
 
@@ -116,4 +164,15 @@ Do not write final reconstruction C++ yet. The behavior and boundaries are stron
 - 2026-06-04: Raised grading from `72/82` to `82/88` and set `PROPOSED_RECONSTRUCTION_PATH` to `NexusTK/ui/dialogs/`.
   - Before: the page relied on stale non-live provenance and older IDA notes, had inclusive endpoint wording for several ranges, and left the proposed path blank.
   - After: the page uses live IDA MCP evidence for exact half-open boundaries, direct refs, vtable stores, handler vtable slots, packet constants, resource/string refs, and false-start handling for `0x00520046`.
-  - Score rationale: completion increased because the helper, constructor, action-handler, vtable, and packet-send evidence now reconstructs the module shape with high confidence. It remains below final-code level because `0x0051f450`/`0x0051f510` still have no direct start refs and the final standalone-vs-folded source split is unresolved.
+  - Score rationale: completion increased because the helper, constructor, action-handler, vtable, and packet-send evidence now reconstructs the module shape with high confidence. It remains below source-quality code-entry level because `0x0051f450`/`0x0051f510` still have no direct start refs and the final standalone-vs-folded source split is unresolved.
+
+- 2026-06-14 C001: Raised grading from `82/88` to `86/89`.
+  - Before: the page had strong 2026-06-04 IDA evidence but no current MCP refresh, stale source-entry wording, and no explicit current score table.
+  - After: added current IDA MCP health, refreshed function sizes/call edges/xref sets, verified opcode/count conversions with `int_convert.py`, and documented why the active emitter route still does not justify final source code.
+  - Evidence: `lookup_funcs`, `analyze_component`, `xrefs_to`, and `analyze_function` reconfirm the argumented item helper/dialog cluster, the opcode `0x39` 14-byte packet helper, quantity-dialog branch, class constructor refs, and successor boundary before `ObjectImageControlPane`.
+- 2026-06-16 B001 boundary correction:
+  - Changed helper ownership wording without changing score.
+  - Evidence: B001 split audit proved `0x0051f450`, `0x0051f510`, and `0x0051f640` are source-bearing [UID:00000I][ArgumentedMenuMenuItemList](by-class/ArgumentedMenuMenuItemList.md) helpers. This file owns only the input pane constructors/actions at `0x0051fc90-0x00520539` that consume those helpers.
+- 2026-07-04 B008 UID0001BT limited implementation callback:
+  - Score unchanged on this file root.
+  - Synchronized UID0001BT from a broad blank-emitter blocker to a reconstructable aggregate child-route marker with current MCP session `eb7ce28b` evidence, exact four-method split plan, current raw IDB name caveat, generated empty-marker correction, and explicit child-page deferral by supervisor scope.

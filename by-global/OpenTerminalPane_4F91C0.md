@@ -1,23 +1,27 @@
 *** UID:0000TF | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000L0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// OpenTerminalPane is emitted by exact helper [UID:00019S][0x004f91c0-0x004f927d.OpenTerminalPane](by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md); this address-suffixed global page remains a search/support alias and does not duplicate the retained launcher body.
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # OpenTerminalPane_4F91C0
 
 ## Status
 
-- Confidence: strong for helper body, cleanup path, constructor target, and source split; medium for live callback reachability.
+- Confidence: very strong for helper body, cleanup path, constructor target, direct source owner, and source split; medium for live callback reachability.
 - Address range: [UID:00019S][0x004f91c0-0x004f927d.OpenTerminalPane](by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md)
 - Symbol kind: retained main-menu helper.
 - Likely owner file: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md), with constructor target in [UID:0000OI][TerminalPane](by-file/TerminalPane.md)
-- Parent status: unassigned under the strict 85/85 child/direct-parent gate. This helper is now `84/88`, but likely direct parent [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) is `88/82`.
-- Current emitted source owner: none; retain the helper under the documented main-menu owner until a live callback path is found.
+- Parent status: assigned to [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) under the strict 85/85 child/direct-parent gate. This helper is now `86/90`, and direct parent [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) is `89/86`.
+- Current emitted source owner: exact child [UID:00019S][0x004f91c0-0x004f927d.OpenTerminalPane](by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md) emits the retained `MainMenuPane.cpp` helper. This address-suffixed page is a support/search alias and carries only the formal no-duplicate marker comment above.
 
 ## Behavior
 
@@ -29,7 +33,7 @@ Observed behavior:
 - performs an additional packet/session reset helper call at `0x00596620`;
 - closes the active login dialog singleton if present;
 - detaches/unregisters and queues the caller-provided pane through [UID:0000HR][BlackHole](by-file/BlackHole.md) using [UID:0000Q8][g_pApplicationCleanupQueue](by-global/g_pApplicationCleanupQueue.md) / historical `dword_67A74C`;
-- checks a client-state flag at `g_pClientState + 2692810`;
+- checks a client-state flag at `g_pClientState + 0x2916ca`, 2692810 decimal (Verified with int_convert.py);
 - if the flag is set, requests application exit;
 - otherwise allocates `0x270` bytes, 624 decimal bytes (Verified with int_convert.py), and constructs [UID:0000EG][TerminalPane](by-class/TerminalPane.md) at `0x0058af50`;
 - plays sound/sample id `0x192`, 402 decimal (Verified with int_convert.py), through the global sound manager.
@@ -40,12 +44,15 @@ IDA reports no direct caller/xref to the helper start in the current database. T
 
 - Live IDA MCP on 2026-06-04 confirms `sub_4F91C0` at `0x004f91c0` with size `0xbd`; `0x004f927d` is not a function start.
 - Live IDA MCP on 2026-06-10 reconfirms `sub_4F91C0` at `0x004f91c0` with size `0xbd`, 189 decimal bytes (Verified with int_convert.py); `0x004f927d` is not a function start and the next function starts at `0x004f9280`.
+- Live IDA MCP session `b001_nexustk` on 2026-06-12 reconfirmed `sub_4F91C0` at `0x004f91c0` with IDA-reported size `0xbd`, 189 decimal bytes (Verified with int_convert.py), no function start at `0x004f927d`, and successor `sub_4F9280` at `0x004f9280`.
 - IDA MCP `callers` and `xrefs_to` for `0x004f91c0` return no direct references.
 - IDA MCP `callers` and `xrefs_to` on 2026-06-10 still return no direct references to `0x004f91c0`.
+- IDA MCP `xrefs_to 0x004f91c0` on 2026-06-12 still returns no direct helper-entry references, while `xrefs_to 0x0058af50` includes the active menu constructor call at `0x004f7cbb` and retained helper constructor call at `0x004f924f`.
 - IDA MCP callers/xrefs for `TerminalPane::TerminalPane` at `0x0058af50` include `0x004f924f` inside this helper, plus related construction paths at `0x004f5f9b`, `0x004f647a`, and `0x004f7cbb`.
 - IDA MCP callees for `0x004f91c0` are `sub_574B20` packet/session cleanup, `sub_596620` packet/session reset, `sub_49DAD0` login-dialog close helper, `sub_469180` [UID:0000HR][BlackHole](by-file/BlackHole.md) pane queueing with [UID:0000Q8][g_pApplicationCleanupQueue](by-global/g_pApplicationCleanupQueue.md) / historical `dword_67A74C`, `sub_464E40` application exit request, `sub_4F4AA0` allocation, `sub_58AF50` `TerminalPane` construction, and `sub_57A5C0` sound playback.
 - IDA decompilation confirms the exact flow: cleanup/reset through [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) / historical `dword_67A7EC`, close `dword_69B484` if present, queue the caller-provided pane through [UID:0000Q8][g_pApplicationCleanupQueue](by-global/g_pApplicationCleanupQueue.md) / historical `dword_67A74C`, check `*(byte *)(dword_67A7C8 + 2692810 / 0x2916ca)` (Verified with int_convert.py), request exit through `dword_67AB1C` if set, otherwise allocate `0x270` bytes and construct `TerminalPane`, then play sound id `0x192` through `dword_67A7D0`.
 - IDA MCP `decompile 0x004f7a10` on 2026-06-10 shows active menu case `5` duplicates this retained helper's cleanup/reset/login-close/BlackHole/exit-or-terminal/sound path instead of calling the retained helper directly. The active constructor call is `0x004f7cbb`; the retained duplicate's constructor call is `0x004f924f`.
+- IDA MCP `analyze_function 0x004f7a10` on 2026-06-12 reconfirmed `MainMenuPane::ActivateMenuItem` case `5` duplicates the terminal-launch flow, including cleanup at `0x004f7c58`, reset at `0x004f7c63`, optional login-close at `0x004f7c72`, BlackHole queueing at `0x004f7c7e`, the `0x2916ca` state-byte test at `0x004f7c88`, exit at `0x004f7c97`, `0x270` allocation at `0x004f7ca3`, `TerminalPane` construction at `0x004f7cbb`, and sound id `0x192` at `0x004f7cd4`.
 - IDA disassembly on 2026-06-10 shows SEH/security-cookie setup and cleanup around the source-authored launch flow; the compiler frame does not change the documented helper semantics.
 - Existing [UID:0001JB][0x0058af50-0x0058c350.TerminalPaneAndSetup](by-memory/0x0058af50-0x0058c350.TerminalPaneAndSetup.md) notes include the constructor caller at `0x004f924f`, matching this helper.
 
@@ -56,13 +63,13 @@ Keep this as a retained private helper in `login/MainMenuPane.cpp` or an adjacen
 ## Autogen Status
 
 - Reconstructable: true as a retained source-owned launcher/helper.
-- Parent: blank until likely owner [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) reaches the strict 85/85 child/direct-parent gate. The likely parent is currently scored `88/82`, has the valid proposed path `NexusTK/login/`, and explicitly keeps this helper in `MainMenuPane.cpp`.
-- Code: intentionally blank. The exact by-memory page documents the body, but final source names and live callback reachability are not strong enough for 95+/95+ C++ reconstruction.
+- Parent: [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md). The child is `86/90`, the direct parent is `89/86`, and the parent has valid `NexusTK/login/` placement plus explicit retained-helper ownership evidence.
+- Code: marker-only alias. The exact by-memory page now emits accepted retained-helper C++; live callback reachability remains a confidence cap, not a reason for duplicate alias emission.
 
 ## Score Rationale
 
-- Completion is now 84 because the exact boundary, cleanup/reset path, constructor target, active duplicate path, exit branch, sound call, likely owner, padding, retained-helper caveat, parent-gate caveat, and live constructor-call split are documented.
-- Confidence is now 88 because [UID:00019S][0x004f91c0-0x004f927d.OpenTerminalPane](by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md) records the exact body and the 2026-06-10 live recheck reconfirmed lookup/callers/xrefs/callees/decompile/disassembly evidence; [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) records the same likely source placement but remains below the direct-parent gate.
+- Completion is now 86 because the exact boundary, cleanup/reset path, constructor target, active duplicate path, exit branch, sound call, direct owner, padding, retained-helper caveat, parent-gate clearance, and live constructor-call split are documented.
+- Confidence is now 90 because [UID:00019S][0x004f91c0-0x004f927d.OpenTerminalPane](by-memory/0x004f91c0-0x004f927d.OpenTerminalPane.md) records the exact body and the 2026-06-12 live recheck reconfirmed lookup/xref/callee/analyze evidence, while [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) now clears `89/86` and records the same source placement.
 - Remaining uncertainty is live reachability: current IDA caller/xref checks still find no direct reference to the helper start.
 
 ## Cross-References
@@ -78,6 +85,11 @@ Keep this as a retained private helper in `login/MainMenuPane.cpp` or an adjacen
 
 ## Changes
 
+- 2026-06-12 A002 Batch 306:
+  - Before: `COMPLETION:84`, `CONFIDENCE:88`, and blank `AUTOGEN_PARENT_UID` because [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) had previously been below the strict direct-parent confidence gate.
+  - Changed to: `COMPLETION:86`, `CONFIDENCE:90`, and `AUTOGEN_PARENT_UID:0000L0`.
+  - Summary/evidence: live IDA MCP session `b001_nexustk` reconfirmed `sub_4F91C0` as a `0xbd` / 189-byte retained helper (Verified with int_convert.py), exact `0x004f91c0-0x004f927d` boundary, empty helper-entry xrefs, cleanup/reset/login-close/BlackHole/exit-or-terminal/sound flow, `0x270` / 624-byte allocation, `0x2916ca` / 2692810 state-byte offset, `0x192` / 402 sound id, active `MainMenuPane::ActivateMenuItem` case `5` duplicate path, and constructor target split at `0x004f7cbb` and `0x004f924f`.
+  - Gate rationale: the child now clears `86/90` and direct parent [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md) already clears `89/86`, so the retained helper can route to the file owner without bypassing a class/type parent.
 - 2026-06-10 A001 live refresh and parent-gate repair:
   - Changed to: `COMPLETION:84`, `CONFIDENCE:88`, and blank `AUTOGEN_PARENT_UID`.
   - Summary/evidence: live IDA MCP reconfirmed `sub_4F91C0` size `0xbd` / 189 decimal bytes, no direct callers or xrefs to the helper start, successor boundary at `0x004f9280`, exact callee set, `TerminalPane` constructor caller split, retained helper call at `0x004f924f`, active menu duplicate call at `0x004f7cbb`, and the decompiled/disassembled cleanup/reset/login-close/BlackHole/exit-or-terminal/sound flow.

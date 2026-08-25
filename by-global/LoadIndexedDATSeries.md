@@ -1,12 +1,15 @@
 *** UID:0000T5 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # LoadIndexedDATSeries
 
@@ -47,15 +50,24 @@ The source-level helper should scan numbered families with `index < 99`, probe e
 - [UID:0000YX][0x00467410-0x004674ed.LoadIndexedDATSeries](by-memory/0x00467410-0x004674ed.LoadIndexedDATSeries.md)
 - [UID:0000HG][Application](by-file/Application.md)
 - [UID:00000D][Application](by-class/Application.md)
-- [UID:0000YR][0x00463310-0x004679be.ApplicationLifecycle](by-memory/0x00463310-0x004679be.ApplicationLifecycle.md)
+- [UID:0000YR][0x00463310-0x004674ed.ApplicationLifecycle](by-memory/0x00463310-0x004674ed.ApplicationLifecycle.md)
 - [UID:0001R6][application-startup-dat-archives](by-resource/application-startup-dat-archives.md)
 - [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md)
 - [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md)
 - [UID:0000IM][DATArchive](by-file/DATArchive.md)
 - [UID:0001QC][client_dat_specifications](by-meta/client_dat_specifications.md)
 
+## 2026-06-29 B013 Duplicate Index Repair
+
+- B013 implements the accepted duplicate/index route repair: this by-global page is now non-emitting while UID0000YX remains the exact by-memory source/no-code decision page.
+- Metadata is `RECONSTRUCTABLE:FALSE`, `CANONICAL_OWNER:0000HG`, blank `EMITTER_UIDS`, blank `EMITTER_POSITION_OPTIONAL`, and blank formal C++.
+- This page remains the canonical symbol/index for `LoadIndexedDATSeries`; it must not duplicate UID0000YX's DAT-series behavior marker or any future exact body.
+
+Implementation validator: run `python .\tools\validator.py --mode file --file by-global/LoadIndexedDATSeries.md --apply --queue-timeout 240` from `source-3/project-documentation`.
+
 ## Changes
 
 - 2026-05-30: Raised completion/confidence from `0/0` to `88/92`. Previously this global index page described the helper but had no score; it now records the current IDA MCP boundary/caller/callee recheck and clarifies the source-level return-type caveat.
-- 2026-06-05: Marked reconstructable and attached to [UID:0000HG][Application](by-file/Application.md).
-  - Reason: live IDA MCP recheck confirms a source-authored startup helper with all 19 direct callers inside application initialization; archive parsing remains delegated to the DAT manager.
+- 2026-06-05: Marked reconstructable and attached to [UID:0000HG][Application](by-file/Application.md) at that time.
+  - Reason: live IDA MCP recheck confirmed a source-authored startup helper with all 19 direct callers inside application initialization; archive parsing remains delegated to the DAT manager.
+  - B013 supersession: the 2026-06-29 duplicate/index repair above makes this by-global page non-emitting. The exact source/no-code decision now lives on UID0000YX, and this page remains only the canonical symbol/index.

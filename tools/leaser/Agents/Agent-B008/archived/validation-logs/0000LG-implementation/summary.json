@@ -1,0 +1,110 @@
+﻿[
+    {
+        "File":  "by-file/MiscWorkThread.md",
+        "CommandId":  "000000003922",
+        "Timestamp":  "2026-07-01T15:42:23-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-file_MiscWorkThread.md.log"
+    },
+    {
+        "File":  "by-class/MiscWorkThread.md",
+        "CommandId":  "000000003923",
+        "Timestamp":  "2026-07-01T15:42:35-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-class_MiscWorkThread.md.log"
+    },
+    {
+        "File":  "by-type/by-enum/MiscWorkThreadMessageId.md",
+        "CommandId":  "000000003924",
+        "Timestamp":  "2026-07-01T15:42:45-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-type_by-enum_MiscWorkThreadMessageId.md.log"
+    },
+    {
+        "File":  "by-class/httpget__Notification.md",
+        "CommandId":  "000000003925",
+        "Timestamp":  "2026-07-01T15:42:57-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-class_httpget__Notification.md.log"
+    },
+    {
+        "File":  "by-type/by-enum/HttpGetNotificationState.md",
+        "CommandId":  "000000003927",
+        "Timestamp":  "2026-07-01T15:43:07-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-type_by-enum_HttpGetNotificationState.md.log"
+    },
+    {
+        "File":  "by-class/ncauth__Notification.md",
+        "CommandId":  "000000003928",
+        "Timestamp":  "2026-07-01T15:43:18-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-class_ncauth__Notification.md.log"
+    },
+    {
+        "File":  "by-type/by-enum/NcauthNotificationState.md",
+        "CommandId":  "000000003930",
+        "Timestamp":  "2026-07-01T15:43:31-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-type_by-enum_NcauthNotificationState.md.log"
+    },
+    {
+        "File":  "by-global/g_pMiscWorkThread.md",
+        "CommandId":  "000000003931",
+        "Timestamp":  "2026-07-01T15:43:50-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-global_g_pMiscWorkThread.md.log"
+    },
+    {
+        "File":  "by-memory/0x0067ab50-0x0067ab54.g_pMiscWorkThread.md",
+        "CommandId":  "000000003933",
+        "Timestamp":  "2026-07-01T15:44:00-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-memory_0x0067ab50-0x0067ab54.g_pMiscWorkThread.md.log"
+    },
+    {
+        "File":  "by-memory/0x0066de30-0x0066de6c.NcauthConfirmUserUrlObfuscated.md",
+        "CommandId":  "000000003935",
+        "Timestamp":  "2026-07-01T15:44:19-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-memory_0x0066de30-0x0066de6c.NcauthConfirmUserUrlObfuscated.md.log"
+    },
+    {
+        "File":  "by-memory/0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString.md",
+        "CommandId":  "000000003937",
+        "Timestamp":  "2026-07-01T15:44:39-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-memory_0x0069b3d0-0x0069b3d4.MainMenuTextUrlStaticString.md.log"
+    },
+    {
+        "File":  "by-memory/0x005277c0-0x005285dd.MiscWorkThreadAndNotifications.md",
+        "CommandId":  "000000003939",
+        "Timestamp":  "2026-07-01T15:44:58-04:00",
+        "Exit":  0,
+        "Ok":  "1",
+        "GeneratedRefresh":  "completed",
+        "Log":  "E:\\NTK\\GhidraBridge\\source-3\\project-documentation\\tools\\leaser\\Agents\\Agent-B008\\validation-logs\\0000LG-implementation\\by-memory_0x005277c0-0x005285dd.MiscWorkThreadAndNotifications.md.log"
+    }
+]

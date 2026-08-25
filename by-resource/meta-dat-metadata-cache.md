@@ -1,6 +1,7 @@
 *** UID:0001RH | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:78 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:NONE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # Meta.dat Metadata Cache
 
@@ -8,7 +9,7 @@
 
 - Resource kind: loose local metadata cache file.
 - Owner module: [UID:0000LC][MetaMan](by-file/MetaMan.md)
-- Confidence: strong for ownership, loose-cache lifecycle, and high-level loader/writer behavior; medium for exact outer header record field names.
+- Confidence: very strong for ownership, loose-cache lifecycle, loader/writer routing, current loose-file provenance, and payload/cache layer split; medium for exact secondary header-field names.
 
 ## Observed Role
 
@@ -16,12 +17,25 @@
 
 This file is not the same thing as the client's packed DAT archive system. It is a loose file opened directly by `MetaMan`, while archive-backed resources such as `str.res`, `.PAL`, `.EPF`, `.EPD`, audio, and image assets flow through [UID:0000IN][DATFile](by-file/DATFile.md).
 
+## Payload Provenance
+
+2026-06-14 A002 audited `E:\2026\Resources\Read_Only\NexusTK`. No packed DAT entry named `Meta.dat` was found under `Data`; the current tree instead contains a loose cache file at `E:\2026\Resources\Read_Only\NexusTK\Meta.dat`.
+
+| Evidence | Value | Notes |
+| --- | --- | --- |
+| Loose file size | `243,932` bytes | Confirms this resource is a shipped/read-only loose cache file in the audited tree, not a packed DAT entry. |
+| Top-level header | table count `32`, header byte count `1,048`, payload start offset `1,056` | Matches the loader/writer model of count, header block, then compressed payload blocks. |
+| Header records | 16-bit serialized name-length slot, UTF-16 table name, then 8 secondary bytes per record | Current length values fit in one byte, while the writer advances by two bytes before UTF-16 name bytes. The secondary bytes are now known to include a big-endian compressed payload size followed by four zero bytes in this sample; final source field names remain provisional. |
+| Table names | `CharicInfo0` through `CharicInfo25`, `Collections`, `GroupNames`, `ItemInfo0`, `ItemInfo1`, `ItemInfo2`, `RidableAnimals` | Header record order matches the following payload block order. |
+| Payload blocks | 32 zlib streams totaling `242,876` bytes | Big-endian compressed sizes from the header sum exactly to the remaining file length. Each sampled block starts with zlib header bytes and decompresses successfully. |
+| Decoded payload samples | `CharicInfo0` decompresses to `48,768` bytes; `Collections` to `9,800`; `GroupNames` to `69`; `RidableAnimals` to `14,211` | Confirms the cached table blocks are compressed metadata table payloads consumed by `MetaTable`, not source-authored literal tables. |
+
 ## Rebuild And Packaging Boundary
 
 | Layer | Rebuild handling | Notes |
 | --- | --- | --- |
 | Loose `Meta.dat` cache file | `resource-derived` / runtime cache | The rebuilt client should know how to read, validate, request, and rewrite this file, but the checked-in source tree should not hard-code a shipped binary copy as C++ data. |
-| Outer cache header | source-authored parser/writer logic | Table count, header byte count, table names, payload sizes, and secondary per-table fields belong to `MetaMan` load/save code. Field names remain provisional until the read and write paths are reconciled. |
+| Outer cache header | source-authored parser/writer logic | Table count, header byte count, table names, compressed payload sizes, and secondary per-table fields belong to `MetaMan` load/save code. Current payload audit confirms the size field encoding for this sample; exact source names remain provisional until the read and write paths are reconciled. |
 | Compressed table payload blocks | server/resource-derived payloads | Payload bytes are cached server metadata table data. They are stored in [UID:000089][MetaTable](by-class/MetaTable.md), decompressed, CRC32-checked, and regenerated through metadata synchronization when stale. |
 | Decoded row/value bytes | parsed runtime data | [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md) documents the post-zlib format. That format is not the same layer as the outer `Meta.dat` file header. |
 
@@ -50,7 +64,7 @@ Meta.dat
     compressed metadata table data for each table
 ```
 
-The exact header record layout is still open. Do not commit final field names for the secondary per-table fields until the writer at `0x005237d0` and loader at `0x00523470` are reconciled field by field.
+The current loose cache confirms the header-record stride as a two-byte name-length slot, variable UTF-16 name bytes, plus 8 secondary bytes. The writer uses the byte packet/helper path for current length values but advances by two bytes before copying UTF-16 name bytes, so describe this as a 16-bit serialized length slot whose current high byte is zero/padding unless a later raw/source pass proves a different field split. The first four secondary bytes encode the compressed payload size in big-endian order in this sample; the following four bytes are zero for all 32 records. Do not commit final source field names for the secondary per-table fields until the writer at `0x005237d0` and loader at `0x00523470` are reconciled field by field.
 
 ## Cache Lifecycle
 
@@ -95,7 +109,7 @@ The exact header record layout is still open. Do not commit final field names fo
 | Top-level serialization order | Strong | Loader and writer agree on table count, header byte count, header block, and payload block sequence. |
 | Compressed payload ownership | Strong | Payloads are stored in MetaTable objects and later decompressed/validated. |
 | Decoded row payload shape | Medium-high | [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md) and materializer docs establish row/key/value widths, but table-specific column semantics are still open. |
-| Outer header secondary fields | Medium | Table name and payload size behavior are clear; exact order/meaning of checksum/reserved fields still needs loader-vs-writer reconciliation. |
+| Outer header secondary fields | Medium-high | The current loose payload proves table names, compressed payload sizes, and zero secondary words for this sample; exact source-level field names and malformed-cache semantics still need loader-vs-writer reconciliation. |
 
 ## Scope Boundaries
 
@@ -107,11 +121,11 @@ The exact header record layout is still open. Do not commit final field names fo
 
 ## IDA MCP Evidence
 
-- `Meta.dat` is a UTF-16 string at `0x0061fadc`; IDA xrefs land in `0x00523470-0x005237c0` and `0x005237d0-0x005239fb`.
+- 2026-06-14 A003 IDA xref refresh confirms `Meta.dat` is a UTF-16 string at `0x0061fadc` with two observed code xrefs: `0x005234ae` in `sub_523470` and `0x005237fa` in `sub_5237D0`.
+- Function analysis reports `sub_523470` at `0x00523470` as an `0x350`-byte loader-like routine with one caller, and `sub_5237D0` at `0x005237d0` as an `0x22b`-byte writer-like routine with one caller.
 - The loader at `0x00523470` builds a path from the `Meta.dat` string, opens it for read, reads a 4-byte table count, reads a 4-byte header byte count, allocates that header block, parses per-table name/size metadata from the header, then reads each payload block from the file.
 - The writer at `0x005237d0` gates on the dirty byte at object offset `+17`, opens `Meta.dat` for write, serializes the table count, header byte count, header block, then each table payload, and clears the dirty byte after closing the handle.
 - `0x00524870-0x00524c55` remains the decoded-payload row materialization path referenced by the type pages; this resource page should not assign final column names until that materializer and table-specific consumers are reconciled.
-- Current-session note: IDA MCP was unreachable on 2026-06-07, so this pass uses existing IDA-backed MetaMan/MetaTable/resource/type pages and does not claim a fresh loader/writer decompile.
 
 ## Decoded Table Payload
 
@@ -140,6 +154,7 @@ Consumers do not read `Meta.dat` directly. They call [UID:000088][MetaMan](by-cl
 ## Open Questions
 
 - Exact header record fields and order.
+- Whether the four zero secondary bytes in the audited `Meta.dat` header are reserved, checksum state, flags, or a currently unused writer field.
 - Per-table semantic meaning of decoded row values; the structural decoded payload format has a first-pass page, but table-specific columns remain unnamed.
 - Whether table names in shipped files always use UTF-16 and whether payload names are case-sensitive.
 - Whether failed CRC validation always triggers a server payload request or can leave a stale local table in specific error paths.
@@ -148,8 +163,8 @@ Consumers do not read `Meta.dat` directly. They call [UID:000088][MetaMan](by-cl
 
 | Field | Value | Reason |
 | --- | ---: | --- |
-| Completion | 78 | The page now documents identity, owner, loose-file distinction, rebuild/packaging boundary, cache-layer contract, request/writeback states, loader/writer lifecycle, refresh behavior, decoded payload path, consumers, scope boundaries, and remaining layout gaps. |
-| Confidence | 88 | Ownership, loose-cache lifecycle, and layer split are strongly supported by IDA-backed MetaMan/MetaTable docs and source-structure notes; confidence is capped by unresolved outer header secondary fields, malformed-cache behavior, and table-specific decoded value semantics. |
+| Completion | 89 | The page documents identity, owner, loose-file distinction, rebuild/packaging boundary, cache-layer contract, request/writeback states, loader/writer lifecycle, refresh behavior, decoded payload path, consumers, scope boundaries, current loose-file provenance, 32-record header inventory, compressed payload sizes, and zlib payload validation. Completion remains capped by unresolved source names for secondary header fields, malformed-cache behavior, and table-specific decoded value semantics. |
+| Confidence | 92 | Ownership, loose-cache lifecycle, layer split, file existence, header size/counts, table names, compressed-size accounting, and zlib payload blocks are strongly supported by fresh `Meta.dat` xrefs plus direct payload parsing. Confidence is capped by unresolved secondary-field names, malformed-cache behavior, and table-specific decoded value semantics. |
 
 ## Cross-References
 
@@ -157,13 +172,16 @@ Consumers do not read `Meta.dat` directly. They call [UID:000088][MetaMan](by-cl
 - [UID:000088][MetaMan](by-class/MetaMan.md)
 - [UID:000089][MetaTable](by-class/MetaTable.md)
 - [UID:0001C8][0x005227d0-0x00524581.MetaMan](by-memory/0x005227d0-0x00524581.MetaMan.md)
-- [UID:0001CB][0x00524630-0x005258f1.MetaTable](by-memory/0x00524630-0x005258f1.MetaTable.md)
+- [UID:0001CB][0x00524630-0x00525914.MetaTable](by-memory/0x00524630-0x00525914.MetaTable.md)
 - [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md)
 - [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md)
 - [UID:0001QC][client_dat_specifications](by-meta/client_dat_specifications.md)
 
 ## Changes
 
+- 2026-06-19 Agent-B009 MetaMan source-quality reconciliation:
+  - Score unchanged.
+  - Summary/evidence: reconciled the header name-length wording with the writer behavior: current lengths fit in one byte, but the serialized slot advances by two bytes before UTF-16 name bytes. Retained the known big-endian compressed payload size and four zero/reserved secondary bytes while keeping final source field names open.
 - Before: page was scored `0/0` despite having a coherent MetaMan cache model.
 - Changed to: `COMPLETION:65`, `CONFIDENCE:82`, with direct IDA MCP evidence for the `Meta.dat` string, loader, writer, and remaining layout caveats.
 - Evidence: IDA MCP string/xref search for `0x0061fadc` and decompilation of `0x00523470-0x005237c0` / `0x005237d0-0x005239fb`.
@@ -171,8 +189,13 @@ Consumers do not read `Meta.dat` directly. They call [UID:000088][MetaMan](by-cl
 - 2026-06-07 A002 loose-cache boundary pass:
   - Before: the page documented the loader/writer lifecycle but did not clearly separate the loose cache file, outer header parser/writer, compressed payload blocks, and decoded row/value payload layers.
   - Changed to: `COMPLETION:76` and `CONFIDENCE:88`, added rebuild/packaging boundaries, failure/refresh behavior, scope boundaries, and a current-session IDA-availability caveat.
-  - Summary and evidence: [UID:0000LC][MetaMan](by-file/MetaMan.md), [UID:000088][MetaMan](by-class/MetaMan.md), [UID:000089][MetaTable](by-class/MetaTable.md), [UID:0001C8][0x005227d0-0x00524581.MetaMan](by-memory/0x005227d0-0x00524581.MetaMan.md), [UID:0001CB][0x00524630-0x005258f1.MetaTable](by-memory/0x00524630-0x005258f1.MetaTable.md), [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md), and [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md) support the loose-cache owner, payload validation path, decoded format split, and remaining outer-header caveat.
+  - Summary and evidence: [UID:0000LC][MetaMan](by-file/MetaMan.md), [UID:000088][MetaMan](by-class/MetaMan.md), [UID:000089][MetaTable](by-class/MetaTable.md), [UID:0001C8][0x005227d0-0x00524581.MetaMan](by-memory/0x005227d0-0x00524581.MetaMan.md), [UID:0001CB][0x00524630-0x00525914.MetaTable](by-memory/0x00524630-0x00525914.MetaTable.md), [UID:0001CC][0x00524870-0x00524c55.MetaTableMaterializeRows](by-memory/0x00524870-0x00524c55.MetaTableMaterializeRows.md), and [UID:0001V6][MetaTableDecodedPayload](by-type/by-struct/MetaTableDecodedPayload.md) support the loose-cache owner, payload validation path, decoded format split, and remaining outer-header caveat.
 - 2026-06-07 A002 cache-contract pass:
   - Before: `COMPLETION:76`, with layer split and lifecycle documented but no explicit cache contract or missing/stale/valid/dirty state matrix.
   - Changed to: `COMPLETION:78`, `CONFIDENCE:88`, with a cache-layer contract, synchronization/writeback matrix, and tighter scope boundaries for metadata protocol and source-asset ownership.
   - Summary and evidence: existing MetaMan, MetaTable, materializer, decoded-payload, and DAT-specification docs support the file-open/header-parse/payload-cache/validation/writeback split; confidence remains unchanged because outer header secondary fields, malformed-cache behavior, and table-specific column semantics are still unresolved.
+- 2026-06-14 A003 score refresh: Raised completion/confidence from `78/88` to `85/89` after live IDA MCP reconfirmed the `Meta.dat` literal xrefs into the local cache loader and writer functions and refreshed function sizes; outer header secondary fields, malformed-cache behavior, and table-specific decoded value semantics remain below-final blockers.
+- 2026-06-14 A002 loose-payload provenance pass:
+  - Before: `COMPLETION:85`, `CONFIDENCE:89`, with loader/writer evidence but no current loose-file payload audit.
+  - After: raised to `COMPLETION:89`, `CONFIDENCE:92`, with current `Meta.dat` loose-file provenance, table count/header size, 32 UTF-16 table names, compressed payload sizes that sum to the file payload length, and zlib decompression checks.
+  - Evidence: byte-level parsing of `E:\2026\Resources\Read_Only\NexusTK\Meta.dat`; no packed DAT entry named `Meta.dat` was found in the audited `Data` tree.

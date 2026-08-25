@@ -1,12 +1,15 @@
 *** UID:0000UB | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:NONE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # DAT Audio Resources
 
@@ -16,7 +19,7 @@
 - Entity kind: resource-use pattern spanning DAT archive helpers and `SoundManager`.
 - Rebuild handling: not reconstructable as a standalone item. The source-authored behavior belongs to the linked `SoundManager`, DAT archive, and helper pages.
 - Primary owner: [UID:0000DG][SoundManager](by-class/SoundManager.md)
-- Main address doc: [UID:0001I8][0x005797b0-0x0057bc58.SoundManager](by-memory/0x005797b0-0x0057bc58.SoundManager.md)
+- Main address doc: [UID:0001I8][0x005797b0-0x0057bf6e.SoundManagerAudioHelperCluster](by-memory/0x005797b0-0x0057bf6e.SoundManagerAudioHelperCluster.md)
 - Archive dependency: [UID:0000IM][DATArchive](by-file/DATArchive.md)
 
 ## Behavior
@@ -36,6 +39,7 @@ Zone music:
 - IDA MCP decompilation confirms those existence checks call [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md), so document them as DAT archive probes rather than generic filesystem checks.
 - `.LST` selects a sequential playlist; `.LSR` selects a randomized playlist; direct `.MP3` falls back to a single track.
 - `SoundManager::LoadTrackListFromFile` at `0x005797b0` opens the `.LST` or `.LSR` file through `DATFile`, reads the first line as a track count, then converts each track ID line to `%08d.MP3`.
+- B002's 2026-06-17 source-quality pass confirms this policy from current IDA evidence and distinguishes DAT stream mode from local-directory mode: DAT playlists/direct entries use DATArchive lookup/open/read, while local user music uses scanned loose MP3 paths owned by SoundManager.
 
 The class also has a separate local music-directory scan path using `FindFirstFileA` and `g_strMusicExtension`. DAT-backed zone music and user-selected loose music files should therefore be documented as separate input modes inside the same audio manager.
 
@@ -49,17 +53,17 @@ Use the linked `SoundManager` and DAT archive pages for reconstructable code cov
 
 This evidence should not move audio code into the DAT archive module. `DATFile`, `DATFileMgr`, and [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) remain archive-layer services. `SoundManager` is the audio owner and should keep the `.wav`, `.lst`, `.lsr`, and `.mp3` policy, with a dependency on the archive API.
 
-## Open Questions
+## Source-Quality Decisions And Remaining Limits
 
-- Confirm whether Miles AIL consumes the DAT-backed WAV payload directly or copies/decodes it into sample objects first.
-- Confirm the exact stream path for DAT-backed MP3 payloads versus loose music-directory MP3 files.
-- Confirm whether `.LST` and `.LSR` payload lines are always ASCII decimal track IDs with a decimal count on the first line.
+- `.LST` and `.LSR` playlist semantics are no longer open at the policy level: `.LST` is sequential, `.LSR` is randomized, and `LoadTrackListFromFile` reads a first-line count followed by decimal track IDs that are expanded to `%08d.MP3`.
+- DAT-backed MP3 and loose music-directory MP3 paths share SoundManager stream-opening policy, but their source of path data differs. DAT mode probes `%08d.LST`, `%08d.LSR`, and `%08d.MP3` through archive helpers; local-directory mode consumes the scanned `m_localMusicPaths` vector.
+- The exact lifetime contract between DAT-backed WAV payload pointers and Miles AIL sample objects remains child-method evidence work for SoundManager constructor/sample pages. It does not make this resource-policy ledger reconstructable or move ownership into DATArchive.
 
 ## Cross-References
 
 - [UID:0000DG][SoundManager](by-class/SoundManager.md)
 - [UID:0000NV][SoundManager](by-file/SoundManager.md)
-- [UID:0001I8][0x005797b0-0x0057bc58.SoundManager](by-memory/0x005797b0-0x0057bc58.SoundManager.md)
+- [UID:0001I8][0x005797b0-0x0057bf6e.SoundManagerAudioHelperCluster](by-memory/0x005797b0-0x0057bf6e.SoundManagerAudioHelperCluster.md)
 - [UID:0001QC][client_dat_specifications](by-meta/client_dat_specifications.md)
 - [UID:0000IM][DATArchive](by-file/DATArchive.md)
 - [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md)
@@ -81,3 +85,6 @@ This evidence should not move audio code into the DAT archive module. `DATFile`,
   - Before: the page appeared in the low-completion queue even though `RECONSTRUCTABLE:FALSE` already identified it as a non-code resource-policy ledger.
   - After: marked ignored/not scored so source-coverage work stays focused on reconstructable `SoundManager`, DAT archive, and helper pages.
   - Evidence: this page has no standalone source owner, address range, type, global, or data declaration to emit; it summarizes naming/resource policy that must be reconstructed through the linked owning source pages.
+- 2026-06-17 B002 SoundManager music-selection execution:
+  - Score remains ignored/not scored at `-1/-1`.
+  - Evidence: B002's current IDA pass confirms `.LST` sequential playlist, `.LSR` randomized playlist, direct `%08d.MP3` fallback, local-directory mode separation, and SoundManager ownership of resource naming policy.

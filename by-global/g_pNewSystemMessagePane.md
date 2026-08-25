@@ -1,12 +1,18 @@
 *** UID:0000RU | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000OE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000OE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000OE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+class NewSystemMessagePane;
+
+NewSystemMessagePane *g_pNewSystemMessagePane = 0;
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # g_pNewSystemMessagePane
 
@@ -25,15 +31,29 @@
 
 - IDA `xrefs_to 0x0069bc10` reports writes from `NewSystemMessagePane` construction at `0x00588560`, the singleton-clear helper at `0x0058aab0`, and the scalar deleting destructor at `0x0058ad20`.
 - IDA decompilation of `0x005882f0` shows the height-modify drag handler calling a virtual refresh method through `g_pNewSystemMessagePane` after writing the saved height.
-- 2026-06-06 IDA MCP reports concrete xrefs at `0x005883c0`, `0x005885b8`, `0x005885bf`, `0x005887e9`, `0x0058aab0`, and `0x0058ad6c`, and confirms the slot is initialized to `0xffffffff`.
+- 2026-06-06 IDA MCP reported concrete xrefs at `0x005883c0`, `0x005885b8`, `0x005885bf`, `0x005887e9`, `0x0058aab0`, and `0x0058ad6c`. A later 2026-06-13 support-page recheck corrected the current byte image to all zero bytes.
+- 2026-06-16 C001 live MCP refresh used session `c001_midiplayer_rdata_20260615` and reconfirmed the zeroed `0x0069bc0c-0x0069bc1c` singleton cluster, the exact six `g_pNewSystemMessagePane` refs, and the constructor caller at `0x004b88ae`. C001 saved the IDA function names `NewSystemMessagePane_Constructor`, `NewSystemMessagePane_ClearSingletonHelper`, and `NewSystemMessagePane_ScalarDeletingDestructor`.
+- 2026-07-07 B005 current MCP session `507affd6` reconfirmed the same six refs to `0x0069bc10`, zero-initialized storage, non-function data status, no bounded names/globals/strings/functions around `0x0069bc04-0x0069bc20`, and UID0002AO aggregate routing. Keep this formal declaration as the source owner for the live pointer; do not duplicate it with a raw `dword_69BC10` declaration or a UID0002AO aggregate declaration.
 
 ## 2026-05-30 Review Notes
 
-- IDA MCP on 2026-06-06 confirms `0x0069bc10` is a four-byte `.data` slot initialized to `0xffffffff`, with 6 data xrefs.
+- IDA MCP on 2026-06-16 confirms `0x0069bc10` is a four-byte `.data` slot in a current zeroed singleton cluster, with 6 data xrefs.
 - Live IDA xrefs confirm the height-modify consumer at `0x005883c0`, constructor publish/fallback refs at `0x005885b8` and `0x005885bf`, an additional constructor-body reference at `0x005887e9`, singleton-clear helper at `0x0058aab0`, and destructor clear at `0x0058ad6c`.
 - Existing docs also tie adjacent `0x0069bc0c` to `NewSystemMessageModifyHeightPane`; this supports keeping both slots together in [UID:0002AO][0x0069bc0c-0x0069bc18.SystemMessagePaneSingletonSlots](by-memory/0x0069bc0c-0x0069bc18.SystemMessagePaneSingletonSlots.md).
 - Live IDA decompilation confirms `0x00588560` publishes the current object into the singleton slot and installs the `NewSystemMessagePane` vtable, while `0x0058aab0` and `0x0058ad20` clear the singleton during cleanup/destruction.
 - Completion remains below full because `0x005887e9` is an interior constructor-body reference without a containing function in this xref query and the exact source split from the broader system-message pane family remains provisional.
+
+## B011 Emission Disposition
+
+Accepted B011 report `0000OE-SystemMessagePanes-empty-emitter-family-source-quality.md` emits this singleton as formal source in `social/SystemMessagePanes.cpp`:
+
+```cpp
+class NewSystemMessagePane;
+
+NewSystemMessagePane *g_pNewSystemMessagePane = 0;
+```
+
+The declaration is source-ready because `0x0069bc10` has six current refs through constructor writes, height-modify consumer read, cleanup/tail write, clear helper, and scalar deleting destructor. [UID:0002AO][0x0069bc0c-0x0069bc18.SystemMessagePaneSingletonSlots](by-memory/0x0069bc0c-0x0069bc18.SystemMessagePaneSingletonSlots.md) remains aggregate storage proof and should not emit a duplicate source symbol.
 
 ## Cross-References
 
@@ -45,6 +65,11 @@
 
 ## Changes
 
+- 2026-07-07 B005 UID0002AO support sync:
+  - Added current MCP session `507affd6` six-ref reconfirmation for `0x0069bc10` and preserved the formal declaration unchanged; UID0002AO remains the aggregate storage proof and must not emit a duplicate pointer or raw dword declaration.
+- 2026-06-30 B011 accepted empty-emitter implementation:
+  - Inserted formal singleton pointer declaration into `RECONSTRUCTION_CPP CODE`.
+  - Added emission disposition tying this declaration to the six-ref `0x0069bc10` lifecycle and [UID:0002AO][0x0069bc0c-0x0069bc18.SystemMessagePaneSingletonSlots](by-memory/0x0069bc0c-0x0069bc18.SystemMessagePaneSingletonSlots.md) aggregate storage proof.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `84`, confidence `88`.
 - Summary/evidence: live IDA MCP on 2026-06-06 verified exact storage, size, segment, 6 xrefs for `g_pNewSystemMessagePane`, adjacent height-pane singleton context, constructor/clear/destructor writes, and resize-handler consumer use. Completion remains below full because source split and one singleton reference inside the constructor body still need deeper classification.
@@ -57,3 +82,7 @@
   - What existed before: score `78/86`, raw IDA storage/function labels in evidence, and a stale global coverage-row summary.
   - Changed to: score `84/88`, refreshed live xref/byte evidence, source-facing singleton wording, and synced the editable by-global coverage row.
   - Summary/evidence: current IDA MCP confirms initialized storage, resize-handler consumer, constructor publish/fallback refs, singleton-clear helper, destructor clear, adjacent height-pane singleton context, and SystemMessagePanes file-parent ownership. Validator/generated sync is pending because those shared files were leased by another agent.
+- 2026-06-16 C001 Goal 2 global/source-quality refresh:
+  - Before: `84/88`, with correct owner and lifecycle evidence but stale all-`0xffffffff` wording and generated IDA lifecycle function names.
+  - Changed to: `85/90`; owner/emitter remain [UID:0000OE][SystemMessagePanes](by-file/SystemMessagePanes.md), and reconstruction C++ remains blank.
+  - Summary/evidence: live MCP reconfirmed zeroed current singleton-cluster bytes, six direct refs, the `GeneralPurposePanel2` constructor caller for `0x00588560`, and the height-handle consumer; C001 saved the three source-quality NewSystemMessagePane lifecycle names. Remaining blockers are final split from broader chat/system-message source, tiny virtual helper names, and member/type names for the child-pane rebuild path.

@@ -1,0 +1,8 @@
+{
+  "artifacts": [
+    "C:\\FastStorage\\NTK_Sources\\source-3\\project-documentation\\auto-generated\\by-memory-tool-report.md.dryrun"
+  ],
+  "mode": "dry-run artifacts",
+  "root": "C:\\FastStorage\\NTK_Sources\\source-3\\project-documentation",
+  "tool": "memory_ranges.py"
+}

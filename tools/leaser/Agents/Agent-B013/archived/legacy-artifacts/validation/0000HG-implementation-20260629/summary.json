@@ -1,0 +1,353 @@
+﻿[
+    {
+        "file":  "by-class/Application.md",
+        "command_id":  "000000001328",
+        "command_timestamp":  "2026-06-29T22:33:46-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-class_Application.md.log"
+    },
+    {
+        "file":  "by-class/BaramApp.md",
+        "command_id":  "000000001329",
+        "command_timestamp":  "2026-06-29T22:33:53-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-class_BaramApp.md.log"
+    },
+    {
+        "file":  "by-memory/0x00463310-0x0046396e.ApplicationConstructor.md",
+        "command_id":  "000000001330",
+        "command_timestamp":  "2026-06-29T22:33:55-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00463310-0x0046396e.ApplicationConstructor.md.log"
+    },
+    {
+        "file":  "by-memory/0x00465690-0x0046572d.ApplicationMapFromScreen.md",
+        "command_id":  "000000001331",
+        "command_timestamp":  "2026-06-29T22:33:57-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00465690-0x0046572d.ApplicationMapFromScreen.md.log"
+    },
+    {
+        "file":  "by-memory/0x00465730-0x004657cd.ApplicationMapToScreen.md",
+        "command_id":  "000000001332",
+        "command_timestamp":  "2026-06-29T22:33:59-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00465730-0x004657cd.ApplicationMapToScreen.md.log"
+    },
+    {
+        "file":  "by-memory/0x00465bb0-0x00465bbd.ApplicationDestroyLoadingDialog.md",
+        "command_id":  "000000001333",
+        "command_timestamp":  "2026-06-29T22:34:00-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00465bb0-0x00465bbd.ApplicationDestroyLoadingDialog.md.log"
+    },
+    {
+        "file":  "by-memory/0x00467230-0x004672b7.ApplicationScalarDeletingDestructor.md",
+        "command_id":  "000000001334",
+        "command_timestamp":  "2026-06-29T22:34:02-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00467230-0x004672b7.ApplicationScalarDeletingDestructor.md.log"
+    },
+    {
+        "file":  "by-memory/0x0061d140-0x0061d234.BaramAppStartupUpdateStrings.md",
+        "command_id":  "000000001335",
+        "command_timestamp":  "2026-06-29T22:34:04-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0061d140-0x0061d234.BaramAppStartupUpdateStrings.md.log"
+    },
+    {
+        "file":  "by-memory/0x0061d234-0x0061d24c.BaramAppCallbackVtableData.md",
+        "command_id":  "000000001336",
+        "command_timestamp":  "2026-06-29T22:34:06-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0061d234-0x0061d24c.BaramAppCallbackVtableData.md.log"
+    },
+    {
+        "file":  "by-global/LoadIndexedDATSeries.md",
+        "command_id":  "000000001337",
+        "command_timestamp":  "2026-06-29T22:34:08-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-global_LoadIndexedDATSeries.md.log"
+    },
+    {
+        "file":  "by-global/g_screenHeight.md",
+        "command_id":  "000000001338",
+        "command_timestamp":  "2026-06-29T22:34:10-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-global_g_screenHeight.md.log"
+    },
+    {
+        "file":  "by-memory/0x0066da98-0x0066da9a.g_screenHeight.md",
+        "command_id":  "000000001339",
+        "command_timestamp":  "2026-06-29T22:34:11-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0066da98-0x0066da9a.g_screenHeight.md.log"
+    },
+    {
+        "file":  "by-global/g_screenWidth.md",
+        "command_id":  "000000001340",
+        "command_timestamp":  "2026-06-29T22:34:13-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-global_g_screenWidth.md.log"
+    },
+    {
+        "file":  "by-memory/0x0066da94-0x0066da96.g_screenWidth.md",
+        "command_id":  "000000001341",
+        "command_timestamp":  "2026-06-29T22:34:15-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0066da94-0x0066da96.g_screenWidth.md.log"
+    },
+    {
+        "file":  "by-item/CheckTimerSkewAndSendHeartbeat_466CA0.md",
+        "command_id":  "000000001342",
+        "command_timestamp":  "2026-06-29T22:34:17-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-item_CheckTimerSkewAndSendHeartbeat_466CA0.md.log"
+    },
+    {
+        "file":  "by-memory/0x004632c0-0x0046330b.ApplicationErrorStateCleanup.md",
+        "command_id":  "000000001343",
+        "command_timestamp":  "2026-06-29T22:34:19-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x004632c0-0x0046330b.ApplicationErrorStateCleanup.md.log"
+    },
+    {
+        "file":  "by-memory/0x00463310-0x004674ed.ApplicationLifecycle.md",
+        "command_id":  "000000001344",
+        "command_timestamp":  "2026-06-29T22:34:21-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00463310-0x004674ed.ApplicationLifecycle.md.log"
+    },
+    {
+        "file":  "by-memory/0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo.md",
+        "command_id":  "000000001345",
+        "command_timestamp":  "2026-06-29T22:34:22-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x004651f0-0x004652dc.BuildExecutablePathForVersionInfo.md.log"
+    },
+    {
+        "file":  "by-memory/0x00465320-0x00465424.GetExecutableVersionLowWord.md",
+        "command_id":  "000000001346",
+        "command_timestamp":  "2026-06-29T22:34:24-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00465320-0x00465424.GetExecutableVersionLowWord.md.log"
+    },
+    {
+        "file":  "by-memory/0x00465cb0-0x00465ce0.FatalErrorDialogAndBreak.md",
+        "command_id":  "000000001347",
+        "command_timestamp":  "2026-06-29T22:34:26-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00465cb0-0x00465ce0.FatalErrorDialogAndBreak.md.log"
+    },
+    {
+        "file":  "by-memory/0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md",
+        "command_id":  "000000001348",
+        "command_timestamp":  "2026-06-29T22:34:28-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00466ca0-0x004670ad.CheckTimerSkewAndSendHeartbeat.md.log"
+    },
+    {
+        "file":  "by-memory/0x00467380-0x00467391.DestroyDATFileMgr.md",
+        "command_id":  "000000001349",
+        "command_timestamp":  "2026-06-29T22:34:30-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00467380-0x00467391.DestroyDATFileMgr.md.log"
+    },
+    {
+        "file":  "by-memory/0x004673a0-0x004673b1.DestroyExceptionHandler.md",
+        "command_id":  "000000001350",
+        "command_timestamp":  "2026-06-29T22:34:32-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x004673a0-0x004673b1.DestroyExceptionHandler.md.log"
+    },
+    {
+        "file":  "by-memory/0x004673e0-0x004673e6.GetApplicationSingleton.md",
+        "command_id":  "000000001351",
+        "command_timestamp":  "2026-06-29T22:34:33-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x004673e0-0x004673e6.GetApplicationSingleton.md.log"
+    },
+    {
+        "file":  "by-memory/0x00467410-0x004674ed.LoadIndexedDATSeries.md",
+        "command_id":  "000000001352",
+        "command_timestamp":  "2026-06-29T22:34:35-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00467410-0x004674ed.LoadIndexedDATSeries.md.log"
+    },
+    {
+        "file":  "by-memory/0x004f5f20-0x004f66fb.BaramAppAndApplicationStartup.md",
+        "command_id":  "000000001353",
+        "command_timestamp":  "2026-06-29T22:34:37-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x004f5f20-0x004f66fb.BaramAppAndApplicationStartup.md.log"
+    },
+    {
+        "file":  "by-memory/0x006125e0-0x006125e4.ApplicationRttiLocatorPointer.md",
+        "command_id":  "000000001354",
+        "command_timestamp":  "2026-06-29T22:34:39-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x006125e0-0x006125e4.ApplicationRttiLocatorPointer.md.log"
+    },
+    {
+        "file":  "by-memory/0x006125e4-0x0061260c.ApplicationVtableData.md",
+        "command_id":  "000000001355",
+        "command_timestamp":  "2026-06-29T22:34:40-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x006125e4-0x0061260c.ApplicationVtableData.md.log"
+    },
+    {
+        "file":  "by-memory/0x0061260c-0x00612610.SharedWidePathSeparatorLiteral.md",
+        "command_id":  "000000001356",
+        "command_timestamp":  "2026-06-29T22:34:42-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0061260c-0x00612610.SharedWidePathSeparatorLiteral.md.log"
+    },
+    {
+        "file":  "by-memory/0x00612980-0x00612b24.ApplicationRegistryDisplayStringData.md",
+        "command_id":  "000000001357",
+        "command_timestamp":  "2026-06-29T22:34:44-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00612980-0x00612b24.ApplicationRegistryDisplayStringData.md.log"
+    },
+    {
+        "file":  "by-memory/0x00612b24-0x00612e3c.ApplicationStartupResourceStringData.md",
+        "command_id":  "000000001358",
+        "command_timestamp":  "2026-06-29T22:34:46-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00612b24-0x00612e3c.ApplicationStartupResourceStringData.md.log"
+    },
+    {
+        "file":  "by-memory/0x00612e54-0x00612f38.ApplicationPatchAndVersionStringData.md",
+        "command_id":  "000000001359",
+        "command_timestamp":  "2026-06-29T22:34:48-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00612e54-0x00612f38.ApplicationPatchAndVersionStringData.md.log"
+    },
+    {
+        "file":  "by-memory/0x0066d408-0x0066d410.DisplayStartupPresentationGlobals.md",
+        "command_id":  "000000001360",
+        "command_timestamp":  "2026-06-29T22:34:49-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0066d408-0x0066d410.DisplayStartupPresentationGlobals.md.log"
+    },
+    {
+        "file":  "by-memory/0x0067a938-0x0067a940.ApplicationLifecycleFlags.md",
+        "command_id":  "000000001361",
+        "command_timestamp":  "2026-06-29T22:34:51-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0067a938-0x0067a940.ApplicationLifecycleFlags.md.log"
+    },
+    {
+        "file":  "by-memory/0x0067a980-0x0067a998.ApplicationTimingBaselines.md",
+        "command_id":  "000000001362",
+        "command_timestamp":  "2026-06-29T22:34:53-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0067a980-0x0067a998.ApplicationTimingBaselines.md.log"
+    },
+    {
+        "file":  "by-memory/0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md",
+        "command_id":  "000000001363",
+        "command_timestamp":  "2026-06-29T22:34:55-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0067a998-0x0067a9c0.ApplicationErrorAndCriticalSectionStatics.md.log"
+    },
+    {
+        "file":  "by-memory/0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md",
+        "command_id":  "000000001364",
+        "command_timestamp":  "2026-06-29T22:34:57-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0067a9c0-0x0067ab18.ApplicationOsVersionState.md.log"
+    },
+    {
+        "file":  "by-memory/0x0067ab5c-0x0067ab70.ApplicationHeartbeatTimerSkewGlobals.md",
+        "command_id":  "000000001365",
+        "command_timestamp":  "2026-06-29T22:34:59-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0067ab5c-0x0067ab70.ApplicationHeartbeatTimerSkewGlobals.md.log"
+    },
+    {
+        "file":  "by-memory/0x0067ab70-0x0067ab7c.ApplicationMessageLoopInputCounters.md",
+        "command_id":  "000000001366",
+        "command_timestamp":  "2026-06-29T22:35:01-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x0067ab70-0x0067ab7c.ApplicationMessageLoopInputCounters.md.log"
+    }
+]

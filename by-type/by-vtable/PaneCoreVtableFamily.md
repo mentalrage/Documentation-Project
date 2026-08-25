@@ -1,23 +1,42 @@
 *** UID:0001YC | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:93 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:NONE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # Pane Core Vtable Family
 
 ## Status
 
-- Disposition: vtable family inventory for reconstructable UI-core pane code.
+- Disposition: reviewed non-emitting vtable-family index. Exact source-local children carry the reconstructable class routes.
+- Source-local children: [UID:0003JA][PaneVtables](by-type/by-vtable/PaneVtables.md), [UID:0003J9][ControlPaneVtables](by-type/by-vtable/ControlPaneVtables.md), [UID:0003JB][DialogPaneVtables](by-type/by-vtable/DialogPaneVtables.md), [UID:0001Y6][ModelessDialogPaneVtables](by-type/by-vtable/ModelessDialogPaneVtables.md), and [UID:0001YD][PanelPaneVtables](by-type/by-vtable/PanelPaneVtables.md)
 - Covered source owners: [UID:0000MC][Pane](by-file/Pane.md), [UID:0000IG][ControlPane](by-file/ControlPane.md), [UID:0000IT][DialogPane](by-file/DialogPane.md), [UID:0000LH][ModelessDialogPane](by-file/ModelessDialogPane.md), and [UID:0000ME][PanelPane](by-file/PanelPane.md)
 - Covered classes: [UID:0000A2][Pane](by-class/Pane.md), [UID:000038][ControlPane](by-class/ControlPane.md), [UID:00003T][DialogPane](by-class/DialogPane.md), [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md), and [UID:0000A4][PanelPane](by-class/PanelPane.md)
 - Layout docs: [UID:0001VH][PaneLayout](by-type/by-struct/PaneLayout.md), [UID:0001U4][DialogPaneLayout](by-type/by-struct/DialogPaneLayout.md), [UID:0001V9][ModelessDialogPaneLayout](by-type/by-struct/ModelessDialogPaneLayout.md), [UID:0001U5][DialogSessionLayouts](by-type/by-struct/DialogSessionLayouts.md)
 - Confidence: strong for table bases, object offsets, RTTI locator dwords, slot counts, constructor/destructor stores, and destructor adjustor thunks.
+- Assignment: `AUTOGEN_PARENT_UID` remains blank and `RECONSTRUCTABLE` is `FALSE`. The source-reconstructable declarations are the five exact child pages; this aggregate is only the common index over adjacent pane-core families.
 - Verification: IDA MCP `list_globals`, `lookup_funcs`, `disasm`, `xrefs_to`, and `py_eval` checks on 2026-05-26 and 2026-06-01.
+
+## Assignment Gate Rationale
+
+This page is type-layout evidence, but it is an aggregate across five direct owners rather than one source-level declaration. Assigning or emitting it would hide the other four owners and violate the direct-parent rule. The strict child/direct-parent gate is satisfied through exact child pages.
+
+| Vtable slice | Direct source owner | Direct class owner | Gate/status |
+| --- | --- | --- | --- |
+| `Pane` tables at `0x006219e8`, `0x00621a34`, `0x00621a64` | [UID:0000MC][Pane](by-file/Pane.md) | [UID:0000A2][Pane](by-class/Pane.md) | [UID:0003JA][PaneVtables](by-type/by-vtable/PaneVtables.md) carries the source-local route to class parent `88/86`. |
+| `ControlPane` tables at `0x00617a90`, `0x00617af8`, `0x00617b28` | [UID:0000IG][ControlPane](by-file/ControlPane.md) | [UID:000038][ControlPane](by-class/ControlPane.md) | [UID:0003J9][ControlPaneVtables](by-type/by-vtable/ControlPaneVtables.md) carries the source-local route after the class/file refresh to `85/86` and `85/86`. |
+| `DialogPane` tables at `0x00618a64`, `0x00618ac4`, `0x00618af4` | [UID:0000IT][DialogPane](by-file/DialogPane.md) | [UID:00003T][DialogPane](by-class/DialogPane.md) | [UID:0003JB][DialogPaneVtables](by-type/by-vtable/DialogPaneVtables.md) carries the source-local route to class parent `85/86`. |
+| `ModelessDialogPane` tables at `0x00618c48`, `0x00618ca8`, `0x00618cd8` | [UID:0000LH][ModelessDialogPane](by-file/ModelessDialogPane.md) | [UID:00008K][ModelessDialogPane](by-class/ModelessDialogPane.md) | [UID:0001Y6][ModelessDialogPaneVtables](by-type/by-vtable/ModelessDialogPaneVtables.md) remains the narrower type page for the modeless-only vtables. |
+| `PanelPane` tables at `0x00621a70`, `0x00621ac0`, `0x00621af0` | [UID:0000ME][PanelPane](by-file/PanelPane.md) | [UID:0000A4][PanelPane](by-class/PanelPane.md) | [UID:0001YD][PanelPaneVtables](by-type/by-vtable/PanelPaneVtables.md) carries the source-local route to class parent `85/86`. |
+
+Keep this aggregate as the common pane-vtable evidence index. Exact or narrower vtable pages attach to their direct class/source owner only when that individual child and its direct parent both clear the strict `85/85` gate.
 
 ## Table Bases
 
@@ -84,19 +103,36 @@ These are data issues, not handwritten source gaps. They should be classified as
 
 ## Cross References
 
-- [UID:0001EB][0x00544f2e-0x00544f43.PaneAdjustorThunks](by-memory/0x00544f2e-0x00544f43.PaneAdjustorThunks.md)
+- [UID:0001EB][0x00544f2e-0x00544f44.PaneAdjustorThunks](by-memory/0x00544f2e-0x00544f44.PaneAdjustorThunks.md)
+- [UID:0003JA][PaneVtables](by-type/by-vtable/PaneVtables.md)
 - [UID:0001VH][PaneLayout](by-type/by-struct/PaneLayout.md)
+- [UID:0003J9][ControlPaneVtables](by-type/by-vtable/ControlPaneVtables.md)
+- [UID:0003J8][0x00617a8c-0x00617b30.ControlPaneVtableData](by-memory/0x00617a8c-0x00617b30.ControlPaneVtableData.md)
 - [UID:000120][0x0049af3d-0x0049af52.ControlPaneAdjustorThunks](by-memory/0x0049af3d-0x0049af52.ControlPaneAdjustorThunks.md)
 - [UID:0001U4][DialogPaneLayout](by-type/by-struct/DialogPaneLayout.md)
+- [UID:0003JB][DialogPaneVtables](by-type/by-vtable/DialogPaneVtables.md)
+- [UID:0003AW][0x00618a60-0x00618afc.DialogPaneVtableData](by-memory/0x00618a60-0x00618afc.DialogPaneVtableData.md)
 - [UID:00010U][0x0048c27b-0x0048c290.DialogPaneAdjustorThunks](by-memory/0x0048c27b-0x0048c290.DialogPaneAdjustorThunks.md)
 - [UID:0001Y6][ModelessDialogPaneVtables](by-type/by-vtable/ModelessDialogPaneVtables.md)
-- [UID:0001ED][0x005450ef-0x00545104.PanelPaneAdjustorThunks](by-memory/0x005450ef-0x00545104.PanelPaneAdjustorThunks.md)
+- [UID:0001ED][0x005450ef-0x00545105.PanelPaneAdjustorThunks](by-memory/0x005450ef-0x00545105.PanelPaneAdjustorThunks.md)
 - [UID:0001YD][PanelPaneVtables](by-type/by-vtable/PanelPaneVtables.md)
-- [UID:000252][0x00617a38-0x0061885c.ControlPaneReadOnlyData](by-memory/0x00617a38-0x0061885c.ControlPaneReadOnlyData.md)
+- [UID:000252][0x00617a38-0x00618858.ControlPaneReadOnlyData](by-memory/0x00617a38-0x00618858.ControlPaneReadOnlyData.md)
 - [UID:000254][0x006189dc-0x00618e50.DialogCoreReadOnlyData](by-memory/0x006189dc-0x00618e50.DialogCoreReadOnlyData.md)
 - [UID:000263][0x006219e8-0x00621db8.PaneParcelReadOnlyData](by-memory/0x006219e8-0x00621db8.PaneParcelReadOnlyData.md)
 
 ## Changes
+
+### 2026-06-12 A004 Batch 336
+
+- What existed before: the page was `89/90`, `RECONSTRUCTABLE:TRUE`, and parent-blank as a reviewed ownership-split aggregate, but only the ModelessDialogPane and PanelPane slices had narrower by-vtable children.
+- What changed: the page is now `91/93`, `RECONSTRUCTABLE:FALSE`, and still parent-blank as a non-emitting mixed-owner index. Exact source-local children were added or linked for every slice: [UID:0003JA][PaneVtables](by-type/by-vtable/PaneVtables.md), [UID:0003J9][ControlPaneVtables](by-type/by-vtable/ControlPaneVtables.md), [UID:0003JB][DialogPaneVtables](by-type/by-vtable/DialogPaneVtables.md), [UID:0001Y6][ModelessDialogPaneVtables](by-type/by-vtable/ModelessDialogPaneVtables.md), and [UID:0001YD][PanelPaneVtables](by-type/by-vtable/PanelPaneVtables.md).
+- Why: live IDA MCP reconfirmed decorated bases, function sizes, constructor/destructor store xrefs, and successor boundaries for the Pane, ControlPane, and DialogPane slices. The aggregate itself is not a source-level declaration, but all reconstructable child routes now satisfy the strict child/direct-parent gate.
+
+### 2026-06-11 A001 Assigned Target Review
+
+- What existed before: the page was already strong vtable-family evidence at `88/90`, but generated type coverage still listed it as unassigned with no written explanation of whether a parent should be chosen.
+- What changed: completion is raised to `89`, the status now records an intentional blank `AUTOGEN_PARENT_UID`, and the assignment-gate rationale enumerates each candidate owner slice.
+- Why: the child page clears `85/85`, but the evidence covers `Pane`, `ControlPane`, `DialogPane`, `ModelessDialogPane`, and `PanelPane` vtable clusters together. No single direct class or source-file owner satisfies both the ownership rule and the strict parent gate for the whole aggregate.
 
 ### 2026-06-01 - Validator Score And IDA Recheck
 

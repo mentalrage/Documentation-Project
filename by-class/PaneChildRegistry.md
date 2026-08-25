@@ -1,12 +1,15 @@
 *** UID:0000A3 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:NONE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # PaneChildRegistry
 
@@ -15,20 +18,22 @@
 - Confidence: stale generated class name.
 - Likely corrected source file: [UID:0000HR][BlackHole](by-file/BlackHole.md)
 - Address range: [UID:0000Z1][0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion](by-memory/0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion.md), inside [UID:0000Z0][0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue](by-memory/0x004690b0-0x00469288.BlackHoleDeferredDeletionQueue.md)
-- Current recovered state: no standalone `class_PaneChildRegistry.cpp` is emitted in `simroot_v2`; stale owner context still appears inside `class_BlackHole.meta_wave3`.
+- Dated recovery evidence: historical `simroot_v2` emitted no standalone `class_PaneChildRegistry.cpp`, while `class_BlackHole.meta_wave3` retained stale owner context. These sidecars are leads, not current authority.
 
 ## Class Purpose
 
-The generated `PaneChildRegistry` class was a staging owner for `0x00469180`. Current IDA evidence and active `class_BlackHole.cpp` support keeping this function on [UID:00000W][BlackHole](by-class/BlackHole.md) as a pane-specific deferred deletion helper.
+The generated `PaneChildRegistry` class was a staging owner for `0x00469180`. Authoritative IDA evidence and the accepted BlackHole source route keep this function on [UID:00000W][BlackHole](by-class/BlackHole.md) as a pane-specific deferred deletion helper.
 
 The function removes a pane from its layer, unregisters event handling, removes queued timer events, checks whether the pane is already queued, and appends it to the [UID:00000W][BlackHole](by-class/BlackHole.md) singleton cleanup list.
 
 ## Evidence Notes
 
-- Wave3 sidecar data says this was restored from missing-ref class `cls_0x469180`, but current active source is already emitted under `BlackHole`.
+- Historical Wave3 sidecar data says this was restored from missing-ref class `cls_0x469180`; that stale recovery label does not override the BlackHole binary identity.
 - IDA MCP reports broad direct caller fan-in across dialogs, panes, and replacement/close paths.
 - IDA decompilation calls pane vtable slots `+0x38` and `+0x40`, which map to `Pane::RemoveFromLayer` and `Pane::UnregisterEventHandler`.
 - The function appends to `dword_67A74C`, which is built by `BlackHole::BlackHole` and drained by `BlackHole::ReleaseQueuedOwnedObjects`.
+- Complete negative searches found no PaneChildRegistry local type, UDT, RTTI, vtable, global, string, resource, source-tree path, or independent generated output. Metadata therefore remains `-1/-1`, owner `NONE`, `RECONSTRUCTABLE:FALSE`, blank emitter, and blank formal CPP/H.
+- Dated generated snapshot command `000000024682` (`2026-08-16T01:45:46-04:00`) observed BlackHole CPP present, BlackHole H absent, and PaneChildRegistry CPP/H absent. Validator-owned output is reread after the accepted BlackHole owner refresh rather than treated as permanently current here.
 
 ## Cross-References
 
@@ -40,6 +45,8 @@ The function removes a pane from its layer, unregisters event handling, removes 
 - [UID:0000A2][Pane](by-class/Pane.md)
 
 ## Changes
+
+- 2026-08-16 B009 UID0000MD accepted ordinary implementation: retained this class alias at `-1/-1` with owner `NONE`, no emitter, and blank formals; historicalized generated/sidecar wording; and recorded the exhaustive no-class/no-source proof. The real function remains [UID:0000Z1][0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion](by-memory/0x00469180-0x004691fa.BlackHoleQueuePaneForDeferredDeletion.md).
 
 - 2026-06-05: Changed autogen reconstructability from blank to `FALSE`.
   - Before: the page was scored `-1/-1` as a stale generated owner but remained unclassified in `-ag-class-coverage.md`.

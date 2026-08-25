@@ -1,12 +1,25 @@
 *** UID:0002II | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:000065 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:000065 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL:110 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:000065 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+void HierList::RemoveAt(int index, int count)
+{
+    List::RemoveAt(index, count);
+    if (index <= m_count - 1) {
+        UpdateHierarchy(index, m_count - 1, false);
+    }
+}
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
+
+*** Item Summary: Delegates to base remove-at and repairs hierarchy links after removal. | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** Nested:0 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # 0x004cebc0-0x004cebec HierListRemoveAt
 
@@ -20,7 +33,7 @@
 - IDA function: `sub_4CEBC0`, size `0x2c`.
 - Rebuild handling: source-authored virtual method, reconstructable.
 - Parent attachment: attached to [UID:000065][HierList](by-class/HierList.md) at position `110`; this page and the class parent both satisfy the 80/80 attachment gate.
-- Final C++ remains blank because final `HierList` source method names, overload shape, and base container API spelling are still below the 95/95 final-source gate.
+- Formal C++ is now present. B010's 2026-07-01 implementation accepts the `void` remove override and shifted-range hierarchy repair.
 
 ## Signature
 
@@ -173,6 +186,11 @@ The behavior, range, vtable slot, base remove call, repair condition, and surrou
 - [UID:0002IL][0x004ced10-0x004ceda4.HierListUpdateHierarchy](by-memory/0x004ced10-0x004ceda4.HierListUpdateHierarchy.md)
 
 ## Changes
+
+- 2026-07-01 B010 accepted empty-emitter family implementation:
+  - Raised this override page to `COMPLETION:90`, `CONFIDENCE:92` and inserted formal `void HierList::RemoveAt(int index, int count)` C++.
+  - Current MCP decompile of `0x004cebc0` shows base `List::RemoveAt(index, count)` followed by repair of the remaining shifted range when `index <= m_count - 1`: `UpdateHierarchy(index, m_count - 1, false)`.
+  - The decompiler return is rejected as a register artifact because accepted List and HierList mutation APIs are source-facing `void`. The visible behavior is base removal plus hierarchy parent/owner repair.
 
 - 2026-06-06 A005 live IDA recheck:
   - Before: page was a `75/88` summary with blank autogen parent and only high-level base-remove/update evidence.

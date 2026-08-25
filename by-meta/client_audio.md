@@ -25,7 +25,7 @@ Audio rebuild work should separate NexusTK-owned source from external runtimes:
 
 | Layer | Evidence | Rebuild owner |
 | --- | --- | --- |
-| Miles Sound System | IDA imports 37 `_AIL_*` APIs from `mss32`, including sample, stream, Redbook, file-callback, DirectSound, and startup/shutdown functions. Local runtime files are `Mss32.dll` and `Mp3dec.asi`, both version `6.1c`. | External runtime/import library. Use files in [UID:0001QX][README](by-meta/obtained_thirdparty_files/README.md) or a licensed Miles SDK. Keep local wrapper logic in [UID:0000NV][SoundManager](by-file/SoundManager.md). |
+| Miles Sound System | IDA imports exactly 37 `_AIL_*` APIs from `mss32`, including sample, stream, Redbook, file-callback, DirectSound, and startup/shutdown functions. Local runtime files are `Mss32.dll` and `Mp3dec.asi`, both version `6.1c`; no SDK header/shim/import library is present in the repository. | External runtime DLL boundary. UID0004UF supplies a bounded local compatibility declaration block in `SoundManager.h`: 32-bit aliases/opaque handles/calling conventions/five callback types/all 37 APIs. Keep NexusTK wrapper policy in [UID:0000NV][SoundManager](by-file/SoundManager.md); do not copy or reconstruct Miles internals. |
 | Bink audio bridge | IDA imports `_BinkSetSoundSystem@8`, `_BinkOpenDirectSound@4`, and `_BinkOpenMiles@4` from `binkw32`; `OpenBinkVideo` obtains DirectSound through [UID:0000NV][SoundManager](by-file/SoundManager.md). Local `binkw32.dll` version is `1.0s`. | External Bink runtime. Keep video playback in [UID:0000P4][VideoPlayerPane](by-file/VideoPlayerPane.md) / [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md), with only the DirectSound bridge touching audio source. |
 | WinMM MIDI | IDA imports `midiStreamOpen`, `midiStreamOut`, `midiStreamStop`, `midiStreamRestart`, `midiStreamPause`, `midiStreamClose`, `midiOutPrepareHeader`, `midiOutUnprepareHeader`, `midiOutReset`, and related timer APIs from `WINMM`. | Windows SDK/system import library. Keep stream control and callback state in [UID:0000LD][MidiPlayer](by-file/MidiPlayer.md). |
 | DAT/loose file audio resources | `%03d.wav`, `%08d.LST`, `%08d.LSR`, `%08d.MP3`, Miles file callbacks, `DATFile`, and `StdioFile` evidence. | NexusTK source in [UID:0000NV][SoundManager](by-file/SoundManager.md), using archive and file-IO services as dependencies. |
@@ -42,7 +42,7 @@ The same 2026-05-28 pass resolves the former `0x005271a3-0x005277c0` unknown ran
 
 UI consumers remain outside the audio engine:
 
-- [UID:0000NX][SoundStatusPane](by-file/SoundStatusPane.md) owns HUD text and hotkeys for sound/music toggles.
+- [UID:0000NX][SoundStatusPane](by-file/SoundStatusPane.md) owns only HUD presentation and coordination. Its exact key path reads/toggles SoundManager effects state and Config's effects byte for lowercase Control+`m`; uppercase Control+`M` makes paired duplicate calls to `g_pMidiPlayer` enable/disable and `g_pSoundManager` mute/unmute, then invalidates the pane. Its paint path reads SoundManager playback/effects state for the `Sound On/Off` and `Music On/Off` caption. It owns neither audio state nor playback implementation.
 - [UID:0000LN][MusicControlDialog](by-file/MusicControlDialog.md) owns the user-facing music-control dialog and folder selection policy.
 - [UID:0000L0][MainMenuPane](by-file/MainMenuPane.md), [UID:00000V][BaramApp](by-class/BaramApp.md), and application startup/shutdown paths call into the audio singletons but should not own playback implementation.
 
@@ -63,7 +63,9 @@ Current proposed layout:
 ```text
 audio/
   SoundManager.cpp
+  SoundManager.h
   MidiPlayer.cpp
+  MidiPlayer.h
 ```
 
 `SoundPathVector` can start as a private helper documented under `SoundManager`; promote it to `audio/SoundPathVector.cpp` only if later evidence shows a standalone original file or broader non-SoundManager callers.
@@ -90,6 +92,8 @@ The current documentation stash keeps obtained runtime copies under [UID:0001QX]
 - Whether the final build should link Miles by import library only or keep the current late-bound/imported DLL arrangement exactly as observed.
 - Whether Bink should continue using `BinkOpenDirectSound` through `SoundManager::GetDirectSound` or switch to the imported `BinkOpenMiles` path in a compatibility rebuild. The observed video helper uses DirectSound.
 
+The SoundStatusPane callback itself is no longer an open generated-route question: it belongs under `ui/panels/SoundStatusPane.cpp/.h`, consumes the two standalone audio headers above, and coordinates both subsystems without merging them.
+
 ## Cross-References
 
 - [UID:0000NV][SoundManager](by-file/SoundManager.md)
@@ -99,7 +103,7 @@ The current documentation stash keeps obtained runtime copies under [UID:0001QX]
 - [UID:0000DI][SoundPathVector](by-class/SoundPathVector.md)
 - [UID:0000RM][g_pMidiPlayer](by-global/g_pMidiPlayer.md)
 - [UID:0000T9][MidiPlayerWinMMState](by-global/MidiPlayerWinMMState.md)
-- [UID:0001I8][0x005797b0-0x0057bc58.SoundManager](by-memory/0x005797b0-0x0057bc58.SoundManager.md)
+- [UID:0001I8][0x005797b0-0x0057bf6e.SoundManagerAudioHelperCluster](by-memory/0x005797b0-0x0057bf6e.SoundManagerAudioHelperCluster.md)
 - [UID:0001CF][0x00525b10-0x0052664b.MidiPlayerAndWinMMHelpers](by-memory/0x00525b10-0x0052664b.MidiPlayerAndWinMMHelpers.md)
 - [UID:0001CG][0x00525be0-0x00525dbb.MidiStreamCallback](by-memory/0x00525be0-0x00525dbb.MidiStreamCallback.md)
 - [UID:00023B][0x00526650-0x005270d5.MidiFileReaderAndSMFParserHelpers](by-memory/0x00526650-0x005270d5.MidiFileReaderAndSMFParserHelpers.md)
@@ -109,3 +113,4 @@ The current documentation stash keeps obtained runtime copies under [UID:0001QX]
 - [UID:0001QC][client_dat_specifications](by-meta/client_dat_specifications.md)
 - [UID:0001QE][client_libraries](by-meta/client_libraries.md)
 - [UID:0001QX][README](by-meta/obtained_thirdparty_files/README.md)
+- [UID:0000NX][SoundStatusPane](by-file/SoundStatusPane.md)

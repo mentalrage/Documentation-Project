@@ -1,12 +1,18 @@
 *** UID:0001XJ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:00004Q | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:00004Q | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:00004Q | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// ExchangeAlertPane vtable/type coverage is represented by the class declaration and
+// exact vtable-data child; the compiler emits the binary tables.
+[[CHILDREN]]
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # ExchangeAlertPane Vtables
 
@@ -17,7 +23,7 @@
 - Likely source file: [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md).
 - Exact memory child: [UID:0002NF][0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData](by-memory/0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData.md).
 - Confidence: strong for vtable bases, constructor stores, button-dispatch slot, and adjustor thunks.
-- Autogen status: attached to the `ExchangeAlertPane` class page; final C++ remains blank under the `95/95` reconstruction gate.
+- Autogen status: attached to the `ExchangeAlertPane` class page; the formal block now emits only a target-specific no-code/children marker because vtable bytes are compiler-generated from the class declaration and exact method children.
 
 ## Vtable Bases
 
@@ -66,6 +72,8 @@ Model `ExchangeAlertPane` as an exchange-owned `DialogPane`-derived alert class 
 
 Keep `0x004b08cd` and `0x004b08d8` as compiler-generated adjustor thunks. They should be represented by inheritance/vtable layout, not handwritten source functions.
 
+B011 2026-06-30 adds the formal no-code/children marker for generated output. This page should not emit literal vtable arrays; the exact `.rdata` evidence remains in [UID:0002NF][0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData](by-memory/0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData.md).
+
 ## Parent Rationale
 
 Attach this vtable cluster to [UID:00004Q][ExchangeAlertPane](by-class/ExchangeAlertPane.md) because the three tables are the class's primary, secondary, and tertiary virtual views installed by `ExchangeAlertPane::ExchangeAlertPane` at `0x004b0490` and consumed by `OnButtonClick`, the scalar deleting destructor, and the compiler-generated adjustor thunks. The class page is already reconstructable, attached to [UID:0000J9][ExchangeDialog](by-file/ExchangeDialog.md), and records the same constructor stores, singleton ownership, button-dispatch slot, exact vtable-data child, and boundary before `ExchangeMoneyEditControlPane`. The vtable page remains the narrow evidence home for slot order and `.rdata` boundaries.
@@ -91,3 +99,7 @@ Attach this vtable cluster to [UID:00004Q][ExchangeAlertPane](by-class/ExchangeA
   - Before: metadata was unevaluated and the page relied on a vtable-base inventory without a dedicated exact by-memory child page.
   - Changed to: scored as `84/90`, marked reconstructable, and linked to exact child [UID:0002NF][0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData](by-memory/0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData.md).
   - Summary/evidence: IDA MCP `py_eval`, `xrefs_to`, `lookup_funcs`, and decompilation confirm the three table bases, constructor stores, key slot targets, adjustor thunks, and the `0x0061a260` boundary before `ExchangeMoneyEditControlPane`.
+- 2026-06-30 B011 accepted ExchangeDialog empty-emitter implementation:
+  - Before: this type page had blank formal C++ under a stale old-gate note.
+  - After: score is `88/92`; the formal block emits a target-specific no-code proof plus `[[CHILDREN]]` so generated output no longer shows an empty marker.
+  - Evidence: vtable bases, constructor stores, button slot, adjustor thunks, RTTI boundaries, and exact data child [UID:0002NF][0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData](by-memory/0x0061a1c0-0x0061a260.ExchangeAlertPaneVtableData.md) prove compiler-generated table ownership.

@@ -1,28 +1,34 @@
 *** UID:0000QH | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000JC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000JC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000JC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+FileDownloader *g_pFileDownloader;
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
-# g_pCashShopRequest
+# g_pFileDownloader (stale filename alias: g_pCashShopRequest)
 
 ## Status
 
-- Confidence: strong for address, FileDownloader lifetime, writer/read xrefs, and neighboring-global boundaries; medium-high for final source-facing type/name.
+- Confidence: very strong for address, FileDownloader lifetime, writer/read xrefs, neighboring-global boundaries, saved lifecycle helper labels, and best current source-facing type/name direction.
 - Address: `0x0067a738`
 - IDA name: `dword_67A738`
-- Working type hypothesis in older notes: `CashShopRequest*`; current evidence favors a `FileDownloader`/download-dispatcher singleton role rather than a pure cash-shop payload object.
+- Working type hypothesis in older notes: `CashShopRequest*`; B001 2026-06-18 rejects that as the primary source type. Best current declaration is `FileDownloader *g_pFileDownloader`, with `g_pDownloadDispatcher` retained only as an alternate facade-name caveat.
 - Current observed writer: `FileDownloader::FileDownloader`
-- Proposed owner: [UID:0000JC][FileDownloader](by-file/FileDownloader.md) / download-request dispatcher, with final type/name unresolved.
+- Proposed owner: [UID:0000JC][FileDownloader](by-file/FileDownloader.md) / download-request dispatcher, with stale `g_pCashShopRequest` retained only as historical/generated alias text.
 - Primary memory doc: [UID:0001OP][0x0067a738-0x0067a73c.g_pCashShopRequest](by-memory/0x0067a738-0x0067a73c.g_pCashShopRequest.md)
 
 ## Observed Evidence
 
-IDA decompilation of `FileDownloader::FileDownloader` writes this storage, and `FileDownloader` teardown clears the pointer. Live IDA names the storage `dword_67A738`. This conflicts with the narrow `CashShopRequest* g_pCashShopRequest` declaration if that type is interpreted as the complete object type.
+IDA decompilation of `FileDownloader::FileDownloader` writes this storage, and `FileDownloader` teardown clears the pointer. Live IDA still leaves the storage named `dword_67A738`; C001 dry-run verified that a `g_pFileDownloader` rename would technically succeed, but the rename was skipped because the final source-facing global name/type is still unresolved. This conflicts with the narrow `CashShopRequest* g_pCashShopRequest` declaration if that type is interpreted as the complete object type.
+
+B001 2026-06-18 source-quality reanalysis resolves the primary type/name direction: keep the current filename as historical for now, but document the storage as `FileDownloader *g_pFileDownloader` / download-dispatcher singleton state. The actual `CashShopRequest` catalog payload is a separate `0x28` vtable object allocated by the submit helper, not this global. If a later recovered header proves a facade name, `g_pDownloadDispatcher` is the plausible alternate; `CashShopRequest *g_pCashShopRequest` is rejected as the primary declaration for this address.
 
 IDA MCP `py_eval` on 2026-05-25 found 9 xrefs to this storage and 5 direct writes. The writers are the FileDownloader constructor/destructor family, including [UID:0000WK][0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal](by-memory/0x0041b2f0-0x0041b2fb.ClearFileDownloaderRequestGlobal.md), plus the scalar deleting destructor at `0x0041b610`.
 
@@ -48,27 +54,36 @@ The current evidence supports one live four-byte storage slot, not a family of a
 
 The message IDs are the worker-thread constants documented in [UID:0001SF][DownloaderMessageIds](by-type/by-constant/DownloaderMessageIds.md), not socket opcodes. The adjacent globals stay separate: `0x0067a73c` is the fitting-room dialog pointer, `0x0067a740` is the BackPane singleton pointer, and `0x0067a7ec` is the packet sender [UID:0000Q5][g_packetSender](by-global/g_packetSender.md).
 
+## 2026-06-16 C001 IDA Refresh
+
+Live IDA MCP session `b001_mappane_0001AW_20260616` reconfirmed the storage and narrowed the rename/type blocker without removing it:
+
+- `get_bytes 0x0067a730-0x0067a750` returned 32 zero bytes, so this slot and the neighboring pointer cluster remain zero-initialized writable `.data`.
+- `xrefs_to 0x0067a738` returned exactly nine direct data xrefs: five FileDownloader-family writes/clears, three fitting-room/item-shop submit reads, and one application cleanup virtual-delete read.
+- Saved IDA function labels now identify the lifecycle writers as `FileDownloader_Constructor` at `0x0041a670`, `FileDownloader_Destructor` at `0x0041a6f0`, `ClearFileDownloaderRequestGlobal` at `0x0041b2f0`, and `FileDownloader_ScalarDeletingDestructor` at `0x0041b610`.
+- Decompilation still shows the submit helpers at `0x0041b180`, `0x0041b200`, and `0x0041b270` allocate request payloads and post downloader messages `10000`, `10001`, and `10002` through `sub_596960`, with callers passing this FileDownloader-lifetime singleton.
+- IDA data rename skipped: `dword_67A738 -> g_pFileDownloader` passed dry-run but was not applied because the original global could still have been named for a cash-shop/download facade or dispatcher rather than for the concrete `FileDownloader` class.
+
 ## Ownership Hypothesis
 
-Do not treat the current name and type as settled. The global could be:
+Do not treat the current filename as source-facing. The remaining spelling uncertainty is now narrowed to either:
 
-- A mislabeled `FileDownloader*` singleton.
-- A broader request/download dispatcher pointer that older notes typed too narrowly.
-- A legacy shared global where `FileDownloader`, cash-shop request payload classes, and downloader request submission helpers were related by a base or naming collision not yet recovered.
+- `FileDownloader *g_pFileDownloader`, accepted as the first-draft declaration.
+- A broader facade name such as `FileDownloader *g_pDownloadDispatcher`, if a later header proves that style.
 
-Current evidence favors FileDownloader/download-request dispatcher lifetime ownership. Keep the final public name/type open until the `CashShopRequest` payload class and downloader request-submission methods are separated cleanly; however, the storage address, lifetime owner, consumer set, and alias boundary are now strong enough to treat this page as a high-confidence global ownership record.
+Rejected: treating the storage as a `CashShopRequest*` singleton. Current evidence favors FileDownloader/download-request dispatcher lifetime ownership: the storage address, lifetime owner, consumer set, saved lifecycle labels, alias boundary, and primary worker helper routes are now strong enough to emit first-draft `FileDownloader *g_pFileDownloader;`.
 
 ## Impact On Source Reconstruction
 
 - [UID:0000JC][FileDownloader](by-file/FileDownloader.md) should mention the global because it writes and clears it.
 - [UID:0000I0][CashShopRequest](by-file/CashShopRequest.md) should not be merged into `FileDownloader.cpp` solely because of this global name.
-- Header generation should avoid committing to `CashShopRequest*` here until caller casts and uses are reviewed.
+- Header generation should use `FileDownloader *g_pFileDownloader` as the first-draft declaration, with the facade-name caveat retained in prose.
 - Packet-send paths that use `g_pCashShopRequest` should be normalized to [UID:0000Q5][g_packetSender](by-global/g_packetSender.md) when IDA shows `dword_67A7EC`.
 
 ## Follow-Up
 
-- Split the `0x0041b180`, `0x0041b200`, and `0x0041b270` submission helpers from the small `CashShopRequest` payload class if later ownership cleanup supports a downloader/request dispatcher owner.
-- Compare calls through the pointer against `FileDownloader`, `CashShopRequest`, and `Thread` vtable layouts before renaming or retyping the global.
+- Keep the `0x0041b180`, `0x0041b200`, and `0x0041b270` submission helpers with FileDownloader dispatch unless later header evidence proves a different facade; payload classes remain separate context.
+- If the file is later renamed, rename this page to `g_pFileDownloader.md` and update the linked memory page filename in the same pass.
 - Recheck address aliasing after the downloader/request-dispatch boundary is cleaned up to ensure this storage is not conflated with `dword_67A7EC`.
 
 ## Cross-References
@@ -88,3 +103,9 @@ Current evidence favors FileDownloader/download-request dispatcher lifetime owne
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `86/78`. Summary/evidence: the page documents address, FileDownloader lifetime evidence, xrefs, conflicting type/name, downloader request helper relationship, reconstruction impact, and follow-up checks; final source-facing type/name remains intentionally unresolved.
 - 2026-06-05: Marked reconstructable under [UID:0000JC][FileDownloader](by-file/FileDownloader.md). Evidence: live IDA MCP reports nine xrefs to `0x0067a738`; decompilation confirms `0x0041a670` writes `dword_67A738 = this`, `0x0041b2f0` clears the constructor-unwind global, and `0x0041b610` clears the pointer during scalar deleting teardown.
 - 2026-06-06: Raised to `88/84` and added the exact xref matrix plus neighboring-global boundaries. Evidence: the linked storage page records all five FileDownloader-family writes, the three fitting-room/downloader submit reads, the application cleanup delete read, and the `g_packetSender`/`dword_67A7EC` separation; confidence stays below final-source level because the public source name/type remains provisional.
+- 2026-06-16 C001 global/IDA refresh:
+  - Changed from `88/84` to `89/86`.
+  - Summary/evidence: live IDA reconfirmed the nine-xref matrix and zeroed neighboring storage, saved FileDownloader lifecycle labels for the four writer/clearer functions, rechecked submit helper decompilation, and skipped the technically valid `dword_67A738 -> g_pFileDownloader` data rename because the final public global name/type remains an actual source-facing blocker.
+- 2026-06-18 B001 FileDownloader download-helper source-quality pass:
+  - Changed from `89/86` to `90/91`.
+  - Summary/evidence: B001 rechecked the nine code refs, five FileDownloader-family writes/clears, three request-submit reads, application cleanup delete, neighboring `g_pFittingRoomDialog` boundary, and the actual separate `CashShopRequest` payload allocation. The page keeps the historical filename for now but treats `g_pCashShopRequest` as stale alias text and emits first-draft `FileDownloader *g_pFileDownloader;`.

@@ -1,57 +1,94 @@
 *** UID:0000P4 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:93 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:95 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/core/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:FILE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # VideoPlayerPane
 
 ## Status
 
-- Confidence: strong for class responsibility, medium for final folder placement.
+- Confidence: very strong for class responsibility, exact header/CPP split, vtable/RTTI source cause, source placement, and protected `OpenBinkVideo` base-helper factoring. Exact private lexical spellings remain inferred.
 - Proposed module: `ui/core/VideoPlayerPane.cpp`
 - Current recovered source: `class_VideoPlayerPane.cpp`
 - Main class: [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md)
 - Main address doc: [UID:0001NT][0x005c0040-0x005c045b.VideoPlayerPane](by-memory/0x005c0040-0x005c045b.VideoPlayerPane.md)
 - Related startup class: [UID:00007H][LogoPlayerPane](by-class/LogoPlayerPane.md)
-- Evidence basis: existing docs plus IDA MCP boundary/xref/decompilation checks refreshed on 2026-06-02.
+- Evidence basis: existing docs plus IDA MCP boundary/xref/decompilation checks refreshed on 2026-06-02 and 2026-06-11.
 
 ## File Role
 
-`VideoPlayerPane.cpp` owns the generic pane-level Bink playback surface. It constructs the pane, starts and stops playback, services Bink frames during idle, copies decoded frames into the pane surface, handles the `term` application notification, and tears down Bink handles.
+`VideoPlayerPane.cpp` owns the generic pane-level Bink playback surface. It constructs the pane, starts and stops playback, services and copies Bink frames during OnPaint, handles the `term` application notification, receives exact `'ViSD'` completion through TimerHandler::OnTimer, and tears down Bink handles. The companion header owns the complete `VideoPlayerPane : public Pane` declaration.
 
 This should be a reusable UI/media pane module. Startup movie sequencing remains in [UID:0000O4][StartupLogoPanes](by-file/StartupLogoPanes.md), while audio backend ownership remains in [UID:0000NV][SoundManager](by-file/SoundManager.md).
+
+## Score Rationale
+
+| Field | Value | Reason |
+| --- | ---: | --- |
+| Completion | 93 | The page records the exact header/CPP split, complete class and method island, Bink lifecycle, retained raw helpers, globals/dependencies, full 21/11/2 vtable/RTTI source cause, compiler exclusions, constructor/destructor stores, and protected `OpenBinkVideo` caller contract. Final original lexical/access proof and binary-match compilation remain. |
+| Confidence | 95 | Live IDA bytes, RTTI, xrefs, decompilation, raw-helper boundaries, derived LogoPlayerPane tables, and current by-* routing agree on this exact `ui/core` source placement. Remaining uncertainty is source spelling, not file contents or ownership. |
 
 ## Proposed Contents
 
 | Entity | Address evidence | Role |
 | --- | --- | --- |
-| `VideoPlayerPane` | `0x005c0040-0x005c045b` | Base Bink playback pane, idle frame pump, app notification handling, destructor/thunks. |
-| non-deleting destructor body | `0x005c0090-0x005c010a` | Resets to `VideoPlayerPane` vtables, unregisters the `term` notification, closes the Bink handle, and tears down the base pane. Wave3 currently mis-emits this under `LogoPlayerPane`. |
-| `OpenBinkVideo` helper | `0x005c0110-0x005c0174` | Opens a memory-backed Bink stream after configuring DirectSound. Current Wave3 owner is `LogoPlayerPane`; final placement may be protected base helper or startup-logo helper. |
-| close/sound/seek helpers | `0x005c0180-0x005c01e8` | Three IDA-unpromoted helper bodies operating on the Bink handle at `+0xfc`: close current video, set sound on/off, and seek through `BinkGoto`. |
+| `VideoPlayerPane` declaration | class UID0000FV / RTTI UID0002Z5 | Pane-derived 0x100-byte class with inherited EventHandler/TimerHandler facets, complete virtual interface, retained private helpers, and `m_isPlaying`/`m_binkHandle`. Formal declaration belongs in H. |
+| authored method island | `0x005c0040-0x005c045b` | Constructor, ordinary destructor, memory-backed open, retained raw helpers, Start/Stop, OnChangeMessage, OnPaint, and OnTimer. Formal definitions belong in CPP; alignment/deleting glue does not. |
+| non-deleting destructor body | `0x005c0090-0x005c010a` | Unregisters the `term` notification, closes the Bink handle, and tears down the base pane. Historical derived-class mis-emission is superseded. |
+| `OpenBinkVideo` helper | `0x005c0110-0x005c0174` | Protected `VideoPlayerPane::OpenBinkVideo(const void *segmentData, unsigned int segmentSize)` opens a memory-backed Bink stream after configuring DirectSound. Current direct callers are `LogoPlayerPane` constructor and `AdvanceToNextSegment`, but ownership stays with the base video pane. |
+| `CloseBinkVideo`, `SetBinkSoundEnabled`, `SeekBinkFrame` | `0x005c0180-0x005c01e8` | Three exact retained private helpers. Current xref and VA/RVA scans are negative, but body/field/locality evidence proves class/file ownership; formal source preserves their exact quirks. |
+| OnPaint / OnTimer / OnClose | `0x005c02a0-0x005c037b`, shared `0x0041b6a0` | Primary paint frame pump, inherited TimerHandler completion callback, and empty virtual base close hook overridden by LogoPlayerPane. |
 | deleting-destructor thunks | `0x005c037b`, `0x005c0386` | Compiler-generated adjustor thunks for the scalar deleting destructor. |
-| globals | `g_pApplication`, `g_use32BitColor`, `g_pSoundManager` | Application message routing, color-copy mode, and Bink audio bridge dependencies. |
+| compiler-generated data | `0x0063104c-0x006310dc` | Exact 21/11/2 primary/EventHandler/TimerHandler table family, regenerated by the class declaration and ordinary virtual methods. |
+| globals | `g_pApplication`, `g_surfaceUsesRgb565Pixels`, `g_pSoundManager` | Application message routing, 555/565 copy selection, and Bink audio bridge dependencies. |
 
 ## Evidence Notes
 
 - IDA confirms real starts at `0x005c0040`, `0x005c0090`, `0x005c0110`, `0x005c01f0`, `0x005c0210`, `0x005c0260`, `0x005c02a0`, `0x005c0350`, `0x005c037b`, `0x005c0386`, and `0x005c03a0`.
 - `VideoPlayerPane::VideoPlayerPane` is called by `LogoPlayerPane::LogoPlayerPane`.
-- `StartPlayback`, `StopPlayback`, `OnMessage`, `OnIdle`, and `HandleVideoDoneMessage` are vtable-referenced at `0x61d0xx` and `0x6310xx`.
-- `OnIdle` calls `BinkWait`, `BinkService`, `BinkDoFrame`, `BinkCopyToBuffer`, `BinkNextFrame`, then posts `VisD` when playback finishes.
+- StartPlayback, StopPlayback, OnChangeMessage, OnPaint, and OnTimer are vtable-referenced in both LogoPlayerPane-derived and VideoPlayerPane tables.
+- 2026-06-11 A005 Batch230 live IDA MCP reconfirmed the exact [UID:0002Z5][0x0063104c-0x006310dc.VideoPlayerPaneVtableData](by-memory/0x0063104c-0x006310dc.VideoPlayerPaneVtableData.md) child as `0x90` / 144 bytes (Verified with `int_convert.py`), with named bases at `0x0063104c`, `0x006310a4`, and `0x006310d4`; constructor/destructor/deleting-destructor store xrefs at `0x005c0051`/`0x005c00bc`/`0x005c03cc`, `0x005c0059`/`0x005c00c2`/`0x005c03d2`, and `0x005c0063`/`0x005c00cc`/`0x005c03dc`; and the successor `VirusChecker` boundary at `0x006310dc`.
+- OnPaint calls `BinkWait`, `BinkService`, `BinkDoFrame`, `BinkCopyToBuffer`, and `BinkNextFrame`, then schedules exact `'ViSD'` (`0x56695344`) when playback finishes. OnTimer handles that exact ID and calls virtual OnClose; nonmatching IDs delegate to Pane::OnTimer.
 - The `term` tag is decimal `1952805485` and is used for application/video teardown notifications.
 - IDA MCP decompilation of `0x005c0110` shows `BinkOpen(segmentData, 67633152)`, where `67633152 == 0x04080000`. Public Bink flag references identify that bit pair as `BINKFROMMEMORY | BINKNOSKIP`, matching the in-memory segment callers.
+- 2026-06-20 B003 LogoPlayerPane segment-advance support sync resolves the file-level helper direction: [UID:0002PU][0x004f5570-0x004f55c8.LogoPlayerPaneAdvanceToNextSegment](by-memory/0x004f5570-0x004f55c8.LogoPlayerPaneAdvanceToNextSegment.md) passes the second segmented payload pointer plus remaining byte count to `0x005c0110`, and the constructor passes the first segment pointer plus first segment size. The helper body operates on `VideoPlayerPane::m_binkHandle`, registers `term`, and opens memory-backed Bink, so source migration should treat it as protected base-video API even though current direct callers are startup-specific.
 - IDA MCP confirms the video deleting-destructor adjustor thunks at `0x005c037b` and `0x005c0386`; they subtract `0xa0`/`0xa4` and forward to `0x005c03a0`.
 - IDA MCP 2026-06-02 linear disassembly confirms the previously skipped `0x005c0174-0x005c01f0` region contains `0xcc` padding plus three unpromoted helper bodies at `0x005c0180`, `0x005c01a0`, and `0x005c01d0`; these use `BinkClose`, `BinkSetSoundOnOff`, and `BinkGoto`.
+- 2026-07-26 B004 live MCP session `5a570ede` enumerated all 21/11/2 virtual slots, three COLs, six RTTI bases, complete-object offsets `+0xa0/+0xa4`, exact method identities, raw helper no-route evidence, and LogoPlayerPane table comparison.
+
+## Header And Source Contract
+
+- `VideoPlayerPane.h` declares `class VideoPlayerPane : public Pane`; it does not repeat EventHandler or TimerHandler as direct bases.
+- Pane occupies `0xf8` bytes. `bool m_isPlaying +0xf8`, natural alignment, and `HBINK m_binkHandle +0xfc` produce exact size `0x100`.
+- The H virtual order supplies OnChangeMessage, OnPaint, StartPlayback, StopPlayback, empty OnClose, and OnTimer. The compiler produces the primary table and inherited facet views at `+0xa0/+0xa4`.
+- `VideoPlayerPane.cpp` defines only ordinary authored methods. Vtables, RTTI, two deleting-destructor adjustors, scalar deleting destructor, and `0xcc` alignment are compiler output.
+- BINK partial fields used by this file are Width/Height `+0x00/+0x04`, Frames `+0x08`, FrameNum `+0x0c`, and descriptive SoundOn state `+0x230`.
+
+## Exact Behavior And Retained Quirks
+
+- `OpenBinkVideo(const void *, unsigned int)` retains the caller-visible size even though optimized body code does not consume it, configures DirectSound, registers `'term'`, and opens with `BINKFROMMEMORY | BINKNOSKIP`.
+- CloseBinkVideo and OnChangeMessage preserve the virtual StopPlayback followed by a reloaded BinkClose call. This redundant-looking path is executable behavior and must not be simplified.
+- SetBinkSoundEnabled passes constant `1` whenever the observed sound state differs from its argument; it does not pass `enabled`.
+- OnPaint copies to inherited GrafPort surface state with twice the pixel stride, bounds height, and a 555/565 selector. It schedules `'ViSD'` only at completion and preserves final service flow.
+- The raw helpers have zero current callers/pointer routes. They remain authored private methods because exact source-shaped code and class fields survive; this negative evidence is retained rather than converted into a deletion claim.
+
+## Rejected Placements And Historical Corrections
+
+- `media/VideoPlayerPane.cpp` is no longer an equal placement: the established project route and Pane integration favor `NexusTK/ui/core/`.
+- StartupLogoPanes owns the derived segment/skip/callback policy, not this generic base implementation.
+- Bink library code remains external; this file owns only NexusTK wrappers.
+- Historical `OnIdle`, generic `HandleVideoDoneMessage`, lowercase-s `VisD`, direct EventHandler/TimerHandler bases, and raw table source are rejected by current slot/RTTI/compiler evidence.
 
 ## Ownership Notes
 
-The source path `ui/core/VideoPlayerPane.cpp` is preferred because this class is a `Pane` subclass and its virtuals are UI event/idle handlers. A `media/VideoPlayerPane.cpp` folder would also be defensible if later project-structure evidence shows a media layer.
+The source path `ui/core/VideoPlayerPane.cpp` is established because this class is a `Pane` subclass and its virtuals are UI message/paint/timer handlers. The former alternative `media/VideoPlayerPane.cpp` direction is superseded by current project routing and complete class/file evidence.
 
-The helper at `0x005c0110` is the only mixed-ownership function in this island. Its current callers are both `LogoPlayerPane` methods, but its implementation is generic Bink open/setup logic and uses Bink's memory-open flag. Keep the class-owner ambiguity visible until more video callers or original file evidence appear, but do not name its first parameter `filePath` in source migration.
+The helper at `0x005c0110` is caller-sensitive but no longer ownership-blocking. Its current callers are both `LogoPlayerPane` methods, but its implementation is generic Bink open/setup logic, operates on `VideoPlayerPane::m_binkHandle`, and uses Bink's memory-open flag. Model it as protected `VideoPlayerPane::OpenBinkVideo(const void *segmentData, unsigned int segmentSize)` in source migration. Do not name its first parameter `filePath`; the callers pass memory buffer pointers. This caveat no longer blocks the strict parent gate for vtable-data ownership: the vtable bytes are compiler-emitted from the `VideoPlayerPane` class declaration.
 
-Current generated `class_VideoPlayerPane.cpp` omits the non-deleting destructor body at `0x005c0090`, and disabled output omits `0x005c037b` while emitting `0x005c0386` with bad adjusted-this syntax. Treat both as data cleanup issues.
+Historical generated output omitted the source or represented compiler adjustors poorly. Current restoration routes the class declaration to H, ordinary executable island to CPP, and vtable child to a compiler-covered marker; it does not manually emit the adjustors.
 
-The proposed reconstruction path is `NexusTK/ui/core/`, matching the current source-placement decision for a reusable pane subclass. Keep the helper at `0x005c0110` documented as caller-sensitive until final source recovery decides whether the method is protected base API or startup-logo-only glue.
+The proposed reconstruction path is `NexusTK/ui/core/`, matching the current source-placement decision for a reusable pane subclass. Keep the helper at `0x005c0110` documented as caller-sensitive in its evidence, but source recovery should prefer protected base API over startup-logo-only glue.
 
 ## Cross-References
 
@@ -64,4 +101,15 @@ The proposed reconstruction path is `NexusTK/ui/core/`, matching the current sou
 
 ## Changes
 
+- 2026-07-26 B004 UID0002Z5 accepted file-route implementation:
+  - Raised `87/88` to `93/95`; preserved `NexusTK/ui/core/` and FILE ownership.
+  - Added exact H/CPP responsibilities, complete class/method/vtable source route, raw retained helpers, BINK partial fields, exact quirks, and source/compiler exclusions without duplicating formal source on this by-file page.
+  - Corrected current OnIdle/generic done-handler/`VisD` and historical generated-output wording while preserving prior decisions as superseded history.
+
+- 2026-06-11 A005 Batch230 parent-gate repair:
+  - Changed score from `84/80` to `86/86`.
+  - Summary/evidence: live IDA MCP reconfirmed the exact VideoPlayerPane vtable child, named primary/adjusted vtable bases, constructor/destructor/deleting-destructor store xrefs, and the `VirusChecker` successor boundary. The file now clears the strict 85/85 gate for [UID:0000FV][VideoPlayerPane](by-class/VideoPlayerPane.md) and [UID:0002Z5][0x0063104c-0x006310dc.VideoPlayerPaneVtableData](by-memory/0x0063104c-0x006310dc.VideoPlayerPaneVtableData.md); final C++ remains blank because helper factoring and field/type names are still below the final-source threshold.
+- 2026-06-20 B003 `OpenBinkVideo` support sync:
+  - Changed score from `86/86` to `87/88`.
+  - Summary/evidence: [UID:0002PU][0x004f5570-0x004f55c8.LogoPlayerPaneAdvanceToNextSegment](by-memory/0x004f5570-0x004f55c8.LogoPlayerPaneAdvanceToNextSegment.md) now supports protected `VideoPlayerPane::OpenBinkVideo(const void*, unsigned int)`, inherited `StartPlayback()`, `m_binkHandle`, and BINK `FrameNum`/`Frames` naming. The file remains below final-source threshold because exact header shape, no-xref raw helpers, and generated-output cleanup remain unresolved.
 - Completion/confidence scoring: existed before as ungraded `0/0`; changed to `84/80`. Summary/evidence: the page documents the Bink playback pane role, memory/class refs, ownership notes, and external video dependency, while final folder placement and possible `OpenBink` helper ownership remain unresolved.

@@ -1,12 +1,18 @@
 *** UID:0001X2 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:94 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:97 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:00000W | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:00000W | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:00000W | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// BlackHole's vtable at 0x00613118 is compiler-emitted from the virtual
+// destructor declaration and inherited List virtual surface; no raw vtable
+// array is hand-authored here.
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # BlackHole Vtable
 
@@ -18,13 +24,13 @@
 - Confidence: strong for table base, slot boundary, and inherited `List` slot meanings.
 - Owning class: [UID:00000W][BlackHole](by-class/BlackHole.md).
 - Source owner: [UID:0000HR][BlackHole](by-file/BlackHole.md).
-- Autogen status: attached to the `BlackHole` class page; final C++ remains blank under the `95/95` reconstruction gate.
+- Autogen status: attached to the `BlackHole` class page; formal no-raw-vtable comment is present because the table is compiler-emitted from the source declaration.
 
 ## Slots
 
 | Slot | Address | Current interpretation | Notes |
 | --- | --- | --- | --- |
-| `+0x00` | [UID:0002M2][0x00469240-0x00469288.BlackHoleScalarDeletingDestructor](by-memory/0x00469240-0x00469288.BlackHoleScalarDeletingDestructor.md) | `BlackHole::ScalarDeletingDestructor` | Clears `dword_67A74C`, tears down the list, and optionally frees `this`. |
+| `+0x00` | [UID:0002M2][0x00469240-0x00469288.BlackHoleScalarDeletingDestructor](by-memory/0x00469240-0x00469288.BlackHoleScalarDeletingDestructor.md) | MSVC scalar deleting destructor for `virtual ~BlackHole()` | Generated ABI wrapper; source C++ should declare/define the virtual destructor, not hand-author this slot body. |
 | `+0x04` | `0x004f4b10` | inherited `LObject` runtime/type helper | Matches the same base slot used by `List`. |
 | `+0x08` | `0x0041b6c0` | inherited/default no-op virtual | Shared default callback body. |
 | `+0x0c` | `0x004f32a0` | `List::GetData` | Inherited fixed-width array access. |
@@ -47,7 +53,8 @@ The table stops after `+0x24`. The next dword at `0x00613140` is non-function da
 - IDA `.rdata` inspection on 2026-05-26 shows ten function-pointer slots from `0x00613118-0x0061313f`, then non-function data at `0x00613140`.
 - 2026-05-31 IDA MCP `py_eval` confirms `0x00613114 -> ??_R4BlackHole@@6B@`, `0x00613118 -> sub_469240`, slot `+0x24` at `0x0061313c -> sub_4F34B0`, non-function `unk_613140` at `0x00613140`, and BrowserDialogOld `off_613154 -> sub_4705E0`.
 - The inherited slot addresses match the documented [UID:000079][List](by-class/List.md) virtual surface at `0x0061ce2c`.
-- Current `source-3/simroot_v2/class_BlackHole.meta_wave3` still reports `vtable_count: 0` and `vtables: []`, so this page is the reconstruction anchor until generated vtable inventory is fixed.
+- Historical `source-3/simroot_v2/class_BlackHole.meta_wave3` reported `vtable_count: 0` and `vtables: []`; that sidecar is a dated recovery lead. This page and fresh physical readback are the vtable authority.
+- 2026-06-17 B002 source-quality reanalysis confirms the table's first slot is compiler-generated from `virtual ~BlackHole()` and the remaining slots are inherited `List` virtuals. This supports a `List` primary-base class declaration plus `Singleton<BlackHole>` relationship rather than a standalone vtable overlay in handwritten source.
 
 ## Parent Rationale
 
@@ -66,10 +73,20 @@ Attach this vtable type to [UID:00000W][BlackHole](by-class/BlackHole.md) rather
 
 ## Changes
 
+- 2026-08-16 B009 UID0000MD accepted ordinary implementation: raised `89/93` to `94/97`, historicalized the stale Wave3 inventory, and preserved all ten exact slots, four vtable-address stores, outgoing scalar-destructor edge, RTTI prefix, and `0x00613140` successor boundary. No raw vtable array is emitted.
+
+- 2026-07-01 B011 implementation callback for [UID:0000HR][BlackHole](by-file/BlackHole.md):
+  - What changed: raised completion/confidence from `88/92` to `89/93` and inserted the accepted no-raw-vtable comment into the formal block.
+  - Summary/evidence: the first slot remains generated from `virtual ~BlackHole()` and the remaining slots are inherited `List` virtuals, so no handwritten vtable array belongs in project source.
+
 - 2026-06-07 parent attachment update:
   - What existed before: the vtable page was reconstructable but unassigned in generated type coverage despite linking to the `BlackHole` class and file pages.
   - What changed: attached the vtable to [UID:00000W][BlackHole](by-class/BlackHole.md), raised completion to `86`, and added an explicit parent rationale.
   - Summary/evidence: the class and file pages both document the same `0x00613118` primary vtable, IDA-confirmed constructor/destructor vptr stores, and inherited `List` slots; the class is above the 80% attachment threshold and remains the correct source-level owner.
+
+- 2026-06-17 B002 Rule 26 source-quality sync:
+  - What changed: raised `86/90` to `88/92`, clarified the first slot as generated scalar deleting destructor output for `virtual ~BlackHole()`, and tied the remaining slots to the inherited `List` surface used by queue helpers.
+  - Summary/evidence: B002 correlated the vtable with [UID:0002M2][0x00469240-0x00469288.BlackHoleScalarDeletingDestructor](by-memory/0x00469240-0x00469288.BlackHoleScalarDeletingDestructor.md), [UID:0001TT][BlackHoleLayout](by-type/by-struct/BlackHoleLayout.md), `List` slots, and the class/file source-shape docs.
 
 - What existed before: the page had strong vtable slot notes but remained scored as unevaluated and reconstructability was not marked.
 - What it was changed to: the page is now marked reconstructable and scored `84/90`; evidence notes include refreshed 2026-05-31 IDA MCP boundary/xref checks for the BlackHole table and adjacent data.

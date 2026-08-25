@@ -1,0 +1,29 @@
+﻿[
+    {
+        "file":  "by-class/Application.md",
+        "command_id":  "000000001370",
+        "command_timestamp":  "2026-06-29T22:39:43-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-class_Application.md.revalidate.log"
+    },
+    {
+        "file":  "by-class/BaramApp.md",
+        "command_id":  "000000001371",
+        "command_timestamp":  "2026-06-29T22:39:50-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-class_BaramApp.md.revalidate.log"
+    },
+    {
+        "file":  "by-memory/0x00463310-0x004674ed.ApplicationLifecycle.md",
+        "command_id":  "000000001372",
+        "command_timestamp":  "2026-06-29T22:39:52-04:00",
+        "exit_code":  0,
+        "ok":  "1",
+        "generated_refresh":  "deferred",
+        "log":  "tools\\leaser\\Agents\\Agent-B013\\validation\\0000HG-implementation-20260629\\by-memory_0x00463310-0x004674ed.ApplicationLifecycle.md.revalidate.log"
+    }
+]

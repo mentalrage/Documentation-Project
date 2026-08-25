@@ -1,21 +1,58 @@
 *** UID:0000F7 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:94 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000OW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000OW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000OW | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+class TransferServerDialogPane : public Pane,
+                                 public Singleton<TransferServerDialogPane>
+{
+public:
+    explicit TransferServerDialogPane(bool autoClose);
+    virtual ~TransferServerDialogPane();
+
+    void ResetOpacityAndRepaint();
+
+protected:
+    virtual bool OnTimer(int timerId, int arg0, int arg1);
+    virtual void OnPaint();
+
+private:
+    int m_currentFrame;
+    int m_frameCount;
+};
+
+extern TransferServerDialogPane *g_pTransferServerDialog;
+
+[[CHILDREN]]
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # TransferServerDialogPane
 
 ## Status
 
-- Confidence: strong for overlay behavior, medium for destructor/base-owner cleanup.
+- Confidence: very strong for exact inheritance, `0x100` layout, methods/signatures, virtual slots, singleton/global lifecycle, resources, compiler support, and source-file route.
 - Likely source file: [UID:0000OW][TransferServerDialogPane](by-file/TransferServerDialogPane.md)
 - Address range: [UID:0001KD][0x00598ed0-0x0059943f.TransferServerDialogPane](by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md)
-- Current recovered file: `source-3/simroot_v2/class_TransferServerDialogPane.cpp`
+- Historical generated-output lead: `class_TransferServerDialogPane.cpp`; use live IDA and linked by-* docs as scoring authority.
+
+## Accepted Source Model
+
+- Direct bases are `Pane` and empty `Singleton<TransferServerDialogPane>`. EventHandler and TimerHandler views at `+0xa0/+0xa4` are inherited through Pane, not duplicate source bases.
+- `Pane` occupies through `+0xf7`; inherited `GrafPort::m_alpha` is `+0x90`. Singleton EBO overlaps the derived tail at `+0xf8`.
+- The only owned fields are `int m_currentFrame` at `+0xf8` and `int m_frameCount` at `+0xfc`; total object size is exactly `0x100`.
+- Exact type support: [UID:0004N3][TransferServerDialogPaneLayout](by-type/by-struct/TransferServerDialogPaneLayout.md) and [UID:0004N4][TransferServerDialogPaneVtables](by-type/by-vtable/TransferServerDialogPaneVtables.md).
+- Exact physical read-only support: [UID:00026R][0x0062e47c-0x0062e578.TransferServerReadOnlyData](by-memory/0x0062e47c-0x0062e578.TransferServerReadOnlyData.md), with children [UID:0004MS][0x0062e47c-0x0062e504.TransferServerDialogPaneVtableData](by-memory/0x0062e47c-0x0062e504.TransferServerDialogPaneVtableData.md), [UID:0004MT][0x0062e504-0x0062e574.TransferServerResourceStringData](by-memory/0x0062e504-0x0062e574.TransferServerResourceStringData.md), and [UID:0004MU][0x0062e574-0x0062e578.TransferServerFadeStepConstant](by-memory/0x0062e574-0x0062e578.TransferServerFadeStepConstant.md).
+- Exact executable split index: [UID:0001KD][0x00598ed0-0x0059943f.TransferServerDialogPane](by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md). Source children emit in address order through `[[CHILDREN]]`: [UID:0004MV][0x00598ed0-0x0059921f.TransferServerDialogPaneConstructor](by-memory/0x00598ed0-0x0059921f.TransferServerDialogPaneConstructor.md), [UID:0004MW][0x00599220-0x00599248.TransferServerDialogPaneDestructor](by-memory/0x00599220-0x00599248.TransferServerDialogPaneDestructor.md), [UID:0004MX][0x00599250-0x00599261.TransferServerDialogPaneResetOpacityAndRepaint](by-memory/0x00599250-0x00599261.TransferServerDialogPaneResetOpacityAndRepaint.md), [UID:0004MY][0x00599270-0x005992e8.TransferServerDialogPaneOnTimer](by-memory/0x00599270-0x005992e8.TransferServerDialogPaneOnTimer.md), and [UID:0004MZ][0x005992f0-0x005993a5.TransferServerDialogPaneOnPaint](by-memory/0x005992f0-0x005993a5.TransferServerDialogPaneOnPaint.md).
+- Compiler-only children [UID:0004N0][0x005993b0-0x005993ba.TransferServerDialogPaneConstructorUnwindClearSingleton](by-memory/0x005993b0-0x005993ba.TransferServerDialogPaneConstructorUnwindClearSingleton.md), [UID:0004N1][0x005993bb-0x005993d0.TransferServerDialogPaneDestructorAdjustorThunks](by-memory/0x005993bb-0x005993d0.TransferServerDialogPaneDestructorAdjustorThunks.md), and [UID:0004N2][0x005993e0-0x0059943e.TransferServerDialogPaneScalarDeletingDestructor](by-memory/0x005993e0-0x0059943e.TransferServerDialogPaneScalarDeletingDestructor.md) remain blank and are regenerated by the declaration/EH/virtual destructor ABI.
+- Source global [UID:0000SL][g_pTransferServerDialog](by-global/g_pTransferServerDialog.md) emits after children through file UID0000OW.
+
+The class closes before `[[CHILDREN]]`; exact child definitions therefore emit at namespace scope. No source-facing vptr, compiler cookie, handler-facet pointer, RTTI array, deleting-wrapper method, or explicit adjustor is declared.
 
 ## Class Purpose
 
@@ -27,19 +64,34 @@
 | --- | --- | --- |
 | `TransferServerDialogPane` | `0x00598ed0` | Constructs the overlay, computes union frame bounds, positions relative to parcel pane or cursor anchor, starts timers, and plays sound. |
 | non-deleting destructor helper | `0x00599220` | Resets vtables, clears [UID:0000SL][g_pTransferServerDialog](by-global/g_pTransferServerDialog.md), and tears down the base pane; Wave3 `show method` reports unknown. |
-| `ResetOpacityAndRepaint` | `0x00599250` | Sets opacity to zero and repaints; restored by earlier Wave2 work. |
-| `OnTimerEvent` | `0x00599270` | Handles animation tick and optional auto-close timer. |
-| `OnPaintFrame` | `0x005992f0` | Loads current `TRANSSVR` frame/palette and blits the animation frame. |
+| `ResetOpacityAndRepaint` | `0x00599250` | Sets the fade/opacity field at primary object offset `+0x90` to zero and repaints; called by two transfer-entry paths in `0x005aac80`. |
+| `OnTimer` | `0x00599270` | Formal TimerHandler override; preserves fade, frame advance, repaint/reschedule, auto-close, and true return. `OnTimerEvent` is historical only. |
+| `OnPaint` | `0x005992f0` | Formal Pane paint override; loads current `TRANSSVR` frame/palette and blits it. `OnPaintFrame` is historical only. |
 | thunk/global-clear island | `0x005993b0-0x005993d0` | Clears singleton and forwards adjustor thunks to the scalar deleting destructor. |
 | `ScalarDeletingDestructor` | `0x005993e0` | Clears [UID:0000SL][g_pTransferServerDialog](by-global/g_pTransferServerDialog.md), destroys base pane, and conditionally deletes memory. |
 
 ## Evidence Notes
 
-- Wave3 reports class grade `97.5` and current source emits the main behavioral methods.
+- Historical generated output reported a high class grade and emitted the main behavioral methods; this is only a search lead, not current scoring authority.
 - IDA MCP confirms several helper/thunk starts that are missing or unknown in Wave3 method lookup.
 - Generated destructor source references `TextButtonExControlPane::~Pane`; constructor evidence starts from `Pane::Pane(3)`, so base-owner cleanup remains under review.
 - 2026-05-24 IDA MCP decompilation shows `0x00599220` and `0x005993e0` both restore three `TransferServerDialogPane` vtables, clear `0x0069b4b0`, and call base teardown helper `0x00544580`. This makes the current `TextButtonExControlPane::~Pane` generated label likely owner pollution.
 - `0x005993bb` and `0x005993c6` are adjustor thunks into `0x005993e0`; their vtable refs support keeping them with this class as compiler glue.
+- 2026-06-14 live IDA MCP `analyze_component` reconfirmed the executable bodies: constructor `0x00598ed0` size `0x350`, non-deleting destructor/helper `0x00599220` size `0x29`, reset helper `0x00599250` size `0x12`, timer handler `0x00599270` size `0x79`, paint handler `0x005992f0` size `0xb6`, singleton-clear helper `0x005993b0` size `0x0b`, and scalar deleting destructor `0x005993e0` size `0x5f`. The same pass tied the constructor/destructors to the three `TransferServerDialogPane` vtables at `0x0062e480`, `0x0062e4cc`, and `0x0062e4fc`, and tied constructor/paint behavior to `TRANSSVR.EPF` and `TRANSSVR.EPD`.
+- 2026-06-14 live IDA MCP `analyze_function 0x00598ed0` reports nine direct construction xrefs at `0x004f748b`, `0x004f8f7d`, `0x00507d63`, `0x00507dc5`, `0x0050ff65`, `0x0050ffce`, `0x0051012e`, `0x00510299`, and `0x005102fb`. `trace_data_flow 0x0069b4b0` reconfirmed singleton publish/fallback clear, destructor/helper clears, retained launcher guards, map/session consumers, and transfer entry paths. `entity_query` over `0x0062e480-0x0062e57c` reconfirmed the vtable triplet plus `TRANSSVR.EPF`/`.EPD`/`.PAL`/`.PAD` strings before the `UniAPIInit` successor.
+- 2026-06-16 A002 live IDA MCP refresh reconfirmed all method/helper sizes and padding boundaries with `lookup_funcs`/`get_bytes`, including the exact `0xcc` alignment spans between helpers and the one-byte boundaries before `TotemFrame` and before the platform string helpers.
+- 2026-06-16 `xref_query` reconfirmed nine constructor calls, two reset-helper calls from `0x005aac80`, vtable-only data reachability for the timer handler at `0x0062e500`, paint handler at `0x0062e4c4`, adjustor thunks at `0x0062e4cc/0x0062e4fc`, and scalar deleting destructor at `0x0062e480`; it also reconfirmed the singleton clear helper's constructor-unwind code ref at `0x00609c11`, zero direct refs to the non-deleting helper `0x00599220`, and 20 direct refs to `0x0069b4b0`.
+- 2026-06-16 constructor/timer disassembly resolves the timer-subobject boundary: constructor scheduling uses `lea ecx, [edi+0A4h]`, while timer event `1` closes by `lea ecx, [esi-0A4h]` before calling `0x00544690`. The same timer body confirms callback-relative fade/current-frame/frame-count offsets `-0x14`, `+0x54`, and `+0x58`, mapping to primary object offsets `+0x90`, `+0x0f8`, and `+0x0fc`.
+- 2026-06-16 `find_bytes` found no VA/RVA pointer-byte hits for the constructor, non-deleting helper, reset helper, or singleton-clear helper; only the expected vtable entries point at timer, paint, adjustor thunks, and scalar deleting destructor. This supports keeping the remaining destructor/thunk source-shape caveat open rather than inventing source-level helper names.
+
+## Parent And Score Rationale
+
+| Topic | Rationale |
+| --- | --- |
+| Source parent | [UID:0000OW][TransferServerDialogPane](by-file/TransferServerDialogPane.md) is `87/86`, has the `NexusTK/ui/dialogs/` path, and owns the compact transfer overlay method, singleton, launcher, and resource family. |
+| Exact method evidence | [UID:0001KD][0x00598ed0-0x0059943f.TransferServerDialogPane](by-memory/0x00598ed0-0x0059943f.TransferServerDialogPane.md) documents the exact constructor/reset/timer/paint/destructor-helper subranges, one-byte boundary padding, and vtable/resource use. |
+| Singleton/resource evidence | [UID:0000SL][g_pTransferServerDialog](by-global/g_pTransferServerDialog.md), [UID:00026R][0x0062e47c-0x0062e578.TransferServerReadOnlyData](by-memory/0x0062e47c-0x0062e578.TransferServerReadOnlyData.md), and the 2026-06-14 IDA refresh jointly prove the class-level singleton and `TRANSSVR` asset family relationship. |
+| Resolved source model | Inherited `m_alpha`, owned `m_currentFrame`/`m_frameCount`, ordinary virtual destructor, EH cleanup, adjustors, and scalar wrapper are all dispositioned. The exact class block and five source children emit; compiler-only children stay blank. |
 
 ## Cross-References
 
@@ -50,9 +102,24 @@
 
 ## Changes
 
+- 2026-07-13 B004 accepted UID00026R source-quality callback:
+  - Raised `87/88` to `92/94`, preserved owner/emitter UID0000OW and reconstructable true, and inserted the exact class-before-children block.
+  - Resolved direct bases, `0x100` layout, inherited alpha, two fields, formal `OnTimer`/`OnPaint` names, ordinary destructor body, compiler-support dispositions, read-only children, global definition, dependencies, caller exclusions, and all rejected raw ABI alternatives.
+  - Registered and linked UIDs 0004MS/MT/MU/MV/MW/MX/MY/MZ/N0/N1/N2/N3/N4. Historical blank-source blocker statements below describe superseded pre-callback snapshots only.
+
+- 2026-06-14 A001 Goal 2 low-confidence refresh:
+  - Before: `84/82`, with strong support pages but this class page still missing the newer file-parent score, retained launcher/resource island, and live singleton data-flow evidence.
+  - After: `85/86`, preserving [UID:0000OW][TransferServerDialogPane](by-file/TransferServerDialogPane.md) owner/emitter routing and blank final C++ because field names and destructor/thunk source shape were not final-source quality.
+  - Evidence: live IDA MCP `b001_0003gy` reconfirmed executable method sizes, nine constructor xrefs, three vtable heads, `TRANSSVR` resource strings, singleton publish/clear/consumer sites, and the existing exact memory/global/read-only-data support pages.
+
+- 2026-06-16 A002 low-confidence target refresh:
+  - Before: `85/86`.
+  - After: `87/88`, preserving [UID:0000OW][TransferServerDialogPane](by-file/TransferServerDialogPane.md) owner/emitter routing and blank final C++.
+  - Evidence: live IDA MCP `c001_midiplayer_rdata_20260615` reconfirmed boundaries, padding, nine construction sites, reset-helper callers, vtable-only timer/paint/destructor reachability, singleton data flow, `TRANSSVR` bytes, timer-subobject offset `+0x0a4`, and primary field roles at `+0x90/+0x0f8/+0x0fc`. Remaining blockers are exact source names and destructor/thunk representation.
+
 - Before: reconstruction autogen metadata was unclassified.
 - Changed to: marked `RECONSTRUCTABLE:TRUE` and attached to [UID:0000OW][TransferServerDialogPane](by-file/TransferServerDialogPane.md).
-- Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the documented constructor, cleanup, opacity reset, timer, paint, singleton-clear/thunk island, adjustor thunks, and scalar deleting destructor starts at `0x00598ed0`, `0x00599220`, `0x00599250`, `0x00599270`, `0x005992f0`, `0x005993b0`, `0x005993bb`, `0x005993c6`, and `0x005993e0`; this page and parent [UID:0000OW][TransferServerDialogPane](by-file/TransferServerDialogPane.md) both meet the 80/80 parent gate. No C++ was emitted because the page is below the 95/95 reconstruction-code bar.
+- Evidence: 2026-06-05 IDA MCP on `NexusTK.exe` (`md5 4247e04e20b65d6414c7238aa8ff5515`) confirmed the documented constructor, cleanup, opacity reset, timer, paint, singleton-clear/thunk island, adjustor thunks, and scalar deleting destructor starts at `0x00598ed0`, `0x00599220`, `0x00599250`, `0x00599270`, `0x005992f0`, `0x005993b0`, `0x005993bb`, `0x005993c6`, and `0x005993e0`; this page and parent [UID:0000OW][TransferServerDialogPane](by-file/TransferServerDialogPane.md) both meet the parent gate. No C++ was emitted because final field names and destructor/thunk source shape were not source-quality.
 - 2026-05-30 completion/confidence scoring:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:84` and `CONFIDENCE:82`.

@@ -1,12 +1,17 @@
 *** UID:0001W3 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:94 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:95 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000D8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000D8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000D8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// SimpleListPane has no source fields beyond the inherited ListPane layout;
+// its exact 0x14c-byte shape is represented by the class declaration.
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # SimpleListPane Layout
 
@@ -29,8 +34,8 @@
 | `+0x134` | 4 | inherited from `ListPane` | Selected index; not a `SimpleListPane` local field. |
 | `+0x138` | 4 | inherited from `ListPane` | Parallel selection/list state pointer; not a `SimpleListPane` local field. |
 | `+0x13c` | 1 | inherited from `ListPane` | Selection-mode byte; not a `SimpleListPane` local field. |
-| `+0x140` | 2 | base constructor receives fixed `4` | List cell/column width-style field inherited from `ListPane`. |
-| `+0x144` | 2 | base constructor receives fixed `10` | List cell/row height-style field inherited from `ListPane`. |
+| `+0x140` | 4 | `ListPane` construction and `InitPointPair` perform a full-dword write for the first Point member; fixed `4` and `10` are earlier list-configuration arguments, not this field. | First four-byte member of inherited `Point m_itemSize`; not a `SimpleListPane` local field. |
+| `+0x144` | 4 | the paired `InitPointPair` store is also a full dword and receives the second item dimension. | Second four-byte member of inherited `Point m_itemSize`; not a `SimpleListPane` local field. |
 | `+0x149` | 1 | inherited from `ListPane` | Drag/input state byte; not a `SimpleListPane` local field. |
 | `0x14c` | object extent | scalar deleting destructor uses sized-delete size `0x14c` | End of inherited `ListPane` object storage. |
 
@@ -49,12 +54,19 @@
 - Active generated output's `ClientItemMenuItemList` naming is not reliable for this layout. The offsets and destructor behavior point to shared list control infrastructure.
 - `0x00573a00` and `0x00573c50` both read `this + 0x130`, loop `*(list + 0x0c)`, fetch each slot through [UID:000194][0x004f3a50-0x004f4a77.ListPane](by-memory/0x004f3a50-0x004f4a77.ListPane.md) helper `0x004f3dc0`, and free copied text buffers.
 - Raw copied-text helpers at `0x00573aa0`, `0x00573b10`, `0x00573b70`, and `0x00573bb0` use the inherited `ListPane` insert/remove/selected-entry helpers rather than new local `SimpleListPane` fields.
-- The `SimpleListPane` vtable cluster is in [UID:00026F][0x00624c64-0x00624f20.SimpleServerSelectReadOnlyData](by-memory/0x00624c64-0x00624f20.SimpleServerSelectReadOnlyData.md), with primary `0x00624c64`, secondary `0x00624cec`, and tertiary `0x00624d1c`.
+- The `SimpleListPane` vtable cluster begins with its primary COL at `0x00624c60` in [UID:00026F][0x00624c60-0x00624f20.SimpleServerSelectReadOnlyData](by-memory/0x00624c60-0x00624f20.SimpleServerSelectReadOnlyData.md), with table bases `0x00624c64`, `0x00624cec`, and `0x00624d1c`.
+
+## 2026-08-14 B009 Layout Completion
+
+The object remains exactly `0x14c` bytes and has no recovered SimpleListPane-local fields. The inherited layout is vptrs `+0x00/+0xa0/+0xa4`, list state `+0x130`, selected index `+0x134`, selection flags `+0x138`, selection-mode byte `+0x13c`, four-byte `Point` members at `+0x140` and `+0x144`, signed column count `+0x148`, and terminal padding through `0x14c`. Constructor and `InitPointPair` dword stores correct the prior two-byte width error.
+
+The formal CPP comment is intentionally the only source emitted here; H remains blank because the guarded class UID0000D8 declaration carries the inherited shape. Vtable/RTTI, adjusted destructor wrappers, and padding are compiler-covered and create no layout-field declarations. Completion/confidence `94/95` reflects exact width, offsets, owner, class route, extent, vtable/destructor corroboration, and explicit no-local-field source disposition.
 - 2026-06-08 A002 Batch129 live IDA MCP rechecked the constructor/destructor evidence used by this layout: `0x005739a0` is still `Not a function`, `0x00573a00` is size `0x98`, `0x00573c38` and `0x00573c43` are `0xb` thunks, and `0x00573c50` is size `0xc5`. `callees` for the destructor bodies still route through shared `ListPane` selected-entry/base cleanup helpers and copied-text allocation/free helpers.
+- 2026-06-25 B003 live IDA MCP rechecked the constructor push order and `ListPane` decompile. The constructor calls `ListPane(4, 10, width, height, 1, 1, 1)` where width is `RectBounds::right - RectBounds::left` and height is `RectBounds::bottom - RectBounds::top`; the fixed `4` and `10` are list configuration arguments, not the bounds-derived storage at the inherited point/size tail.
 
 ## Assignment Gate
 
-`AUTOGEN_PARENT_UID` is set to [UID:0000D8][SimpleListPane](by-class/SimpleListPane.md). The child layout is now `85/88`; the direct class parent was refreshed to `85/85`, and its direct source file [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md) was refreshed to `86/85`. This layout belongs to the class, while [UID:0000KT][ListPane](by-file/ListPane.md) and [UID:00007A][ListPane](by-class/ListPane.md) remain base-layout context rather than direct owners.
+`AUTOGEN_PARENT_UID` is set to [UID:0000D8][SimpleListPane](by-class/SimpleListPane.md). The child layout is `94/95`; the direct class parent is `94/93`, and its direct source file [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md) is `94/92`. This layout belongs to the class, while [UID:0000KT][ListPane](by-file/ListPane.md) and [UID:00007A][ListPane](by-class/ListPane.md) remain base-layout context rather than direct owners.
 
 ## Cross-References
 
@@ -65,7 +77,7 @@
 - [UID:0001HQ][0x00573c38-0x00573d15.SimpleListPaneDestructorThunks](by-memory/0x00573c38-0x00573d15.SimpleListPaneDestructorThunks.md)
 - [UID:00007A][ListPane](by-class/ListPane.md)
 - [UID:000194][0x004f3a50-0x004f4a77.ListPane](by-memory/0x004f3a50-0x004f4a77.ListPane.md)
-- [UID:00026F][0x00624c64-0x00624f20.SimpleServerSelectReadOnlyData](by-memory/0x00624c64-0x00624f20.SimpleServerSelectReadOnlyData.md)
+- [UID:00026F][0x00624c60-0x00624f20.SimpleServerSelectReadOnlyData](by-memory/0x00624c60-0x00624f20.SimpleServerSelectReadOnlyData.md)
 
 ## Changes
 
@@ -77,3 +89,7 @@
   - Before: `COMPLETION:76`, `CONFIDENCE:84`, `AUTOGEN_PARENT_UID` blank.
   - After: `COMPLETION:85`, `CONFIDENCE:88`, `AUTOGEN_PARENT_UID:0000D8`.
   - Evidence: added field/region evidence, live IDA MCP recheck details, and the strict assignment-gate rationale. The direct class parent [UID:0000D8][SimpleListPane](by-class/SimpleListPane.md) was improved to `85/85`, and file parent [UID:0000NQ][SimpleListPane](by-file/SimpleListPane.md) was improved to `86/85`; final C++ remains blank below the 95/95 gate.
+- 2026-06-25 B003 implementation callback:
+  - Before: rows for inherited `+0x140` and `+0x144` incorrectly tied fixed constructor constants `4` and `10` to the size fields.
+  - After: those rows now record that the inherited point/size tail is initialized from bounds-derived width/height while fixed `4` and `10` remain separate `ListPane` list-configuration arguments.
+  - Evidence: accepted Agent-B003 report and live IDA MCP session `80de0a67` `insn_query`/`decompile` evidence for the corrected constructor call order and `RectBounds` field reads.

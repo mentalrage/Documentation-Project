@@ -1,16 +1,17 @@
 *** UID:0000N5 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:95 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:93 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/render/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:FILE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # ResourceLayoutTable
 
 ## Status
 
-- Confidence: strong for method-cluster role and file-level raw-helper ownership, medium for whether the original build used a separate `ResourceLayoutTable.cpp` or kept the class methods in `ImageLib.cpp`.
-- Proposed module: `render/ImageLib.cpp` for the class-backed singleton methods plus a narrow `render/ResourceLayoutTable.cpp`/private helper grouping for file-level raw ResourceLayout helpers.
+- Confidence: very strong for the complete source-family split: `render/ResourceLayoutTable.cpp/.h` owns exactly two external no-`this` raw helpers, while nine class/facet methods and the compiler-covered row accessor remain in `render/ImageLib.cpp/.h`.
+- Proposed module: narrow `render/ResourceLayoutTable.cpp/.h` containing UID0002KQ then UID0002KT in address/source order. No class method, global, row declaration, decoder, frame helper, or compiler data item emits through this file page.
 - Autogen/source-root status: the exact modeled method pages currently parent through [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md) to [UID:0000K2][ImageLib](by-file/ImageLib.md) and therefore assemble under `auto-generated/NexusTK/render/ImageLib.cpp`; B001-023 now uses this file page as the direct parent for the two non-method raw ResourceLayout helpers [UID:0002KQ][0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry](by-memory/0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry.md) and [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md).
-- Main address range: `0x004d0120-0x004d182f`
+- Main audited neighborhood: [UID:000174][0x004d0120-0x004d1860.ResourceLayoutTable](by-memory/0x004d0120-0x004d1860.ResourceLayoutTable.md), a non-emitting mixed aggregate; this file owns only the two exact helper ranges within it.
 - Primary global instance: [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) / historical IDA alias `DAT_0067a744`, constructed by [UID:0000K2][ImageLib](by-file/ImageLib.md)
 
 ## File Role
@@ -28,6 +29,8 @@ The current best source-file interpretation is that these methods likely lived n
 `EPFImageControlPane`, `AboveFrame`, item glyph helpers, minimap/dialog panes, and image libraries are consumers of this registry. They should call it from their own modules rather than own the EPF record table.
 
 The raw helpers [UID:0002KQ][0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry](by-memory/0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry.md) and [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md) sit in this address neighborhood and consume the same 24-byte record format. They are not `thiscall` class methods, but B001-023 assigns them to this file-level helper grouping because their body/source-family evidence is stronger than caller ownership by `UserLookPane`, `HumanImageLib`, or `NewHumanImageLib`.
+
+Historical pre-callback output populated only UID0002KT, placed it first, made it `static`, duplicated a private table type, left UID0002KQ as an Empty Emitter Marker, and emitted no sibling header. The accepted UID0000N5 reconstruction supersedes that state: both helpers are complete, externally linked, ordered KQ then KT, and declared once in the new owner H. UID0002KQ deliberately preserves its one-row initialization, uninitialized next-row read, and leaked allocation as original behavior rather than treating them as an unresolved source blocker.
 
 ## Evidence
 
@@ -58,7 +61,7 @@ Attachment status as of B001-023: [UID:0002KO][0x004d0120-0x004d02e5.ResourceLay
 
 ## Ownership Decision
 
-Use `render/ImageLib.cpp` as the broader owner for the class-backed singleton methods until the class boundary is resolved. Use this file page as a narrow `render/ResourceLayoutTable.cpp`/private helper grouping for raw ResourceLayout-format helpers that are not class methods. Current constructor/global evidence still says the main layout methods operate on the `ImageLib` singleton object behind `g_pEPFLib`; the raw helpers are assigned here because their direct class/global/caller alternatives are weaker.
+Use `render/ImageLib.cpp` as the broader owner for the class-backed singleton methods. B011's accepted empty-emitter implementation puts first-draft source bodies on the seven exact method children through [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md) and [UID:0000K2][ImageLib](by-file/ImageLib.md), so those methods assemble under `auto-generated/NexusTK/render/ImageLib.cpp`. Use this file page only as a narrow `render/ResourceLayoutTable.cpp`/private helper grouping for raw ResourceLayout-format helpers that are not class methods. Current constructor/global evidence still says the main layout methods operate on the `ImageLib` singleton object behind `g_pEPFLib`; the raw helpers are assigned here because their direct class/global/caller alternatives are weaker.
 
 Do not reconstruct a standalone `ResourceLayoutStore` class. The registry field should be modeled as `List*` with 44-byte `ResourceLayoutNameRecord` elements unless later evidence proves the original source wrapped the list in a typed helper.
 
@@ -75,7 +78,7 @@ Do not absorb the nearby [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers]
 - [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md)
 - [UID:0000KS][List](by-file/List.md)
 - [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md)
-- [UID:000174][0x004d0120-0x004d182f.ResourceLayoutTable](by-memory/0x004d0120-0x004d182f.ResourceLayoutTable.md)
+- [UID:000174][0x004d0120-0x004d1860.ResourceLayoutTable](by-memory/0x004d0120-0x004d1860.ResourceLayoutTable.md)
 - [UID:0002KO][0x004d0120-0x004d02e5.ResourceLayoutTableLoadResourceIndex](by-memory/0x004d0120-0x004d02e5.ResourceLayoutTableLoadResourceIndex.md)
 - [UID:0002KP][0x004d02f0-0x004d039e.ResourceLayoutTableLookupLayoutEntry](by-memory/0x004d02f0-0x004d039e.ResourceLayoutTableLookupLayoutEntry.md)
 - [UID:0002KR][0x004d04d0-0x004d0522.ResourceLayoutTableCopyEntryTileContext](by-memory/0x004d04d0-0x004d0522.ResourceLayoutTableCopyEntryTileContext.md)
@@ -84,7 +87,7 @@ Do not absorb the nearby [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers]
 - [UID:0002KW][0x004d17c0-0x004d182f.ResourceLayoutTableFindResourceIndex](by-memory/0x004d17c0-0x004d182f.ResourceLayoutTableFindResourceIndex.md)
 - [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md)
 - [UID:0002KQ][0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry](by-memory/0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry.md)
-- [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md)
+- [UID:0002V8][0x004e31f0-0x004e3a2e.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2e.NewHumanImageLibCalculateCompositionBounds.md)
 - [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers](by-memory/0x004d05f0-0x004d0f4a.ImageDecodeWrappers.md)
 - [UID:0000VB][ResourceLayoutEntry](by-item/ResourceLayoutEntry.md)
 - [UID:0001VU][ResourceLayoutStore](by-type/by-struct/ResourceLayoutStore.md)
@@ -98,6 +101,28 @@ Do not absorb the nearby [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers]
 
 ## Changes
 
+## 2026-08-16 UID0000N5 Whole-File Implementation
+
+This page is the complete file owner for exactly two authored definitions:
+
+1. UID0002KQ `ResourceLayoutRawBufferLookupEntry` `[0x004d03a0,0x004d04d0)`, 304 bytes, position 10. It parses one raw layout row from a buffer, allocates `header[0]+1` 24-byte entries without zeroing, initializes only row zero, returns borrowed pixel/mask pointers through `EPFTileContext`, computes mask length from uninitialized `entries[1].pixelData`, and never frees the allocation. The absence of a loop, sentinel initialization, zero-fill, free, and extra guard is exact negative evidence and must be preserved as a historical client defect.
+2. UID0002KT `ResourceLayoutRawRecordGetEntryRect` `[0x004d05a0,0x004d05e6)`, 70 bytes, position 20. It is an external `RectBounds *__stdcall` helper over `const ArchiveMetadataTable *`, copies the selected 24-byte record's leading bounds when `entryIndex < frameCount`, otherwise calls `InitRectBounds(0,0,0,0)`, and returns the caller's `bounds` pointer. Its 28 callers establish shared cross-file linkage; the old `static` duplicate-table reconstruction is rejected.
+
+`ResourceLayoutTable.h` is centralized on UID0002KQ and contains exactly the necessary forwards plus both external declarations. UID0002KT's H channel remains blank to prevent a second declaration route. `ResourceLayoutTable.cpp` includes that H and the exact EPFTileContext, ImageFrameTable, ImageLib, RectBounds, and MemoryMan dependencies before the two children. No third-party source import applies.
+
+The complete related family is nine out-of-line ImageLib/facet methods, these two file helpers, and one H-only inline row accessor. There is no ResourceLayout-owned global, static table, string, constant, vtable, RTTI, lifecycle object, or separate storage. The seven image decoders and four frame-table helpers interleaved in the corrected aggregate retain ImageLoaders/ImageFrameTable ownership, and all 20 `0xcc` gaps remain non-source.
+
+Expected generated output is one `NexusTK/render/ResourceLayoutTable.cpp` containing exactly corrected KQ then KT, plus one `ResourceLayoutTable.h` containing exactly both declarations. It must contain no Empty Emitter Marker, `static` cross-file helper, duplicate table/row definition, class method, reversed child order, or undeclared dependency. The former one-body/one-marker CPP and absent-H state remains dated history only.
+
+Score `95/93` reflects complete whole-file function/data/type/gap/owner/source/emitter and generated-output closure. Filename and recovered helper spelling remain inferred confidence caps; ABI, behavior, placement, and module contents are exact.
+
+- 2026-07-02 B013 UID0002KT implementation sync:
+  - Score unchanged for this file page.
+  - Updated raw-helper role text to record that [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md) now emits first-draft formal C++ through this file-level raw-helper owner, while [UID:0002KQ][0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry](by-memory/0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry.md) remains blank under its separate raw-buffer next-row/mask-size blocker.
+  - Evidence: current MCP session `supervisor_resume_20260629` confirms UID0002KT as a `0x46` byte, no-callee, three-argument raw-record rectangle helper with three basic blocks, 21 instructions, 28 xrefs, 24-byte `ResourceLayoutEntry` stride, and predecessor/successor padding. Ownership remains file-level UID0000N5; class, ImageLib, Human/NewHuman caller, aggregate, and generated Ranking/callsite ownership remain rejected.
+- 2026-06-30 B011 ImageLib empty-emitter family sync:
+  - Score unchanged.
+  - Summary/evidence: the class-backed `ResourceLayoutTable` methods are now source-bearing exact children of [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md) and emit through [UID:0000K2][ImageLib](by-file/ImageLib.md) into `ImageLib.cpp`. This file page remains the direct owner only for no-this raw helpers [UID:0002KQ][0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry](by-memory/0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry.md) and [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md), preserving the class-backed-vs-raw-helper split.
 - 2026-06-10 B001-023 raw-helper parent inference:
   - Changed score from `86/83` to `88/86`.
   - Evidence: live IDA MCP reconfirmed [UID:0002KQ][0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry](by-memory/0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry.md) and [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md) as `__stdcall` raw ResourceLayout-format helpers with no `this`; their caller modules are consumers, while the shared 24-byte record format and address clustering make this file-level ResourceLayout helper grouping the strongest direct owner. This parent now clears the `85/85` gate for those two children without claiming they are class methods.
@@ -106,14 +131,15 @@ Do not absorb the nearby [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers]
   - Evidence: updated the attachment status for [UID:0002KQ][0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry](by-memory/0x004d03a0-0x004d04d0.ResourceLayoutRawBufferLookupEntry.md). The child now clears `85/88`, but this file remains only a possible helper split because the raw helper has no `this` use and no proven direct source owner. This narrows the blocker from child-score failure to ownership uncertainty without promoting the standalone `ResourceLayoutTable.cpp` file split.
 - 2026-06-08 A003 Batch132 raw-record helper audit:
   - Changed confidence from `82` to `83`.
-  - Evidence: updated [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md) after it reached `85/88` and documented why this page is still not a proven direct source owner: the helper has no `this`, is called by human-image composition paths, and remains only physically/source-family adjacent to the ResourceLayout/ImageLib method cluster.
+  - Evidence: updated [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md) after it reached `85/88` and documented why this page was not yet a proven direct source owner at that time: the helper has no `this`, is called by human-image composition paths, and was then only physically/source-family adjacent to the ResourceLayout/ImageLib method cluster.
+  - B013 2026-07-02 historical note: this older uncertainty is superseded for UID0002KT by the current first-draft source-quality pass. UID0002KT remains directly owned by this file-level helper grouping with formal C++; the human-image callsites remain consumer evidence rather than direct ownership.
 - 2026-06-07 A006 Batch 048 split-recheck:
   - Before: several public API, evidence, and cross-reference links still used old inclusive-looking filenames for five ResourceLayout child pages.
-  - Changed to: canonical IDA-exclusive filenames for [UID:0002KO][0x004d0120-0x004d02e5.ResourceLayoutTableLoadResourceIndex](by-memory/0x004d0120-0x004d02e5.ResourceLayoutTableLoadResourceIndex.md), [UID:0002KP][0x004d02f0-0x004d039e.ResourceLayoutTableLookupLayoutEntry](by-memory/0x004d02f0-0x004d039e.ResourceLayoutTableLookupLayoutEntry.md), [UID:0002KR][0x004d04d0-0x004d0522.ResourceLayoutTableCopyEntryTileContext](by-memory/0x004d04d0-0x004d0522.ResourceLayoutTableCopyEntryTileContext.md), [UID:0002KS][0x004d0530-0x004d059b.ResourceLayoutTableGetEntryRect](by-memory/0x004d0530-0x004d059b.ResourceLayoutTableGetEntryRect.md), and [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md). File score remains `86/80` because the helper-file split and raw/accessor ownership questions remain open.
+  - Changed to: canonical IDA-exclusive filenames for [UID:0002KO][0x004d0120-0x004d02e5.ResourceLayoutTableLoadResourceIndex](by-memory/0x004d0120-0x004d02e5.ResourceLayoutTableLoadResourceIndex.md), [UID:0002KP][0x004d02f0-0x004d039e.ResourceLayoutTableLookupLayoutEntry](by-memory/0x004d02f0-0x004d039e.ResourceLayoutTableLookupLayoutEntry.md), [UID:0002KR][0x004d04d0-0x004d0522.ResourceLayoutTableCopyEntryTileContext](by-memory/0x004d04d0-0x004d0522.ResourceLayoutTableCopyEntryTileContext.md), [UID:0002KS][0x004d0530-0x004d059b.ResourceLayoutTableGetEntryRect](by-memory/0x004d0530-0x004d059b.ResourceLayoutTableGetEntryRect.md), and [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md). At that time, the file score remained `86/80` because the helper-file split and raw/accessor ownership questions remained open; B001-023 and the B013 UID0002KT callback supersede the UID0002KT ownership/C++ uncertainty.
   - Evidence: live IDA boundary map uses exclusive ends `0x004d02e5`, `0x004d039e`, `0x004d0522`, `0x004d059b`, and `0x004d05e6`; the child docs and aggregate now use the same convention.
 - 2026-06-07 A006 Batch 048 corrected-gate repair:
   - Before: the attachment list still left [UID:0002KV][0x004d1780-0x004d17b3.ResourceLayoutTableGetEntryCount](by-memory/0x004d1780-0x004d17b3.ResourceLayoutTableGetEntryCount.md) unattached because the child completion side was below the corrected gate.
-  - Changed to: `GetEntryCount` now links its exact page and attaches through [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md) after that child reached `85/92` and the direct parent reached `87/86`. File score remains `86/80` because the standalone helper-file split and raw helper ownership questions remain open.
+  - Changed to: `GetEntryCount` now links its exact page and attaches through [UID:0000BY][ResourceLayoutTable](by-class/ResourceLayoutTable.md) after that child reached `85/92` and the direct parent reached `87/86`. At that time, the file score remained `86/80` because the standalone helper-file split and raw helper ownership questions remained open; B001-023 and the B013 UID0002KT callback supersede the UID0002KT ownership/C++ uncertainty.
 - 2026-06-07 A008 alias cleanup:
   - Before: status and evidence lines used bare `DAT_0067a744` wording for the layout-registry singleton.
   - Changed to: canonical [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) wording with `DAT_0067a744` retained as the historical IDA alias.
@@ -128,7 +154,7 @@ Do not absorb the nearby [UID:000175][0x004d05f0-0x004d0f4a.ImageDecodeWrappers]
   - Evidence: document now captures role, proposed contents, public API shape, singleton/global ownership, IDA-backed evidence, ownership exclusions, and cross-references; confidence remains capped by unresolved original class/file boundary between `ImageLib` and a possible helper split.
 - 2026-06-03: Added the raw record-rectangle helper caller caveat.
   - Before: the file page did not mention that the nearby `0x004d05a0` raw helper is consumed by human-image composition code.
-  - After: added [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md) and [UID:0002V8][0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2d.NewHumanImageLibCalculateCompositionBounds.md) cross-references, while keeping final source ownership open.
+  - After: added [UID:0002KT][0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect](by-memory/0x004d05a0-0x004d05e6.ResourceLayoutRawRecordGetEntryRect.md) and [UID:0002V8][0x004e31f0-0x004e3a2e.NewHumanImageLibCalculateCompositionBounds](by-memory/0x004e31f0-0x004e3a2e.NewHumanImageLibCalculateCompositionBounds.md) cross-references, while final source ownership was still open at that time. B001-023 and the B013 UID0002KT callback supersede that ownership/C++ uncertainty for UID0002KT.
   - Evidence: IDA MCP `callers`, `xrefs_to`, `decompile`, and `disasm` on 2026-06-03 confirm the helper's no-callee rectangle-copy body, modeled NewHuman callsites, and orphan old/new human composition xrefs.
 - 2026-06-07 A007 child attachment status:
   - What existed before: status still referenced the recovered generated source, and the public API table used bare start addresses for methods whose exact by-memory pages now have attachment-ready evidence.

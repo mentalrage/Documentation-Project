@@ -34,4 +34,4 @@ Use the current item name as the row key in `-coverage-report.md`, sorted alphab
 
 ## Reconstruction Autogen
 
-Singular item pages are eligible for validator autogen metadata, but use this sparingly. Prefer moving stable code/declaration reconstruction into `by-memory`, `by-class`, `by-function`, `by-global`, or `by-type` once the owner is known. If an item page remains the best temporary owner for C++ code, attach it to the nearest real class or `by-file` parent UID.
+Singular item pages are eligible for validator autogen metadata, but use this sparingly. Prefer moving stable code/declaration reconstruction into `by-memory`, `by-class`, `by-function`, `by-global`, or `by-type` once the owner is known. If an item page remains the best temporary owner for C++ code, use `CANONICAL_OWNER` for the nearest real semantic owner and `EMITTER_UIDS` for the generated-output route. Do not use emitter routing as a shortcut for unresolved ownership. Add emitted C++ only when the active `90/90+` reconstruction-code gate in `../by-structure.md` is satisfied; `95+` remains a rare final-audit score and is not required merely to begin final-quality code entry.

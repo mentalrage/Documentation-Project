@@ -1,23 +1,27 @@
 *** UID:0000TT | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0003KY | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # AddEmployeeItemDialogInlineConstruction_004A339F
 
 ## Status
 
 - Entity kind: item-level inline construction sequence inside a larger method.
-- Owning method: `EmployeeDialogPane::OnButtonAction` at `0x004a3240-0x004a33d7`.
+- Owning method: [UID:0003KY][0x004a3240-0x004a33d8.EmployeeDialogPaneOnButtonAction](by-memory/0x004a3240-0x004a33d8.EmployeeDialogPaneOnButtonAction.md).
 - Instruction span: `0x004a3381-0x004a33be`, with the base constructor call at `0x004a339f`.
 - Likely source module: [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md).
 - Related class: [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md).
 - Confidence: strong for live allocation/layout behavior.
+- Rebuild handling: source-map anchor only. This page is non-reconstructable as a standalone item because the emitted code belongs inside `EmployeeDialogPane::OnButtonAction`.
 
 ## Behavior
 
@@ -38,6 +42,10 @@ When the employee dialog action argument is zero, `EmployeeDialogPane::OnButtonA
 - `xrefs_to 0x004ae4c0` reports a code reference at `0x004a339f` from the live construction path.
 - `xrefs_to 0x006190d4`, `0x00619134`, and `0x00619164` reports data refs at `0x004a33a4`, `0x004a33aa`, and `0x004a33b4`.
 - The raw constructor-shaped bytes at `0x004a4ae0-0x004a4b1f` perform the same base-constructor call, vtable writes, and `+0x270` owner store, but `lookup_funcs 0x004a4ae0` and `xrefs_to 0x004a4ae0` still do not prove a callable function boundary.
+- 2026-06-14 live IDA MCP session `a001_goal2_class_batch` reconfirmed `0x004a339f` resolves inside `sub_4A3240` (`0x004a3240`, size `0x198`) rather than a separate function, while raw constructor-shaped address `0x004a4ae0` remains `Not a function`.
+- The same refresh reconfirmed the base `AddItemDialog` constructor target `0x004ae4c0` size `0x435`, the live inline base-constructor xref at `0x004a339f`, and the raw-body xref at `0x004a4aee`; `xrefs_to 0x004a4ae0` remains empty.
+- Vtable xrefs still pair the live inline path with the raw constructor-shaped bytes: `0x006190d4` at `0x004a33a4`/`0x004a4afe`, `0x00619134` at `0x004a33aa`/`0x004a4b04`, and `0x00619164` at `0x004a33b4`/`0x004a4b0e`.
+- Targeted decompilation reconfirmed the inline path allocates `628 == 0x274` bytes (verified with `int_convert.py`), calls `0x004ae4c0` with two zero arguments, writes the three `AddEmployeeItemDialog` vtables, and stores `this` at the owner slot.
 
 ## Reconstruction Notes
 
@@ -45,10 +53,18 @@ Model the source-level action as `EmployeeDialogPane` creating an `AddEmployeeIt
 
 The matching raw constructor island remains documented separately because it may represent orphaned, retained, or metadata-disputed code. The live path at `0x004a3381-0x004a33be` is the stronger evidence for runtime construction.
 
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 85 | The page now records current live boundary, decompile, xref, vtable, raw-constructor, direct method-owner, and standalone non-reconstructable handling. |
+| Confidence | 90 | IDA consistently places the live construction inside `EmployeeDialogPane::OnButtonAction`, and the same vtable/base-constructor evidence matches the raw constructor-shaped bytes. Confidence remains below final-audit level because the raw `0x004a4ae0` island is still unreferenced and IDA-unmodeled. |
+
 ## Cross-References
 
 - [UID:0000J0][EmployeeDialogPane](by-file/EmployeeDialogPane.md)
 - [UID:000138][0x004a1d70-0x004a4e6b.EmployeeDialogPanes](by-memory/0x004a1d70-0x004a4e6b.EmployeeDialogPanes.md)
+- [UID:0003KY][0x004a3240-0x004a33d8.EmployeeDialogPaneOnButtonAction](by-memory/0x004a3240-0x004a33d8.EmployeeDialogPaneOnButtonAction.md)
 - [UID:000006][AddEmployeeItemDialog](by-class/AddEmployeeItemDialog.md)
 - [UID:0001TN][AddEmployeeItemDialogLayout](by-type/by-struct/AddEmployeeItemDialogLayout.md)
 - [UID:000139][0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor](by-memory/0x004a4ae0-0x004a4b1f.AddEmployeeItemDialogRawConstructor.md)
@@ -66,3 +82,7 @@ The matching raw constructor island remains documented separately because it may
   - Before: page documented the live inline construction sequence, vtable stores, raw-constructor caveat, and reconstruction notes but remained unevaluated.
   - After: score reflects documented allocation, base constructor call, three vtable writes, owner-pointer store, stronger live-path evidence, and source-map role.
   - Evidence: IDA notes confirm `EmployeeDialogPane::OnButtonAction` decompile, xrefs to base constructor and vtables, and lack of proven callable boundary for the raw constructor-shaped bytes.
+- 2026-06-14 A001: Raised from `82/88` to `85/90` and set `CANONICAL_OWNER:0003KY`.
+  - Before: the page already said the item was an inline source-map anchor, but metadata did not point at the direct owning method and the coverage row still called it reconstructable.
+  - After: direct semantic ownership is the exact `EmployeeDialogPane::OnButtonAction` memory page; `RECONSTRUCTABLE:FALSE` and blank emitters remain because no standalone code should be emitted from this item page.
+  - Evidence: live IDA MCP reconfirmed `0x004a339f` lies inside `sub_4A3240`, raw `0x004a4ae0` has no function object or xrefs, the base-constructor and vtable xrefs mirror the raw and inline paths, and targeted decompilation shows the `0x274` allocation plus owner store.

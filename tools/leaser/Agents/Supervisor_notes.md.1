@@ -4,6 +4,8 @@ This file tracks supervisor-level assignment of memory items currently reported 
 
 Important: a row marked `assigned` here means the target is assigned to an agent batch. It does not mean the documentation item should be assigned to a parent. Agents must improve documentation, completion, confidence, and evidence first. They may only change `AUTOGEN_PARENT_UID` or other assignment routing when both the child target and proposed parent justifiably reach at least 85 completion and 85 confidence and satisfy the existing by-structure assignment rules. If either side is below 85/85, the documentation assignment must remain unchanged/unassigned.
 
+Part 1 validator update: this archived snapshot predates the current validator-owned executed-report and generated-report workflow. Treat any manual `research/executed` move or generated/manual coverage wording below as historical context only. Current verified B reports execute through `tools/validator.py execute_report ... --apply` into `executed-b-agent-research/B###/`, and validator-owned `auto-generated/-ag-*` reports are refreshed from source metadata and validator commands.
+
 Source: `E:\NTK\GhidraBridge\source-3\project-documentation\auto-generated\-ag-memory-coverage.md`
 Snapshot date: 2026-06-07
 Snapshot count: `466`

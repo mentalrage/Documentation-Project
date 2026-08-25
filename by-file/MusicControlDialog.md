@@ -1,18 +1,20 @@
 *** UID:0000LN | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:80 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:92 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:94 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:FILE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # MusicControlDialog
 
 ## Status
 
-- Confidence: strong for class/file ownership, medium for helper ownership cleanup.
-- Proposed module: `ui/dialogs/MusicControlDialog.cpp`
+- Confidence: very strong for class/file ownership, paired header/source placement, exact class container, helper ownership, inherited virtual topology, Config/SoundManager/AlertPane contracts, BDir StringBase roles, and active-map `PlayMusicByZone` fallback routing; strong for inferred original private/control spelling and retained-copy compiler-inlining explanation.
+- Proposed header: `NexusTK/ui/dialogs/MusicControlDialog.h`.
+- Proposed source: `NexusTK/ui/dialogs/MusicControlDialog.cpp`.
 - Current recovered source: `class_MusicControlDialog.cpp`
 - Main class: [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md)
 - Main address doc: [UID:0001CP][0x00528e60-0x0052a535.MusicControlDialog](by-memory/0x00528e60-0x0052a535.MusicControlDialog.md)
-- Evidence basis: Wave3 class/method summaries, generated `simroot_v2` source, and IDA MCP boundary/decompilation checks on 2026-05-23.
+- Evidence basis: Wave3 class/method summaries, generated `simroot_v2` source as a lead only, IDA MCP boundary/decompilation checks on 2026-05-23 and 2026-06-13, and B011 active MCP session `80de0a67` source-quality recheck on 2026-06-25.
 
 ## File Role
 
@@ -20,25 +22,94 @@
 
 This is best treated as a UI dialog source that depends on [UID:0000NV][SoundManager](by-file/SoundManager.md) and [UID:0000JF][FolderSelectDialog](by-file/FolderSelectDialog.md), not as part of the audio engine itself. `SoundManager.cpp` owns playback implementation; this file owns the settings dialog and the user-facing control policy.
 
+## Folder Picker Caller Contract
+
+Control `7` is the sole checked caller of the FolderSelectDialog constructor. The accepted source route includes `FolderSelectDialog.h`, obtains `StringBaseW currentPath` from control `6`, binds `MusicControlDialog::FolderPathSelected` through the existing three-parameter `PlainMemberFunctionObjectT<FolderPathCallback, MusicControlDialog, StringBaseW>`, and constructs `new FolderSelectDialog(callback, currentPath.c_str())`. The binary call at `0x0052986d` follows a `0x274`-byte dialog allocation and `0x18`-byte callback-wrapper allocation with target `0x00529ee0`. This is caller/provider evidence only; FolderSelectDialog, its callback interface, tree child, vtables, and drive-root data remain externally owned.
+
+The former `FolderSelectDialog::Show` and two-parameter callback-template draft are superseded active source. The exact emitted case is carried by [UID:0003MD][0x00529790-0x00529b70.MusicControlDialogHandleControlCommand](by-memory/0x00529790-0x00529b70.MusicControlDialogHandleControlCommand.md), while [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md) provides the CPP include/root channel.
+
+The constructor, command handler, and modeled helper targets now clear the current first-draft C++ gate with descriptive names. `MusicControlDialog.cpp` owns the UI/control policy, control ids `1..14`, folder-selection callback setup, music-control config writes, packet/notification handling, control enablement refresh, local-folder scanning, CD-drive popup population, playback-state application, pause toggling, and inline sends of shared option opcode `0x011b` from the constructor and sound-effect toggle. `SoundManager.cpp` remains the playback engine owner; `Config` remains the storage owner; option-packet helpers remain shared protocol support.
+
+## Header And Source Assembly
+
+- [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md) emits `MusicControlDialog.h`: direct public inheritance from `DialogPane`, constructor, four inherited virtual overrides, five private source-bearing methods, `bool m_musicPaused`, and a terminal `[[CHILDREN]]` route. The class CPP block is blank.
+- Exact method children emit definitions into `MusicControlDialog.cpp`. The executable aggregate [UID:0001CP][0x00528e60-0x0052a535.MusicControlDialog](by-memory/0x00528e60-0x0052a535.MusicControlDialog.md) remains a no-duplicate assembly/index marker.
+- The source has one direct base. EventHandler and TimerHandler facets are inherited through `DialogPane`; RTTI PMDs at `+0xa0/+0xa4`, three vtable views, and their adjustor/destructor machinery are compiler representation, not extra source bases or fields.
+- The exact object size is `0x270`: complete `DialogPane` through `0x26c`, then `m_musicPaused` at `+0x26c` plus ordinary alignment. No explicit derived destructor is required because no derived member teardown exists.
+- Config byte `+0x291914` is `m_soundFrequency`, persisted as `SoundFreq`: `0` disables/mutes, `1` selects `22050` Hz, and `2` selects `44100` Hz. Changed active values construct AlertPane directly from localized id `244`, layout reference `this`, primary `L"OK"`, and null secondary text; the layout reference does not prove ownership.
+
 ## Proposed Contents
 
 | Entity | Address evidence | Role |
 | --- | --- | --- |
-| `MusicControlDialog` | `0x00528e60-0x0052a535` | Dialog construction, command handling, control enablement, pause toggle, destructor/thunks. |
-| folder path selected/input helper | `0x00529ee0-0x0052a00c` | Updates config path, updates control id `6`, rescans local music files, reapplies playback state. Currently mis-owned by `ChattingColorPane` in Wave3. |
-| `ApplyMusicPlaybackState` | `0x0052a120-0x0052a17f` | Applies config playback mode to stream, Redbook, or zone music; currently mis-owned by `ChattingColorPane` in Wave3. |
+| `MusicControlDialog` | `0x00528e60-0x0052a535` | Dialog construction, command handling, control enablement, playback/previous/next/pause helpers, destructor/thunks, and callback use sites. |
+| `MusicControlDialog` RTTI locator pointer | `0x0061fc00-0x0061fc04` | Exact `vftable[-1]` complete-object-locator child [UID:00040O][0x0061fc00-0x0061fc04.MusicControlDialogRttiLocatorPointer](by-memory/0x0061fc00-0x0061fc04.MusicControlDialogRttiLocatorPointer.md), generated from the class declaration and split out from the former MSGHandler physical tail. |
+| `OnControlCommand` plus switch table | `0x00529790-0x00529b70` | Primary DialogPane override; the compiler switch table at `0x00529b30-0x00529b68` belongs to the method. Case `3` calls `ApplySoundFrequencySelection` in source and is the behavior-identical live inline path in the executable. |
+| `HandlePacketEvent` and `HandleType19Event` | `0x00529be0-0x00529cf8` | Inherited EventHandler secondary-facet overrides for `'#'` packet data and `BDir` type-19 notifications; the latter clears `g_pApplication+0x84f` and does not call `FolderPathSelected`. |
+| `UpdateActionButton` | `0x00529d00-0x00529ed1` | Primary DialogPane override enabling/disabling sample, music-volume, folder, CD-drive, shuffle, repeat, previous, pause, and next controls from sound-effect, SoundFreq, and music-source selections. |
+| `FolderPathSelected` | `0x00529ee0-0x0052a00c` | Updates config path `+0x29190c`, updates control id `6`, resets TextEditPane selection, scans local music files with shuffle flag `+0x291912`, and reapplies playback state. Generated Wave3 ownership was stale; current docs route this method to MusicControlDialog. |
+| `PopulateCdDrivePopup` | `0x0052a010-0x0052a120` | Retained IDA-modeled helper that enumerates CD drives using the drive-root buffers and config drive letter `+0x291910`; no current direct xref. |
+| `ApplyPlaybackState` and `TogglePauseState` | `0x0052a120-0x0052a1e9` | Applies config playback mode to disabled/fallback, stream, or Redbook music, clears pause when needed, and toggles pause icon ids `37`/`48`; generated Wave3 ownership was stale and current docs route these methods to MusicControlDialog. |
+| raw retained playback UI helpers | `0x0052a1f0-0x0052a2cb` | IDA-unpromoted decoded source bodies for folder-path control text refresh, next-track, and previous-track behavior. These now carry formal no-code markers under current no-entry-route proof. |
+| file-local `ApplySoundEffectEnabled` and retained `ApplySoundFrequencySelection` | `0x0052a2d0-0x0052a3e0` | File-local SFX helper writes `+0x28de48`; modeled SoundFreq helper writes `m_soundFrequency`, directly constructs AlertPane `244` with a non-owning layout reference, and mutes/unmutes SoundManager. Its retained entry has no direct route, while command case `3` is the live inline source path. |
 | [UID:0000AL][PlainMemberFunctionObjectT_void____thiscall_MusicControlDialog_____class_m__h73bc206d7ae6](by-class/PlainMemberFunctionObjectT_void____thiscall_MusicControlDialog_____class_m__h73bc206d7ae6.md) | `0x0052a3e0-0x0052a4de` | Template callback wrapper used by [UID:0000JF][FolderSelectDialog](by-file/FolderSelectDialog.md) to call the selected-path handler. |
-| `g_pSoundManager` and config offsets | global dependencies | Consumed by the dialog, but owned by audio/config modules. |
+| [UID:00028R][0x0067a7d0-0x0067a7d4.g_pSoundManager](by-memory/0x0067a7d0-0x0067a7d4.g_pSoundManager.md) and [UID:00028Q][0x0067a7c8-0x0067a7cc.g_pConfig](by-memory/0x0067a7c8-0x0067a7cc.g_pConfig.md) offsets | global dependencies | Consumed by the dialog, but owned by audio/config modules. |
+
+## 2026-07-01 B007 Generated-Output Audit
+
+Generated output target: `auto-generated/NexusTK/ui/dialogs/MusicControlDialog.cpp`.
+
+Current tracker context at report time: 21 total emitters, 11 populated, 10 empty, 52.4% populated. The accepted source route remains file root [UID:0000LN], class [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md), executable aggregate [UID:0001CP][0x00528e60-0x0052a535.MusicControlDialog](by-memory/0x00528e60-0x0052a535.MusicControlDialog.md), and generated path `NexusTK/ui/dialogs/MusicControlDialog.cpp`.
+
+Populated generated-output children at report time:
+
+| UID | Child page | Generated role |
+| --- | --- | --- |
+| [UID:0003MB][0x00528e60-0x0052976c.MusicControlDialogConstructor](by-memory/0x00528e60-0x0052976c.MusicControlDialogConstructor.md) | [0x00528e60-0x0052976c.MusicControlDialogConstructor](by-memory/0x00528e60-0x0052976c.MusicControlDialogConstructor.md) | Constructor and dialog setup. |
+| [UID:0003MD][0x00529790-0x00529b70.MusicControlDialogHandleControlCommand](by-memory/0x00529790-0x00529b70.MusicControlDialogHandleControlCommand.md) | [0x00529790-0x00529b70.MusicControlDialogHandleControlCommand](by-memory/0x00529790-0x00529b70.MusicControlDialogHandleControlCommand.md) | Control command dispatcher and switch table owner. |
+| [UID:0003MF][0x00529be0-0x00529c5a.MusicControlDialogSoundEffectPacketHandler](by-memory/0x00529be0-0x00529c5a.MusicControlDialogSoundEffectPacketHandler.md) | [0x00529be0-0x00529c5a.MusicControlDialogPacketHandler](by-memory/0x00529be0-0x00529c5a.MusicControlDialogPacketHandler.md) | Sound-effect packet handler. |
+| [UID:0003MG][0x00529c60-0x00529cf8.MusicControlDialogDirectoryPacketHandler](by-memory/0x00529c60-0x00529cf8.MusicControlDialogDirectoryPacketHandler.md) | [0x00529c60-0x00529cf8.MusicControlDialogDirectoryPacketHandler](by-memory/0x00529c60-0x00529cf8.MusicControlDialogDirectoryPacketHandler.md) | `BDir` notification consumer. |
+| [UID:0003MH][0x00529d00-0x00529ed1.MusicControlDialogRefreshControlStates](by-memory/0x00529d00-0x00529ed1.MusicControlDialogRefreshControlStates.md) | [0x00529d00-0x00529ed1.MusicControlDialogRefreshControlStates](by-memory/0x00529d00-0x00529ed1.MusicControlDialogRefreshControlStates.md) | Control enablement refresh. |
+| [UID:0003MI][0x00529ee0-0x0052a00c.MusicControlDialogFolderPathSelected](by-memory/0x00529ee0-0x0052a00c.MusicControlDialogFolderPathSelected.md) | [0x00529ee0-0x0052a00c.MusicControlDialogFolderPathSelected](by-memory/0x00529ee0-0x0052a00c.MusicControlDialogFolderPathSelected.md) | Folder selection and local music rescan. |
+| [UID:0003MJ][0x0052a010-0x0052a120.MusicControlDialogDrivePopupPopulate](by-memory/0x0052a010-0x0052a120.MusicControlDialogDrivePopupPopulate.md) | [0x0052a010-0x0052a120.MusicControlDialogDrivePopupPopulate](by-memory/0x0052a010-0x0052a120.MusicControlDialogDrivePopupPopulate.md) | CD-drive popup population. |
+| [UID:0003MK][0x0052a120-0x0052a17f.MusicControlDialogApplyPlaybackState](by-memory/0x0052a120-0x0052a17f.MusicControlDialogApplyPlaybackState.md) | [0x0052a120-0x0052a17f.MusicControlDialogApplyPlaybackState](by-memory/0x0052a120-0x0052a17f.MusicControlDialogApplyPlaybackState.md) | Playback-state application. |
+| [UID:0003ML][0x0052a180-0x0052a1e9.MusicControlDialogTogglePauseState](by-memory/0x0052a180-0x0052a1e9.MusicControlDialogTogglePauseState.md) | [0x0052a180-0x0052a1e9.MusicControlDialogTogglePauseState](by-memory/0x0052a180-0x0052a1e9.MusicControlDialogTogglePauseState.md) | Pause/play toggle. |
+| [UID:0003MP][0x0052a2d0-0x0052a304.MusicControlDialogApplySoundEffectEnabled](by-memory/0x0052a2d0-0x0052a304.MusicControlDialogApplySoundEffectEnabled.md) | [0x0052a2d0-0x0052a304.MusicControlDialogApplyMusicEnabledSelection](by-memory/0x0052a2d0-0x0052a304.MusicControlDialogApplyMusicEnabledSelection.md) | Sound-effect enablement helper. |
+| [UID:0003MQ][0x0052a310-0x0052a3e0.MusicControlDialogApplyOutputSelection](by-memory/0x0052a310-0x0052a3e0.MusicControlDialogApplyOutputSelection.md) | [0x0052a310-0x0052a3e0.MusicControlDialogApplyOutputSelection](by-memory/0x0052a310-0x0052a3e0.MusicControlDialogApplyOutputSelection.md) | `ApplySoundFrequencySelection` private method; stable filename retains the superseded working name. |
+
+Empty-marker children triaged by the accepted B007 report:
+
+| UID | Child page | Disposition |
+| --- | --- | --- |
+| [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md) | [MusicControlDialog](by-class/MusicControlDialog.md) | Complete `MusicControlDialog.h` declaration with direct DialogPane base, inherited facets, exact `0x270` layout, four overrides, five private methods, one derived byte, implicit destructor, and `[[CHILDREN]]`. |
+| [UID:0003MC][0x00529770-0x0052978f.MusicControlDialogNonDeletingDestructor](by-memory/0x00529770-0x0052978f.MusicControlDialogNonDeletingDestructor.md) | [0x00529770-0x0052978f.MusicControlDialogNonDeletingDestructor](by-memory/0x00529770-0x0052978f.MusicControlDialogNonDeletingDestructor.md) | Compiler-generated non-deleting destructor support; formal no-code marker. |
+| [UID:0003ME][0x00529b70-0x00529bda.MusicControlDialogUnmodeledSoundEffectApply](by-memory/0x00529b70-0x00529bda.MusicControlDialogUnmodeledSoundEffectApply.md) | [0x00529b70-0x00529bda.MusicControlDialogUnmodeledSoundEffectApply](by-memory/0x00529b70-0x00529bda.MusicControlDialogUnmodeledSoundEffectApply.md) | Retained raw/no-entry sound-effect payload helper; reachable command and packet paths carry behavior. |
+| [UID:0003MM][0x0052a1f0-0x0052a227.MusicControlDialogRefreshFolderPathControl](by-memory/0x0052a1f0-0x0052a227.MusicControlDialogRefreshFolderPathControl.md) | [0x0052a1f0-0x0052a227.MusicControlDialogRefreshFolderPathControl](by-memory/0x0052a1f0-0x0052a227.MusicControlDialogRefreshFolderPathControl.md) | Retained raw/no-entry folder-path text refresh subset; reachable folder-selected path carries behavior. |
+| [UID:0003MN][0x0052a230-0x0052a271.MusicControlDialogNextTrackHelper](by-memory/0x0052a230-0x0052a271.MusicControlDialogNextTrackHelper.md) | [0x0052a230-0x0052a271.MusicControlDialogNextTrackHelper](by-memory/0x0052a230-0x0052a271.MusicControlDialogNextTrackHelper.md) | Retained raw/no-entry duplicate of command case `13`. |
+| [UID:0003MO][0x0052a280-0x0052a2cb.MusicControlDialogPreviousTrackHelper](by-memory/0x0052a280-0x0052a2cb.MusicControlDialogPreviousTrackHelper.md) | [0x0052a280-0x0052a2cb.MusicControlDialogPreviousTrackHelper](by-memory/0x0052a280-0x0052a2cb.MusicControlDialogPreviousTrackHelper.md) | Retained raw/no-entry duplicate of command case `11`. |
+| [UID:0003MR][0x0052a4e0-0x0052a535.MusicControlDialogScalarDeletingDestructor](by-memory/0x0052a4e0-0x0052a535.MusicControlDialogScalarDeletingDestructor.md) | [0x0052a4e0-0x0052a535.MusicControlDialogScalarDeletingDestructor](by-memory/0x0052a4e0-0x0052a535.MusicControlDialogScalarDeletingDestructor.md) | Compiler-generated scalar deleting destructor wrapper; formal no-code marker. |
+| [UID:00025Y][0x0061fc04-0x0061fd04.MusicControlDialogReadOnlyData](by-memory/0x0061fc04-0x0061fd04.MusicControlDialogReadOnlyData.md) | [0x0061fc04-0x0061fd04.MusicControlDialogReadOnlyData](by-memory/0x0061fc04-0x0061fd04.MusicControlDialogReadOnlyData.md) | Vtables, RTTI-adjacent cells, resources, and callback tables regenerated from declarations. |
+| [UID:0001CP][0x00528e60-0x0052a535.MusicControlDialog](by-memory/0x00528e60-0x0052a535.MusicControlDialog.md) | [0x00528e60-0x0052a535.MusicControlDialog](by-memory/0x00528e60-0x0052a535.MusicControlDialog.md) | Executable aggregate route only; exact children carry emitted code or formal no-code proofs. |
+| [UID:00027V][0x0066debc-0x0066decc.MusicControlDriveRootBuffers](by-memory/0x0066debc-0x0066decc.MusicControlDriveRootBuffers.md) | [0x0066debc-0x0066decc.MusicControlDriveRootBuffers](by-memory/0x0066debc-0x0066decc.MusicControlDriveRootBuffers.md) | First safe source-declaration empty-marker removal candidate; active mutable buffer storage receives first-draft static declarations. |
+
+Broad by-file, class, and aggregate pages are ownership and assembly routes. Exact by-memory child pages carry function bodies, target-specific no-code markers, or static data declarations. `SoundManager`, `Config`, `FolderSelectDialog`, and `FunctionObjects` remain dependencies or support owners, not `MusicControlDialog.cpp` source owners; stale generated `ChattingColorPane` names are rejected as Wave3 owner pollution.
 
 ## Evidence Notes
 
 - Wave3 reports `MusicControlDialog` as a class with grade `97.7`, emitted in `class_MusicControlDialog.cpp`, with five attached methods.
 - IDA MCP confirms a compact function island from constructor `0x00528e60` through scalar deleting destructor `0x0052a4e0-0x0052a535`, with `NewUserDialogPane2` beginning at `0x0052a540`.
 - The constructor builds controls from `DLGSCNTL.EPF`, initializes sliders/radio groups from `SoundManager` and config offsets around `g_pConfig + 0x291908`, and sends packet `0x11b`.
-- `HandleControlCommand` drives control ids `1..14`, including SFX toggle, sample/stream volume sliders, playback mode selection, folder browsing, drive selection, previous/pause/next, and close.
+- `OnControlCommand` drives control ids `1..14`, including SFX toggle, sample/stream volume sliders, playback mode selection, folder browsing, drive selection, previous/pause/next, and close.
 - `TogglePauseState` retrieves control id `12` and calls [UID:00011D][0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh](by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md) with frame ids `37` or `48`; the setter remains generic [UID:0000HY][ButtonControlPane](by-file/ButtonControlPane.md) code rather than music-dialog-owned implementation.
-- IDA xrefs show `ApplyMusicPlaybackState` is only reached from `MusicControlDialog::HandleControlCommand` and the folder-path input helper, which supports moving it out of chat-color ownership.
+- IDA xrefs show `ApplyPlaybackState` is only reached from `MusicControlDialog::OnControlCommand` and the folder-path input helper, which supports moving it out of chat-color ownership.
 - The folder callback wrapper is a [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md) template instantiation; `MusicControlDialog.cpp` owns the selected-path handler and callback setup, not the generic callback type declarations.
+- 2026-06-13 live MCP recheck confirms the whole executable island function inventory through `0x0052a535`, the next outside function at `0x0052a540`, and internal edges from constructor to `UpdateActionButton`, folder callback to `ApplyPlaybackState`, command handler to playback/pause/SFX helpers, and playback to pause.
+- 2026-06-13 MCP byte/insn review corrected the old method inventory: the command-handler body is followed by its switch table at `0x00529b30-0x00529b68`, `0x00529b70-0x00529bda` is a source-like but currently unreferenced sound-effect helper body, and `0x0052a1f0`, `0x0052a230`, and `0x0052a280` are IDA-unpromoted helper bodies rather than padding.
+- 2026-06-13 MCP `xrefs_to` confirms `0x00529ee0` is stored by the command handler as the folder callback target, and `0x0052a120` has only music-dialog callers. This closes the practical source-file ownership question for those generated `ChattingColorPane` names.
+- 2026-06-18 B003 helper-family pass resolves modeled helper names enough for first-draft C++: sound-effect packet handling, browse-directory notification handling, control enablement refresh, folder-path selection, CD-drive popup population, playback-state application, pause toggling, file-local sound-effect enablement, and output-selection application. Raw/no-function retained bodies at `0x00529b70`, `0x0052a1f0-0x0052a227`, `0x0052a230`, and `0x0052a280` are documented but intentionally blank under current no-entry-route proof. `0x0052a010` and `0x0052a310` are IDA-modeled retained helper functions with no current direct xref and receive source drafts under current no-direct-entry evidence.
+- 2026-06-25 B011 MCP recheck confirms `MusicControlDialog.cpp` as the canonical file owner for [UID:0001CP][0x00528e60-0x0052a535.MusicControlDialog](by-memory/0x00528e60-0x0052a535.MusicControlDialog.md). Active IDA session `80de0a67` verified the full formal-function inventory, raw helper body boundaries, vtable/callback routes, no-entry-route negatives for retained raw helpers, [UID:00028Q][0x0067a7c8-0x0067a7cc.g_pConfig](by-memory/0x0067a7c8-0x0067a7cc.g_pConfig.md) dependencies, [UID:00028R][0x0067a7d0-0x0067a7d4.g_pSoundManager](by-memory/0x0067a7d0-0x0067a7d4.g_pSoundManager.md) dependencies, drive-root buffers, localized output-selection alert construction, the `BDir` ANSI-to-wide StringBase helper chain, and the shared `0x00509480` tail into `SoundManager::PlayMusicByZone`. Remaining source-quality caps are retained raw helper no-entry route evidence, formal no-direct helper route evidence for [UID:0003MJ][0x0052a010-0x0052a120.MusicControlDialogDrivePopupPopulate](by-memory/0x0052a010-0x0052a120.MusicControlDialogDrivePopupPopulate.md)/[UID:0003MQ][0x0052a310-0x0052a3e0.MusicControlDialogApplyOutputSelection](by-memory/0x0052a310-0x0052a3e0.MusicControlDialogApplyOutputSelection.md), role-based MapPane music-field spelling, and generated-row refresh; no owner split is recommended.
+- 2026-07-07 B011 UID0003MN callback recheck used MCP session `507affd6` to reconfirm that the raw next-track child remains marker-only: `0x0052a230` is not an IDA function, has zero incoming xrefs, has no VA/RVA pointer bytes, and is not the command switch target; case `13` still routes to inline body `0x005299c3`. The file route stays `NexusTK/ui/dialogs/MusicControlDialog.cpp`; SoundManager and Config remain dependencies.
+- 2026-07-29 B010 class-container recheck closes the former header blocker: `DialogPane` is exactly `0x26c`, construction allocates `0x270`, the sole derived write is `m_musicPaused` at `+0x26c`, RTTI proves direct DialogPane inheritance with inherited EventHandler/TimerHandler facets, destructor bodies add no derived teardown, and the three facet tables isolate exactly four derived source overrides. The accepted source pair is therefore `MusicControlDialog.h/.cpp`, not a CPP-only generated lead.
 
 ## Ownership Notes
 
@@ -46,26 +117,58 @@ Keep this file separate from [UID:0000NV][SoundManager](by-file/SoundManager.md)
 
 Also keep this file separate from [UID:0000NX][SoundStatusPane](by-file/SoundStatusPane.md). Both are UI clients of the audio subsystem, but `MusicControlDialog` owns the full settings dialog and `SoundStatusPane` owns the always-visible HUD shortcut/caption pane.
 
-The generated source still calls `ChattingColorPane::ApplyMusicPlaybackState`, `ChattingColorPane::OnFolderPathSelected`, and `ChattingColorPane::CloseDialog` from the music dialog. Those names should be treated as Wave3 owner pollution, not original source-layout evidence.
+Historical generated output called `ChattingColorPane::ApplyMusicPlaybackState`, `ChattingColorPane::OnFolderPathSelected`, and `ChattingColorPane::CloseDialog` from the music dialog; that dated observation remains evidence of superseded Wave3 owner pollution, not original source-layout evidence. The exact Gate 2A command `000000027149` generated receipt contains zero `ChattingColorPane::` qualified names, and post-edit scoped generated readback independently preserves that zero count. The corrected source route uses MusicControlDialog-owned methods, includes `FolderSelectDialog.h`, and constructs `new FolderSelectDialog(callback, currentPath.c_str())`; `CloseDialog()` remains the inherited DialogPane operation used without the polluted qualifier. Future generated authority is validator-owned and must be read dynamically.
 
 ## Cross-References
 
 - [UID:00008U][MusicControlDialog](by-class/MusicControlDialog.md)
 - [UID:0001CP][0x00528e60-0x0052a535.MusicControlDialog](by-memory/0x00528e60-0x0052a535.MusicControlDialog.md)
 - [UID:0000NV][SoundManager](by-file/SoundManager.md)
+- [UID:00028Q][0x0067a7c8-0x0067a7cc.g_pConfig](by-memory/0x0067a7c8-0x0067a7cc.g_pConfig.md)
+- [UID:00028R][0x0067a7d0-0x0067a7d4.g_pSoundManager](by-memory/0x0067a7d0-0x0067a7d4.g_pSoundManager.md)
 - [UID:0000NX][SoundStatusPane](by-file/SoundStatusPane.md)
 - [UID:0000JF][FolderSelectDialog](by-file/FolderSelectDialog.md)
 - [UID:0000JO][FunctionObjects](by-file/FunctionObjects.md)
+- [UID:00040O][0x0061fc00-0x0061fc04.MusicControlDialogRttiLocatorPointer](by-memory/0x0061fc00-0x0061fc04.MusicControlDialogRttiLocatorPointer.md)
 - [UID:00011D][0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh](by-memory/0x00495cb0-0x00495cc9.SelectionControlPaneSetSelectionAndRefresh.md)
 - [UID:0000AL][PlainMemberFunctionObjectT_void____thiscall_MusicControlDialog_____class_m__h73bc206d7ae6](by-class/PlainMemberFunctionObjectT_void____thiscall_MusicControlDialog_____class_m__h73bc206d7ae6.md)
 - [UID:0000MN][PopupMenuControls](by-file/PopupMenuControls.md)
 - [UID:0001R1][proposed-source-tree](by-project-structure/proposed-source-tree.md)
+- [UID:0003MD][0x00529790-0x00529b70.MusicControlDialogHandleControlCommand](by-memory/0x00529790-0x00529b70.MusicControlDialogHandleControlCommand.md)
+- [UID:0003MI][0x00529ee0-0x0052a00c.MusicControlDialogFolderPathSelected](by-memory/0x00529ee0-0x0052a00c.MusicControlDialogFolderPathSelected.md)
+- [UID:0003MK][0x0052a120-0x0052a17f.MusicControlDialogApplyPlaybackState](by-memory/0x0052a120-0x0052a17f.MusicControlDialogApplyPlaybackState.md)
+
+## 2026-07-29 Supervisor Gate 2B Reconciliation (Catalog 0353)
+
+- The source family now has matching persisted IDA analysis identities for `MusicControlDialog::OnControlCommand`, `HandlePacketEvent`, `HandleType19Event`, `UpdateActionButton`, by-value `FolderPathSelected`, `PopulateCdDrivePopup`, `ApplyPlaybackState`, `TogglePauseState`, and `ApplySoundFrequencySelection`. The previous `sub_*` labels remain historical binary-search aliases, not current source names.
+- The analysis-only `MusicControlDialog` UDT is exactly `0x270` bytes with the `DialogPane` base at `+0x000`/`0x26c`, `m_musicPaused` at `+0x26c`, and analysis tail padding at `+0x26d`; this confirms the existing source H shell without adding padding to human C++.
+- Applied prototypes normalized only existing argument slots. Source-facing names/types now appear for the command arguments, both event arguments, and the by-value folder path; offsets, widths, all nonargument storage, and the extra raw slots in the type-19 and folder-callback frames remain unchanged.
+- Persistence checkpoint: prestate IDB SHA256 `FD8282A51836D47961EA386D7C2D25F80D0BF88B96ACFF106FFA802277F78B16`; byte-identical backup `E:\NTK\Resources\NexusTK\backups\NexusTK.exe.pre-B010-UID0003MQ-20260729-082218.i64`; saved IDB SHA256 `6D20767D448CC568508E462790D05678838216C6CFEE77E3CFF5C4B5905244AB`, `143190049` bytes, saved `2026-07-29T08:26:09.5759690-04:00`. Supervisor catalog entry `0353` is `APPLIED_VERIFIED_RECONCILIATION_PENDING`; B010 did not mutate IDA.
+
+## 2026-07-29 Supervisor Constructor Gate 2B Reconciliation (Catalog 0358)
+
+- The persisted MusicControlDialog analysis family now includes the constructor at `0x00528e60` as `MusicControlDialog__MusicControlDialog` with prototype `MusicControlDialog *__thiscall MusicControlDialog__MusicControlDialog(MusicControlDialog *this)`. This supplements catalog `0353`; it does not replace that earlier method/UDT evidence or alter the human `MusicControlDialog::MusicControlDialog()` CPP spelling.
+- The accepted regular function comment describes controls 1-14, SoundFreq/music/effect initialization, CD-drive population, action-control update, and option packet `0x011b/0`; all three other comment channels remain blank.
+- Readback preserved the complete `0x90c` range, all `2,316` bytes at SHA256 `5DA9A7E4E026585EB9ABCA667BC267323D3C78FAA53AD812B21E3C50989E218A`, sole xref `0x005a71f3`, all 14 frame tuples, locals, and the existing `MusicControlDialog`/`DialogPane`/`Config` UDTs. Historical `sub_528E60` remains search provenance only.
+- Catalog `0358` persistence checkpoint: prestate IDB SHA256 `24B033C1657266F5943A2EB0201F076673C53CEEA39E00F9D65BCED961ACEC31`; byte-identical backup `E:\NTK\Resources\NexusTK\backups\NexusTK.exe.pre-B010-UID0003MQ-I13-20260729-123823.i64`; post-I13 saved checkpoint SHA256 `E9600F6C16B46FE1F5A7FEE463EF7890E415905CE465F8F6C55954FF5AA91611`, `143190173` bytes, saved `2026-07-29T12:39:14.0441568-04:00`. The shared IDB later advanced through verified supervisor work to historical checkpoints SHA256 `08D31FD1C7B80721D6CD7774B42C5A5157B3A4683670A3E27EA5660290554F5A`, `143190452` bytes, saved `2026-07-29T12:53:48.4762005-04:00`; SHA256 `03F10207763C01455EA5F767F330A371FEDD9885FBFD98705F5A486985DBE5DA`, `143190601` bytes, saved `2026-07-29T13:03:43.9987735-04:00`; SHA256 `0E0AF9383DE743CB91E076959498A0D9DAF906C5CA6E620F99425931A09AB481`, `143190636` bytes, saved `2026-07-29T13:59:50.1387219-04:00`; and SHA256 `3C8F31781C94DF74AADDB65B3D944CD2CA4387C448918BBBFFD60B41C3625B69`, `143191631` bytes, saved `2026-07-29T14:12:44.7229687-04:00`. The current authoritative shared IDB is database `1da2b2ae`, SHA256 `296ED21C6665B7C0D8EFBC515B137101F8506FD945C6C7E14C3E6F655063CF8B`, `143190676` bytes, saved `2026-07-29T14:22:15.9735862-04:00`. Fresh bounded read-only readback preserves the exact constructor name/type/four comment channels, `2,316`-byte body SHA256 `5DA9A7E4E026585EB9ABCA667BC267323D3C78FAA53AD812B21E3C50989E218A`, sole xref from `0x005a71f3`, all 14 frame tuples including raw `arg_4`, locals, and `MusicControlDialog`/`DialogPane`/`Config` UDTs; the prior I01-I12 names/types/comments/frame normalization and protected Config state also survive exactly. B010 performed no IDA mutation or save during ordinary-document reconciliation.
 
 ## Changes
 
+- 2026-07-29 B010 implementation callback: raised to `92/94`, established paired `MusicControlDialog.h/.cpp` placement, documented exact class/child assembly, direct-base and inherited-facet topology, exact size/member/destructor contract, source-facing override/private-method names, `m_soundFrequency` values, direct AlertPane layout-reference call, and the retained-copy/live-inline relationship without changing file ownership.
+- 2026-07-07 B011 UID0003MN support sync: recorded current `507affd6` no-entry/case-13 proof for the raw next-track child; no file metadata/path change.
+- 2026-07-01 B007 empty-emitter implementation: raised completion/confidence to `90/90` and added the generated-output audit for 21 total emitters, 11 populated children, 10 triaged empty markers, accepted file/class/aggregate route, dependency ownership boundaries, and [UID:00027V][0x0066debc-0x0066decc.MusicControlDriveRootBuffers](by-memory/0x0066debc-0x0066decc.MusicControlDriveRootBuffers.md) as the first static-data source-declaration removal candidate.
+- 2026-06-25 B011 source-quality implementation: raised completion/confidence to `88/88`, added the active MCP session `80de0a67` status note, normalized [UID:00028Q][0x0067a7c8-0x0067a7cc.g_pConfig](by-memory/0x0067a7c8-0x0067a7cc.g_pConfig.md) and [UID:00028R][0x0067a7d0-0x0067a7d4.g_pSoundManager](by-memory/0x0067a7d0-0x0067a7d4.g_pSoundManager.md) dependency references, and preserved `NexusTK/ui/dialogs/` source placement with no owner split.
+- 2026-06-25 B011 correction pass: incorporated the resolved [UID:0003MG][0x00529c60-0x00529cf8.MusicControlDialogDirectoryPacketHandler](by-memory/0x00529c60-0x00529cf8.MusicControlDialogDirectoryPacketHandler.md) StringBase ANSI/wide helper chain and [UID:0003MK][0x0052a120-0x0052a17f.MusicControlDialogApplyPlaybackState](by-memory/0x0052a120-0x0052a17f.MusicControlDialogApplyPlaybackState.md) `SoundManager::PlayMusicByZone` active-map tail route. Remaining caps are raw/no-entry evidence, no-direct modeled helper routes, role-based MapPane field spelling, and generated-row refresh.
+- 2026-06-18 B003 source-quality sync: [UID:0003MB][0x00528e60-0x0052976c.MusicControlDialogConstructor](by-memory/0x00528e60-0x0052976c.MusicControlDialogConstructor.md) and [UID:0003MD][0x00529790-0x00529b70.MusicControlDialogHandleControlCommand](by-memory/0x00529790-0x00529b70.MusicControlDialogHandleControlCommand.md) now have defensible first-draft C++ recommendations. The file still owns the dialog/controller source; generated `ChattingColorPane` helper names remain rejected as owner pollution.
+- 2026-06-18 B003 helper-family Rule 26 incorporation: added the modeled helper draft/no-draft policy to this file page, corrected the hidden folder-control range to `0x0052a1f0-0x0052a227`, and recorded that all valid helper-family details are incorporated in the relevant by-memory children rather than left only in the B-agent report.
+- 2026-06-21 B006 RTTI support sync: added [UID:00040O][0x0061fc00-0x0061fc04.MusicControlDialogRttiLocatorPointer](by-memory/0x0061fc00-0x0061fc04.MusicControlDialogRttiLocatorPointer.md) to the source-file route as compiler-generated `MusicControlDialog` RTTI support data. Score unchanged; no C++ was added because the dword is regenerated from the class declaration.
+- 2026-06-13 A003 parent gate pass:
+  - What existed before: the file page was `86/80`, with strong broad ownership but no live evidence for newly split hidden helper bodies or the corrected command-handler switch-table range.
+  - Changed to: scores `87/87`, added fresh MCP ownership evidence, corrected proposed contents, and linked representative exact child pages.
+  - Summary/evidence: the exact child split under [UID:0001CP][0x00528e60-0x0052a535.MusicControlDialog](by-memory/0x00528e60-0x0052a535.MusicControlDialog.md) now verifies the dialog source island, the generated `ChattingColorPane` pollution is contradicted by internal xrefs, and the only remaining medium-confidence point is the unreferenced but local `0x00529b70` helper body.
 - Before: completion/confidence were ungraded at `0/0`.
 - Changed to: completion `86`, confidence `80`.
-- Summary/evidence: the page documents dialog role, class and helper ownership, UI/audio dependencies, IDA evidence, generated owner pollution, and cross-references; confidence remains capped by helper ownership cleanup and generated `ChattingColorPane` pollution.
+- Summary/evidence: the page documents dialog role, class and helper ownership, UI/audio dependencies, IDA evidence, generated owner pollution, and cross-references; B003/B011 source docs now supersede the earlier ownership notes and generated `ChattingColorPane` pollution.
 - 2026-06-03 path consistency pass:
   - What existed before: the page text and proposed source tree both placed the file at `ui/dialogs/MusicControlDialog.cpp`, but the validator-managed `PROPOSED_RECONSTRUCTION_PATH` was blank, leaving this root in projected-path gaps.
   - Changed to: set `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/dialogs/"` without changing scores.

@@ -1,22 +1,35 @@
 *** UID:0000IM | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/archive/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** COMPLETION:97 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:98 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** PROPOSED_RECONSTRUCTION_PATH:"NONE" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:NONE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+
+*** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # DATArchive
 
-## Status
+## Current Disposition
+
+`DATArchive` is a non-emitting documentation index, not an original compilation unit. Exhaustive binary, RTTI, type, xref, generated-output, and source-route review found no `DATArchive` function, class, global, vtable, RTTI record, import, export, resource, source symbol, or generated artifact. The concrete archive implementation is exactly two authored units: [UID:0000IN][DATFile](by-file/DATFile.md) for the per-entry reader and [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md) for the public/private manager, mapped containers, singleton, and typed standard-container state.
+
+[UID:0000IP][DATIndexVector](by-file/DATIndexVector.md) and its exact bodies are old-MSVC/Dinkumware `stdext::hash_map`/list/vector lowering shared by multiple typed consumers, not a third authored archive source file. [UID:00003J][DATFileResolver](by-class/DATFileResolver.md) and the manager-local node/hash helpers are likewise semantic/compiler overlays generated from `_DATFileMgr`'s typed map member. No `DATArchive.cpp`, `DATArchive.h`, `DATIndexVector.cpp`, or `DATIndexVector.h` should be generated.
+
+The mapped directory record is exactly 17 bytes: a four-byte payload start offset at `+0x00` and a 13-byte ANSI name at `+0x04`. Payload length is the next row's start offset minus the current row's start offset. A read-only 250-file package audit found monotonic in-bounds offsets and no zero-length intervals; three final boundary rows contain nonzero unused name bytes, so the final row is a boundary row rather than an always-empty sentinel.
+
+Render, image, palette, audio, and application code are consumers. In particular [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md), its storage [UID:0001OQ][0x0067a744-0x0067a748.g_pEPFLib](by-memory/0x0067a744-0x0067a748.g_pEPFLib.md), [UID:0000K2][ImageLib](by-file/ImageLib.md), and [UID:00006E][ImageLib](by-class/ImageLib.md) remain the ImageLib-owned declaration/storage/lifecycle chain. Their DATFile calls do not transfer archive ownership.
+
+## Historical Status Superseded By Current Disposition
 
 - Confidence: strong for archive-folder split and DAT API boundaries; medium-high for umbrella granularity.
 - Document kind: archive/resource umbrella over [UID:0000IN][DATFile](by-file/DATFile.md), [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), and neighboring image/archive helpers
 - Proposed folder context: `NexusTK/archive/`; concrete classes should still attach to [UID:0000IN][DATFile](by-file/DATFile.md), [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), or [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md), not to this umbrella page.
-- Evidence basis: live IDA MCP caller/callee/decompile checks through 2026-06-04 plus cross-linked concrete owner pages.
+- Evidence basis: live IDA MCP caller/callee/decompile checks through 2026-06-16, read-only current-package DAT table audit, and cross-linked concrete owner pages.
 
-## Hypothesis
+## Historical Umbrella Hypothesis Superseded
 
 NexusTK resource loading likely had a compact archive subsystem centered on DAT files, EPF/EPD image assets, frame metadata, palettes, and PCX/DIB conversion. Current recovery inventory models many of these as isolated class/global pages, but the behavior and names point to a small set of archive/render-support modules.
 
-## Current File Split
+## Historical Three-Way Split Superseded
 
 The core DAT archive layer is now split into two concrete file hypotheses:
 
@@ -45,7 +58,7 @@ This page remains the umbrella for adjacent archive/resource research. Do not us
 | `ImageLib` | `0x004cffb0-0x004e6571` | `class_ImageLib.cpp` | EPF image/cache manager singleton behind `g_pEPFLib`; render/resource owner, not raw DAT parsing. |
 | `ResourceLayoutTable` | `0x004d0120-0x004d182f` | `class_ResourceLayoutTable.cpp` | Shared EPF/EPD layout lookup method family used by `g_pEPFLib`; likely part of or adjacent to `ImageLib`. |
 | `DIBitmap` | `0x004a1600-0x004a1b5d` | `class_DIBitmap.cpp` | DIB wrapper used by PCX/image loading. |
-| `PaletteLib` | `0x005431c0-0x0054445b` | `class_PaletteLib.cpp` | Global palette manager; render/resource owner, not raw DAT parsing. |
+| `PaletteLib` | `0x00543150-0x005431b9`, `0x005431c0-0x005443ab`, plus `0x00544420-0x0054445b` | `class_PaletteLib.cpp` | Global palette manager; render/resource owner, not raw DAT parsing. |
 | `DLPalette` | `0x00542ac0-0x00543149` plus `0x005443b0-0x00544411` | `class_DLPalette.cpp` | 16-bit palette data object used by `PaletteLib`. |
 | `FontImageLib` | `0x004b5f00-0x004b6409` | `class_FontImageLib.cpp` | Font glyph image library. |
 | `MapTileImageLib` | `0x004d1860-0x004e6748` | `class_MapTileImageLib.cpp` | Terrain tile image library; render owner. |
@@ -76,7 +89,7 @@ This page remains the umbrella for adjacent archive/resource research. Do not us
 | `CreateDIBitmapFromPcxBuffer` | `0x004a18b0-0x004a1b0c` | Builds a `DIBitmap` from decoded PCX bytes. |
 | `DecodePcxToRgb565Buffer` | `0x00549410-0x00549616` | Decodes PCX image data into RGB565 pixels. |
 | `DrawFrameWithBlendMode` | `0x00462e10-0x00462f1d` | Copies/adds/subtracts byte frame masks into an alpha surface. |
-| `DrawEncodedAlphaFrame` provisional | `0x00462f20-0x00463251` | Draws signed-run encoded frame rows into an alpha mask with a vertical alpha ramp. |
+| [UID:0000YO][0x00462f20-0x00463252.DrawEncodedAlphaFrame](by-memory/0x00462f20-0x00463252.DrawEncodedAlphaFrame.md) | `0x00462f20-0x00463252` | `AlphaMaskSurface::DrawEncodedAlphaFrame` member helper. It consumes EPFTileContext encoded rows and is owned/routed through AlphaMaskSurface; this umbrella records it only as adjacent render support, not DATArchive-owned code. |
 | `LoadImageFrameTable` | `0x004d0f50-0x004d15c5` | Loads or merges frame metadata from DAT/EPF archives; see [UID:0000K1][ImageFrameTable](by-file/ImageFrameTable.md). |
 | `LoadFrameDrawRecord` | `0x004d1600-0x004d165d` | Frame draw record helper; see [UID:0000UX][LoadFrameDrawRecord_004D1600](by-item/LoadFrameDrawRecord_004D1600.md). |
 | `LoadTileEpfMetadata` | `0x004d1b80-0x004d1f22` | Scans `TILE<n>.EPF` archives for map tile metadata. |
@@ -127,7 +140,15 @@ This page remains the umbrella for adjacent archive/resource research. Do not us
 - `DATIndexVector` fanout remains broad: `0x00423b00` has callers in fitting-room/minimap/DAT manager/monster-image paths, while `0x00457100` and `0x00457580` are used by minimap and monster-image helper paths. This supports a standalone [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md) file under `NexusTK/archive/`, not private ownership by `DATFileMgr.cpp`.
 - The umbrella path assignment to `NexusTK/archive/` is folder context only. Concrete code ownership remains on [UID:0000IN][DATFile](by-file/DATFile.md), [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md), and the render/audio/application consumer files named above.
 
-## Proposed Split
+## 2026-06-16 IDA And Package Recheck
+
+- Live IDA MCP session `b001_mappane_0001AW_20260616` (`NexusTK.exe`, image base `0x00400000`, Hex-Rays ready) reconfirmed the same core archive boundaries: `DATFileContainer::DATFileContainer` at `0x0049be80` size `0x249`, `DATFile::Open` at `0x0049c180` size `0xbb`, `HasDATEntry` at `0x0049c700` size `0x1d`, `_DATFileMgr::LoadDATFileIndex` at `0x0049c800` size `0x2c4`, `_DATFileMgr::FindEntryByName` at `0x0049cad0` size `0xd5`, `ParseEntries` at `0x004a5e60` size `0x23f`, and `LoadDatFileBuffer` at `0x004bb120` size `0xb2`.
+- Function profiling reconfirmed `LoadDatFileBuffer` as a DATFile lifecycle wrapper with nine caller functions across UI/resource constructors and `DATIndexVector` as shared infrastructure: `ResizeAndFill` has callers from minimap, fitting-room, DAT manager, and monster-image code; `InsertNode`/`FindNodeByKey` are also used outside the manager. This keeps the concrete owner split on [UID:0000IN][DATFile](by-file/DATFile.md), [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md), and [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md).
+- Decompilation rechecked the 17-byte table stride: `DATFileContainer` stores `entryCount`, stores `mappedView + 4` as the entry-table pointer, and caches the first dword of `entryTable + (entryCount - 1) * 17`; `DATFile::Open` and `OpenByIndex` compute payload size as the next row's start offset minus the current row's start offset.
+- A read-only audit of 250 current DAT files under `E:\2026\Resources\Read_Only\NexusTK\Data` parsed every archive with no bad headers, monotonic offsets in all 250, offsets within file bounds in all 250, and zero zero-length intervals. Counts ranged from 2 to 260 table rows, and 1,038 non-empty row names were null-terminated within the 13-byte field.
+- The same audit resolves the previous final-row blocker: 247 of 250 final boundary rows have an empty name field, but `baramst.dat`, `head0.dat`, and `mus004.dat` contain nonzero bytes in the final row's 13-byte name area. Therefore the source-quality invariant is that the final row's first dword supplies the last payload boundary; the final row's name bytes are padding/unused and cannot be documented as always an empty-name sentinel.
+
+## Historical Proposed Split Superseded
 
 The archive/resource area may need several original files rather than one:
 
@@ -154,12 +175,12 @@ third_party/zlib/
 
 `DATFile`, [UID:0000T4][LoadDatFileBuffer_4BB120](by-global/LoadDatFileBuffer_4BB120.md), and [UID:0000TH][ParseEntries_004A5E60](by-global/ParseEntries_004A5E60.md) should migrate first into [UID:0000IN][DATFile](by-file/DATFile.md). `DATFileContainer`, `DATFileMgr`, `_DATFileMgr`, `DATFileResolver`, [UID:0000QQ][g_pDATFileMgr](by-global/g_pDATFileMgr.md), the [UID:00012C][0x0049be70-0x0049be7c.ForwardLoadDATFileIndex](by-memory/0x0049be70-0x0049be7c.ForwardLoadDATFileIndex.md), [UID:0000UF][DestroyDATFileMgr_467380](by-item/DestroyDATFileMgr_467380.md) object ownership, and [UID:0000T0][HasDATEntry_49C700](by-global/HasDATEntry_49C700.md) should migrate with [UID:0000IO][DATFileMgr](by-file/DATFileMgr.md). [UID:0000T5][LoadIndexedDATSeries](by-global/LoadIndexedDATSeries.md) should stay near `Application::Initialize` in [UID:0000HG][Application](by-file/Application.md), because it owns startup scan policy over numbered archives while merely calling into the DAT manager API. `DATIndexVector` should stay standalone in [UID:0000IP][DATIndexVector](by-file/DATIndexVector.md) or a later common-helper folder; do not fold it into the manager file. `ImageLib`, `ResourceLayoutTable`, and image-frame/EPF helpers now lean toward `render/ImageLib.cpp`, `render/ResourceLayoutTable.cpp`, `render/ImageFrameTable.cpp`, or nearby image-resource files rather than `archive/`. `ImageWriters.cpp`, `third_party/lodepng.cpp`, and `third_party/zlib/` are render/codec/support-library dependencies, not DAT resource modules. `SoundManager` remains an audio module caller of the DAT API, not part of DAT parsing.
 
-## Open Questions
+## Historical Open Questions Resolved
 
 - Whether `DATIndexVector`'s final folder is `archive/` because of the imported source name, or a common/helper folder because of broad non-DAT caller fanout.
 - Exact render/resource filename split for EPF frame-table helpers versus per-asset image libraries.
 - Which image-library classes should be grouped by asset type (`EffectObjImageLib`, `FontImageLib`, map/tile image libs) versus common base support.
-- Whether final DAT rows are always empty-name sentinels across all archives.
+- Whether older or alternate DAT distributions follow the same mostly-empty final boundary-row convention as the audited 2026 read-only package.
 
 ## Cross-References
 
@@ -200,8 +221,8 @@ third_party/zlib/
 - [UID:0000K8][IntAlphaSurface](by-file/IntAlphaSurface.md)
 - [UID:0000OC][Surface](by-file/Surface.md)
 - [UID:0000UI][DrawFrameWithBlendMode_00462E10](by-item/DrawFrameWithBlendMode_00462E10.md)
-- [UID:0000UH][DrawEncodedAlphaFrame_00462F20](by-item/DrawEncodedAlphaFrame_00462F20.md)
-- [UID:0000UQ][GetItemGlyphBounds_004DF460](by-item/GetItemGlyphBounds_004DF460.md)
+- [UID:0000YO][0x00462f20-0x00463252.DrawEncodedAlphaFrame](by-memory/0x00462f20-0x00463252.DrawEncodedAlphaFrame.md)
+- [UID:0000UQ][0x004df460-0x004df4f9.GetItemGlyphBounds](by-memory/0x004df460-0x004df4f9.GetItemGlyphBounds.md)
 - [UID:0000MA][Palette](by-file/Palette.md)
 - [UID:0000MB][PaletteLib](by-file/PaletteLib.md)
 - [UID:0000V4][PaletteSlotTable](by-item/PaletteSlotTable.md)
@@ -233,6 +254,9 @@ third_party/zlib/
 
 ## Changes
 
+- 2026-07-09 B001 UID0000YO stale support correction:
+  - Replaced the provisional `0x00462f20-0x00463251` helper row with canonical UID0000YO and the correct half-open `0x00462f20-0x00463252` range.
+  - Recorded that this is an AlphaMaskSurface member/render dependency, not DATArchive ownership; DATArchive scores and source placement are unchanged.
 - 2026-06-07 A008 alias cleanup:
   - Before: the render/archive boundary evidence used bare `g_pEPFLib` / `DAT_0067a744` wording.
   - Changed to: canonical [UID:0000QU][g_pEPFLib](by-global/g_pEPFLib.md) wording with `DAT_0067a744` retained as the historical IDA alias.
@@ -256,3 +280,7 @@ third_party/zlib/
   - Before: `CONFIDENCE:76` and blank `PROPOSED_RECONSTRUCTION_PATH`.
   - After: `CONFIDENCE:84` and `PROPOSED_RECONSTRUCTION_PATH:"NexusTK/archive/"`.
   - Summary/evidence: live IDA rechecked the DAT manager/file/helper boundaries, the two-callsite `ParseEntries` ownership, `LoadDatFileBuffer` as a DATFile wrapper, `HasDATEntry` as a broad DAT API boundary, `LoadIndexedDATSeries` as application startup policy, and `DATIndexVector` as shared archive helper infrastructure. Completion stays at `88` because this page remains an umbrella and should not become the final owner for concrete classes.
+- 2026-06-16 A002 file-boundary/package refresh:
+  - Before: `88/84`.
+  - After: `89/87`.
+  - Summary/evidence: live IDA MCP reconfirmed the core DATFile/DATFileMgr/helper boundaries, DATIndexVector shared fanout, and load-buffer ownership, while a read-only audit of 250 current-package DAT archives resolved the final-row blocker: offsets are monotonic and bounded, all exposed non-empty names are null-terminated, and the final row is a payload-boundary row whose name bytes are often empty but not reliably zero. Concrete source ownership remains on DATFile, DATFileMgr, and DATIndexVector; this page remains an umbrella.

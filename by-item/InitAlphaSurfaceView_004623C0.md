@@ -1,25 +1,28 @@
 *** UID:0000UU | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:-1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:NONE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # InitAlphaSurfaceView 0x004623C0
 
 ## Status
 
-- Confidence: strong for behavior and layout writes, medium for final class/source split.
+- Confidence: strong for behavior, layout writes, and current AlphaMaskSurface-owned helper disposition.
 - Entity kind: constructor/helper function.
 - Exact range: `0x004623c0-0x00462514`.
 - Canonical memory page: [UID:0002NM][0x004623c0-0x00462514.InitAlphaSurfaceView](by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md).
-- Likely source module: [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md), with provisional [UID:0000K8][IntAlphaSurface](by-file/IntAlphaSurface.md) ownership.
+- Likely source module: [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md); [UID:0000K8][IntAlphaSurface](by-file/IntAlphaSurface.md) remains the destination type/vtable owner, not the source owner of this helper.
 - Related layout: [UID:0001TP][AlphaMaskSurfaceLayout](by-type/by-struct/AlphaMaskSurfaceLayout.md).
 
-This page is retained as a small by-item index for older references. The canonical code-bearing documentation is now [UID:0002NM][0x004623c0-0x00462514.InitAlphaSurfaceView](by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md), so this page is no longer a reconstruction target.
+This page is retained as a small by-item index for older references. The canonical code-bearing documentation is now [UID:0002NM][0x004623c0-0x00462514.InitAlphaSurfaceView](by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md), so this page is no longer a reconstruction target. B009's 2026-06-28 implementation resolves the canonical source shape as `AlphaMaskSurface::InitAlphaSurfaceView(IntAlphaSurface *view, const RectBounds *clipBounds) const`.
 
 ## Behavior
 
@@ -43,6 +46,8 @@ This helper initializes an alpha-surface view object from another alpha surface:
 
 Treat this as reconstructable render infrastructure despite missing direct callers. It is an IDA-modeled function that writes the same vtable and layout as the surrounding alpha-surface constructors/destructor. The safest source model is a constructor or `InitView` helper for a non-owning `IntAlphaSurface`/alpha-surface view.
 
+Current canonical disposition: the helper is AlphaMaskSurface-owned/emitted by [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md), with `ECX` as the source alpha surface and a caller-supplied `IntAlphaSurface *` destination out parameter. The `off_6112EC` vtable write is a destination construction/use-site. The missing direct callers remain a confidence cap on the canonical by-memory page, not an ownership blocker.
+
 ## Cross-References
 
 - [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md)
@@ -55,6 +60,9 @@ Treat this as reconstructable render infrastructure despite missing direct calle
 
 ## Changes
 
+- 2026-06-28 B009 support refresh:
+  - Score and non-emitting metadata unchanged.
+  - Summary/evidence: updated this index to point at the resolved canonical source shape on [UID:0002NM][0x004623c0-0x00462514.InitAlphaSurfaceView](by-memory/0x004623c0-0x00462514.InitAlphaSurfaceView.md). The page remains `-1/-1`, `RECONSTRUCTABLE:FALSE`, and non-emitting.
 - 2026-05-31: Grading and reconstruction status changed from unevaluated/blank to `50/65` and `RECONSTRUCTABLE:TRUE`.
   - Before: the page body documented the alpha-surface view initializer, but the validator metadata still showed `0/0` and no reconstruction status.
   - After: the metadata now tracks it as rebuild-relevant code, while keeping parent UID and C++ blank because class/source ownership and caller context remain incomplete.

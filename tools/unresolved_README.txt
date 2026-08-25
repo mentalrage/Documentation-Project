@@ -296,6 +296,9 @@ Show verbose token file counts:
 python unresolved.py --verbose
 ```
 
+Use `--verbose` only when debugging scanner behavior. Normal agent work should
+inspect generated reports or file-scoped dry scans without verbose stdout.
+
 Configuration
 -------------
 

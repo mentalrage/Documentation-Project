@@ -1,0 +1,77 @@
+{
+  "advanced_scan": {
+    "generated_name_patterns": [
+      {
+        "name": "ida-function-label",
+        "pattern": "\\b(?:sub|func|FUN)_[0-9A-Fa-f]{4,16}\\b"
+      },
+      {
+        "name": "ida-data-label",
+        "pattern": "\\b(?:byte|word|dword|qword|xmmword|ymmword|zmmword|oword|tbyte|unk|off|DAT|PTR|LAB|loc|jpt|vftable|stru|asc|flt|dbl)_[0-9A-Fa-f]{4,16}\\b"
+      },
+      {
+        "name": "generated-class-or-method",
+        "pattern": "\\b(?:Class_[0-9A-Fa-f]{4,16}|cls_0x[0-9A-Fa-f]+|meth_0x[0-9A-Fa-f]+)\\b"
+      },
+      {
+        "name": "generated-member-or-stack-name",
+        "pattern": "\\b(?:field|mbr|slot|vftptr|local|param)_[0-9A-Fa-f]+\\b"
+      },
+      {
+        "name": "runtime-nullsub-label",
+        "pattern": "\\bnullsub_[0-9]+\\b"
+      }
+    ],
+    "ignore_section_heading_patterns": [
+      "\\bchanges?\\b",
+      "\\bchange\\s+log\\b",
+      "\\bchangelog\\b",
+      "\\bupdates?\\b",
+      "\\bmodified\\b",
+      "\\bmodifications?\\b",
+      "\\bhistory\\b"
+    ],
+    "run_by_default": true
+  },
+  "binary_range": {
+    "end": "0x0069d000",
+    "end_semantics": "exclusive",
+    "start": "0x00401000"
+  },
+  "by_memory_path": "../by-memory",
+  "file_classifications": {},
+  "ignored_crossings": [
+    {
+      "crossing_range": "0x00594e60-0x00595760",
+      "parent_range": "0x00591300-0x005954b3",
+      "reason": "Reviewed intentional non-emitting audit-map overlap: exact TextBoxPane and TextEdit support-object children carry source ownership."
+    },
+    {
+      "crossing_range": "0x00594e60-0x005958fe",
+      "parent_range": "0x00591300-0x005954b3",
+      "reason": "Reviewed intentional non-emitting audit-map overlap: broad support/filter map documents split owners while exact child pages carry ownership."
+    },
+    {
+      "crossing_range": "0x00503ef0-0x0050637a",
+      "parent_range": "0x005039f0-0x00504521",
+      "reason": "Reviewed intentional non-emitting mixed-owner boundary-index overlap: GameServerNationAndMapInit records the GameServerConfig-to-MapPane transition while the MapPane aggregate carries source ownership."
+    }
+  ],
+  "largest_ranges_limit": 100,
+  "manual_ranges": [],
+  "not_reconstructable_types": [
+    "CRT/MSVC",
+    "third-party-library",
+    "compiler-generated",
+    "runtime-support",
+    "import-thunk",
+    "static-initializer-wrapper",
+    "aggregate-container",
+    "mixed-owner-container",
+    "duplicate-container",
+    "vtable-rtti-data",
+    "resource-data-index",
+    "dead-unreferenced"
+  ],
+  "report_path": "../auto-generated/by-memory-tool-report.md"
+}

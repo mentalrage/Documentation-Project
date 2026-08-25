@@ -51,7 +51,7 @@ Use `by-vtable` and `by-function-pointer` for type/layout reconstruction. Use `.
 
 ## Scoring Discipline
 
-Do not rate a type page at `95+` completion or confidence lightly. Those values mean the declaration, layout, ABI behavior, owner header/source placement, consumers, generated-name replacements, and supporting IDA/MCP or byte-level evidence have already been audited and written into the page in enough detail for another agent to verify the score. If any field, value, slot, signature, owner, dependency, source placement, or related memory evidence still needs research, keep the score below `95`.
+Do not rate a type page at `95+` completion or confidence lightly. Those values mean the declaration, layout, ABI behavior, owner header/source placement, consumers, generated-name replacements, and supporting IDA/MCP or byte-level evidence have already been audited and written into the page with the required specificity for another agent to verify the score. If any field, value, slot, signature, owner, dependency, source placement, or related memory evidence still needs research, keep the score below `95`.
 
 ## Coverage Report Rows
 
@@ -59,4 +59,4 @@ Use canonical type names as row keys in `-coverage-report.md`, sorted alphabetic
 
 ## Reconstruction Autogen
 
-Singular type pages are eligible for validator autogen metadata when they contain source-level C++ declarations that should be assembled into a generated `.cpp` draft. Attach nested/private types to the owning class UID when supported; attach file-level helper types to the owning `by-file` UID. Subtype guidance files and other `-xxx.md` support pages are excluded from autogen metadata.
+Singular type pages are eligible for validator autogen metadata when they contain source-level C++ declarations that should be assembled into a generated `.cpp` draft. Use `CANONICAL_OWNER` for semantic ownership: nested/private types usually point to the owning class UID when supported, while file-level helper types usually point to the owning `by-file` UID. Use `EMITTER_UIDS` for generated-output routing and make sure the emitter chain reaches a valid by-file source root before adding emitted C++. Add emitted C++ only when the active `90/90+` reconstruction-code gate in `../by-structure.md` is satisfied; `95+` remains a rare final-audit score and is not required merely to begin final-quality code entry. Subtype guidance files and other `-xxx.md` support pages are excluded from autogen metadata.

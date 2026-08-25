@@ -1,31 +1,55 @@
 *** UID:0000KL | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:93 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** PROPOSED_RECONSTRUCTION_PATH:"NexusTK/ui/core/" | ONLY MODIFY PATH INSIDE QUOTES - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:FILE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 
 # Layer
 
-## Status
+## Current Implemented Source Root
+
+- Applied score: `91/93`; projected folder remains `NexusTK/ui/core/`.
+- Declaration-first emission: [UID:000073][Layer](by-class/Layer.md) emits at position 10, followed by 24 source-authored children [UID:0004NR][0x004f0480-0x004f0597.LayerConstructor](by-memory/0x004f0480-0x004f0597.LayerConstructor.md) through [UID:0004OE][0x004f1ab0-0x004f1b32.LayerFindPaneNode](by-memory/0x004f1ab0-0x004f1b32.LayerFindPaneNode.md) at positions 20 through 250 in exact address/source order.
+- [UID:0004OF][0x004f1b40-0x004f1bf6.LayerScalarDeletingDestructor](by-memory/0x004f1b40-0x004f1bf6.LayerScalarDeletingDestructor.md) is compiler-only, non-emitting, and has no position. [UID:00018W][0x004f0480-0x004f1bf6.Layer](by-memory/0x004f0480-0x004f1bf6.Layer.md) is a non-emitting 25-child index.
+- The generated source must therefore contain one Layer declaration and exactly one definition for each of the 24 source methods, with no aggregate Empty Emitter Marker, scalar wrapper body, vtable body, explicit base teardown, or duplicate method.
+
+## Current File Role And Placement
+
+`Layer.cpp` owns the reusable pane hierarchy: root/list lifetime, add/insert/remove, masked flags and accessors, dirty-region aggregation, recursive rendering, parent/offset lookup, recursive propagation/cleanup/search, and the source no-op EndRender hook. The exact LayerNode payload and HierList row layout are class-private implementation facts, while generic HierList and Region/Motion bodies stay in their own files.
+
+The former `ui/core` versus render split caveat is closed. Pane is the public API client, ScreenPane drives presentation, MapPane contributes one effect branch, and HierList/Region/Motion/GrafPort are dependencies. Application startup, MainMenuPane, WorldMapPane, packet construction, and FlyingParcelPane own Layer instances or invoke lifecycle methods but do not own Layer source.
+
+## Current Evidence And History
+
+The unique Layer RTTI/vtable, eight-byte receiver, contiguous `[0x004f0480,0x004f1bf6)` class island, direct caller/callee graph, and current project tree support this source root. Twenty-five exact child bodies are now registered: 24 source members and one compiler scalar wrapper. The three raw members are retained despite zero xrefs because their complete ABIs, shared private lookup, field offsets, and class-order placement prove source membership. `Layer::MarkAllPanesForDeletion` is independently corroborated by B002 UID0002AF, and `Layer::EndRender` is a direct ordinary call, not optional virtual glue.
+
+Original PDB/private spelling and exact header-versus-implementation placement of LayerNode remain confidence caps. Historical 22-modeled-function, unresolved-layout, and possible render-split statements below predate this implemented split and are not current blockers.
+
+
+
+## Historical Pre-Split Status
 
 - Confidence: strong for class behavior, source ownership, and `ui/core` placement; medium for the not-yet-final `LayerNode` field layout.
 - Proposed module: `ui/core/Layer.cpp`
 - Projected reconstruction folder: `NexusTK/ui/core/`
 - Main address range: `0x004f0480-0x004f1bf6`
 
-## File Role
+## Historical Pre-Split File Role
 
 `Layer` owns the pane tree used for z-ordering, clipping, dirty-region propagation, motion updates, and recursive rendering. It is the bridge between UI pane ownership and render traversal.
 
 The strongest current source-structure placement is `ui/core/Layer.cpp` because `Pane` attach/remove methods are direct API users, the constructor fan-in includes reusable UI setup paths, and `../by-project-structure/proposed-source-tree.md` groups `Layer` with `Pane`, `RectBounds`, `Region`, `DialogPane`, `ControlPane`, and `ScreenPane`. A render-side split remains a secondary caveat because `RenderRecursive` and dirty-region traversal are render-facing and use `MapPane`, `Motion`, and `Region`.
 
-## Proposed Contents
+[UID:0003A3][0x00559410-0x005595ca.ScreenPanePresentationTraversal](by-memory/0x00559410-0x005595ca.ScreenPanePresentationTraversal.md) / `ScreenPane::TraversePresentationList(Region *dirtyRegion)` is the current named ScreenPane caller that drives the root layer-list dirty aggregation and recursive render traversal through the Layer helper family. This supports the Layer-node helper roles while keeping ScreenPane as caller/owner of the traversal method and Layer as owner of the node/tree helpers.
+
+## Historical Proposed Contents
 
 | Entity | Address | Role |
 | --- | --- | --- |
 | `Layer` | `0x004f0480-0x004f1bf6` | Tree of pane nodes with bounds, clip bounds, flags, dirty state, and optional motion/region data. |
 | `LayerNode` local struct | inferred | Per-node pane pointer, child tree, bounds/clip, flags, dirty state, and `Region`/`Motion` slot. |
 
-## Method Families
+## Historical Pre-Split Method Families
 
 | Family | Addresses | Role |
 | --- | --- | --- |
@@ -35,7 +59,7 @@ The strongest current source-structure placement is `ui/core/Layer.cpp` because 
 | Dirty/render traversal | `0x004f0f90-0x004f1905` | Build dirty region and recursively render/update child nodes. |
 | Search helpers | `0x004f1910-0x004f1b31` | Recursive node lookup and node metadata helpers. |
 
-## Evidence Notes
+## Historical Pre-Split Evidence Notes
 
 - The class and memory docs identify `Layer` as an 8-byte object with an `LObject` base plus an owned tree pointer.
 - IDA MCP reports `Layer::AddChildAfter` and `AddChildBefore` are directly called by `Pane` layer attach/insert methods.
@@ -54,9 +78,13 @@ The strongest current source-structure placement is `ui/core/Layer.cpp` because 
 - [UID:0000NB][ScreenPane](by-file/ScreenPane.md)
 - [UID:0000JR][GrafPort](by-file/GrafPort.md)
 - [UID:0000JV][HierList](by-file/HierList.md)
+- [UID:0003A3][0x00559410-0x005595ca.ScreenPanePresentationTraversal](by-memory/0x00559410-0x005595ca.ScreenPanePresentationTraversal.md)
 
 ## Changes
 
+- 2026-06-21 B012 ScreenPanePresentationTraversal support sync:
+  - Score unchanged at `86/86`.
+  - Added [UID:0003A3][0x00559410-0x005595ca.ScreenPanePresentationTraversal](by-memory/0x00559410-0x005595ca.ScreenPanePresentationTraversal.md) / `ScreenPane::TraversePresentationList(Region *dirtyRegion)` as the named caller for root layer-list dirty aggregation and recursive render traversal, preserving Layer ownership of the helper family.
 - 2026-06-06 A004 by-file evidence refresh:
   - Before: the by-file page remained at `82/78`, used a file-shaped projected-path label, and did not reflect the stronger 2026-06-05 aggregate memory evidence.
   - After: raised to `86/86`, corrected the displayed projected folder to `NexusTK/ui/core/`, expanded the `ui/core` placement rationale, and added live IDA evidence for function anchors, Pane API callers, HierList callees, vtable writes, and the aggregate memory page.

@@ -1,21 +1,31 @@
 *** UID:000047 | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000KC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000KC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000KC | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// No standalone class-page emission for EatInputPane; exact Eat method bodies are documented in [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md) and must stay separate from [UID:0003NZ][0x005b5e60-0x005b5ebe.SendUseItemSlotPacketRaw](by-memory/0x005b5e60-0x005b5ebe.SendUseItemSlotPacketRaw.md).
+[[CHILDREN]]
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # EatInputPane
+
+## B003 2026-07-20 Event Contract Synchronization
+
+- The compact `0x005b5f90` help override is `bool HandleKeyOrTextEvent(Event *event)`: translate key/modifiers, require translated `?`, exact Shift `0x04`, and key-down, switch tab `2` with `NULL`, play effect `0x198` at 100, return true, otherwise use the existing base handler.
+- Eat construction, selected-slot/eat packet behavior, children, vtable/compiler evidence, scores, route, formal block, and history remain unchanged. Stale `OnKeyInput`/`InputEvent`/`NarrowInputKey`/`false` wording is superseded only.
 
 ## Status
 
 - Confidence: strong for behavior and item-action input module placement.
 - Likely source file: [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md)
 - Address range: [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md)
-- Reconstruction note: leave C++ blank until final helper/member names are 95/95; current evidence is sufficient for routing, not final source.
+- Reconstruction routing: [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md) is a non-emitting range inventory, so it is not this class's C++ blocker. Future class source work should stay on this class or exact method/raw children.
 
 ## Class Purpose
 
@@ -38,6 +48,7 @@
 - IDA decompilation of `0x005b6000` confirms slot conversion: lowercase `a-z` becomes `1-26`, uppercase `A-Z` becomes `27-52`, and the accepted value is bounded by [UID:0000PS][g_activeUserStatusPane](by-global/g_activeUserStatusPane.md) offset `+0x284`.
 - The packet is opcode `0x1a`, selected slot byte, length `2`, sent through [UID:0000Q5][g_packetSender](by-global/g_packetSender.md).
 - This class is part of the same command prompt family as [UID:0000FG][UseInputPane](by-class/UseInputPane.md) and [UID:0000EY][ThrowInputPane](by-class/ThrowInputPane.md).
+- 2026-06-25 B010 source-quality implementation corrects the adjacent retained raw helper [UID:0003NZ][0x005b5e60-0x005b5ebe.SendUseItemSlotPacketRaw](by-memory/0x005b5e60-0x005b5ebe.SendUseItemSlotPacketRaw.md): it sends opcode `0x1c`, not Eat opcode `0x1a`. Eat packet ownership remains this class's `OnConfirmInput` path at `0x005b6000`.
 
 ## Assignment Gate
 
@@ -52,10 +63,17 @@
 - [UID:0001XU][ItemActionInputPaneVtableFamily](by-type/by-vtable/ItemActionInputPaneVtableFamily.md)
 - [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md)
 - [UID:0000FG][UseInputPane](by-class/UseInputPane.md)
+- [UID:0003NZ][0x005b5e60-0x005b5ebe.SendUseItemSlotPacketRaw](by-memory/0x005b5e60-0x005b5ebe.SendUseItemSlotPacketRaw.md)
 - [UID:0000PS][g_activeUserStatusPane](by-global/g_activeUserStatusPane.md)
 - [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md)
 - [UID:0000Q5][g_packetSender](by-global/g_packetSender.md)
 - [UID:0000RC][g_pLanguageMan](by-global/g_pLanguageMan.md)
+
+## B005 2026-06-30 Empty-Emitter Callback
+
+- Formal output: the `RECONSTRUCTION_CPP CODE` block emits the accepted no-standalone marker plus `[[CHILDREN]]` so exact routed children can assemble under this route. Eat remains covered by the exact Throw/Use/Eat range evidence, not by a broad class-page emission.
+- Route proof: [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md) covers Eat constructor `0x005b5ec0-0x005b5f87`, key handler `0x005b5f90-0x005b5ffc`, and confirm/submit path `0x005b6000-0x005b60c0`. [UID:0001XU][ItemActionInputPaneVtableFamily](by-type/by-vtable/ItemActionInputPaneVtableFamily.md) records Eat vtables `0x00630390`, `0x006303e0`, and `0x00630410`, primary action slot `0x005b6000`, and secondary input slot `0x005b5f90`.
+- Rejected emission: Eat's opcode `0x1a` path must stay distinct from [UID:0003NZ][0x005b5e60-0x005b5ebe.SendUseItemSlotPacketRaw](by-memory/0x005b5e60-0x005b5ebe.SendUseItemSlotPacketRaw.md), whose accepted retained helper emits opcode `0x1c` for Use.
 
 ## Changes
 
@@ -64,6 +82,10 @@
   - After: `86/88`, `AUTOGEN_PARENT_UID:0000KC`.
   - Evidence: live IDA MCP confirmed exact constructor/key/submit ranges, vtable triple and factory/dispatcher xrefs, prompt id `12`, help-key path, slot-letter conversion, inventory bound, and opcode `0x1a` packet send.
   - Assignment: direct parent [UID:0000KC][ItemActionInputPanes](by-file/ItemActionInputPanes.md) also reached `90/85`, satisfying the corrected child-and-parent 85/85 gate.
+- 2026-06-25 B010 Throw/Use/Eat aggregate source-quality sync:
+  - Score unchanged at `86/88`.
+  - Updated routing language so [UID:0001ML][0x005b5890-0x005b60c0.ThrowUseEatInputPanes](by-memory/0x005b5890-0x005b60c0.ThrowUseEatInputPanes.md) is a non-emitting inventory, not a class C++ blocker.
+  - Evidence: current IDA MCP session `80de0a67` verifies `EatInputPane::OnConfirmInput` sends opcode `0x1a`; adjacent [UID:0003NZ][0x005b5e60-0x005b5ebe.SendUseItemSlotPacketRaw](by-memory/0x005b5e60-0x005b5ebe.SendUseItemSlotPacketRaw.md) sends opcode `0x1c` and is not the eat helper.
 - 2026-06-07 A008 alias cleanup:
   - Before: constructor evidence used bare `dword_67A748` wording for the local-player name source.
   - Changed to: canonical [UID:0000QK][g_pCollectionData](by-global/g_pCollectionData.md) wording while preserving `dword_67A748` as the historical IDA alias.

@@ -1,12 +1,16 @@
 *** UID:0000RJ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:87 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000L8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000L8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000L8 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+MenuVarietySelectPane *g_pMenuVarietySelectPane = NULL;
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # g_pMenuVarietySelectPane
 
@@ -17,7 +21,7 @@
 - Final source type: `MenuVarietySelectPane* g_pMenuVarietySelectPane`.
 - Likely owner: [UID:0000L8][MenuVarietyPanes](by-file/MenuVarietyPanes.md)
 - Exact storage page: [UID:0002A4][0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton](by-memory/0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton.md)
-- Confidence: very strong for identity, owner, and lifecycle; medium-high for final initialization syntax.
+- Confidence: very strong for identity, owner, zero-initialized storage, lifecycle, and source definition; medium-high for exact original declaration spelling/linkage.
 
 ## Role
 
@@ -28,7 +32,7 @@
 - `MenuVarietySelectPane::MenuVarietySelectPane` at `0x005bc970` assigns `this` to the global.
 - `MenuVarietySelectPane::~MenuVarietySelectPane` at `0x005bcf80` clears the global to null after unregistering/removing the pane and destroying the menu label vector.
 - The clear helper at `0x005bfbd0-0x005bfbdb` also clears this exact slot during the shared UI-pane destructor/thunk tail.
-- The image dword is documented as initialized to `0xffffffff`; treat the exact final C++ initializer as unresolved until IDA/data-section context is rechecked live.
+- Current MCP session `3fa0535f` reads the image dword as zero-initialized (`00 00 00 00` / integer `0`), so the accepted source definition is `MenuVarietySelectPane *g_pMenuVarietySelectPane = NULL;`. Older `0xffffffff` wording is historical and superseded for the active IDB.
 
 ## Consumers
 
@@ -43,6 +47,7 @@
 - Decompilation on 2026-06-05 shows `0x005bc970` storing `this` into `dword_69BF78` and installing the `MenuVarietySelectPane` vtable, `0x005bcf80` and `0x005bfce0` clearing the slot during teardown, and `0x005bc800` checking the slot before choosing `MENUVAR.EPF` artwork mode.
 - The former unresolved `dword_69bf78` clear helper at `0x005bfbd0` is therefore a `MenuVarietySelectPane` singleton clear helper, not a `UserStatusPane` singleton.
 - IDA MCP on 2026-06-07 reconfirmed the same seven xrefs and callee/caller context: `0x005bc970` is called from the menu button click handler at `0x005bc765`, while the ordinary destructor, standalone clear helper, and scalar deleting destructor have no direct static callers but are vtable/destructor-tail code for the same selector class.
+- 2026-06-29 B003 current MCP session `3fa0535f` `get_bytes` / `get_int` reads `00 00 00 00` / integer `0` at `0x0069bf78`; this resolves the stale initializer caveat and supports the formal source definition.
 
 ## Assignment Gate
 
@@ -53,12 +58,15 @@ This global remains attached to [UID:0000L8][MenuVarietyPanes](by-file/MenuVarie
 - [UID:0000L8][MenuVarietyPanes](by-file/MenuVarietyPanes.md)
 - [UID:000081][MenuVarietyPane](by-class/MenuVarietyPane.md)
 - [UID:000082][MenuVarietySelectPane](by-class/MenuVarietySelectPane.md)
-- [UID:0001NP][0x005bc610-0x005bfd98.MenuVarietyPanes](by-memory/0x005bc610-0x005bfd98.MenuVarietyPanes.md)
+- [UID:0001NP][0x005bc610-0x005c0034.MenuVarietyPanes](by-memory/0x005bc610-0x005c0034.MenuVarietyPanes.md)
 - [UID:0001NS][0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper](by-memory/0x005bfbd0-0x005c0034.UiPaneDestructorThunksAndVectorHelper.md)
 - [UID:0002A4][0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton](by-memory/0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton.md)
 
 ## Changes
 
+- 2026-06-29 B003 implementation callback:
+  - Changed to `COMPLETION:87`, `CONFIDENCE:90`, and inserted the formal source definition `MenuVarietySelectPane *g_pMenuVarietySelectPane = NULL;`.
+  - Summary/evidence: current MCP session `3fa0535f` reconfirmed zero-initialized bytes at `0x0069bf78`, integer value `0`, and the seven-reference lifecycle: menu click/draw consumers, constructor publish/null fallback, ordinary destructor clear, standalone clear helper, and scalar deleting destructor clear. The older `0xffffffff` initializer note is historicalized as superseded active-IDB evidence. Exact storage child [UID:0002A4][0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton](by-memory/0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton.md) now emits a marker-only covered-by comment instead of duplicating this global definition.
 - 2026-06-07 A006 Batch 060 parent-gate refresh:
   - What existed before: `82/84`, attached to [UID:0000L8][MenuVarietyPanes](by-file/MenuVarietyPanes.md) under the old gate while the file parent was still below corrected `85` confidence.
   - Changed to: `86/88`, retained `AUTOGEN_PARENT_UID:0000L8`, and documented the exact memory child [UID:0002A4][0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton](by-memory/0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton.md).
@@ -67,7 +75,7 @@ This global remains attached to [UID:0000L8][MenuVarietyPanes](by-file/MenuVarie
 - Completion/confidence score update:
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`, with only the basic role and xref summary documented.
   - Changed to: `COMPLETION:82` and `CONFIDENCE:84`, with explicit storage page, lifecycle, consumers, and unresolved initializer caveat.
-  - Summary/evidence: exact storage is covered by [UID:0002A4][0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton](by-memory/0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton.md); constructor/destructor and click/draw consumers are documented in the menu-variety memory/class/file pages and refreshed IDA xrefs. Confidence remains capped because the observed `0xffffffff` image initializer still needs final-source interpretation.
+  - Summary/evidence: exact storage is covered by [UID:0002A4][0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton](by-memory/0x0069bf78-0x0069bf7c.MenuVarietySelectPaneSingleton.md); constructor/destructor and click/draw consumers are documented in the menu-variety memory/class/file pages and refreshed IDA xrefs. The then-observed `0xffffffff` image-initializer caveat was superseded by the 2026-06-29 B003 active-IDB zero-initialization check.
 
 - 2026-06-05 autogen classification:
   - What existed before: autogen metadata was blank, so the singleton was reported as unclassified.

@@ -1,24 +1,29 @@
 *** UID:000010 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL:30 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000HT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// UID000010 BoardListPane class-level source is covered by UID0000HT BoardDialogs and UID0002V9 BoardListPaneCore. This page emits no standalone partial class declaration until BoardListEntry/ListPane/GrafPort declarations are synchronized; UID0002V9 remains an aggregate marker because it mixes retained no-direct-route raw helpers with vtable-dispatched virtual methods.
+[[CHILDREN]]
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # BoardListPane
 
 ## Status
 
 - Disposition: reconstructable NexusTK project list-pane class.
-- Confidence: strong for vtable identity, row activation/draw behavior, and board-dialog module placement; medium for final row record layout and raw helper reachability.
+- Confidence: strong for vtable identity, row activation/draw behavior, board-dialog module placement, and current no-route evidence for the retained raw helpers; medium-high for inferred method/field names and final row/control declarations.
 - Parent source bucket: [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md)
 - Core memory: [UID:0002V9][0x004729e0-0x00472bf5.BoardListPaneCore](by-memory/0x004729e0-0x00472bf5.BoardListPaneCore.md)
 - Address range parent: [UID:0000ZK][0x00472070-0x00477790.BoardArticleDialogs](by-memory/0x00472070-0x00477790.BoardArticleDialogs.md)
 - Vtable family: [UID:0001X4][BoardArticleDialogVtableFamily](by-type/by-vtable/BoardArticleDialogVtableFamily.md)
-- Autogen status: attached to the `BoardDialogs` file bucket; reconstruction C++ remains blank because field names, row layout, and raw helper names are not final.
+- Autogen status: attached to the `BoardDialogs` file bucket; formal output is marker-only because the exact core child should be split into method pages before C++ and the class declaration dependencies are not synchronized.
 
 ## Class Purpose
 
@@ -35,11 +40,11 @@
 
 | Method | Address | Role |
 | --- | --- | --- |
-| raw constructor-shaped helper | `0x004729e0-0x00472a27` | Calls the shared list/control setup helper and stores the three `BoardListPane` vtables; IDA does not model this start as a function. |
-| raw row text helper | `0x00472a30-0x00472a88` | Stages bounded wide row text and forwards it to shared list text helper `0x004f3c50`; direct reachability remains open. |
-| raw selected-board packet helper | `0x00472a90-0x00472b45` | Serializes a board-selection packet from pane selection state; direct reachability remains open. |
-| `OnItemDoubleClick` / activation virtual | `0x00472b50-0x00472b63` | Vtable slot `0x00613d64`; climbs owner/container links and tail-jumps to `BoardListDialog::OpenSelectedBoard` at `0x004728a0`. |
-| `DrawItem` | `0x00472b70-0x00472bf5` | Vtable slot `0x00613d68`; draws one board-list row with selected/highlight state, marker/icon output, and centered row text. |
+| retained `BoardListPane::BoardListPane` / `InitializeListPane` setup body | `0x004729e0-0x00472a27` | Calls the shared list/control setup helper and stores the three `BoardListPane` vtables; IDA does not model this start as a function, and current xref/pointer/listing checks find no direct route. |
+| retained `BoardListPane::AppendBoardItem` | `0x00472a30-0x00472a88` | Builds a `BoardListEntry` with `boardId` at row `+0x00` and UTF-16 display text at row `+0x02`, then forwards it to shared list text/add helper `0x004f3c50`; no direct route is currently found. |
+| retained `BoardListPane::SendSelectedBoardRequestNoRoute` | `0x00472a90-0x00472b45` | Serializes opcode `0x3b`, subcommand `0x02`, selected board id, sentinel `0x7fff`, and EPF/legacy mode from inherited selection state at `this + 0x134`; no direct route is currently found, and observed activation uses `BoardListDialog::OpenSelectedBoard`. |
+| `BoardListPane::OnItemDoubleClick` | `0x00472b50-0x00472b63` | Vtable slot `0x00613d64`; climbs owner/container links and tail-jumps to `BoardListDialog::OpenSelectedBoard` at `0x004728a0`. |
+| `BoardListPane::DrawItem` | `0x00472b70-0x00472bf5` | Vtable slot `0x00613d68`; draws one board-list row with selected/highlight state, marker/icon output, inherited draw/blit-mode byte `this + 0x70`, and centered row text from `entry + 2`. |
 | shared scalar deleting destructor | [UID:0000ZR][0x0047ea50-0x0047ea8b.SharedListPaneScalarDeletingDestructor](by-memory/0x0047ea50-0x0047ea8b.SharedListPaneScalarDeletingDestructor.md) | Non-emitting shared list-pane ABI wrapper; keep source ownership on the class methods and let the compiler regenerate the wrapper. |
 
 ## Evidence Notes
@@ -51,16 +56,18 @@
 - Live decompilation of `0x00472b50` shows two virtual owner/container lookups through slot `+0x1c`, followed by a tail jump to [UID:0002EJ][0x00472070-0x004729dd.BoardListDialogCore](by-memory/0x00472070-0x004729dd.BoardListDialogCore.md)'s selected-board opener.
 - Live decompilation of `0x00472b70` shows selection/highlight testing, draw helper calls, transient draw-state byte `this + 0x70`, row midpoint calculation, and text drawing from the row payload at `a3 + 2`.
 - 2026-06-10 B001-025 recheck confirms [UID:0002V9][0x004729e0-0x00472bf5.BoardListPaneCore](by-memory/0x004729e0-0x00472bf5.BoardListPaneCore.md) is now `85/88`, this class is the direct owner, and the shared [UID:0000ZR][0x0047ea50-0x0047ea8b.SharedListPaneScalarDeletingDestructor](by-memory/0x0047ea50-0x0047ea8b.SharedListPaneScalarDeletingDestructor.md) remains non-emitting ABI glue rather than a handwritten source child.
+- 2026-07-02 B002 MCP session `supervisor_resume_20260629` changes the raw-helper caveat from open reachability to documented no-direct-route evidence: no IDA function objects, xrefs, pointer-byte hits, or bounded listing routes are found for `0x004729e0`, `0x00472a30`, or `0x00472a90`.
+- B002 source-quality naming is descriptive/inferred: `AppendBoardItem`, `SendSelectedBoardRequestNoRoute`, `OnItemDoubleClick`, `DrawItem`, `BoardListEntry::boardId`, `BoardListEntry::text`, inherited selected index at `this + 0x134`, and inherited draw/blit-mode byte at `this + 0x70`. Stale generated aliases and dependency-owner alternatives remain rejected.
 
 ## Score Rationale
 
-Completion is raised to `85` because the page now records the exact core child, direct file parent, raw helper island, modeled virtuals, vtable stores, activation callback to `BoardListDialog`, row drawing behavior, and shared destructor wrapper boundary. Confidence remains `88` because IDA supports the class identity and callbacks, while final row-field names and raw helper source names remain provisional.
+Completion is raised to `88` because the page records the exact core child, direct file parent, raw helper island, modeled virtuals, vtable stores, activation callback to `BoardListDialog`, row drawing behavior, shared destructor wrapper boundary, current no-route evidence, descriptive method/field names, and the split-first C++ disposition. Confidence is `90` because current MCP supports the class identity, callbacks, raw bytes, negative route evidence, and vtable facts; it remains below final because original method names and synchronized class/row declarations are still inferred.
 
 ## Open Questions
 
-- The raw starts at `0x00472a30` and `0x00472a90` need stronger caller evidence before final method names are chosen.
-- Row record layout and the meaning of draw-state byte `this + 0x70` remain provisional.
-- C++ reconstruction remains intentionally blank until the class declaration, raw helper reachability, and row-field names clear the reconstruction gate.
+- The raw starts at `0x004729e0`, `0x00472a30`, and `0x00472a90` have evidence-backed no-direct-route status in current MCP. Future caller evidence would need a direct branch/call, table pointer, or source/header proof.
+- Row record layout names are currently descriptive: `BoardListEntry::boardId` at `+0x00` and `BoardListEntry::text` at `+0x02`; the inherited selected-index and draw/blit-mode fields are likewise inferred from use and support docs.
+- C++ reconstruction remains intentionally marker-only until exact method children or synchronized class/row/control declarations are accepted.
 
 ## Cross-References
 
@@ -85,3 +92,7 @@ Completion is raised to `85` because the page now records the exact core child, 
   - Before: the class remained `78/88`, blocking strict assignment of its repaired child.
   - Changed to: `COMPLETION:85`, `CONFIDENCE:88`; parent remains [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md).
   - Summary/evidence: B001 re-audit confirmed exact pane child coverage, modeled virtuals, raw helper boundaries, vtable stores, activation callback, and non-emitting shared destructor treatment. Remaining uncertainty is final row-layout/source naming, not direct ownership.
+- 2026-07-02 B002 UID0002V9 accepted source-quality implementation callback:
+  - Before: class score was `85/88`, and raw helper reachability/source names were still described as open.
+  - Changed to: `COMPLETION:88`, `CONFIDENCE:90`; owner/emitter remain [UID:0000HT][BoardDialogs](by-file/BoardDialogs.md).
+  - Summary/evidence: current MCP session `supervisor_resume_20260629` proves no direct route/pointer hits for retained raw helpers, names the source-facing roles `AppendBoardItem`, `SendSelectedBoardRequestNoRoute`, `OnItemDoubleClick`, and `DrawItem`, records inferred row/selection/draw fields, and keeps class-level output marker-only pending exact method children or synchronized declarations.

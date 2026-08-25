@@ -1,12 +1,19 @@
 *** UID:00008D | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000LE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000LE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000LE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// MiniMapDownloader class declaration is intentionally withheld: the worker-thread
+// singleton and six-function island are documented, but Thread base spelling and
+// MiniMapDownloadTask field names are not source-quality yet.
+[[CHILDREN]]
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # MiniMapDownloader
 
@@ -32,7 +39,7 @@ Singleton worker thread for minimap download tasks. It is minimap feature code, 
 
 ## Assignment Gate
 
-`AUTOGEN_PARENT_UID` is set to [UID:0000LE][MiniMap](by-file/MiniMap.md). This class is now scored `85/88`, and the direct file parent is scored `85/86`, so both sides satisfy the corrected 85/85 gate. The parent is direct because the file page owns the minimap downloader singleton, the `.mnm` download worker path, [UID:0000XN][0x00453910-0x00453def.MiniMapDownloader](by-memory/0x00453910-0x00453def.MiniMapDownloader.md), and the final split caveat between `MiniMapDownloader.cpp` and compact `MiniMap.cpp`.
+`AUTOGEN_PARENT_UID` is set to [UID:0000LE][MiniMap](by-file/MiniMap.md). This class is now scored `86/90`, and the direct file parent is scored `87/89`, so both sides satisfy the corrected 85/85 gate. The parent is direct because the file page owns the minimap downloader singleton, the `.mnm` download worker path, [UID:0000XN][0x00453910-0x00453def.MiniMapDownloader](by-memory/0x00453910-0x00453def.MiniMapDownloader.md), and the current-pass compact MiniMap source route.
 
 ## Related Helper
 
@@ -51,12 +58,22 @@ Do not confuse this with `DownloadMinimapFile_41A750`, which is dispatched by [U
 - Batch 092 found the vtable-backed task handler data xref at `0x006106fc`; `OnThreadTask` calls the local download helper, the shared thread fallback at `0x00596920`, and the task free helper at `0x005c7526`.
 - Batch 092 callee evidence keeps base-thread helpers `0x00596250`, `0x00596400`, `0x005965e0`, and `0x00596920` outside the class while keeping the S3 `.mnm` helper in the minimap downloader source family.
 
+## B010 Declaration-Shell Audit And Split Policy
+
+Current evidence supports a class-index marker with `[[CHILDREN]]`, not a declaration shell. The class is a Thread-style worker with vtable base `0x006106d0` and constructor/destructor/scalar-deleting references. Constructor `0x00453910` calls the thread base with worker id `5`, publishes `g_pMiniMapDownloader`, installs the vtable, and starts the worker. The exact six-function island is constructor `0x00453910-0x00453985`, destructor `0x00453990-0x004539e1`, `OnThreadTask` `0x00453a00-0x00453a2f`, direct `.mnm` download helper `0x00453aa0-0x00453d4f`, singleton clear helper `0x00453d50-0x00453d5b`, and scalar deleting destructor `0x00453d60-0x00453def`.
+
+No declaration shell or method body is emitted from the class page because `Thread` base source spelling, the `MiniMapDownloadTask` type, output path/map code fields, delete/free helper name, and WinINet wrapper names are still below source-quality for class-level C++. Exact method/helper children are excluded from this callback unless a supervisor split callback authorizes them; [UID:0000XN][0x00453910-0x00453def.MiniMapDownloader](by-memory/0x00453910-0x00453def.MiniMapDownloader.md) carries the current aggregate marker and child plan.
+
+## FileDownloader Download Helper Context
+
+B001 2026-06-18 source-quality pass distinguishes this class from the FileDownloader minimap worker. `DownloadMinimapFile` at `0x0041a750` is reached only through `FileDownloader::OnMessage` message `10000` and emits in [UID:0000JC][FileDownloader](by-file/FileDownloader.md). MiniMapDownloader remains the minimap-specific task/singleton path for its own thread-task handler and should not absorb the `0x0041a750` FileDownloader body.
+
 ## Score Rationale
 
 | Field | Value | Rationale |
 | --- | ---: | --- |
-| Completion | 85 | The class page now records the complete function island including the clear helper, exact IDA bounds/padding, singleton lifecycle writes, vtable dispatch, direct download-helper ownership, source-family parent, and generic downloader exclusion. It remains below final-source quality because the task-block layout and exact final source split are unresolved. |
-| Confidence | 88 | Confidence is strong from live IDA function, caller/callee, data-xref, and memory-page evidence. It is capped below the memory page because this class page does not fully expand the WinINet helper internals or task struct names. |
+| Completion | 86 | The class page now records the complete function island including the clear helper, exact IDA bounds/padding, singleton lifecycle writes, vtable dispatch, direct download-helper ownership, source-family parent, generic downloader exclusion, formal class-index marker, and explicit split/body exclusion policy. It remains below final-source quality because the task-block layout and exact final source split are unresolved. |
+| Confidence | 90 | Confidence is strong from live IDA function, caller/callee, data-xref, and memory-page evidence. It is capped below final-source quality because class declaration source spelling, WinINet helper names, and task struct names are not accepted yet. |
 
 ## Cross-References
 
@@ -66,6 +83,10 @@ Do not confuse this with `DownloadMinimapFile_41A750`, which is dispatched by [U
 - [UID:0000JC][FileDownloader](by-file/FileDownloader.md)
 
 ## Changes
+
+- 2026-06-30 B010 empty-emitter implementation callback:
+  - Raised `85/88` to `86/90`, inserted the accepted formal class-index marker with `[[CHILDREN]]`, and added the declaration-shell/split-policy audit for the Thread-style worker class and six-function island.
+- 2026-06-18 B001 FileDownloader support sync: recorded that `0x0041a750` `DownloadMinimapFile` is a FileDownloader message `10000` worker and not this class's task-handler body.
 
 - 2026-06-05: Marked `RECONSTRUCTABLE:TRUE` after live IDA MCP on `NexusTK.exe` confirmed the downloader constructor/destructor/task/helper/deleting-destructor starts at `0x00453910`, `0x00453990`, `0x00453a00`, `0x00453aa0`, and `0x00453d60`. Left `AUTOGEN_PARENT_UID` blank because this class is below the 80 completion gate and likely parent [UID:0000LE][MiniMap](by-file/MiniMap.md) is also below the 80 completion attachment gate.
 - Completion/confidence score update: existed before as `0/0`; changed to `78/86`. Summary: the singleton worker-thread role, method set, direct helper, source-family placement, and FileDownloader distinction are well documented, but the task layout and helper internals are not fully expanded here. Evidence: linked MiniMapDownloader memory page, `g_pMiniMapDownloader`, IDA `lookup_funcs`/`callers`/`callees` notes, direct caller from `OnThreadTask` to `DownloadMinimap_453AA0`, and contrast with `DownloadMinimapFile_41A750`.

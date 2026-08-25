@@ -1,12 +1,15 @@
 *** UID:0001XX | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:00006Z | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:00006Z | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:00006Z | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # KeySpeedMgr Vtable
 
@@ -34,7 +37,7 @@
 | `+0x04` | `0x004f4b10` | Inherited `LObject` class-name/identity slot; returns `off_61CF44`, the `LObject` name record. |
 | `+0x08` | `0x0041b6c0` | Inherited/default no-op callback slot (`retn 8`). |
 
-The dwords at `0x0061c9d4` and `0x0061c9d8` both contain `0x400`; they are not code addresses and have no direct xrefs in the current IDA database. The next RTTI pointer at `0x0061c9dc` belongs to `LanguageMan`, so do not model those `0x400` constants as `KeySpeedMgr` virtual methods.
+The exact KeySpeedMgr vtable data ends at `0x0061c9d4`. The dwords at `0x0061c9d4` and `0x0061c9d8` both contain `0x400`; they are not code addresses, have no direct xrefs in the current IDA database, and are now routed to [UID:00040V][0x0061c9d4-0x0061c9dc.LanguageManParserLimitConstants](by-memory/0x0061c9d4-0x0061c9dc.LanguageManParserLimitConstants.md) as high-probability LanguageMan parser line/count limits. The next RTTI pointer at `0x0061c9dc` belongs to `LanguageMan`, so do not model those `0x400` constants as `KeySpeedMgr` data or virtual methods.
 
 ## Store And Xref Evidence
 
@@ -48,24 +51,29 @@ The dwords at `0x0061c9d4` and `0x0061c9d8` both contain `0x400`; they are not c
 
 `KeySpeedMgr` is a compact `LObject`-derived input/platform singleton, not a plain C helper struct. Reconstruct the vtable as normal class inheritance; do not emit the inherited no-op slot or class-name helper as handwritten `KeySpeedMgr` source unless the final `LObject` header requires explicit overrides.
 
+B010/B012 source-quality review keeps the `+0x00` slot as scalar deleting destructor wrapper evidence only. The ordinary destructor source body lives on [UID:0002IQ][0x004efee0-0x004efef5.KeySpeedMgrDestructor](by-memory/0x004efee0-0x004efef5.KeySpeedMgrDestructor.md), while the vtable slot points to [UID:0002IT][0x004effc0-0x004f0008.KeySpeedMgrScalarDeletingDestructor](by-memory/0x004effc0-0x004f0008.KeySpeedMgrScalarDeletingDestructor.md). B012 routes that wrapper through [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md) as reconstructable generated-binary ABI support with a comment-only marker, not as a handwritten source method.
+
+- Local IDA export RTTI reviewed by B014 shows the `KeySpeedMgr` hierarchy includes `KeySpeedMgr`, `LObject`, and `Singleton<KeySpeedMgr>` base-class descriptors. The vtable slot interpretation remains unchanged; this RTTI detail mainly affects final class-header/base-list reconstruction and explains the constructor's singleton-base adjustment pattern before the `g_pKeySpeedMgr` write.
+
 ## 2026-06-08 Batch133 Live IDA Recheck
 
 - IDA MCP `idb_meta` rechecked `NexusTK.exe` `sha256 9aec210bbc5ce592176a21dd8e9d9fd8f250b8d9ea78237915a99ba8cfa9a632`.
-- `py_eval` reconfirmed `0x0061c9c4 -> ??_R4KeySpeedMgr@@6B@`, `0x0061c9c8 -> 0x004effc0`, `0x0061c9cc -> 0x004f4b10`, `0x0061c9d0 -> 0x0041b6c0`, non-slot constants `0x400` at `0x0061c9d4` and `0x0061c9d8`, and the next `LanguageMan` locator at `0x0061c9dc`.
+- `py_eval` reconfirmed `0x0061c9c4 -> ??_R4KeySpeedMgr@@6B@`, `0x0061c9c8 -> 0x004effc0`, `0x0061c9cc -> 0x004f4b10`, `0x0061c9d0 -> 0x0041b6c0`, non-slot constants `0x400` at `0x0061c9d4` and `0x0061c9d8`, and the next `LanguageMan` locator at `0x0061c9dc`. B013 later supersedes the physical-tail interpretation by moving those constants out of KeySpeedMgr ownership and into [UID:00040V][0x0061c9d4-0x0061c9dc.LanguageManParserLimitConstants](by-memory/0x0061c9d4-0x0061c9dc.LanguageManParserLimitConstants.md).
 - The same pass reconfirmed the three vtable-store xrefs to `0x0061c9c8`: constructor store at `0x004efecb`, ordinary destructor store at `0x004efee0`, and scalar deleting destructor store at `0x004effc6`.
 - Function metadata stayed stable for the class parent evidence: constructor `0x004efea0-0x004efedd`, ordinary destructor `0x004efee0-0x004efef5`, load helper `0x004eff00-0x004eff25`, restore helper `0x004eff30-0x004eff5d`, fast-repeat helper `0x004effa0-0x004effbd`, and scalar deleting destructor `0x004effc0-0x004f0008`; raw `0x004eff60` remains not an IDA function object.
 
 ## Assignment Gate
 
 - `AUTOGEN_PARENT_UID` points to [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md). This page remains `86/90`, the direct class parent is `86/88`, and the class is already attached to [UID:0000KJ][KeySpeedMgr](by-file/KeySpeedMgr.md) at `90/88`.
-- This is a single-class vtable layout. The direct owner is the `KeySpeedMgr` class declaration, not the broader mixed [UID:00031P][0x0061c9c4-0x0061c9dc.KeySpeedMgrVtableData](by-memory/0x0061c9c4-0x0061c9dc.KeySpeedMgrVtableData.md) physical data child or the surrounding [UID:00025M][0x0061c9c4-0x0061ca44.KeySpeedStringResourceReadOnlyData](by-memory/0x0061c9c4-0x0061ca44.KeySpeedStringResourceReadOnlyData.md) linker island.
+- This is a single-class vtable layout. The direct owner is the `KeySpeedMgr` class declaration, not the former overbroad physical child tail, [UID:00040V][0x0061c9d4-0x0061c9dc.LanguageManParserLimitConstants](by-memory/0x0061c9d4-0x0061c9dc.LanguageManParserLimitConstants.md), or the surrounding [UID:00025M][0x0061c9c4-0x0061ca44.KeySpeedStringResourceReadOnlyData](by-memory/0x0061c9c4-0x0061ca44.KeySpeedStringResourceReadOnlyData.md) linker island.
 
 ## Cross-References
 
 - [UID:0001UV][KeySpeedMgrLayout](by-type/by-struct/KeySpeedMgrLayout.md)
 - [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md)
 - [UID:0000KJ][KeySpeedMgr](by-file/KeySpeedMgr.md)
-- [UID:00031P][0x0061c9c4-0x0061c9dc.KeySpeedMgrVtableData](by-memory/0x0061c9c4-0x0061c9dc.KeySpeedMgrVtableData.md)
+- [UID:00031P][0x0061c9c4-0x0061c9d4.KeySpeedMgrVtableData](by-memory/0x0061c9c4-0x0061c9d4.KeySpeedMgrVtableData.md)
+- [UID:00040V][0x0061c9d4-0x0061c9dc.LanguageManParserLimitConstants](by-memory/0x0061c9d4-0x0061c9dc.LanguageManParserLimitConstants.md)
 - [UID:00018O][0x004efea0-0x004f0008.KeySpeedMgr](by-memory/0x004efea0-0x004f0008.KeySpeedMgr.md)
 - [UID:00018P][0x004eff30-0x004eff5d.KeySpeedMgrRestoreSystemKeyboardSettings](by-memory/0x004eff30-0x004eff5d.KeySpeedMgrRestoreSystemKeyboardSettings.md)
 - [UID:00018Q][0x004effa0-0x004effbd.ApplyFastKeyboardRepeatSettings](by-memory/0x004effa0-0x004effbd.ApplyFastKeyboardRepeatSettings.md)
@@ -76,11 +84,32 @@ The dwords at `0x0061c9d4` and `0x0061c9d8` both contain `0x400`; they are not c
 
 - 2026-06-08 A005 Batch133:
   - What existed before: the page was `86/90` with a blank parent even though the direct class parent [UID:00006Z][KeySpeedMgr](by-class/KeySpeedMgr.md) was already `86/88`.
-  - Changed to: set `AUTOGEN_PARENT_UID:00006Z`, added a live IDA recheck, documented the corrected assignment gate, and linked the new exact vtable-data child page for the physical `0x0061c9c4-0x0061c9dc` data island.
-  - Summary/evidence: live IDA MCP reconfirmed the locator, three virtual slots, two non-slot `0x400` constants, successor `LanguageMan` locator, constructor/destructor/deleting-destructor vtable-store xrefs, and stable class method boundaries. Child and direct parent both clear the corrected `85/85` gate.
+  - Changed to: set `AUTOGEN_PARENT_UID:00006Z`, added a live IDA recheck, documented the corrected assignment gate, and linked the then-new vtable-data child page.
+  - Summary/evidence: live IDA MCP reconfirmed the locator, three virtual slots, two adjacent non-slot `0x400` constants, successor `LanguageMan` locator, constructor/destructor/deleting-destructor vtable-store xrefs, and stable class method boundaries. B013 later narrowed the child to the exact vtable-only bytes and moved the constants to LanguageMan parser-limit documentation.
 
 ### 2026-05-31 - Rechecked score against IDA vtable evidence
 
 - What existed before: the page had `COMPLETION:0`, `CONFIDENCE:0`, and a blank reconstructable flag despite detailed vtable evidence.
 - What changed: scores now reflect the documented IDA-backed vtable/RTTI/store evidence, and the page is marked reconstructable as source-declared/generated-binary class metadata.
-- Summary/evidence: IDA MCP confirms `??_R4KeySpeedMgr@@6B@` at `0x0061c9c4`, primary vtable `0x0061c9c8`, slots to `0x004effc0`, `0x004f4b10`, and `0x0041b6c0`, followed by non-slot `0x400` data and the next `LanguageMan` RTTI pointer.
+- Summary/evidence: IDA MCP confirms `??_R4KeySpeedMgr@@6B@` at `0x0061c9c4`, primary vtable `0x0061c9c8`, slots to `0x004effc0`, `0x004f4b10`, and `0x0041b6c0`, followed by adjacent non-slot `0x400` data now excluded from KeySpeedMgr ownership and the next `LanguageMan` RTTI pointer.
+
+### 2026-06-21 B010 source-quality sync
+
+- Preserved score and no formal C++.
+- Reconfirmed that vtable bytes, inherited slots, and scalar deleting destructor dispatch should not be hand-emitted; source reconstruction should rely on `class KeySpeedMgr : public LObject` and the ordinary virtual destructor declaration.
+- Added the scalar-wrapper policy link: [UID:0002IT][0x004effc0-0x004f0008.KeySpeedMgrScalarDeletingDestructor](by-memory/0x004effc0-0x004f0008.KeySpeedMgrScalarDeletingDestructor.md) documents generated-binary wrapper evidence, and [UID:0002IQ][0x004efee0-0x004efef5.KeySpeedMgrDestructor](by-memory/0x004efee0-0x004efef5.KeySpeedMgrDestructor.md) carries the source destructor body.
+
+### 2026-06-21 B012 scalar deleting destructor route sync
+
+- Clarified that the slot-zero target [UID:0002IT][0x004effc0-0x004f0008.KeySpeedMgrScalarDeletingDestructor](by-memory/0x004effc0-0x004f0008.KeySpeedMgrScalarDeletingDestructor.md) is routed/reconstructable class-specific compiler glue with a comment-only marker. The source still comes from the class declaration and [UID:0002IQ][0x004efee0-0x004efef5.KeySpeedMgrDestructor](by-memory/0x004efee0-0x004efef5.KeySpeedMgrDestructor.md), not a manual scalar-deleting-destructor implementation.
+
+### 2026-06-22 B013 source-routing repair
+
+- Preserved score and owner/emitter.
+- Narrowed the exact data child from the former physical `0x0061c9c4-0x0061c9dc` span to [UID:00031P][0x0061c9c4-0x0061c9d4.KeySpeedMgrVtableData](by-memory/0x0061c9c4-0x0061c9d4.KeySpeedMgrVtableData.md).
+- Recorded that the two `0x400` dwords at `0x0061c9d4` and `0x0061c9d8` are not KeySpeedMgr data. They now route to [UID:00040V][0x0061c9d4-0x0061c9dc.LanguageManParserLimitConstants](by-memory/0x0061c9d4-0x0061c9dc.LanguageManParserLimitConstants.md) as LanguageMan parser-limit constants by contextual source-order/value evidence.
+
+### 2026-06-19 B014 RTTI/header note
+
+- Added the local IDA-export hierarchy note for `Singleton<KeySpeedMgr>` as a header/base-list reconstruction lead.
+- This does not undo B013's exact vtable-data narrowing or move the adjacent `0x400` constants back to KeySpeedMgr ownership.

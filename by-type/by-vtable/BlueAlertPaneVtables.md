@@ -1,12 +1,17 @@
 *** UID:0001X3 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:84 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:00000Y | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:00000Y | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:00000Y | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// BlueAlertPane vtable cluster generated from the BlueAlertPane class declaration and virtual overrides.
+// The table evidence proves class layout and draw/action slots; it is not hand-authored source.
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # BlueAlertPane Vtables
 
@@ -17,7 +22,7 @@
 - Likely source file: [UID:0000HE][AlertPanes](by-file/AlertPanes.md), pending live constructor reachability.
 - Exact vtable-data range: [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md).
 - Confidence: strong for vtable bases, constructor stores, custom virtual slots, and the end boundary before `UserHairSelectControlPane`; medium for live construction/source reachability.
-- Autogen status: attached to the `BlueAlertPane` class page; final C++ remains blank under the `95/95` reconstruction gate.
+- Autogen status: attached to the `BlueAlertPane` class page; final C++ remains blank because the vtable bytes, RTTI metadata, and adjustor thunks are generated from the eventual class declaration and virtual overrides.
 
 ## Vtable Bases
 
@@ -84,6 +89,9 @@ Attach this vtable cluster to [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane
   - What existed before: the vtable cluster was reconstructable but unassigned in generated type coverage, while the owning `BlueAlertPane` class was already attached to [UID:0000HE][AlertPanes](by-file/AlertPanes.md).
   - What changed: attached the vtable cluster to [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md), raised completion to `84`, and added an explicit parent rationale.
   - Summary/evidence: constructor stores at `0x00500920`, `0x00500926`, and `0x00500930`, custom virtual slots for action/content/border drawing, and exact [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md) tie the tables to the class; confidence stays below final-source level because direct construction reachability remains unresolved.
+- 2026-06-30 B011 empty-emitter implementation:
+  - Raised from `84/90` to `86/91`; owner/emitter remains [UID:00000Y][BlueAlertPane](by-class/BlueAlertPane.md).
+  - Added the formal vtable-cluster no-code marker and replaced stale final-threshold wording. Current evidence proves constructor stores, custom action/draw slots, no direct constructor refs, the exact [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md) child route, and no raw dword/source-array policy while preserving the unresolved live-construction caveat.
 
 - What existed before: the vtable cluster page identified the three `BlueAlertPane` vtable bases and constructor stores, but it had unevaluated scores and no exact by-memory child range for the table bytes.
 - What it was changed to: the page now points to [UID:0002M6][0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData](by-memory/0x0061dcd8-0x0061dd78.BlueAlertPaneVtableData.md), is marked reconstructable, and has completion/confidence scores reflecting the IDA-verified vtable data.

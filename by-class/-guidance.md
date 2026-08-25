@@ -37,7 +37,7 @@ Class docs should not become a dump of every method body. Keep method inventorie
 
 ## Scoring Discipline
 
-Do not rate a class page at `95+` completion or confidence lightly. Those values mean the class has already had a near-final audit: ownership, source placement, vtables, methods, fields, static data, child pages, neighboring ranges, generated-name replacements, and supporting IDA/MCP or byte-level evidence are all documented in enough detail for another agent to verify the rating from the page itself. If any major member, dependency, source-placement claim, or contained item still needs research, keep the score below `95`.
+Do not rate a class page at `95+` completion or confidence lightly. Those values mean the class has already had a near-final audit: ownership, source placement, vtables, methods, fields, static data, child pages, neighboring ranges, generated-name replacements, and supporting IDA/MCP or byte-level evidence are all documented with the required specificity for another agent to verify the rating from the page itself. If any major member, dependency, source-placement claim, or contained item still needs research, keep the score below `95`.
 
 ## Coverage Report Rows
 
@@ -45,4 +45,4 @@ Use class names as row keys in `-coverage-report.md`, sorted alphabetically. A c
 
 ## Reconstruction Autogen
 
-Singular class pages are eligible for validator autogen metadata. Mark `RECONSTRUCTABLE:TRUE` only when the page contains or is ready to contain C++ class/declaration code for the rebuilt project. Set `AUTOGEN_PARENT_UID` to the owning `by-file` UID unless the class is intentionally nested under another reconstructable owner. Put real C++ in the validator-managed `RECONSTRUCTION_CPP CODE:BEGIN/END` block and use `[[CHILDREN]]` where attached methods, fields, or nested types should be inserted.
+Singular class pages are eligible for validator autogen metadata. Mark `RECONSTRUCTABLE:TRUE` only when the page contains or is ready to contain C++ class/declaration code for the rebuilt project. Use `CANONICAL_OWNER` for the direct semantic owner, usually the owning `by-file` UID unless the class is intentionally nested under another documented owner. Use `EMITTER_UIDS` for generated-output routing, usually the same owning file UID or a valid emitter chain that reaches a by-file source root. Put real C++ in the validator-managed `RECONSTRUCTION_CPP CODE:BEGIN/END` block and use `[[CHILDREN]]` where emitted methods, fields, or nested types should be inserted. Do not add emitted class C++ until the active `90/90+` reconstruction-code gate in `../by-structure.md` is satisfied; `95+` remains a rare final-audit score and is not required merely to begin final-quality code entry.

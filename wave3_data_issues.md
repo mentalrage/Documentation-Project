@@ -18,12 +18,14 @@ Observed:
 - Current `source-3/simroot_v2/ui/controls/class_ScrollVolumePane.cpp` emits helper bodies at `0x00564e30`, `0x005652a0`, and `0x00565360`.
 - `class_ScrollVolumePane.cpp.source_map.json` and `class_ScrollVolumePane.meta_wave3` place those addresses in the active `ScrollVolumePane` file/method partition.
 - The generated C++ body still gives those helpers stale `TextEditPane::*` signatures: `TextEditPane::TrackScrollButtonF`, `TextEditPane::HandleScrollbarMouseF`, and `TextEditPane::TrackScrollThumbF`.
+- The old flat generated file `source-3/simroot_v2/class_TextEditPane.cpp` still emits `0x005651e0` as `TextEditPane::DrawScrollbarPartF(char region, int mouseX, int mouseY)`, but the body is the ScrollVolumePane begin-interaction helper: it updates highlight byte `+0x103`, writes active part `+0x104`, stores the thumb drag point at `+0x108`, calls `CommitInteraction`, and schedules the `+0xa4` TimerHandler view.
 - Existing documentation records IDA caller/field evidence tying these helpers to `ScrollVolumePane` mouse/focus/value-change behavior, not ordinary `TextEditPane` ownership.
 
 Expected:
 
 - Wave3/simroot should keep the helpers in `ScrollVolumePane` and emit neutral or `ScrollVolumePane::*` names until final source names are settled.
 - Do not use the stale `TextEditPane` signatures as ownership evidence when migrating this source.
+- Route `0x005651e0` as a ScrollVolumePane raw begin-interaction helper or leave it as a documented stale generated artifact; do not use `TextEditPane::DrawScrollbarPartF` as ownership, source-name, or source-signature evidence.
 
 Impact:
 
@@ -201,10 +203,11 @@ Impact:
 
 - Added/updated [ExceptionHandler](by-file/ExceptionHandler.md), [Crasher](by-file/Crasher.md), [g_pCrashTarget](by-global/g_pCrashTarget.md), [g_pCrasher](by-global/g_pCrasher.md), [client crash diagnostics](by-meta/client_crash_diagnostics.md), aggregate memory docs, and exact helper memory pages for the omitted ExceptionHandler helper family.
 - Added [DestroyExceptionHandler](by-item/DestroyExceptionHandler_4673A0.md) and paired [DestroyDATFileMgr](by-item/DestroyDATFileMgr_467380.md) to track the small cleanup helpers used by resource/image load failure paths.
+- 2026-06-17 B001 source-quality reanalysis: [Crasher](by-memory/0x0049bae0-0x0049bbef.Crasher.md) now treats separate `platform/Crasher.cpp` as the best current source route, `ExceptionHandler.cpp` as the `g_pCrashTarget`/offset `+4` suppress-report owner, and `0x0049bb60` as the tertiary Pane event/update callback override reached through vtable slot `0x006188dc`.
 
 Follow-up:
 
-- Recheck generated output after Wave3 data fixes for `0x004ab740`, `0x004ab830`, `0x004ab870`, `0x004abd10`, `0x004abfa0`, `0x004ac230`, `0x0049bb30`, and ownership of `0x00467380`/`0x004673a0`.
+- Recheck generated output after Wave3 data fixes for `0x004ab740`, `0x004ab830`, `0x004ab870`, `0x004abd10`, `0x004abfa0`, `0x004ac230`, `0x0049bb30`, ownership of `0x00467380`/`0x004673a0`, removal of explicit Crasher ABI artifacts, and source-quality names for the tertiary Pane callback plus the `ExceptionHandler` offset `+4` suppress/skip-report field.
 
 ### 2026-05-24 - MiscWorkThread request wrappers are mis-owned as CashShopRequest auth/directory methods
 
@@ -1261,7 +1264,7 @@ Observed:
 - `NewSystemMessageModifyHeightPane` active output omits IDA-confirmed non-deleting cleanup `0x005882c0` and singleton clear helper `0x0058aaa0`.
 - Active `class_ColorStringSystemMessage.cpp` emits `GetLineCount` at `0x00587ae0` as a no-argument constant `1` helper, but IDA decompilation shows the method structurally calls helper `0x004bb070(text, wcslen(text), width)` and clamps the result to at least one line.
 - IDA decompilation of `0x004bb070` itself currently returns constant `1`, so the generated `GetLineCount` body is behaviorally equivalent but loses the helper-call/source-structure shape.
-- `HeaderSystemMessage` and `FooterSystemMessage` vtables use shared tiny boolean helpers at `0x0055c1b0` and `0x0055c1c0`; active generated files do not expose those slots under the marker classes.
+- `HeaderSystemMessage`, `FooterSystemMessage`, and `ColorStringSystemMessage` vtables use shared folded boolean helpers at `0x0055c1b0` and `0x0055c1c0`. Best current descriptive inference is a pair of marker identity predicates: slot `+0x0c` behaves like `IsHeaderMarker()` (`HeaderSystemMessage` true, `FooterSystemMessage` false, `ColorStringSystemMessage` false) and slot `+0x10` behaves like `IsFooterMarker()` (`FooterSystemMessage` true, `HeaderSystemMessage` false, `ColorStringSystemMessage` false). Active generated files do not expose those slots under the marker classes, and the physical folded helper page [UID:0001GG][0x0055c1b0-0x0055c1c3.SharedBooleanVirtualStubs](by-memory/0x0055c1b0-0x0055c1c3.SharedBooleanVirtualStubs.md) should stay no-owner/non-emitting until class-level virtual declarations are source-ready.
 
 Expected:
 
@@ -2760,11 +2763,13 @@ Observed:
 - `FpsPane::UpdateStatistics` reads `ObjectList` counts through `0x00532670`, `0x005326d0`, and `0x00532610`.
 - 2026-05-26 follow-up: IDA MCP reconfirmed `0x004b6c2b` and `0x004b6c36` as 0xb-byte destructor adjustor thunks with vtable-only data refs at `0x0061a66c` and `0x0061a69c`. These are compiler-generated and should be ignored for handwritten source output.
 - 2026-05-26 follow-up: IDA layout review resolved the apparent field mismatch in `0x004b68b0`: `UpdateStatistics` is invoked through the timer/update subobject at owner offset `+0xa4`, so Hex-Rays offsets normalize by adding `0xa4`. This aligns `OnPaint`, `UpdateStatistics`, and raw logging helpers on owner fields `+0xf8`, `+0x100`, and `+0x104-+0x168`.
+- 2026-06-17 B003 source-quality follow-up: local IDA export and documentation comparison support first-draft C++ for `FpsPane::FpsPane`, `UpdateFpsLogSession(bool)`, retained/private `StartLogSession()`, and retained/private `WriteLogSummary()`. The helper-call source shape is preferred for `UpdateFpsLogSession` because the binary body duplicates/inlines the helper bodies at `0x004b69b0` and `0x004b6ae0`.
+- 2026-06-17 B003 string/global follow-up: [UID:0003BJ][FpsPaneDiagnosticStringData](by-memory/0x0061a6a4-0x0061a7dc.FpsPaneDiagnosticStringData.md) now records the CP949 start timestamp string at `0x0061a6d8` and elapsed-time string at `0x0061a720`; `g_pFpsPane` is modeled from local export `dword_69B334 dd ?`, `g_fpsLogEnabled` from `byte_69B338 db ?`, and `g_fpsDebugActive` from `dword_66DA90 dd 1`.
 
 Expected:
 
 - `0x004b64a0-0x004b67a7` should remain owned by `FpsPane` unless future evidence proves a nearby shared diagnostics helper.
-- `0x004b6410`, `0x004b64a0`, `0x004b69b0`, and `0x004b6ae0` boundaries need cross-disassembler review before source migration.
+- `0x004b6410`, `0x004b64a0`, `0x004b69b0`, and `0x004b6ae0` still need caller/liveness review before final-audit scoring, but the old 95/95/blank-C++ blocker is stale policy. Under the active owner/emitter and combined-score gate, the child pages can carry first-draft C++ with no-xref status as a score cap.
 - `g_fpsDebugActive` and `g_fpsLogEnabled` should be treated as FpsPane diagnostics globals unless broader xrefs prove otherwise.
 - `0x004b6c2b-0x004b6c41` should be suppressed or marked as compiler-generated vtable glue, not reconstructed as ordinary source methods.
 
@@ -2778,8 +2783,8 @@ Impact:
 
 Follow-up:
 
-- Repair generated FpsPane layout/vtable metadata: current `class_FpsPane.meta_wave3` reports `vtable_count: 0` and only models fields through `+0x100`, omitting the IDA-confirmed logging fields `+0x104-+0x168`.
-- Decide whether raw helper starts `0x004b69b0` and `0x004b6ae0` should be imported as private methods, folded into a logging helper model, or excluded as callerless duplicate/dead code.
+- Repair generated FpsPane layout/vtable metadata: current `class_FpsPane.meta_wave3` reports `vtable_count: 0` and only models fields through `+0x100`, omitting the IDA-confirmed logging fields `+0x104-+0x168` and B003's total-field names `m_totalFps`, `m_totalLivingObjects`, `m_totalBalloonObjects`, and `m_totalStaticObjects`.
+- Treat raw helper starts `0x004b69b0` and `0x004b6ae0` as retained private helpers or old helper implementations duplicated/inlined into `UpdateFpsLogSession` unless a future caller/liveness pass proves a stronger runtime route or dead-code exclusion.
 - Keep `0x004b6c2b-0x004b6c41` out of handwritten source output except as compiler-generated adjustor thunk artifacts.
 
 ### 2026-05-24 - `ParcelPane` family has omitted helpers and mixed generated ownership
@@ -3880,7 +3885,7 @@ Observed:
 Expected:
 
 - Preserve `0x00530b00-0x00530b35` as the ordinary `NumberInputDialog` destructor body even while the IDA function-table gap exists.
-- Fix/generated-materialize both destructor adjustor thunks at `0x00530c78` and `0x00530c83` with the correct `this - 160` and `this - 164` adjustments.
+- Resolution: do not materialize C++ for these thunks. Keep [UID:0001CZ][0x00530c78-0x00530c8e.NumberInputDialogAdjustorThunks](by-memory/0x00530c78-0x00530c8e.NumberInputDialogAdjustorThunks.md) as ignored compiler-generated `NumberInputDialog` adjustor-thunk evidence, with `this - 0xa0` / decimal `160` and `this - 0xa4` / decimal `164` documented and current generated `NumberInputDialog.cpp` omitting thunk source.
 - Use `NPAL8.PAL` for the EPD layout resource evidence unless a later binary check proves a different runtime string path.
 
 Recheck:

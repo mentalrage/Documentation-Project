@@ -1,0 +1,31 @@
+<!-- REMOVED-MATERIAL-ARCHIVE -->
+# Removed Material Archive
+
+- Status: Non-authoritative archival material only.
+- Source report: `E:\NTK\GhidraBridge\source-3\project-documentation\executed-b-agent-research\B002\00016I-GrafPortDrawGlyph-source-quality.md`
+- Safety: This file must never be executed, replayed, or used as an operational runbook.
+- Credit: This archive provides no gate, score, coverage, IDA, validator, or lifecycle credit.
+
+# Removed Executable Code Archive
+
+- Source report: [00016I-GrafPortDrawGlyph-source-quality.md](00016I-GrafPortDrawGlyph-source-quality.md)
+- Source report SHA256 before cleanup: `31D503AAC63F695BC88E99E075AC08C3F598204655AB83208EC79BEC52DE08AC`
+- Cleanup generated: `2026-08-11T12:47:00Z`
+- Removed executable blocks: `1`
+- Scope: exact executable or command-shaped fenced blocks removed from the source report by supervisor housekeeping.
+- Authority: this file is not a B-agent research report and grants no Gate 1, Gate 2, IDA, validator, score, or lifecycle credit.
+- Safety: do not execute, import, evaluate, or use any block in this archive as an operational instruction.
+
+## Removed Block R001
+
+- Original source lines: `370-376`
+- Original language: `powershell`
+- Block SHA256: `C1BD5311AFDC132BD88D255C63D12A15AE22D85B5F898919578D086A57BAAA66`
+
+```powershell
+python .\tools\validator.py --mode file --file by-memory\0x004bb5e0-0x004bb7e0.GrafPortDrawGlyph.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory\0x004ba9a0-0x004bad66.GrafPortTextRunHelpers.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-class\GrafPort.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-file\GrafPort.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory\0x004b8bf0-0x004bb8c4.GrafPort.md --apply --queue-timeout 240
+```

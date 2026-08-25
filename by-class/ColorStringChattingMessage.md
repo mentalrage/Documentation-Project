@@ -1,44 +1,128 @@
 *** UID:00002Z | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:91 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:93 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000I5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000I5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000I5 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+class GrafPort;
+struct RectBounds;
+
+class ChattingMessage : public LObject
+{
+public:
+    virtual ChattingMessage *Clone() = 0;
+    virtual int MeasureLines(GrafPort *grafPort, int width) = 0;
+    virtual void Draw(GrafPort *grafPort, RectBounds *bounds) = 0;
+};
+
+class ColorStringChattingMessage : public ChattingMessage
+{
+public:
+    ColorStringChattingMessage(const wchar_t *text,
+                               int foregroundColor,
+                               int backgroundColor,
+                               unsigned char textStyleFlag,
+                               int customForegroundRgb,
+                               int customBackgroundRgb);
+    virtual ~ColorStringChattingMessage();
+    virtual ChattingMessage *Clone();
+    virtual int MeasureLines(GrafPort *grafPort, int width);
+    virtual void Draw(GrafPort *grafPort, RectBounds *bounds);
+
+private:
+    wchar_t *m_text;
+    int m_foregroundColor;
+    int m_backgroundColor;
+    unsigned char m_textStyleFlag;
+    int m_customForegroundRgb;
+    int m_customBackgroundRgb;
+};
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # ColorStringChattingMessage
 
 ## Status
 
-- Confidence: strong
+- Confidence: very strong for the complete abstract/concrete header interface, RTTI inheritance, virtual slot order, `0x1c` concrete field layout, text ownership, constructor/destructor/deep-clone contracts, line measurement, draw dispatch, and ChattingPane consumer ownership. Exact historical private spellings remain the confidence cap.
 - Likely source file: [UID:0000I5][Chatting](by-file/Chatting.md)
 - Address range: [UID:000104][0x0047efb0-0x00483ef7.ChattingUI](by-memory/0x0047efb0-0x00483ef7.ChattingUI.md)
+- Header disposition: the formal H channel emits the shared abstract `ChattingMessage` interface followed by the concrete `ColorStringChattingMessage` declaration. No separate no-range class page is needed for the base interface.
+
+## B010 2026-08-14 Draw Source Closure
+
+- [UID:0002GH][0x004836a0-0x004839c0.ColorStringChattingMessageDrawWithTables](by-memory/0x004836a0-0x004839c0.ColorStringChattingMessageDrawWithTables.md) now supplies the source-ready out-of-line `void ColorStringChattingMessage::Draw(GrafPort *grafPort, RectBounds *bounds)` definition through this class and [UID:0000I5][Chatting](by-file/Chatting.md). The class H declaration was already exact and remains the sole declaration; the child H channel stays blank to prevent a duplicate.
+- Primary-vtable slot `+0x14` / cell `0x00615280` points to the exact authored body `[0x004836a0,0x0048391c)`, after `MeasureLines` at slot `+0x10`. ChattingPane paint dispatches the slot at `0x0047fa4c` for the current-width row and `0x0047fb75` for the legacy-width row after measuring with widths `783` and `408`. The lack of a direct call is therefore normal virtual liveness, not dead-code evidence.
+- The method consumes every established `0x1c` field without changing the class layout: owned UTF-16 `m_text`, foreground/background selectors, byte `m_textStyleFlag`, and both packed custom RGB values. Current-layout source tests `g_useEpfAssets == true`, initializes an otherwise unused EPFTileContext, sets GrafPort text mode/color, and either performs a two-pass wrapped draw that permanently offsets the caller bounds by `(1,0)`, one ordinary outlined draw, or a custom-RGB outlined draw wrapped in exact text-palette entry and GrafPort palette save/restore order.
+- The legacy branch maps background selectors `143`, `12`, and `1` to `CHATBACK.EPD` frames `0`, `1`, and `2`, returns for every other key, draws an `NP` tiled background, and then draws the text. The source ABI is void; the historical residual-integer default interpretation is rejected. The local remains an EPFTileContext and is cast to `const FrameDrawRecord *` only at the layout-compatible `DrawTiledBackground` boundary.
+- The body is 636 bytes with SHA256 `DF4DFC2018D31D28EEF3DAE2A168A8A813E75B440911EFAA9617EA10B9EC3DAA`. The following jump table `[0x0048391c,0x00483930)`, selector table `[0x00483930,0x004839bf)`, and one-byte tail alignment are compiler output regenerated by the sparse switch and receive no handwritten declarations or definitions.
+- Score remains `90/93`: constructor, destructor, clone, measure, complete declaration/layout, consumer ownership, and Draw are all source-ready. The remaining cap is original lexical spelling, not missing ABI or behavior.
 
 ## Class Purpose
 
-`ColorStringChattingMessage` is the chat message render object. It stores wide text, foreground/background palette IDs, optional custom RGB colors, and draw behavior for both low-resolution and high-resolution chat layouts.
+`ChattingMessage` is the polymorphic message interface consumed and owned by `ChattingPane`: inherited `LObject` lifetime slots are followed by Clone, MeasureLines, and Draw at virtual offsets `+0x0c`, `+0x10`, and `+0x14`. `ColorStringChattingMessage` is its concrete chat render object. It stores owned wide text, foreground/background palette IDs, optional custom RGB colors, and draw behavior for both low-resolution and high-resolution chat layouts.
+
+## Field Model
+
+| Offset | Source-facing field | Evidence |
+| --- | --- | --- |
+| `+0x00` | vptr | Constructor installs the `ColorStringChattingMessage` vtable at `0x0061526c`; scalar deleting destructor, clone, measure, and draw are reached through this table. |
+| `+0x04` | `wchar_t *m_text` | Constructor allocates/copies owned UTF-16 text, destructor frees only this pointer through MemoryMan, clone passes it to the constructor for deep duplication, and measure/draw read it as UTF-16 text. |
+| `+0x08` | `int m_foregroundColor` | Constructor stores the foreground palette/color selector; clone preserves it; draw consumes it for normal text color selection. |
+| `+0x0c` | `int m_backgroundColor` | Constructor stores the background palette/color selector; clone preserves it; draw consumes it for legacy background/outline color selection. |
+| `+0x10` | `unsigned char m_textStyleFlag` | Constructor stores one byte and clone zero-extends it. Draw uses nonzero for the current-layout outlined/two-pass path; when clear, nonzero custom RGB fields can override palette entries. Older `m_useCustomRgb` wording is retained only as historical shorthand, not as a literal "RGB fields are active" predicate. |
+| `+0x14` | `int m_customForegroundRgb` | Constructor stores the packed custom foreground RGB value; clone preserves it; draw consumes it in the custom foreground path. |
+| `+0x18` | `int m_customBackgroundRgb` | Constructor stores the packed custom background RGB value; clone preserves it; draw consumes it in the custom background/outline path. |
+
+The destructor source is now first-draft ready and releases only `m_text`. It should not release or clear the scalar color/custom fields. Destructor virtuality is inherited through `LObject`/`ChattingMessage`; the explicit concrete destructor declaration owns the source body while scalar-deleting dispatch remains compiler output. Clone ownership is deep because [UID:0002GF][0x004835b0-0x0048362b.ColorStringChattingMessageClone](by-memory/0x004835b0-0x0048362b.ColorStringChattingMessageClone.md) calls the constructor, and the constructor duplicates the passed text rather than sharing the pointer.
+
+The field spellings above are source-quality descriptive names. Exact original private member spellings are not recoverable from the binary, but the names are tied to constructor stores, destructor cleanup, clone forwarding, and measure/draw consumers. Avoid falling back to generated names such as `field_4`, `field_10`, or decompiler `char *` text labels. `m_textStyleFlag` may later be renamed to a more source-like `m_useOutlineText` if a recovered header supports that spelling; do not revert it to literal `m_useCustomRgb` without preserving the outlined/two-pass versus RGB-override distinction.
 
 ## Method Notes
 
 | Method | Address | Role |
 | --- | --- | --- |
-| [UID:0002GD][0x00483490-0x00483541.ColorStringChattingMessageConstructor](by-memory/0x00483490-0x00483541.ColorStringChattingMessageConstructor.md) | `0x00483490-0x00483541` | Allocates/copies wide text and stores color/custom RGB state. |
-| [UID:0002GE][0x00483550-0x004835a9.ColorStringChattingMessageDestructorBody](by-memory/0x00483550-0x004835a9.ColorStringChattingMessageDestructorBody.md) | `0x00483550-0x004835a9` | Releases the owned text buffer and destroys the base object. |
-| [UID:0002GF][0x004835b0-0x0048362b.ColorStringChattingMessageClone](by-memory/0x004835b0-0x0048362b.ColorStringChattingMessageClone.md) | `0x004835b0-0x0048362b` | Allocates a duplicate message object preserving text and colors. |
-| [UID:0002GG][0x00483630-0x0048369a.ColorStringChattingMessageMeasureLines](by-memory/0x00483630-0x0048369a.ColorStringChattingMessageMeasureLines.md) | `0x00483630-0x0048369a` | Measures wrapped wide text and returns at least one display line. |
-| [UID:0002GH][0x004836a0-0x004839c0.ColorStringChattingMessageDrawWithTables](by-memory/0x004836a0-0x004839c0.ColorStringChattingMessageDrawWithTables.md) | `0x004836a0-0x004839c0` | Draws low-res `CHATBACK` background/text or high-res outlined/custom-color text, including switch/mapping tail tables. |
+| [UID:0002GD][0x00483490-0x00483541.ColorStringChattingMessageConstructor](by-memory/0x00483490-0x00483541.ColorStringChattingMessageConstructor.md) | `0x00483490-0x00483541` | First-draft `ColorStringChattingMessage::ColorStringChattingMessage(...)` C++; obtains `GetMemoryMan()`, computes UTF-16 byte count including the terminator, allocates with `MemoryMan::AllocateBufferMemory`, copies through `MemoryMan::MemmoveWrapper`, and stores `m_text`, foreground/background palette IDs, `m_textStyleFlag`, and custom foreground/background RGB values in constructor/clone order. |
+| [UID:0002GE][0x00483550-0x004835a9.ColorStringChattingMessageDestructorBody](by-memory/0x00483550-0x004835a9.ColorStringChattingMessageDestructorBody.md) | `0x00483550-0x004835a9` | First-draft `ColorStringChattingMessage::~ColorStringChattingMessage()` C++; releases owned `m_text` through `GetMemoryMan` / `FreeBufferMemory`, stores the null return, and lets compiler-emitted base cleanup run. |
+| [UID:0002GF][0x004835b0-0x0048362b.ColorStringChattingMessageClone](by-memory/0x004835b0-0x0048362b.ColorStringChattingMessageClone.md) | `0x004835b0-0x0048362b` | First-draft `ChattingMessage *ColorStringChattingMessage::Clone()` C++; allocates one `0x1c` / 28-byte duplicate, preserves text/color/custom fields through the constructor, returns null on allocation failure in the lowered body, and uses compiler cleanup through `operator delete` if construction unwinds. |
+| [UID:0002GG][0x00483630-0x0048369a.ColorStringChattingMessageMeasureLines](by-memory/0x00483630-0x0048369a.ColorStringChattingMessageMeasureLines.md) | `0x00483630-0x0048369a` | First-draft `int ColorStringChattingMessage::MeasureLines(GrafPort *grafPort, int width)` C++; scans owned `m_text`, forwards `grafPort` in `ecx` to the shared constant line-count callback with `text`, `length`, and `width`, clamps to at least one display line, and preserves the duplicated scan/call byte shape. |
+| [UID:0002GH][0x004836a0-0x004839c0.ColorStringChattingMessageDrawWithTables](by-memory/0x004836a0-0x004839c0.ColorStringChattingMessageDrawWithTables.md) | `0x004836a0-0x004839c0` | Implements `void Draw(GrafPort *grafPort, RectBounds *bounds)` for low-res `CHATBACK` background/text or high-res outlined/custom-color text, including switch/mapping tail tables. |
 | [UID:0002GI][0x004839c0-0x00483ef7.ChattingUiDestructorGlueFamily](by-memory/0x004839c0-0x00483ef7.ChattingUiDestructorGlueFamily.md) | `0x00483e60-0x00483ef7` | Scalar deleting destructor wrapper is documented inside the shared compiler-generated chat UI destructor glue family. |
 
 ## Evidence Notes
 
 - IDA MCP confirms exact constructor, destructor body, clone, line-count, draw, and scalar deleting destructor ranges.
-- IDA vtable data points `0x0061526c` to scalar deleting destructor `0x00483e60`, `0x00615278` to clone `0x004835b0`, `0x0061527c` to line count `0x00483630`, and `0x00615280` to draw `0x004836a0`.
-- `FolderTreePane::AddChattingMessage` constructs this class before adding it to the message collection.
-- `ChattingPane::OnPaint` dispatches through message objects when painting visible chat lines.
+- IDA vtable data points `0x0061526c` to scalar deleting destructor `0x00483e60`, slot `+0x0c` / `0x00615278` to `Clone` at `0x004835b0`, slot `+0x10` / `0x0061527c` to line count at `0x00483630`, and slot `+0x14` / `0x00615280` to draw at `0x004836a0`.
+- RTTI proves `ColorStringChattingMessage : ChattingMessage : LObject`. The formal H channel now emits the recovered local abstract interface: inherited virtual destruction, `ChattingMessage *Clone()`, `int MeasureLines(GrafPort *, int)`, and `void Draw(GrafPort *, RectBounds *)`. A separate `ChattingMessage` page would duplicate a declaration with no independent function/data range and is not required.
+- [UID:0002EQ][0x0047f280-0x0047f36f.ChattingPaneAddChattingMessage](by-memory/0x0047f280-0x0047f36f.ChattingPaneAddChattingMessage.md) constructs a temporary `ColorStringChattingMessage` before forwarding it to the incoming-message path.
+- [UID:0002ER][0x0047f370-0x0047f512.ChattingPaneAddIncomingMessage](by-memory/0x0047f370-0x0047f512.ChattingPaneAddIncomingMessage.md) calls the message's virtual clone slot and inserts the returned owned clone into the `ChattingPane` message list; clone is therefore vtable-reachable despite having no ordinary direct code xrefs.
+- [UID:0002EV][0x0047f8d0-0x0047fbc5.ChattingPaneOnPaint](by-memory/0x0047f8d0-0x0047fbc5.ChattingPaneOnPaint.md) snapshots the generic `List` count, calls `GetElementAt(index)`, and dereferences the returned `ColorStringChattingMessage **` element storage before dispatch. It calls `MeasureLines(this, 783)` in current layout or `MeasureLines(this, 408)` in legacy layout, narrows the low 16 bits to signed `short`, advances y by `13 * lineCount`, builds full `RectBounds {0, oldY, width, newY}`, and calls `Draw(this, &messageRect)` when clipping accepts the row. The historical direct object cast and three-int span are rejected.
 - `Draw` owns the jump table at `0x0048391c-0x00483930` and the byte-map table at `0x00483930-0x004839bf`; `0x004839bf-0x004839c0` is one alignment byte before the destructor-glue family.
-- `Draw` calls the generic [UID:000163][0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers](by-memory/0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers.md), so those helpers are not hair-color-list-local methods.
+- In the custom-RGB path, `Draw` uses [UID:000163][0x004b96a0-0x004b96c0.DrawContextBrushHandleHelpers](by-memory/0x004b96a0-0x004b96c0.DrawContextBrushHandleHelpers.md) as typed GrafPort palette accessors: `0x004837a7` saves the current borrowed `DLPalette *`, `0x004837b2` installs the temporary PaletteLib embedded palette after `DLPalette::SetColor`, and `0x004837fd` restores the saved pointer after `DLPalette::SetPackedColor` restores the entries. This save/install/restore protocol rejects ColorStringChattingMessage and hair-color-list ownership of the GrafPort methods.
+- 2026-06-19 B002 accepted [UID:00016F][0x004bb070-0x004bb078.ConstantLineCountHelper](by-memory/0x004bb070-0x004bb078.ConstantLineCountHelper.md) source-quality implementation resolves the line-measure helper path. `ColorStringChattingMessage::MeasureLines` at `0x00483630` is vtable-backed at `0x0061527c`, reads the owned UTF-16 text pointer from field `+0x04`, scans the text length, loads the pane/context argument into `ecx`, passes stack arguments `text`, `length`, and `width`, calls `GetSingleLineCount`, and clamps the result to at least one row. This is the same callback-compatible line-count path used by `ColorStringSystemMessage::GetLineCount`, so [UID:00016F][0x004bb070-0x004bb078.ConstantLineCountHelper](by-memory/0x004bb070-0x004bb078.ConstantLineCountHelper.md) should not be treated as system-message-private even though the current emitter route is `SystemMessagePanes`.
+- Historical 2026-06-21 B006 analysis correctly resolved the two-argument MeasureLines contract but retained `void *drawContext` because its pass lacked declaration evidence. B007's UID0002ER interface/consumer reconciliation supersedes only that provisional type: the first post-`this` argument is `GrafPort *`, forwarded in `ecx`, and the second is width. The constant-one helper compatibility, duplicated scan/call shape, owned text, minimum-one clamp, and rejected width-only/private-helper/generated-field alternatives remain valid.
+- 2026-06-20 B002 destructor source-quality pass resolves [UID:0002GE][0x00483550-0x004835a9.ColorStringChattingMessageDestructorBody](by-memory/0x00483550-0x004835a9.ColorStringChattingMessageDestructorBody.md) as first-draft C++ ready. The owned `m_text` field at `+0x04` is allocated/copied by the constructor, freed through [UID:0001BC][0x00516030-0x00516036.GetMemoryMan](by-memory/0x00516030-0x00516036.GetMemoryMan.md) and [UID:0001BF][0x00516170-0x00516184.FreeBufferMemory](by-memory/0x00516170-0x00516184.FreeBufferMemory.md) by the destructor, and duplicated by clone through the constructor. The scalar deleting wrapper at [UID:0002GI][0x004839c0-0x00483ef7.ChattingUiDestructorGlueFamily](by-memory/0x004839c0-0x00483ef7.ChattingUiDestructorGlueFamily.md) remains compiler glue for optional object delete and flag handling, not the source destructor body.
+- 2026-06-21 B006 clone source-quality pass resolves [UID:0002GF][0x004835b0-0x0048362b.ColorStringChattingMessageClone](by-memory/0x004835b0-0x0048362b.ColorStringChattingMessageClone.md) as first-draft C++ ready. The source model is `ChattingMessage *ColorStringChattingMessage::Clone()` using normal `new ColorStringChattingMessage(...)`; binary lowering shows project `operator new`, a null-allocation return, constructor forwarding of `m_text`, `m_foregroundColor`, `m_backgroundColor`, `m_textStyleFlag`, `m_customForegroundRgb`, and `m_customBackgroundRgb`, plus compiler unwind cleanup through `operator delete`. The pass rejects copy-constructor, raw-memcpy, assignment, MemoryMan-owner, ChattingPane-owner, and generic-`LObject` interpretations.
+- 2026-06-22 B009 clone reconciliation keeps the newer `87/92` class score but refines the `+0x10` field model. B009's PE-backed clone/draw comparison rejects literal `m_useCustomRgb`: nonzero selects the current-layout outlined/two-pass path, while the packed RGB override fields at `+0x14/+0x18` are consumed when the style byte is clear and either override is nonzero. The class model therefore uses neutral `m_textStyleFlag` / possible original `m_useOutlineText` and records `m_useCustomRgb` only as historical shorthand.
+- 2026-06-29 B004 UID0002GD constructor empty-emitter implementation: [UID:0002GD][0x00483490-0x00483541.ColorStringChattingMessageConstructor](by-memory/0x00483490-0x00483541.ColorStringChattingMessageConstructor.md) now carries first-draft formal constructor C++ at `90/92` under this class and the [UID:0000I5][Chatting](by-file/Chatting.md) source route. Current MCP session `279422f0` reconfirmed exact range `0x00483490-0x00483541`, size `0xb1` / 177 bytes (Verified with `int_convert.py`), seven ChattingPane/clone caller sites, base/vtable setup, UTF-16 length scan, `GetMemoryMan` / `AllocateBufferMemory` / `MemmoveWrapper` allocation-copy route, field order `m_text`, `m_foregroundColor`, `m_backgroundColor`, `m_textStyleFlag`, `m_customForegroundRgb`, `m_customBackgroundRgb`, vtable write `0x0061526c`, and padding before/after. The prior prose-only `DuplicateWideString` / explicit `LObject::LObject()` sketch is superseded; base construction is compiler-emitted and the helper route is explicit MemoryMan allocation plus memmove wrapper.
+
+## 2026-07-29 ChattingMessage Interface And Consumer Closure
+
+- [UID:0002ER][0x0047f370-0x0047f512.ChattingPaneAddIncomingMessage](by-memory/0x0047f370-0x0047f512.ChattingPaneAddIncomingMessage.md) proves the base-interface ownership contract. `message->Clone()` returns a heap-owned `ChattingMessage *`; ChattingPane stores one pointer record through `List::Append(1, &clonedMessage)`, deletes the pointed-to oldest message before removing record zero, and therefore owns the clone lifetime while List owns record storage only.
+- Concrete vtable `0x0061526c` places Clone at `+0x0c`, MeasureLines at `+0x10`, and Draw at `+0x14` after inherited LObject lifetime slots. Constructor, destructor, clone, measure, draw, RTTI, and ChattingPane consumers agree with the formal interface and `0x1c` concrete field layout.
+- `GrafPort *` is accepted for both MeasureLines and Draw from the call hierarchy and typed draw/palette dependencies; `RectBounds *` is the exact Draw rectangle object used by ChattingPane paint. Historical generic `void *drawContext` wording is retained only as a superseded conservative stage.
+- The exact declaration intentionally leaves implementation bodies on their by-memory children. It does not import scalar-deleting wrapper code, vtable data, jump/mapping tables, or compiler unwind lowering into the class header.
+
+## Score Rationale
+
+| Score | Rationale |
+| --- | --- |
+| Completion `90` | The page now emits the complete abstract and concrete declaration surface, exact inheritance and virtual order, concrete field layout, constructor/destructor/deep-clone signatures, typed measure/draw contracts, ChattingPane ownership, and exact child routes. Remaining body completion belongs to separately owned by-memory children, especially final Draw source. |
+| Confidence `93` | RTTI, vtable slots, constructor stores, destructor cleanup, clone allocation/deep copy, measure/draw callers, GrafPort dependencies, and ChattingPane list lifetime all agree. The cap is stripped original private/header spelling and incomplete final compiler-equivalence, not the class/interface shape or ownership. |
 
 ## Cross-References
 
@@ -51,10 +135,36 @@
 - [UID:0002GG][0x00483630-0x0048369a.ColorStringChattingMessageMeasureLines](by-memory/0x00483630-0x0048369a.ColorStringChattingMessageMeasureLines.md)
 - [UID:0002GH][0x004836a0-0x004839c0.ColorStringChattingMessageDrawWithTables](by-memory/0x004836a0-0x004839c0.ColorStringChattingMessageDrawWithTables.md)
 - [UID:0002GI][0x004839c0-0x00483ef7.ChattingUiDestructorGlueFamily](by-memory/0x004839c0-0x00483ef7.ChattingUiDestructorGlueFamily.md)
-- [UID:000163][0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers](by-memory/0x004b96a0-0x004b96bf.DrawContextBrushHandleHelpers.md)
+- [UID:000163][0x004b96a0-0x004b96c0.DrawContextBrushHandleHelpers](by-memory/0x004b96a0-0x004b96c0.DrawContextBrushHandleHelpers.md)
+- [UID:00016F][0x004bb070-0x004bb078.ConstantLineCountHelper](by-memory/0x004bb070-0x004bb078.ConstantLineCountHelper.md)
 
 ## Changes
 
+- 2026-08-14 B010 UID0002GH implementation callback:
+  - Preserved `90/93`, UID0000I5 owner/emitter, the exact `0x1c` declaration, and all existing constructor/destructor/clone/measure evidence.
+  - Added the complete Draw ABI, vtable/caller route, field use, current and legacy behavior, compiler-table disposition, source placement, and child CPP/class H ownership without duplicating formal source.
+
+- 2026-07-29 B007 UID0002ER support implementation:
+  - Raised `87/92 -> 90/93`; retained owner/emitter [UID:0000I5][Chatting](by-file/Chatting.md), reconstructable true, blank position, exact field layout, and existing child ownership.
+  - Populated the formal H channel with the accepted `ChattingMessage : LObject` interface and complete `ColorStringChattingMessage` declaration, including `GrafPort *` / `RectBounds *` contracts and all six concrete fields.
+  - Incorporated ChattingPane heap-clone/List-record ownership, vtable slot order, inherited destructor semantics, typed consumer evidence, and no-new-page rationale while preserving historical `m_useCustomRgb` correction and marking prior `void *drawContext` uncertainty superseded.
+
+- 2026-07-13 B004 UID0002EV consumer synchronization:
+  - Score, metadata, class formal C++, method bodies, inheritance, field map, and ownership remain unchanged at `87/92`.
+  - Replaced the generic OnPaint note with the exact List element-storage dereference, two-argument MeasureLines widths, signed-short narrowing, full four-field `RectBounds`, 13-pixel row advance, and Draw call contract.
+  - Historical direct `GetAt` object casting and three-int row-span wording are superseded only for the ChattingPane consumer; no ColorStringChattingMessage method body changed.
+- 2026-07-12 B004 UID000163 consumer sync:
+  - Score, metadata, and class formal C++ remain unchanged.
+  - Added exact custom-RGB palette save/install/restore call sites and borrowed `DLPalette *` semantics; UID000163 remains owned/emitted by GrafPort, with no message-object ownership or lifetime transfer.
+- 2026-06-21 B006 Rule 26 clone incorporation:
+  - Score changed from `86/91` to `87/92`.
+  - Summary/evidence: updated the field model with the source-facing vptr, text, foreground/background color, style byte, and custom RGB fields; recorded RTTI-supported `ColorStringChattingMessage : ChattingMessage : LObject` inheritance; named clone slot `+0x0c`, measure slot `+0x10`, and draw slot `+0x14`; documented `ChattingPaneAddIncomingMessage` virtual clone reachability; and marked [UID:0002GF][0x004835b0-0x0048362b.ColorStringChattingMessageClone](by-memory/0x004835b0-0x0048362b.ColorStringChattingMessageClone.md) first-draft `ChattingMessage *ColorStringChattingMessage::Clone()` ready while preserving exact-field-spelling and base-header uncertainty as confidence caps.
+- 2026-06-21 B006 Rule 26 measure-lines incorporation:
+  - Score unchanged at `87/92`.
+  - Summary/evidence: updated [UID:0002GG][0x00483630-0x0048369a.ColorStringChattingMessageMeasureLines](by-memory/0x00483630-0x0048369a.ColorStringChattingMessageMeasureLines.md) method notes with source-facing `MeasureLines(void *drawContext, int width)`, first-draft C++ readiness, `m_text` ownership evidence, `ecx` receiver forwarding, second-argument width, duplicated scans/calls, minimum-one-line clamp, constant-helper caveat, and rejected alternatives.
+- 2026-06-19 B002 accepted [UID:00016F][0x004bb070-0x004bb078.ConstantLineCountHelper](by-memory/0x004bb070-0x004bb078.ConstantLineCountHelper.md) source-quality implementation:
+  - Score unchanged at `86/91`.
+  - Summary/evidence: refreshed the `MeasureLines` row and evidence notes to name [UID:00016F][0x004bb070-0x004bb078.ConstantLineCountHelper](by-memory/0x004bb070-0x004bb078.ConstantLineCountHelper.md) as `GetSingleLineCount`, record owned UTF-16 text field `+0x04`, document the hidden `ecx` pane/context plus stack text/length/width arguments, and state that this chat class participates in the same shared single-line callback path as `ColorStringSystemMessage`.
 - What existed before: the page documented chat message object purpose, core methods, callers, and shared draw helper dependency, but metadata was still `0/0`.
 - What it was changed to: scores were set to `76/86`.
 - Summary and evidence: constructor, clone, draw, destructor, chat-pane usage, and helper ownership caveat are documented; exact object layout and source-level declaration remain incomplete.
@@ -67,3 +177,4 @@
   - After: `RECONSTRUCTABLE:TRUE` and `AUTOGEN_PARENT_UID:0000I5`.
   - Evidence: live IDA MCP confirms modeled method starts at `0x00483490`, `0x00483550`, `0x004835b0`, `0x00483630`, `0x004836a0`, and `0x00483e60`, with chat callers into constructor/destructor paths; this class and the parent file both meet the 80% completion/confidence attachment gate.
 - 2026-06-05: Removed the stale recovered-source pointer from the status block so this page relies only on project-documentation and live IDA evidence.
+- 2026-06-20 B002 Rule 26 incorporation: refreshed the field model and destructor/clone notes after [UID:0002GE][0x00483550-0x004835a9.ColorStringChattingMessageDestructorBody](by-memory/0x00483550-0x004835a9.ColorStringChattingMessageDestructorBody.md) source-quality review. `m_text` at `+0x04` is now documented as owned UTF-16 heap text, the destructor releases only that field through MemoryMan, clone remains deep via constructor duplication, and scalar deleting wrapper logic remains on [UID:0002GI][0x004839c0-0x00483ef7.ChattingUiDestructorGlueFamily](by-memory/0x004839c0-0x00483ef7.ChattingUiDestructorGlueFamily.md).

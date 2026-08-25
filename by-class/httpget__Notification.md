@@ -1,12 +1,40 @@
 *** UID:000069 | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:89 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000LG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000LG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000LG | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL:2 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// UID:000069 | httpget::Notification source-level payload declaration.
+
+namespace httpget {
+
+[[CHILDREN]]
+
+class Notification : public LObject {
+public:
+    Notification(NotificationState state, LObject* payload = 0)
+        : m_state(state), m_payload(payload)
+    {
+    }
+
+    virtual ~Notification()
+    {
+        if ((m_state == DataChunk || m_state == InternetOpenFailed) && m_payload != 0) {
+            delete m_payload;
+        }
+    }
+
+    NotificationState m_state;
+    LObject* m_payload;
+};
+
+} // namespace httpget
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # httpget::Notification
 
@@ -54,6 +82,10 @@ Observed allocation size is `0x0c` bytes in the HTTP fetch producer path, matchi
 - 2026-06-07 Batch 097 live IDA MCP recheck against `NexusTK.exe` md5 `4247e04e20b65d6414c7238aa8ff5515` confirms `ProcessWorkItem` at `0x00527fe0-0x005281a1` dispatches the `0x47654874` (`GeHt`) work item to `FetchHTTPContent`, tying the notification class to the `MiscWorkThread` HTTP-get path.
 - The same recheck confirms `FetchHTTPContent` posts state `4` for `InternetOpenA` failure, state `0` after `InternetOpenUrlA` succeeds, state `1` for copied `_AUTOBUF<unsigned char>` chunks, state `2` for zero-byte completion, and state `3` for open/read failure after the session is active; all posts use channel `0x68747470`.
 
+## Formal Source Declaration
+
+2026-07-01 B008 empty-emitter family implementation makes this page the source owner for `httpget::Notification`. The formal block emits the namespace and class declaration before [UID:0001CJ][0x005277c0-0x005285dd.MiscWorkThreadAndNotifications](by-memory/0x005277c0-0x005285dd.MiscWorkThreadAndNotifications.md), with [UID:0001SN][HttpGetNotificationState](by-type/by-enum/HttpGetNotificationState.md) inserted through `[[CHILDREN]]` inside `namespace httpget`. This preserves the state-owned payload destructor evidence while removing the duplicate class declaration from the aggregate body emitter.
+
 ## Cross-References
 
 - [UID:00008I][MiscWorkThread](by-class/MiscWorkThread.md)
@@ -76,3 +108,7 @@ Observed allocation size is `0x0c` bytes in the HTTP fetch producer path, matchi
   - What existed before: `COMPLETION:0` and `CONFIDENCE:0`.
   - Changed to: `COMPLETION:80` and `CONFIDENCE:78`.
   - Summary/evidence: scored from the HTTP notification role, layout/state/payload ownership notes, destructor behavior, `FetchHTTPContent` state-posting evidence, chunk allocation behavior, and medium confidence on final source-file grouping.
+- 2026-07-01 B008 empty-emitter family implementation:
+  - Changed from `COMPLETION:85`, `CONFIDENCE:86`, blank formal C++.
+  - Changed to `COMPLETION:88`, `CONFIDENCE:89`, `EMITTER_POSITION_OPTIONAL:2`, with formal `namespace httpget` class C++.
+  - Summary/evidence: B008 live IDA MCP reconfirmed `FetchHTTPContent` posts states `0..4` on channel `0x68747470`, `httpget::Notification` vtable refs at `0x0061fbc0`, allocation size `0x0c`, and destructor payload release for states `1` and `4`. The class is source-bearing; scalar deleting wrapper details remain excluded from formal C++.

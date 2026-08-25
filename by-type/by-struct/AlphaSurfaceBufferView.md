@@ -1,23 +1,47 @@
 *** UID:0001TQ | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:94 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:95 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000HF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000HF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000HF | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL:1 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// AlphaSurfaceBufferView is declared in AlphaMaskSurface.h.
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+#ifndef NEXUSTK_RENDER_ALPHASURFACEBUFFERVIEW_DEFINED
+#define NEXUSTK_RENDER_ALPHASURFACEBUFFERVIEW_DEFINED
+
+struct AlphaSurfaceBufferView
+{
+    unsigned char *pixels;
+    int width;
+    int height;
+    int stride;
+    bool ownsBuffer;
+    unsigned char padding[3];
+};
+
+#endif
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # AlphaSurfaceBufferView
 
+## Accepted Header Composition
+
+This exact 0x14-byte POD emits at file position 1 in [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md), before [UID:00006K][IntAlphaSurface](by-class/IntAlphaSurface.md). Its dedicated `NEXUSTK_RENDER_ALPHASURFACEBUFFERVIEW_DEFINED` guard is required because it is an independently emitted pre-class fragment; the owning `NEXUSTK_RENDER_ALPHAMASKSURFACE_H` guard separately encloses the enum and class. The non-empty CPP comment records the header-only source disposition without creating an empty emitter marker.
+
+The fields exactly mirror object bytes `+0x14..+0x27`: pointer, width, height, stride, ownership byte, and three explicit padding bytes. [UID:00054Y][0x00462300-0x00462317.IntAlphaSurfaceGetBufferInfo](by-memory/0x00462300-0x00462317.IntAlphaSurfaceGetBufferInfo.md) copies all bytes; [UID:00054Z][0x00462320-0x004623b5.IntAlphaSurfaceGetClippedBufferInfo](by-memory/0x00462320-0x004623b5.IntAlphaSurfaceGetClippedBufferInfo.md) builds non-owning clipped views.
+
 ## Status
 
-- Confidence: strong for offsets and role, medium for final original type name.
-- Likely owner header: `render/AlphaMaskSurface.h` or a shared render surface header.
+- Confidence: very strong for exact size, offsets, field widths, byte ownership flag, explicit padding, producer/consumer set, and source role; exact original lexical spelling remains inferred.
+- Accepted owner header: `render/AlphaMaskSurface.h`, emitted through [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md) at file position `1`.
 - Entity kind: POD buffer-view record.
 - Primary memory docs: [UID:0000YL][0x00462170-0x00462e03.AlphaMaskSurface](by-memory/0x00462170-0x00462e03.AlphaMaskSurface.md)
-- Parent attachment: attached to [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md), which is scored `82/89`; this file-level POD view is scored `86/90`, so both sides clear the `80/80` child attachment gate.
-- Reconstructable: true as a source-level POD/view declaration; C++ body remains blank because this page documents data layout only.
+- Parent attachment: canonical owner and emitter [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md), with current score `94/95` and exact source position `1`.
+- Reconstructable: true as a source-level POD/view declaration. Formal CPP contains the non-empty header-disposition comment, while formal H carries the exact guarded 0x14-byte record.
 
 ## Layout
 
@@ -25,11 +49,12 @@
 
 | Offset | Field | Evidence |
 | --- | --- | --- |
-| `0x00` | `uint8_t* pixels` | `GetBufferInfo` copies source `+0x14`; clipped builder writes adjusted pointer. |
+| `0x00` | `unsigned char *pixels` | `GetBufferInfo` copies source `+0x14`; clipped builder writes adjusted pointer. |
 | `0x04` | `int width` | Width copied from source or clipped rectangle. |
 | `0x08` | `int height` | Height copied from source or clipped rectangle. |
 | `0x0c` | `int stride` | Source stride copied so clipped views keep row pitch. |
-| `0x10` | `uint32_t ownsBufferOrFlags` | Source ownership byte/padding copied by `GetBufferInfo`; clipped builder clears byte `+0x10` to mark non-owning. |
+| `0x10` | `bool ownsBuffer` | Source ownership byte is copied by `GetBufferInfo`; clipped builders clear byte `+0x10` to mark a non-owning view. |
+| `0x11` | `unsigned char padding[3]` | `GetBufferInfo` copies the containing dword while independent builders write/clear only the ownership byte; explicit padding preserves the exact 0x14 size without inventing flag bits. |
 
 ## Evidence
 
@@ -40,6 +65,9 @@
 
 ## Cross-References
 
+- [UID:0002TH][0x004c3cf0-0x004c3e93.SoftwareRenderRgb565AlphaLookupBlitCallback](by-memory/0x004c3cf0-0x004c3e93.SoftwareRenderRgb565AlphaLookupBlitCallback.md)
+- [UID:0002TD][0x004bdf40-0x004be0db.SoftwareRenderCompatAlphaLookupBlitCallback](by-memory/0x004bdf40-0x004be0db.SoftwareRenderCompatAlphaLookupBlitCallback.md)
+
 - [UID:0001TP][AlphaMaskSurfaceLayout](by-type/by-struct/AlphaMaskSurfaceLayout.md)
 - [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md)
 - [UID:00000C][AlphaMaskSurface](by-class/AlphaMaskSurface.md)
@@ -48,6 +76,16 @@
 - [UID:0000UU][InitAlphaSurfaceView_004623C0](by-item/InitAlphaSurfaceView_004623C0.md)
 
 ## Changes
+
+- 2026-08-17 B005 UID0000HF Gate 2A reconciliation:
+  - Replaced the active pre-callback `90/93`, uncertain-header, and blank-CPP statements with the accepted `94/95`, exact `AlphaMaskSurface.h`, owner/emitter [UID:0000HF][AlphaMaskSurface](by-file/AlphaMaskSurface.md), position `1`, non-empty CPP comment, and exact H disposition.
+  - Preserved all field-layout, producer/consumer, and dated score-history evidence below.
+
+- 2026-08-04 B010 UID0002TH alpha-view closure:
+  - Raised `86/90` to `90/93` and populated exact formal H for the 0x14-byte POD.
+  - Resolved the old dword-sized `ownsBufferOrFlags` placeholder to one-byte `bool ownsBuffer` plus three explicit padding bytes, preserving all observed copy and non-owning-builder writes.
+  - Added both Surface slot-5 providers as consumers. `AlphaMaskSurface::GetBufferInfo` at `0x00462300` copies object `+0x14..+0x27` into this record; compat `0x004bdf40` and RGB565 `0x004c3cf0` are its exact two callers.
+  - Original lexical spelling remains inferred, but raw stack-fragment arrays and an invented multi-bit flag field are rejected because independent producer/consumer evidence proves the five source fields.
 
 - 2026-05-30: Raised completion/confidence from `0/0` to `86/90`. Previously this page documented the layout but had no score; it now records the current IDA MCP clipped-view recheck and concrete output offsets.
 - 2026-06-04: Marked `RECONSTRUCTABLE:TRUE` without changing scores.

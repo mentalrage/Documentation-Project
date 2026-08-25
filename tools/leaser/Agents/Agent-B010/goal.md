@@ -1,0 +1,30 @@
+# Agent-B010 Current Assignment
+
+## UID0000KW Allocated LodePNG Support-Page Implementation Callback
+
+Project context: this is a local old-game preservation effort for an unsupported NexusTK client, intended to keep the game runnable through archival compatibility research and faithful source reconstruction.
+
+- Agent identity: `B010`.
+- Model/thinking requirement: `CHATGPT | 5.6 | xHigh`.
+- Required project skill: `ntk-b-agent-workflow`.
+- Accepted report: `tools/leaser/Agents/Agent-B010/research/0000KW-LodePNG-file-source-quality.md`.
+- Accepted report SHA256 before this callback: `EE245DDC86D4B908E87E17FFF216F9410AF6AC47621A7233FEF9397AD9BB0DBA`.
+- Controlling Supervisor audits: `2026-08-25T22:14:00Z - B010 UID0000KW Exact-Artifact Gate 1 PASS` and `2026-08-25T22:19:00Z - B010 UID0000KW Fresh Gate 2A PASS - 662 Ordinary Claims`.
+- Supervisor-allocated support UIDs: UID00057C, UID00057D, UID00057E.
+
+## Required Callback
+
+1. FIRST ACTION: run `python .\tools\leaser\status\status.py -report working B010 "UID0000KW allocated LodePNG support-page callback started"` from `source-3/project-documentation`. Refresh official `working` status within every 15 minutes. On completion, report `complete` with exact report/path/hash/bytes/LF/headings/twins/allocation/marker/fence/lease proof and stop for fresh Supervisor Gate 1/Gate 2A.
+2. Read this goal, the project `ntk-b-agent-workflow` skill, and the accepted report before editing. Preserve all accepted research, all 662 passing ordinary claims, all current 19 exact ordinary hashes, all source-import and generated semantics, all IDA handoff rows, current scores/routes, historical evidence, and one terminal marker.
+3. Replace the temporary allocation stub at `by-memory/0x0060f200-0x0060f4c0.LodePngConstantTables.md` [UID:00057C] with the complete accepted report-backed page. It must be `COMPLETION:92`, `CONFIDENCE:94`, owner/emitter UID0000KW, reconstructable true, exact `[0x0060f200,0x0060f4c0)` range, complete default-compression/LENGTHBASE/DISTANCEBASE/LENGTHEXTRA/DISTANCEEXTRA/CLCL_ORDER/Adam7 inventory, exact bytes/source evidence and relationships, compiler/import disposition, report-level positive/negative/source-placement reasoning, score rationale, history, and formal CPP compiler-covered comment with blank H.
+4. Replace the temporary stub at `by-memory/0x0064170c-0x006417a0.LodePngStateRttiDescriptors.md` [UID:00057D] with the complete accepted report-backed page. It must be `92/94`, owner/emitter UID0000KW, reconstructable true, exact range, all eight MSVC complete-object/class-hierarchy/base-descriptor items for `LodePNGState` and `lodepng::State`, exact source/binary/xref/neighbor evidence, compiler/import disposition, report-level positive/negative/source-placement reasoning, score rationale, history, and formal CPP compiler-covered comment with blank H.
+5. Replace the temporary stub at `by-memory/0x00674240-0x00674278.LodePngStateTypeDescriptors.md` [UID:00057E] with the complete accepted report-backed page. It must be `92/94`, owner/emitter UID0000KW, reconstructable true, exact range, complete two MSVC type-descriptor/decorated-name inventory and successor boundary, exact source/binary/xref evidence, compiler/import disposition, report-level positive/negative/source-placement reasoning, score rationale, history, and formal CPP compiler-covered comment with blank H.
+6. Add exact current links/inventories for UID00057C/UID00057D/UID00057E to every accepted related ordinary page identified by the report, including `by-file/LodePNG.md`, `by-memory/0x0060d670-0x0066d000.ReadOnlyDataSection.md`, `by-memory/0x0066d000-0x0069d000.DataSection.md`, and any exact mixed/static data parent whose complete inventory requires the link. Preserve all unrelated current work and do not duplicate imported source or compiler data.
+7. Update the report additively with the allocated UIDs and implementation receipts. Replace all three Section 28 placeholders with UID00057C/UID00057D/UID00057E. Change C031/C032 and exact checklist twins from allocation-excluded to current applied state where appropriate. Add one separately claim-addressable ledger/checklist twin for each new UID so every additional target has its own exact evidence, metadata, ownership/emitter, source/range, formal CPP/H, support-link, validation, and incorporation result. Reconcile all dependent sections and terminal self-audit.
+8. Add exact header `** TARGET-REPORT-ADDITIONAL-UIDS:00057C,00057D,00057E **` only after all three pages and their target-specific evidence/checklist rows are complete. These are now fully covered support targets, not mere mentions.
+9. Run one scoped validator per changed ordinary by-* file. Use `--apply --queue-timeout 240`; make the final relevant validator foreground with `--wait-generated`. Physically reread current generated `auto-generated/NexusTK/third_party/LodePNG.cpp` and prove the one CPP/H import pair, six plus the three new compiler-covered contributors as actually routed, zero empty emitters, zero duplicate imports, and no generated `LodePNG.h`. Record current command IDs/hashes/semantics as dated receipts in the report.
+10. Do not edit any `-coverage-report.md`, generated/tracker/audit/registry/lifecycle file, this goal, another report, third-party source, or IDA. Do not run `execute_report`, lifecycle commands, IDA mutation/save, or process management. Coverage insertion, Gate 2B, report execution, and archive movement remain Supervisor-only.
+11. Lease each ordinary destination and the report only immediately before its edit/validator/reread batch; release each lease immediately afterward. If another agent owns a lease, work on a disjoint callback item and return after release/expiry; do not overwrite or steal it.
+12. Do not rewrite the report from scratch. Preserve all valid accepted detail and modify only the allocated-page/current-authority consequences required by this callback.
+
+Stop after official `complete` status. The Supervisor will perform a wholly fresh Gate 1 and Gate 2A before any coverage or IDA action.

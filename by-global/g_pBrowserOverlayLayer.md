@@ -1,14 +1,21 @@
 *** UID:0000QD | DO NOT MODIFY OR REMOVE!!! ***
 *** COMPLETION:86 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:NONE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:FALSE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # g_pBrowserOverlayLayer
+
+## UID00029O Final Alias Disposition - 2026-07-21
+
+Complete 13-reference evidence resolves `0x0069b374` as physical backing for independent [UID:0004VE][g_pLayoutPaneLayer](by-global/g_pLayoutPaneLayer.md), whose sole zero-initialized definition is in MainUiGraph.cpp. BrowserControlPane layout/window mapping and alert/dialog placement are consumers. `g_pBrowserOverlayLayer` is therefore a superseded consumer-biased alias, remains false/non-emitting with blank C++, and must not produce a duplicate definition. Existing Browser behavior and all historical alias evidence remain preserved.
 
 ## Status
 
@@ -32,7 +39,7 @@ This is the layout/context reference used to position the embedded browser windo
 
 ## Type Hypothesis
 
-Keep the exact type provisional until `Layer` ownership and storage xrefs are reviewed. Do not emit this under the `g_pBrowserOverlayLayer` name as a browser-owned global unless a later pass proves the original declaration.
+The exact type and source route are resolved as external `Layer *g_pLayoutPaneLayer` owned by MainUiGraph.cpp. Do not emit `g_pBrowserOverlayLayer`; it is retained only for historical/generated alias provenance.
 
 ## Autogen Status
 

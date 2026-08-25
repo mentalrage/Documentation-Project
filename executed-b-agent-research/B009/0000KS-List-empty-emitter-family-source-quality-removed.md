@@ -1,0 +1,39 @@
+<!-- REMOVED-MATERIAL-ARCHIVE -->
+# Removed Material Archive
+
+- Status: Non-authoritative archival material only.
+- Source report: `E:\NTK\GhidraBridge\source-3\project-documentation\executed-b-agent-research\B009\0000KS-List-empty-emitter-family-source-quality.md`
+- Safety: This file must never be executed, replayed, or used as an operational runbook.
+- Credit: This archive provides no gate, score, coverage, IDA, validator, or lifecycle credit.
+
+# Removed Executable Code Archive
+
+- Source report: [0000KS-List-empty-emitter-family-source-quality.md](0000KS-List-empty-emitter-family-source-quality.md)
+- Source report SHA256 before cleanup: `937F9CF8F7C45BE5B82528BA5F71E651CED8F203178FF02B4597419AF594DF4B`
+- Cleanup generated: `2026-08-11T12:47:14Z`
+- Removed executable blocks: `1`
+- Scope: exact executable or command-shaped fenced blocks removed from the source report by supervisor housekeeping.
+- Authority: this file is not a B-agent research report and grants no Gate 1, Gate 2, IDA, validator, score, or lifecycle credit.
+- Safety: do not execute, import, evaluate, or use any block in this archive as an operational instruction.
+
+## Removed Block R001
+
+- Original source lines: `687-701`
+- Original language: `powershell`
+- Block SHA256: `1D52186C7AAC40FE572F197C5CF12BB8259E95CEC5FE18E4F457EF5C06F6EA38`
+
+```powershell
+python .\tools\validator.py --mode file --file by-class/List.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory/0x004f32e0-0x004f33b5.ListInsertRange.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory/0x004f33c0-0x004f33d5.ListAppendRange.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory/0x004f33e0-0x004f3493.ListRemoveRange.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory/0x004f34a0-0x004f34ab.ListClear.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory/0x004f34b0-0x004f3532.ListSwapElements.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory/0x004f3540-0x004f355b.ListSort.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory/0x004f35a0-0x004f35db.ListReservePageCountRaw.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory/0x004f35e0-0x004f35fd.ListPageCountForElementCountRaw.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory/0x004f3810-0x004f38a7.ListScalarDeletingDestructor.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory/0x0061ce28-0x0061ce84.ListSortedListVtableData.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-memory/0x004f3140-0x004f35fd.ListCoreMethods.md --apply --queue-timeout 240
+python .\tools\validator.py --mode file --file by-file/List.md --apply --queue-timeout 240 --wait-generated
+```

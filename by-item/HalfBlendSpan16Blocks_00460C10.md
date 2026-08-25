@@ -1,12 +1,18 @@
 *** UID:0000US | DO NOT MODIFY OR REMOVE!!! ***
-*** COMPLETION:82 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** CONFIDENCE:88 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** COMPLETION:85 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CONFIDENCE:90 | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** CANONICAL_OWNER:0000NT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTABLE:TRUE | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_UID:0000NT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
-*** AUTOGEN_PARENT_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_UIDS:0000NT | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
+*** EMITTER_POSITION_OPTIONAL: | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:[[[]]] | ONLY MODIFY VALUE - DO NOT REMOVE!!! ***
 *** RECONSTRUCTION_CPP CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+// This by-item page is a legacy alias for the canonical by-memory
+// reconstruction [UID:0000YG][0x00460c10-0x00460c8c.HalfBlendSpan16Blocks](by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md). Emitted source is covered there; no
+// standalone duplicate body is emitted for [UID:0000US].
 *** RECONSTRUCTION_CPP CODE:END | DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:BEGIN | ONLY MODIFY BETWEEN BEGIN/END - DO NOT REMOVE!!! ***
+*** RECONSTRUCTION_H CODE:END | DO NOT REMOVE!!! ***
 
 # HalfBlendSpan16Blocks 0x00460C10
 
@@ -16,8 +22,15 @@
 - Entity kind: free render helper.
 - Likely source module: [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md)
 - Exact range: `0x00460c10-0x00460c8c`
-- Parent attachment: [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md) is currently `82/86`, and this helper is now `82/88`; attaching under the render-helper file parent is justified by child and parent confidence.
-- C++ reconstruction: intentionally blank until final source-facing name/signature and the surrounding blend-helper declarations reach the 95% final-code bar.
+- Owner/emitter route: [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md)
+- C++ reconstruction: this by-item mirror now emits a covered-by comment only. Canonical [UID:0000YG][0x00460c10-0x00460c8c.HalfBlendSpan16Blocks](by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md) owns the formal helper implementation.
+
+## Score Rationale
+
+| Field | Value | Rationale |
+| --- | ---: | --- |
+| Completion | 85 | The page now documents exact function bounds, previous/next helper boundaries, modeled plus raw caller sites, no-callee MMX body, 49-instruction disassembly shape, qword mask constants, adjacent padding, SoftwareBlend16 owner/emitter route, and remaining source signature/declaration blockers. |
+| Confidence | 90 | IDA lookup/xref/disassembly, `get_int` mask reads, `get_bytes` padding checks, and the exact memory page [UID:0000YG][0x00460c10-0x00460c8c.HalfBlendSpan16Blocks](by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md) align. Confidence stays below final-source level because the original helper spelling and public/private declaration shape are still unproven. |
 
 ## Behavior
 
@@ -34,6 +47,15 @@
 - Live IDA `py_eval` reads `qword_610EB8` as `0xf7def7def7def7de` and `qword_610EC0` as `0x0821082108210821`, with xrefs at `0x00460c21` and `0x00460c28`.
 - Live byte inspection confirms `0x00460c0a-0x00460c10` is six `0xcc` alignment bytes and `0x00460c8c-0x00460c90` is four `0xcc` alignment bytes, so the function boundary is not overlapping neighboring helpers.
 
+2026-06-14 live IDA MCP session `a001_goal2_class_batch` reconfirmed:
+
+- `lookup_funcs` resolves `0x00460c10` to `sub_460C10`, size `0x7c`; `0x00460c8c` is not a function and the next modeled function remains `0x00460c90`. Decimal size `124 == 0x7c` was verified with `int_convert.py`.
+- `analyze_function 0x00460c10` reports no callees and a compact three-complexity body; `xrefs_to 0x00460c10` reports two direct code refs, one modeled from `0x00460544` inside `sub_460500` and one raw ref at `0x0046073e`.
+- `disasm 0x00460c10` reports 49 total instructions (`49 == 0x31`, verified with `int_convert.py`), including `arg_10 << 3`, `pushaw`, `movq mm2, ds:qword_610EB8`, `movq mm3, ds:qword_610EC0`, MMX `pand`/`psrlw`/`paddw` blend operations, and `emms`.
+- `get_int` reads `0x00610eb8` as `0xf7def7def7def7de` and `0x00610ec0` as `0x0821082108210821`; both decimal-to-hex values were verified with `int_convert.py`.
+- `get_bytes` reconfirmed six `0xcc` bytes at `0x00460c0a-0x00460c10` and four `0xcc` bytes at `0x00460c8c-0x00460c90`; `6 == 0x6` and `4 == 0x4` were verified with `int_convert.py`.
+- Final reconstruction C++ stays blank despite the confirmed emitter route because the exact source-facing function name, calling convention, declaration visibility, and surrounding helper prototypes are not yet final-source quality.
+
 ## Cross-References
 
 - [UID:0000NT][SoftwareBlend16](by-file/SoftwareBlend16.md)
@@ -47,9 +69,12 @@
 
 - 2026-05-31: Grading and reconstruction status changed from unevaluated/blank to `70/85` and `RECONSTRUCTABLE:TRUE`.
   - Before: the page body documented a 50 percent RGB565 helper, but the validator metadata still showed `0/0` and no reconstruction status.
-  - After: the metadata now reflects the existing researched body and fresh IDA verification. Parent UID and C++ remain blank because the surrounding blend family and final source-level names are not at the `95+` final-code gate.
+  - After: the metadata reflects the existing researched body and fresh IDA verification. 2026-06-30 B013 resolves this by-item row as a covered-by alias because canonical [UID:0000YG][0x00460c10-0x00460c8c.HalfBlendSpan16Blocks](by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md) now owns the formal body.
   - Evidence: IDA MCP confirms the exact `0x00460c10-0x00460c8c` function range, two alpha-blend-family references, no project callees, and a decompiled MMX RGB565 half-blend loop.
 - 2026-06-04 live IDA parent-attachment and score update:
   - Before: scores were `70/85`, with `RECONSTRUCTABLE:TRUE` but blank parent metadata and generated-provenance wording in the evidence.
-  - After: scores set to `82/88` and `AUTOGEN_PARENT_UID:0000NT`; generated-provenance wording was removed from the evidence basis.
-  - Summary/evidence: live IDA revalidated the exact function boundary, two caller sites, raw-caller caveat at `0x0046073e`, 49-instruction MMX half-blend loop, mask constants at `0x00610eb8/0x00610ec0`, no callees, adjacent `0xcc` padding, and SoftwareBlend16 ownership. Final C++ remains blank because original helper spelling/signature and source declarations are not at the 95% bar.
+  - After: scores set to `82/88` and owner/emitter route `0000NT`; generated-provenance wording was removed from the evidence basis.
+  - Summary/evidence: live IDA revalidated the exact function boundary, two caller sites, raw-caller caveat at `0x0046073e`, 49-instruction MMX half-blend loop, mask constants at `0x00610eb8/0x00610ec0`, no callees, adjacent `0xcc` padding, and SoftwareBlend16 ownership. 2026-06-30 B013 resolves the by-item page as a covered-by alias while canonical [UID:0000YG][0x00460c10-0x00460c8c.HalfBlendSpan16Blocks](by-memory/0x00460c10-0x00460c8c.HalfBlendSpan16Blocks.md) carries the formal behavior-preserving C++ body.
+- 2026-06-14 A001: Raised from `82/88` to `85/90`.
+  - Before: the page had strong evidence but still used legacy parent/code-entry terminology and did not record current MCP memory reads for mask constants or padding.
+  - After: added a score rationale table, current owner/emitter wording, fresh lookup/analyze/xref/disasm evidence, `get_int` qword mask reads, `get_bytes` padding checks, and `int_convert.py`-verified constants.

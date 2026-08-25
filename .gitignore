@@ -6,7 +6,10 @@ __pycache__/
 tools/*.lock
 tools/*.log
 tools/validator_queue/
+tools/validator_cache/
+tools/idalib-mcp-logs/
 tools/__pycache__/
+tools/leaser/Agents/ida-backups/
 
 # Validator/generated backup snapshots
 tools/coverage_backup/
@@ -15,10 +18,23 @@ tools/legacy_test/
 tools/validator_apply_backup/
 tools/validator_autogen_backup/
 tools/validator_original_version/
+tools/validator_migrations/
+tools/signature_install_cache/
+tools/leaser/Agents/audit-backups/
 
 # OS/editor noise
 .DS_Store
 Thumbs.db
 *.tmp
 *.bak
+*.log
 
+# Interrupted atomic writes and local verification artifacts
+tmp*
+.*-audit-entry.txt
+.*-entries.txt
+
+# Local verification binaries are not documentation artifacts
+*.dll
+*.i64
+*.obj
